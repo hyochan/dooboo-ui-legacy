@@ -1,0 +1,40 @@
+{
+  "name": "@dooboo-native/switch-toggle",
+  "version": "1.1.0",
+  "description": "react native switch toggle component by dooboolab.",
+  "main": "index.js",
+  "scripts": {
+    "test": "npm test",
+    "lint": "eslint -c .eslintrc.js '.'"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dooboolab/react-native-switch-toggle.git"
+  },
+  "keywords": [
+    "react-native",
+    "switch",
+    "toggle",
+    "swtich-toggle",
+    "react-native-switch-toggle"
+  ],
+  "author": "dooboolab@gmail.com",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/dooboolab/react-native-switch-toggle/issues"
+  },
+  "homepage": "https://github.com/dooboolab/react-native-switch-toggle#readme",
+  "dependencies": {
+    "dooboolab-welcome": "^1.1.0"
+  },
+  "devDependencies": {
+    "babel-eslint": "^10.0.1",
+    "eslint": "^6.0.0",
+    "eslint-config-standard": "^12.0.0",
+    "eslint-plugin-import": "^2.17.3",
+    "eslint-plugin-node": "^9.1.0",
+    "eslint-plugin-promise": "^4.1.1",
+    "eslint-plugin-standard": "^4.0.0",
+    "prop-types": "^15.7.2"
+  }
+}
