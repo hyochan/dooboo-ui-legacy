@@ -2,7 +2,7 @@ import React from 'react';
 import {
   ScrollView,
   View,
-  Text
+  Text,
 } from 'react-native';
 import { NavigationScreenProp } from 'react-navigation';
 import styled from 'styled-components/native';
@@ -33,7 +33,12 @@ function Page(props: Props) {
     },
     {
       title: 'Thrid thing',
-      body: 'What about very long text? What about very long text? What about very long text? What about very long text? What about very long text? What about very long text? What about very long text? What about very long text? What about very long text? What about very long text? What about very long text? What about very long text?',
+      body: `What about very long text? What about very long text?
+        What about very long text? What about very long text?
+        What about very long text? What about very long text?
+        What about very long text? What about very long text?
+        What about very long text? What about very long text?
+        What about very long text? What about very long text?`,
     },
   ];
 

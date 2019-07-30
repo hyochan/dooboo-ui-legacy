@@ -79,16 +79,23 @@ function Page(props: Props) {
         buttonStyle={{
           alignItems: 'center',
           justifyContent: 'center',
-          position: 'absolute'
+          position: 'absolute',
         }}
-        
-        rightContainerStyle={{flex: 1, alignItems: 'center', justifyContent: 'center'}}
-        leftContainerStyle={{flex: 1, alignItems: 'center', justifyContent: 'flex-start'}}
-      
-        buttonTextStyle={{fontSize: 20}}
-        textRightStyle={{fontSize: 20}}
-        textLeftStyle={{fontSize: 20}}
-      
+
+        rightContainerStyle={{
+          flex: 1,
+          alignItems: 'center',
+          justifyContent: 'center',
+        }}
+        leftContainerStyle={{
+          flex: 1,
+          alignItems: 'center',
+          justifyContent: 'flex-start',
+        }}
+        buttonTextStyle={{ fontSize: 20 }}
+        textRightStyle={{ fontSize: 20 }}
+        textLeftStyle={{ fontSize: 20 }}
+
         containerStyle={{
           marginTop: 16,
           width: 160,
