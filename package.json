@@ -1,8 +1,7 @@
 {
-  "name": "@dooboo-widgets/react-native",
-  "version": "0.0.1",
-  "private": true,
-  "main": "src/index.js",
+  "name": "dooboo-native-widgets",
+  "version": "0.0.3",
+  "main": "libraries/index.js",
   "scripts": {
     "start": "react-native start",
     "ios": "react-native run-ios",
@@ -10,14 +9,16 @@
     "test": "jest",
     "lint": "eslint src --ext .ts,.tsx,.js,.jsx"
   },
-  "dependencies": {
+  "peerDependencies": {
+    "react": "*",
+    "react-native": "*"
+  },
+  "devDependencies": {
     "react": "16.8.6",
     "react-native": "0.60.4",
     "react-navigation": "^3.11.1",
     "react-native-gesture-handler": "git://github.com/hyochan/react-native-gesture-handler.git#package-names",
-    "styled-components": "^4.3.2"
-  },
-  "devDependencies": {
+    "styled-components": "^4.3.2",
     "@babel/core": "^7.5.5",
     "@babel/runtime": "^7.5.5",
     "@react-native-community/eslint-config": "^0.0.5",
