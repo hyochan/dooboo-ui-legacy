@@ -15,11 +15,10 @@
 |invisibleImage|  | any | `undefined` |
 
 ## Getting started
-`$ npm install react-native-drop-down-item --save`
 
 * Import
   ```javascript
-  import DropDownItem from 'react-native-drop-down-item';
+  import { DropDownItem } from 'dooboo-native-widgets';
   ```
 
 * Data

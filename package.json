@@ -1,6 +1,6 @@
 {
   "name": "dooboo-native-widgets",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "main": "libraries/index.js",
   "scripts": {
     "start": "react-native start",

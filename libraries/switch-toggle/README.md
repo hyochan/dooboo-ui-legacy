@@ -27,8 +27,6 @@
 |leftContainerStyle|    |styles|Styles for left text container|
 
 ## Getting started
-`$ npm install react-native-switch-toggle --save`
-
 ```javascript
 import React, { Component } from 'react';
 import {
@@ -38,7 +36,7 @@ import {
   View
 } from 'react-native';
 
-import SwitchToggle from 'react-native-switch-toggle';
+import { SwitchToggle } from 'dooboo-native-widgets';
 
 export default class App extends Component<{}> {
   constructor(props) {

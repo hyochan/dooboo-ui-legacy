@@ -14,6 +14,6 @@ React Native widgets made by `dooboolab`.
 * [Contributing](CONTRIBUTING.md)
 
 ## List of widgets
-* [SwitchToggle](./libraries/switch-toggle)
-* [DropdownItem](./libraries/dropdown-item)
-* [Calendar](./libraries/calendar)
+* [SwitchToggle](https://github.com/dooboolab/dooboo-native-widgets/tree/master/libraries/switch-toggle)
+* [DropdownItem](https://github.com/dooboolab/dooboo-native-widgets/tree/master/libraries/dropdown-item)
+* [Calendar](https://github.com/dooboolab/dooboo-native-widgets/tree/master/libraries/calendar)
