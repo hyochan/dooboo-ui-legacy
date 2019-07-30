@@ -1,8 +1,8 @@
 {
   "name": "dooboo-native-widgets",
-  "version": "0.1.7",
-  "main": "libraries/index.js",
-  "types": "libraries/index.d.ts",
+  "version": "0.1.9",
+  "main": "src/components/shared/index.js",
+  "types": "src/components/shared/index.d.ts",
   "scripts": {
     "start": "react-native start",
     "ios": "react-native run-ios",
@@ -10,6 +10,7 @@
     "test": "jest",
     "lint": "eslint src --ext .ts,.tsx,.js,.jsx"
   },
+  "postinstall": "dooboolab-welcome postinstall",
   "keywords": [
     "react-native",
     "dooboo-native-widgets",

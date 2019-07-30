@@ -6,7 +6,7 @@ import {
 } from 'react-native';
 import { NavigationScreenProp } from 'react-navigation';
 import styled from 'styled-components/native';
-import DropdownItem from '../../../libraries/dropdown-item';
+import DropdownItem from '../shared/dropdown-item';
 import { IC_ARR_DOWN, IC_ARR_UP } from '../../utils/icons';
 
 const Container = styled.SafeAreaView`
