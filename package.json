@@ -1,13 +1,28 @@
 {
   "name": "dooboo-native-widgets",
-  "version": "0.1.1",
+  "version": "0.1.7",
   "main": "libraries/index.js",
+  "types": "libraries/index.d.ts",
   "scripts": {
     "start": "react-native start",
     "ios": "react-native run-ios",
     "android": "react-native run-android",
     "test": "jest",
     "lint": "eslint src --ext .ts,.tsx,.js,.jsx"
+  },
+  "keywords": [
+    "react-native",
+    "dooboo-native-widgets",
+    "dooboolab"
+  ],
+  "author": "dooboolab",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/react-native-seoul/dooboo-native-widgets/issues"
+  },
+  "homepage": "https://github.com/react-native-seoul/dooboo-native-widgets#readme",
+  "dependencies": {
+    "dooboolab-welcome": "^1.1.0"
   },
   "peerDependencies": {
     "react": "*",
