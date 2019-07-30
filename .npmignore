@@ -4,7 +4,6 @@ __tests__/
 android/
 icons/
 ios/
-src/
 .buckconfig
 .eslintrc.js
 .flowconfig
@@ -19,5 +18,10 @@ tsconfig.json
 yarn.lock
 yarn-error.log
 index.js
-
-!libraries/**/*index.js
+node_modules/
+src/components/navigation/
+src/components/screen/
+src/contexts/
+src/utils/
+src/App.tsx
+!src/components/shared/
