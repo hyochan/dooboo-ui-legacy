@@ -1,10 +1,7 @@
-import 'react-native';
 import * as React from 'react';
-
-// Note: test renderer must be required after react-native.
-import Calendar from '../Calendar';
-
+import 'react-native';
 import renderer from 'react-test-renderer';
+import Calendar from '../Calendar';
 
 const component = (props?: any) => {
   return (
