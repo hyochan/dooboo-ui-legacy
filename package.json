@@ -8,7 +8,9 @@
     "ios": "react-native run-ios",
     "android": "react-native run-android",
     "test": "jest",
-    "lint": "eslint src --ext .ts,.tsx,.js,.jsx"
+    "tsc": "tsc",
+    "lint": "eslint src --ext .ts,.tsx,.js,.jsx",
+    "codecov": "codecov"
   },
   "postinstall": "dooboolab-welcome postinstall",
   "keywords": [
