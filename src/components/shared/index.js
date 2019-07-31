@@ -1,9 +1,9 @@
 import SwitchToggle from './SwitchToggle';
-import Calendar from './Calendar';
+import CalendarCarousel from './CalendarCarousel';
 import DropdownItem from './DropdownItem';
 
 export {
   SwitchToggle,
-  Calendar,
+  CalendarCarousel,
   DropdownItem,
 };

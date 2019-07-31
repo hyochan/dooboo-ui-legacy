@@ -25,3 +25,4 @@ src/contexts/
 src/utils/
 src/App.tsx
 !src/components/shared/
+!src/components/shared/**/*index.js
