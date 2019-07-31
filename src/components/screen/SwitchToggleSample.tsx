@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { NavigationScreenProp } from 'react-navigation';
 import styled from 'styled-components/native';
 
-import SwitchToggle from '../shared/switch-toggle';
+import SwitchToggle from '../shared/SwitchToggle';
 
 const Container = styled.View`
   flex: 1;

@@ -1,6 +1,6 @@
-import SwitchToggle from './switch-toggle';
-import Calendar from './calendar';
-import DropdownItem from './dropdown-item';
+import SwitchToggle from './SwitchToggle';
+import Calendar from './Calendar';
+import DropdownItem from './DropdownItem';
 
 export {
   SwitchToggle,

@@ -8,10 +8,13 @@
     "ios": "react-native run-ios",
     "android": "react-native run-android",
     "test": "jest",
-    "lint": "eslint src --ext .ts,.tsx,.js,.jsx"
+    "tsc": "tsc",
+    "lint": "eslint src --ext .ts,.tsx,.js,.jsx",
+    "codecov": "codecov"
   },
   "postinstall": "dooboolab-welcome postinstall",
   "keywords": [
+    "react-hook",
     "react-native",
     "dooboo-native-widgets",
     "dooboolab"
@@ -26,11 +29,12 @@
     "dooboolab-welcome": "^1.1.0"
   },
   "peerDependencies": {
-    "react": "*",
-    "react-native": "*"
+    "react": ">= 0.59",
+    "react-native": ">= 16.8"
   },
   "devDependencies": {
     "@babel/core": "^7.5.5",
+    "@babel/preset-typescript": "^7.3.3",
     "@babel/runtime": "^7.5.5",
     "@react-native-community/eslint-config": "^0.0.5",
     "@types/jest": "^24.0.15",
@@ -42,6 +46,7 @@
     "@typescript-eslint/eslint-plugin": "^1.13.0",
     "@typescript-eslint/parser": "^1.13.0",
     "babel-jest": "^24.8.0",
+    "codecov": "^3.5.0",
     "eslint": "^6.1.0",
     "eslint-config-standard": "^13.0.1",
     "eslint-plugin-import": "^2.18.2",
@@ -58,6 +63,7 @@
     "react-navigation": "^3.11.1",
     "react-test-renderer": "16.8.6",
     "styled-components": "^4.3.2",
+    "ts-jest": "^24.0.2",
     "typescript": "^3.5.3"
   },
   "jest": {

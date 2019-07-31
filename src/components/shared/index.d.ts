@@ -1,6 +1,6 @@
-import SwitchToggle from './switch-toggle';
-import DropdownItem from './dropdown-item';
-import Calendar from './calendar';
+import SwitchToggle from './SwitchToggle';
+import DropdownItem from './DropdownItem';
+import Calendar from './CalendarCarousel';
 
 declare module 'dooboo-native-widgets' {
   export {
