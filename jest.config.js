@@ -6,6 +6,10 @@ module.exports = {
   transformIgnorePatterns: [
     'node_modules/(?!(.*-)?react-(.*-)?native(-.*)?)',
   ],
+  moduleDirectories: [
+    'node_modules',
+    'src',
+  ],
   globals: {
     'ts-jest': {
       tsConfig: {
@@ -34,9 +38,6 @@ module.exports = {
     'ios.tsx',
     'android.ts',
     'android.tsx',
-  ],
-  modulePaths: [
-    'src',
   ],
   moduleNameMapper: {
     // '\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|
