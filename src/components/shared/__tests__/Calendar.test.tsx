@@ -1,7 +1,7 @@
 import * as React from 'react';
 import 'react-native';
 import renderer from 'react-test-renderer';
-import Calendar from '../Calendar';
+import Calendar from '../CalendarCarousel';
 
 const component = (props?: any) => {
   return (
