@@ -34,19 +34,19 @@ jobs:
           name: Lint Test
           working_directory: .
           command: |
-            npm run lint
+            yarn lint
 
       - run:
           name: TS Test
           working_directory: .
           command: |
-            npm run tsc
+            yarn tsc
 
       - run:
           name: Jest Test
           command: |
             mkdir -p coverage
-            yarn run test --coverage --max-workers=2 --silent
+            yarn test --coverage --max-workers=2 --silent
           environment:
             JEST_JUNIT_OUTPUT: test-results/jest/junit.xml
 
@@ -54,7 +54,7 @@ jobs:
           name: Coverage
           working_directory: .
           command: |
-            npm run codecov -- -t 5bf93db3-06d5-4644-8188-f9de5067953d
+            yarn codecov -t 5bf93db3-06d5-4644-8188-f9de5067953d
 
       - store_test_results:
           path: coverage
@@ -127,7 +127,7 @@ jobs:
           name: Build Android JS Bundle
           working_directory: android
           command: |
-            npm run build:android
+            yarn build:android
 
       - run:
           name: Build Android APK
@@ -199,24 +199,6 @@ jobs:
 
       - store_artifacts:
           path: ios/test-results
-  test:
-    docker:
-      - image: circleci/node:4.8.2-jessie
-      - image: mongo:3.4.4-jessie
-    steps:
-      - checkout
-      - run:
-          name: Test
-          command: npm test
-      - run:
-          name: Generate code coverage
-          command: './node_modules/.bin/nyc report --reporter=text-lcov'
-      - store_artifacts:
-          path: test-results.xml
-          prefix: tests
-      - store_artifacts:
-          path: coverage
-          prefix: coverage
 
 workflows:
   version: 2
