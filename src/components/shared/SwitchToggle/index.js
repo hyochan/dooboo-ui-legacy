@@ -4,6 +4,7 @@ import React, {
   useEffect,
   useRef,
 } from 'react';
+
 import {
   Animated,
   StyleSheet,
@@ -11,6 +12,7 @@ import {
   TouchableOpacity,
   ViewPropTypes,
 } from 'react-native';
+
 import PropTypes from 'prop-types';
 
 function Item(props) {

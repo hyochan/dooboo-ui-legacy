@@ -23,8 +23,8 @@ interface Props {
   leftContainerStyle?: any
 }
 
-declare class SwitchToggle extends React.Component<Props> {
+const SwitchToggle: React.SFC<Props> = (props) => {
 
-}
+};
 
 export default SwitchToggle;

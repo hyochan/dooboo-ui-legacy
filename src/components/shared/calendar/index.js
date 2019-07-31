@@ -9,16 +9,8 @@ import {
   Platform,
   Dimensions,
   Animated,
-  ViewPropTypes,
-  ImageSourcePropType,
 } from 'react-native';
 import PropTypes from 'prop-types';
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-  },
-});
 
 function Item(props) {
   return (
@@ -27,5 +19,11 @@ function Item(props) {
     </View>
   );
 }
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+  },
+});
 
 export default Item;
