@@ -1,6 +1,6 @@
 {
   "name": "dooboo-native-widgets",
-  "version": "0.1.9",
+  "version": "0.1.10",
   "main": "src/components/shared/index.js",
   "types": "src/components/shared/index.d.ts",
   "scripts": {
