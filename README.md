@@ -5,7 +5,7 @@
 ![License](http://img.shields.io/npm/l/dooboo-native-widgets.svg?style=flat-square)
 
 React Native widgets made by `dooboolab`.
-
+We currently love [react-hooks](https://code.fb.com/open-source/react-hooks) and willing to share our [react-native](https://facebook.github.io/react-native) widgets built in [Functional Component](https://logrocket.com/blog/pure-functional-components) using hooks.
 
 ## Contributing to `dooboo-native-widgets`
 * See also
@@ -17,3 +17,6 @@ React Native widgets made by `dooboolab`.
 * [SwitchToggle](https://github.com/dooboolab/dooboo-native-widgets/tree/master/libraries/switch-toggle)
 * [DropdownItem](https://github.com/dooboolab/dooboo-native-widgets/tree/master/libraries/dropdown-item)
 * [Calendar](https://github.com/dooboolab/dooboo-native-widgets/tree/master/libraries/calendar)
+
+## Comaptability
+> Your `react-native` version should support `react-hooks` which will be `>=0.59`.

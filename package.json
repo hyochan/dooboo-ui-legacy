@@ -12,6 +12,7 @@
   },
   "postinstall": "dooboolab-welcome postinstall",
   "keywords": [
+    "react-hook",
     "react-native",
     "dooboo-native-widgets",
     "dooboolab"
@@ -26,11 +27,12 @@
     "dooboolab-welcome": "^1.1.0"
   },
   "peerDependencies": {
-    "react": "*",
-    "react-native": "*"
+    "react": ">= 0.59",
+    "react-native": ">= 16.8"
   },
   "devDependencies": {
     "@babel/core": "^7.5.5",
+    "@babel/preset-typescript": "^7.3.3",
     "@babel/runtime": "^7.5.5",
     "@react-native-community/eslint-config": "^0.0.5",
     "@types/jest": "^24.0.15",
@@ -58,6 +60,7 @@
     "react-navigation": "^3.11.1",
     "react-test-renderer": "16.8.6",
     "styled-components": "^4.3.2",
+    "ts-jest": "^24.0.2",
     "typescript": "^3.5.3"
   },
   "jest": {
