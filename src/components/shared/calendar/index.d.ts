@@ -4,8 +4,8 @@ interface Props {
 
 }
 
-const Calendar: React.SFC<Props> = (props) => {
+declare class Calendar extends React.Component<Props> {
 
-};
+}
 
 export default Calendar;

@@ -23,7 +23,7 @@ interface Props {
   leftContainerStyle?: any
 }
 
-declare class SwitchToggle extends React.Component<Props, any> {
+declare class SwitchToggle extends React.Component<Props> {
 
 }
 
