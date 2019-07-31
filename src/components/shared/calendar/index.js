@@ -28,12 +28,4 @@ function Item(props) {
   );
 }
 
-Item.defaultProps = {
-
-};
-
-Item.propTypes = {
-
-};
-
 export default Item;
