@@ -1,7 +1,7 @@
 import * as React from 'react';
-import { GestureResponderEvent } from 'react-native'
+import { GestureResponderEvent } from 'react-native';
 
-interface IProps {
+interface Props {
     switchOn: boolean;
     onPress: (event: GestureResponderEvent) => {};
     containerStyle?: object;
@@ -24,8 +24,8 @@ interface IProps {
     leftContainerStyle?: any
 }
 
-declare class SwitchToggle extends React.Component<IProps, any> {
+const SwitchToggle: React.SFC<Props> = (props) => {
 
-}
+};
 
 export default SwitchToggle;
