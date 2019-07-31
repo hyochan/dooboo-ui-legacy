@@ -2,6 +2,7 @@
 [![Npm Version](http://img.shields.io/npm/v/dooboo-native-widgets.svg?style=flat-square)](https://npmjs.org/package/dooboo-native-widgets)
 [![Downloads](http://img.shields.io/npm/dm/dooboo-native-widgets.svg?style=flat-square)](https://npmjs.org/package/dooboo-native-widgets)
 [![CircleCI](https://circleci.com/gh/dooboolab/dooboo-native-widgets.svg?style=shield)](https://circleci.com/gh/dooboolab/dooboo-native-widgets)
+[![codecov](https://codecov.io/gh/dooboolab/dooboo-native-widgets/branch/master/graph/badge.svg)](https://codecov.io/gh/dooboolab/dooboo-native-widgets)
 ![License](http://img.shields.io/npm/l/dooboo-native-widgets.svg?style=flat-square)
 
 React Native widgets made by `dooboolab`.
