@@ -1,0 +1,29 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`[LoadingIndicator] render renders without crashing 1`] = `
+<View
+  style={
+    Array [
+      Object {
+        "alignItems": "center",
+        "alignSelf": "center",
+        "backgroundColor": "transparent",
+        "flex": 1,
+        "flexDirection": "row",
+        "height": "100%",
+        "justifyContent": "center",
+        "position": "absolute",
+        "width": "100%",
+      },
+      undefined,
+    ]
+  }
+>
+  <ActivityIndicator
+    animating={true}
+    color="#969696"
+    hidesWhenStopped={true}
+    size="large"
+  />
+</View>
+`;
