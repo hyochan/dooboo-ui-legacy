@@ -7,7 +7,7 @@ import {
 import { NavigationScreenProp } from 'react-navigation';
 import styled from 'styled-components/native';
 import DropdownItem from '../shared/DropdownItem';
-import { IC_ARR_DOWN, IC_ARR_UP } from '../../utils/icons';
+import { IC_ARR_DOWN, IC_ARR_UP } from '../../utils/Icons';
 
 const Container = styled.SafeAreaView`
   flex: 1;

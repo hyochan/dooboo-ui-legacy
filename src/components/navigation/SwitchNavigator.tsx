@@ -3,6 +3,7 @@ import SwitchToggleSample from '../screen/SwitchToggleSample';
 import DropdownItemSample from '../screen/DropdownItemSample';
 import CalendarSample from '../screen/CalendarCarouselSample';
 import LoadingIndicatorSample from '../screen/LoadingIndicatorSample';
+import ButtonSample from '../screen/ButtonSample';
 
 const SwitchNavigator = createSwitchNavigator(
   {
@@ -10,9 +11,10 @@ const SwitchNavigator = createSwitchNavigator(
     DropdownItemSample,
     CalendarSample,
     LoadingIndicatorSample,
+    ButtonSample,
   },
   {
-    initialRouteName: 'LoadingIndicatorSample',
+    initialRouteName: 'ButtonSample',
   },
 );
 
