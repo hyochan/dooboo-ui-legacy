@@ -65,9 +65,9 @@ function Page(props: Props) {
     fontSize: 13,
   };
 
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [errorEmail, setErrorEmail] = useState('');
+  const [email, setEmail] = useState<string>('');
+  const [password, setPassword] = useState<string>('');
+  const [errorEmail, setErrorEmail] = useState<string>('');
 
   const onSignIn = () => {
     if (!validateEmail(email)) {

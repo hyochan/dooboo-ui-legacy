@@ -111,7 +111,7 @@ function EditText(props) {
             testID={props.errorTestID}
             style={styles.errorText}
           >
-            ` ${props.errorText} `
+            {props.errorText}
           </Text>
           : null
       }
