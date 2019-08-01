@@ -5,6 +5,7 @@ import CalendarSample from '../screen/CalendarCarouselSample';
 import LoadingIndicatorSample from '../screen/LoadingIndicatorSample';
 import ButtonSample from '../screen/ButtonSample';
 import EditTextSample from '../screen/EditTextSample';
+import ButtonGroupSample from '../screen/ButtonGroupSample';
 
 const SwitchNavigator = createSwitchNavigator(
   {
@@ -14,9 +15,10 @@ const SwitchNavigator = createSwitchNavigator(
     LoadingIndicatorSample,
     ButtonSample,
     EditTextSample,
+    ButtonGroupSample,
   },
   {
-    initialRouteName: 'EditTextSample',
+    initialRouteName: 'ButtonGroupSample',
   },
 );
 

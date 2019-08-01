@@ -1,0 +1,123 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`[ButtonGroup] render renders without crashing 1`] = `
+<View
+  style={
+    Array [
+      Object {
+        "alignItems": "center",
+        "backgroundColor": "transparent",
+        "flexDirection": "row",
+        "justifyContent": "center",
+      },
+      Object {
+        "alignSelf": "stretch",
+        "backgroundColor": "white",
+        "borderColor": "rgb(62,126,255)",
+        "borderWidth": 1,
+        "height": 32,
+        "marginTop": 24,
+      },
+    ]
+  }
+>
+  <View
+    accessible={true}
+    clickable={true}
+    isTVSelectable={true}
+    onClick={[Function]}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      Object {
+        "flex": 1,
+        "opacity": 1,
+      }
+    }
+    testID="CHILD_0"
+  >
+    <View
+      style={
+        Array [
+          Object {
+            "alignItems": "center",
+            "alignSelf": "stretch",
+            "backgroundColor": "rgb(62,126,255)",
+            "borderColor": "rgb(62,126,255)",
+            "height": 30,
+            "justifyContent": "center",
+          },
+          Object {
+            "borderRightWidth": 1,
+          },
+        ]
+      }
+    >
+      <Text
+        style={
+          Object {
+            "alignSelf": "center",
+            "color": "white",
+            "fontSize": 14,
+            "textAlign": "center",
+          }
+        }
+      >
+        option 1
+      </Text>
+    </View>
+  </View>
+  <View
+    accessible={true}
+    clickable={true}
+    isTVSelectable={true}
+    onClick={[Function]}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      Object {
+        "flex": 1,
+        "opacity": 1,
+      }
+    }
+    testID="CHILD_1"
+  >
+    <View
+      style={
+        Array [
+          Object {
+            "alignItems": "center",
+            "alignSelf": "stretch",
+            "backgroundColor": "white",
+            "borderColor": "rgb(62,126,255)",
+            "height": 30,
+            "justifyContent": "center",
+          },
+          null,
+        ]
+      }
+    >
+      <Text
+        style={
+          Object {
+            "alignSelf": "center",
+            "color": "rgb(62,126,255)",
+            "fontSize": 14,
+            "textAlign": "center",
+          }
+        }
+      >
+        option 2
+      </Text>
+    </View>
+  </View>
+</View>
+`;
