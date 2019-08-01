@@ -49,7 +49,6 @@ Shared.propTypes = {
     PropTypes.number,
     PropTypes.oneOf(['small', 'large']),
   ]),
-  children: PropTypes.any,
 };
 
 export default Shared;

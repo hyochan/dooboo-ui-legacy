@@ -18,6 +18,7 @@ We currently love [react-hooks](https://code.fb.com/open-source/react-hooks) and
 * [SwitchToggle](https://github.com/dooboolab/dooboo-native-widgets/tree/master/src/components/shared/SwitchToggle)
 * [DropdownItem](https://github.com/dooboolab/dooboo-native-widgets/tree/master/src/components/shared/DropdownItem)
 * [CalendarCarousel](https://github.com/dooboolab/dooboo-native-widgets/tree/master/src/components/shared/CalendarCarousel)
+* [LoadingIndicator](https://github.com/dooboolab/dooboo-native-widgets/tree/master/src/components/shared/LoadingIndicator)
 
 ## Comaptability
 > Your `react-native` version should support `react-hooks` which will be `>=0.59`.

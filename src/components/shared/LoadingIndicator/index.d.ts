@@ -6,7 +6,6 @@ interface Props {
   style?: ViewStyle,
   color?: string;
   size?: number | 'small' | 'large';
-  children?: any;
 }
 
 const LoadingIndicator: React.SFC<Props> = (props) => {
