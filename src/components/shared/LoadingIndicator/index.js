@@ -21,7 +21,7 @@ const styles = StyleSheet.create({
   },
 });
 
-function Shared(props) {
+function LoadingIndicator(props) {
   return (
     <View style={[
       styles.container,
@@ -36,12 +36,12 @@ function Shared(props) {
   );
 }
 
-Shared.defaultProps = {
+LoadingIndicator.defaultProps = {
   size: 'large',
   color: '#969696',
 };
 
-Shared.propTypes = {
+LoadingIndicator.propTypes = {
   containerStyle: ViewPropTypes.style,
   style: ViewPropTypes.style,
   color: PropTypes.string,
@@ -51,4 +51,4 @@ Shared.propTypes = {
   ]),
 };
 
-export default Shared;
+export default LoadingIndicator;
