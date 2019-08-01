@@ -1,5 +1,10 @@
 import * as React from 'react';
-import { ViewStyle, ImageSourcePropType } from 'react-native';
+import {
+  ViewStyle,
+  ImageSourcePropType,
+  TextStyle,
+  ImageStyle,
+} from 'react-native';
 
 interface Props {
   testID?: string;

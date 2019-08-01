@@ -61,7 +61,7 @@ const styles = StyleSheet.create({
   },
 });
 
-function Item(props) {
+function DropdownItem(props) {
   const [animatedValue, setAnimatedValue] = useState(null);
   const [isMounted, setMounted] = useState(false);
   const [isContentVisible, setContentVisible] =
@@ -155,7 +155,7 @@ function Item(props) {
   );
 }
 
-Item.defaultProps = {
+DropdownItem.defaultProps = {
   contentVisible: false,
   backgroundColor: 'transparent',
   titleBackground: 'transparent',
@@ -165,7 +165,7 @@ Item.defaultProps = {
   invisibleImage: false,
 };
 
-Item.propTypes = {
+DropdownItem.propTypes = {
   contentVisible: PropTypes.bool,
   backgroundColor: PropTypes.string,
   titleBackground: PropTypes.string,
@@ -173,9 +173,9 @@ Item.propTypes = {
   underlineColor: PropTypes.string,
   visibleImage: PropTypes.any,
   invisibleImage: PropTypes.any,
-  header: PropTypes.element,
+  header: PropTypes.element.isRequired,
   style: ViewPropTypes.style,
-  children: PropTypes.any,
+  children: PropTypes.element,
 };
 
-export default Item;
+export default DropdownItem;

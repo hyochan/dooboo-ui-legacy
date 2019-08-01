@@ -1,6 +1,8 @@
 # EditText
 > [EditText] component is an enhanced version on pure react-native [TextInput] component.
 
+![image](https://user-images.githubusercontent.com/27461460/62299053-28e6c680-b4af-11e9-8c59-61b79ad82c4d.png)
+
 ## Props
 |                      | necessary | types        | default                      |
 |----------------------|-----------|--------------|------------------------------|

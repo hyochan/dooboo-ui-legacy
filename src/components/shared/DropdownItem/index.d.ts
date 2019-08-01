@@ -2,16 +2,16 @@ import * as React from 'react';
 import { ViewStyle, ImageSourcePropType } from 'react-native';
 
 interface Props {
-  contentVisible?: bool;
+  contentVisible?: boolean;
   backgroundColor?: string;
   titleBackground?: string;
   contentBackground?: string;
   underlineColor?: string;
   visibleImage?: ImageSourcePropType;
   invisibleImage?: ImageSourcePropType;
-  header?: React.ReactElement;
+  header: React.ReactElement;
   style?: ViewStyle;
-  children: any;
+  children: React.ReactElement;
 }
 
 const DropdownItem: React.SFC<Props> = (props) => {

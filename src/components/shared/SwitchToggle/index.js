@@ -15,7 +15,7 @@ import {
 
 import PropTypes from 'prop-types';
 
-function Item(props) {
+function SwitchToggle(props) {
   const getStart = () => {
     return props.type === undefined
       ? 0 : props.type === 0
@@ -123,7 +123,7 @@ const styles: any = StyleSheet.create({
   },
 });
 
-Item.defaultProps = {
+SwitchToggle.defaultProps = {
   switchOn: false,
   onPress: () => {},
   containerStyle: {
@@ -146,7 +146,7 @@ Item.defaultProps = {
   duration: 300,
 };
 
-Item.propTypes = {
+SwitchToggle.propTypes = {
   switchOn: PropTypes.bool,
   onPress: PropTypes.func,
   containerStyle: ViewPropTypes.style,
@@ -172,4 +172,4 @@ Item.propTypes = {
   leftContainerStyle: ViewPropTypes.style,
 };
 
-export default Item;
+export default SwitchToggle;
