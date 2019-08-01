@@ -1,0 +1,48 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`[EditText] renders without crashing 1`] = `
+<View
+  style={
+    Array [
+      Object {
+        "alignSelf": "stretch",
+        "flexDirection": "column",
+        "width": "100%",
+      },
+      undefined,
+    ]
+  }
+>
+  <TextInput
+    allowFontScaling={true}
+    autoCapitalize="none"
+    onBlur={[Function]}
+    onFocus={[Function]}
+    rejectResponderTermination={true}
+    style={
+      Array [
+        Object {
+          "color": "#2C374E",
+          "fontSize": 15,
+          "fontWeight": "500",
+          "paddingBottom": 10,
+          "paddingTop": 15,
+        },
+        undefined,
+      ]
+    }
+    underlineColorAndroid="transparent"
+  />
+  <View
+    style={
+      Array [
+        Object {
+          "borderColor": "#eaeaf9",
+          "borderWidth": 0.6,
+        },
+        null,
+      ]
+    }
+  />
+</View>
+`;
