@@ -1,5 +1,6 @@
 # Button
-> Simple [Button] that overlaps screen indicating that it is doing something.
+> Simple [Button] component that can be used inside product. Has basic features like `loading` state, `disabled` state and also has ability to put `img` to left-hand which is used very often.
+
 ![image](https://user-images.githubusercontent.com/27461460/62291727-9be84100-b49f-11e9-8ce5-ceaa1dc3153e.png)
 
 ## Props
