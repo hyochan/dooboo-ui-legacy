@@ -11,18 +11,11 @@ import PropTypes from 'prop-types';
 
 import styled from 'styled-components/native';
 
-const Container = styled.View`
-  background-color: transparent;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-`;
-
 function Shared(props) {
   const [selectedOption, setSelectedOption] = useState(0);
 
   return (
-    <Container
+    <View
       testID={props.testID}
       style={{
         ...props.containerStyle,
@@ -58,7 +51,7 @@ function Shared(props) {
           </TouchableOpacity>;
         })
       }
-    </Container>
+    </View>
   );
 }
 
@@ -71,12 +64,15 @@ Shared.propTypes = {
   textStyle: Text.propTypes.style,
   selectedTextStyle: Text.propTypes.style,
   data: PropTypes.arrayOf(PropTypes.string),
-  onPress: (i: PropTypes.number) => {},
+  onPress: (i) => {},
 };
 
 Shared.defaultProps = {
   containerStyle: {
-    backgroundColor: 'white',
+    backgroundColor: 'transparent',
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
     borderWidth: 1,
     borderColor: 'rgb(62,126,255)',
     alignSelf: 'stretch',
