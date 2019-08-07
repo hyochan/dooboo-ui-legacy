@@ -3,22 +3,17 @@
 exports[`[ButtonGroup] render renders without crashing 1`] = `
 <View
   style={
-    Array [
-      Object {
-        "alignItems": "center",
-        "backgroundColor": "transparent",
-        "flexDirection": "row",
-        "justifyContent": "center",
-      },
-      Object {
-        "alignSelf": "stretch",
-        "backgroundColor": "white",
-        "borderColor": "rgb(62,126,255)",
-        "borderWidth": 1,
-        "height": 32,
-        "marginTop": 24,
-      },
-    ]
+    Object {
+      "alignItems": "center",
+      "alignSelf": "stretch",
+      "backgroundColor": "transparent",
+      "borderColor": "rgb(62,126,255)",
+      "borderWidth": 1,
+      "flexDirection": "row",
+      "height": 32,
+      "justifyContent": "center",
+      "marginTop": 24,
+    }
   }
 >
   <View
