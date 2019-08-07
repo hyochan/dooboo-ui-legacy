@@ -116,7 +116,7 @@ function SwitchToggle(props) {
   );
 }
 
-const styles: any = StyleSheet.create({
+const styles = StyleSheet.create({
   container: {
     flexDirection: 'row',
     alignItems: 'center',
