@@ -27,6 +27,7 @@ exports[`[Button] should render without crashing 1`] = `
           "borderColor": "blue",
           "borderRadius": 4,
           "borderWidth": 2,
+          "flexDirection": "row",
           "height": 52,
           "justifyContent": "center",
           "width": 320,

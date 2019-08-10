@@ -20,7 +20,7 @@
 
 * Import
   ```javascript
-  import { Button } from 'dooboo-native-widgets';
+  import { ButtonGroup } from 'dooboo-native-widgets';
   ```
 
 * Usage

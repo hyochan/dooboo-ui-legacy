@@ -23,6 +23,7 @@ const styles = StyleSheet.create({
     borderColor: 'blue',
     alignItems: 'center',
     justifyContent: 'center',
+    flexDirection: 'row',
   },
   disabledButton: {
     backgroundColor: '#cccccc',
@@ -85,7 +86,10 @@ function Button(props) {
         {
           props.imgLeftSrc
             ? <Image
-              style={props.imgLeftStyle}
+              style={[
+                styles.image,
+                props.imgLeftStyle,
+              ]}
               source={props.imgLeftSrc}
             />
             : null
@@ -101,7 +105,6 @@ Button.defaultProps = {
   isDisabled: false,
   indicatorColor: 'white',
   activeOpacity: 0.5,
-  imgLeftStyle: styles.image,
   textStyle: styles.text,
   disabledStyle: styles.disabledStyle,
 };
