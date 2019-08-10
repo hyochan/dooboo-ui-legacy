@@ -18,7 +18,7 @@ interface Props {
   onPress?: (i: number) => void;
 }
 
-const ButtonGroup: React.SFC<Props> = (props) => {
+const ButtonGroup: React.FC<Props> = (props) => {
 
 };
 

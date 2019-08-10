@@ -4,7 +4,7 @@ interface Props {
 
 }
 
-const Calendar: React.SFC<Props> = (props) => {
+const Calendar: React.FC<Props> = (props) => {
 
 };
 

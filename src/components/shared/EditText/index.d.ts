@@ -17,7 +17,7 @@ interface Props {
   onTextChanged?: (text: string) => void;
 }
 
-const EditText: React.SFC<Props> = (props) => {
+const EditText: React.FC<Props> = (props) => {
 
 };
 

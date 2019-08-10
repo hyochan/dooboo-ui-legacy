@@ -21,7 +21,7 @@ interface Props {
   text?: string;
 }
 
-const Button: React.SFC<Props> = (props) => {
+const Button: React.FC<Props> = (props) => {
 
 };
 

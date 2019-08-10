@@ -23,7 +23,7 @@ interface Props {
   leftContainerStyle?: any
 }
 
-const SwitchToggle: React.SFC<Props> = (props) => {
+const SwitchToggle: React.FC<Props> = (props) => {
 
 };
 

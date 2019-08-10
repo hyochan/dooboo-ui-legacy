@@ -8,7 +8,7 @@ interface Props {
   size?: number | 'small' | 'large';
 }
 
-const LoadingIndicator: React.SFC<Props> = (props) => {
+const LoadingIndicator: React.FC<Props> = (props) => {
 
 };
 

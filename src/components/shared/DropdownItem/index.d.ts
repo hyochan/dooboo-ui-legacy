@@ -14,7 +14,7 @@ interface Props {
   children: React.ReactElement;
 }
 
-const DropdownItem: React.SFC<Props> = (props) => {
+const DropdownItem: React.FC<Props> = (props) => {
 
 };
 
