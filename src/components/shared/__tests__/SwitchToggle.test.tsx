@@ -5,19 +5,19 @@ import SwitchToggle from '../SwitchToggle';
 import { TouchableOpacity } from 'react-native';
 import renderer from 'react-test-renderer';
 
-const component = (props?: any) => {
+const component = (props?): React.ReactElement => {
   return <SwitchToggle {...props} />;
 };
 
-describe('[SwitchToggle]', () => {
-  it('should render without crashing', () => {
+describe('[SwitchToggle]', (): void => {
+  it('should render without crashing', (): void => {
     const rendered = renderer.create(component());
     expect(rendered).toMatchSnapshot();
     expect(rendered).toBeTruthy();
   });
 
-  describe('[SwitchToggle] Interaction', () => {
-    it('should simulate onPress', () => {
+  describe('[SwitchToggle] Interaction', (): void => {
+    it('should simulate onPress', (): void => {
       const handlePress = jest.fn();
       const rendered = renderer.create(
         component({

@@ -36,10 +36,10 @@ function SwitchToggle(props: Props) {
     return props.type === undefined
       ? 0
       : props.type === 0
-      ? 0
-      : props.containerStyle && props.containerStyle.padding
-      ? (props.containerStyle.padding as number) * 2
-      : {};
+        ? 0
+        : props.containerStyle && props.containerStyle.padding
+          ? (props.containerStyle.padding as number) * 2
+          : {};
   };
 
   const runAnimation = () => {

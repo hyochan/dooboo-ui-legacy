@@ -25,7 +25,7 @@ describe('[Button]', () => {
       rendered = renderer.create(
         component({
           onClick: () => cnt++,
-        }),
+        })
       );
       root = rendered.root;
 

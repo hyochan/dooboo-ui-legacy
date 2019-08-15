@@ -50,8 +50,8 @@ function Shared(props: Props) {
                   : props.viewStyle,
                 i !== props.data.length - 1
                   ? {
-                      borderRightWidth: 1,
-                    }
+                    borderRightWidth: 1,
+                  }
                   : null,
               ]}
             >

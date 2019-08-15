@@ -73,11 +73,11 @@ interface Props {
 
 function DropdownItem(props: Props) {
   const [animatedValue, setAnimatedValue] = useState<Animated.Value | null>(
-    null,
+    null
   );
   const [isMounted, setMounted] = useState<boolean>(false);
   const [isContentVisible, setContentVisible] = useState<boolean>(
-    !!props.contentVisible,
+    !!props.contentVisible
   );
   const [headerHeight, setHeaderHeight] = useState(0);
   const [contentHeight, setContentHeight] = useState(0);

@@ -20,7 +20,7 @@ const SwitchNavigator = createSwitchNavigator(
   },
   {
     initialRouteName: 'EditTextSample',
-  },
+  }
 );
 
 export default createAppContainer(SwitchNavigator);

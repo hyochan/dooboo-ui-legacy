@@ -77,8 +77,8 @@ function EditText(props: Props) {
             props.errorText
               ? { color: '#FF8989' }
               : focused
-              ? { color: '#79B3F5' }
-              : null,
+                ? { color: '#79B3F5' }
+                : null,
           ]}
         >
           {props.label}
@@ -103,8 +103,8 @@ function EditText(props: Props) {
           focused
             ? { borderColor: '#79B3F5' }
             : props.errorText
-            ? { borderColor: '#FF8989' }
-            : null,
+              ? { borderColor: '#FF8989' }
+              : null,
         ]}
       />
       {props.errorText ? (
