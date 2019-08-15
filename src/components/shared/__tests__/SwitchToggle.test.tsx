@@ -1,17 +1,12 @@
 import * as React from 'react';
-import { TouchableOpacity } from 'react-native';
 
 // Note: test renderer must be required after react-native.
 import SwitchToggle from '../SwitchToggle';
-
+import { TouchableOpacity } from 'react-native';
 import renderer from 'react-test-renderer';
 
 const component = (props?: any) => {
-  return (
-    <SwitchToggle
-      {...props}
-    />
-  );
+  return <SwitchToggle {...props} />;
 };
 
 describe('[SwitchToggle]', () => {
@@ -24,9 +19,11 @@ describe('[SwitchToggle]', () => {
   describe('[SwitchToggle] Interaction', () => {
     it('should simulate onPress', () => {
       const handlePress = jest.fn();
-      const rendered = renderer.create(component({
-        onPress: handlePress,
-      }));
+      const rendered = renderer.create(
+        component({
+          onPress: handlePress,
+        }),
+      );
       const switchToggle = rendered.root.findByType(TouchableOpacity);
       renderer.act(() => {
         switchToggle.props.onPress();

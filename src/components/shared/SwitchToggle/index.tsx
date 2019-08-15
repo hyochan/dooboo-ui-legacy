@@ -58,10 +58,8 @@ function SwitchToggle(props: Props) {
           (props.containerStyle.padding as number) * 2)
       : 0;
   const circlePosXEnd = endPos;
-  const [animXValue, setAnimXValue] = useState(
-    new Animated.Value(props.switchOn ? 1 : 0),
-  );
-  const [circlePosXStart, setCirclePosXStart] = useState(getStart());
+  const [animXValue] = useState(new Animated.Value(props.switchOn ? 1 : 0));
+  const [circlePosXStart] = useState(getStart());
 
   const prevSwitchOnRef = useRef<boolean>();
   useEffect(() => {

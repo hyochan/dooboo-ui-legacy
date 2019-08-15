@@ -1,14 +1,12 @@
 import * as React from 'react';
+
 import Button from '../Button';
 import { Text } from 'react-native';
-
 // Note: test renderer must be required after react-native.
 import renderer from 'react-test-renderer';
 
 const component = (props?: any) => {
-  return (
-    <Button {...props}/>
-  );
+  return <Button {...props} />;
 };
 
 describe('[Button]', () => {
@@ -24,9 +22,11 @@ describe('[Button]', () => {
     let root: renderer.ReactTestInstance;
     let cnt = 1;
     it('simulate onPress', () => {
-      rendered = renderer.create(component({
-        onClick: () => cnt++,
-      }));
+      rendered = renderer.create(
+        component({
+          onClick: () => cnt++,
+        }),
+      );
       root = rendered.root;
 
       root.findByType(Button).props.onClick();

@@ -1,13 +1,16 @@
 import 'react-native';
+
 import * as React from 'react';
-import { ThemeProvider } from 'styled-components/native';
 
 import {
-  fireEvent, render, act, RenderResult,
+  RenderResult,
+  act,
+  fireEvent,
+  render,
 } from '@testing-library/react-native';
 
 import EditText from '../EditText';
-
+import { ThemeProvider } from 'styled-components/native';
 // Note: test renderer must be required after react-native.
 import renderer from 'react-test-renderer';
 
@@ -19,10 +22,8 @@ describe('[EditText]', () => {
   let text = '';
 
   beforeEach(() => {
-    props = { };
-    component = (
-      <EditText { ...props } />
-    );
+    props = {};
+    component = <EditText {...props} />;
   });
 
   it('renders without crashing', () => {
@@ -41,20 +42,17 @@ describe('[EditText]', () => {
       },
     };
     beforeEach(() => {
-      component = (
-        <EditText { ...props } />
-      );
+      component = <EditText {...props} />;
       testingLib = render(component);
     });
 
-    it('should set error message when no valid email has been written',
-      async () => {
-        const input = testingLib.getByTestId('INPUT_TEST');
-        act(() => {
-          fireEvent.changeText(input, 'input test');
-        });
-        expect(text).toEqual('input test');
-        // expect(input.props).toEqual('input test');
+    it('should set error message when no valid email has been written', async () => {
+      const input = testingLib.getByTestId('INPUT_TEST');
+      act(() => {
+        fireEvent.changeText(input, 'input test');
       });
+      expect(text).toEqual('input test');
+      // expect(input.props).toEqual('input test');
+    });
   });
 });
