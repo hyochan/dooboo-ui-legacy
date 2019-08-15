@@ -60,3 +60,4 @@ buck-out/
 
 .jest/
 coverage/
+lib/
