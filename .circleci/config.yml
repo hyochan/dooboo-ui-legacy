@@ -43,6 +43,12 @@ jobs:
             yarn tsc
 
       - run:
+          name: TS build test
+          working_directory: .
+          command: |
+            yarn build
+
+      - run:
           name: Jest Test
           command: |
             mkdir -p coverage
@@ -65,7 +71,7 @@ jobs:
   android:
     working_directory: ~/dooboo
     docker:
-        - image: circleci/android:api-28-node8-alpha
+      - image: circleci/android:api-28-node8-alpha
     steps:
       - checkout:
           path: ~/dooboo
@@ -94,7 +100,7 @@ jobs:
       # - restore_cache:
       #     key: bundle-v1-{{ checksum "android/Gemfile.lock" }}-{{ arch }}
 
-      # - run: 
+      # - run:
       #     command: bundle install --path vendor/bundle
       #     working_directory: android
 
@@ -103,7 +109,7 @@ jobs:
       #     paths:
       #       - android/vendor/bundle
 
-      - run: 
+      - run:
           name: Check MD5 on files
           command: |
             md5sum android/build.gradle
@@ -137,7 +143,7 @@ jobs:
 
   ios:
     macos:
-      xcode: "9.0"
+      xcode: '9.0'
     working_directory: ~/dooboo
 
     # use a --login shell so our "set Ruby version" command gets picked up for later steps
@@ -148,7 +154,7 @@ jobs:
 
       - run:
           name: set Ruby version
-          command:  echo "ruby-2.4" > ~/.ruby-version
+          command: echo "ruby-2.4" > ~/.ruby-version
 
       - restore_cache:
           key: yarn-v2-{{ checksum "yarn.lock" }}-{{ arch }}
