@@ -15,5 +15,5 @@
     "declaration": true
   },
   "exclude": ["node_modules", "lib", "**/**/*/__tests__"],
-  "include": ["./src"]
+  "include": ["./src/components/shared"]
 }
