@@ -1,10 +1,12 @@
 import 'react-native';
-import * as React from 'react';
-import LoadingIndicator from '../LoadingIndicator';
 
+import * as React from 'react';
+
+import { RenderResult, fireEvent, render } from '@testing-library/react-native';
+
+import LoadingIndicator from '../LoadingIndicator';
 // Note: test renderer must be required after react-native.
 import renderer from 'react-test-renderer';
-import { fireEvent, render, RenderResult } from '@testing-library/react-native';
 
 let props: any;
 let component: React.ReactElement;
@@ -19,15 +21,14 @@ const createTestProps = (obj: object) => ({
 
 describe('[LoadingIndicator] render', () => {
   beforeEach(() => {
-    props = createTestProps({ });
-    component = (
-      <LoadingIndicator {...props} />
-    );
+    props = createTestProps({});
+    component = <LoadingIndicator {...props} />;
   });
 
   it('renders without crashing', () => {
-    const rendered: renderer.ReactTestRendererJSON =
-      renderer.create(component).toJSON();
+    const rendered: renderer.ReactTestRendererJSON = renderer
+      .create(component)
+      .toJSON();
     expect(rendered).toMatchSnapshot();
     expect(rendered).toBeTruthy();
   });

@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
-import { NavigationScreenProp } from 'react-navigation';
-import styled from 'styled-components/native';
 
+import { NavigationScreenProp } from 'react-navigation';
 import SwitchToggle from '../shared/SwitchToggle';
+import styled from 'styled-components/native';
 
 const Container = styled.View`
   flex: 1;
-  background-color: #F5FCFF;
+  background-color: #f5fcff;
   flex-direction: column;
   align-items: center;
   justify-content: center;
@@ -81,7 +81,6 @@ function Page(props: Props) {
           justifyContent: 'center',
           position: 'absolute',
         }}
-
         rightContainerStyle={{
           flex: 1,
           alignItems: 'center',
@@ -95,7 +94,6 @@ function Page(props: Props) {
         buttonTextStyle={{ fontSize: 20 }}
         textRightStyle={{ fontSize: 20 }}
         textLeftStyle={{ fontSize: 20 }}
-
         containerStyle={{
           marginTop: 16,
           width: 160,

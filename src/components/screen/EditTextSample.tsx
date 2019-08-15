@@ -1,15 +1,10 @@
 import React, { useState } from 'react';
-import {
-  View,
-  TextStyle,
-  TouchableOpacity,
-} from 'react-native';
-
-import { DefaultTheme } from 'styled-components';
-import styled from 'styled-components/native';
+import { TextStyle, TouchableOpacity, View } from 'react-native';
 
 import Button from '../shared/Button';
+import { DefaultTheme } from 'styled-components';
 import EditText from '../shared/EditText';
+import styled from 'styled-components/native';
 
 const StyledScrollView = styled.ScrollView`
   background-color: white;
@@ -34,7 +29,7 @@ const StyledSignInButton = styled(Button)`
   border-width: 0;
   margin-top: 40;
   width: 100%;
-  background-color: rgb(36,205,151);
+  background-color: rgb(36, 205, 151);
 `;
 
 const StyledText = styled.Text`
@@ -43,14 +38,14 @@ const StyledText = styled.Text`
 `;
 
 const StyledAccentText = styled(StyledText)`
-  color: #6772E5;
+  color: #6772e5;
   font-weight: bold;
 `;
 
 interface Props {
   navigation?: any;
   screenProps: {
-    theme: DefaultTheme,
+    theme: DefaultTheme;
   };
 }
 
@@ -103,9 +98,9 @@ function Page(props: Props) {
           label='Email'
           placeholder='Write email address'
           placeholderTextColor='#ADB5BD'
-          text={ email }
-          onTextChanged={ (text: string) => onTextChanged('EMAIL', text) }
-          style={ { marginTop: 50 } }
+          text={email}
+          onTextChanged={(text: string) => onTextChanged('EMAIL', text)}
+          style={{ marginTop: 50 }}
           errorText={errorEmail}
           onSubmitEditing={onSignIn}
         />
@@ -118,9 +113,9 @@ function Page(props: Props) {
           label='Password'
           placeholder='Please write your password'
           placeholderTextColor='#ADB5BD'
-          text={ password }
-          onTextChanged={ (text: string) => onTextChanged('PASSWORD', text) }
-          style={ { marginTop: 36 } }
+          text={password}
+          onTextChanged={(text: string) => onTextChanged('PASSWORD', text)}
+          style={{ marginTop: 36 }}
           onSubmitEditing={onSignIn}
         />
         <StyledSignInButton
@@ -139,10 +134,7 @@ function Page(props: Props) {
           }}
         >
           <StyledText testID='NO_ACCOUNT'>Do not have and account? </StyledText>
-          <TouchableOpacity
-            onPress={() => null}
-            style={{ padding: 4 }}
-          >
+          <TouchableOpacity onPress={() => null} style={{ padding: 4 }}>
             <StyledAccentText>Find</StyledAccentText>
           </TouchableOpacity>
         </View>

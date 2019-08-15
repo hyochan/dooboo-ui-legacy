@@ -1,10 +1,10 @@
-import SwitchToggle from './SwitchToggle';
+import Button from './Button';
+import ButtonGroup from './ButtonGroup';
 import CalendarCarousel from './CalendarCarousel';
 import DropdownItem from './DropdownItem';
-import LoadingIndicator from './LoadingIndicator';
-import Button from './Button';
 import EditText from './EditText';
-import ButtonGroup from './ButtonGroup';
+import LoadingIndicator from './LoadingIndicator';
+import SwitchToggle from './SwitchToggle';
 
 export {
   SwitchToggle,

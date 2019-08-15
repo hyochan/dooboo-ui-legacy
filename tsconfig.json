@@ -1,5 +1,6 @@
 {
   "compilerOptions": {
+    "outDir": "./dist",
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
     "experimentalDecorators": true,
@@ -18,18 +19,9 @@
     "target": "es2017",
     "baseUrl": "src"
   },
-  "include": [
-    "src/**/*.ts",
-    "src/**/*.tsx"
-  ],
-  "exclude": [
-    "node_modules",
-    "**/*.test.tsx",
-    "**/*.spec.ts"
-  ],
-  "types": [
-    "typePatches"
-  ],
+  "include": ["src/**/*.ts", "src/**/*.tsx"],
+  "exclude": ["node_modules", "**/*.test.tsx", "**/*.spec.ts"],
+  "types": ["typePatches"],
   "jest": {
     "globals": {
       "ts-jest": {

@@ -1,18 +1,15 @@
-import React, { Component, useState } from 'react';
 import {
-  TouchableOpacity,
-  Image,
-  Text,
-  View,
-  StyleSheet,
-  InteractionManager,
-  Platform,
-  Dimensions,
   Animated,
-  ViewPropTypes,
+  Image,
   ImageSourcePropType,
+  InteractionManager,
+  LayoutChangeEvent,
+  StyleSheet,
+  TouchableOpacity,
+  View,
+  ViewStyle,
 } from 'react-native';
-import PropTypes from 'prop-types';
+import React, { useState } from 'react';
 
 const styles = StyleSheet.create({
   container: {
@@ -61,11 +58,27 @@ const styles = StyleSheet.create({
   },
 });
 
-function DropdownItem(props) {
-  const [animatedValue, setAnimatedValue] = useState(null);
-  const [isMounted, setMounted] = useState(false);
-  const [isContentVisible, setContentVisible] =
-    useState(!!props.contentVisible);
+interface Props {
+  contentVisible?: boolean;
+  backgroundColor?: string;
+  titleBackground?: string;
+  contentBackground?: string;
+  underlineColor?: string;
+  visibleImage?: ImageSourcePropType | any;
+  invisibleImage?: ImageSourcePropType | any;
+  header: React.ReactElement;
+  style?: ViewStyle;
+  children: React.ReactElement;
+}
+
+function DropdownItem(props: Props) {
+  const [animatedValue, setAnimatedValue] = useState<Animated.Value | null>(
+    null
+  );
+  const [isMounted, setMounted] = useState<boolean>(false);
+  const [isContentVisible, setContentVisible] = useState<boolean>(
+    !!props.contentVisible
+  );
   const [headerHeight, setHeaderHeight] = useState(0);
   const [contentHeight, setContentHeight] = useState(0);
 
@@ -79,16 +92,15 @@ function DropdownItem(props) {
 
     setContentVisible(!isContentVisible);
 
-    animatedValue.setValue(initialValue);
-    Animated.spring(
-      animatedValue,
-      {
+    if (animatedValue) {
+      animatedValue.setValue(initialValue);
+      Animated.spring(animatedValue, {
         toValue: finalValue,
-      },
-    ).start();
+      }).start();
+    }
   };
 
-  const onAnimLayout = (evt) => {
+  const onAnimLayout = (evt: LayoutChangeEvent) => {
     const headerHeight = evt.nativeEvent.layout.height;
     if (!isMounted && !props.contentVisible) {
       setAnimatedValue(new Animated.Value(headerHeight));
@@ -97,16 +109,14 @@ function DropdownItem(props) {
       return;
     } else if (!isMounted) {
       InteractionManager.runAfterInteractions(() => {
-        setAnimatedValue(new Animated.Value(
-          headerHeight + contentHeight,
-        ));
+        setAnimatedValue(new Animated.Value(headerHeight + contentHeight));
       });
     }
     setMounted(true);
     setHeaderHeight(headerHeight);
   };
 
-  const onLayout = (evt) => {
+  const onLayout = (evt: LayoutChangeEvent) => {
     const contentHeight = evt.nativeEvent.layout.height;
     setContentHeight(contentHeight);
   };
@@ -116,40 +126,29 @@ function DropdownItem(props) {
   };
 
   return (
-    <Animated.View style={[
-      styles.container,
-      {
-        height: animatedValue,
-        backgroundColor: props.backgroundColor,
-      },
-      props.style,
-    ]}>
-      <TouchableOpacity
-        activeOpacity={0.5}
-        onPress={onPress}
-      >
-        <View
-          onLayout={ onAnimLayout }
-        >
-          { props.header }
-          <Image source={
-            isContentVisible
-              ? props.visibleImage
-              : props.invisibleImage
-          } style={styles.icons}/>
+    <Animated.View
+      style={[
+        styles.container,
+        {
+          height: animatedValue,
+          backgroundColor: props.backgroundColor,
+        },
+        props.style,
+      ]}
+    >
+      <TouchableOpacity activeOpacity={0.5} onPress={onPress}>
+        <View onLayout={onAnimLayout}>
+          {props.header}
+          <Image
+            source={
+              isContentVisible ? props.visibleImage : props.invisibleImage
+            }
+            style={styles.icons}
+          />
         </View>
       </TouchableOpacity>
-      <View
-        style={styles.content}
-        onLayout={onLayout}
-      >
-        <View
-          style={[
-            styles.contentChild,
-          ]}
-        >
-          { props.children }
-        </View>
+      <View style={styles.content} onLayout={onLayout}>
+        <View style={[styles.contentChild]}>{props.children}</View>
       </View>
     </Animated.View>
   );
@@ -163,19 +162,6 @@ DropdownItem.defaultProps = {
   underlineColor: '#d3d3d3',
   visibleImage: false,
   invisibleImage: false,
-};
-
-DropdownItem.propTypes = {
-  contentVisible: PropTypes.bool,
-  backgroundColor: PropTypes.string,
-  titleBackground: PropTypes.string,
-  contentBackground: PropTypes.string,
-  underlineColor: PropTypes.string,
-  visibleImage: PropTypes.any,
-  invisibleImage: PropTypes.any,
-  header: PropTypes.element.isRequired,
-  style: ViewPropTypes.style,
-  children: PropTypes.element,
 };
 
 export default DropdownItem;

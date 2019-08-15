@@ -1,13 +1,12 @@
 import 'react-native';
-import * as React from 'react';
-import ButtonGroup from '../ButtonGroup';
 
+import * as React from 'react';
+
+import { RenderResult, render } from '@testing-library/react-native';
+
+import ButtonGroup from '../ButtonGroup';
 // Note: test renderer must be required after react-native.
 import renderer from 'react-test-renderer';
-import {
-  render,
-  RenderResult,
-} from '@testing-library/react-native';
 
 let props: any;
 let component: React.ReactElement;
@@ -22,15 +21,14 @@ const createTestProps = (obj: object) => ({
 
 describe('[ButtonGroup] render', () => {
   beforeEach(() => {
-    props = createTestProps({ });
-    component = (
-      <ButtonGroup {...props} />
-    );
+    props = createTestProps({});
+    component = <ButtonGroup {...props} />;
   });
 
   it('renders without crashing', () => {
-    const rendered: renderer.ReactTestRendererJSON =
-      renderer.create(component).toJSON();
+    const rendered: renderer.ReactTestRendererJSON = renderer
+      .create(component)
+      .toJSON();
     expect(rendered).toMatchSnapshot();
     expect(rendered).toBeTruthy();
   });

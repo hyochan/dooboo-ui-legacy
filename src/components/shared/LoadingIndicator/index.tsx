@@ -1,11 +1,6 @@
-import React, { Component } from 'react';
-import {
-  ActivityIndicator,
-  StyleSheet,
-  View,
-  ViewPropTypes,
-} from 'react-native';
-import PropTypes from 'prop-types';
+import { ActivityIndicator, StyleSheet, View, ViewStyle } from 'react-native';
+
+import React from 'react';
 
 const styles = StyleSheet.create({
   container: {
@@ -21,12 +16,16 @@ const styles = StyleSheet.create({
   },
 });
 
-function LoadingIndicator(props) {
+interface Props {
+  containerStyle?: ViewStyle;
+  style?: ViewStyle;
+  color?: string;
+  size?: number | 'small' | 'large';
+}
+
+function LoadingIndicator(props: Props) {
   return (
-    <View style={[
-      styles.container,
-      props.containerStyle,
-    ]}>
+    <View style={[styles.container, props.containerStyle]}>
       <ActivityIndicator
         style={props.style}
         size={props.size}
@@ -39,16 +38,6 @@ function LoadingIndicator(props) {
 LoadingIndicator.defaultProps = {
   size: 'large',
   color: '#969696',
-};
-
-LoadingIndicator.propTypes = {
-  containerStyle: ViewPropTypes.style,
-  style: ViewPropTypes.style,
-  color: PropTypes.string,
-  size: PropTypes.oneOfType([
-    PropTypes.number,
-    PropTypes.oneOf(['small', 'large']),
-  ]),
 };
 
 export default LoadingIndicator;

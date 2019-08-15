@@ -1,14 +1,12 @@
-import * as React from 'react';
 import 'react-native';
-import renderer from 'react-test-renderer';
+
+import * as React from 'react';
+
 import Calendar from '../CalendarCarousel';
+import renderer from 'react-test-renderer';
 
 const component = (props?: any) => {
-  return (
-    <Calendar
-      {...props}
-    />
-  );
+  return <Calendar {...props} />;
 };
 
 describe('[Calendar]', () => {

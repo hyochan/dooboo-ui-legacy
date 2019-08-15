@@ -1,11 +1,12 @@
-import { createSwitchNavigator, createAppContainer } from 'react-navigation';
-import SwitchToggleSample from '../screen/SwitchToggleSample';
-import DropdownItemSample from '../screen/DropdownItemSample';
-import CalendarSample from '../screen/CalendarCarouselSample';
-import LoadingIndicatorSample from '../screen/LoadingIndicatorSample';
-import ButtonSample from '../screen/ButtonSample';
-import EditTextSample from '../screen/EditTextSample';
+import { createAppContainer, createSwitchNavigator } from 'react-navigation';
+
 import ButtonGroupSample from '../screen/ButtonGroupSample';
+import ButtonSample from '../screen/ButtonSample';
+import CalendarSample from '../screen/CalendarCarouselSample';
+import DropdownItemSample from '../screen/DropdownItemSample';
+import EditTextSample from '../screen/EditTextSample';
+import LoadingIndicatorSample from '../screen/LoadingIndicatorSample';
+import SwitchToggleSample from '../screen/SwitchToggleSample';
 
 const SwitchNavigator = createSwitchNavigator(
   {
@@ -18,8 +19,8 @@ const SwitchNavigator = createSwitchNavigator(
     ButtonGroupSample,
   },
   {
-    initialRouteName: 'ButtonGroupSample',
-  },
+    initialRouteName: 'EditTextSample',
+  }
 );
 
 export default createAppContainer(SwitchNavigator);
