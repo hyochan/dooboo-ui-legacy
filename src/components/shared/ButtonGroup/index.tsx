@@ -1,17 +1,25 @@
 import React, { useState } from 'react';
 import {
-  View,
   Text,
-  TouchableOpacity,
-  ViewStyle,
   TextStyle,
-  ViewPropTypes,
+  TouchableOpacity,
+  View,
+  ViewStyle,
 } from 'react-native';
-import PropTypes from 'prop-types';
 
-import styled from 'styled-components/native';
+interface Props {
+  testID?: string;
+  containerStyle?: ViewStyle;
+  style?: ViewStyle;
+  viewStyle?: ViewStyle;
+  selectedViewStyle?: ViewStyle;
+  textStyle?: TextStyle;
+  selectedTextStyle?: TextStyle;
+  data: string[];
+  onPress?: (i: number) => void;
+}
 
-function Shared(props) {
+function Shared(props: Props) {
   const [selectedOption, setSelectedOption] = useState(0);
 
   return (
@@ -22,50 +30,47 @@ function Shared(props) {
         ...props.style,
       }}
     >
-      {
-        props.data.map((text, i) => {
-          return <TouchableOpacity
+      {props.data.map((text, i) => {
+        return (
+          <TouchableOpacity
             key={i}
             testID={`CHILD_${i}`}
             style={{ flex: 1 }}
             onPress={() => {
               setSelectedOption(i);
-              props.onPress(i);
+              if (props.onPress) {
+                props.onPress(i);
+              }
             }}
           >
-            <View style={[
-              selectedOption === i
-                ? props.selectedViewStyle
-                : props.viewStyle,
-              i !== props.data.length - 1
-                ? {
-                  borderRightWidth: 1,
-                } : null,
-            ]}>
-              <Text style={
+            <View
+              style={[
                 selectedOption === i
-                  ? props.selectedTextStyle
-                  : props.textStyle
-              }>{text}</Text>
+                  ? props.selectedViewStyle
+                  : props.viewStyle,
+                i !== props.data.length - 1
+                  ? {
+                      borderRightWidth: 1,
+                    }
+                  : null,
+              ]}
+            >
+              <Text
+                style={
+                  selectedOption === i
+                    ? props.selectedTextStyle
+                    : props.textStyle
+                }
+              >
+                {text}
+              </Text>
             </View>
-          </TouchableOpacity>;
-        })
-      }
+          </TouchableOpacity>
+        );
+      })}
     </View>
   );
 }
-
-Shared.propTypes = {
-  testID: PropTypes.string,
-  containerStyle: ViewPropTypes.style,
-  style: ViewPropTypes.style,
-  viewStyle: ViewPropTypes.style,
-  selectedViewStyle: ViewPropTypes.style,
-  textStyle: Text.propTypes.style,
-  selectedTextStyle: Text.propTypes.style,
-  data: PropTypes.arrayOf(PropTypes.string),
-  onPress: (i) => {},
-};
 
 Shared.defaultProps = {
   containerStyle: {

@@ -1,25 +1,45 @@
-import React, {
-  Component,
-  useState,
-  useEffect,
-  useRef,
-} from 'react';
-
 import {
   Animated,
   StyleSheet,
   Text,
+  TextStyle,
   TouchableOpacity,
-  ViewPropTypes,
+  ViewStyle,
 } from 'react-native';
+import React, { useEffect, useRef, useState } from 'react';
 
-import PropTypes from 'prop-types';
+interface Props {
+  switchOn: boolean;
+  onPress: () => void;
+  containerStyle?: ViewStyle;
+  circleStyle?: ViewStyle;
+  backgroundColorOn?: string;
+  backgroundColorOff?: string;
+  circleColorOff?: string;
+  circleColorOn?: string;
+  duration?: number;
+  type?: number;
+  buttonText?: string;
+  backTextRight?: string;
+  backTextLeft?: string;
+  buttonTextStyle?: TextStyle;
+  textRightStyle?: TextStyle;
+  textLeftStyle?: TextStyle;
+  buttonStyle?: ViewStyle;
+  buttonContainerStyle?: ViewStyle;
+  rightContainerStyle?: ViewStyle;
+  leftContainerStyle?: ViewStyle;
+}
 
-function SwitchToggle(props) {
+function SwitchToggle(props: Props) {
   const getStart = () => {
     return props.type === undefined
-      ? 0 : props.type === 0
-        ? 0 : props.containerStyle.padding * 2;
+      ? 0
+      : props.type === 0
+      ? 0
+      : props.containerStyle && props.containerStyle.padding
+      ? (props.containerStyle.padding as number) * 2
+      : {};
   };
 
   const runAnimation = () => {
@@ -31,15 +51,19 @@ function SwitchToggle(props) {
     Animated.timing(animXValue, animValue).start();
   };
 
-  const [endPos, setEndPos] = useState(props.containerStyle.width -
-    (props.circleStyle.width + props.containerStyle.padding * 2));
-  const [circlePosXEnd, setCirclePosXEnd] = useState(endPos);
+  const endPos =
+    props.containerStyle && props.circleStyle
+      ? (props.containerStyle.width as number) -
+        ((props.circleStyle.width as number) +
+          (props.containerStyle.padding as number) * 2)
+      : 0;
+  const circlePosXEnd = endPos;
   const [animXValue, setAnimXValue] = useState(
     new Animated.Value(props.switchOn ? 1 : 0),
   );
   const [circlePosXStart, setCirclePosXStart] = useState(getStart());
 
-  const prevSwitchOnRef = useRef();
+  const prevSwitchOnRef = useRef<boolean>();
   useEffect(() => {
     prevSwitchOnRef.current = props.switchOn;
     if (prevSwitchOn !== props.switchOn) {
@@ -65,10 +89,7 @@ function SwitchToggle(props) {
   };
 
   return (
-    <TouchableOpacity
-      onPress={props.onPress}
-      activeOpacity={0.5}
-    >
+    <TouchableOpacity onPress={props.onPress} activeOpacity={0.5}>
       <Animated.View
         style={[
           styles.container,
@@ -76,19 +97,25 @@ function SwitchToggle(props) {
           {
             backgroundColor: animXValue.interpolate({
               inputRange: [0, 1],
-              outputRange: [props.backgroundColorOff, props.backgroundColorOn],
+              outputRange: [
+                props.backgroundColorOff as string | number,
+                props.backgroundColorOn as string | number,
+              ] as string[] | number[],
             }),
           },
         ]}
       >
-        { generateLeftText() }
+        {generateLeftText()}
         <Animated.View
           style={[
             props.circleStyle,
             {
               backgroundColor: animXValue.interpolate({
                 inputRange: [0, 1],
-                outputRange: [props.circleColorOff, props.circleColorOn],
+                outputRange: [
+                  props.circleColorOff as string | number,
+                  props.circleColorOn as string | number,
+                ] as string[] | number[],
               }),
             },
             {
@@ -97,20 +124,21 @@ function SwitchToggle(props) {
                   translateX: animXValue.interpolate({
                     inputRange: [0, 1],
                     outputRange: [
-                      circlePosXStart,
-                      circlePosXEnd,
-                    ],
+                      circlePosXStart as string | number,
+                      circlePosXEnd as string | number,
+                    ] as string[] | number[],
                   }),
                 },
               ],
             },
             props.buttonStyle,
-          ]}>
+          ]}
+        >
           <Animated.View style={props.buttonContainerStyle}>
             <Text style={props.buttonTextStyle}>{props.buttonText}</Text>
           </Animated.View>
         </Animated.View>
-        { generateRightText() }
+        {generateRightText()}
       </Animated.View>
     </TouchableOpacity>
   );
@@ -144,32 +172,6 @@ SwitchToggle.defaultProps = {
   circleColorOff: 'white',
   circleColorOn: 'rgb(102,134,205)',
   duration: 300,
-};
-
-SwitchToggle.propTypes = {
-  switchOn: PropTypes.bool,
-  onPress: PropTypes.func,
-  containerStyle: ViewPropTypes.style,
-  circleStyle: ViewPropTypes.style,
-  backgroundColorOff: PropTypes.string,
-  backgroundColorOn: PropTypes.string,
-  circleColorOff: PropTypes.string,
-  circleColorOn: PropTypes.string,
-  duration: PropTypes.number,
-  type: PropTypes.number,
-
-  buttonText: PropTypes.string,
-  backTextRight: PropTypes.string,
-  backTextLeft: PropTypes.string,
-
-  buttonTextStyle: Text.propTypes.style,
-  textRightStyle: Text.propTypes.style,
-  textLeftStyle: Text.propTypes.style,
-
-  buttonStyle: ViewPropTypes.style,
-  buttonContainerStyle: ViewPropTypes.style,
-  rightContainerStyle: ViewPropTypes.style,
-  leftContainerStyle: ViewPropTypes.style,
 };
 
 export default SwitchToggle;

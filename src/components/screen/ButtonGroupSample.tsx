@@ -1,10 +1,9 @@
 import React, { useState } from 'react';
-import {
-  View, Text,
-} from 'react-native';
+import { Text, View } from 'react-native';
+
+import ButtonGroup from '../shared/ButtonGroup';
 import { NavigationScreenProp } from 'react-navigation';
 import styled from 'styled-components/native';
-import ButtonGroup from '../shared/ButtonGroup';
 
 const Container = styled.SafeAreaView`
   flex: 1;
@@ -21,10 +20,7 @@ interface Props {
 }
 
 function Page(props: Props) {
-  const data = [
-    'Option 1', 'Option 2',
-    'Option 3', 'Option 4',
-  ];
+  const data = ['Option 1', 'Option 2', 'Option 3', 'Option 4'];
 
   const [option, setOption] = useState('Option 1');
 
@@ -48,14 +44,20 @@ function Page(props: Props) {
         onPress={(index: number) => selectOption(index)}
         data={data}
       />
-      <View style={{
-        flex: 1,
-        justifyContent: 'center',
-        alignItems: 'center',
-      }}>
-        <Text style={{
-          fontSize: 32,
-        }}>{option}</Text>
+      <View
+        style={{
+          flex: 1,
+          justifyContent: 'center',
+          alignItems: 'center',
+        }}
+      >
+        <Text
+          style={{
+            fontSize: 32,
+          }}
+        >
+          {option}
+        </Text>
       </View>
     </Container>
   );

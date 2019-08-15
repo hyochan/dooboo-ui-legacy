@@ -1,8 +1,9 @@
-import React, { useState } from 'react';
-import { NavigationScreenProp } from 'react-navigation';
-import Button from '../shared/Button';
-import styled from 'styled-components/native';
 import { IC_FACEBOOK, IC_GOOGLE } from '../../utils/Icons';
+import React, { useState } from 'react';
+
+import Button from '../shared/Button';
+import { NavigationScreenProp } from 'react-navigation';
+import styled from 'styled-components/native';
 
 const Container = styled.View`
   background-color: transparent;

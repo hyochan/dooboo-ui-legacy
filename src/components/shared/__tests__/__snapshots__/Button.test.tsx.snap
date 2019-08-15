@@ -36,14 +36,7 @@ exports[`[Button] should render without crashing 1`] = `
       ]
     }
   >
-    <Text
-      style={
-        Object {
-          "color": "#069ccd",
-          "fontSize": 14,
-        }
-      }
-    />
+    <Text />
   </View>
 </View>
 `;
