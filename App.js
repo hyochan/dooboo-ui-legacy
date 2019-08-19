@@ -1,5 +1,8 @@
 import { AppRegistry, YellowBox } from 'react-native';
+
 import App from './src/App';
 
-export default App;
+// import StorybookStart from './storybook';
 
+export default App;
+// export default StorybookStart;
