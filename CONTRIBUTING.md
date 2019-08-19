@@ -30,6 +30,9 @@
    * `android`
      - yarn run `android`
        > Note that you should open your emulator beforehand before running above command since the script won't automatically open emulator unlike `ios`.
+       
+> ‼️ if you have error `We ran "xcodebuild" command but it exited with error code 65` while running project for the first time, you might have to follow this [guide](https://github.com/facebook/react-native/issues/24450#issuecomment-516760157) of installing `cocoapads`
+
 5. Configure linting in [vscode](https://code.visualstudio.com) correctly.
    * Example vscode [setting.json](https://gist.github.com/hyochan/815e9040593180c4725d7694d863e5a1)
 
