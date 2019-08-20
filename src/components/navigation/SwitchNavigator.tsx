@@ -19,8 +19,8 @@ const SwitchNavigator = createSwitchNavigator(
     ButtonGroupSample,
   },
   {
-    initialRouteName: 'EditTextSample',
-  }
+    initialRouteName: 'ButtonGroupSample',
+  },
 );
 
 export default createAppContainer(SwitchNavigator);

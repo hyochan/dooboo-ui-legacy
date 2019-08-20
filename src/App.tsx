@@ -1,12 +1,11 @@
 import React from 'react';
-import StorybookStart from '../storybook';
 import SwitchNavigator from './components/navigation/SwitchNavigator';
 
-export default StorybookStart;
+// import StorybookStart from '../storybook';
+// export default StorybookStart;
 
+const App = () => {
+  return <SwitchNavigator />;
+};
 
-// const App = () => {
-//   return <SwitchNavigator />;
-// };
-
-// export default App;
+export default App;
