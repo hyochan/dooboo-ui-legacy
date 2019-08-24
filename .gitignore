@@ -61,3 +61,6 @@ buck-out/
 .jest/
 coverage/
 lib/
+
+# Extensions
+.vscode
