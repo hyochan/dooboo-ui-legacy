@@ -4,6 +4,7 @@ import {
   ImageSourcePropType,
   InteractionManager,
   LayoutChangeEvent,
+  StyleProp,
   StyleSheet,
   TouchableOpacity,
   View,
@@ -67,7 +68,7 @@ interface Props {
   visibleImage?: ImageSourcePropType | any;
   invisibleImage?: ImageSourcePropType | any;
   header: React.ReactElement;
-  style?: ViewStyle;
+  style?: StyleProp<ViewStyle>;
   children: React.ReactElement;
 }
 

@@ -1,5 +1,6 @@
 import {
   Animated,
+  StyleProp,
   StyleSheet,
   Text,
   TextStyle,
@@ -22,13 +23,13 @@ interface Props {
   buttonText?: string;
   backTextRight?: string;
   backTextLeft?: string;
-  buttonTextStyle?: TextStyle;
-  textRightStyle?: TextStyle;
-  textLeftStyle?: TextStyle;
-  buttonStyle?: ViewStyle;
-  buttonContainerStyle?: ViewStyle;
-  rightContainerStyle?: ViewStyle;
-  leftContainerStyle?: ViewStyle;
+  buttonTextStyle?: StyleProp<TextStyle>;
+  textRightStyle?: StyleProp<TextStyle>;
+  textLeftStyle?: StyleProp<TextStyle>;
+  buttonStyle?: StyleProp<ViewStyle>;
+  buttonContainerStyle?: StyleProp<ViewStyle>;
+  rightContainerStyle?: StyleProp<ViewStyle>;
+  leftContainerStyle?: StyleProp<ViewStyle>;
 }
 
 function SwitchToggle(props: Props) {

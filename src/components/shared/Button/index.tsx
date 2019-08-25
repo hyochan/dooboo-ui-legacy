@@ -3,6 +3,7 @@ import {
   Image,
   ImageSourcePropType,
   ImageStyle,
+  StyleProp,
   StyleSheet,
   Text,
   TextStyle,
@@ -49,11 +50,11 @@ interface Props {
   isLoading?: boolean;
   isDisabled?: boolean;
   onClick?: () => void;
-  style?: ViewStyle;
-  disabledStyle?: ViewStyle;
-  textStyle?: TextStyle;
+  style?: StyleProp<ViewStyle>;
+  disabledStyle?: StyleProp<ViewStyle>;
+  textStyle?: StyleProp<TextStyle>;
   imgLeftSrc?: ImageSourcePropType;
-  imgLeftStyle?: ImageStyle;
+  imgLeftStyle?: StyleProp<ImageStyle>;
   indicatorColor?: string;
   activeOpacity?: number;
   text?: string;
