@@ -6,11 +6,9 @@ import CalendarSample from '../screen/CalendarCarouselSample';
 import DropdownItemSample from '../screen/DropdownItemSample';
 import EditTextSample from '../screen/EditTextSample';
 import LoadingIndicatorSample from '../screen/LoadingIndicatorSample';
-import SwitchToggleSample from '../screen/SwitchToggleSample';
 
 const SwitchNavigator = createSwitchNavigator(
   {
-    SwitchToggleSample,
     DropdownItemSample,
     CalendarSample,
     LoadingIndicatorSample,
