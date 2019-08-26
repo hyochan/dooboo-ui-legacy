@@ -1,4 +1,4 @@
-import { ActivityIndicator, StyleSheet, View, ViewStyle } from 'react-native';
+import { ActivityIndicator, StyleProp, StyleSheet, View, ViewStyle } from 'react-native';
 
 import React from 'react';
 
@@ -17,8 +17,8 @@ const styles = StyleSheet.create({
 });
 
 interface Props {
-  containerStyle?: ViewStyle;
-  style?: ViewStyle;
+  containerStyle?: StyleProp<ViewStyle>;
+  style?: StyleProp<ViewStyle>;
   color?: string;
   size?: number | 'small' | 'large';
 }

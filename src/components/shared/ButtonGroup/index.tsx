@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import {
+  StyleProp,
   Text,
   TextStyle,
   TouchableOpacity,
@@ -9,12 +10,12 @@ import {
 
 interface Props {
   testID?: string;
-  containerStyle?: ViewStyle;
-  style?: ViewStyle;
-  viewStyle?: ViewStyle;
-  selectedViewStyle?: ViewStyle;
-  textStyle?: TextStyle;
-  selectedTextStyle?: TextStyle;
+  containerStyle?: StyleProp<ViewStyle>;
+  style?: StyleProp<ViewStyle>;
+  viewStyle?: StyleProp<ViewStyle>;
+  selectedViewStyle?: StyleProp<ViewStyle>;
+  textStyle?: StyleProp<TextStyle>;
+  selectedTextStyle?: StyleProp<TextStyle>;
   data: string[];
   onPress?: (i: number) => void;
 }
@@ -25,10 +26,7 @@ function Shared(props: Props) {
   return (
     <View
       testID={props.testID}
-      style={{
-        ...props.containerStyle,
-        ...props.style,
-      }}
+      style={[props.containerStyle, props.style]}
     >
       {props.data.map((text, i) => {
         return (

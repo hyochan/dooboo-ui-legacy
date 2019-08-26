@@ -1,6 +1,7 @@
 import {
   NativeSyntheticEvent,
   Platform,
+  StyleProp,
   StyleSheet,
   Text,
   TextInput,
@@ -53,9 +54,9 @@ interface Props {
   parentTestID?: string;
   testID?: string;
   errorTestID?: string;
-  style?: ViewStyle;
+  style?: StyleProp<ViewStyle>;
   label?: string;
-  textStyle?: TextStyle;
+  textStyle?: StyleProp<TextStyle>;
   errorText?: string;
   text?: string;
   placeholder?: string;
