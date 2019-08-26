@@ -11,7 +11,7 @@
     "test": "jest",
     "tsc": "tsc",
     "build": "tsc --project tsconfigBuild.json",
-    "lint": "eslint src --ext .ts,.tsx,.js,.jsx",
+    "lint": "eslint src storybook --ext .ts,.tsx,.js,.jsx",
     "codecov": "codecov"
   },
   "postinstall": "dooboolab-welcome postinstall",
@@ -46,6 +46,7 @@
     "@storybook/theming": "^5.1.11",
     "@testing-library/react-native": "^4.0.7",
     "@types/jest": "^24.0.18",
+    "@types/node": "^12.7.2",
     "@types/react": "^16.8.25",
     "@types/react-native": "^0.60.8",
     "@types/react-navigation": "^3.0.8",
