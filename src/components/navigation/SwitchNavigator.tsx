@@ -1,15 +1,15 @@
 import { createAppContainer, createSwitchNavigator } from 'react-navigation';
 
+import AccordionSample from '../screen/AccordionSample';
 import ButtonGroupSample from '../screen/ButtonGroupSample';
 import ButtonSample from '../screen/ButtonSample';
 import CalendarSample from '../screen/CalendarCarouselSample';
-import DropdownItemSample from '../screen/DropdownItemSample';
 import EditTextSample from '../screen/EditTextSample';
 import LoadingIndicatorSample from '../screen/LoadingIndicatorSample';
 
 const SwitchNavigator = createSwitchNavigator(
   {
-    DropdownItemSample,
+    AccordionSample,
     CalendarSample,
     LoadingIndicatorSample,
     ButtonSample,

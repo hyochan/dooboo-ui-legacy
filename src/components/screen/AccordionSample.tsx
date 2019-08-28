@@ -1,7 +1,7 @@
 import { IC_ARR_DOWN, IC_ARR_UP } from '../../utils/Icons';
 import { ScrollView, Text, View } from 'react-native';
 
-import DropdownItem from '../shared/DropdownItem';
+import Accordion from '../shared/Accordion';
 import { NavigationScreenProp } from 'react-navigation';
 import React from 'react';
 import styled from 'styled-components/native';
@@ -44,7 +44,7 @@ function Page(props: Props) {
       <ScrollView style={{ alignSelf: 'stretch', paddingHorizontal: 20 }}>
         {contents.map((param, i) => {
           return (
-            <DropdownItem
+            <Accordion
               key={i}
               contentVisible={false}
               invisibleImage={IC_ARR_DOWN}
@@ -63,7 +63,7 @@ function Page(props: Props) {
               }
             >
               <Text style={{ fontSize: 20 }}>{param.body}</Text>
-            </DropdownItem>
+            </Accordion>
           );
         })}
       </ScrollView>
