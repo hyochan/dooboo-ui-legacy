@@ -36,7 +36,7 @@ import {
   View
 } from 'react-native';
 import styled from 'styled-components/native'
-import { SwitchToggle } from 'dooboo-native-widgets';
+import { SwitchToggle } from '@dooboo-ui/native';
 
 const Container = styled.View`
   flex: 1;

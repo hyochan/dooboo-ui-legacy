@@ -1,6 +1,6 @@
 {
-  "name": "dooboo-native-widgets",
-  "version": "0.2.8",
+  "name": "@dooboo-ui/native",
+  "version": "0.0.1",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
   "scripts": {
@@ -18,15 +18,15 @@
   "keywords": [
     "react-hook",
     "react-native",
-    "dooboo-native-widgets",
+    "dooboo-ui/native",
     "dooboolab"
   ],
   "author": "dooboolab",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/react-native-seoul/dooboo-native-widgets/issues"
+    "url": "https://github.com/dooboolab/dooboo-ui/native/issues"
   },
-  "homepage": "https://github.com/react-native-seoul/dooboo-native-widgets#readme",
+  "homepage": "https://github.com/dooboolab/dooboo-ui/native#readme",
   "dependencies": {
     "dooboolab-welcome": "^1.1.0"
   },
@@ -82,5 +82,8 @@
   },
   "jest": {
     "preset": "react-native"
+  },
+  "publishConfig": {
+    "access": "public"
   }
 }

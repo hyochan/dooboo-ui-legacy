@@ -1,33 +1,37 @@
 # EditText
+
 > [EditText] component is an enhanced version on pure react-native [TextInput] component.
 
 ![image](https://user-images.githubusercontent.com/27461460/62299053-28e6c680-b4af-11e9-8c59-61b79ad82c4d.png)
 
 ## Props
-|                      | necessary | types        | default                      |
-|----------------------|-----------|--------------|------------------------------|
-| pararentTestId       |           | string       |                              |
-| testID               |           | string       |                              |
-| errorTestID          |           | string       |                              |
-| style                |           | ViewStyle    |                              |
-| label                |           | string       |                              |
-| textStyle            |           | TextStyle    |                              |
-| errorText            |           | string       |                              |
-| text                 |           | string       |                              |
-| placeholder          |           | string       |                              |
-| placeholderTextColor |           | string       |                              |
-| secureTextEntry      |           | boolean      |                              |
-| onSubmitEditing      |           | func         |                              |
-| onTextChanged        |           | (e) => {}    |                              |
+
+|                      | necessary | types     | default |
+| -------------------- | --------- | --------- | ------- |
+| pararentTestId       |           | string    |         |
+| testID               |           | string    |         |
+| errorTestID          |           | string    |         |
+| style                |           | ViewStyle |         |
+| label                |           | string    |         |
+| textStyle            |           | TextStyle |         |
+| errorText            |           | string    |         |
+| text                 |           | string    |         |
+| placeholder          |           | string    |         |
+| placeholderTextColor |           | string    |         |
+| secureTextEntry      |           | boolean   |         |
+| onSubmitEditing      |           | func      |         |
+| onTextChanged        |           | (e) => {} |         |
 
 ## Getting started
 
-* Import
+- Import
+
   ```javascript
-  import { EditText } from 'dooboo-native-widgets';
+  import { EditText } from '@dooboo-ui/native';
   ```
 
-* Usage
+- Usage
+
   ```javascript
   function Page(props: Props) {
     const validateEmail = (email: string) => {
@@ -78,9 +82,9 @@
             label='Email'
             placeholder='Write email address'
             placeholderTextColor='#ADB5BD'
-            text={ email }
-            onTextChanged={ (text: string) => onTextChanged('EMAIL', text) }
-            style={ { marginTop: 50 } }
+            text={email}
+            onTextChanged={(text: string) => onTextChanged('EMAIL', text)}
+            style={{ marginTop: 50 }}
             errorText={errorEmail}
             onSubmitEditing={onSignIn}
           />
@@ -93,9 +97,9 @@
             label='Password'
             placeholder='Please write your password'
             placeholderTextColor='#ADB5BD'
-            text={ password }
-            onTextChanged={ (text: string) => onTextChanged('PASSWORD', text) }
-            style={ { marginTop: 36 } }
+            text={password}
+            onTextChanged={(text: string) => onTextChanged('PASSWORD', text)}
+            style={{ marginTop: 36 }}
             onSubmitEditing={onSignIn}
           />
           <StyledSignInButton
@@ -113,11 +117,10 @@
               alignItems: 'center',
             }}
           >
-            <StyledText testID='NO_ACCOUNT'>Do not have and account? </StyledText>
-            <TouchableOpacity
-              onPress={() => null}
-              style={{ padding: 4 }}
-            >
+            <StyledText testID='NO_ACCOUNT'>
+              Do not have and account?{' '}
+            </StyledText>
+            <TouchableOpacity onPress={() => null} style={{ padding: 4 }}>
               <StyledAccentText>Find</StyledAccentText>
             </TouchableOpacity>
           </View>
@@ -125,4 +128,8 @@
       </StyledScrollView>
     );
   }
+  ```
+
+```
+
 ```

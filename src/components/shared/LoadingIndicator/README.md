@@ -14,7 +14,7 @@
 
 * Import
   ```javascript
-  import { LoadingIndicator } from 'dooboo-native-widgets';
+  import { LoadingIndicator } from '@dooboo-ui/native';
   ```
 
 * Usage

@@ -23,7 +23,7 @@
 
 * Import
   ```javascript
-  import { Button } from 'dooboo-native-widgets';
+  import { Button } from '@dooboo-ui/native';
   ```
 
 * Usage

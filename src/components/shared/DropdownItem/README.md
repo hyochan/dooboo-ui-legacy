@@ -1,27 +1,30 @@
 # DropdownItem
-> Simple drop down item component for react-native. This component supports drop down toggle with animation.<br/>
-<img src="https://user-images.githubusercontent.com/27461460/47951961-a7a7e500-dfab-11e8-9189-86c0eddb6e12.gif"/>
+
+> Simple drop down item component for react-native. This component supports drop down toggle with animation.<br/> > <img src="https://user-images.githubusercontent.com/27461460/47951961-a7a7e500-dfab-11e8-9189-86c0eddb6e12.gif"/>
 
 ## Props
-|    | necessary | types | default
-|----|-----|-----|---------|
-|contentVisible|  | boolean | `false` |
-|header| ✓ | any | `<View/>` |
-|backgroundColor|  | string | `transparent` |
-|titleBackground|  | string | `transparent` |
-|contentBackground|  | string | `transparent` |
-|underlineColor|  | string | `transparent` |
-|visibleImage|  | any | `undefined` |
-|invisibleImage|  | any | `undefined` |
+
+|                   | necessary | types   | default       |
+| ----------------- | --------- | ------- | ------------- |
+| contentVisible    |           | boolean | `false`       |
+| header            | ✓         | any     | `<View/>`     |
+| backgroundColor   |           | string  | `transparent` |
+| titleBackground   |           | string  | `transparent` |
+| contentBackground |           | string  | `transparent` |
+| underlineColor    |           | string  | `transparent` |
+| visibleImage      |           | any     | `undefined`   |
+| invisibleImage    |           | any     | `undefined`   |
 
 ## Getting started
 
-* Import
+- Import
+
   ```javascript
-  import { DropDownItem } from 'dooboo-native-widgets';
+  import { DropDownItem } from '@dooboo-ui/native';
   ```
 
-* Data
+- Data
+
   ```javascript
   state = {
     contents: [
@@ -35,13 +38,14 @@
       },
       {
         title: 'Thrid thing',
-        body: 'What about very long text? What about very long text? What about very long text? What about very long text? What about very long text? What about very long text? What about very long text? What about very long text? What about very long text? What about very long text? What about very long text? What about very long text?',
+        body:
+          'What about very long text? What about very long text? What about very long text? What about very long text? What about very long text? What about very long text? What about very long text? What about very long text? What about very long text? What about very long text? What about very long text? What about very long text?',
       },
     ],
   };
   ```
 
-* Usage
+- Usage
   ```javascript
   <View style={styles.container}>
     <ScrollView style={{ alignSelf: 'stretch' }}>
