@@ -1,6 +1,6 @@
 {
   "name": "@dooboo-ui/native",
-  "version": "0.1.0-rc.3",
+  "version": "0.1.0-rc.4",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
   "scripts": {
@@ -22,7 +22,7 @@
     "dooboolab"
   ],
   "author": "dooboolab",
-  "license": "GPL",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/dooboolab/dooboo-ui-native/issues"
   },
