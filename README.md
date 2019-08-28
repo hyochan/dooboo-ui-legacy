@@ -19,7 +19,7 @@ We currently love [react-hooks](https://code.fb.com/open-source/react-hooks) and
 ## List of widgets
 
 - [SwitchToggle](https://github.com/dooboolab/dooboo-ui-native/tree/master/src/components/shared/SwitchToggle)
-- [DropdownItem](https://github.com/dooboolab/dooboo-ui-native/tree/master/src/components/shared/DropdownItem)
+- [Accordion](https://github.com/dooboolab/dooboo-ui-native/tree/master/src/components/shared/Accordion)
 - [CalendarCarousel](https://github.com/dooboolab/dooboo-ui-native/tree/master/src/components/shared/CalendarCarousel)
 - [LoadingIndicator](https://github.com/dooboolab/dooboo-ui-native/tree/master/src/components/shared/LoadingIndicator)
 - [Button](https://github.com/dooboolab/dooboo-ui-native/tree/master/src/components/shared/Button)
