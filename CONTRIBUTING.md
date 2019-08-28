@@ -11,7 +11,7 @@
 1. Fork our project to yours.
    - Recommended to have `forked` master branch to be updated to upstream.
    - Configure [Syncing a fork](https://help.github.com/articles/configuring-a-remote-for-a-fork/).
-     - `git remote add upstream https://github.com/dooboolab/dooboo-ui/native`
+     - `git remote add upstream https://github.com/dooboolab/dooboo-ui-native`
      - Check it with `git remote -v`
    - Fetch the branches from upstream repository by `git fetch upstream`
    - When you want to give `PR`, make new branch `git checkout -b [feature_name]`
@@ -28,9 +28,11 @@
    - Note that we recommend using yarn because all of our team members do.
    - Also node that `yarn.lock` and `package-lock.json` sometimes make collision. Try to delete one of them.
 4. Run your project
+
    - `ios`
      - yarn run `ios`
    - `android`
+
      - yarn run `android`
 
        > Note that you should open your emulator beforehand before running above command since the script won't automatically open emulator unlike `ios`.

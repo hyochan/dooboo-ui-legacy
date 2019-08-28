@@ -24,9 +24,9 @@
   "author": "dooboolab",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/dooboolab/dooboo-ui/native/issues"
+    "url": "https://github.com/dooboolab/dooboo-ui-native/issues"
   },
-  "homepage": "https://github.com/dooboolab/dooboo-ui/native#readme",
+  "homepage": "https://github.com/dooboolab/dooboo-ui-native#readme",
   "dependencies": {
     "dooboolab-welcome": "^1.1.0"
   },

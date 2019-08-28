@@ -1,4 +1,4 @@
-# @dooboo-ui/native
+# dooboo-ui-native
 
 [![Npm Version](http://img.shields.io/npm/v/@dooboo-ui/native.svg?style=flat-square)](https://npmjs.org/package/@dooboo-ui/native)
 [![Downloads](http://img.shields.io/npm/dm/@dooboo-ui/native.svg?style=flat-square)](https://npmjs.org/package/@dooboo-ui/native)
@@ -18,13 +18,13 @@ We currently love [react-hooks](https://code.fb.com/open-source/react-hooks) and
 
 ## List of widgets
 
-- [SwitchToggle](https://github.com/dooboolab/dooboo-ui/native/tree/master/src/components/shared/SwitchToggle)
-- [DropdownItem](https://github.com/dooboolab/dooboo-ui/native/tree/master/src/components/shared/DropdownItem)
-- [CalendarCarousel](https://github.com/dooboolab/dooboo-ui/native/tree/master/src/components/shared/CalendarCarousel)
-- [LoadingIndicator](https://github.com/dooboolab/dooboo-ui/native/tree/master/src/components/shared/LoadingIndicator)
-- [Button](https://github.com/dooboolab/dooboo-ui/native/tree/master/src/components/shared/Button)
-- [EditText](https://github.com/dooboolab/dooboo-ui/native/tree/master/src/components/shared/EditText)
-- [ButtonGroup](https://github.com/dooboolab/dooboo-ui/native/tree/master/src/components/shared/ButtonGroup)
+- [SwitchToggle](https://github.com/dooboolab/dooboo-ui-native/tree/master/src/components/shared/SwitchToggle)
+- [DropdownItem](https://github.com/dooboolab/dooboo-ui-native/tree/master/src/components/shared/DropdownItem)
+- [CalendarCarousel](https://github.com/dooboolab/dooboo-ui-native/tree/master/src/components/shared/CalendarCarousel)
+- [LoadingIndicator](https://github.com/dooboolab/dooboo-ui-native/tree/master/src/components/shared/LoadingIndicator)
+- [Button](https://github.com/dooboolab/dooboo-ui-native/tree/master/src/components/shared/Button)
+- [EditText](https://github.com/dooboolab/dooboo-ui-native/tree/master/src/components/shared/EditText)
+- [ButtonGroup](https://github.com/dooboolab/dooboo-ui-native/tree/master/src/components/shared/ButtonGroup)
 
 ## Comaptability
 
