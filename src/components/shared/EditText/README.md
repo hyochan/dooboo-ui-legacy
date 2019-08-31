@@ -6,21 +6,21 @@
 
 ## Props
 
-|                      | necessary | types                | default |
-| -------------------- | --------- | -------------------- | ------- |
-| pararentTestId       |           | string               |         |
-| testID               |           | string               |         |
-| errorTestID          |           | string               |         |
-| style                |           | StyleProp<ViewStyle> |         |
-| label                |           | string               |         |
-| textStyle            |           | StyleProp<TextStyle> |         |
-| errorText            |           | string               |         |
-| text                 |           | string               |         |
-| placeholder          |           | string               |         |
-| placeholderTextColor |           | string               |         |
-| secureTextEntry      |           | boolean              |         |
-| onSubmitEditing      |           | func                 |         |
-| onTextChanged        |           | (e) => {}            |         |
+|                      | necessary | types                  | default |
+| -------------------- | --------- | -----------------------| ------- |
+| pararentTestId       |           | string                 |         |
+| testID               |           | string                 |         |
+| errorTestID          |           | string                 |         |
+| style                |           | `StyleProp<ViewStyle>` |         |
+| label                |           | string                 |         |
+| textStyle            |           | `StyleProp<TextStyle>` |         |
+| errorText            |           | string                 |         |
+| text                 |           | string                 |         |
+| placeholder          |           | string                 |         |
+| placeholderTextColor |           | string                 |         |
+| secureTextEntry      |           | boolean                |         |
+| onSubmitEditing      |           | func                   |         |
+| onTextChanged        |           | (e) => {}              |         |
 
 ## Getting started
 

@@ -18,13 +18,13 @@
 | buttonText |  | string | Text on-top of the button |
 | backTextRight |  | string | Text to appear in right side when button toggled to left |
 | backTextLeft |  | string | Text to appear in left side when button toggled to right |
-| buttonTextStyle |  | StyleProp<TextStyle> | Styles for text on the button |
-| textRightStyle |  | StyleProp<TextStyle> | Styles for text in right |
-| textLeftStyle |  | StyleProp<TextStyle> | Styles for text in left |
-| buttonStyle |  | StyleProp<ViewStyle> | Styles for the button |
-| buttonContainerStyle |  | StyleProp<ViewStyle> | Styles for button container |
-| rightContainerStyle |  | StyleProp<ViewStyle> | Styles for right text container |
-| leftContainerStyle |  | StyleProp<ViewStyle> | Styles for left text container |
+| buttonTextStyle |  | `StyleProp<TextStyle>` | Styles for text on the button |
+| textRightStyle |  | `StyleProp<TextStyle>` | Styles for text in right |
+| textLeftStyle |  | `StyleProp<TextStyle>` | Styles for text in left |
+| buttonStyle |  | `StyleProp<ViewStyle>` | Styles for the button |
+| buttonContainerStyle |  | `StyleProp<ViewStyle>` | Styles for button container |
+| rightContainerStyle |  | `StyleProp<ViewStyle>` | Styles for right text container |
+| leftContainerStyle |  | `StyleProp<ViewStyle>` | Styles for left text container |
 
 ## Getting started
 ```javascript
