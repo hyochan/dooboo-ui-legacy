@@ -4,16 +4,19 @@
 
 ## Props
 
-|                   | necessary | types   | default       |
-| ----------------- | --------- | ------- | ------------- |
-| contentVisible    |           | boolean | `false`       |
-| header            | ✓         | any     | `<View/>`     |
-| backgroundColor   |           | string  | `transparent` |
-| titleBackground   |           | string  | `transparent` |
-| contentBackground |           | string  | `transparent` |
-| underlineColor    |           | string  | `transparent` |
-| visibleImage      |           | any     | `undefined`   |
-| invisibleImage    |           | any     | `undefined`   |
+|                   | necessary | types                | default       |
+| ----------------- | --------- | -------------------- | ------------- |
+| contentVisible    |           | boolean              | `false`       |
+| header            | ✓         | any                  | `<View/>`     |
+| backgroundColor   |           | string               | `transparent` |
+| titleBackground   |           | string               | `transparent` |
+| contentBackground |           | string               | `transparent` |
+| underlineColor    |           | string               | `transparent` |
+| visibleImage      |           | any                  | `undefined`   |
+| invisibleImage    |           | any                  | `undefined`   |
+| style             |           | StyleProp<ViewStyle> | `undefined`   |
+| children          | ✓         | ReactElement   | `undefined`   |
+
 
 ## Getting started
 
