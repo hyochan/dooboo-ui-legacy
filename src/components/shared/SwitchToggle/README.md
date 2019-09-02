@@ -5,26 +5,26 @@
 ## Props
 |    | necessary | types | default
 |----|-----|-----|---------|
-|switchOn| ✓ | boolean | false |
-|onPress| ✓ | func | () => {} |
-|containerStyle|  | styles | { width: 72, height: 36, borderRadius: 18 ... } |
-|circleStyle|  | styles | { width: 30, height: 30, borderRadius: 15 ... } |
-|backgroundColorOn|  | string | 'rgb(227,227,227)' |
-|backgroundColorOff|  | string | 'rgb(215,215,215)' |
-|circleColorOn|  | string | 'white' |
-|circleColorOff|  | string | 'rgb(102,134,205)' |
-|duration|  | number | 300 |
-|type|  |number| 0 - Normal switch, 1 - Switch with a text|
-|buttonText| |string|Text on-top of the button|
-|backTextRight| |string|Text to appear in right side when button toggled to left|
-|backTextLeft|  |string|Text to appear in left side when button toggled to right|
-|buttonTextStyle|   |styles|Styles for text on the button|
-|textRightStyle|    |styles|Styles for text in right|
-|textLeftStyle| |styles|Styles for text in left|
-|buttonStyle|   |styles|Styles for the button|
-|buttonContainerStyle|  |styles|Styles for button container|
-|rightContainerStyle|   |styles|Styles for right text container|
-|leftContainerStyle|    |styles|Styles for left text container|
+| switchOn | ✓ | boolean | false |
+| onPress | ✓ | func | () => {} |
+| containerStyle |  | ViewStyle | { width: 72, height: 36, borderRadius: 18 ... } |
+| circleStyle |  | ViewStyle | { width: 30, height: 30, borderRadius: 15 ... } |
+| backgroundColorOn |  | string | 'rgb(227,227,227)' |
+| backgroundColorOff |  | string | 'rgb(215,215,215)' |
+| circleColorOn |  | string | 'white' |
+| circleColorOff |  | string | 'rgb(102,134,205)' |
+| duration |  | number | 300 |
+| type |  | number | 0 - Normal switch, 1 - Switch with a text |
+| buttonText |  | string | Text on-top of the button |
+| backTextRight |  | string | Text to appear in right side when button toggled to left |
+| backTextLeft |  | string | Text to appear in left side when button toggled to right |
+| buttonTextStyle |  | `StyleProp<TextStyle>` | Styles for text on the button |
+| textRightStyle |  | `StyleProp<TextStyle>` | Styles for text in right |
+| textLeftStyle |  | `StyleProp<TextStyle>` | Styles for text in left |
+| buttonStyle |  | `StyleProp<ViewStyle>` | Styles for the button |
+| buttonContainerStyle |  | `StyleProp<ViewStyle>` | Styles for button container |
+| rightContainerStyle |  | `StyleProp<ViewStyle>` | Styles for right text container |
+| leftContainerStyle |  | `StyleProp<ViewStyle>` | Styles for left text container |
 
 ## Getting started
 ```javascript

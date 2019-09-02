@@ -6,17 +6,17 @@
 
 ## Props
 
-|                   | necessary | types               | default                  |
-| ----------------- | --------- | ------------------- | ------------------------ |
-| testID            |           | string              |                          |
-| containerStyle    |           | ViewStyle           |                          |
-| style             |           | ViewStyle           |                          |
-| viewStyle         |           | ViewStyle           |                          |
-| selectedViewStyle |           | ViewStyle           |                          |
-| textStyle         |           | TextStyle           |                          |
-| selectedTextStyle |           | TextStyle           |                          |
-| data              |           | string[]            | ['Option 1', 'Option 2'] |
-| onPress           |           | (i: number) => void |                          |
+|                   | necessary | types                  | default                  |
+| ----------------- | --------- | -----------------------| ------------------------ |
+| testID            |           | string                 |                          |
+| containerStyle    |           | `StyleProp<ViewStyle>` |                          |
+| style             |           | `StyleProp<ViewStyle>` |                          |
+| viewStyle         |           | `StyleProp<ViewStyle>` |                          |
+| selectedViewStyle |           | `StyleProp<ViewStyle>` |                          |
+| textStyle         |           | `StyleProp<TextStyle>` |                          |
+| selectedTextStyle |           | `StyleProp<TextStyle>` |                          |
+| data              |           | string[]               | ['Option 1', 'Option 2'] |
+| onPress           |           | (i: number) => void    |                          |
 
 ## Getting started
 
