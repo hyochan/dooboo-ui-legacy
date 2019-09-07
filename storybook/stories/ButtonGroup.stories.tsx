@@ -1,25 +1,20 @@
 import React, { useState } from 'react';
 import { Text, View } from 'react-native';
 
-import ButtonGroup from '../shared/ButtonGroup';
-import { NavigationScreenProp } from 'react-navigation';
+import ButtonGroup from '../../src/components/shared/ButtonGroup';
+import { ContainerDeco } from '../decorators';
+import { storiesOf } from '@storybook/react-native';
 import styled from 'styled-components/native';
 
-const Container = styled.SafeAreaView`
-  flex: 1;
-  background-color: transparent;
-  flex-direction: column;
-  align-self: stretch;
-  align-items: center;
-  justify-content: center;
-  margin: 0 24px;
-`;
+storiesOf('ButtonGroup', module)
+  .addDecorator(ContainerDeco)
+  .add('default', () => (
+    <>
+      <Default />
+    </>
+  ));
 
-interface Props {
-  navigation?: NavigationScreenProp<any, any>;
-}
-
-function Page(props: Props) {
+const Default = () => {
   const data = ['Option 1', 'Option 2', 'Option 3', 'Option 4'];
 
   const [option, setOption] = useState('Option 1');
@@ -61,6 +56,14 @@ function Page(props: Props) {
       </View>
     </Container>
   );
-}
+};
 
-export default Page;
+const Container = styled.SafeAreaView`
+  flex: 1;
+  background-color: transparent;
+  flex-direction: column;
+  align-self: stretch;
+  align-items: center;
+  justify-content: center;
+  margin: 0 24px;
+`;

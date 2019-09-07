@@ -1,24 +1,22 @@
-import { IC_ARR_DOWN, IC_ARR_UP } from '../../utils/Icons';
+import { IC_ARR_DOWN, IC_ARR_UP } from '../../src/utils/Icons';
+import React, { useState } from 'react';
 import { ScrollView, Text, View } from 'react-native';
 
-import Accordion from '../shared/Accordion';
-import { NavigationScreenProp } from 'react-navigation';
-import React from 'react';
+import Accordion from '../../src/components/shared/Accordion';
+import { ContainerDeco } from '../decorators';
+import SwitchToggle from '../../src/components/shared/SwitchToggle';
+import { storiesOf } from '@storybook/react-native';
 import styled from 'styled-components/native';
 
-const Container = styled.SafeAreaView`
-  flex: 1;
-  background-color: transparent;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-`;
+storiesOf('Accordian', module)
+  .addDecorator(ContainerDeco)
+  .add('default', () => (
+    <>
+      <Default />
+    </>
+  ));
 
-interface Props {
-  navigation?: NavigationScreenProp<any, any>;
-}
-
-function Page(props: Props) {
+const Default = () => {
   const contents = [
     {
       title: 'Title 1',
@@ -69,6 +67,12 @@ function Page(props: Props) {
       </ScrollView>
     </Container>
   );
-}
+};
 
-export default Page;
+const Container = styled.SafeAreaView`
+  flex: 1;
+  background-color: transparent;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+`;
