@@ -33,13 +33,21 @@
    - Also node that `yarn.lock` and `package-lock.json` sometimes make collision. Try to delete one of them.
 4. Run your project
 
-   - `ios`
-     - yarn run `ios`
-   - `android`
-
-     - yarn run `android`
-
-       > Note that you should open your emulator beforehand before running above command since the script won't automatically open emulator unlike `ios`.
+   1. **Run metro bundler**
+      ```
+      yarn storybook
+      ```
+   2. **run storybook web server**
+      ```
+      yarn storybook
+      ```
+   3. **run ios or android**
+      ```
+      yarn ios
+      // or
+      yarn android
+      ```
+      > Note that when you are running `android` you should open your emulator before running above command since the script won't automatically open emulator unlike `ios`
 
    > ‼️ if you have error `We ran "xcodebuild" command but it exited with error code 65` while running project for the first time, you might have to follow this [guide](https://github.com/facebook/react-native/issues/24450#issuecomment-516760157) of installing `cocoapads`
 
