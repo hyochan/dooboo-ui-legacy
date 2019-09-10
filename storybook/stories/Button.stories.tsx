@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 
 import Button from '../../src/components/shared/Button';
 import { ContainerDeco } from '../decorators';
+import { action } from '@storybook/addon-actions';
 import { storiesOf } from '@storybook/react-native';
 import styled from 'styled-components/native';
 
@@ -35,7 +36,7 @@ function Default() {
         testID='btn'
         isLoading={false}
         text='😀 😎 👍 💯'
-        onClick={() => {}}
+        onClick={action('Clicked')}
       />
       <Button
         style={{
@@ -43,7 +44,6 @@ function Default() {
         }}
         isDisabled={true}
         text='This is disabled!!'
-        onClick={() => {}}
       />
       <Button
         testID='btnGoogle'
