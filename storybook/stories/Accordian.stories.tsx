@@ -4,17 +4,14 @@ import { ScrollView, Text, View } from 'react-native';
 
 import Accordion from '../../src/components/shared/Accordion';
 import { ContainerDeco } from '../decorators';
-import SwitchToggle from '../../src/components/shared/SwitchToggle';
 import { storiesOf } from '@storybook/react-native';
 import styled from 'styled-components/native';
 
 storiesOf('Accordian', module)
   .addDecorator(ContainerDeco)
-  .add('default', () => (
-    <>
-      <Default />
-    </>
-  ));
+  .add('default', () => <Default />, {
+    notes: 'Simple explanation',
+  });
 
 const Default = () => {
   const contents = [
