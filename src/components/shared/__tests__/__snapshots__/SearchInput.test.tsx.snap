@@ -1,0 +1,71 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`[SearchInput] render component and snapshot matches 1`] = `
+<View
+  style={
+    Array [
+      Object {
+        "backgroundColor": "#f3f5f7",
+        "borderRadius": 8,
+        "flexDirection": "row",
+        "height": 42,
+        "marginLeft": 20,
+        "marginRight": 20,
+      },
+    ]
+  }
+>
+  <View
+    style={
+      Array [
+        Object {
+          "alignItems": "center",
+          "height": 24,
+          "justifyContent": "center",
+          "marginBottom": 9,
+          "marginLeft": 8,
+          "marginRight": 2,
+          "marginTop": 9,
+          "width": 24,
+        },
+      ]
+    }
+  >
+    <Image
+      source={
+        Object {
+          "testUri": "../../../icons/magnifier.png",
+        }
+      }
+      style={
+        Array [
+          Object {
+            "height": 16,
+            "marginBottom": 2,
+            "width": 16,
+          },
+        ]
+      }
+    />
+  </View>
+  <TextInput
+    allowFontScaling={true}
+    onChangeText={[Function]}
+    placeholder="검색어를 입력해주세요."
+    placeholderTextColor="#cdd2d7"
+    rejectResponderTermination={true}
+    style={
+      Array [
+        Object {
+          "alignSelf": "center",
+          "flexGrow": 1,
+          "fontSize": 16,
+        },
+      ]
+    }
+    testID="SEARCH_INPUT"
+    underlineColorAndroid="transparent"
+    value=""
+  />
+</View>
+`;

@@ -4,3 +4,4 @@ export const IC_DELETE = require('../../icons/ic_delete.png');
 export const IC_EDIT = require('../../icons/ic_edit.png');
 export const IC_FACEBOOK = require('../../icons/facebook.png');
 export const IC_GOOGLE = require('../../icons/google.png');
+export const IC_MAGNIFIER = require('../../icons/magnifier.png');
