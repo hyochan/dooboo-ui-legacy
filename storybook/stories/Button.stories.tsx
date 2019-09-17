@@ -6,6 +6,7 @@ import { ContainerDeco } from '../decorators';
 import { action } from '@storybook/addon-actions';
 import { storiesOf } from '@storybook/react-native';
 import styled from 'styled-components/native';
+import { text } from '@storybook/addon-knobs';
 
 storiesOf('Button', module)
   .addDecorator(ContainerDeco)
@@ -33,7 +34,6 @@ function Default() {
   return (
     <Container>
       <Button
-        testID='btn'
         isLoading={false}
         text='😀 😎 👍 💯'
         onClick={action('Clicked')}
@@ -43,10 +43,10 @@ function Default() {
           marginVertical: 40,
         }}
         isDisabled={true}
-        text='This is disabled!!'
+        // text='This is disabled!!'
+        text={text('button text', 'this is disabled')}
       />
       <Button
-        testID='btnGoogle'
         imgLeftSrc={IC_GOOGLE}
         isLoading={googleLoading}
         indicatorColor='#023059'

@@ -34,7 +34,6 @@ const Default = () => {
   return (
     <Container>
       <ButtonGroup
-        testID='BTN_GROUP'
         style={{ marginTop: 40 }}
         onPress={(index: number) => selectOption(index)}
         data={data}

@@ -1,5 +1,5 @@
 import React, { useContext, useState } from 'react';
-import { boolean, number, text, withKnobs } from '@storybook/addon-knobs';
+import { boolean, number, text } from '@storybook/addon-knobs';
 
 import SearchInput from '../../src/components/shared/SearchInput';
 import { Text } from 'react-native';
@@ -33,6 +33,5 @@ const SearchInputWithState = () => {
 const ContainerDeco = (storyFn) => <Container>{storyFn()}</Container>;
 
 storiesOf('SearchInput', module)
-  .addDecorator(withKnobs)
   .addDecorator(ContainerDeco)
   .add('default', () => <SearchInputWithState />);
