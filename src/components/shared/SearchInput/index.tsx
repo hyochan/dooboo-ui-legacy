@@ -1,5 +1,7 @@
 import * as React from 'react';
 
+import { StyleProp, ViewStyle } from 'react-native';
+
 import { IC_MAGNIFIER } from '../../../utils/Icons';
 import styled from 'styled-components/native';
 
@@ -63,7 +65,7 @@ const ResetText = styled.Text`
 export interface SearchInputProps {
   value: string;
   onDebounceOrOnReset: (value: string) => void;
-  style?: any;
+  style?: StyleProp<ViewStyle>;
   debounceDelay?: number;
   customIcon?: React.ReactNode;
   placeholderText?: string;
