@@ -1,5 +1,6 @@
 # Search Input
 > Simple search input for react-native.
+
 ![](https://i.imgur.com/t84mZ1e.gif)
 - debounced input
 - reset button
