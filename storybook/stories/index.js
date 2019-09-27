@@ -1,3 +1,4 @@
+import './SearchInput.stories';
 import './SwitchToggle.stories';
 import './Accordian.stories';
 import './ButtonGroup.stories';

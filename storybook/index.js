@@ -1,8 +1,13 @@
 import './rn-addons';
 
-import { configure, getStorybookUI } from '@storybook/react-native';
+import {
+  addDecorator,
+  configure,
+  getStorybookUI,
+} from '@storybook/react-native';
 
 import { AppRegistry } from 'react-native';
+import { withKnobs } from '@storybook/addon-knobs';
 
 // import stories
 configure(() => {
@@ -16,5 +21,7 @@ const StorybookUIRoot = getStorybookUI({ port: 7007, host: 'localhost' });
 // If you are using React Native vanilla and after installation you don't see your app name here, write it manually.
 // If you use Expo you can safely remove this line.
 AppRegistry.registerComponent('%APP_NAME%', () => StorybookUIRoot);
+
+addDecorator(withKnobs);
 
 export default StorybookUIRoot;
