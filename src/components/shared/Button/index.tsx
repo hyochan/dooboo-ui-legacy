@@ -50,7 +50,7 @@ interface Props {
   text?: string;
 }
 
-function Button(props: Props) {
+function Button(props: Props): React.ReactElement {
   if (props.isDisabled) {
     return (
       <View

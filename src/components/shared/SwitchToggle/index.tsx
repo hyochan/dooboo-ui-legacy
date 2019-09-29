@@ -32,8 +32,17 @@ interface Props {
   leftContainerStyle?: StyleProp<ViewStyle>;
 }
 
+const styles = StyleSheet.create({
+  container: {
+    flexDirection: 'row',
+    alignItems: 'center',
+  },
+});
+
 function SwitchToggle(props: Props) {
+  const [animXValue] = useState(new Animated.Value(props.switchOn ? 1 : 0));
   const getStart = () => {
+    // prettier-ignore
     return props.type === undefined
       ? 0
       : props.type === 0
@@ -59,17 +68,16 @@ function SwitchToggle(props: Props) {
           (props.containerStyle.padding as number) * 2)
       : 0;
   const circlePosXEnd = endPos;
-  const [animXValue] = useState(new Animated.Value(props.switchOn ? 1 : 0));
   const [circlePosXStart] = useState(getStart());
 
   const prevSwitchOnRef = useRef<boolean>();
+  const prevSwitchOn = !!prevSwitchOnRef.current;
   useEffect(() => {
     prevSwitchOnRef.current = props.switchOn;
     if (prevSwitchOn !== props.switchOn) {
       runAnimation();
     }
   }, [props.switchOn]);
-  const prevSwitchOn = !!prevSwitchOnRef.current;
 
   const generateRightText = () => {
     return (
@@ -142,13 +150,6 @@ function SwitchToggle(props: Props) {
     </TouchableOpacity>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flexDirection: 'row',
-    alignItems: 'center',
-  },
-});
 
 SwitchToggle.defaultProps = {
   switchOn: false,

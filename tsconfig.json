@@ -29,5 +29,6 @@
         // "tsConfigFile": "my-tsconfig.json"
       }
     }
-  }
+  },
+  "files": ["environment.d.ts"]
 }

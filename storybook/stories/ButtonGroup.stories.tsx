@@ -22,12 +22,12 @@ const Default = () => {
   const selectOption = (index: number) => {
     setOption(data[index]);
     switch (index) {
-      case 0:
-        setOption('Option 1');
-        break;
-      case 1:
-        setOption('Option 2');
-        break;
+    case 0:
+      setOption('Option 1');
+      break;
+    case 1:
+      setOption('Option 2');
+      break;
     }
   };
 
