@@ -1,8 +1,5 @@
 import {
   ActivityIndicator,
-  Image,
-  ImageSourcePropType,
-  ImageStyle,
   StyleProp,
   StyleSheet,
   Text,
@@ -37,12 +34,6 @@ const styles = StyleSheet.create({
   textDisabled: {
     color: '#969696',
   },
-  image: {
-    width: 24,
-    height: 24,
-    position: 'absolute',
-    left: 16,
-  },
 });
 
 interface Props {
@@ -53,8 +44,7 @@ interface Props {
   style?: StyleProp<ViewStyle>;
   disabledStyle?: StyleProp<ViewStyle>;
   textStyle?: StyleProp<TextStyle>;
-  imgLeftSrc?: ImageSourcePropType;
-  imgLeftStyle?: StyleProp<ImageStyle>;
+  leftComponent?: React.ReactElement;
   indicatorColor?: string;
   activeOpacity?: number;
   text?: string;
@@ -90,12 +80,7 @@ function Button(props: Props) {
       onPress={props.onClick}
     >
       <View style={[styles.button, props.style]}>
-        {props.imgLeftSrc ? (
-          <Image
-            style={[styles.image, props.imgLeftStyle]}
-            source={props.imgLeftSrc}
-          />
-        ) : null}
+        {props.leftComponent ? props.leftComponent : null}
         <Text style={props.textStyle}>{props.text}</Text>
       </View>
     </TouchableOpacity>

@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 
 import Button from '../../src/components/shared/Button';
 import { ContainerDeco } from '../decorators';
+import { Image } from 'react-native';
 import { action } from '@storybook/addon-actions';
 import { storiesOf } from '@storybook/react-native';
 import styled from 'styled-components/native';
@@ -47,7 +48,7 @@ function Default() {
         text={text('button text', 'this is disabled')}
       />
       <Button
-        imgLeftSrc={IC_GOOGLE}
+        leftComponent={<Image source={IC_GOOGLE} />}
         isLoading={googleLoading}
         indicatorColor='#023059'
         onClick={() => {
@@ -61,13 +62,9 @@ function Default() {
       />
       <Button
         testID='btnFacebook'
-        imgLeftSrc={IC_FACEBOOK}
+        leftComponent={<Image source={IC_FACEBOOK} />}
         indicatorColor='#023059'
         isLoading={facebookLoading}
-        imgLeftStyle={{
-          height: 28,
-          width: 16,
-        }}
         style={{
           marginTop: 40,
           backgroundColor: '#ccc',

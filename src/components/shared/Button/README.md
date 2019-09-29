@@ -1,32 +1,34 @@
 # Button
+
 > Simple [Button] component that can be used inside product. Has basic features like `loading` state, `disabled` state and also has ability to put `img` to left-hand which is used very often.
 
 ![image](https://user-images.githubusercontent.com/27461460/62291727-9be84100-b49f-11e9-8ce5-ceaa1dc3153e.png)
 
 ## Props
-|                      | necessary | types                  | default                      |
-|----------------------|-----------|------------------------|------------------------------|
-| testID               |           | string                 |                              |
-| isLoading            |           | boolean                |                              |
-| isDisabled           |           | boolean                |                              |
-| onClick              |           | func                   |                              |
-| style                |           | `StyleProp<ViewStyle>` |                              |
-| disabledStyle        |           | `StyleProp<ViewStyle>` |                              |
-| textStyle            |           | `StyleProp<TextStyle>` |                              |
-| imgLeftSrc           |           | ImageSourcePropType    |                              |
-| imgLeftStyle         |           | ImageSourcePropType    |                              |
-| indicatorColor       |           | string                 |                              |
-| activeOpacity        |           | number                 |                              |
-| text                 |           | string                 |                              |
+
+|                | necessary | types        | default |
+| -------------- | --------- | ------------ | ------- |
+| testID         |           | string       |         |
+| isLoading      |           | boolean      |         |
+| isDisabled     |           | boolean      |         |
+| onClick        |           | func         |         |
+| style          |           | ViewStyle    |         |
+| disabledStyle  |           | ViewStyle    |         |
+| textStyle      |           | TextStyle    |         |
+| leftComponnet  |           | ReactElement |         |
+| indicatorColor |           | string       |         |
+| activeOpacity  |           | number       |         |
+| text           |           | string       |         |
 
 ## Getting started
 
-* Import
+- Import
+
   ```javascript
   import { Button } from '@dooboo-ui/native';
   ```
 
-* Usage
+- Usage
   ```javascript
   function Page(props: Props) {
     return (
@@ -47,7 +49,7 @@
         />
         <Button
           testID='btnGoogle'
-          imgLeftSrc={IC_GOOGLE}
+          leftComponent={<Image source={IC_GOOGLE} />}
           isLoading={googleLoading}
           indicatorColor='#023059'
           onClick={() => {
@@ -61,7 +63,7 @@
         />
         <Button
           testID='btnFacebook'
-          imgLeftSrc={IC_FACEBOOK}
+          leftComponent={<Image source={IC_FACEBOOK} />}
           indicatorColor='#023059'
           isLoading={facebookLoading}
           imgLeftStyle={{
@@ -86,4 +88,8 @@
       </Container>
     );
   }
+  ```
+
+```
+
 ```
