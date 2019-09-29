@@ -861,10 +861,10 @@
     exec-sh "^0.3.2"
     minimist "^1.2.0"
 
-"@dooboo/eslint-config@^0.1.1":
-  version "0.1.1"
-  resolved "https://registry.yarnpkg.com/@dooboo/eslint-config/-/eslint-config-0.1.1.tgz#6e0af5d19867d645ca5dfc9f29d6b239ee59403d"
-  integrity sha512-k6qldlRzqOCItoMqmvl+7Lhx2UM1KOYcHkcWftSI9YbsZ1GKFPFBKlX1y5IzfhLT4aDdqsnUp7dIUl1aj4WimQ==
+"@dooboo/eslint-config@^0.1.2":
+  version "0.1.2"
+  resolved "https://registry.yarnpkg.com/@dooboo/eslint-config/-/eslint-config-0.1.2.tgz#2fea8cad4969a3c8944802c019f33294bdd215a2"
+  integrity sha512-8BoMCfg4wMi6xuH1Wk0GHD2LgWhZoD20T3eELH+A7CTKcUDeUqBWijIUvr1xF0F/CK9bXDT5WDfQLbeTx+OLuQ==
   dependencies:
     "@typescript-eslint/eslint-plugin" "^2.3.1"
     "@typescript-eslint/parser" "^2.3.1"
