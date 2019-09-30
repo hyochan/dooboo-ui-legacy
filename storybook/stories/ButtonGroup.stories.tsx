@@ -14,20 +14,21 @@ storiesOf('ButtonGroup', module)
     </>
   ));
 
-const Default = () => {
+const Default = (): React.ReactElement => {
   const data = ['Option 1', 'Option 2', 'Option 3', 'Option 4'];
 
   const [option, setOption] = useState('Option 1');
 
-  const selectOption = (index: number) => {
+  const selectOption = (index: number): void => {
     setOption(data[index]);
+    // prettier-ignore
     switch (index) {
-      case 0:
-        setOption('Option 1');
-        break;
-      case 1:
-        setOption('Option 2');
-        break;
+    case 0:
+      setOption('Option 1');
+      break;
+    case 1:
+      setOption('Option 2');
+      break;
     }
   };
 
@@ -35,7 +36,7 @@ const Default = () => {
     <Container>
       <ButtonGroup
         style={{ marginTop: 40 }}
-        onPress={(index: number) => selectOption(index)}
+        onPress={(index: number): void => selectOption(index)}
         data={data}
       />
       <View

@@ -1,36 +1,30 @@
 import { IC_FACEBOOK, IC_GOOGLE } from '../../utils/Icons';
+import { Image, View } from 'react-native';
 import React, { useState } from 'react';
 
 import Button from '../shared/Button';
-import { NavigationScreenProp } from 'react-navigation';
-import styled from 'styled-components/native';
 
-const Container = styled.View`
-  background-color: transparent;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  margin-top: 28;
-  padding-top: 80;
-
-  flex-direction: column;
-`;
-
-interface Props {
-  navigation?: NavigationScreenProp<any, any>;
-}
-
-function Page(props: Props) {
+function Page(): React.ReactElement {
   const [facebookLoading, setFacebookLoading] = useState<boolean>(false);
   const [googleLoading, setGoogleLoading] = useState<boolean>(false);
 
   return (
-    <Container>
+    <View
+      style={{
+        backgroundColor: 'transparent',
+        alignItems: 'center',
+        justifyContent: 'center',
+        width: '100%',
+        marginTop: 28,
+        paddingTop: 80,
+        flexDirection: 'column',
+      }}
+    >
       <Button
         testID='btn'
         isLoading={false}
         text='😀 😎 👍 💯'
-        onClick={() => {}}
+        onClick={(): void => {}}
       />
       <Button
         style={{
@@ -38,14 +32,14 @@ function Page(props: Props) {
         }}
         isDisabled={true}
         text='This is disabled!!'
-        onClick={() => {}}
+        onClick={(): void => {}}
       />
       <Button
         testID='btnGoogle'
-        imgLeftSrc={IC_GOOGLE}
+        leftComponent={<Image source={IC_GOOGLE} />}
         isLoading={googleLoading}
         indicatorColor='#023059'
-        onClick={() => {
+        onClick={(): void => {
           setGoogleLoading(true);
           const timeout = setTimeout(() => {
             setGoogleLoading(false);
@@ -56,20 +50,16 @@ function Page(props: Props) {
       />
       <Button
         testID='btnFacebook'
-        imgLeftSrc={IC_FACEBOOK}
+        leftComponent={<Image source={IC_FACEBOOK} />}
         indicatorColor='#023059'
         isLoading={facebookLoading}
-        imgLeftStyle={{
-          height: 28,
-          width: 16,
-        }}
         style={{
           marginTop: 40,
           backgroundColor: '#ccc',
           borderWidth: 0.5,
           borderRadius: 0,
         }}
-        onClick={() => {
+        onClick={(): void => {
           setFacebookLoading(true);
           const timeout = setTimeout(() => {
             setFacebookLoading(false);
@@ -78,7 +68,7 @@ function Page(props: Props) {
         }}
         text='FACEBOOK SIGN IN'
       />
-    </Container>
+    </View>
   );
 }
 

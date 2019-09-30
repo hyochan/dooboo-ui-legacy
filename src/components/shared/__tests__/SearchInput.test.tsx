@@ -6,12 +6,12 @@ import renderer, { act } from 'react-test-renderer';
 
 import SearchInput from '../SearchInput';
 
-const createTestProps = ({ value = '' }: { value: string }) => ({
+const createTestProps = ({ value = '' }: { value: string }): object => ({
   onDebounceOrOnReset: jest.fn(),
   value: value,
 });
 
-const component = (props) => <SearchInput {...props} />;
+const component = (props): React.ReactElement => <SearchInput {...props} />;
 
 describe('[SearchInput] render', () => {
   it('component and snapshot matches', () => {

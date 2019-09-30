@@ -28,7 +28,7 @@ const Container = styled.View`
   flex-direction: column;
 `;
 
-function Default() {
+function Default(): React.ReactElement {
   const [facebookLoading, setFacebookLoading] = useState<boolean>(false);
   const [googleLoading, setGoogleLoading] = useState<boolean>(false);
 
@@ -51,7 +51,7 @@ function Default() {
         leftComponent={<Image source={IC_GOOGLE} />}
         isLoading={googleLoading}
         indicatorColor='#023059'
-        onClick={() => {
+        onClick={(): void => {
           setGoogleLoading(true);
           const timeout = setTimeout(() => {
             setGoogleLoading(false);
@@ -71,7 +71,7 @@ function Default() {
           borderWidth: 0.5,
           borderRadius: 0,
         }}
-        onClick={() => {
+        onClick={(): void => {
           setFacebookLoading(true);
           const timeout = setTimeout(() => {
             setFacebookLoading(false);

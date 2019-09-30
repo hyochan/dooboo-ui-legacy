@@ -1,7 +1,15 @@
-export const IC_ARR_DOWN = require('../../icons/ic_arr_down.png');
-export const IC_ARR_UP = require('../../icons/ic_arr_up.png');
-export const IC_DELETE = require('../../icons/ic_delete.png');
-export const IC_EDIT = require('../../icons/ic_edit.png');
-export const IC_FACEBOOK = require('../../icons/facebook.png');
-export const IC_GOOGLE = require('../../icons/google.png');
-export const IC_MAGNIFIER = require('../../icons/magnifier.png');
+import icArrDown from '../../icons/ic_arr_down.png';
+import icArrUp from '../../icons/ic_arr_up.png';
+import icDelete from '../../icons/ic_delete.png';
+import icEdit from '../../icons/ic_edit.png';
+import icFacebook from '../../icons/facebook.png';
+import icGoogle from '../../icons/google.png';
+import icMagnifier from '../../icons/magnifier.png';
+
+export const IC_ARR_DOWN = icArrDown;
+export const IC_ARR_UP = icArrUp;
+export const IC_DELETE = icDelete;
+export const IC_EDIT = icEdit;
+export const IC_FACEBOOK = icFacebook;
+export const IC_GOOGLE = icGoogle;
+export const IC_MAGNIFIER = icMagnifier;

@@ -19,18 +19,18 @@ storiesOf('SwitchToggle', module)
   .add('└large', () => <Large />)
   .add('└with text', () => <WithText />);
 
-const Small = () => {
+const Small = (): React.ReactElement => {
   const [switchOn1, setSwitchOn1] = useState(false);
   return (
     <SwitchToggle
       switchOn={switchOn1}
-      onPress={() => setSwitchOn1(!switchOn1)}
+      onPress={(): void => setSwitchOn1(!switchOn1)}
     />
   );
 };
 
-const Medium = () => {
-  const [switchOn2, setSwitchOn2] = useState(false);
+const Medium = (): React.ReactElement => {
+  const [switchOn2, setSwitchOn2] = useState<boolean>(false);
   return (
     <SwitchToggle
       containerStyle={{
@@ -48,7 +48,7 @@ const Medium = () => {
         backgroundColor: 'white', // rgb(102,134,205)
       }}
       switchOn={switchOn2}
-      onPress={() => setSwitchOn2(!switchOn2)}
+      onPress={(): void => setSwitchOn2(!switchOn2)}
       circleColorOff='white'
       circleColorOn='red'
       duration={500}
@@ -56,7 +56,7 @@ const Medium = () => {
   );
 };
 
-const WithText = () => {
+const WithText = (): React.ReactElement => {
   const [switchOn4, setSwitchOn4] = useState(false);
   return (
     <SwitchToggle
@@ -98,14 +98,14 @@ const WithText = () => {
         backgroundColor: 'blue', // rgb(102,134,205)
       }}
       switchOn={switchOn4}
-      onPress={() => setSwitchOn4(!switchOn4)}
+      onPress={(): void => setSwitchOn4(!switchOn4)}
       circleColorOff='#e5e1e0'
       circleColorOn='#e5e1e0'
       duration={500}
     />
   );
 };
-const Large = () => {
+const Large = (): React.ReactElement => {
   const [switchOn3, setSwitchOn3] = useState(false);
   return (
     <SwitchToggle
@@ -125,7 +125,7 @@ const Large = () => {
         backgroundColor: 'blue', // rgb(102,134,205)
       }}
       switchOn={switchOn3}
-      onPress={() => setSwitchOn3(!switchOn3)}
+      onPress={(): void => setSwitchOn3(!switchOn3)}
       circleColorOff='#ff11ff'
       circleColorOn='green'
       duration={500}

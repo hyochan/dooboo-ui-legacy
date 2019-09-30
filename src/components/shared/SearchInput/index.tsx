@@ -72,7 +72,7 @@ export interface SearchInputProps {
 }
 
 // reference : https://dev.to/gabe_ragland/debouncing-with-react-hooks-jci
-function useDebounce(value: string, delay: number = 400) {
+function useDebounce(value: string, delay = 400) {
   const [debouncedValue, setDebouncedValue] = React.useState(value);
 
   React.useEffect(() => {
