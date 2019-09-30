@@ -2,6 +2,7 @@ import { IC_FACEBOOK, IC_GOOGLE } from '../../utils/Icons';
 import React, { useState } from 'react';
 
 import Button from '../shared/Button';
+import { Image } from 'react-native';
 import { NavigationScreenProp } from 'react-navigation';
 import styled from 'styled-components/native';
 
@@ -20,7 +21,7 @@ interface Props {
   navigation?: NavigationScreenProp<any, any>;
 }
 
-function Page(props: Props) {
+function Page(props: Props): React.ReactElement {
   const [facebookLoading, setFacebookLoading] = useState<boolean>(false);
   const [googleLoading, setGoogleLoading] = useState<boolean>(false);
 
@@ -42,10 +43,10 @@ function Page(props: Props) {
       />
       <Button
         testID='btnGoogle'
-        imgLeftSrc={IC_GOOGLE}
+        leftComponent={<Image source={IC_GOOGLE} />}
         isLoading={googleLoading}
         indicatorColor='#023059'
-        onClick={() => {
+        onClick={(): void => {
           setGoogleLoading(true);
           const timeout = setTimeout(() => {
             setGoogleLoading(false);
@@ -56,20 +57,16 @@ function Page(props: Props) {
       />
       <Button
         testID='btnFacebook'
-        imgLeftSrc={IC_FACEBOOK}
+        leftComponent={<Image source={IC_FACEBOOK} />}
         indicatorColor='#023059'
         isLoading={facebookLoading}
-        imgLeftStyle={{
-          height: 28,
-          width: 16,
-        }}
         style={{
           marginTop: 40,
           backgroundColor: '#ccc',
           borderWidth: 0.5,
           borderRadius: 0,
         }}
-        onClick={() => {
+        onClick={(): void => {
           setFacebookLoading(true);
           const timeout = setTimeout(() => {
             setFacebookLoading(false);
