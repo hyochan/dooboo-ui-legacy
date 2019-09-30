@@ -1,37 +1,30 @@
 import { IC_FACEBOOK, IC_GOOGLE } from '../../utils/Icons';
+import { Image, View } from 'react-native';
 import React, { useState } from 'react';
 
 import Button from '../shared/Button';
-import { Image } from 'react-native';
-import { NavigationScreenProp } from 'react-navigation';
-import styled from 'styled-components/native';
 
-const Container = styled.View`
-  background-color: transparent;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  margin-top: 28;
-  padding-top: 80;
-
-  flex-direction: column;
-`;
-
-interface Props {
-  navigation?: NavigationScreenProp<any, any>;
-}
-
-function Page(props: Props): React.ReactElement {
+function Page(): React.ReactElement {
   const [facebookLoading, setFacebookLoading] = useState<boolean>(false);
   const [googleLoading, setGoogleLoading] = useState<boolean>(false);
 
   return (
-    <Container>
+    <View
+      style={{
+        backgroundColor: 'transparent',
+        alignItems: 'center',
+        justifyContent: 'center',
+        width: '100%',
+        marginTop: 28,
+        paddingTop: 80,
+        flexDirection: 'column',
+      }}
+    >
       <Button
         testID='btn'
         isLoading={false}
         text='😀 😎 👍 💯'
-        onClick={() => {}}
+        onClick={(): void => {}}
       />
       <Button
         style={{
@@ -39,7 +32,7 @@ function Page(props: Props): React.ReactElement {
         }}
         isDisabled={true}
         text='This is disabled!!'
-        onClick={() => {}}
+        onClick={(): void => {}}
       />
       <Button
         testID='btnGoogle'
@@ -75,7 +68,7 @@ function Page(props: Props): React.ReactElement {
         }}
         text='FACEBOOK SIGN IN'
       />
-    </Container>
+    </View>
   );
 }
 

@@ -1,8 +1,7 @@
-import React, { useContext, useState } from 'react';
-import { boolean, number, text } from '@storybook/addon-knobs';
+import React, { useState } from 'react';
+import { number, text } from '@storybook/addon-knobs';
 
 import SearchInput from '../../src/components/shared/SearchInput';
-import { Text } from 'react-native';
 import { storiesOf } from '@storybook/react-native';
 import styled from 'styled-components/native';
 
@@ -15,8 +14,8 @@ const Value = styled.Text`
   align-self: center;
 `;
 
-const SearchInputWithState = () => {
-  const [value, setValue] = useState('');
+const SearchInputWithState = (): React.ReactElement => {
+  const [value, setValue] = useState<string>('');
   return (
     <>
       <SearchInput
@@ -30,7 +29,9 @@ const SearchInputWithState = () => {
   );
 };
 
-const ContainerDeco = (storyFn) => <Container>{storyFn()}</Container>;
+const ContainerDeco = (storyFn): React.ReactElement => (
+  <Container>{storyFn()}</Container>
+);
 
 storiesOf('SearchInput', module)
   .addDecorator(ContainerDeco)

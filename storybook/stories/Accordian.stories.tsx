@@ -1,9 +1,9 @@
 import { IC_ARR_DOWN, IC_ARR_UP } from '../../src/utils/Icons';
-import React, { useState } from 'react';
 import { ScrollView, Text, View } from 'react-native';
 
 import Accordion from '../../src/components/shared/Accordion';
 import { ContainerDeco } from '../decorators';
+import React from 'react';
 import { storiesOf } from '@storybook/react-native';
 import styled from 'styled-components/native';
 
@@ -13,7 +13,7 @@ storiesOf('Accordian', module)
     notes: 'Simple explanation',
   });
 
-const Default = () => {
+const Default = (): React.ReactElement => {
   const contents = [
     {
       title: 'Title 1',

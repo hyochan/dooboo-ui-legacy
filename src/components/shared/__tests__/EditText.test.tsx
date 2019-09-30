@@ -10,7 +10,6 @@ import {
 } from '@testing-library/react-native';
 
 import EditText from '../EditText';
-import { ThemeProvider } from 'styled-components/native';
 // Note: test renderer must be required after react-native.
 import renderer from 'react-test-renderer';
 
@@ -37,7 +36,7 @@ describe('[EditText]', () => {
       testID: 'INPUT_TEST',
       testError: 'ERROR_TEST',
       text: 'test',
-      onTextChanged: (word: string) => {
+      onTextChanged: (word: string): void => {
         text = word;
       },
     };

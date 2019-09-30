@@ -1,7 +1,9 @@
 import React from 'react';
 import styled from 'styled-components/native';
 
-export const ContainerDeco = (storyFn) => <Container>{storyFn()}</Container>;
+export const ContainerDeco = (storyFn): React.ReactElement => (
+  <Container>{storyFn()}</Container>
+);
 
 const Container = styled.View`
   flex: 1;

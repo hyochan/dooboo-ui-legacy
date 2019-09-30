@@ -1,56 +1,17 @@
 import React, { useState } from 'react';
-import { TextStyle, TouchableOpacity, View } from 'react-native';
+import {
+  ScrollView,
+  Text,
+  TextStyle,
+  TouchableOpacity,
+  View,
+} from 'react-native';
 
 import Button from '../shared/Button';
-import { DefaultTheme } from 'styled-components';
 import EditText from '../shared/EditText';
-import styled from 'styled-components/native';
 
-const StyledScrollView = styled.ScrollView`
-  background-color: white;
-`;
-
-const HeaderTitle = styled.Text`
-  font-weight: bold;
-  font-size: 24px;
-  line-height: 35px;
-  color: #495057;
-`;
-
-const Container = styled.SafeAreaView`
-  flex: 1;
-  flex-direction: column;
-  padding: 20px;
-  padding-top: 10px;
-`;
-
-const StyledSignInButton = styled(Button)`
-  border-radius: 26;
-  border-width: 0;
-  margin-top: 40;
-  width: 100%;
-  background-color: rgb(36, 205, 151);
-`;
-
-const StyledText = styled.Text`
-  font-size: 14;
-  color: #495057;
-`;
-
-const StyledAccentText = styled(StyledText)`
-  color: #6772e5;
-  font-weight: bold;
-`;
-
-interface Props {
-  navigation?: any;
-  screenProps: {
-    theme: DefaultTheme;
-  };
-}
-
-function Page(props: Props) {
-  const validateEmail = (email: string) => {
+function Page(): React.ReactElement {
+  const validateEmail = (email: string): boolean => {
     const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     return re.test(email);
   };
@@ -64,7 +25,7 @@ function Page(props: Props) {
   const [password, setPassword] = useState<string>('');
   const [errorEmail, setErrorEmail] = useState<string>('');
 
-  const onSignIn = () => {
+  const onSignIn = (): void => {
     if (!validateEmail(email)) {
       setErrorEmail('Not a valid email address');
     } else {
@@ -72,7 +33,7 @@ function Page(props: Props) {
     }
   };
 
-  const onTextChanged = (type: string, text: string) => {
+  const onTextChanged = (type: string, text: string): void => {
     type === 'EMAIL' ? setEmail(text) : setPassword(text);
 
     if (type === 'EMAIL' && text === '') {
@@ -81,15 +42,32 @@ function Page(props: Props) {
   };
 
   return (
-    <StyledScrollView
+    <ScrollView
+      style={{ backgroundColor: 'white' }}
       contentContainerStyle={{
         marginTop: 8,
         paddingHorizontal: 20,
         paddingBottom: 40,
       }}
     >
-      <Container>
-        <HeaderTitle>Sign in with Email</HeaderTitle>
+      <View
+        style={{
+          flex: 1,
+          flexDirection: 'column',
+          padding: 20,
+          paddingTop: 10,
+        }}
+      >
+        <Text
+          style={{
+            fontWeight: 'bold',
+            fontSize: 24,
+            lineHeight: 35,
+            color: '#495057',
+          }}
+        >
+          Sign in with Email
+        </Text>
         <EditText
           testID='EMAIL_INPUT'
           textStyle={{
@@ -99,7 +77,7 @@ function Page(props: Props) {
           placeholder='Write email address'
           placeholderTextColor='#ADB5BD'
           text={email}
-          onTextChanged={(text: string) => onTextChanged('EMAIL', text)}
+          onTextChanged={(text: string): void => onTextChanged('EMAIL', text)}
           style={{ marginTop: 50 }}
           errorText={errorEmail}
           onSubmitEditing={onSignIn}
@@ -114,13 +92,22 @@ function Page(props: Props) {
           placeholder='Please write your password'
           placeholderTextColor='#ADB5BD'
           text={password}
-          onTextChanged={(text: string) => onTextChanged('PASSWORD', text)}
+          onTextChanged={(text: string): void =>
+            onTextChanged('PASSWORD', text)
+          }
           style={{ marginTop: 36 }}
           onSubmitEditing={onSignIn}
         />
-        <StyledSignInButton
+        <Button
+          style={{
+            borderRadius: 26,
+            borderWidth: 0,
+            marginTop: 40,
+            width: '100%',
+            backgroundColor: 'rgb(36, 205, 151)',
+          }}
           testID='btnEmail'
-          onClick={() => onSignIn()}
+          onClick={(): void => onSignIn()}
           textStyle={fontStyle}
           text='Login'
         />
@@ -133,13 +120,28 @@ function Page(props: Props) {
             alignItems: 'center',
           }}
         >
-          <StyledText testID='NO_ACCOUNT'>Do not have and account? </StyledText>
-          <TouchableOpacity onPress={() => null} style={{ padding: 4 }}>
-            <StyledAccentText>Find</StyledAccentText>
+          <Text
+            testID='NO_ACCOUNT'
+            style={{
+              fontSize: 14,
+              color: '#495057',
+            }}
+          >
+            Do not have and account?{' '}
+          </Text>
+          <TouchableOpacity onPress={(): null => null} style={{ padding: 4 }}>
+            <Text
+              style={{
+                color: '#6772e5',
+                fontWeight: 'bold',
+              }}
+            >
+              Find
+            </Text>
           </TouchableOpacity>
         </View>
-      </Container>
-    </StyledScrollView>
+      </View>
+    </ScrollView>
   );
 }
 
