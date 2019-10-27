@@ -20,21 +20,18 @@ interface Props {
   onPress?: (i: number) => void;
 }
 
-function Shared(props: Props) {
+function Shared(props: Props): React.ReactElement {
   const [selectedOption, setSelectedOption] = useState(0);
 
   return (
-    <View
-      testID={props.testID}
-      style={[props.containerStyle, props.style]}
-    >
+    <View testID={props.testID} style={[props.containerStyle, props.style]}>
       {props.data.map((text, i) => {
         return (
           <TouchableOpacity
             key={i}
             testID={`CHILD_${i}`}
             style={{ flex: 1 }}
-            onPress={() => {
+            onPress={(): void => {
               setSelectedOption(i);
               if (props.onPress) {
                 props.onPress(i);
@@ -42,6 +39,7 @@ function Shared(props: Props) {
             }}
           >
             <View
+              // prettier-ignore
               style={[
                 selectedOption === i
                   ? props.selectedViewStyle

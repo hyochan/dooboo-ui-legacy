@@ -72,7 +72,7 @@ interface Props {
   children: React.ReactElement;
 }
 
-function Accordion(props: Props) {
+function Accordion(props: Props): React.ReactElement {
   const [animatedValue, setAnimatedValue] = useState<Animated.Value | null>(
     null,
   );
@@ -83,7 +83,7 @@ function Accordion(props: Props) {
   const [headerHeight, setHeaderHeight] = useState(0);
   const [contentHeight, setContentHeight] = useState(0);
 
-  const runAnimation = () => {
+  const runAnimation = (): void => {
     const initialValue = isContentVisible
       ? headerHeight + contentHeight
       : headerHeight;
@@ -101,7 +101,7 @@ function Accordion(props: Props) {
     }
   };
 
-  const onAnimLayout = (evt: LayoutChangeEvent) => {
+  const onAnimLayout = (evt: LayoutChangeEvent): void => {
     const headerHeight = evt.nativeEvent.layout.height;
     if (!isMounted && !props.contentVisible) {
       setAnimatedValue(new Animated.Value(headerHeight));
@@ -117,12 +117,12 @@ function Accordion(props: Props) {
     setHeaderHeight(headerHeight);
   };
 
-  const onLayout = (evt: LayoutChangeEvent) => {
+  const onLayout = (evt: LayoutChangeEvent): void => {
     const contentHeight = evt.nativeEvent.layout.height;
     setContentHeight(contentHeight);
   };
 
-  const onPress = () => {
+  const onPress = (): void => {
     runAnimation();
   };
 

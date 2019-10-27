@@ -69,13 +69,13 @@ function Page(): React.ReactElement {
           Sign in with Email
         </Text>
         <EditText
-          testID='EMAIL_INPUT'
+          testID="EMAIL_INPUT"
           textStyle={{
             color: '#495057',
           }}
-          label='Email'
-          placeholder='Write email address'
-          placeholderTextColor='#ADB5BD'
+          label="Email"
+          placeholder="Write email address"
+          placeholderTextColor="#ADB5BD"
           text={email}
           onTextChanged={(text: string): void => onTextChanged('EMAIL', text)}
           style={{ marginTop: 50 }}
@@ -83,14 +83,14 @@ function Page(): React.ReactElement {
           onSubmitEditing={onSignIn}
         />
         <EditText
-          testID='PASSWORD_INPUT'
+          testID="PASSWORD_INPUT"
           textStyle={{
             color: '#ADB5BD',
           }}
           secureTextEntry={true}
-          label='Password'
-          placeholder='Please write your password'
-          placeholderTextColor='#ADB5BD'
+          label="Password"
+          placeholder="Please write your password"
+          placeholderTextColor="#ADB5BD"
           text={password}
           onTextChanged={(text: string): void =>
             onTextChanged('PASSWORD', text)
@@ -106,10 +106,10 @@ function Page(): React.ReactElement {
             width: '100%',
             backgroundColor: 'rgb(36, 205, 151)',
           }}
-          testID='btnEmail'
+          testID="btnEmail"
           onClick={(): void => onSignIn()}
           textStyle={fontStyle}
-          text='Login'
+          text="Login"
         />
         {/* Email SignUp text */}
         <View
@@ -121,7 +121,7 @@ function Page(): React.ReactElement {
           }}
         >
           <Text
-            testID='NO_ACCOUNT'
+            testID="NO_ACCOUNT"
             style={{
               fontSize: 14,
               color: '#495057',

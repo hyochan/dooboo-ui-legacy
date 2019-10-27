@@ -14,7 +14,7 @@ function Page(): React.ReactElement {
       }}
     >
       <Text
-        testID='myText'
+        testID="myText"
         style={{
           fontSize: 16,
           color: 'blue',

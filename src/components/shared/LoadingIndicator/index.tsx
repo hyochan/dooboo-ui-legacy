@@ -1,4 +1,10 @@
-import { ActivityIndicator, StyleProp, StyleSheet, View, ViewStyle } from 'react-native';
+import {
+  ActivityIndicator,
+  StyleProp,
+  StyleSheet,
+  View,
+  ViewStyle,
+} from 'react-native';
 
 import React from 'react';
 
@@ -23,7 +29,7 @@ interface Props {
   size?: number | 'small' | 'large';
 }
 
-function LoadingIndicator(props: Props) {
+function LoadingIndicator(props: Props): React.ReactElement {
   return (
     <View style={[styles.container, props.containerStyle]}>
       <ActivityIndicator
