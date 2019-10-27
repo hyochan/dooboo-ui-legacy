@@ -235,6 +235,7 @@ Shared.defaultProps = {
   keyboardOffset: 0,
   optionView: <View />,
   emptyItem: <View />,
+  renderItem: (): React.ReactElement => <View />,
   renderViewMenu: (): React.ReactElement => <View />,
   message: '',
   onChangeMessage: () => {},
