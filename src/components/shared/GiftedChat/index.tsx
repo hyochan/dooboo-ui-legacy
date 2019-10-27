@@ -229,10 +229,12 @@ function Shared(props: Props): React.ReactElement {
   );
 }
 
+/* eslint-disable */
 Shared.defaultProps = {
   renderItem: (): React.ReactElement => <View />,
   renderViewMenu: (): React.ReactElement => <View />,
   renderSendButton: (): React.ReactElement => <View />,
 };
+/* eslint-enable */
 
 export default Shared;
