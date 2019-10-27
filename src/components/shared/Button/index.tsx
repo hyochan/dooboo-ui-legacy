@@ -69,7 +69,7 @@ function Button(props: Props): React.ReactElement {
   if (props.isLoading) {
     return (
       <View testID={props.testID} style={[styles.button, props.style]}>
-        <ActivityIndicator size='small' color={props.indicatorColor} />
+        <ActivityIndicator size="small" color={props.indicatorColor} />
       </View>
     );
   }

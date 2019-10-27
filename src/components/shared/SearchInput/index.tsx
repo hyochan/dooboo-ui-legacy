@@ -72,14 +72,14 @@ export interface SearchInputProps {
 }
 
 // reference : https://dev.to/gabe_ragland/debouncing-with-react-hooks-jci
-function useDebounce(value: string, delay = 400) {
+function useDebounce(value: string, delay = 400): React.ReactElement {
   const [debouncedValue, setDebouncedValue] = React.useState(value);
 
   React.useEffect(() => {
     const handler = setTimeout(() => {
       setDebouncedValue(value);
     }, delay);
-    return () => {
+    return (): void => {
       clearTimeout(handler);
     };
   }, [value]);
@@ -87,7 +87,7 @@ function useDebounce(value: string, delay = 400) {
   return debouncedValue;
 }
 
-function SearchInput(props: SearchInputProps) {
+function SearchInput(props: SearchInputProps): React.ReactElement {
   const [value, setValue] = React.useState(props.value);
   const debouncedValue = useDebounce(value, props.debounceDelay);
 
@@ -109,7 +109,7 @@ function SearchInput(props: SearchInputProps) {
       <Input
         testID={'SEARCH_INPUT'}
         value={value}
-        onChangeText={(text) => {
+        onChangeText={(text): void => {
           setValue(text);
         }}
         placeholder={props.placeholderText || '검색어를 입력해주세요.'}
@@ -118,8 +118,8 @@ function SearchInput(props: SearchInputProps) {
       {props.value !== '' && (
         <ResetContainer>
           <Reset
-            testID='RESET_BUTTON'
-            onPress={() => {
+            testID="RESET_BUTTON"
+            onPress={(): void => {
               props.onDebounceOrOnReset('');
             }}
           >

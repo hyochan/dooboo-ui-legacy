@@ -8,7 +8,7 @@ const styles = StyleSheet.create({
   },
 });
 
-function Item(props: {}) {
+function Item(): React.ReactElement {
   return (
     <View style={styles.container}>
       <Text>Calendar</Text>

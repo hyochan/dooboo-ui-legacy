@@ -66,13 +66,14 @@ interface Props {
   onTextChanged?: (text: string) => void;
 }
 
-function EditText(props: Props) {
+function EditText(props: Props): React.ReactElement {
   const [focused, setFocus] = useState(false);
 
   return (
     <View testID={props.parentTestID} style={[styles.container, props.style]}>
       {props.label ? (
         <Text
+          // prettier-ignore
           style={[
             styles.label,
             props.errorText
@@ -89,8 +90,8 @@ function EditText(props: Props) {
         testID={props.testID}
         style={[styles.input, props.textStyle]}
         autoCapitalize={'none'}
-        onFocus={() => setFocus(true)}
-        onBlur={() => setFocus(false)}
+        onFocus={(): void => setFocus(true)}
+        onBlur={(): void => setFocus(false)}
         onSubmitEditing={props.onSubmitEditing}
         placeholder={props.placeholder}
         placeholderTextColor={props.placeholderTextColor}
@@ -99,6 +100,7 @@ function EditText(props: Props) {
         secureTextEntry={props.secureTextEntry}
       ></TextInput>
       <View
+        // prettier-ignore
         style={[
           styles.underline,
           focused
