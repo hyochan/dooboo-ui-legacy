@@ -1,10 +1,9 @@
 import * as React from 'react';
 
-import { Text, View } from 'react-native';
-import { fireEvent, render, wait } from '@testing-library/react-native';
 import renderer, { act } from 'react-test-renderer';
 
 import SearchInput from '../SearchInput';
+import { render } from '@testing-library/react-native';
 
 const createTestProps = ({ value = '' }: { value: string }): object => ({
   onDebounceOrOnReset: jest.fn(),
