@@ -1,4 +1,4 @@
-import { IC_FACEBOOK, IC_GOOGLE } from '../../utils/Icons';
+import { IC_FACEBOOK, IC_GOOGLE } from '../shared/Icons';
 import { Image, View } from 'react-native';
 import React, { useState } from 'react';
 

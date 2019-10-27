@@ -2,7 +2,7 @@ import * as React from 'react';
 
 import { StyleProp, ViewStyle } from 'react-native';
 
-import { IC_MAGNIFIER } from '../../../utils/Icons';
+import { IC_MAGNIFIER } from '../Icons';
 import styled from 'styled-components/native';
 
 const Container = styled.View`
@@ -73,7 +73,7 @@ export interface SearchInputProps {
 
 // reference : https://dev.to/gabe_ragland/debouncing-with-react-hooks-jci
 function useDebounce(value: string, delay = 400): string {
-  const [debouncedValue, setDebouncedValue] = React.useState(value);
+  const [debouncedValue, setDebouncedValue] = React.useState<string>(value);
 
   React.useEffect(() => {
     const handler = setTimeout(() => {
