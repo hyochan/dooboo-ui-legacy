@@ -53,20 +53,20 @@ const StyledViewMenu = styled.View<{ height: number }>`
 `;
 
 interface Props {
-  chats: any;
+  chats?: any;
   borderColor?: string;
   backgroundColor?: string;
   fontColor?: string;
-  keyboardOffset: number;
+  keyboardOffset?: number;
   renderItem: ListRenderItem<any>;
-  optionView: React.ReactElement;
-  emptyItem: React.ReactElement;
-  renderViewMenu: () => React.ReactElement;
-  message: string;
+  optionView?: React.ReactElement;
+  emptyItem?: React.ReactElement;
+  renderViewMenu?: () => React.ReactElement;
+  message?: string;
   onChangeMessage?: (text: string) => void;
-  placeholder: string;
-  placeholderTextColor: string;
-  renderSendButton: () => React.ReactElement;
+  placeholder?: string;
+  placeholderTextColor?: string;
+  renderSendButton?: () => React.ReactElement;
 }
 
 function Shared(props: Props): React.ReactElement {
@@ -221,7 +221,7 @@ function Shared(props: Props): React.ReactElement {
               backgroundColor: backgroundColor,
             }}
           >
-            {renderViewMenu()}
+            {renderViewMenu ? renderViewMenu() : null}
           </StyledViewMenu>
         </StyledViewBottom>
       ) : null}
@@ -231,8 +231,14 @@ function Shared(props: Props): React.ReactElement {
 
 /* eslint-disable */
 Shared.defaultProps = {
-  renderItem: (): React.ReactElement => <View />,
+  chats: [],
+  keyboardOffset: 0,
+  optionView: <View />,
+  emptyItem: <View />,
   renderViewMenu: (): React.ReactElement => <View />,
+  message: '',
+  onChangeMessage: () => {},
+  placeholder: '',
   renderSendButton: (): React.ReactElement => <View />,
 };
 /* eslint-enable */
