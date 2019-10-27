@@ -29,3 +29,4 @@ tsconfig.json
 tsconfigBuild.json
 yarn-error.log
 yarn.lock
+tsconfigBuild.tsbuildinfo

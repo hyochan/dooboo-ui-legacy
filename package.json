@@ -1,6 +1,6 @@
 {
   "name": "@dooboo-ui/native",
-  "version": "0.1.0-rc.8",
+  "version": "0.2.0",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
   "scripts": {
@@ -28,7 +28,8 @@
   },
   "homepage": "https://github.com/dooboolab/dooboo-ui-native#readme",
   "dependencies": {
-    "dooboolab-welcome": "^1.1.1"
+    "dooboolab-welcome": "^1.1.1",
+    "styled-components": "^4.4.0"
   },
   "peerDependencies": {
     "react": ">=^16.8",
@@ -70,7 +71,6 @@
     "react-native-gesture-handler": "git://github.com/hyochan/react-native-gesture-handler.git#package-names",
     "react-navigation": "^4.0.10",
     "react-test-renderer": "16.9.0",
-    "styled-components": "^4.4.0",
     "ts-jest": "^24.1.0",
     "typescript": "^3.6.4"
   },
