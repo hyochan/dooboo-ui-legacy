@@ -24,6 +24,7 @@ We currently love [react-hooks](https://code.fb.com/open-source/react-hooks) and
 - [LoadingIndicator](https://github.com/dooboolab/dooboo-ui-native/tree/master/src/components/shared/LoadingIndicator)
 - [Button](https://github.com/dooboolab/dooboo-ui-native/tree/master/src/components/shared/Button)
 - [EditText](https://github.com/dooboolab/dooboo-ui-native/tree/master/src/components/shared/EditText)
+- [GiftedChat](https://github.com/dooboolab/dooboo-ui-native/tree/master/src/components/shared/GiftedChat)
 - [ButtonGroup](https://github.com/dooboolab/dooboo-ui-native/tree/master/src/components/shared/ButtonGroup)
 
 ## Comaptability
