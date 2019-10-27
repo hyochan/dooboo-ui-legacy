@@ -41,7 +41,7 @@ const styles = StyleSheet.create({
 
 function SwitchToggle(props: Props): React.ReactElement {
   const [animXValue] = useState(new Animated.Value(props.switchOn ? 1 : 0));
-  const getStart = (): void => {
+  const getStart = (): number | object | undefined => {
     // prettier-ignore
     return props.type === undefined
       ? 0
@@ -79,7 +79,7 @@ function SwitchToggle(props: Props): React.ReactElement {
     }
   }, [props.switchOn]);
 
-  const generateRightText = (): void => {
+  const generateRightText = (): React.ReactElement => {
     return (
       <Animated.View style={props.rightContainerStyle}>
         <Text style={props.textRightStyle}>{props.backTextRight}</Text>
@@ -87,7 +87,7 @@ function SwitchToggle(props: Props): React.ReactElement {
     );
   };
 
-  const generateLeftText = (): void => {
+  const generateLeftText = (): React.ReactElement => {
     return (
       <Animated.View style={props.leftContainerStyle}>
         <Text style={props.textLeftStyle}>{props.backTextLeft}</Text>

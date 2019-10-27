@@ -64,7 +64,7 @@ const ResetText = styled.Text`
 
 export interface SearchInputProps {
   value: string;
-  onDebounceOrOnReset: (value: string) => void;
+  onDebounceOrOnReset: (value: string) => string;
   style?: StyleProp<ViewStyle>;
   debounceDelay?: number;
   customIcon?: React.ReactNode;
@@ -72,7 +72,7 @@ export interface SearchInputProps {
 }
 
 // reference : https://dev.to/gabe_ragland/debouncing-with-react-hooks-jci
-function useDebounce(value: string, delay = 400): React.ReactElement {
+function useDebounce(value: string, delay = 400): string {
   const [debouncedValue, setDebouncedValue] = React.useState(value);
 
   React.useEffect(() => {
@@ -88,7 +88,7 @@ function useDebounce(value: string, delay = 400): React.ReactElement {
 }
 
 function SearchInput(props: SearchInputProps): React.ReactElement {
-  const [value, setValue] = React.useState(props.value);
+  const [value, setValue] = React.useState<string>(props.value);
   const debouncedValue = useDebounce(value, props.debounceDelay);
 
   React.useEffect(() => {
