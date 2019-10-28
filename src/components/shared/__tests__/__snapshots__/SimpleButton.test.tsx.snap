@@ -1,0 +1,77 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`[SimpleButton] renders without crashing 1`] = `
+<View
+  accessible={true}
+  clickable={true}
+  isTVSelectable={true}
+  onClick={[Function]}
+  onResponderGrant={[Function]}
+  onResponderMove={[Function]}
+  onResponderRelease={[Function]}
+  onResponderTerminate={[Function]}
+  onResponderTerminationRequest={[Function]}
+  onStartShouldSetResponder={[Function]}
+  style={
+    Object {
+      "opacity": 1,
+    }
+  }
+  testID="btn"
+>
+  <View
+    height={60}
+    style={
+      Array [
+        Object {
+          "alignItems": "center",
+          "backgroundColor": "rgb(58, 139, 255)",
+          "borderColor": "white",
+          "borderRadius": 4,
+          "borderWidth": 1,
+          "height": 60,
+          "justifyContent": "center",
+          "width": 136,
+        },
+      ]
+    }
+    theme={
+      Object {
+        "INVERTED": Object {
+          "backgroundColor": "white",
+          "borderColor": "rgb(58, 139, 255)",
+          "fontColor": "rgb(58, 139, 255)",
+        },
+        "backgroundColor": "rgb(58, 139, 255)",
+        "borderColor": "white",
+        "fontColor": "white",
+      }
+    }
+    width={136}
+  >
+    <Text
+      style={
+        Array [
+          Object {
+            "color": "white",
+            "fontSize": 14,
+            "fontWeight": "bold",
+          },
+        ]
+      }
+      theme={
+        Object {
+          "INVERTED": Object {
+            "backgroundColor": "white",
+            "borderColor": "rgb(58, 139, 255)",
+            "fontColor": "rgb(58, 139, 255)",
+          },
+          "backgroundColor": "rgb(58, 139, 255)",
+          "borderColor": "white",
+          "fontColor": "white",
+        }
+      }
+    />
+  </View>
+</View>
+`;
