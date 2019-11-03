@@ -1,4 +1,4 @@
-import { IC_FACEBOOK, IC_GOOGLE } from '../../src/utils/Icons';
+import { IC_FACEBOOK, IC_GOOGLE } from '../../src/components/shared/Icons';
 import React, { useState } from 'react';
 
 import Button from '../../src/components/shared/Button';
