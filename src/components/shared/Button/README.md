@@ -1,24 +1,32 @@
 # Button
 
-> Simple [Button] component that can be used inside product. Has basic features like `loading` state, `disabled` state and also has ability to put `img` to left-hand which is used very often.
+> [Button] component that can be used inside product. Has basic features like `loading` state, `disabled` state and also has ability to put `img` to left-hand which is used very often.
 
 ![image](https://user-images.githubusercontent.com/27461460/62291727-9be84100-b49f-11e9-8ce5-ceaa1dc3153e.png)
 
 ## Props
 
-|                | necessary | types        | default |
-| -------------- | --------- | ------------ | ------- |
-| testID         |           | string       |         |
-| isLoading      |           | boolean      |         |
-| isDisabled     |           | boolean      |         |
-| onClick        |           | func         |         |
-| style          |           | ViewStyle    |         |
-| disabledStyle  |           | ViewStyle    |         |
-| textStyle      |           | TextStyle    |         |
-| leftComponnet  |           | ReactElement |         |
-| indicatorColor |           | string       |         |
-| activeOpacity  |           | number       |         |
-| text           |           | string       |         |
+|                | necessary | types                | default |
+| -------------- | --------- | -------------------- | ------- |
+| testID         |           | string               |         |
+| style          |           | StyleProp<ViewStyle> |         |
+| theme          |           | ThemeType            |         |
+| dark           |           | boolean              |         |
+| inverted       |           | boolean              |         |
+| inverted       |           | boolean              |         |
+| width          |           | number               |   320   |
+| height         |           | number               |    52   |
+| isLoading      |           | boolean              |  false  |
+| isDisabled     |           | boolean              |  false  |
+| iconLeft       |           | ImageSourcePropType  |         |
+| iconLeftStyle  |           | StyleProp<ImageStyle>|         |
+| iconRight      |           | ImageSourcePropType  |         |
+| iconRightStyle |           | StyleProp<ImageStyle>|         |
+| indicatorColor |           | string               |'#ffffff'|
+| activeOpacity  |           | number               |   0.5   |
+| children       |           | string               |         |
+| text           |           | string               |         |
+| onClick        |           | func                 |         |
 
 ## Getting started
 
@@ -36,20 +44,22 @@
         <Button
           testID='btn'
           isLoading={false}
-          text='😀 😎 👍 💯'
           onClick={() => {}}
-        />
+        >
+          😀 😎 👍 💯
+        </Button>
         <Button
           style={{
             marginVertical: 40,
           }}
           isDisabled={true}
-          text='This is disabled!!'
           onClick={() => {}}
-        />
+        >
+          This is disabled!!
+        </Button>
         <Button
           testID='btnGoogle'
-          leftComponent={<Image source={IC_GOOGLE} />}
+          iconLeft={IC_GOOGLE}
           isLoading={googleLoading}
           indicatorColor='#023059'
           onClick={() => {
@@ -59,17 +69,14 @@
               clearTimeout(timeout);
             }, 2000);
           }}
-          text='GOOGLE SIGN IN'
-        />
+        >
+          GOOGLE SIGN IN
+        </Button>
         <Button
           testID='btnFacebook'
-          leftComponent={<Image source={IC_FACEBOOK} />}
+          iconLeft={IC_FACEBOOK}
           indicatorColor='#023059'
           isLoading={facebookLoading}
-          imgLeftStyle={{
-            height: 28,
-            width: 16,
-          }}
           style={{
             marginTop: 40,
             backgroundColor: '#ccc',
@@ -83,8 +90,9 @@
               clearTimeout(timeout);
             }, 2000);
           }}
-          text='FACEBOOK SIGN IN'
-        />
+        >
+          FACEBOOK SIGN IN
+        </Button>
       </Container>
     );
   }

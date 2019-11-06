@@ -1,9 +1,9 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`[Button] should render without crashing 1`] = `
+exports[`[Button] renders without crashing 1`] = `
 <View
   accessible={true}
-  clickable={false}
+  clickable={true}
   isTVSelectable={true}
   onClick={[Function]}
   onResponderGrant={[Function]}
@@ -17,26 +17,68 @@ exports[`[Button] should render without crashing 1`] = `
       "opacity": 1,
     }
   }
+  testID="btn"
 >
   <View
     style={
       Array [
         Object {
           "alignItems": "center",
-          "alignSelf": "center",
-          "borderColor": "blue",
+          "backgroundColor": "#ffffff",
+          "borderColor": "#0000ff",
           "borderRadius": 4,
           "borderWidth": 2,
-          "flexDirection": "row",
           "height": 52,
           "justifyContent": "center",
           "width": 320,
         },
-        undefined,
       ]
     }
+    theme={
+      Object {
+        "DISABLED": Object {
+          "backgroundColor": "#cccccc",
+          "borderColor": "#c8c8c8",
+          "fontColor": "#969696",
+        },
+        "INVERTED": Object {
+          "backgroundColor": "#0000ff",
+          "borderColor": "#069ccd",
+          "fontColor": "#ffffff",
+        },
+        "backgroundColor": "#ffffff",
+        "borderColor": "#0000ff",
+        "fontColor": "#069ccd",
+      }
+    }
   >
-    <Text />
+    <Text
+      style={
+        Array [
+          Object {
+            "color": "#069ccd",
+            "fontSize": 14,
+          },
+        ]
+      }
+      theme={
+        Object {
+          "DISABLED": Object {
+            "backgroundColor": "#cccccc",
+            "borderColor": "#c8c8c8",
+            "fontColor": "#969696",
+          },
+          "INVERTED": Object {
+            "backgroundColor": "#0000ff",
+            "borderColor": "#069ccd",
+            "fontColor": "#ffffff",
+          },
+          "backgroundColor": "#ffffff",
+          "borderColor": "#0000ff",
+          "fontColor": "#069ccd",
+        }
+      }
+    />
   </View>
 </View>
 `;
