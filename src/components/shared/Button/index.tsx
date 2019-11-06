@@ -231,9 +231,9 @@ function Button(props: Props): React.ReactElement {
         style={style}
         theme={themeToApply}
       >
-        <IconLeft>{iconLeft}</IconLeft>
+        {!isLoading && <IconLeft>{iconLeft}</IconLeft>}
         {!isLoading && <Text theme={themeToApply}>{textToRender}</Text>}
-        <IconRight>{iconRight}</IconRight>
+        {!isLoading && <IconRight>{iconRight}</IconRight>}
         {isLoading && <ActivityIndicator size="small" color={indicatorColor} />}
       </StyledButton>
     </TouchableOpacity>
