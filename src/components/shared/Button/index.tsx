@@ -25,8 +25,11 @@ interface TextType extends ThemeProps<TextThemeType>{
   theme: TextThemeType;
 }
 
-interface ThemeType extends DefaultTheme, ButtonThemeType, TextThemeType {
+interface ThemeType extends DefaultTheme {
   [key: string]: any;
+  backgroundColor?: string;
+  borderColor?: string;
+  fontColor?: string;
 }
 
 interface StatefulThemeType extends ThemeType {
