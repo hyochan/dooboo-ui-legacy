@@ -57,7 +57,7 @@
         </Button>
         <Button
           testID='btnGoogle'
-          iconLeft={IC_GOOGLE}
+          iconLeft={<Image source={IC_GOOGLE} />}
           isLoading={googleLoading}
           indicatorColor='#023059'
           onClick={() => {
@@ -72,7 +72,7 @@
         </Button>
         <Button
           testID='btnFacebook'
-          iconLeft={IC_FACEBOOK}
+          iconLeft={<Image source={IC_FACEBOOK} />}
           indicatorColor='#023059'
           isLoading={facebookLoading}
           style={{
