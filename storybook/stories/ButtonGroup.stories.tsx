@@ -22,12 +22,12 @@ const Default = (): React.ReactElement => {
   const selectOption = (index: number): void => {
     setOption(data[index]);
     switch (index) {
-      case 0:
-        setOption('Option 1');
-        break;
-      case 1:
-        setOption('Option 2');
-        break;
+    case 0:
+      setOption('Option 1');
+      break;
+    case 1:
+      setOption('Option 2');
+      break;
     }
   };
 

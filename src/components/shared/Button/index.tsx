@@ -1,12 +1,10 @@
 import {
   ActivityIndicator,
-  ImageSourcePropType,
-  ImageStyle,
   StyleProp,
   TouchableOpacity,
   ViewStyle,
 } from 'react-native';
-import styled, { ThemeProps } from 'styled-components/native';
+import styled, { DefaultTheme, ThemeProps } from 'styled-components/native';
 
 import React from 'react';
 
@@ -27,7 +25,7 @@ interface TextType extends ThemeProps<TextThemeType>{
   theme: TextThemeType;
 }
 
-interface ThemeType extends ButtonThemeType, TextThemeType {
+interface ThemeType extends DefaultTheme, ButtonThemeType, TextThemeType {
   [key: string]: any;
 }
 
@@ -37,22 +35,20 @@ interface StatefulThemeType extends ThemeType {
 }
 
 interface Props {
-  testID: string;
+  testID?: string;
   style?: StyleProp<ViewStyle>;
   theme?: ThemeType;
   dark?: boolean;
   inverted?: boolean;
-  isLoading: boolean;
-  isDisabled: boolean;
-  iconLeft?: ImageSourcePropType;
-  iconLeftStyle?: StyleProp<ImageStyle>;
-  iconRight?: ImageSourcePropType;
-  iconRightStyle?: StyleProp<ImageStyle>;
+  isLoading?: boolean;
+  isDisabled?: boolean;
+  iconLeft?: React.ReactElement;
+  iconRight?: React.ReactElement;
   indicatorColor: string;
   activeOpacity: number;
   children?: string;
   text?: string;
-  onClick: () => void;
+  onClick?: () => void;
 }
 
 const COLOR: {
@@ -114,6 +110,7 @@ const StyledButton = styled.View<ButtonType>`
   border-width: 2px;
   justify-content: center;
   align-items: center;
+  flex-direction: row;
 `;
 
 const Text = styled.Text<TextType>`
@@ -121,11 +118,14 @@ const Text = styled.Text<TextType>`
   color: ${({ theme }): string => theme.fontColor};
 `;
 
-const Icon = styled.Image`
-  width: 24px;
-  height: 24px;
+const IconLeft = styled.View`
   position: absolute;
-  left: 16px;
+  left: 0;
+`;
+
+const IconRight = styled.View`
+  position: absolute;
+  right: 0;
 `;
 
 const getDefaultTheme = ({
@@ -197,9 +197,7 @@ function Button(props: Props): React.ReactElement {
     isLoading,
     isDisabled,
     iconLeft,
-    iconLeftStyle,
     iconRight,
-    iconRightStyle,
     indicatorColor,
     activeOpacity,
     children,
@@ -230,9 +228,9 @@ function Button(props: Props): React.ReactElement {
         style={style}
         theme={themeToApply}
       >
-        {iconLeft && <Icon source={iconLeft} style={iconLeftStyle} />}
+        <IconLeft>{iconLeft}</IconLeft>
         {!isLoading && <Text theme={themeToApply}>{textToRender}</Text>}
-        {iconRight && <Icon source={iconRight} style={iconRightStyle} />}
+        <IconRight>{iconRight}</IconRight>
         {isLoading && <ActivityIndicator size='small' color={indicatorColor} />}
       </StyledButton>
     </TouchableOpacity>
@@ -240,8 +238,6 @@ function Button(props: Props): React.ReactElement {
 }
 
 Button.defaultProps = {
-  isLoading: false,
-  isDisabled: false,
   indicatorColor: COLOR.WHITE,
   activeOpacity: 0.5,
 };

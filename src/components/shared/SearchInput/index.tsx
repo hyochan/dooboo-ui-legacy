@@ -118,7 +118,7 @@ function SearchInput(props: SearchInputProps): React.ReactElement {
       {props.value !== '' && (
         <ResetContainer>
           <Reset
-            testID="RESET_BUTTON"
+            testID='RESET_BUTTON'
             onPress={(): void => {
               props.onDebounceOrOnReset('');
             }}

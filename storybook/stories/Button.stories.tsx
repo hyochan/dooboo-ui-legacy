@@ -36,7 +36,7 @@ function Default(): React.ReactElement {
     <Container>
       <Button
         isLoading={false}
-        text="😀 😎 👍 💯"
+        text='😀 😎 👍 💯'
         onClick={action('Clicked')}
       />
       <Button
@@ -48,9 +48,9 @@ function Default(): React.ReactElement {
         text={text('button text', 'this is disabled')}
       />
       <Button
-        leftComponent={<Image source={IC_GOOGLE} />}
+        iconLeft={<Image source={IC_GOOGLE} />}
         isLoading={googleLoading}
-        indicatorColor="#023059"
+        indicatorColor='#023059'
         onClick={(): void => {
           setGoogleLoading(true);
           const timeout = setTimeout(() => {
@@ -58,12 +58,12 @@ function Default(): React.ReactElement {
             clearTimeout(timeout);
           }, 2000);
         }}
-        text="GOOGLE SIGN IN"
+        text='GOOGLE SIGN IN'
       />
       <Button
-        testID="btnFacebook"
-        leftComponent={<Image source={IC_FACEBOOK} />}
-        indicatorColor="#023059"
+        testID='btnFacebook'
+        iconLeft={<Image source={IC_FACEBOOK} />}
+        indicatorColor='#023059'
         isLoading={facebookLoading}
         style={{
           marginTop: 40,
@@ -78,7 +78,7 @@ function Default(): React.ReactElement {
             clearTimeout(timeout);
           }, 2000);
         }}
-        text="FACEBOOK SIGN IN"
+        text='FACEBOOK SIGN IN'
       />
     </Container>
   );

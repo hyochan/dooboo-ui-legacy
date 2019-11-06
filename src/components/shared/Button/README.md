@@ -16,12 +16,10 @@
 | inverted       |           | boolean              |         |
 | width          |           | number               |   320   |
 | height         |           | number               |    52   |
-| isLoading      |           | boolean              |  false  |
-| isDisabled     |           | boolean              |  false  |
-| iconLeft       |           | ImageSourcePropType  |         |
-| iconLeftStyle  |           | StyleProp<ImageStyle>|         |
-| iconRight      |           | ImageSourcePropType  |         |
-| iconRightStyle |           | StyleProp<ImageStyle>|         |
+| isLoading      |           | boolean              |         |
+| isDisabled     |           | boolean              |         |
+| iconLeft       |           | ReactElement         |         |
+| iconRight      |           | ReactElement         |         |
 | indicatorColor |           | string               |'#ffffff'|
 | activeOpacity  |           | number               |   0.5   |
 | children       |           | string               |         |
