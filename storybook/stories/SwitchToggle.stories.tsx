@@ -49,8 +49,8 @@ const Medium = (): React.ReactElement => {
       }}
       switchOn={switchOn2}
       onPress={(): void => setSwitchOn2(!switchOn2)}
-      circleColorOff='white'
-      circleColorOn='red'
+      circleColorOff="white"
+      circleColorOn="red"
       duration={500}
     />
   );
@@ -89,8 +89,8 @@ const WithText = (): React.ReactElement => {
         borderRadius: 30,
         padding: 5,
       }}
-      backgroundColorOn='#fff'
-      backgroundColorOff='#fff'
+      backgroundColorOn="#fff"
+      backgroundColorOff="#fff"
       circleStyle={{
         width: 80,
         height: 55,
@@ -99,8 +99,8 @@ const WithText = (): React.ReactElement => {
       }}
       switchOn={switchOn4}
       onPress={(): void => setSwitchOn4(!switchOn4)}
-      circleColorOff='#e5e1e0'
-      circleColorOn='#e5e1e0'
+      circleColorOff="#e5e1e0"
+      circleColorOn="#e5e1e0"
       duration={500}
     />
   );
@@ -116,8 +116,8 @@ const Large = (): React.ReactElement => {
         borderRadius: 30,
         padding: 5,
       }}
-      backgroundColorOn='#a0e1e5'
-      backgroundColorOff='#e5e1e0'
+      backgroundColorOn="#a0e1e5"
+      backgroundColorOff="#e5e1e0"
       circleStyle={{
         width: 55,
         height: 55,
@@ -126,8 +126,8 @@ const Large = (): React.ReactElement => {
       }}
       switchOn={switchOn3}
       onPress={(): void => setSwitchOn3(!switchOn3)}
-      circleColorOff='#ff11ff'
-      circleColorOn='green'
+      circleColorOff="#ff11ff"
+      circleColorOn="green"
       duration={500}
     />
   );
