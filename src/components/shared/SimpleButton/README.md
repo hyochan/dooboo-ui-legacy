@@ -1,30 +1,39 @@
-# SimpleButton
+# Button
 
-> [SimpleButton] component that can be used inside product. Has basic features like `loading` state, `disabled` state and also has ability to put `img` to left-hand which is used very often.
+> [Button] component that can be used inside product. Has basic features like `loading` state, `disabled` state and also has ability to put `img` to left-hand which is used very often.
+
+![image](https://user-images.githubusercontent.com/27461460/62291727-9be84100-b49f-11e9-8ce5-ceaa1dc3153e.png)
 
 ## Props
 
-|                | necessary | types               | default |
-| -------------- | --------- | ------------------- | ------- |
-| testID         |           | string              |         |
-| themeType      |           | string              |         |
-| width          |           | number              |         |
-| height         |           | number              |         |
-| inverted       |           | boolean             |         |
-| isLoading      |           | boolean             |         |
-| isDisabled     |           | boolean             |         |
-| iconSrc        |           | ImageSourcePropType |         |
-| indicatorColor |           | string              |         |
-| activeOpacity  |           | number              |         |
-| children       |           | string              |         |
-| onClick        |           | func                |         |
+|                | necessary | types                | default |
+| -------------- | --------- | -------------------- | ------- |
+| testID         |           | string               |         |
+| style          |           | StyleProp<ViewStyle> |         |
+| theme          |           | ThemeType            |         |
+| dark           |           | boolean              |         |
+| inverted       |           | boolean              |         |
+| inverted       |           | boolean              |         |
+| width          |           | number               |   320   |
+| height         |           | number               |    52   |
+| isLoading      |           | boolean              |  false  |
+| isDisabled     |           | boolean              |  false  |
+| iconLeft       |           | ImageSourcePropType  |         |
+| iconLeftStyle  |           | StyleProp<ImageStyle>|         |
+| iconRight      |           | ImageSourcePropType  |         |
+| iconRightStyle |           | StyleProp<ImageStyle>|         |
+| indicatorColor |           | string               |'#ffffff'|
+| activeOpacity  |           | number               |   0.5   |
+| children       |           | string               |         |
+| text           |           | string               |         |
+| onClick        |           | func                 |         |
 
 ## Getting started
 
 - Import
 
   ```javascript
-  import { SimpleButton } from '@dooboo-ui/native';
+  import { Button } from '@dooboo-ui/native';
   ```
 
 - Usage
@@ -32,28 +41,28 @@
   function Page(props: Props) {
     return (
       <Container>
-        <SimpleButton
+        <Button
           testID='btn'
           isLoading={false}
-          onPress={() => {}}
+          onClick={() => {}}
         >
           😀 😎 👍 💯
-        </SimpleButton>
-        <SimpleButton
+        </Button>
+        <Button
           style={{
             marginVertical: 40,
           }}
           isDisabled={true}
-          onPress={() => {}}
+          onClick={() => {}}
         >
           This is disabled!!
-        </SimpleButton>
+        </Button>
         <Button
           testID='btnGoogle'
-          iconSrc={IC_GOOGLE}
+          iconLeft={IC_GOOGLE}
           isLoading={googleLoading}
           indicatorColor='#023059'
-          onPress={() => {
+          onClick={() => {
             setGoogleLoading(true);
             const timeout = setTimeout(() => {
               setGoogleLoading(false);
@@ -62,10 +71,10 @@
           }}
         >
           GOOGLE SIGN IN
-        </SimpleButton>
-        <SimpleButton
+        </Button>
+        <Button
           testID='btnFacebook'
-          icon={IC_FACEBOOK}
+          iconLeft={IC_FACEBOOK}
           indicatorColor='#023059'
           isLoading={facebookLoading}
           style={{
@@ -74,7 +83,7 @@
             borderWidth: 0.5,
             borderRadius: 0,
           }}
-          onPress={() => {
+          onClick={() => {
             setFacebookLoading(true);
             const timeout = setTimeout(() => {
               setFacebookLoading(false);
@@ -83,7 +92,7 @@
           }}
         >
           FACEBOOK SIGN IN
-        </SimpleButton>
+        </Button>
       </Container>
     );
   }

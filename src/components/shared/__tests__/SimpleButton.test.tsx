@@ -8,7 +8,7 @@ import {
   fireEvent,
   render,
 } from '@testing-library/react-native';
-import SimpleButton, { THEME, THEME_TYPE } from '../SimpleButton';
+import SimpleButton, { THEME } from '../SimpleButton';
 
 import { ThemeProvider } from 'styled-components/native';
 // Note: test renderer must be required after react-native.
@@ -27,7 +27,7 @@ describe('[SimpleButton]', () => {
       testID: 'btn',
     };
     component = (
-      <ThemeProvider theme={THEME[THEME_TYPE.LIGHT]}>
+      <ThemeProvider theme={THEME.LIGHT}>
         <SimpleButton {...props} />
       </ThemeProvider>
     );
