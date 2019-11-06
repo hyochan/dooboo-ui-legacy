@@ -9,7 +9,7 @@
 |                | necessary | types                | default |
 | -------------- | --------- | -------------------- | ------- |
 | testID         |           | string               |         |
-| style          |           | StyleProp<ViewStyle> |         |
+| style          |           | ViewStyle            |         |
 | theme          |           | ThemeType            |         |
 | dark           |           | boolean              |         |
 | inverted       |           | boolean              |         |
