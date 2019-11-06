@@ -13,7 +13,6 @@
 | theme          |           | ThemeType            |         |
 | dark           |           | boolean              |         |
 | inverted       |           | boolean              |         |
-| inverted       |           | boolean              |         |
 | width          |           | number               |   320   |
 | height         |           | number               |    52   |
 | isLoading      |           | boolean              |         |
