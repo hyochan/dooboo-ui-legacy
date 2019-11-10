@@ -62,8 +62,8 @@
   const SampleButton = styled(Button)`
     width: 136px;
     height: 60px;
-    background-color: 'black';
-    border-color: 'red';
+    background-color: black;
+    border-color: red;
     border-width: 1px;
   `;
 
