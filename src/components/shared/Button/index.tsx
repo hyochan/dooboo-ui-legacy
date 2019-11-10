@@ -181,7 +181,7 @@ const getText = ({
   text,
   theme,
 }: {
-  children?: string;
+  children?: string | React.ReactElement;
   text?: string;
   theme?: ThemeType;
 }): string | React.ReactElement | undefined => {
