@@ -49,7 +49,7 @@ interface Props {
   iconRight?: React.ReactElement;
   indicatorColor: string;
   activeOpacity: number;
-  children?: string;
+  children?: string | React.ReactElement;
   text?: string;
   onClick?: () => void;
 }
@@ -104,7 +104,7 @@ export const THEME: {
   },
 };
 
-const StyledButton = styled.View<ButtonType>`
+const StyledButton = styled.View<ButtonType & TextType>`
   width: 320px;
   height: 52;
   background-color: ${({ theme }): string => theme.backgroundColor};
@@ -179,12 +179,22 @@ const getTheme = ({
 const getText = ({
   children,
   text,
+  theme,
 }: {
   children?: string;
   text?: string;
-}): string | undefined => {
+  theme?: ThemeType;
+}): string | React.ReactElement | undefined => {
   if (typeof children === 'undefined') {
-    return text;
+    return (
+      <Text theme={theme}>{text}</Text>
+    );
+  }
+
+  if (typeof children === 'string') {
+    return (
+      <Text theme={theme}>{children}</Text>
+    );
   }
 
   return children;
@@ -218,6 +228,7 @@ function Button(props: Props): React.ReactElement {
   const textToRender = getText({
     children,
     text,
+    theme: themeToApply,
   });
 
   return (
@@ -232,7 +243,7 @@ function Button(props: Props): React.ReactElement {
         theme={themeToApply}
       >
         {!isLoading && <IconLeft>{iconLeft}</IconLeft>}
-        {!isLoading && <Text theme={themeToApply}>{textToRender}</Text>}
+        {!isLoading && textToRender}
         {!isLoading && <IconRight>{iconRight}</IconRight>}
         {isLoading && <ActivityIndicator size="small" color={indicatorColor} />}
       </StyledButton>

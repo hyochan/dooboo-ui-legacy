@@ -32,6 +32,88 @@
   ```
 
 - Usage
+  - with `StyleSheet`
+  ```jsx
+  import Button from '@dooboo-ui/native';
+
+  <Button
+    testID="sampleButton"
+    style={{
+      width: 136,
+      height: 60,
+      borderWidth: 1,
+    }}
+    theme={{
+      ...theme,
+      backgroundColor: 'black',
+      borderColor: 'red',
+      fontColor: 'blue',
+    }}
+    onClick={(): void => {}}
+  >
+    Sample button
+  </Button>
+  ```
+
+  - with `styled-components`
+  ```jsx
+  import Button from '@dooboo-ui/native';
+
+  const SampleButton = styled(Button)`
+    width: 136px;
+    height: 60px;
+    background-color: 'black';
+    border-color: 'red';
+    border-width: 1px;
+  `;
+
+  <SampleButton
+    testID="sampleButton"
+    onClick={(): void => {}}
+  >
+      Sample button
+  </SampleButton>
+
+  const SampleText = styled.Text`
+    color: white;
+  `;
+
+  <SampleButton
+    testID="sampleButton"
+    onClick={(): void => {}}
+  >
+    <SampleText>Sample button</SampleText>
+  </SampleButton>
+  ```
+
+  ```jsx
+  import Button, { ThemeType } from '@dooboo-ui/native';
+
+  const SampleButton: StyledComponent< // If 'theme' prop is used, should specify 'ThemeType' for the 'StyledComponent'.
+    typeof Button,
+    ThemeType,
+    {},
+    never
+  > = styled(Button)`
+    width: 136px;
+    height: 60px;
+    border-width: 1px;
+  `;
+
+  <SampleButton
+    testID="sampleButton"
+    theme={{   // ThemeType
+      ...theme,
+      backgroundColor: 'black',
+      borderColor: 'red',
+      fontColor: 'blue',
+    }}
+    onClick={(): void => {}}
+  >
+      Sample button
+  </SampleButton>
+  ```
+
   ```javascript
   function Page(props: Props) {
     return (
