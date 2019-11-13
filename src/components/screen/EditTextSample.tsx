@@ -106,12 +106,10 @@ function Page(): React.ReactElement {
             width: '100%',
             backgroundColor: 'rgb(36, 205, 151)',
           }}
+          textStyle={fontStyle}
           testID="btnEmail"
           onClick={(): void => onSignIn()}
           text="Login"
-          theme={{
-            fontStyle,
-          }}
         />
         {/* Email SignUp text */}
         <View
