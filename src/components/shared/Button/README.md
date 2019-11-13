@@ -10,7 +10,7 @@
 | -------------- | --------- | -------------------- | ------- |
 | testID         |           | string               |         |
 | style          |           | ViewStyle            |         |
-| theme          |           | ThemeType            |         |
+| textStyle      |           | TextStyle            |         |
 | dark           |           | boolean              |         |
 | inverted       |           | boolean              |         |
 | isLoading      |           | boolean              |         |
