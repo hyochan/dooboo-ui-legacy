@@ -27,7 +27,7 @@ interface TextType extends ThemeProps<TextThemeType>{
   theme: TextThemeType;
 }
 
-export interface ThemeType extends DefaultTheme {
+interface ThemeType extends DefaultTheme {
   backgroundColor: string;
   borderColor: string;
   fontColor: string;
