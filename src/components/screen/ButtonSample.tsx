@@ -36,7 +36,7 @@ function Page(): React.ReactElement {
       />
       <Button
         testID="btnGoogle"
-        leftComponent={<Image source={IC_GOOGLE} />}
+        iconLeft={<Image source={IC_GOOGLE} />}
         isLoading={googleLoading}
         indicatorColor="#023059"
         onClick={(): void => {
@@ -50,7 +50,7 @@ function Page(): React.ReactElement {
       />
       <Button
         testID="btnFacebook"
-        leftComponent={<Image source={IC_FACEBOOK} />}
+        iconLeft={<Image source={IC_FACEBOOK} />}
         indicatorColor="#023059"
         isLoading={facebookLoading}
         style={{

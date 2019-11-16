@@ -1,24 +1,27 @@
 # Button
 
-> Simple [Button] component that can be used inside product. Has basic features like `loading` state, `disabled` state and also has ability to put `img` to left-hand which is used very often.
+> [Button] component that can be used inside product. Has basic features like `loading` state, `disabled` state and also has ability to put `img` to left-hand which is used very often.
 
 ![image](https://user-images.githubusercontent.com/27461460/62291727-9be84100-b49f-11e9-8ce5-ceaa1dc3153e.png)
 
 ## Props
 
-|                | necessary | types        | default |
-| -------------- | --------- | ------------ | ------- |
-| testID         |           | string       |         |
-| isLoading      |           | boolean      |         |
-| isDisabled     |           | boolean      |         |
-| onClick        |           | func         |         |
-| style          |           | ViewStyle    |         |
-| disabledStyle  |           | ViewStyle    |         |
-| textStyle      |           | TextStyle    |         |
-| leftComponnet  |           | ReactElement |         |
-| indicatorColor |           | string       |         |
-| activeOpacity  |           | number       |         |
-| text           |           | string       |         |
+|                | necessary | types                | default |
+| -------------- | --------- | -------------------- | ------- |
+| testID         |           | string               |         |
+| style          |           | ViewStyle            |         |
+| textStyle      |           | TextStyle            |         |
+| dark           |           | boolean              |         |
+| inverted       |           | boolean              |         |
+| isLoading      |           | boolean              |         |
+| isDisabled     |           | boolean              |         |
+| iconLeft       |           | ReactElement         |         |
+| iconRight      |           | ReactElement         |         |
+| indicatorColor |           | string               |'#ffffff'|
+| activeOpacity  |           | number               |   0.5   |
+| children       |           | string | ReactElement|         |
+| text           |           | string               |         |
+| onClick        |           | func                 |         |
 
 ## Getting started
 
@@ -29,6 +32,88 @@
   ```
 
 - Usage
+  - with `StyleSheet`
+  ```jsx
+  import Button from '@dooboo-ui/native';
+
+  <Button
+    testID="sampleButton"
+    style={{
+      width: 136,
+      height: 60,
+      borderWidth: 1,
+    }}
+    theme={{
+      ...theme,
+      backgroundColor: 'black',
+      borderColor: 'red',
+      fontColor: 'blue',
+    }}
+    onClick={(): void => {}}
+  >
+    Sample button
+  </Button>
+  ```
+
+  - with `styled-components`
+  ```jsx
+  import Button from '@dooboo-ui/native';
+
+  const SampleButton = styled(Button)`
+    width: 136px;
+    height: 60px;
+    background-color: black;
+    border-color: red;
+    border-width: 1px;
+  `;
+
+  <SampleButton
+    testID="sampleButton"
+    onClick={(): void => {}}
+  >
+      Sample button
+  </SampleButton>
+
+  const SampleText = styled.Text`
+    color: white;
+  `;
+
+  <SampleButton
+    testID="sampleButton"
+    onClick={(): void => {}}
+  >
+    <SampleText>Sample button</SampleText>
+  </SampleButton>
+  ```
+
+  ```jsx
+  import Button, { ThemeType } from '@dooboo-ui/native';
+
+  const SampleButton: StyledComponent< // If 'theme' prop is used, should specify 'ThemeType' for the 'StyledComponent'.
+    typeof Button,
+    ThemeType,
+    {},
+    never
+  > = styled(Button)`
+    width: 136px;
+    height: 60px;
+    border-width: 1px;
+  `;
+
+  <SampleButton
+    testID="sampleButton"
+    theme={{   // ThemeType
+      ...theme,
+      backgroundColor: 'black',
+      borderColor: 'red',
+      fontColor: 'blue',
+    }}
+    onClick={(): void => {}}
+  >
+      Sample button
+  </SampleButton>
+  ```
+
   ```javascript
   function Page(props: Props) {
     return (
@@ -36,20 +121,22 @@
         <Button
           testID='btn'
           isLoading={false}
-          text='😀 😎 👍 💯'
           onClick={() => {}}
-        />
+        >
+          😀 😎 👍 💯
+        </Button>
         <Button
           style={{
             marginVertical: 40,
           }}
           isDisabled={true}
-          text='This is disabled!!'
           onClick={() => {}}
-        />
+        >
+          This is disabled!!
+        </Button>
         <Button
           testID='btnGoogle'
-          leftComponent={<Image source={IC_GOOGLE} />}
+          iconLeft={<Image source={IC_GOOGLE} />}
           isLoading={googleLoading}
           indicatorColor='#023059'
           onClick={() => {
@@ -59,17 +146,14 @@
               clearTimeout(timeout);
             }, 2000);
           }}
-          text='GOOGLE SIGN IN'
-        />
+        >
+          GOOGLE SIGN IN
+        </Button>
         <Button
           testID='btnFacebook'
-          leftComponent={<Image source={IC_FACEBOOK} />}
+          iconLeft={<Image source={IC_FACEBOOK} />}
           indicatorColor='#023059'
           isLoading={facebookLoading}
-          imgLeftStyle={{
-            height: 28,
-            width: 16,
-          }}
           style={{
             marginTop: 40,
             backgroundColor: '#ccc',
@@ -83,8 +167,9 @@
               clearTimeout(timeout);
             }, 2000);
           }}
-          text='FACEBOOK SIGN IN'
-        />
+        >
+          FACEBOOK SIGN IN
+        </Button>
       </Container>
     );
   }

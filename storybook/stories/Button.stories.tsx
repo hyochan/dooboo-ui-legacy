@@ -48,7 +48,7 @@ function Default(): React.ReactElement {
         text={text('button text', 'this is disabled')}
       />
       <Button
-        leftComponent={<Image source={IC_GOOGLE} />}
+        iconLeft={<Image source={IC_GOOGLE} />}
         isLoading={googleLoading}
         indicatorColor="#023059"
         onClick={(): void => {
@@ -62,7 +62,7 @@ function Default(): React.ReactElement {
       />
       <Button
         testID="btnFacebook"
-        leftComponent={<Image source={IC_FACEBOOK} />}
+        iconLeft={<Image source={IC_FACEBOOK} />}
         indicatorColor="#023059"
         isLoading={facebookLoading}
         style={{
