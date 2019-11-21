@@ -21,6 +21,7 @@ exports[`[EditText] renders without crashing 1`] = `
           "fontWeight": "500",
         },
         null,
+        undefined,
       ]
     }
   />
