@@ -54,6 +54,8 @@ interface Props {
   style?: ViewStyle;
   label?: string;
   textStyle?: TextStyle;
+  labelTextStyle?: TextStyle;
+  errorTextStyle?: TextStyle;
   error?: boolean;
   errorText?: string;
   value?: string;
@@ -71,51 +73,76 @@ interface Props {
 function EditText(props: Props): ReactElement {
   const [focused, setFocus] = useState(false);
 
+  const {
+    testID,
+    errorTestID,
+    style,
+    label,
+    textStyle,
+    labelTextStyle,
+    errorTextStyle,
+    error,
+    errorText,
+    value,
+    placeholder,
+    placeholderTextColor,
+    secureTextEntry,
+    onChangeText,
+    onSubmitEditing,
+    focusColor,
+    errorColor,
+  } = props;
+
   return (
-    <Container style={props.style}>
+    <Container style={style}>
       <Title
-        style={
+        style={[
           // prettier-ignore
           focused
-            ? { color: '#79B3F5' }
-            : props.error
-              ? { color: '#FF8989' }
-              : null
-        }
+            ? { color: focusColor }
+            : error
+              ? { color: errorColor }
+              : null,
+          labelTextStyle,
+        ]}
       >
-        {props.label}
+        {label}
       </Title>
       <StyledTextInput
-        testID={props.testID}
+        testID={testID}
         autoCapitalize={'none'}
         onFocus={(): void => setFocus(true)}
         onBlur={(): void => setFocus(false)}
-        placeholder={props.placeholder}
-        placeholderTextColor={props.placeholderTextColor}
-        value={props.value}
-        onChangeText={props.onChangeText}
-        secureTextEntry={props.secureTextEntry}
-        onSubmitEditing={props.onSubmitEditing}
+        placeholder={placeholder}
+        placeholderTextColor={placeholderTextColor}
+        value={value}
+        style={textStyle}
+        onChangeText={onChangeText}
+        secureTextEntry={secureTextEntry}
+        onSubmitEditing={onSubmitEditing}
       ></StyledTextInput>
       <UnderLine
         style={
           // prettier-ignore
           focused
             ? { borderColor: '' }
-            : props.error
+            : error
               ? { borderColor: '#FF8989' }
               : null
         }
       />
-      {props.error ? (
+      {error ? (
         <StyledInvalidText
-          testID={props.errorTestID}
-          style={{
-            color: props.errorColor,
-          }}
+          testID={errorTestID}
+          style={[
+            {
+              color: errorColor,
+            },
+            errorTextStyle,
+          ]}
         >
           {' '}
-          {props.errorText}{' '}
+          {errorText}{' '}
         </StyledInvalidText>
       ) : null}
     </Container>
