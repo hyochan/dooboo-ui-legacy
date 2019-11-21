@@ -52,6 +52,7 @@ interface Props {
   testID?: string;
   errorTestID?: string;
   style?: ViewStyle;
+  underlineStyle?: ViewStyle;
   label?: string;
   textStyle?: TextStyle;
   labelTextStyle?: TextStyle;
@@ -77,11 +78,11 @@ function EditText(props: Props): ReactElement {
     testID,
     errorTestID,
     style,
+    underlineStyle,
     label,
     textStyle,
     labelTextStyle,
     errorTextStyle,
-    error,
     errorText,
     value,
     placeholder,
@@ -100,7 +101,7 @@ function EditText(props: Props): ReactElement {
           // prettier-ignore
           focused
             ? { color: focusColor }
-            : error
+            : errorText
               ? { color: errorColor }
               : null,
           labelTextStyle,
@@ -122,16 +123,17 @@ function EditText(props: Props): ReactElement {
         onSubmitEditing={onSubmitEditing}
       ></StyledTextInput>
       <UnderLine
-        style={
+        style={[
           // prettier-ignore
           focused
-            ? { borderColor: '' }
-            : error
-              ? { borderColor: '#FF8989' }
-              : null
-        }
+            ? { borderColor: focusColor }
+            : errorText
+              ? { borderColor: errorColor }
+              : null,
+          underlineStyle,
+        ]}
       />
-      {error ? (
+      {errorText ? (
         <StyledInvalidText
           testID={errorTestID}
           style={[
