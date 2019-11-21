@@ -55,6 +55,7 @@ exports[`[EditText] renders without crashing 1`] = `
           "borderWidth": 0.6,
         },
         null,
+        undefined,
       ]
     }
   />

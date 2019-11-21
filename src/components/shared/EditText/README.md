@@ -8,19 +8,21 @@
 
 |                      | necessary | types                  | default |
 | -------------------- | --------- | ---------------------- | ------- |
-| pararentTestId       |           | string                 |         |
 | testID               |           | string                 |         |
 | errorTestID          |           | string                 |         |
 | style                |           | `StyleProp<ViewStyle>` |         |
+| underlineStyle       |           | `StyleProp<ViewStyle>` |         |
 | label                |           | string                 |         |
 | textStyle            |           | `StyleProp<TextStyle>` |         |
+| labelTextStyle       |           | `StyleProp<TextStyle>` |         |
+| errorTextStyle       |           | `StyleProp<TextStyle>` |         |
 | errorText            |           | string                 |         |
 | value                |           | string                 |         |
 | placeholder          |           | string                 |         |
 | placeholderTextColor |           | string                 |         |
 | secureTextEntry      |           | boolean                |         |
 | onSubmitEditing      |           | func                   |         |
-| onCHangeText         |           | (e) => {}              |         |
+| onChangeText         |           | (e) => {}              |         |
 
 ## Getting started
 
