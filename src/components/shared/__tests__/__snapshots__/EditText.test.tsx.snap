@@ -9,10 +9,21 @@ exports[`[EditText] renders without crashing 1`] = `
         "flexDirection": "column",
         "width": "100%",
       },
-      undefined,
     ]
   }
 >
+  <Text
+    style={
+      Array [
+        Object {
+          "color": "#b9b9c4",
+          "fontSize": 14,
+          "fontWeight": "500",
+        },
+        null,
+      ]
+    }
+  />
   <TextInput
     allowFontScaling={true}
     autoCapitalize="none"
@@ -22,13 +33,14 @@ exports[`[EditText] renders without crashing 1`] = `
     style={
       Array [
         Object {
-          "color": "#2C374E",
+          "color": "#2c374e",
           "fontSize": 15,
           "fontWeight": "500",
           "paddingBottom": 10,
+          "paddingLeft": 0,
+          "paddingRight": 0,
           "paddingTop": 15,
         },
-        undefined,
       ]
     }
     underlineColorAndroid="transparent"
@@ -38,6 +50,7 @@ exports[`[EditText] renders without crashing 1`] = `
       Array [
         Object {
           "borderColor": "#eaeaf9",
+          "borderStyle": "solid",
           "borderWidth": 0.6,
         },
         null,

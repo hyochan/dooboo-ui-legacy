@@ -7,7 +7,7 @@
 ## Props
 
 |                      | necessary | types                  | default |
-| -------------------- | --------- | -----------------------| ------- |
+| -------------------- | --------- | ---------------------- | ------- |
 | pararentTestId       |           | string                 |         |
 | testID               |           | string                 |         |
 | errorTestID          |           | string                 |         |
@@ -15,12 +15,12 @@
 | label                |           | string                 |         |
 | textStyle            |           | `StyleProp<TextStyle>` |         |
 | errorText            |           | string                 |         |
-| text                 |           | string                 |         |
+| value                |           | string                 |         |
 | placeholder          |           | string                 |         |
 | placeholderTextColor |           | string                 |         |
 | secureTextEntry      |           | boolean                |         |
 | onSubmitEditing      |           | func                   |         |
-| onTextChanged        |           | (e) => {}              |         |
+| onCHangeText         |           | (e) => {}              |         |
 
 ## Getting started
 
@@ -75,13 +75,13 @@
         <Container>
           <HeaderTitle>Sign in with Email</HeaderTitle>
           <EditText
-            testID='EMAIL_INPUT'
+            testID="EMAIL_INPUT"
             textStyle={{
               color: '#495057',
             }}
-            label='Email'
-            placeholder='Write email address'
-            placeholderTextColor='#ADB5BD'
+            label="Email"
+            placeholder="Write email address"
+            placeholderTextColor="#ADB5BD"
             text={email}
             onTextChanged={(text: string) => onTextChanged('EMAIL', text)}
             style={{ marginTop: 50 }}
@@ -89,24 +89,24 @@
             onSubmitEditing={onSignIn}
           />
           <EditText
-            testID='PASSWORD_INPUT'
+            testID="PASSWORD_INPUT"
             textStyle={{
               color: '#ADB5BD',
             }}
             secureTextEntry={true}
-            label='Password'
-            placeholder='Please write your password'
-            placeholderTextColor='#ADB5BD'
+            label="Password"
+            placeholder="Please write your password"
+            placeholderTextColor="#ADB5BD"
             text={password}
             onTextChanged={(text: string) => onTextChanged('PASSWORD', text)}
             style={{ marginTop: 36 }}
             onSubmitEditing={onSignIn}
           />
           <StyledSignInButton
-            testID='btnEmail'
+            testID="btnEmail"
             onClick={() => onSignIn()}
             textStyle={fontStyle}
-            text='Login'
+            text="Login"
           />
           {/* Email SignUp text */}
           <View
@@ -117,7 +117,7 @@
               alignItems: 'center',
             }}
           >
-            <StyledText testID='NO_ACCOUNT'>
+            <StyledText testID="NO_ACCOUNT">
               Do not have and account?{' '}
             </StyledText>
             <TouchableOpacity onPress={() => null} style={{ padding: 4 }}>

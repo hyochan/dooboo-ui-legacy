@@ -76,8 +76,8 @@ function Page(): React.ReactElement {
           label="Email"
           placeholder="Write email address"
           placeholderTextColor="#ADB5BD"
-          text={email}
-          onTextChanged={(text: string): void => onTextChanged('EMAIL', text)}
+          value={email}
+          onChangeText={(text: string): void => onTextChanged('EMAIL', text)}
           style={{ marginTop: 50 }}
           errorText={errorEmail}
           onSubmitEditing={onSignIn}
@@ -91,10 +91,8 @@ function Page(): React.ReactElement {
           label="Password"
           placeholder="Please write your password"
           placeholderTextColor="#ADB5BD"
-          text={password}
-          onTextChanged={(text: string): void =>
-            onTextChanged('PASSWORD', text)
-          }
+          value={password}
+          onChangeText={(text: string): void => onTextChanged('PASSWORD', text)}
           style={{ marginTop: 36 }}
           onSubmitEditing={onSignIn}
         />
