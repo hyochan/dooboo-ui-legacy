@@ -18,7 +18,7 @@ let component: React.ReactElement;
 let testingLib: RenderResult;
 
 describe('[EditText]', () => {
-  let text = '';
+  let value = '';
 
   beforeEach(() => {
     props = {};
@@ -35,9 +35,8 @@ describe('[EditText]', () => {
     const props = {
       testID: 'INPUT_TEST',
       testError: 'ERROR_TEST',
-      text: 'test',
-      onTextChanged: (word: string): void => {
-        text = word;
+      onChangeText: (word: string): void => {
+        value = word;
       },
     };
     beforeEach(() => {
@@ -50,7 +49,7 @@ describe('[EditText]', () => {
       act(() => {
         fireEvent.changeText(input, 'input test');
       });
-      expect(text).toEqual('input test');
+      expect(value).toEqual('input test');
       // expect(input.props).toEqual('input test');
     });
   });

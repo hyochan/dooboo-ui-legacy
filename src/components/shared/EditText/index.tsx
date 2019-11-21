@@ -50,6 +50,7 @@ const StyledInvalidText = styled.Text`
 
 interface Props {
   testID?: string;
+  errorTestID?: string;
   style?: ViewStyle;
   label?: string;
   textStyle?: TextStyle;
@@ -60,7 +61,7 @@ interface Props {
   placeholderTextColor?: string;
   secureTextEntry?: boolean;
   onChangeText?: (text: string) => void;
-  onSubmitEditing: (
+  onSubmitEditing?: (
     e: NativeSyntheticEvent<TextInputSubmitEditingEventData>,
   ) => void;
   focusColor?: string;
@@ -85,6 +86,7 @@ function EditText(props: Props): ReactElement {
         {props.label}
       </Title>
       <StyledTextInput
+        testID={props.testID}
         autoCapitalize={'none'}
         onFocus={(): void => setFocus(true)}
         onBlur={(): void => setFocus(false)}
@@ -107,6 +109,7 @@ function EditText(props: Props): ReactElement {
       />
       {props.error ? (
         <StyledInvalidText
+          testID={props.errorTestID}
           style={{
             color: props.errorColor,
           }}
