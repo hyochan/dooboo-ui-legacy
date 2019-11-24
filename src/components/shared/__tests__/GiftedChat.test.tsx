@@ -22,6 +22,8 @@ const createTestProps = (obj: object): object => ({
 describe('[GiftedChatInput] render', () => {
   beforeEach(() => {
     props = createTestProps({
+      inputTestID: 'input_chat',
+      touchTestID: 'touch_menu',
       chats: [
         {
           id: '',

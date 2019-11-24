@@ -1,5 +1,8 @@
 # EditText
 
+[![Npm Version](http://img.shields.io/npm/v/@dooboo-ui/native-edit-text.svg?style=flat-square)](https://npmjs.org/package/@dooboo-ui/native-edit-text)
+[![Downloads](http://img.shields.io/npm/dm/@dooboo-ui-edit-text/native.svg?style=flat-square)](https://npmjs.org/package/@dooboo-ui-edit-text/native)
+
 > [EditText] component is an enhanced version on pure react-native [TextInput] component.
 
 ![image](https://user-images.githubusercontent.com/27461460/62299053-28e6c680-b4af-11e9-8c59-61b79ad82c4d.png)
@@ -23,6 +26,18 @@
 | secureTextEntry      |           | boolean                |         |
 | onSubmitEditing      |           | func                   |         |
 | onChangeText         |           | (e) => {}              |         |
+
+## Installation
+
+```sh
+yarn add @dooboo-ui/native
+```
+
+or
+
+```sh
+yarn add @dooboo-ui/native-edit-text
+```
 
 ## Getting started
 

@@ -2,7 +2,7 @@
   "name": "@dooboo-ui/native-gifted-chat",
   "main": "package/index.js",
   "types": "package/index.d.ts",
-  "version": "0.3.0",
+  "version": "0.3.2",
   "license": "MIT",
   "scripts": {
     "build": "rm -rf ./package && tsc"

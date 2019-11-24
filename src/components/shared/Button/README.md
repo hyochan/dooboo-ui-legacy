@@ -1,5 +1,8 @@
 # Button
 
+[![Npm Version](http://img.shields.io/npm/v/@dooboo-ui/native-button.svg?style=flat-square)](https://npmjs.org/package/@dooboo-ui/native-button)
+[![Downloads](http://img.shields.io/npm/dm/@dooboo-ui-button/native.svg?style=flat-square)](https://npmjs.org/package/@dooboo-ui-button/native)
+
 > [Button] component that can be used inside product. Has basic features like `loading` state, `disabled` state and also has ability to put `img` to left-hand which is used very often.
 
 ![image](https://user-images.githubusercontent.com/27461460/62291727-9be84100-b49f-11e9-8ce5-ceaa1dc3153e.png)
@@ -22,6 +25,18 @@
 | children       |           | string       | ReactElement |  |
 | text           |           | string       |              |
 | onClick        |           | func         |              |
+
+## Installation
+
+```sh
+yarn add @dooboo-ui/native
+```
+
+or
+
+```sh
+yarn add @dooboo-ui/native-button
+```
 
 ## Getting started
 

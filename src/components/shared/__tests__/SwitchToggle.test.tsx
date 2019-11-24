@@ -21,6 +21,7 @@ describe('[SwitchToggle]', (): void => {
       const handlePress = jest.fn();
       const rendered = renderer.create(
         component({
+          testID: 'SWITCH_ID',
           onPress: handlePress,
         }),
       );

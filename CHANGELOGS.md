@@ -1,5 +1,9 @@
 ## Changelogs
 
+- **[0.4.0]**
+  - Componetized all components.
+  - Add `testID` props to components.
+  - Add `badges` to each component.
 - **[0.1.0]**
   - Renamed `DropdownItem` to `Accordion` [#17](https://github.com/dooboolab/dooboo-ui-native/pull/17).
   - Fixed typescript def import.

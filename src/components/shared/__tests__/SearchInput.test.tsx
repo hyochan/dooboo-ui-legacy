@@ -6,6 +6,7 @@ import SearchInput from '../SearchInput';
 import { render } from '@testing-library/react-native';
 
 const createTestProps = ({ value = '' }: { value: string }): object => ({
+  testID: 'RESET_BUTTON',
   onDebounceOrOnReset: jest.fn(),
   value: value,
 });
