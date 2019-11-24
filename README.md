@@ -17,17 +17,32 @@ We currently love [react-hooks](https://code.fb.com/open-source/react-hooks) and
 - [Contributing](CONTRIBUTING.md)
   - Try to make good `shared` component and test it in `storybook` or in `sample` screen. Then it's all good to go for `pull request`. Give it a try :blossom:.
 
+## Usage
+
+You can use all components in `@dooboo-ui/native` by importing it. However, we also support individual imports using seperate installation.
+
+If you want to use only `SwitchToggle`, you can install it by running `@dooboo-ui/native-switch-toggle`.
+
 ## List of widgets
 
 - [Accordion](https://github.com/dooboolab/dooboo-ui-native/tree/master/src/components/shared/Accordion)
+  - `@dooboo-ui/native-accordion`
 - [Button](https://github.com/dooboolab/dooboo-ui-native/tree/master/src/components/shared/Button)
+  - `@dooboo-ui/native-button`
 - [ButtonGroup](https://github.com/dooboolab/dooboo-ui-native/tree/master/src/components/shared/ButtonGroup)
+  - `@dooboo-ui/native-button-group`
 - [CalendarCarousel](https://github.com/dooboolab/dooboo-ui-native/tree/master/src/components/shared/CalendarCarousel)
+  - WIP
 - [EditText](https://github.com/dooboolab/dooboo-ui-native/tree/master/src/components/shared/EditText)
+  - `@dooboo-ui/native-edit-text`
 - [GiftedChat](https://github.com/dooboolab/dooboo-ui-native/tree/master/src/components/shared/GiftedChat)
+  - `@dooboo-ui/native-gifted-chat`
 - [LoadingIndicator](https://github.com/dooboolab/dooboo-ui-native/tree/master/src/components/shared/LoadingIndicator)
+  - `@dooboo-ui/native-loading-indicator`
 - [SearchInput](https://github.com/dooboolab/dooboo-ui-native/tree/master/src/components/shared/SearchInput)
+  - `@dooboo-ui/native-search-input`
 - [SwitchToggle](https://github.com/dooboolab/dooboo-ui-native/tree/master/src/components/shared/SwitchToggle)
+  - `@dooboo-ui/native-switch-toggle`
 
 ## Comaptability
 
