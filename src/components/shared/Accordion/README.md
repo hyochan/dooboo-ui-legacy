@@ -17,13 +17,14 @@
 | style             |           | `StyleProp<ViewStyle>` | `undefined`   |
 | children          | ✓         | ReactElement           | `undefined`   |
 
-
 ## Getting started
 
 - Import
 
   ```javascript
   import { Accordion } from '@dooboo-ui/native';
+  // or
+  import Accordion from '@dooboo-ui/native-accordion';
   ```
 
 - Data

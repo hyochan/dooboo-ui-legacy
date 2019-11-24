@@ -41,6 +41,8 @@
 
   ```javascript
   import { GiftedChat } from '@dooboo-ui/native';
+  // or
+  import GiftedChat from '@dooboo-ui/native-gifted-chat';
   ```
 
 - Usage

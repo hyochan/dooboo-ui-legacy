@@ -30,6 +30,8 @@
 
   ```javascript
   import { EditText } from '@dooboo-ui/native';
+  // or
+  import EditText from '@dooboo-ui/native-edit-text';
   ```
 
 - Usage

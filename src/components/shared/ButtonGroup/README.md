@@ -7,7 +7,7 @@
 ## Props
 
 |                   | necessary | types                  | default                  |
-| ----------------- | --------- | -----------------------| ------------------------ |
+| ----------------- | --------- | ---------------------- | ------------------------ |
 | testID            |           | string                 |                          |
 | containerStyle    |           | `StyleProp<ViewStyle>` |                          |
 | style             |           | `StyleProp<ViewStyle>` |                          |
@@ -24,6 +24,8 @@
 
   ```javascript
   import { ButtonGroup } from '@dooboo-ui/native';
+  // or
+  import ButtonGroup from '@dooboo-ui/native-button-group';
   ```
 
 - Usage
@@ -49,7 +51,7 @@
     return (
       <Container>
         <ButtonGroup
-          testID='BTN_GROUP'
+          testID="BTN_GROUP"
           style={{ marginTop: 40 }}
           onPress={(index: number) => selectOption(index)}
           data={data}
