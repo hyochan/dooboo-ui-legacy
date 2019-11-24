@@ -6,22 +6,22 @@
 
 ## Props
 
-|                | necessary | types                | default |
-| -------------- | --------- | -------------------- | ------- |
-| testID         |           | string               |         |
-| style          |           | ViewStyle            |         |
-| textStyle      |           | TextStyle            |         |
-| dark           |           | boolean              |         |
-| inverted       |           | boolean              |         |
-| isLoading      |           | boolean              |         |
-| isDisabled     |           | boolean              |         |
-| iconLeft       |           | ReactElement         |         |
-| iconRight      |           | ReactElement         |         |
-| indicatorColor |           | string               |'#ffffff'|
-| activeOpacity  |           | number               |   0.5   |
-| children       |           | string | ReactElement|         |
-| text           |           | string               |         |
-| onClick        |           | func                 |         |
+|                | necessary | types        | default      |
+| -------------- | --------- | ------------ | ------------ |
+| testID         |           | string       |              |
+| style          |           | ViewStyle    |              |
+| textStyle      |           | TextStyle    |              |
+| dark           |           | boolean      |              |
+| inverted       |           | boolean      |              |
+| isLoading      |           | boolean      |              |
+| isDisabled     |           | boolean      |              |
+| iconLeft       |           | ReactElement |              |
+| iconRight      |           | ReactElement |              |
+| indicatorColor |           | string       | '#ffffff'    |
+| activeOpacity  |           | number       | 0.5          |
+| children       |           | string       | ReactElement |  |
+| text           |           | string       |              |
+| onClick        |           | func         |              |
 
 ## Getting started
 
@@ -32,7 +32,9 @@
   ```
 
 - Usage
+
   - with `StyleSheet`
+
   ```jsx
   import Button from '@dooboo-ui/native';
 
@@ -52,12 +54,15 @@
     onClick={(): void => {}}
   >
     Sample button
-  </Button>
+  </Button>;
   ```
 
   - with `styled-components`
+
   ```jsx
-  import Button from '@dooboo-ui/native';
+  import { Button } from '@dooboo-ui/native';
+  // or
+  import Button from '@dooboo-ui/native-button';
 
   const SampleButton = styled(Button)`
     width: 136px;
@@ -67,33 +72,28 @@
     border-width: 1px;
   `;
 
-  <SampleButton
-    testID="sampleButton"
-    onClick={(): void => {}}
-  >
-      Sample button
-  </SampleButton>
+  <SampleButton testID="sampleButton" onClick={(): void => {}}>
+    Sample button
+  </SampleButton>;
 
   const SampleText = styled.Text`
     color: white;
   `;
 
-  <SampleButton
-    testID="sampleButton"
-    onClick={(): void => {}}
-  >
+  <SampleButton testID="sampleButton" onClick={(): void => {}}>
     <SampleText>Sample button</SampleText>
-  </SampleButton>
+  </SampleButton>;
   ```
 
   ```jsx
   import Button, { ThemeType } from '@dooboo-ui/native';
 
-  const SampleButton: StyledComponent< // If 'theme' prop is used, should specify 'ThemeType' for the 'StyledComponent'.
+  const SampleButton: StyledComponent<
+    // If 'theme' prop is used, should specify 'ThemeType' for the 'StyledComponent'.
     typeof Button,
     ThemeType,
     {},
-    never
+    never,
   > = styled(Button)`
     width: 136px;
     height: 60px;
@@ -102,7 +102,8 @@
 
   <SampleButton
     testID="sampleButton"
-    theme={{   // ThemeType
+    theme={{
+      // ThemeType
       ...theme,
       backgroundColor: 'black',
       borderColor: 'red',
@@ -110,19 +111,15 @@
     }}
     onClick={(): void => {}}
   >
-      Sample button
-  </SampleButton>
+    Sample button
+  </SampleButton>;
   ```
 
   ```javascript
   function Page(props: Props) {
     return (
       <Container>
-        <Button
-          testID='btn'
-          isLoading={false}
-          onClick={() => {}}
-        >
+        <Button testID="btn" isLoading={false} onClick={() => {}}>
           😀 😎 👍 💯
         </Button>
         <Button
@@ -135,10 +132,10 @@
           This is disabled!!
         </Button>
         <Button
-          testID='btnGoogle'
+          testID="btnGoogle"
           iconLeft={<Image source={IC_GOOGLE} />}
           isLoading={googleLoading}
-          indicatorColor='#023059'
+          indicatorColor="#023059"
           onClick={() => {
             setGoogleLoading(true);
             const timeout = setTimeout(() => {
@@ -150,9 +147,9 @@
           GOOGLE SIGN IN
         </Button>
         <Button
-          testID='btnFacebook'
+          testID="btnFacebook"
           iconLeft={<Image source={IC_FACEBOOK} />}
-          indicatorColor='#023059'
+          indicatorColor="#023059"
           isLoading={facebookLoading}
           style={{
             marginTop: 40,

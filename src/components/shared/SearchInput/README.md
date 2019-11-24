@@ -35,7 +35,8 @@ export interface SearchInputProps {
 - Import
 
   ```tsx
-  // import { SearchInput } from '@dooboo-ui/native';
+  import { SearchInput } from '@dooboo-ui/native';
+  // or
   import SearchInput from '@dooboo-ui/native-search-input';
   ```
 

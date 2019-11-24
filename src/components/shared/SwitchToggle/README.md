@@ -34,7 +34,8 @@
 ```javascript
 import React, { ReactElement, useState } from 'react';
 
-// import { SwitchToggle } from '@dooboo-ui/native';
+import { SwitchToggle } from '@dooboo-ui/native';
+// or
 import SwitchToggle from '@dooboo-ui/native-switch-toggle';
 import styled from 'styled-components/native';
 
