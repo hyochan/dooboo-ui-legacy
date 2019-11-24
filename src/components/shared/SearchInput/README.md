@@ -1,16 +1,19 @@
 # Search Input
+
 > Simple search input for react-native.
 
 ![](https://i.imgur.com/t84mZ1e.gif)
+
 - debounced input
 - reset button
 - customizable icon
 
 # Props
+
 ```ts
 export interface SearchInputProps {
   value: string;
-  onDebounceOrOnReset: (value: string) => void;
+  onDebounceOrOnReset?: (value: string) => void;
   style?: StyleProp<ViewStyle>;
   debounceDelay?: number;
   customIcon?: React.ReactNode;
@@ -25,12 +28,15 @@ export interface SearchInputProps {
 | style             |           | `StyleProp<ViewStyle>` | undefined                | container style |
 | debounceDelay     |           | number                 | 400                      |                 |
 | customIcon        |           | React.ReactNode        | magnifier icon component |                 |
-| placeholderText   |           | string                 | 검색어를 입력해주세요.             |                 |
+| placeholderText   |           | string                 | 검색어를 입력해주세요.   |                 |
 
 # Getting started
+
 - Import
+
   ```tsx
-  import { SearchInput } from '@dooboo-ui/native';
+  // import { SearchInput } from '@dooboo-ui/native';
+  import SearchInput from '@dooboo-ui/native-search-input';
   ```
 
 - Usage

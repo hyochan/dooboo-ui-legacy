@@ -1,5 +1,5 @@
 {
-  "name": "@dooboo-ui/native-switch-toggle",
+  "name": "@dooboo-ui/native-calendar-carousel",
   "main": "package/index.js",
   "types": "package/index.d.ts",
   "version": "0.3.1",
@@ -10,7 +10,7 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/dooboolab/dooboo-ui-native.git",
-    "directory": "src/components/shared/SwitchToggle"
+    "directory": "src/components/shared/CalendarCarousel"
   },
   "bugs": {
     "url": "https://github.com/dooboolab/dooboo-ui-native/issues"
@@ -31,7 +31,7 @@
     "access": "public"
   },
   "keywords": [
-    "swtich-toggle",
+    "calendar-carousel",
     "react-hook",
     "react-native",
     "dooboo-ui/native",

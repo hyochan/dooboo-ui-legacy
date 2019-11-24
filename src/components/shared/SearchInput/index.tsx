@@ -1,8 +1,7 @@
 import * as React from 'react';
 
-import { StyleProp, ViewStyle } from 'react-native';
+import { StyleProp, View, ViewStyle } from 'react-native';
 
-import { IC_MAGNIFIER } from '../Icons';
 import styled from 'styled-components/native';
 
 const Container = styled.View`
@@ -13,23 +12,6 @@ const Container = styled.View`
   border-radius: 8;
 
   flex-direction: row;
-`;
-
-const MagContainer = styled.View`
-  height: 24;
-  width: 24;
-  margin-left: 8;
-  margin-right: 2;
-  margin-top: 9;
-  margin-bottom: 9;
-  justify-content: center;
-  align-items: center;
-`;
-
-const Magnifier = styled.Image`
-  width: 16;
-  height: 16;
-  margin-bottom: 2;
 `;
 
 const Input = styled.TextInput`
@@ -64,7 +46,7 @@ const ResetText = styled.Text`
 
 export interface SearchInputProps {
   value: string;
-  onDebounceOrOnReset: (value: string) => string;
+  onDebounceOrOnReset?: (value: string) => string;
   style?: StyleProp<ViewStyle>;
   debounceDelay?: number;
   customIcon?: React.ReactNode;
@@ -92,7 +74,9 @@ function SearchInput(props: SearchInputProps): React.ReactElement {
   const debouncedValue = useDebounce(value, props.debounceDelay);
 
   React.useEffect(() => {
-    props.onDebounceOrOnReset(debouncedValue);
+    if (props.onDebounceOrOnReset) {
+      props.onDebounceOrOnReset(debouncedValue);
+    }
   }, [debouncedValue]);
 
   React.useEffect(() => {
@@ -101,18 +85,14 @@ function SearchInput(props: SearchInputProps): React.ReactElement {
 
   return (
     <Container style={props.style}>
-      {props.customIcon || (
-        <MagContainer>
-          <Magnifier source={IC_MAGNIFIER} />
-        </MagContainer>
-      )}
+      {props.customIcon ? props.customIcon : <View style={{ width: 10 }} />}
       <Input
         testID={'SEARCH_INPUT'}
         value={value}
         onChangeText={(text): void => {
           setValue(text);
         }}
-        placeholder={props.placeholderText || '검색어를 입력해주세요.'}
+        placeholder={props.placeholderText || 'placehoder...'}
         placeholderTextColor={'#cdd2d7'}
       />
       {props.value !== '' && (
@@ -120,7 +100,9 @@ function SearchInput(props: SearchInputProps): React.ReactElement {
           <Reset
             testID="RESET_BUTTON"
             onPress={(): void => {
-              props.onDebounceOrOnReset('');
+              if (props.onDebounceOrOnReset) {
+                props.onDebounceOrOnReset('');
+              }
             }}
           >
             <ResetText>X</ResetText>

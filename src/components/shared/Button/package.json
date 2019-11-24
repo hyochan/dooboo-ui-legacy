@@ -1,8 +1,8 @@
 {
-  "name": "@dooboo-ui/native-switch-toggle",
+  "name": "@dooboo-ui/native-button",
   "main": "package/index.js",
   "types": "package/index.d.ts",
-  "version": "0.3.1",
+  "version": "0.3.0",
   "license": "MIT",
   "scripts": {
     "build": "rm -rf ./package && tsc"
@@ -10,7 +10,7 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/dooboolab/dooboo-ui-native.git",
-    "directory": "src/components/shared/SwitchToggle"
+    "directory": "src/components/shared/Button"
   },
   "bugs": {
     "url": "https://github.com/dooboolab/dooboo-ui-native/issues"
@@ -31,7 +31,7 @@
     "access": "public"
   },
   "keywords": [
-    "swtich-toggle",
+    "button",
     "react-hook",
     "react-native",
     "dooboo-ui/native",
