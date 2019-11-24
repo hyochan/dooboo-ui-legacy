@@ -29,3 +29,5 @@ tsconfigBuild.json
 yarn-error.log
 yarn.lock
 tsconfigBuild.tsbuildinfo
+storybook
+tsconfigPackage.json

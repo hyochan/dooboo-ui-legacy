@@ -18,15 +18,17 @@ We currently love [react-hooks](https://code.fb.com/open-source/react-hooks) and
 
 ## List of widgets
 
-- [SwitchToggle](https://github.com/dooboolab/dooboo-ui-native/tree/master/src/components/shared/SwitchToggle)
 - [Accordion](https://github.com/dooboolab/dooboo-ui-native/tree/master/src/components/shared/Accordion)
-- [CalendarCarousel](https://github.com/dooboolab/dooboo-ui-native/tree/master/src/components/shared/CalendarCarousel)
-- [LoadingIndicator](https://github.com/dooboolab/dooboo-ui-native/tree/master/src/components/shared/LoadingIndicator)
 - [Button](https://github.com/dooboolab/dooboo-ui-native/tree/master/src/components/shared/Button)
+- [ButtonGroup](https://github.com/dooboolab/dooboo-ui-native/tree/master/src/components/shared/ButtonGroup)
+- [CalendarCarousel](https://github.com/dooboolab/dooboo-ui-native/tree/master/src/components/shared/CalendarCarousel)
 - [EditText](https://github.com/dooboolab/dooboo-ui-native/tree/master/src/components/shared/EditText)
 - [GiftedChat](https://github.com/dooboolab/dooboo-ui-native/tree/master/src/components/shared/GiftedChat)
-- [ButtonGroup](https://github.com/dooboolab/dooboo-ui-native/tree/master/src/components/shared/ButtonGroup)
+- [LoadingIndicator](https://github.com/dooboolab/dooboo-ui-native/tree/master/src/components/shared/LoadingIndicator)
+- [SearchInput](https://github.com/dooboolab/dooboo-ui-native/tree/master/src/components/shared/SearchInput)
+- [SwitchToggle](https://github.com/dooboolab/dooboo-ui-native/tree/master/src/components/shared/SwitchToggle)
 
 ## Comaptability
 
 > Your `react-native` version should support `react-hooks` which will be `>=0.59`.
+> Currently we are using `styled-components@4.4.0`.
