@@ -2,7 +2,7 @@
   "name": "@dooboo-ui/native-switch-toggle",
   "main": "package/index.js",
   "types": "package/index.d.ts",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "license": "MIT",
   "scripts": {
     "build": "tsc"
@@ -12,7 +12,6 @@
     "url": "https://github.com/dooboolab/dooboo-ui-native.git",
     "directory": "src/components/shared/SwitchToggle"
   },
-  "react-native": "index.tsx",
   "bugs": {
     "url": "https://github.com/dooboolab/dooboo-ui-native/issues"
   },
