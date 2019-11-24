@@ -1,7 +1,7 @@
 # GiftedChat
 
 [![Npm Version](http://img.shields.io/npm/v/@dooboo-ui/native-gifted-chat.svg?style=flat-square)](https://npmjs.org/package/@dooboo-ui/native-gifted-chat)
-[![Downloads](http://img.shields.io/npm/dm/@dooboo-ui-gifted-chat/native.svg?style=flat-square)](https://npmjs.org/package/@dooboo-ui-gifted-chat/native)
+[![Downloads](http://img.shields.io/npm/dm/@dooboo-ui/native-gifted-chat.svg?style=flat-square)](https://npmjs.org/package/@dooboo-ui/native-gifted-chat)
 
 > [GiftedChat] component contains essential features to be implemented in `Chat` screen.
 

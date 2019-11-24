@@ -1,7 +1,7 @@
 # ButtonGroup
 
 [![Npm Version](http://img.shields.io/npm/v/@dooboo-ui/native-button-group.svg?style=flat-square)](https://npmjs.org/package/@dooboo-ui/native-button-group)
-[![Downloads](http://img.shields.io/npm/dm/@dooboo-ui-button-group/native.svg?style=flat-square)](https://npmjs.org/package/@dooboo-ui-button-group/native)
+[![Downloads](http://img.shields.io/npm/dm/@dooboo-ui/native-button-group.svg?style=flat-square)](https://npmjs.org/package/@dooboo-ui/native-button-group)
 
 > [ButtonGroup] is an `ios` section like component. You can have as may selectors as you want.
 

@@ -1,7 +1,7 @@
 # EditText
 
 [![Npm Version](http://img.shields.io/npm/v/@dooboo-ui/native-edit-text.svg?style=flat-square)](https://npmjs.org/package/@dooboo-ui/native-edit-text)
-[![Downloads](http://img.shields.io/npm/dm/@dooboo-ui-edit-text/native.svg?style=flat-square)](https://npmjs.org/package/@dooboo-ui-edit-text/native)
+[![Downloads](http://img.shields.io/npm/dm/@dooboo-ui/native-edit-text.svg?style=flat-square)](https://npmjs.org/package/@dooboo-ui/native-edit-text)
 
 > [EditText] component is an enhanced version on pure react-native [TextInput] component.
 

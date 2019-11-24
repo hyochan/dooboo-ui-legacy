@@ -1,7 +1,7 @@
 # Search Input
 
 [![Npm Version](http://img.shields.io/npm/v/@dooboo-ui/native-search-input.svg?style=flat-square)](https://npmjs.org/package/@dooboo-ui/native-search-input)
-[![Downloads](http://img.shields.io/npm/dm/@dooboo-ui-search-input/native.svg?style=flat-square)](https://npmjs.org/package/@dooboo-ui-search-input/native)
+[![Downloads](http://img.shields.io/npm/dm/@dooboo-ui/native-search-input.svg?style=flat-square)](https://npmjs.org/package/@dooboo-ui/native-search-input)
 
 > Simple search input for react-native.
 
