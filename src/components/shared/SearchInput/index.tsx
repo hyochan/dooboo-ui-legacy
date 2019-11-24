@@ -45,6 +45,7 @@ const ResetText = styled.Text`
 `;
 
 export interface SearchInputProps {
+  testID?: string;
   value: string;
   onDebounceOrOnReset?: (value: string) => string;
   style?: StyleProp<ViewStyle>;
@@ -98,7 +99,7 @@ function SearchInput(props: SearchInputProps): React.ReactElement {
       {props.value !== '' && (
         <ResetContainer>
           <Reset
-            testID="RESET_BUTTON"
+            testID={props.testID}
             onPress={(): void => {
               if (props.onDebounceOrOnReset) {
                 props.onDebounceOrOnReset('');

@@ -1,5 +1,8 @@
 # Accordion
 
+[![Npm Version](http://img.shields.io/npm/v/@dooboo-ui/native-accordion.svg?style=flat-square)](https://npmjs.org/package/@dooboo-ui/native-accordion)
+[![Downloads](http://img.shields.io/npm/dm/@dooboo-ui-accordion/native.svg?style=flat-square)](https://npmjs.org/package/@dooboo-ui-accordion/native)
+
 > Simple drop down item component for react-native. This component supports drop down toggle with animation.<br/> > <img src="https://user-images.githubusercontent.com/27461460/47951961-a7a7e500-dfab-11e8-9189-86c0eddb6e12.gif"/>
 
 ## Props
@@ -16,6 +19,18 @@
 | invisibleImage    |           | any                    | `undefined`   |
 | style             |           | `StyleProp<ViewStyle>` | `undefined`   |
 | children          | ✓         | ReactElement           | `undefined`   |
+
+## Installation
+
+```sh
+yarn add @dooboo-ui/native
+```
+
+or
+
+```sh
+yarn add @dooboo-ui/native-accordion
+```
 
 ## Getting started
 

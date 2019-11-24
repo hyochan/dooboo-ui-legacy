@@ -1,6 +1,23 @@
 # Search Input
 
+[![Npm Version](http://img.shields.io/npm/v/@dooboo-ui/native-search-input.svg?style=flat-square)](https://npmjs.org/package/@dooboo-ui/native-search-input)
+[![Downloads](http://img.shields.io/npm/dm/@dooboo-ui-search-input/native.svg?style=flat-square)](https://npmjs.org/package/@dooboo-ui-search-input/native)
+
 > Simple search input for react-native.
+
+## Installation
+
+```sh
+yarn add @dooboo-ui/native
+```
+
+or
+
+```sh
+yarn add @dooboo-ui/native-search-input
+```
+
+## Usage
 
 ![](https://i.imgur.com/t84mZ1e.gif)
 

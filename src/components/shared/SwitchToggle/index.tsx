@@ -10,6 +10,7 @@ import {
 import React, { useEffect, useRef, useState } from 'react';
 
 interface Props {
+  testID?: string;
   switchOn: boolean;
   onPress: () => void;
   containerStyle?: ViewStyle;
@@ -96,7 +97,11 @@ function SwitchToggle(props: Props): React.ReactElement {
   };
 
   return (
-    <TouchableOpacity onPress={props.onPress} activeOpacity={0.5}>
+    <TouchableOpacity
+      testID={props.testID}
+      onPress={props.onPress}
+      activeOpacity={0.5}
+    >
       <Animated.View
         style={[
           styles.container,

@@ -53,6 +53,8 @@ const StyledViewMenu = styled.View<{ height: number }>`
 `;
 
 interface Props {
+  inputTestID?: string;
+  touchTestID?: string;
   chats?: any;
   borderColor?: string;
   backgroundColor?: string;
@@ -76,6 +78,8 @@ function Shared(props: Props): React.ReactElement {
   const input2 = useRef<any>();
 
   const {
+    inputTestID,
+    touchTestID,
     chats,
     borderColor,
     backgroundColor,
@@ -147,7 +151,7 @@ function Shared(props: Props): React.ReactElement {
             }}
           >
             <StyledInputChat
-              testID="input_chat"
+              testID={inputTestID}
               style={{
                 color: fontColor,
                 backgroundColor: backgroundColor,
@@ -162,7 +166,7 @@ function Shared(props: Props): React.ReactElement {
               onChangeText={onChangeMessage}
             />
             <StyledTouchMenu
-              testID="touch_menu"
+              testID={touchTestID}
               onPress={(): void => setShowMenu(true)}
             >
               {optionView}
@@ -187,6 +191,7 @@ function Shared(props: Props): React.ReactElement {
             }}
           >
             <StyledInputChat
+              testID={inputTestID}
               ref={input2}
               onFocus={(): void => setShowMenu(false)}
               style={{
@@ -200,7 +205,7 @@ function Shared(props: Props): React.ReactElement {
               defaultValue={message}
             />
             <StyledTouchMenu
-              testID="touch_menu"
+              testID={touchTestID}
               onPress={(): void => setShowMenu(false)}
             >
               {optionView}
