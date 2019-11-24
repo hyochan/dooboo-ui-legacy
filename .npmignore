@@ -24,7 +24,6 @@ codecov.yml
 CONTRIBUTING.md
 jest.config.js
 metro.config.js
-package.json
 tsconfig.json
 tsconfigBuild.json
 yarn-error.log
