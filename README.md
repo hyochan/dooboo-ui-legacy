@@ -15,7 +15,7 @@ We currently love [react-hooks](https://code.fb.com/open-source/react-hooks) and
   - dooboolab's [vision-and-mission](https://github.com/dooboolab/dooboolab.com/blob/master/vision-and-mission.md)
   - dooboolab's [code of conduct](https://github.com/dooboolab/dooboolab.com/blob/master/code-of-conduct.md)
 - [Contributing](CONTRIBUTING.md)
-  - Try to make good `shared` component and test it in `storybook` or in `sample` screen. Then it's all go to go with `pull request`. Give it a try :blossom:.
+  - Try to make good `shared` component and test it in `storybook` or in `sample` screen. Then it's all good to go for `pull request`. Give it a try :blossom:.
 
 ## List of widgets
 
@@ -32,4 +32,5 @@ We currently love [react-hooks](https://code.fb.com/open-source/react-hooks) and
 ## Comaptability
 
 > Your `react-native` version should support `react-hooks` which will be `>=0.59`.
-> Currently we are using `styled-components@4.4.0`.
+
+> In addition, we are using `styled-components@4.4.0` locally.
