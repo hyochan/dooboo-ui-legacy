@@ -1,5 +1,7 @@
 ## Changelogs
 
+- **[0.4.2]**
+  - Refactored `Accordion` and bump up it's version to `0.4.0`.
 - **[0.4.0]**
   - Componetized all components.
   - Add `testID` props to components.

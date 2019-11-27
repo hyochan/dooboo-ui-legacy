@@ -13,6 +13,21 @@ storiesOf('Accordian', module)
     notes: 'Simple explanation',
   });
 
+const Container = styled.SafeAreaView`
+  flex: 1;
+  background-color: transparent;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+`;
+
+const StyledImage = styled.Image`
+  width: 20;
+  height: 20;
+  position: absolute;
+  right: 16;
+`;
+
 const Default = (): React.ReactElement => {
   const contents = [
     {
@@ -42,8 +57,16 @@ const Default = (): React.ReactElement => {
             <Accordion
               key={i}
               contentVisible={false}
-              invisibleImage={IC_ARR_DOWN}
-              visibleImage={IC_ARR_UP}
+              visibleElement={
+                <StyledImage
+                  source={IC_ARR_UP}
+                />
+              }
+              invisibleElement={
+                <StyledImage
+                  source={IC_ARR_DOWN}
+                />
+              }
               header={
                 <View style={{ height: 28 }}>
                   <Text
@@ -65,11 +88,3 @@ const Default = (): React.ReactElement => {
     </Container>
   );
 };
-
-const Container = styled.SafeAreaView`
-  flex: 1;
-  background-color: transparent;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-`;
