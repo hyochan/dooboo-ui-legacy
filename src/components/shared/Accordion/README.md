@@ -9,14 +9,14 @@
 
 |                   | necessary | types                  | default       |
 | ----------------- | --------- | ---------------------- | ------------- |
-| contentVisible    |           | boolean                | `false`       |
+| contentVisibleOnLoad |        | boolean                | `false`       |
 | header            | ✓         | any                    | `<View/>`     |
 | backgroundColor   |           | string                 | `transparent` |
 | titleBackground   |           | string                 | `transparent` |
 | contentBackground |           | string                 | `transparent` |
 | underlineColor    |           | string                 | `transparent` |
-| visibleImage      |           | any                    | `undefined`   |
-| invisibleImage    |           | any                    | `undefined`   |
+| visibleElement    |           | ReactElement           | `null`        |
+| invisibleElement  |           | ReactElement           | `null`        |
 | style             |           | `StyleProp<ViewStyle>` | `undefined`   |
 | children          | ✓         | ReactElement           | `undefined`   |
 
@@ -65,7 +65,7 @@ yarn add @dooboo-ui/native-accordion
   ```
 
 - Usage
-  ```javascript
+  ```tsx
   <View style={styles.container}>
     <ScrollView style={{ alignSelf: 'stretch' }}>
       {
@@ -76,8 +76,16 @@ yarn add @dooboo-ui/native-accordion
                 key={i}
                 style={styles.Accordion}
                 contentVisible={false}
-                invisibleImage={IC_ARR_DOWN}
-                visibleImage={IC_ARR_UP}
+                visibleElement={
+                  <StyledImage
+                    source={IC_ARR_UP}
+                  />
+                }
+                invisibleElement={
+                  <StyledImage
+                    source={IC_ARR_DOWN}
+                  />
+                }
                 header={
                   <View>
                     <Text style={{

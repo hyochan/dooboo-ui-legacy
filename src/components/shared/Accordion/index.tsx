@@ -1,7 +1,5 @@
 import {
   Animated,
-  Image,
-  ImageSourcePropType,
   InteractionManager,
   LayoutChangeEvent,
   StyleProp,
@@ -10,19 +8,13 @@ import {
   View,
   ViewStyle,
 } from 'react-native';
-import React, { useState } from 'react';
+import React, { ReactElement, useState } from 'react';
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
     flexDirection: 'column',
     overflow: 'hidden',
-  },
-  icons: {
-    width: 20,
-    height: 20,
-    position: 'absolute',
-    right: 16,
   },
   underline: {
     width: '100%',
@@ -60,13 +52,13 @@ const styles = StyleSheet.create({
 });
 
 interface Props {
-  contentVisible?: boolean;
+  contentVisibleOnLoad?: boolean;
   backgroundColor?: string;
   titleBackground?: string;
   contentBackground?: string;
   underlineColor?: string;
-  visibleImage?: ImageSourcePropType | any;
-  invisibleImage?: ImageSourcePropType | any;
+  visibleElement?: ReactElement;
+  invisibleElement?: ReactElement;
   header: React.ReactElement;
   style?: StyleProp<ViewStyle>;
   children: React.ReactElement;
@@ -78,7 +70,7 @@ function Accordion(props: Props): React.ReactElement {
   );
   const [isMounted, setMounted] = useState<boolean>(false);
   const [isContentVisible, setContentVisible] = useState<boolean>(
-    !!props.contentVisible,
+    !!props.contentVisibleOnLoad,
   );
   const [headerHeight, setHeaderHeight] = useState(0);
   const [contentHeight, setContentHeight] = useState(0);
@@ -103,7 +95,7 @@ function Accordion(props: Props): React.ReactElement {
 
   const onAnimLayout = (evt: LayoutChangeEvent): void => {
     const headerHeight = evt.nativeEvent.layout.height;
-    if (!isMounted && !props.contentVisible) {
+    if (!isMounted && !props.contentVisibleOnLoad) {
       setAnimatedValue(new Animated.Value(headerHeight));
       setMounted(true);
       setHeaderHeight(headerHeight);
@@ -140,12 +132,7 @@ function Accordion(props: Props): React.ReactElement {
       <TouchableOpacity activeOpacity={0.5} onPress={onPress}>
         <View onLayout={onAnimLayout}>
           {props.header}
-          <Image
-            source={
-              isContentVisible ? props.visibleImage : props.invisibleImage
-            }
-            style={styles.icons}
-          />
+          {isContentVisible ? props.visibleElement : props.invisibleElement}
         </View>
       </TouchableOpacity>
       <View style={styles.content} onLayout={onLayout}>
@@ -161,8 +148,8 @@ Accordion.defaultProps = {
   titleBackground: 'transparent',
   contentBackground: 'transparent',
   underlineColor: '#d3d3d3',
-  visibleImage: false,
-  invisibleImage: false,
+  visibleElement: null,
+  invisibleElement: null,
 };
 
 export default Accordion;
