@@ -12,7 +12,8 @@
     "tsc": "tsc",
     "build": "tsc --project tsconfigBuild.json",
     "lint": "eslint src storybook --ext .ts,.tsx,.js,.jsx",
-    "codecov": "codecov"
+    "codecov": "codecov",
+    "git:log": "git log --decorate --oneline --all --graph"
   },
   "postinstall": "dooboolab-welcome postinstall",
   "keywords": [
