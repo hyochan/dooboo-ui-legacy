@@ -1,0 +1,40 @@
+{
+  "name": "@dooboo-ui/native-gifted-chat",
+  "main": "package/index.js",
+  "types": "package/index.d.ts",
+  "version": "0.3.3",
+  "license": "MIT",
+  "scripts": {
+    "build": "rm -rf ./package && tsc"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/dooboolab/dooboo-ui-native.git",
+    "directory": "src/components/shared/GiftedChat"
+  },
+  "bugs": {
+    "url": "https://github.com/dooboolab/dooboo-ui-native/issues"
+  },
+  "homepage": "https://github.com/dooboolab/dooboo-ui-native#readme",
+  "dependencies": {
+    "dooboolab-welcome": "^1.1.1",
+    "styled-components": "^4.4.0"
+  },
+  "devDependencies": {
+    "typescript": "^3.6.4"
+  },
+  "peerDependencies": {
+    "react": ">=^16.8",
+    "react-native": ">=^0.59"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "keywords": [
+    "gifted-chat",
+    "react-hook",
+    "react-native",
+    "dooboo-ui/native",
+    "dooboolab"
+  ]
+}
