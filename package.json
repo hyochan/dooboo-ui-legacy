@@ -1,6 +1,6 @@
 {
   "name": "@dooboo-ui/native",
-  "version": "0.4.2",
+  "version": "0.4.3",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
   "scripts": {
@@ -34,7 +34,8 @@
   },
   "peerDependencies": {
     "react": ">=^16.8",
-    "react-native": ">=^0.59"
+    "react-native": ">=^0.59",
+    "styled-components": "^4.4.1"
   },
   "devDependencies": {
     "@babel/core": "^7.7.4",
