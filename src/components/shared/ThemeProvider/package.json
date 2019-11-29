@@ -1,0 +1,40 @@
+{
+  "name": "@dooboo-ui/native-theme",
+  "main": "package/index.js",
+  "types": "package/index.d.ts",
+  "version": "0.0.5",
+  "license": "MIT",
+  "scripts": {
+    "build": "rm -rf ./package && tsc"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/dooboolab/dooboo-ui-theme.git",
+    "directory": "src/components/shared/ButtonGroup"
+  },
+  "bugs": {
+    "url": "https://github.com/dooboolab/dooboo-ui-theme/issues"
+  },
+  "homepage": "https://github.com/dooboolab/dooboo-ui-theme#readme",
+  "dependencies": {
+    "dooboolab-welcome": "^1.1.1",
+    "styled-components": "^4.4.1"
+  },
+  "devDependencies": {
+    "typescript": "^3.6.4"
+  },
+  "peerDependencies": {
+    "react": ">=^16.8",
+    "react-native": ">=^0.59"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "keywords": [
+    "button-group",
+    "react-hook",
+    "react-native",
+    "dooboo-ui/native",
+    "dooboolab"
+  ]
+}
