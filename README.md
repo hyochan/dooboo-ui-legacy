@@ -1,12 +1,13 @@
 # dooboo-ui-native
 
+> React Native UI components built by `dooboolab`
+
 [![Npm Version](http://img.shields.io/npm/v/@dooboo-ui/native.svg?style=flat-square)](https://npmjs.org/package/@dooboo-ui/native)
 [![Downloads](http://img.shields.io/npm/dm/@dooboo-ui/native.svg?style=flat-square)](https://npmjs.org/package/@dooboo-ui/native)
 [![CircleCI](https://circleci.com/gh/dooboolab/dooboo-ui-native.svg?style=shield)](https://circleci.com/gh/dooboolab/dooboo-ui-native)
 [![codecov](https://codecov.io/gh/dooboolab/dooboo-ui-native/branch/master/graph/badge.svg)](https://codecov.io/gh/dooboolab/dooboo-ui-native)
 ![License](http://img.shields.io/npm/l/@dooboo-ui/native.svg?style=flat-square)
 
-React Native widgets made by `dooboolab`.
 We currently love [react-hooks](https://code.fb.com/open-source/react-hooks) and willing to share our [react-native](https://facebook.github.io/react-native) widgets built in [Functional Component](https://logrocket.com/blog/pure-functional-components) using hooks.
 
 ## Contributing to `@dooboo-ui/native`
@@ -21,7 +22,14 @@ We currently love [react-hooks](https://code.fb.com/open-source/react-hooks) and
 
 You can use all components in `@dooboo-ui/native` by importing it. However, we also support individual imports using seperate installation.
 
-If you want to use only `SwitchToggle`, you can install it by running `@dooboo-ui/native-switch-toggle`.
+If you want to use only `SwitchToggle`, you can install it by running `yarn add @dooboo-ui/native-switch-toggle` or `npm install`.
+
+## Dependency
+| package           | version |
+|-------------------|---------|
+| react             | >=16.8  |
+| react-native      | >=0.59  |
+| styled-components | >=4.4.1 |
 
 ## List of widgets
 
