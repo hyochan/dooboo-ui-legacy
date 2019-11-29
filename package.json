@@ -29,7 +29,8 @@
   },
   "homepage": "https://github.com/dooboolab/dooboo-ui-native#readme",
   "dependencies": {
-    "dooboolab-welcome": "^1.1.1"
+    "dooboolab-welcome": "^1.1.1",
+    "styled-components": "^4.4.1"
   },
   "peerDependencies": {
     "react": ">=^16.8",
@@ -74,7 +75,6 @@
     "react-native-safe-area-view": "^1.0.0",
     "react-navigation": "^4.0.10",
     "react-test-renderer": "16.9.0",
-    "styled-components": "^4.4.1",
     "ts-jest": "^24.2.0",
     "typescript": "3.6"
   },
