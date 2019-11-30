@@ -5,6 +5,7 @@ import CalendarCarousel from './CalendarCarousel';
 import EditText from './EditText';
 import GiftedChat from './GiftedChat';
 import LoadingIndicator from './LoadingIndicator';
+import Slider from './Slider';
 import SwitchToggle from './SwitchToggle';
 
 export {
@@ -16,4 +17,5 @@ export {
   EditText,
   GiftedChat,
   ButtonGroup,
+  Slider,
 };
