@@ -6,7 +6,7 @@
 // // export default App;
 // export default StorybookStart;
 
-const STORYBOOK_START = true;
+const STORYBOOK_START = true; // FIXME:
 export default STORYBOOK_START
   ? require('./storybook').default
   : require('./src/App').default;
