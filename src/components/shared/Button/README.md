@@ -125,7 +125,7 @@ yarn add @dooboo-ui/native-button
     return (
       <Container>
         <Button
-          testID='btn'
+          testID="btn"
           isLoading={false}
           onClick={() => {}}
         >
@@ -141,7 +141,7 @@ yarn add @dooboo-ui/native-button
           This is disabled!!
         </Button>
         <Button
-          testID='btnGoogle'
+          testID="btnGoogle"
           iconLeft={<Image source={IC_GOOGLE} />}
           isLoading={googleLoading}
           indicatorColor="#023059"
@@ -156,9 +156,9 @@ yarn add @dooboo-ui/native-button
           GOOGLE SIGN IN
         </Button>
         <Button
-          testID='btnFacebook'
+          testID="btnFacebook"
           iconLeft={<Image source={IC_FACEBOOK} />}
-          indicatorColor='#023059'
+          indicatorColor="#023059"
           isLoading={facebookLoading}
           style={{
             marginTop: 40,
