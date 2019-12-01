@@ -2,83 +2,164 @@
 
 exports[`[Button] renders without crashing 1`] = `
 <View
-  accessible={true}
-  clickable={true}
-  isTVSelectable={true}
-  onClick={[Function]}
-  onResponderGrant={[Function]}
-  onResponderMove={[Function]}
-  onResponderRelease={[Function]}
-  onResponderTerminate={[Function]}
-  onResponderTerminationRequest={[Function]}
-  onStartShouldSetResponder={[Function]}
+  collapsable={true}
+  pointerEvents="box-none"
   style={
     Object {
-      "opacity": 1,
+      "flex": 1,
     }
   }
-  testID="btn"
 >
   <View
+    accessible={true}
+    clickable={false}
+    isTVSelectable={true}
     style={
-      Array [
-        Object {
-          "alignItems": "center",
-          "backgroundColor": "#ffffff",
-          "borderColor": "#0000ff",
-          "borderRadius": 4,
-          "borderWidth": 2,
-          "flexDirection": "row",
-          "height": 52,
-          "justifyContent": "center",
-          "width": 320,
-        },
-        Object {},
-      ]
-    }
-    theme={
       Object {
-        "backgroundColor": "#ffffff",
-        "borderColor": "#0000ff",
+        "opacity": 1,
       }
     }
+    testID="button"
   >
     <View
       style={
         Array [
           Object {
-            "left": 0,
-            "position": "absolute",
-          },
-        ]
-      }
-    />
-    <Text
-      style={
-        Array [
-          Object {
-            "color": "#069ccd",
-            "fontSize": 14,
+            "alignItems": "center",
+            "backgroundColor": "#ffffff",
+            "borderColor": "#0000ff",
+            "borderRadius": 4,
+            "borderWidth": 2,
+            "flexDirection": "row",
+            "height": 52,
+            "justifyContent": "center",
+            "width": 320,
           },
           Object {},
         ]
       }
       theme={
         Object {
-          "fontColor": "#069ccd",
+          "backgroundColor": "#ffffff",
+          "borderColor": "#0000ff",
         }
       }
-    />
+    >
+      <View
+        style={
+          Array [
+            Object {
+              "left": 0,
+              "position": "absolute",
+            },
+          ]
+        }
+        testID="iconLeft"
+      />
+      <Text
+        style={
+          Array [
+            Object {
+              "color": "#069ccd",
+              "fontSize": 14,
+            },
+            Object {},
+          ]
+        }
+        testID="text"
+        theme={
+          Object {
+            "fontColor": "#069ccd",
+          }
+        }
+      />
+      <View
+        style={
+          Array [
+            Object {
+              "position": "absolute",
+              "right": 0,
+            },
+          ]
+        }
+        testID="iconRight"
+      />
+    </View>
+  </View>
+</View>
+`;
+
+exports[`[Button] renders without crashing when to children is not empty 1`] = `
+<View
+  collapsable={true}
+  pointerEvents="box-none"
+  style={
+    Object {
+      "flex": 1,
+    }
+  }
+>
+  <View
+    accessible={true}
+    clickable={false}
+    isTVSelectable={true}
+    style={
+      Object {
+        "opacity": 1,
+      }
+    }
+    testID="button"
+  >
     <View
       style={
         Array [
           Object {
-            "position": "absolute",
-            "right": 0,
+            "alignItems": "center",
+            "backgroundColor": "#ffffff",
+            "borderColor": "#0000ff",
+            "borderRadius": 4,
+            "borderWidth": 2,
+            "flexDirection": "row",
+            "height": 52,
+            "justifyContent": "center",
+            "width": 320,
           },
+          Object {},
         ]
       }
-    />
+      theme={
+        Object {
+          "backgroundColor": "#ffffff",
+          "borderColor": "#0000ff",
+        }
+      }
+    >
+      <View
+        style={
+          Array [
+            Object {
+              "left": 0,
+              "position": "absolute",
+            },
+          ]
+        }
+        testID="iconLeft"
+      />
+      <Text>
+        Sample text
+      </Text>
+      <View
+        style={
+          Array [
+            Object {
+              "position": "absolute",
+              "right": 0,
+            },
+          ]
+        }
+        testID="iconRight"
+      />
+    </View>
   </View>
 </View>
 `;
