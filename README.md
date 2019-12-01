@@ -24,12 +24,12 @@ You can use all components in `@dooboo-ui/native` by importing it. However, we a
 
 If you want to use only `SwitchToggle`, you can install it by running `yarn add @dooboo-ui/native-switch-toggle` or `npm install`.
 
-## Dependency
+## Compatability
 | package           | version |
 |-------------------|---------|
 | react             | >=16.8  |
 | react-native      | >=0.59  |
-| styled-components | >=4.4.1 |
+| styled-components | >=4.4.0 |
 
 ## List of widgets
 
@@ -51,9 +51,3 @@ If you want to use only `SwitchToggle`, you can install it by running `yarn add 
   - `@dooboo-ui/native-search-input`
 - [SwitchToggle](https://github.com/dooboolab/dooboo-ui-native/tree/master/src/components/shared/SwitchToggle)
   - `@dooboo-ui/native-switch-toggle`
-
-## Comaptability
-
-> Your `react-native` version should support `react-hooks` which will be `>=0.59`.
-
-> In addition, we are using `styled-components@4.4.0` locally.
