@@ -24,7 +24,7 @@
 | iconRight      |           | ReactElement         |         |
 | indicatorColor |           | string               |'#ffffff'|
 | activeOpacity  |           | number               |   0.5   |
-| children       |           | string | ReactElement|         |
+| children       |           | string, ReactElement |         |
 | text           |           | string               |         |
 | onClick        |           | func                 |         |
 
