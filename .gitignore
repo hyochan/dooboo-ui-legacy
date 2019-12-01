@@ -63,7 +63,4 @@ buck-out/
 coverage/
 lib/
 
-# Extensions
-.vscode
-
 package
