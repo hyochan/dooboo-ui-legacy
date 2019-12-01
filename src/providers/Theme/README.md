@@ -5,6 +5,8 @@
 [![Npm Version](http://img.shields.io/npm/v/@dooboo-ui/native-theme.svg?style=flat-square)](https://npmjs.org/package/@dooboo-ui/native-theme)
 [![Downloads](http://img.shields.io/npm/dm/@dooboo-ui/native-switch-toggle.svg?style=flat-square)](https://npmjs.org/package/@dooboo-ui/native-theme)
 
+![theme](https://user-images.githubusercontent.com/27461460/69912924-08864300-1474-11ea-90aa-e815063fe7e6.gif)
+
 ## Installation
 
 1. Install via yarn or npm.
