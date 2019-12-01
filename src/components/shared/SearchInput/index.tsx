@@ -70,7 +70,7 @@ function useDebounce(value: string, delay = 400): string {
   return debouncedValue;
 }
 
-function SearchInput(props: SearchInputProps): React.ReactElement {
+const SearchInput: React.FC<SearchInputProps> = (props) => {
   const [value, setValue] = React.useState<string>(props.value);
   const debouncedValue = useDebounce(value, props.debounceDelay);
 
@@ -112,6 +112,6 @@ function SearchInput(props: SearchInputProps): React.ReactElement {
       )}
     </Container>
   );
-}
+};
 
 export default SearchInput;
