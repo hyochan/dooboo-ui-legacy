@@ -2,7 +2,7 @@
   "name": "@dooboo-ui/native-theme",
   "main": "package/index.js",
   "types": "package/index.d.ts",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "license": "MIT",
   "scripts": {
     "build": "rm -rf ./package && tsc"
@@ -10,7 +10,7 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/dooboolab/dooboo-ui-native.git",
-    "directory": "src/providers/ThemeProvider"
+    "directory": "src/providers/Theme"
   },
   "bugs": {
     "url": "https://github.com/dooboolab/dooboo-ui-native/issues"
