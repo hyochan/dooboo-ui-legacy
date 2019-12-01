@@ -13,11 +13,13 @@
    `npm install @dooboo-ui/theme` or `yarn add @dooboo-ui/native`.
 
 2. Import
+
    ```ts
    import { ThemeProvider } from '@dooboo-ui/native-theme';
    ```
 
 3. Create `light` and `dark` theme
+
    ```ts
    export const colors = {
      whiteGray: '#f7f6f3',
@@ -96,23 +98,26 @@
 4. Wrap your component with `ThemeProvider` with given customTheme.
    ```tsx
    <ThemeProvider customTheme={{ light, dark }}>
-    <App/>
+     <App />
    </ThemeProvider>
    ```
 
 ## Usage
 
 1. Import `useThemeContext`
+
    ```ts
    import { useThemeContext } from '@dooboo-ui/native-theme';
    ```
 
 2. Retrive theme.
+
    ```ts
    const { theme } = useThemeContext();
    ```
 
 3. Use it in style.
+
    ```ts
    {
      backgroundColor: theme.background,
@@ -152,21 +157,35 @@ declare module 'styled-components' {
 }
 ```
 
-
 ## Default colors
+
+brand: colors.clearBlue,
+brandLight: '#2973FF',
+title: colors.clearBlue,
+background: '#FFFFFF',
+backgroundPaper: colors.paperWhite,
+disabled: '#E5E5E5',
+gray: '#9A9AA0',
+fontPrimary: colors.dark,
+font: '#2E2E2E',
+good: '#50E3C2',
+warning: '#FC540A',
+error: '#E86459',
+underline: 'rgb(229, 229, 229)',
+
 - colors
-  | params             | light               | dark                |
+  | param | light | dark |
   | ------------------ | ------------------- | ------------------- |
-  | brand              | #29BDFF             | #09071D             |
-  | brandLight         | #2973FF             | #29BDFF             |
-  | title              | #29BDFF             | #09071D             |
-  | background         | #FFFFFF             | #09071D             |
-  | backgroundPaper    | #F8F8F8             | #29BDFF             |
-  | disabled           | #E5E5E5             | #E5E5E5             |
-  | gray               | #9A9AA0             | #9A9AA0             |
-  | fontPrimary        | #09071D             | #09071D             |
-  | font               | #2E2E2E             | #2E2E2E             |
-  | good               | #50E3C2             | #50E3C2             |
-  | warning            | #FC540A             | #FC540A             |
-  | error              | #E86459             | #E86459             |
-  | underline          | rgb(229, 229, 229)  | rgb(229, 229, 229)  |
+  | brand | #29BDFF | #09071D |
+  | brandLight | #2973FF | #29BDFF |
+  | title | #29BDFF | #09071D |
+  | background | #FFFFFF | #09071D |
+  | backgroundPaper | #F8F8F8 | #29BDFF |
+  | disabled | #E5E5E5 | #E5E5E5 |
+  | gray | #9A9AA0 | #9A9AA0 |
+  | fontPrimary | #09071D | #09071D |
+  | font | #2E2E2E | #2E2E2E |
+  | good | #50E3C2 | #50E3C2 |
+  | warning | #FC540A | #FC540A |
+  | error | #E86459 | #E86459 |
+  | underline | rgb(229, 229, 229) | rgb(229, 229, 229) |
