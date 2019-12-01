@@ -152,22 +152,8 @@ declare module 'styled-components' {
 
 
 ## Default colors
-  brand: colors.clearBlue,
-  brandLight: '#2973FF',
-  title: colors.clearBlue,
-  background: '#FFFFFF',
-  backgroundPaper: colors.paperWhite,
-  disabled: '#E5E5E5',
-  gray: '#9A9AA0',
-  fontPrimary: colors.dark,
-  font: '#2E2E2E',
-  good: '#50E3C2',
-  warning: '#FC540A',
-  error: '#E86459',
-  underline: 'rgb(229, 229, 229)',
-
 - colors
-  | param              | light               | dark                |
+  | params             | light               | dark                |
   | ------------------ | ------------------- | ------------------- |
   | brand              | #29BDFF             | #09071D             |
   | brandLight         | #2973FF             | #29BDFF             |
