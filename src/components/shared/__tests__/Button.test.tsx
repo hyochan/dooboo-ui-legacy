@@ -65,7 +65,7 @@ describe('[Button]', () => {
     expect(comp).toBeTruthy();
   });
 
-  it('renders without crashing when to children is not empty', () => {
+  it('renders without crashing when children is not empty', () => {
     const comp = renderComponentAsJson({
       children: (
         <Text>Sample text</Text>

@@ -89,7 +89,7 @@ exports[`[Button] renders without crashing 1`] = `
 </View>
 `;
 
-exports[`[Button] renders without crashing when to children is not empty 1`] = `
+exports[`[Button] renders without crashing when children is not empty 1`] = `
 <View
   collapsable={true}
   pointerEvents="box-none"
