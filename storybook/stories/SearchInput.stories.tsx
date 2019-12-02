@@ -39,7 +39,9 @@ const CustomIcon: React.FC = () => (
   </MagContainer>
 );
 
-const SearchInputWithState = (): React.ReactElement => {
+const SearchInputWithState: React.FC<{ customIcon?: React.ReactNode }> = ({
+  customIcon,
+}) => {
   const [value, setValue] = useState<string>('');
   return (
     <>
@@ -50,7 +52,7 @@ const SearchInputWithState = (): React.ReactElement => {
         }}
         debounceDelay={number('delay', 400)}
         placeholderText={text('placeholder', '')}
-        customIcon={<CustomIcon />}
+        customIcon={customIcon}
       />
       <Value>{`value (after debounced delay) : ${value}`}</Value>
     </>
@@ -63,4 +65,7 @@ const ContainerDeco = (storyFn): React.ReactElement => (
 
 storiesOf('SearchInput', module)
   .addDecorator(ContainerDeco)
-  .add('default', () => <SearchInputWithState />);
+  .add('default', () => <SearchInputWithState />)
+  .add('custom icon', () => (
+    <SearchInputWithState customIcon={<CustomIcon />} />
+  ));
