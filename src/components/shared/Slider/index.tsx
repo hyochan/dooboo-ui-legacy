@@ -1,20 +1,41 @@
-import React from 'react';
+import React, { FC } from 'react';
+import { PanResponder } from 'react-native';
 import styled from 'styled-components/native';
 
-const Container = styled.View`
-  flex: 1;
-  background-color: transparent;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
+const Container = styled.View``;
+
+const Rail = styled.View`
+  width: 200;
+  height: 6;
+  border-radius: 3;
+  background-color: gray;
 `;
 
 interface Props {
-  children?: any;
+  defaultValue?: number;
+  maxValue?: number;
+  minValue?: number;
+  onChange?: (value: number) => void;
+  step?: number;
 }
 
-function Shared(props: Props): React.ReactElement {
-  return <Container>{props.children}</Container>;
-}
+const Slider: FC<Props> = () => {
+  const panResponder = React.useMemo(
+    () =>
+      PanResponder.create({
+        onStartShouldSetPanResponder: () => true,
+        onPanResponderGrant: (evt, gestureState) => {
+          console.log(gestureState);
+        },
+      }),
+    [],
+  );
 
-export default Shared;
+  return (
+    <Container {...panResponder.panHandlers}>
+      <Rail />
+    </Container>
+  );
+};
+
+export default Slider;
