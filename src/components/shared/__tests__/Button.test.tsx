@@ -192,7 +192,7 @@ describe('[Button]', () => {
       iconRight: sampleElement,
       isLoading: true,
     });
-    const iconRight = await queryIconLeft(comp);
+    const iconRight = await queryIconRight(comp);
     const icon = await comp.queryByTestId(SAMPLE_ELEMENT_TESTID);
 
     expect(iconRight).toBeNull();
