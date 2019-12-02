@@ -47,7 +47,7 @@ const ResetText = styled.Text`
 export interface SearchInputProps {
   testID?: string;
   value: string;
-  onDebounceOrOnReset?: (value: string) => string;
+  onDebounceOrOnReset?: (value: string) => void;
   style?: StyleProp<ViewStyle>;
   debounceDelay?: number;
   customIcon?: React.ReactNode;
