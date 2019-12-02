@@ -168,7 +168,7 @@ describe('[Button]', () => {
     expect(icon).toBeNull();
   });
 
-  it('should render right icon when iconLeft prop is not empty', async () => {
+  it('should render right icon when iconRight prop is not empty', async () => {
     const SAMPLE_TEXT = 'sampleElementText';
     const sampleElement = (
       <Text>{SAMPLE_TEXT}</Text>
