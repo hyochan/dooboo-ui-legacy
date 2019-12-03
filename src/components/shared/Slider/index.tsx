@@ -1,15 +1,9 @@
 import React, { FC } from 'react';
 import { PanResponder } from 'react-native';
+import Rail from './Rail';
 import styled from 'styled-components/native';
 
 const Container = styled.View``;
-
-const Rail = styled.View`
-  width: 200;
-  height: 6;
-  border-radius: 3;
-  background-color: gray;
-`;
 
 interface Props {
   defaultValue?: number;
