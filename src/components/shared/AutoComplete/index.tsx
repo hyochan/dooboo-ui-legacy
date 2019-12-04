@@ -3,7 +3,6 @@ import { CaretContainer, InputContainer, StyledImage, Wrapper } from './styles';
 import { IC_ARR_DOWN, IC_ARR_UP } from '../Icons';
 import React, { ReactElement, useCallback, useEffect, useState } from 'react';
 
-import { GestureResponderEvent } from 'react-native';
 import Options from './renderOptions';
 import RenderInput from './RenderInput';
 import dummyData from './dummyData';
@@ -36,7 +35,7 @@ export default function AutoComplete({
   const [innerValue, setInnerValue] = useState<string>(value);
   const [isOptionsOpen, toggleOptions] = useState(false);
   const debouncedValue = useDebounce(innerValue, debounceDelay);
-  const [filteredData, setfilteredData] = useState<DummyDatum[]>(dummyData);
+  const [filteredData] = useState<DummyDatum[]>(dummyData);
 
   useEffect(() => {
     if (onDebounceOrOnReset) {
@@ -48,7 +47,7 @@ export default function AutoComplete({
     setInnerValue(value);
   }, [value]);
 
-  const onPressCaret = useCallback((_e: GestureResponderEvent): void => {
+  const onPressCaret = useCallback((): void => {
     toggleOptions((prevStatus) => !prevStatus);
   }, []);
 

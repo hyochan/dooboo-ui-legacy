@@ -59,5 +59,5 @@ export const OptionsContainer = styled(FlatList as new () => FlatList<any>)`
   border: 1px solid #ededed;
   border-radius: 6px;
   margin: 0 20px 20px;
-  padding-vertical: 10px;
+  padding: 0 10px;
 `;
