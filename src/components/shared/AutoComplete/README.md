@@ -20,7 +20,6 @@
 
 - Look for [src/components/screen/AutoCompleteSample.tsx](https://github.com/marsinearth/dooboo-ui-native/blob/feat%2FautoComplete/src/components/screen/AutoCompleteSample.tsx) and [src/components/shared/AutoComplete](https://github.com/marsinearth/dooboo-ui-native/tree/feat%2FautoComplete/src/components/shared/AutoComplete)
 - in [\$PROJECT/App.js](https://github.com/marsinearth/dooboo-ui-native/blob/feat%2FautoComplete/App.js#L9), please disable storybook by `const STORYBOOK_START = false;` for now before work on this component.
-  _supposed be already done by now but if not, please change it._
 
 # Todo
 

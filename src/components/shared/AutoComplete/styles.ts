@@ -24,7 +24,6 @@ export const Input = styled.TextInput`
   flex-grow: 1;
   align-self: center;
   font-size: 16px;
-  padding: 10px;
 `;
 
 export const StyledImage = styled.Image`
@@ -46,6 +45,7 @@ export const OptionWrapper = styled.TouchableHighlight`
   justify-content: center;
   height: 42px;
   padding: 5px 20px;
+  background-color: whitesmoke;
 `;
 
 export const OptionText = styled.Text<OptionTextProps>`
@@ -54,14 +54,10 @@ export const OptionText = styled.Text<OptionTextProps>`
   font-size: ${({ fontSize }): number => fontSize || 16}px;
 `;
 
-export const OptionsContainer = styled(
-  FlatList as new () => FlatList<any>,
-).attrs(() => ({
-  contentContainerStyle: { paddingVertical: 10 },
-}))`
+export const OptionsContainer = styled(FlatList as new () => FlatList<any>)`
   flex-direction: column;
   border: 1px solid #ededed;
   border-radius: 6px;
   margin: 0 20px 20px;
-  background-color: whitesmoke;
+  padding: 0 10px;
 `;
