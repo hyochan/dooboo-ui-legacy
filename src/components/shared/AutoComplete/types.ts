@@ -1,11 +1,31 @@
+import { Dispatch, SetStateAction } from 'react';
 import { StyleProp, ViewStyle } from 'react-native';
 
-export interface SearchInputProps {
-  testID?: string;
+export interface AutoCompleteProps {
+  renderInputTestID?: string;
+  caretBtnTestID?: string;
   value: string;
-  onDebounceOrOnReset?: (value: string) => string;
+  onDebounceOrOnReset?: Dispatch<SetStateAction<string>>;
   style?: StyleProp<ViewStyle>;
   debounceDelay?: number;
-  customIcon?: React.ReactNode;
   placeholderText?: string;
 }
+
+export type RenderOptionProps = DummyDatum & {
+  onPress: (label: string) => void;
+};
+
+export type InputContainerProps = {
+  on: boolean;
+};
+
+export type OptionTextProps = {
+  fontSize?: number;
+  fontWeight?: string;
+};
+
+export type DummyDatum = {
+  id: string;
+  label: string;
+  value: string;
+};

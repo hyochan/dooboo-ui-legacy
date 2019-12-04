@@ -1,5 +1,6 @@
+import React, { ReactElement, useState } from 'react';
+
 import AutoComplete from '../shared/AutoComplete';
-import React from 'react';
 import styled from 'styled-components/native';
 
 const Wrapper = styled.SafeAreaView`
@@ -10,12 +11,13 @@ const Wrapper = styled.SafeAreaView`
   justify-content: center;
 `;
 
-function Page(): React.ReactElement {
+function AutoCompleteSamplePage(): ReactElement {
+  const [text, setText] = useState('');
   return (
     <Wrapper>
-      <AutoComplete testID="myAT" value="dooboolab" />
+      <AutoComplete value={text} onDebounceOrOnReset={setText} />
     </Wrapper>
   );
 }
 
-export default Page;
+export default AutoCompleteSamplePage;
