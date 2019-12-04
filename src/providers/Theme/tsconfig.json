@@ -1,0 +1,6 @@
+{
+  "extends": "../../../tsconfigPackage.json",
+  "compilerOptions": {
+    "outDir": "./package"
+  }
+}
