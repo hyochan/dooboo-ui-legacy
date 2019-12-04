@@ -5,7 +5,8 @@
 
 > [GiftedChat] component contains essential features to be implemented in `Chat` screen.
 
-![image](https://user-images.githubusercontent.com/27461460/67629842-31894600-f8c0-11e9-846d-a6b3fdac7dac.png)
+![gifted_chat](https://user-images.githubusercontent.com/27461460/69912933-218ef400-1474-11ea-9e89-c634be770927.gif)
+
 
 ## Props
 

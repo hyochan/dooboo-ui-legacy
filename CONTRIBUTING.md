@@ -20,7 +20,7 @@
    - Fetch the branches from upstream repository by `git fetch upstream`
    - When you want to give `PR`, make new branch `git checkout -b [feature_name]`
      - Before pushing `PR`, do `git fetch upstream` from master branch then try the rebase by `git rebase master`
-     - Check your status by `git log --decorate --oneline --all --graph` or `npm run git:log`
+     - Check your status by `git log --decorate --oneline --all --graph` or `yarn git:log`
 2. Git clone your forked repository.
    ```
    git clone https://github.com/<your-id>/dooboo-nativeg-widgets.git
@@ -31,7 +31,9 @@
    ```
    - Note that we recommend using yarn because all of our team members do.
    - Also node that `yarn.lock` and `package-lock.json` sometimes make collision. Try to delete one of them.
-4. Run your project
+4. Run pod install
+   - `cd ios && pod install`
+5. Run your project
 
    1. **Run metro bundler**
       ```
@@ -51,7 +53,7 @@
 
    > ‼️ if you have error `We ran "xcodebuild" command but it exited with error code 65` while running project for the first time, you might have to follow this [guide](https://github.com/facebook/react-native/issues/24450#issuecomment-516760157) of installing `cocoapads`
 
-5. Configure linting in [vscode](https://code.visualstudio.com) correctly.
+6. Configure linting in [vscode](https://code.visualstudio.com) correctly.
    - Example vscode [setting.json](https://gist.github.com/hyochan/815e9040593180c4725d7694d863e5a1)
 
 ### Commit message
@@ -94,7 +96,7 @@ Please follow the Coding conventions as much as possible when contributing your 
 ],
 ```
 
-> `npm run lint` command will cover your code style either.
+> `yarn lint` command will cover your code style either.
 
 General styles
 
