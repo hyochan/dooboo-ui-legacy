@@ -1,26 +1,16 @@
 import React, { FC } from 'react';
-import { StyleProp, ViewStyle } from 'react-native';
+
 import styled from 'styled-components/native';
 
-interface Props {
-  testID?: string;
-  style?: StyleProp<ViewStyle>;
-}
-
-const DEFAULT = {
-  height: 3,
-  borderRadius: 1,
-};
-
-const StyledRail = styled.View`
-  width: 100%;
-  height: ${`${DEFAULT.height}px`};
-  border-radius: ${DEFAULT.borderRadius};
-  background-color: #bcdbfb;
+const Container = styled.View`
+  width: 200;
+  height: 6;
+  border-radius: 3;
+  background-color: gray;
 `;
 
-const Rail: FC<Props> = ({ testID, style }) => {
-  return <StyledRail testID={testID} style={style} />;
+const Rail: FC<{}> = () => {
+  return <Container />;
 };
 
 export default Rail;
