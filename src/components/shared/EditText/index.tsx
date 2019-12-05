@@ -1,6 +1,7 @@
 import {
   NativeSyntheticEvent,
   Platform,
+  TextInputProps,
   TextInputSubmitEditingEventData,
   TextStyle,
   ViewStyle,
@@ -69,6 +70,7 @@ interface Props {
   ) => void;
   focusColor?: string;
   errorColor?: string;
+  textInputProps?: TextInputProps;
 }
 
 function EditText(props: Props): ReactElement {
@@ -92,6 +94,7 @@ function EditText(props: Props): ReactElement {
     onSubmitEditing,
     focusColor,
     errorColor,
+    textInputProps,
   } = props;
 
   return (
@@ -110,6 +113,7 @@ function EditText(props: Props): ReactElement {
         {label}
       </Title>
       <StyledTextInput
+        {...textInputProps}
         testID={testID}
         autoCapitalize={'none'}
         onFocus={(): void => setFocus(true)}
@@ -121,7 +125,7 @@ function EditText(props: Props): ReactElement {
         onChangeText={onChangeText}
         secureTextEntry={secureTextEntry}
         onSubmitEditing={onSubmitEditing}
-      ></StyledTextInput>
+      />
       <UnderLine
         style={[
           // prettier-ignore
@@ -143,8 +147,7 @@ function EditText(props: Props): ReactElement {
             errorTextStyle,
           ]}
         >
-          {' '}
-          {errorText}{' '}
+          {` ${errorText} `}
         </StyledInvalidText>
       ) : null}
     </Container>
