@@ -24,7 +24,6 @@ function Page(): React.ReactElement {
         testID="btn"
         isLoading={false}
         text="😀 😎 👍 💯"
-        onClick={(): void => {}}
       />
       <Button
         style={{
@@ -32,7 +31,6 @@ function Page(): React.ReactElement {
         }}
         isDisabled={true}
         text="This is disabled!!"
-        onClick={(): void => {}}
       />
       <Button
         testID="btnGoogle"
