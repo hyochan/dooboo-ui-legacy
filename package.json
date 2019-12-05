@@ -70,13 +70,13 @@
     "react-dom": "16.9.0",
     "react-native": "0.60.4",
     "react-native-gesture-handler": "git://github.com/hyochan/react-native-gesture-handler.git#package-names",
-    "react-navigation": "^4.0.10",
     "react-native-safe-area-context": "^0.6.1",
     "react-native-safe-area-view": "^1.0.0",
+    "react-navigation": "^4.0.10",
     "react-test-renderer": "16.9.0",
+    "styled-components": "^4.4.1",
     "ts-jest": "^24.2.0",
-    "typescript": "^3.6.4",
-    "styled-components": "^4.4.1"
+    "typescript": "^3.6.4"
   },
   "jest": {
     "preset": "react-native"
