@@ -4,7 +4,7 @@ import { IC_ARR_DOWN, IC_ARR_UP } from '../Icons';
 import React, { ReactElement, useCallback, useEffect, useState } from 'react';
 
 import Options from './renderOptions';
-import RenderInput from './RenderInput';
+import RenderInput from './renderInput';
 import dummyData from './dummyData';
 
 // reference : https://dev.to/gabe_ragland/debouncing-with-react-hooks-jci
