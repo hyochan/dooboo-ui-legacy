@@ -8,9 +8,7 @@ const Container = styled.View`
   background-color: gray;
 `;
 
-interface Props {}
-
-const Rail: FC<Props> = () => {
+const Rail: FC<{}> = () => {
   return <Container />;
 };
 
