@@ -1,4 +1,4 @@
-import React, { FC, useState } from 'react';
+import React, { useState } from 'react';
 import Rail from './Rail';
 import { Dimensions, PanResponder } from 'react-native';
 import styled from 'styled-components/native';
