@@ -1,5 +1,7 @@
 ## Changelogs
 
+- **[0.4.5]**
+  - Pass down all [TextInput] `props` to [EditText].
 - **[0.4.3]**
   - Upgraded styled-components to `4.4.1`.
 - **[0.4.2]**
