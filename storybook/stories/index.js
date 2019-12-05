@@ -7,3 +7,4 @@ import './SearchInput.stories';
 import './Snackbar.stories';
 import './SwitchToggle.stories';
 import './TinderCard.stories';
+import './Slider.stories';
