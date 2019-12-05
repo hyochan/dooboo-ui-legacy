@@ -69,7 +69,6 @@ interface Props {
   ) => void;
   focusColor?: string;
   errorColor?: string;
-  autoCapitalize?: TextInputProps['autoCapitalize'];
   textInputProps?: TextInputProps;
 }
 
@@ -94,7 +93,6 @@ function EditText(props: Props): ReactElement {
     onSubmitEditing,
     focusColor,
     errorColor,
-    autoCapitalize = 'none',
     textInputProps,
   } = props;
 
