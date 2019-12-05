@@ -4,6 +4,16 @@ import Slider from '../../src/components/shared/Slider';
 import { storiesOf } from '@storybook/react-native';
 import styled from 'styled-components/native';
 
+const Container = styled.SafeAreaView`
+  flex: 1;
+  align-content: center;
+  justify-content: space-around;
+`;
+
+const ContainerDeco = (storyFn): React.ReactElement => (
+  <Container>{storyFn()}</Container>
+);
+
 storiesOf('Slider', module)
   .addDecorator(ContainerDeco)
   .add('default', () => (
@@ -11,17 +21,6 @@ storiesOf('Slider', module)
       <Default />
     </>
   ));
-
-const Container = styled.View`
-  background-color: transparent;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  margin-top: 28;
-  padding-top: 80;
-
-  flex-direction: column;
-`;
 
 function Default(): React.ReactElement {
   return (
