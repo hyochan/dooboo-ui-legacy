@@ -158,7 +158,7 @@ function SwitchToggle(props: Props): React.ReactElement {
 
 SwitchToggle.defaultProps = {
   switchOn: false,
-  onPress: null,
+  onPress: (): void => {},
   containerStyle: {
     width: 72,
     height: 36,
