@@ -1,15 +1,10 @@
+import { Dimensions, PanResponder } from 'react-native';
 import React, { useState } from 'react';
 import Rail from './Rail';
-import { Dimensions, PanResponder } from 'react-native';
 import styled from 'styled-components/native';
 
 interface TrackType {
   width: number;
-  color: string;
-}
-
-interface RailType {
-  percent: number;
   color: string;
 }
 
@@ -34,15 +29,6 @@ const Track = styled.View<TrackType>`
   background-color: ${({ color }): string => color};
   display: flex;
   justify-content: center;
-`;
-
-const Rail = styled.View<RailType>`
-  width: ${({ percent }): string => `${percent}%`};
-  height: 100%;
-  background-color: ${({ color }): string => color};
-  display: flex;
-  justify-content: center;
-  align-items: flex-end;
 `;
 
 const Steps = styled.View`

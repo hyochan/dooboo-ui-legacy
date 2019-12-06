@@ -10,10 +10,6 @@ const Container = styled.SafeAreaView`
   justify-content: space-around;
 `;
 
-const ContainerDeco = (storyFn): React.ReactElement => (
-  <Container>{storyFn()}</Container>
-);
-
 storiesOf('Slider', module)
   .addDecorator(ContainerDeco)
   .add('default', () => (
@@ -25,7 +21,7 @@ storiesOf('Slider', module)
 function Default(): React.ReactElement {
   return (
     <Container>
-      <Slider />
+      <Slider minValue={1} maxValue={5} />
     </Container>
   );
 }

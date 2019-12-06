@@ -2,39 +2,6 @@
 
 exports[`[Slider] render renders without crashing 1`] = `
 <View
-<<<<<<< HEAD
-  onMoveShouldSetResponder={[Function]}
-  onMoveShouldSetResponderCapture={[Function]}
-  onResponderEnd={[Function]}
-  onResponderGrant={[Function]}
-  onResponderMove={[Function]}
-  onResponderReject={[Function]}
-  onResponderRelease={[Function]}
-  onResponderStart={[Function]}
-  onResponderTerminate={[Function]}
-  onResponderTerminationRequest={[Function]}
-  onStartShouldSetResponder={[Function]}
-  onStartShouldSetResponderCapture={[Function]}
-  style={
-    Array [
-      Object {},
-    ]
-  }
->
-  <View
-    style={
-      Array [
-        Object {
-          "backgroundColor": "gray",
-          "borderRadius": 3,
-          "height": 6,
-          "width": 200,
-        },
-      ]
-    }
-  />
-</View>
-=======
   style={
     Array [
       Object {
@@ -48,6 +15,70 @@ exports[`[Slider] render renders without crashing 1`] = `
       },
     ]
   }
-/>
->>>>>>> Snapshot test with Slider
+>
+  <View
+    color="#90a4f9"
+    style={
+      Array [
+        Object {
+          "backgroundColor": "#90a4f9",
+          "display": "flex",
+          "height": 2,
+          "justifyContent": "center",
+          "width": 300,
+        },
+      ]
+    }
+    width={300}
+  >
+    <View
+      color="#0b21e8"
+      percent={0}
+      style={
+        Array [
+          Object {
+            "alignItems": "flex-end",
+            "backgroundColor": "#0b21e8",
+            "display": "flex",
+            "height": "100%",
+            "justifyContent": "center",
+            "width": "0%",
+          },
+        ]
+      }
+    >
+      <View
+        color="#0b21e8"
+        onMoveShouldSetResponder={[Function]}
+        onMoveShouldSetResponderCapture={[Function]}
+        onResponderEnd={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderReject={[Function]}
+        onResponderRelease={[Function]}
+        onResponderStart={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        onStartShouldSetResponderCapture={[Function]}
+        size={20}
+        style={
+          Array [
+            Object {
+              "backgroundColor": "#0b21e8",
+              "borderRadius": 10,
+              "height": 20,
+              "transform": Array [
+                Object {
+                  "translateX": 10,
+                },
+              ],
+              "width": 20,
+            },
+          ]
+        }
+      />
+    </View>
+  </View>
+</View>
 `;
