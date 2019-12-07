@@ -14,7 +14,7 @@ export interface SnackbarProps {
   testID?: string;
 }
 
-function Snackbar(props: SnackbarProps): React.ReactElement {
+const Snackbar: React.FC<SnackbarProps> = (props) => {
   return (
     <Container
       testID={props.testID}
@@ -33,6 +33,6 @@ function Snackbar(props: SnackbarProps): React.ReactElement {
       </Text>
     </Container>
   );
-}
+};
 
 export default Snackbar;
