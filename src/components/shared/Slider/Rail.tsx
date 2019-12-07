@@ -1,4 +1,4 @@
-import React, { FC, ReactElement, useEffect, useMemo } from 'react';
+import React, { FC, useEffect, useMemo } from 'react';
 import { StyleProp, StyleSheet, TouchableWithoutFeedback, ViewStyle } from 'react-native';
 import styled, { DefaultTheme, ThemeProps } from 'styled-components/native';
 
@@ -38,7 +38,7 @@ interface Props {
   testID?: string;
   style?: StyleProp<ViewStyle>;
   markStyle?: StyleProp<ViewStyle>;
-  mark?: ReactElement;
+  mark?: React.ReactElement;
   step?: number;
   pixelPerStep?: number;
   markCount?: number;
@@ -348,12 +348,14 @@ const createMarks = ({
   step,
   style,
   theme,
+  mark,
   onMarkPress,
 }: {
   positions: number[];
   step: number;
   style: ViewStyle;
   theme: MarkThemeType;
+  mark?: React.ReactElement;
   onMarkPress?: (value: number, position: number, index: number) => void | Promise<void>;
 }): React.ReactElement[] => {
   return positions.map((position: number, index: number): React.ReactElement => {
@@ -367,7 +369,7 @@ const createMarks = ({
     return (
       <TouchableWithoutFeedback key={position} onPress={handlePress}>
         <MarkPositioner position={position}>
-          <Mark style={style} theme={theme} />
+          {mark || <Mark style={style} theme={theme} />}
         </MarkPositioner>
       </TouchableWithoutFeedback>
     );
@@ -378,6 +380,7 @@ const Rail: FC<Props> = ({
   testID,
   style = {},
   markStyle = {},
+  mark,
   step = 1,
   pixelPerStep = 20,
   markCount,
@@ -443,6 +446,7 @@ const Rail: FC<Props> = ({
     step,
     style: markStyleToApply,
     theme: markThemeToApply,
+    mark,
     onMarkPress,
   });
 
