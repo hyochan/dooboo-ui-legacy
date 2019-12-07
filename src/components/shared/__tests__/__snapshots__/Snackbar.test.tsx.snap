@@ -1,0 +1,29 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`[Snackbar] renders without crashing 1`] = `
+<View
+  style={
+    Array [
+      Object {
+        "fontSize": 16,
+        "position": "absolute",
+        "textAlign": "left",
+      },
+      Object {
+        "backgroundColor": "#303235",
+        "bottom": 50,
+        "padding": 16,
+      },
+    ]
+  }
+  testID="snackbar"
+>
+  <Text
+    style={
+      Object {
+        "color": "#ffffff",
+      }
+    }
+  />
+</View>
+`;
