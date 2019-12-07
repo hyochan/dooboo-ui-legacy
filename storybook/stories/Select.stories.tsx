@@ -1,8 +1,6 @@
-import { IC_FACEBOOK, IC_GOOGLE } from '../../src/components/shared/Icons';
 import React, { useState } from 'react';
 
 import { ContainerDeco } from '../decorators';
-import { Image } from 'react-native';
 import Select from '../../src/components/shared/Select';
 import { action } from '@storybook/addon-actions';
 import { storiesOf } from '@storybook/react-native';
@@ -29,14 +27,18 @@ const Container = styled.View`
 `;
 
 function Default(): React.ReactElement {
-  const [facebookLoading, setFacebookLoading] = useState<boolean>(false);
-  const [googleLoading, setGoogleLoading] = useState<boolean>(false);
-
   return (
     <Container>
       <Select
-        isLoading={false}
-        text="😀 😎 👍 💯"
+        theme={'underbar'}
+        rootViewStyle={{
+          borderBottomColor: 'black',
+          borderBottomWidth: 2,
+        }}
+        rootTextStyle={{
+          color: 'orange',
+        }}
+        placeholder={'select'}
         onClick={action('Clicked')}
       />
     </Container>
