@@ -291,40 +291,16 @@ const getStepDistanceByMarkCount = ({
 const getStepDistanceByStep = ({
   railWidth,
   markWidth,
-  step,
   markCount,
   startMark,
   endMark,
-  fitToRailWidth,
 }: {
   railWidth: number;
   markWidth: number;
-  step: number;
   markCount: number;
   startMark: boolean;
   endMark: boolean;
-  fitToRailWidth: boolean;
 }): number => {
-  const getStepFineTunedStepByRailWidth = ({
-    railWidth,
-    markCount,
-    step,
-  }: {
-    railWidth: number;
-    markCount: number;
-    step: number;
-  }): number => {
-    const railWidthByStep = (step * (markCount - 1));
-    const fineTunerToFitRailWidth = (railWidth - railWidthByStep) / markCount;
-
-    return step + fineTunerToFitRailWidth;
-  };
-  const stepToApply = fitToRailWidth ? getStepFineTunedStepByRailWidth({
-    railWidth,
-    markCount,
-    step,
-  }) : step;
-
   return getStepDistanceByMarkCount({
     railWidth,
     markWidth,
@@ -341,7 +317,6 @@ const getStepDistance = ({
   markCount,
   startMark,
   endMark,
-  fitToRailWidth,
 }: {
   railWidth: number;
   markWidth: number;
@@ -349,7 +324,6 @@ const getStepDistance = ({
   markCount?: number;
   startMark: boolean;
   endMark: boolean;
-  fitToRailWidth: boolean;
 }): {
   markCount: number;
   stepDistance: number;
@@ -373,14 +347,12 @@ const getStepDistance = ({
       markCount: count,
       stepDistance: getStepDistanceByStep({
         ...options,
-        step,
         markCount: count,
-        fitToRailWidth,
       }),
     };
-   };
-   
-   return {
+  };
+
+  return {
     markCount: markCount as number,
     stepDistance: getStepDistanceByMarkCount({
       ...options,
@@ -463,7 +435,7 @@ const Rail: FC<Props> = ({
   customMarkWidth,
   hideMark = false,
   step = 1,
-  pixelPerStep = 20,
+  pixelPerStep = 50,
   markCount,
   startMark = true,
   endMark = true,
@@ -472,7 +444,6 @@ const Rail: FC<Props> = ({
   blue,
   inverted = false,
   disabled = false,
-  fit = true,
   onInit,
   onMarkPress,
 }) => {
@@ -483,7 +454,7 @@ const Rail: FC<Props> = ({
   };
 
   if (mark && !customMarkWidth) {
-    throw 'Must have customMarkWidth prop if it uses a cutsom mark.';
+    throw Error('Must have customMarkWidth prop if it uses a cutsom mark.');
   }
 
   const railStyleToApply = StyleSheet.flatten(style);
@@ -524,7 +495,6 @@ const Rail: FC<Props> = ({
   const { markCount: markCountToApply, stepDistance } = useMemo(() => getStepDistance({
     ...markOptions,
     markCount,
-    fitToRailWidth: fit,
   }), Object.values(markOptions));
   const markPositions = useMemo(() => getMarkPositions({
     startMark,
