@@ -59,19 +59,19 @@ exports[`[Slider] render renders without crashing 1`] = `
       onResponderTerminate={[Function]}
       onResponderTerminationRequest={[Function]}
       onStartShouldSetResponder={[Function]}
-      position={-23.25}
+      position={-8.801282051282051}
       style={
         Array [
           Object {
             "alignItems": "center",
             "display": "flex",
-            "left": -23.25,
+            "left": -8.801282051282051,
             "position": "absolute",
-            "width": 49.5,
+            "width": 20.602564102564102,
           },
         ]
       }
-      width={49.5}
+      width={20.602564102564102}
     >
       <View
         style={
@@ -101,19 +101,19 @@ exports[`[Slider] render renders without crashing 1`] = `
       onResponderTerminate={[Function]}
       onResponderTerminationRequest={[Function]}
       onStartShouldSetResponder={[Function]}
-      position={26.25}
+      position={11.801282051282051}
       style={
         Array [
           Object {
             "alignItems": "center",
             "display": "flex",
-            "left": 26.25,
+            "left": 11.801282051282051,
             "position": "absolute",
-            "width": 49.5,
+            "width": 20.602564102564102,
           },
         ]
       }
-      width={49.5}
+      width={20.602564102564102}
     >
       <View
         style={
@@ -143,19 +143,19 @@ exports[`[Slider] render renders without crashing 1`] = `
       onResponderTerminate={[Function]}
       onResponderTerminationRequest={[Function]}
       onStartShouldSetResponder={[Function]}
-      position={75.75}
+      position={32.40384615384615}
       style={
         Array [
           Object {
             "alignItems": "center",
             "display": "flex",
-            "left": 75.75,
+            "left": 32.40384615384615,
             "position": "absolute",
-            "width": 49.5,
+            "width": 20.602564102564102,
           },
         ]
       }
-      width={49.5}
+      width={20.602564102564102}
     >
       <View
         style={
@@ -185,19 +185,19 @@ exports[`[Slider] render renders without crashing 1`] = `
       onResponderTerminate={[Function]}
       onResponderTerminationRequest={[Function]}
       onStartShouldSetResponder={[Function]}
-      position={125.25}
+      position={53.006410256410255}
       style={
         Array [
           Object {
             "alignItems": "center",
             "display": "flex",
-            "left": 125.25,
+            "left": 53.006410256410255,
             "position": "absolute",
-            "width": 49.5,
+            "width": 20.602564102564102,
           },
         ]
       }
-      width={49.5}
+      width={20.602564102564102}
     >
       <View
         style={
@@ -227,19 +227,19 @@ exports[`[Slider] render renders without crashing 1`] = `
       onResponderTerminate={[Function]}
       onResponderTerminationRequest={[Function]}
       onStartShouldSetResponder={[Function]}
-      position={174.75}
+      position={73.60897435897436}
       style={
         Array [
           Object {
             "alignItems": "center",
             "display": "flex",
-            "left": 174.75,
+            "left": 73.60897435897436,
             "position": "absolute",
-            "width": 49.5,
+            "width": 20.602564102564102,
           },
         ]
       }
-      width={49.5}
+      width={20.602564102564102}
     >
       <View
         style={
@@ -269,19 +269,313 @@ exports[`[Slider] render renders without crashing 1`] = `
       onResponderTerminate={[Function]}
       onResponderTerminationRequest={[Function]}
       onStartShouldSetResponder={[Function]}
-      position={224.25}
+      position={94.21153846153845}
       style={
         Array [
           Object {
             "alignItems": "center",
             "display": "flex",
-            "left": 224.25,
+            "left": 94.21153846153845,
             "position": "absolute",
-            "width": 49.5,
+            "width": 20.602564102564102,
           },
         ]
       }
-      width={49.5}
+      width={20.602564102564102}
+    >
+      <View
+        style={
+          Array [
+            Object {
+              "backgroundColor": "#4163F4",
+              "height": 3,
+              "width": 3,
+            },
+            Object {},
+          ]
+        }
+        theme={
+          Object {
+            "backgroundColor": "#4163F4",
+          }
+        }
+      />
+    </View>
+    <View
+      accessible={true}
+      clickable={true}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      position={114.81410256410257}
+      style={
+        Array [
+          Object {
+            "alignItems": "center",
+            "display": "flex",
+            "left": 114.81410256410257,
+            "position": "absolute",
+            "width": 20.602564102564102,
+          },
+        ]
+      }
+      width={20.602564102564102}
+    >
+      <View
+        style={
+          Array [
+            Object {
+              "backgroundColor": "#4163F4",
+              "height": 3,
+              "width": 3,
+            },
+            Object {},
+          ]
+        }
+        theme={
+          Object {
+            "backgroundColor": "#4163F4",
+          }
+        }
+      />
+    </View>
+    <View
+      accessible={true}
+      clickable={true}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      position={135.41666666666669}
+      style={
+        Array [
+          Object {
+            "alignItems": "center",
+            "display": "flex",
+            "left": 135.41666666666669,
+            "position": "absolute",
+            "width": 20.602564102564102,
+          },
+        ]
+      }
+      width={20.602564102564102}
+    >
+      <View
+        style={
+          Array [
+            Object {
+              "backgroundColor": "#4163F4",
+              "height": 3,
+              "width": 3,
+            },
+            Object {},
+          ]
+        }
+        theme={
+          Object {
+            "backgroundColor": "#4163F4",
+          }
+        }
+      />
+    </View>
+    <View
+      accessible={true}
+      clickable={true}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      position={156.01923076923077}
+      style={
+        Array [
+          Object {
+            "alignItems": "center",
+            "display": "flex",
+            "left": 156.01923076923077,
+            "position": "absolute",
+            "width": 20.602564102564102,
+          },
+        ]
+      }
+      width={20.602564102564102}
+    >
+      <View
+        style={
+          Array [
+            Object {
+              "backgroundColor": "#4163F4",
+              "height": 3,
+              "width": 3,
+            },
+            Object {},
+          ]
+        }
+        theme={
+          Object {
+            "backgroundColor": "#4163F4",
+          }
+        }
+      />
+    </View>
+    <View
+      accessible={true}
+      clickable={true}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      position={176.62179487179486}
+      style={
+        Array [
+          Object {
+            "alignItems": "center",
+            "display": "flex",
+            "left": 176.62179487179486,
+            "position": "absolute",
+            "width": 20.602564102564102,
+          },
+        ]
+      }
+      width={20.602564102564102}
+    >
+      <View
+        style={
+          Array [
+            Object {
+              "backgroundColor": "#4163F4",
+              "height": 3,
+              "width": 3,
+            },
+            Object {},
+          ]
+        }
+        theme={
+          Object {
+            "backgroundColor": "#4163F4",
+          }
+        }
+      />
+    </View>
+    <View
+      accessible={true}
+      clickable={true}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      position={197.22435897435898}
+      style={
+        Array [
+          Object {
+            "alignItems": "center",
+            "display": "flex",
+            "left": 197.22435897435898,
+            "position": "absolute",
+            "width": 20.602564102564102,
+          },
+        ]
+      }
+      width={20.602564102564102}
+    >
+      <View
+        style={
+          Array [
+            Object {
+              "backgroundColor": "#4163F4",
+              "height": 3,
+              "width": 3,
+            },
+            Object {},
+          ]
+        }
+        theme={
+          Object {
+            "backgroundColor": "#4163F4",
+          }
+        }
+      />
+    </View>
+    <View
+      accessible={true}
+      clickable={true}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      position={217.8269230769231}
+      style={
+        Array [
+          Object {
+            "alignItems": "center",
+            "display": "flex",
+            "left": 217.8269230769231,
+            "position": "absolute",
+            "width": 20.602564102564102,
+          },
+        ]
+      }
+      width={20.602564102564102}
+    >
+      <View
+        style={
+          Array [
+            Object {
+              "backgroundColor": "#4163F4",
+              "height": 3,
+              "width": 3,
+            },
+            Object {},
+          ]
+        }
+        theme={
+          Object {
+            "backgroundColor": "#4163F4",
+          }
+        }
+      />
+    </View>
+    <View
+      accessible={true}
+      clickable={true}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      position={238.42948717948718}
+      style={
+        Array [
+          Object {
+            "alignItems": "center",
+            "display": "flex",
+            "left": 238.42948717948718,
+            "position": "absolute",
+            "width": 20.602564102564102,
+          },
+        ]
+      }
+      width={20.602564102564102}
     >
       <View
         style={
