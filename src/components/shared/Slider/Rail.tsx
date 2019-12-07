@@ -430,7 +430,6 @@ const Rail: FC<Props> = ({
     markWidth: markWidthInt,
     startMark,
     endMark,
-    fit,
   };
   const stepByPixel = step * pixelPerStep;
   const markPositions = useMemo(() => isNil(markCount) ? getMarkPositionsByStep({
