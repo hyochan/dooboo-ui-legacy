@@ -15,6 +15,9 @@ describe('[Snackbar]', () => {
   beforeEach(() => {
     props = {
       testID: 'snackbar',
+      text: 'SnackBar!',
+      show: true,
+      setShow: (): void => {},
     };
     component = <Snackbar {...props} />;
   });
