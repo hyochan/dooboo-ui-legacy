@@ -349,6 +349,7 @@ const createMarks = ({
   style,
   theme,
   mark,
+  disabled,
   onMarkPress,
 }: {
   positions: number[];
@@ -356,10 +357,15 @@ const createMarks = ({
   style: ViewStyle;
   theme: MarkThemeType;
   mark?: React.ReactElement;
+  disabled?: boolean;
   onMarkPress?: (value: number, position: number, index: number) => void | Promise<void>;
 }): React.ReactElement[] => {
   return positions.map((position: number, index: number): React.ReactElement => {
     const handlePress = (): void => {
+      if (disabled) {
+        return;
+      }
+
       const value = getMarkValue(step, index);
       if (onMarkPress) {
         onMarkPress(value, position, index);
@@ -446,6 +452,7 @@ const Rail: FC<Props> = ({
     style: markStyleToApply,
     theme: markThemeToApply,
     mark,
+    disabled,
     onMarkPress,
   });
 
