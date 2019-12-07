@@ -127,7 +127,6 @@ export const THEME: {
 const Container = styled.View`
   display: flex;
   justify-content: center;
-  height: 10;
 `;
 
 const StyledRail = styled.View<RailType>`
