@@ -43,7 +43,7 @@ interface Props {
   customMarkWidth?: number;
   hideMark?: boolean;
   step?: number;
-  pixelPerStep?: number;
+  pixelsPerStep?: number;
   markCount?: number;
   startMark?: boolean;
   endMark?: boolean;
@@ -435,7 +435,7 @@ const Rail: FC<Props> = ({
   customMarkWidth,
   hideMark = false,
   step = 1,
-  pixelPerStep = 20,
+  pixelsPerStep = 20,
   markCount,
   startMark = true,
   endMark = true,
@@ -484,7 +484,7 @@ const Rail: FC<Props> = ({
     : customMarkWidth as number;
   const markWidthInt = parseInt(markWidth.toString());
 
-  const stepByPixel = step * pixelPerStep;
+  const stepByPixel = step * pixelsPerStep;
   const markOptions = {
     railWidth: railWidthInt,
     markWidth: markWidthInt,
