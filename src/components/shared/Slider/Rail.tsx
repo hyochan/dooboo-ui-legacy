@@ -22,9 +22,6 @@ interface StatefulThemeType extends ThemeType {
   DISABLED: ThemeType;
 }
 
-interface ContainerType {
-};
-
 interface RailType extends ThemeProps<RailThemeType> {
   theme: RailThemeType;
 }
@@ -124,7 +121,7 @@ export const THEME: {
   },
 };
 
-const Container = styled.View<ContainerType>`
+const Container = styled.View`
   display: flex;
   justify-content: center;
   height: 10;
@@ -139,7 +136,7 @@ const StyledRail = styled.View<RailType>`
 
 const MarkPositioner = styled.View<MarkPositionerType>`
   position: absolute;
-  left: ${({ position }) => position};
+  left: ${({ position }): number => position};
 `;
 
 const Mark = styled.View<MarkType>`
@@ -153,7 +150,7 @@ const getStatefulTheme = ({
   inverted,
   disabled,
 }: {
-  theme: StatefulThemeType,
+  theme: StatefulThemeType;
   inverted?: boolean;
   disabled?: boolean;
 }): ThemeType => {
@@ -195,7 +192,7 @@ const getDefaultTheme = ({
       ...statefulThemeOptions,
     });
   }
-  
+
   if (blue) {
     return getStatefulTheme({
       theme: THEME.BLUE,
@@ -215,10 +212,10 @@ const getMarkCountByStep = ({
   startMark,
   endMark,
 }: {
-  railWidth: number,
-  step: number,
-  startMark: boolean,
-  endMark: boolean,
+  railWidth: number;
+  step: number;
+  startMark: boolean;
+  endMark: boolean;
 }): number => {
   const count = Math.floor(railWidth / step) + 1;
 
@@ -230,7 +227,7 @@ const getStepByMarkCount = ({
   count,
   startMark,
   endMark,
-}) => {
+}): number => {
   const step = railWidth / count;
 
   if (startMark && endMark) {
@@ -254,20 +251,20 @@ const getMarkPositions = ({
 }: {
   railWidth: number;
   markWidth: number;
-  startMark: boolean,
-  endMark: boolean,
+  startMark: boolean;
+  endMark: boolean;
   count: number;
   step?: number;
-}) => {
+}): number[] => {
   const getPositionFineTunedStepByMark = ({
     markWidth,
     markCount,
     step,
   }: {
-    markWidth: number,
-    markCount: number,
-    step: number,
-  }) => {
+    markWidth: number;
+    markCount: number;
+    step: number;
+  }): number => {
     const fineTunerToFitMark = markWidth / markCount;
 
     return step - fineTunerToFitMark;
@@ -283,7 +280,7 @@ const getMarkPositions = ({
     markWidth,
     markCount: count,
     step: stepToApply,
-  })
+  });
   const startAt = startMark ? 0 : fineTunedStep;
 
   return Array.from({ length: count }).map((_, index: number) => startAt + (fineTunedStep * index));
@@ -300,19 +297,19 @@ const getMarkPositionsByStep = ({
   railWidth: number;
   markWidth: number;
   step: number;
-  startMark: boolean,
+  startMark: boolean;
   endMark: boolean;
   fitToRailWidth: boolean;
-}) => {
+}): number[] => {
   const getPositionFineTunedStepByRailWidth = ({
     railWidth,
     markCount,
     step,
   }: {
-    railWidth: number,
-    markCount: number,
-    step: number,
-  }) => {
+    railWidth: number;
+    markCount: number;
+    step: number;
+  }): number => {
     const railWidthByStep = (step * (markCount - 1));
     const fineTunerToFitRailWidth = (railWidth - railWidthByStep) / markCount;
 
@@ -340,8 +337,11 @@ const getMarkPositionsByStep = ({
   });
 };
 
-const getMarkValue = (step: number, markIndex: number) => step * markIndex;
-const getMarkValues = (step: number, markPositions: number[]) => markPositions.map((_, index) => getMarkValue(step, index));
+const getMarkValue = (step: number, markIndex: number): number => step * markIndex;
+const getMarkValues = (
+  step: number,
+  markPositions: number[],
+): number[] => markPositions.map((_, index) => getMarkValue(step, index));
 
 const createMarks = ({
   positions,
@@ -351,13 +351,13 @@ const createMarks = ({
   onMarkPress,
 }: {
   positions: number[];
-  step: number,
+  step: number;
   style: ViewStyle;
   theme: MarkThemeType;
   onMarkPress?: (value: number, position: number, index: number) => void | Promise<void>;
-}) => {
-  return positions.map((position: number, index: number) => {
-    const handlePress = () => {
+}): React.ReactElement[] => {
+  return positions.map((position: number, index: number): React.ReactElement => {
+    const handlePress = (): void => {
       const value = getMarkValue(step, index);
       if (onMarkPress) {
         onMarkPress(value, position, index);
