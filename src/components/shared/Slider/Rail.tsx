@@ -53,7 +53,7 @@ interface Props {
   inverted?: boolean;
   disabled?: boolean;
   fit?: boolean;
-  onInit?: (marks: number[], markPositions: number[]) => void | Promise<void>;
+  onInit?: (markValues: number[], markPositions: number[]) => void | Promise<void>;
   onMarkPress?: (value: number, position: number, index: number) => void | Promise<void>;
 }
 
