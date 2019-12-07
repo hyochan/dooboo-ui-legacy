@@ -241,7 +241,7 @@ const getStepByMarkCount = ({
   }
 
   if (!startMark && !endMark) {
-    return (railWidth - step) / count + 1;
+    return (railWidth - step) / count;
   }
 
   return (railWidth - step) / (count - 1);
@@ -253,16 +253,14 @@ const getStepDistanceByMarkCount = ({
   startMark,
   endMark,
   count,
-  step,
 }: {
   railWidth: number;
   markWidth: number;
   startMark: boolean;
   endMark: boolean;
   count: number;
-  step?: number;
 }): number => {
-  const getPositionFineTunedStepByMark = ({
+  const getStepFineTunedStepByMark = ({
     markWidth,
     markCount,
     step,
@@ -276,14 +274,14 @@ const getStepDistanceByMarkCount = ({
     return step - fineTunerToFitMark;
   };
 
-  const stepToApply = isNil(step) ? getStepByMarkCount({
+  const stepToApply = getStepByMarkCount({
     railWidth,
     count,
     startMark,
     endMark,
-  }) : step as number;
+  });
 
-  return getPositionFineTunedStepByMark({
+  return getStepFineTunedStepByMark({
     markWidth,
     markCount: count,
     step: stepToApply,
@@ -307,7 +305,7 @@ const getStepDistanceByStep = ({
   endMark: boolean;
   fitToRailWidth: boolean;
 }): number => {
-  const getPositionFineTunedStepByRailWidth = ({
+  const getStepFineTunedStepByRailWidth = ({
     railWidth,
     markCount,
     step,
@@ -321,7 +319,7 @@ const getStepDistanceByStep = ({
 
     return step + fineTunerToFitRailWidth;
   };
-  const stepToApply = fitToRailWidth ? getPositionFineTunedStepByRailWidth({
+  const stepToApply = fitToRailWidth ? getStepFineTunedStepByRailWidth({
     railWidth,
     markCount,
     step,
@@ -330,7 +328,6 @@ const getStepDistanceByStep = ({
   return getStepDistanceByMarkCount({
     railWidth,
     markWidth,
-    step: stepToApply,
     startMark,
     endMark,
     count: markCount,
