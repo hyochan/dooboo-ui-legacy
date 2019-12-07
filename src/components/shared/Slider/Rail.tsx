@@ -453,9 +453,8 @@ const Rail: FC<Props> = ({
   }, []);
 
   return (
-    <Container>
+    <Container testID={testID}>
       <StyledRail
-        testID={testID}
         style={railStyleToApply}
         theme={railThemeToApply}
       >
