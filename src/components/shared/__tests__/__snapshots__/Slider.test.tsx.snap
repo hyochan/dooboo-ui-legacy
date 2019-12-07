@@ -25,7 +25,6 @@ exports[`[Slider] render renders without crashing 1`] = `
       Array [
         Object {
           "display": "flex",
-          "height": 10,
           "justifyContent": "center",
         },
       ]
