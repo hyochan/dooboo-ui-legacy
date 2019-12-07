@@ -39,6 +39,7 @@ interface Props {
   style?: StyleProp<ViewStyle>;
   markStyle?: StyleProp<ViewStyle>;
   mark?: React.ReactElement;
+  hideMark?: boolean;
   step?: number;
   pixelPerStep?: number;
   markCount?: number;
@@ -387,6 +388,7 @@ const Rail: FC<Props> = ({
   style = {},
   markStyle = {},
   mark,
+  hideMark = false,
   step = 1,
   pixelPerStep = 20,
   markCount,
@@ -446,7 +448,7 @@ const Rail: FC<Props> = ({
     ...markOptions,
     count: markCount as number,
   }), Object.values(markOptions));
-  const marks = createMarks({
+  const marks = !hideMark && createMarks({
     positions: markPositions,
     step,
     style: markStyleToApply,
