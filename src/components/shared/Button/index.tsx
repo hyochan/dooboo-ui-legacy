@@ -52,8 +52,16 @@ interface Props {
   activeOpacity: number;
   children?: string | React.ReactElement;
   text?: string;
-  onClick?: () => void;
+  onClick?: (params?: any) => void | Promise<void>;
 }
+
+export const TESTID = {
+  BUTTON: 'button',
+  ACTIVITYINDICATOR: 'activityIndicator',
+  ICONLEFT: 'iconLeft',
+  ICONRIGHT: 'iconRight',
+  TEXT: 'text',
+};
 
 const COLOR: {
   [key: string]: string;
@@ -163,13 +171,13 @@ const getText = ({
 }): string | React.ReactElement | undefined => {
   if (typeof children === 'undefined') {
     return (
-      <Text style={style} theme={theme}>{text}</Text>
+      <Text testID={TESTID.TEXT} style={style} theme={theme}>{text}</Text>
     );
   }
 
   if (typeof children === 'string') {
     return (
-      <Text style={style} theme={theme}>{children}</Text>
+      <Text testID={TESTID.TEXT} style={style} theme={theme}>{children}</Text>
     );
   }
 
@@ -230,10 +238,10 @@ function Button(props: Props): React.ReactElement {
         style={buttonStyleToApply}
         theme={buttonThemeToApply}
       >
-        {!isLoading && <IconLeft>{iconLeft}</IconLeft>}
+        {!isLoading && <IconLeft testID={TESTID.ICONLEFT}>{iconLeft}</IconLeft>}
         {!isLoading && textToRender}
-        {!isLoading && <IconRight>{iconRight}</IconRight>}
-        {isLoading && <ActivityIndicator size="small" color={indicatorColor} />}
+        {!isLoading && <IconRight testID={TESTID.ICONRIGHT}>{iconRight}</IconRight>}
+        {isLoading && <ActivityIndicator testID="activityIndicator" size="small" color={indicatorColor} />}
       </StyledButton>
     </TouchableOpacity>
   );
