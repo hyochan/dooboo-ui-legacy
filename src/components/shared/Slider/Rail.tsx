@@ -31,6 +31,7 @@ interface MarkType extends ThemeProps<MarkThemeType>{
 }
 
 interface MarkPositionerType {
+  width: number;
   position: number;
 }
 
@@ -39,6 +40,7 @@ interface Props {
   style?: StyleProp<ViewStyle>;
   markStyle?: StyleProp<ViewStyle>;
   mark?: React.ReactElement;
+  customMarkWidth?: number;
   hideMark?: boolean;
   step?: number;
   pixelPerStep?: number;
@@ -137,6 +139,9 @@ const StyledRail = styled.View<RailType>`
 
 const MarkPositioner = styled.View<MarkPositionerType>`
   position: absolute;
+  display: flex;
+  align-items: center;
+  width: ${({ width }): number => width};
   left: ${({ position }): number => position};
 `;
 
@@ -242,7 +247,7 @@ const getStepByMarkCount = ({
   return (railWidth - step) / (count - 1);
 };
 
-const getMarkPositions = ({
+const getStepDistanceByMarkCount = ({
   railWidth,
   markWidth,
   startMark,
@@ -256,7 +261,7 @@ const getMarkPositions = ({
   endMark: boolean;
   count: number;
   step?: number;
-}): number[] => {
+}): number => {
   const getPositionFineTunedStepByMark = ({
     markWidth,
     markCount,
@@ -277,20 +282,19 @@ const getMarkPositions = ({
     startMark,
     endMark,
   }) : step as number;
-  const fineTunedStep = getPositionFineTunedStepByMark({
+
+  return getPositionFineTunedStepByMark({
     markWidth,
     markCount: count,
     step: stepToApply,
   });
-  const startAt = startMark ? 0 : fineTunedStep;
-
-  return Array.from({ length: count }).map((_, index: number) => startAt + (fineTunedStep * index));
 };
 
-const getMarkPositionsByStep = ({
+const getStepDistanceByStep = ({
   railWidth,
   markWidth,
   step,
+  markCount,
   startMark,
   endMark,
   fitToRailWidth,
@@ -298,10 +302,11 @@ const getMarkPositionsByStep = ({
   railWidth: number;
   markWidth: number;
   step: number;
+  markCount: number;
   startMark: boolean;
   endMark: boolean;
   fitToRailWidth: boolean;
-}): number[] => {
+}): number => {
   const getPositionFineTunedStepByRailWidth = ({
     railWidth,
     markCount,
@@ -316,26 +321,89 @@ const getMarkPositionsByStep = ({
 
     return step + fineTunerToFitRailWidth;
   };
-  const count = getMarkCountByStep({
-    railWidth,
-    step,
-    startMark,
-    endMark,
-  });
   const stepToApply = fitToRailWidth ? getPositionFineTunedStepByRailWidth({
     railWidth,
-    markCount: count,
+    markCount,
     step,
   }) : step;
 
-  return getMarkPositions({
+  return getStepDistanceByMarkCount({
     railWidth,
     markWidth,
     step: stepToApply,
     startMark,
     endMark,
-    count,
+    count: markCount,
   });
+};
+
+const getStepDistance = ({
+  railWidth,
+  markWidth,
+  step,
+  markCount,
+  startMark,
+  endMark,
+  fitToRailWidth,
+}: {
+  railWidth: number;
+  markWidth: number;
+  step: number;
+  markCount?: number;
+  startMark: boolean;
+  endMark: boolean;
+  fitToRailWidth: boolean;
+}): {
+  markCount: number;
+  stepDistance: number;
+} => {
+  const options = {
+    railWidth,
+    markWidth,
+    startMark,
+    endMark,
+  };
+
+  if (isNil(markCount)) {
+    const count = getMarkCountByStep({
+      railWidth,
+      step,
+      startMark,
+      endMark,
+    });
+
+    return {
+      markCount: count,
+      stepDistance: getStepDistanceByStep({
+        ...options,
+        step,
+        markCount: count,
+        fitToRailWidth,
+      }),
+    };
+   };
+   
+   return {
+    markCount: markCount as number,
+    stepDistance: getStepDistanceByMarkCount({
+      ...options,
+      count: markCount as number,
+    }),
+  };
+};
+
+const getMarkPositions = ({
+  startMark,
+  count,
+  stepDistance,
+}: {
+  startMark: boolean;
+  count: number;
+  stepDistance: number;
+}): number[] => {
+  const startAt = startMark ? 0 : stepDistance;
+
+  return Array.from({ length: count }).map((_, index: number) => startAt + (stepDistance * index));
 };
 
 const getMarkValue = (step: number, markIndex: number): number => step * markIndex;
@@ -347,20 +415,27 @@ const getMarkValues = (
 const createMarks = ({
   positions,
   step,
+  stepDistance,
   style,
   theme,
   mark,
+  markWidth,
   disabled,
   onMarkPress,
 }: {
   positions: number[];
   step: number;
+  stepDistance: number;
   style: ViewStyle;
   theme: MarkThemeType;
   mark?: React.ReactElement;
+  markWidth: number;
   disabled?: boolean;
   onMarkPress?: (value: number, position: number, index: number) => void | Promise<void>;
 }): React.ReactElement[] => {
+  const halfStepDistance = stepDistance / 2;
+  const fineTunedHalfStepDistance = halfStepDistance - (markWidth / 2);
+
   return positions.map((position: number, index: number): React.ReactElement => {
     const handlePress = (): void => {
       if (disabled) {
@@ -375,7 +450,7 @@ const createMarks = ({
 
     return (
       <TouchableWithoutFeedback key={position} onPress={handlePress}>
-        <MarkPositioner position={position}>
+        <MarkPositioner width={stepDistance} position={position - fineTunedHalfStepDistance}>
           {mark || <Mark style={style} theme={theme} />}
         </MarkPositioner>
       </TouchableWithoutFeedback>
@@ -388,6 +463,7 @@ const Rail: FC<Props> = ({
   style = {},
   markStyle = {},
   mark,
+  customMarkWidth,
   hideMark = false,
   step = 1,
   pixelPerStep = 20,
@@ -408,6 +484,11 @@ const Rail: FC<Props> = ({
       onInit(markValues, markPositions);
     }
   };
+
+  if (mark && !customMarkWidth) {
+    throw 'Must have customMarkWidth prop if it uses a cutsom mark.';
+  }
+
   const railStyleToApply = StyleSheet.flatten(style);
   const markStyleToApply = StyleSheet.flatten(markStyle);
 
@@ -430,30 +511,37 @@ const Rail: FC<Props> = ({
   const railWidth = isNil(railStyleToApply.width) ? DEFAULT.width : railStyleToApply.width as string | number;
   const railWidthInt = parseInt(railWidth.toString());
 
-  const markWidth = isNil(markStyleToApply.width) ? DEFAULT.MARK.width : markStyleToApply.width as string | number;
+  const markWidth = isNil(mark)
+    ? isNil(markStyleToApply.width) ? DEFAULT.MARK.width : markStyleToApply.width as string | number
+    : customMarkWidth as number;
   const markWidthInt = parseInt(markWidth.toString());
 
+  const stepByPixel = step * pixelPerStep;
   const markOptions = {
     railWidth: railWidthInt,
     markWidth: markWidthInt,
+    step: stepByPixel,
     startMark,
     endMark,
   };
-  const stepByPixel = step * pixelPerStep;
-  const markPositions = useMemo(() => isNil(markCount) ? getMarkPositionsByStep({
+  const { markCount: markCountToApply, stepDistance } = useMemo(() => getStepDistance({
     ...markOptions,
-    step: stepByPixel,
+    markCount,
     fitToRailWidth: fit,
-  }) : getMarkPositions({
-    ...markOptions,
-    count: markCount as number,
   }), Object.values(markOptions));
+  const markPositions = useMemo(() => getMarkPositions({
+    startMark,
+    count: markCountToApply,
+    stepDistance,
+  }), [startMark, markCount, stepDistance]);
   const marks = !hideMark && createMarks({
     positions: markPositions,
     step,
+    stepDistance,
     style: markStyleToApply,
     theme: markThemeToApply,
     mark,
+    markWidth: markWidthInt,
     disabled,
     onMarkPress,
   });
