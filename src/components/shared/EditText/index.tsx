@@ -1,6 +1,7 @@
 import {
   NativeSyntheticEvent,
   Platform,
+  TextInputProps,
   TextInputSubmitEditingEventData,
   TextStyle,
   ViewStyle,
@@ -57,18 +58,19 @@ interface Props {
   textStyle?: TextStyle;
   labelTextStyle?: TextStyle;
   errorTextStyle?: TextStyle;
-  error?: boolean;
   errorText?: string;
-  value?: string;
-  placeholder?: string;
-  placeholderTextColor?: string;
-  secureTextEntry?: boolean;
-  onChangeText?: (text: string) => void;
+  value?: TextInputProps['value'];
+  placeholder?: TextInputProps['placeholder'];
+  placeholderTextColor?: TextInputProps['placeholderTextColor'];
+  secureTextEntry?: TextInputProps['secureTextEntry'];
+  onChangeText?: TextInputProps['onChangeText'];
   onSubmitEditing?: (
     e: NativeSyntheticEvent<TextInputSubmitEditingEventData>,
   ) => void;
   focusColor?: string;
   errorColor?: string;
+  autoCapitalize?: TextInputProps['autoCapitalize'];
+  textInputProps?: TextInputProps;
 }
 
 function EditText(props: Props): ReactElement {
@@ -92,6 +94,8 @@ function EditText(props: Props): ReactElement {
     onSubmitEditing,
     focusColor,
     errorColor,
+    autoCapitalize = 'none',
+    textInputProps,
   } = props;
 
   return (
@@ -110,8 +114,9 @@ function EditText(props: Props): ReactElement {
         {label}
       </Title>
       <StyledTextInput
+        {...textInputProps}
         testID={testID}
-        autoCapitalize={'none'}
+        autoCapitalize={autoCapitalize}
         onFocus={(): void => setFocus(true)}
         onBlur={(): void => setFocus(false)}
         placeholder={placeholder}
@@ -121,7 +126,7 @@ function EditText(props: Props): ReactElement {
         onChangeText={onChangeText}
         secureTextEntry={secureTextEntry}
         onSubmitEditing={onSubmitEditing}
-      ></StyledTextInput>
+      />
       <UnderLine
         style={[
           // prettier-ignore
@@ -143,8 +148,7 @@ function EditText(props: Props): ReactElement {
             errorTextStyle,
           ]}
         >
-          {' '}
-          {errorText}{' '}
+          {` ${errorText} `}
         </StyledInvalidText>
       ) : null}
     </Container>
