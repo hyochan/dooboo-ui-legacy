@@ -1,29 +1,17 @@
 import {
-  ActivityIndicator,
   Image,
   StyleProp,
-  StyleSheet,
   TextStyle,
   TouchableOpacity,
-  View,
   ViewStyle,
 } from 'react-native';
-import { IC_ARR_DOWN, IC_ARR_UP } from '../Icons';
 import styled, { DefaultTheme, ThemeProps } from 'styled-components/native';
 
+import { IC_ARR_DOWN } from '../Icons';
 import React from 'react';
 
 interface TextThemeType {
   fontColor: string;
-}
-
-interface ButtonThemeType {
-  backgroundColor: string;
-  borderColor: string;
-}
-
-interface ButtonType extends ThemeProps<ButtonThemeType> {
-  theme: ButtonThemeType;
 }
 
 interface TextType extends ThemeProps<TextThemeType> {
@@ -116,76 +104,11 @@ export const THEME: {
   },
 };
 
-const StyledButton = styled.View<ButtonType>`
-  width: 320px;
-  height: 52px;
-  background-color: ${({ theme }): string => theme.backgroundColor};
-  border-color: ${({ theme }): string => theme.borderColor};
-  border-radius: 4px;
-  border-width: 2px;
-  justify-content: center;
-  align-items: center;
-  flex-direction: row;
-`;
-
 const Text = styled.Text<TextType>`
   font-size: 14px;
   color: ${({ theme }): string => theme.fontColor};
 `;
 
-const IconLeft = styled.View`
-  position: absolute;
-  left: 0;
-`;
-
-const IconRight = styled.View`
-  position: absolute;
-  right: 0;
-`;
-
-const getDefaultTheme = ({
-  dark,
-  inverted,
-  isDisabled,
-}: {
-  dark?: boolean;
-  inverted?: boolean;
-  isDisabled?: boolean;
-}): ThemeType => {
-  const theme = dark ? THEME.DARK : THEME.LIGHT;
-
-  if (isDisabled) {
-    return theme.DISABLED;
-  }
-
-  return inverted ? theme.INVERTED : theme;
-};
-
-// const getText = ({
-//   children,
-//   text,
-//   style,
-//   theme,
-// }: {
-//   children?: string | React.ReactElement;
-//   text?: string;
-//   style: TextStyle;
-//   theme: TextThemeType;
-// }): string | React.ReactElement | undefined => {
-//   if (typeof children === 'undefined') {
-//     return (
-//       <Text testID={TESTID.TEXT} style={style} theme={theme}>{text}</Text>
-//     );
-//   }
-
-//   if (typeof children === 'string') {
-//     return (
-//       <Text testID={TESTID.TEXT} style={style} theme={theme}>{children}</Text>
-//     );
-//   }
-
-//   return children;
-// };
 const RootSelect = styled.View`
   background-color: orange;
   width: 128;
@@ -200,29 +123,10 @@ const RootSelect = styled.View`
 function Select(props: Props): React.ReactElement {
   const {
     testID,
-    style,
-    textStyle,
-    dark,
-    inverted,
-    isLoading,
     isDisabled,
-    iconLeft,
-    iconRight,
-    indicatorColor,
     activeOpacity,
-    children,
-    text,
     onClick,
   } = props;
-
-  const buttonStyleToApply = StyleSheet.flatten(style);
-  const textStyleToApply = StyleSheet.flatten(textStyle);
-
-  const defaultTheme = getDefaultTheme({
-    dark,
-    inverted,
-    isDisabled,
-  });
 
   return (
     <TouchableOpacity
