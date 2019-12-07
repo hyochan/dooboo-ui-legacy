@@ -435,7 +435,7 @@ const Rail: FC<Props> = ({
   customMarkWidth,
   hideMark = false,
   step = 1,
-  pixelPerStep = 50,
+  pixelPerStep = 20,
   markCount,
   startMark = true,
   endMark = true,
