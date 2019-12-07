@@ -500,7 +500,7 @@ const Rail: FC<Props> = ({
     startMark,
     count: markCountToApply,
     stepDistance,
-  }), [startMark, markCount, stepDistance]);
+  }), [startMark, markCountToApply, stepDistance]);
   const marks = !hideMark && createMarks({
     positions: markPositions,
     step,
