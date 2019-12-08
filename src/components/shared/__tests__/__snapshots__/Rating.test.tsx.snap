@@ -8,9 +8,10 @@ exports[`[Rating] render renders without crashing 1`] = `
         "alignItems": "center",
         "backgroundColor": "#EFF0F1",
         "flexDirection": "row",
-        "height": 40,
+        "height": 30,
         "justifyContent": "center",
-        "width": 200,
+        "opacity": 1,
+        "width": "NaN",
       },
     ]
   }
@@ -34,99 +35,7 @@ exports[`[Rating] render renders without crashing 1`] = `
         "borderWidth": 1,
         "height": "100%",
         "opacity": 1,
-        "width": "20%",
-      }
-    }
-  />
-  <View
-    accessible={true}
-    clickable={true}
-    isTVSelectable={true}
-    onClick={[Function]}
-    onResponderGrant={[Function]}
-    onResponderMove={[Function]}
-    onResponderRelease={[Function]}
-    onResponderTerminate={[Function]}
-    onResponderTerminationRequest={[Function]}
-    onStartShouldSetResponder={[Function]}
-    style={
-      Object {
-        "backgroundColor": "#BDBDBD",
-        "borderColor": "white",
-        "borderStyle": "solid",
-        "borderWidth": 1,
-        "height": "100%",
-        "opacity": 1,
-        "width": "20%",
-      }
-    }
-  />
-  <View
-    accessible={true}
-    clickable={true}
-    isTVSelectable={true}
-    onClick={[Function]}
-    onResponderGrant={[Function]}
-    onResponderMove={[Function]}
-    onResponderRelease={[Function]}
-    onResponderTerminate={[Function]}
-    onResponderTerminationRequest={[Function]}
-    onStartShouldSetResponder={[Function]}
-    style={
-      Object {
-        "backgroundColor": "#BDBDBD",
-        "borderColor": "white",
-        "borderStyle": "solid",
-        "borderWidth": 1,
-        "height": "100%",
-        "opacity": 1,
-        "width": "20%",
-      }
-    }
-  />
-  <View
-    accessible={true}
-    clickable={true}
-    isTVSelectable={true}
-    onClick={[Function]}
-    onResponderGrant={[Function]}
-    onResponderMove={[Function]}
-    onResponderRelease={[Function]}
-    onResponderTerminate={[Function]}
-    onResponderTerminationRequest={[Function]}
-    onStartShouldSetResponder={[Function]}
-    style={
-      Object {
-        "backgroundColor": "#BDBDBD",
-        "borderColor": "white",
-        "borderStyle": "solid",
-        "borderWidth": 1,
-        "height": "100%",
-        "opacity": 1,
-        "width": "20%",
-      }
-    }
-  />
-  <View
-    accessible={true}
-    clickable={true}
-    isTVSelectable={true}
-    onClick={[Function]}
-    onResponderGrant={[Function]}
-    onResponderMove={[Function]}
-    onResponderRelease={[Function]}
-    onResponderTerminate={[Function]}
-    onResponderTerminationRequest={[Function]}
-    onStartShouldSetResponder={[Function]}
-    style={
-      Object {
-        "backgroundColor": "#BDBDBD",
-        "borderColor": "white",
-        "borderStyle": "solid",
-        "borderWidth": 1,
-        "height": "100%",
-        "opacity": 1,
-        "width": "20%",
+        "width": "NaN%",
       }
     }
   />
