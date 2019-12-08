@@ -31,10 +31,8 @@ const defaultValue: {
   [key: string]: string;
 } = {
   outerCircleSize: '23',
-  innerCircleSize: '12',
   circleColor: 'rgba(0, 0, 0, 0.54)',
   circleBorderRadius: '12',
-  circleBorderWidth: '2',
 };
 
 const COLOR: {
@@ -60,20 +58,12 @@ const InputRow = styled.TouchableOpacity<IInputRowProps>`
 `;
 
 const OuterCircle = styled.View.attrs((props: ICircleProps) => ({
-  borderRadius: props.size
-    ? Math.round(props.size / 2)
-    : defaultValue.circleBorderRadius,
-  borderWidth: props.size
-    ? Math.round(props.size / 10)
-    : defaultValue.circleBorderWidth,
+  borderRadius: Math.round(props.size / 2),
+  borderWidth: Math.round(props.size / 10),
 }))<ICircleProps>`
-  width: ${({ size }): string =>
-    size ? size.toString() : defaultValue.outerCircleSize + 'px'};
-  height: ${({ size }): string =>
-    size ? size.toString() : defaultValue.outerCircleSize + 'px'};
-  border-color: ${({ color }): string => color || defaultValue.circleColor};
-  border-radius: ${({ borderRadius }): string => borderRadius + 'px'};
-  border-width: ${({ borderWidth }): string => borderWidth + 'px'};
+  width: ${({ size }): string => size.toString()};
+  height: ${({ size }): string => size.toString()};
+  border-color: ${({ color }): string => color};
   align-items: center;
   justify-content: center;
   margin: 7px;
@@ -89,12 +79,8 @@ const InnerCircleAnim = (props: ICircleProps): React.ReactElement => {
   React.useEffect(() => {
     Animated.timing(circleAnim, {
       toValue: {
-        x: props.size
-          ? props.size - Math.round(props.size / 2)
-          : parseInt(defaultValue.innerCircleSize),
-        y: props.size
-          ? props.size - Math.round(props.size / 2)
-          : parseInt(defaultValue.innerCircleSize),
+        x: props.size - Math.round(props.size / 2),
+        y: props.size - Math.round(props.size / 2),
       },
       easing: Easing.ease,
       duration: 80,
@@ -107,7 +93,7 @@ const InnerCircleAnim = (props: ICircleProps): React.ReactElement => {
         width: circleAnim.x,
         height: circleAnim.y,
         borderRadius: parseInt(defaultValue.circleBorderRadius),
-        backgroundColor: props.color || defaultValue.circleColor,
+        backgroundColor: props.color,
       }}
     />
   );
@@ -142,15 +128,13 @@ function RadioButton(props: IRadioButtonProps): React.ReactElement {
       isColumn={isColumn}
     >
       {(labelPlacement === 'start' || labelPlacement === 'top') && (
-        <LabelText isDisabled={disabled}>{label || ''}</LabelText>
+        <LabelText isDisabled={disabled}>{label}</LabelText>
       )}
       <OuterCircle color={circleColor} size={size}>
         {isSelected && <InnerCircleAnim color={circleColor} size={size} />}
       </OuterCircle>
-      {(!labelPlacement ||
-        labelPlacement === 'end' ||
-        labelPlacement === 'bottom') && (
-        <LabelText isDisabled={disabled}>{label || ''}</LabelText>
+      {(labelPlacement === 'end' || labelPlacement === 'bottom') && (
+        <LabelText isDisabled={disabled}>{label}</LabelText>
       )}
     </InputRow>
   );
@@ -158,6 +142,10 @@ function RadioButton(props: IRadioButtonProps): React.ReactElement {
 
 RadioButton.defaultProps = {
   disabled: false,
+  label: '',
+  labelPlacement: 'end',
+  size: defaultValue.outerCircleSize,
+  color: defaultValue.circleColor,
 };
 
 export default RadioButton;
