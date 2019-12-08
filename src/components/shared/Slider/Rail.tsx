@@ -443,7 +443,7 @@ const getMarkWidth = (markStyle: ViewStyle): number => {
   if (isNil(width)) {
     return DEFAULT.MARK.width;
   }
-  
+
   return parseInt((width as string | number).toString());
 };
 
