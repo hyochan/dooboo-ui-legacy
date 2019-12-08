@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import { ContainerDeco } from '../decorators';
 import Select from '../../src/components/shared/Select';
 import { action } from '@storybook/addon-actions';
+import { grey } from 'ansi-colors';
 import { storiesOf } from '@storybook/react-native';
 import styled from 'styled-components/native';
 import { text } from '@storybook/addon-knobs';
@@ -20,10 +21,6 @@ const Container = styled.View`
   align-items: center;
   justify-content: center;
   width: 100%;
-  height: 100%;
-  padding-top: 100px;
-  padding-bottom: 100px;
-
   flex-direction: column;
   justify-content: space-around;
 `;
@@ -37,9 +34,14 @@ const ITEMS = [
 ];
 
 function Default(): React.ReactElement {
+  const [facebookLoading, setFacebookLoading] = useState<boolean>(false);
+  const [googleLoading, setGoogleLoading] = useState<boolean>(false);
+
+function Default(): React.ReactElement {
   return (
     <Container>
       <Select
+        theme={'underbar'}
         rootViewStyle={{
           borderBottomColor: 'black',
           borderBottomWidth: 2,
@@ -47,55 +49,14 @@ function Default(): React.ReactElement {
         rootTextStyle={{
           color: 'orange',
         }}
-        placeholder={'select'}
-        onClick={action('Clicked')}
-      />
-      <Select
-        theme={'underbar'}
         itemStyle={{
-          list: {
-            shadowOffset: { width: 0, height: 5 },
-          },
+          list: {},
           defaultItem: {
             color: 'grey',
           },
           selectedItem: {
             color: 'black',
           },
-        }}
-        title={'Title'}
-        titleTextStyle={{
-          color: 'green',
-        }}
-        placeholder={'select'}
-        onClick={action('Clicked')}
-        items={ITEMS}
-      />
-      <Select
-        placeholder={'select'}
-        onClick={action('Clicked')}
-        title={'Title'}
-        titleTextStyle={{
-          color: 'blue',
-        }}
-        items={ITEMS}
-      />
-      <Select
-        theme={'box'}
-        itemStyle={{
-          list: {
-            shadowOffset: { width: 0, height: 5 },
-          },
-          defaultItem: {
-            color: 'grey',
-          },
-          selectedItem: {
-            color: 'black',
-          },
-        }}
-        title={'Title'}
-        titleTextStyle={{
-          color: 'black',
         }}
         placeholder={'select'}
         onClick={action('Clicked')}
