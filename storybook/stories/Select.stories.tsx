@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useCallback, useState } from 'react';
 
 import { ContainerDeco } from '../decorators';
 import Select from '../../src/components/shared/Select';
@@ -15,7 +15,10 @@ storiesOf('Select', module)
       <Default />
     </>
   ));
-
+interface Item {
+  value: string;
+  text: string;
+}
 const Container = styled.View`
   background-color: transparent;
   align-items: center;
@@ -34,10 +37,13 @@ const ITEMS = [
 ];
 
 function Default(): React.ReactElement {
-  const [facebookLoading, setFacebookLoading] = useState<boolean>(false);
-  const [googleLoading, setGoogleLoading] = useState<boolean>(false);
-
-function Default(): React.ReactElement {
+  const [selectedItem, setSelectedItem] = useState<Item>(null);
+  const onSelect = useCallback(
+    (item: Item) => {
+      setSelectedItem(item);
+    },
+    [selectedItem],
+  );
   return (
     <Container>
       <Select
@@ -50,7 +56,9 @@ function Default(): React.ReactElement {
           color: 'orange',
         }}
         itemStyle={{
-          list: {},
+          list: {
+            shadowOffset: { width: 0, height: 5 },
+          },
           defaultItem: {
             color: 'grey',
           },
@@ -61,6 +69,8 @@ function Default(): React.ReactElement {
         placeholder={'select'}
         onClick={action('Clicked')}
         items={ITEMS}
+        onSelect={onSelect}
+        selectedItem={selectedItem}
       />
     </Container>
   );

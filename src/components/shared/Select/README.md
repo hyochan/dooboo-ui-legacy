@@ -22,7 +22,8 @@
 | disabled              |           | boolean                                                              | `false` |
 | [onFocus](#onFocus)   |           | func                                                                 |         |
 | [onBlur](#onBlur)     |           | func                                                                 |         |
-| [onSelect](#onSelect) |           | func                                                                 |         |
+| [onSelect](#onSelect) | ✓         | func                                                                 |         |
+| selectedItem          | ✓         | { value: string, text: string }                                      |         |
 
 ### Description of `Props`
 
@@ -74,7 +75,7 @@ yarn add @dooboo-ui/native-select
 
 - Usage
 
-  ```javascript
+  ```typescript
   const ITEMS = [
     { value: 'Category1', text: 'Category1' },
     { value: 'Category2', text: 'Category2' },
@@ -82,6 +83,14 @@ yarn add @dooboo-ui/native-select
     { value: 'Category4', text: 'Category4' },
     { value: 'Category5', text: 'Category5' },
   ];
+
+  const [selectedItem, setSelectedItem] = useState<Item>(null);
+  const onSelect = useCallback(
+    (item: Item) => {
+      setSelectedItem(item);
+    },
+    [selectedItem],
+  );
   ```
 
   ```jsx
@@ -110,7 +119,3 @@ yarn add @dooboo-ui/native-select
     />
   </Container>
   ```
-
-```
-
-```

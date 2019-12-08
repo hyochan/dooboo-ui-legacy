@@ -117,7 +117,7 @@ const COLOR: {
   [key: string]: string;
 } = {
   WHITE: '#ffffff',
-  DODGERBLUE: '#3a8bff',
+  DODGERBLUE: '#5364ff',
   VERYLIGHTGRAY: '#cccccc',
   LIGHTGRAY: '#c8c8c8',
   BLUE: '#0000ff',
@@ -249,6 +249,12 @@ const RootSelect = styled.View<ThemeType>`
   align-items: center;
   padding: 14px 6px;
 `;
+const SelectListView = styled.View`
+  elevation: 8;
+  shadow-color: ${COLOR.DODGERBLUE};
+  shadow-offset: { width: 0, height: 5 };
+  shadow-opacity: 0.2;
+`;
 const SelectList = styled(FlatList)`
   background-color: ${COLOR.WHITE};
   position: absolute;
@@ -290,6 +296,8 @@ interface Props {
   disabled?: boolean;
   items: Item[];
   itemStyle?: ItemStyle;
+  onSelect: (Item) => {};
+  selectedItem: Item;
 }
 
 export interface Props {
@@ -320,6 +328,8 @@ function Select(props: Props): React.ReactElement {
     disabled,
     items,
     itemStyle,
+    onSelect,
+    selectedItem,
   } = props;
 
   const [listOpen, setListOpen] = useState<boolean>(false);
@@ -330,13 +340,10 @@ function Select(props: Props): React.ReactElement {
     [listOpen],
   );
 
-  const [selectedItem, setSelectedItem] = useState<Item>(null);
-  const handleSelect = useCallback(
-    (item: Item) => {
-      setSelectedItem(item);
-    },
-    [selectedItem],
-  );
+  const handleSelect = (item: Item): void => {
+    onSelect(item);
+    setListOpen(false);
+  };
 
   // const isThemeEmpty = theme === null || theme === undefined || theme === '';
   const defaultTheme = !theme ? 'none' : theme;
@@ -403,13 +410,15 @@ function Select(props: Props): React.ReactElement {
         </RootSelect>
       </TouchableOpacity>
       {listOpen && (
-        <SelectList
-          testID={`${testID}-${TESTID.SELECTLIST}`}
-          data={items}
-          renderItem={renderItem}
-          keyExtractor={({ value }: { value: string }): string => value}
-          style={itemStyle.list}
-        />
+        <SelectListView style={itemStyle.list}>
+          <SelectList
+            style={itemStyle.defaultItem}
+            testID={`${testID}-${TESTID.SELECTLIST}`}
+            data={items}
+            renderItem={renderItem}
+            keyExtractor={({ value }: { value: string }): string => value}
+          />
+        </SelectListView>
       )}
     </SelectContainer>
   );
