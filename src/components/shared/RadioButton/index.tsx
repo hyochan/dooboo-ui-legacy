@@ -85,7 +85,7 @@ const InnerCircleAnim = (props: ICircleProps): React.ReactElement => {
       style={{
         width: circleAnim.x,
         height: circleAnim.y,
-        borderRadius: parseInt(defaultValue.circleBorderRadius),
+        borderRadius: Math.round(props.size / 2),
         backgroundColor: props.color,
       }}
     />
