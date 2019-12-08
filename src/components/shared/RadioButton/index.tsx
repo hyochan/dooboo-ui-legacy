@@ -16,15 +16,15 @@ interface ILabelTextProps {
 }
 
 interface IRadioButtonProps {
-  testID?: string;
-  selectedValue: string;
-  value: string;
-  label: string;
-  size?: number;
-  color?: string;
-  labelPlacement?: string;
-  isDisabled?: boolean;
   onPress: (value: string) => void;
+  value: string;
+  selectedValue: string;
+  color?: string;
+  disabled?: boolean;
+  selected?: boolean;
+  size?: number;
+  label?: string;
+  labelPlacement?: string;
 }
 
 const defaultValue: {
@@ -60,8 +60,12 @@ const InputRow = styled.TouchableOpacity<IInputRowProps>`
 `;
 
 const OuterCircle = styled.View.attrs((props: ICircleProps) => ({
-  borderRadius: props.size ? props.size / 2 : defaultValue.circleBorderRadius,
-  borderWidth: props.size ? props.size / 10 : defaultValue.circleBorderWidth,
+  borderRadius: props.size
+    ? Math.round(props.size / 2)
+    : defaultValue.circleBorderRadius,
+  borderWidth: props.size
+    ? Math.round(props.size / 10)
+    : defaultValue.circleBorderWidth,
 }))<ICircleProps>`
   width: ${({ size }): string =>
     size ? size.toString() : defaultValue.outerCircleSize + 'px'};
@@ -86,11 +90,11 @@ const InnerCircleAnim = (props: ICircleProps): React.ReactElement => {
     Animated.timing(circleAnim, {
       toValue: {
         x: props.size
-          ? props.size - props.size / 2
-          : parseInt(defaultValue.circleBorderRadius),
+          ? props.size - Math.round(props.size / 2)
+          : parseInt(defaultValue.innerCircleSize),
         y: props.size
-          ? props.size - props.size / 2
-          : parseInt(defaultValue.circleBorderRadius),
+          ? props.size - Math.round(props.size / 2)
+          : parseInt(defaultValue.innerCircleSize),
       },
       easing: Easing.ease,
       duration: 80,
@@ -111,19 +115,20 @@ const InnerCircleAnim = (props: ICircleProps): React.ReactElement => {
 
 function RadioButton(props: IRadioButtonProps): React.ReactElement {
   const {
-    value,
-    label,
-    selectedValue,
-    isDisabled,
-    color,
-    size,
-    labelPlacement,
     onPress,
+    value,
+    selectedValue,
+    color,
+    disabled,
+    selected,
+    size,
+    label,
+    labelPlacement,
   } = props;
 
-  const isSelected = value === selectedValue;
+  const isSelected = selected || value === selectedValue;
   const isColumn = labelPlacement === 'top' || labelPlacement === 'bottom';
-  const circleColor = isDisabled
+  const circleColor = disabled
     ? COLOR.LIGHTGRAY
     : isSelected
     ? color
@@ -133,11 +138,11 @@ function RadioButton(props: IRadioButtonProps): React.ReactElement {
     <InputRow
       activeOpacity={1}
       onPress={(): void => onPress(value)}
-      disabled={isDisabled}
+      disabled={disabled}
       isColumn={isColumn}
     >
       {(labelPlacement === 'start' || labelPlacement === 'top') && (
-        <LabelText isDisabled={isDisabled}>{label}</LabelText>
+        <LabelText isDisabled={disabled}>{label || ''}</LabelText>
       )}
       <OuterCircle color={circleColor} size={size}>
         {isSelected && <InnerCircleAnim color={circleColor} size={size} />}
@@ -145,14 +150,14 @@ function RadioButton(props: IRadioButtonProps): React.ReactElement {
       {(!labelPlacement ||
         labelPlacement === 'end' ||
         labelPlacement === 'bottom') && (
-        <LabelText isDisabled={isDisabled}>{label}</LabelText>
+        <LabelText isDisabled={disabled}>{label || ''}</LabelText>
       )}
     </InputRow>
   );
 }
 
 RadioButton.defaultProps = {
-  isDisabled: false,
+  disabled: false,
 };
 
 export default RadioButton;
