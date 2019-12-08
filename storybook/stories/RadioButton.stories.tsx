@@ -1,8 +1,8 @@
-import React from 'react';
-import { storiesOf } from '@storybook/react-native';
-import { View } from 'react-native'; 
-import styled from 'styled-components/native';
 import RadioButton from '../../src/components/shared/RadioButton';
+import React from 'react';
+import { View } from 'react-native';
+import { storiesOf } from '@storybook/react-native';
+import styled from 'styled-components/native';
 
 const Container = styled.SafeAreaView`
   flex: 1;
@@ -31,15 +31,15 @@ function Default(): React.ReactElement {
   const [selectedStandAlone, setSelectedStandAlone] = React.useState('1');
   const [selectedLabelPlacement, setSelectedLabelPlacement] = React.useState('top');
 
-  const handlePressGender = value => {
+  const handlePressGender = (value: string): void => {
     setSelectedGender(value);
   };
 
-  const handlePressStandAlone = value => {
+  const handlePressStandAlone = (value: string): void => {
     setSelectedStandAlone(value);
   };
 
-  const handlePressLabelPlacement = value => {
+  const handlePressLabelPlacement = (value: string): void => {
     setSelectedLabelPlacement(value);
   };
 
@@ -48,32 +48,32 @@ function Default(): React.ReactElement {
 
       <Title>Gender</Title>
       {/* <Text>{selectedGender}</Text> */}
-      <RadioButton 
-        value={'female'} 
-        label={'Female'} 
-        color={'orange'} 
-        selectedValue={selectedGender} 
+      <RadioButton
+        value={'female'}
+        label={'Female'}
+        color={'orange'}
+        selectedValue={selectedGender}
         onPress={handlePressGender}
       />
-      <RadioButton 
-        value={'male'} 
-        label={'Male'} 
-        color={'orange'} 
-        selectedValue={selectedGender} 
+      <RadioButton
+        value={'male'}
+        label={'Male'}
+        color={'orange'}
+        selectedValue={selectedGender}
         onPress={handlePressGender}
       />
-      <RadioButton 
-        value={'other'} 
-        label={'Other'} 
-        color={'orange'} 
-        selectedValue={selectedGender} 
+      <RadioButton
+        value={'other'}
+        label={'Other'}
+        color={'orange'}
+        selectedValue={selectedGender}
         onPress={handlePressGender}
       />
-      <RadioButton 
-        value={''} 
-        label={'(Disabled Value)'} 
-        color={'#0000ff'} 
-        selectedValue={selectedGender} 
+      <RadioButton
+        value={''}
+        label={'(Disabled Value)'}
+        color={'#0000ff'}
+        selectedValue={selectedGender}
         onPress={handlePressGender}
         isDisabled={true}
       />
@@ -81,88 +81,88 @@ function Default(): React.ReactElement {
       <Divider />
 
       <Title>StandAlone</Title>
-      <View style={{flexDirection: 'row', justifyContent: 'space-around'}}>
-        <RadioButton 
-          value={'1'} 
-          label={''} 
-          selectedValue={selectedStandAlone} 
+      <View style={{ flexDirection: 'row', justifyContent: 'space-around' }}>
+        <RadioButton
+          value={'1'}
+          label={''}
+          selectedValue={selectedStandAlone}
           onPress={handlePressStandAlone}
           color={'orchid'}
           size={17}
         />
-        <RadioButton 
-          value={'2'} 
-          label={''} 
-          selectedValue={selectedStandAlone} 
+        <RadioButton
+          value={'2'}
+          label={''}
+          selectedValue={selectedStandAlone}
           onPress={handlePressStandAlone}
-          color={'mediumorchid'} 
+          color={'mediumorchid'}
           size={22}
         />
-        <RadioButton 
-          value={'3'} 
-          label={''} 
-          selectedValue={selectedStandAlone} 
+        <RadioButton
+          value={'3'}
+          label={''}
+          selectedValue={selectedStandAlone}
           onPress={handlePressStandAlone}
-          color={'darkorchid'} 
+          color={'darkorchid'}
           size={27}
         />
-        <RadioButton 
-          value={'4'} 
-          label={''} 
-          selectedValue={selectedStandAlone} 
+        <RadioButton
+          value={'4'}
+          label={''}
+          selectedValue={selectedStandAlone}
           onPress={handlePressStandAlone}
-          color={'darkmagenta'} 
+          color={'darkmagenta'}
           size={32}
         />
-        <RadioButton 
-          value={'5'} 
-          label={''} 
-          selectedValue={selectedStandAlone} 
+        <RadioButton
+          value={'5'}
+          label={''}
+          selectedValue={selectedStandAlone}
           onPress={handlePressStandAlone}
-          color={'indigo'} 
+          color={'indigo'}
           size={37}
         />
       </View>
-      
+
       <Divider />
-      
+
       <Title>labelPlacement</Title>
       {/* <Text>{selectedLabelPlacement}</Text> */}
-      <View style={{flexDirection: 'row', justifyContent: 'space-around'}}>
-        <RadioButton 
-          value={'top'} 
-          label={'Top'} 
-          selectedValue={selectedLabelPlacement} 
+      <View style={{ flexDirection: 'row', justifyContent: 'space-around' }}>
+        <RadioButton
+          value={'top'}
+          label={'Top'}
+          selectedValue={selectedLabelPlacement}
           onPress={handlePressLabelPlacement}
           color={'green'}
-          labelPlacement={'top'} 
+          labelPlacement={'top'}
         />
-        <RadioButton 
-          value={'start'} 
-          label={'Start'} 
-          selectedValue={selectedLabelPlacement} 
+        <RadioButton
+          value={'start'}
+          label={'Start'}
+          selectedValue={selectedLabelPlacement}
           onPress={handlePressLabelPlacement}
-          color={'green'} 
-          labelPlacement={'start'} 
+          color={'green'}
+          labelPlacement={'start'}
         />
-        <RadioButton 
-          value={'bottom'} 
-          label={'Bottom'} 
-          selectedValue={selectedLabelPlacement} 
+        <RadioButton
+          value={'bottom'}
+          label={'Bottom'}
+          selectedValue={selectedLabelPlacement}
           onPress={handlePressLabelPlacement}
-          color={'green'} 
-          labelPlacement={'bottom'} 
+          color={'green'}
+          labelPlacement={'bottom'}
         />
-        <RadioButton 
-          value={'end'} 
-          label={'End'} 
-          selectedValue={selectedLabelPlacement} 
+        <RadioButton
+          value={'end'}
+          label={'End'}
+          selectedValue={selectedLabelPlacement}
           onPress={handlePressLabelPlacement}
-          color={'green'} 
-          labelPlacement={'end'} 
+          color={'green'}
+          labelPlacement={'end'}
         />
       </View>
 
     </Container>
-  )
+  );
 }
