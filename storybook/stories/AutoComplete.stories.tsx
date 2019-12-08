@@ -10,7 +10,6 @@ export const ContainerDeco = (storyFn): React.ReactElement => (
 );
 
 const Wrapper = styled.SafeAreaView`
-  height: 200;
 `;
 
 storiesOf('AutoComplete', module)
@@ -22,7 +21,7 @@ function Default(): React.ReactElement {
 
   return (
     // if Wrapper Style height is 50?
-    <Wrapper style={{ height: number('wrapperHeight', 300) }}>
+    <Wrapper style={object('wrapperStyle', { height: 300 }) }>
       <AutoComplete
         value={value}
         style={object('inputStyle', { backgroundColor: '#f3f5f7' })}
