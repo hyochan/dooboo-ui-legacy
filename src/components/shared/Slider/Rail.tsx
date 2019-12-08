@@ -2,8 +2,6 @@ import React, { FC, useEffect, useMemo } from 'react';
 import { StyleProp, StyleSheet, TouchableWithoutFeedback, ViewStyle } from 'react-native';
 import styled, { DefaultTheme, ThemeProps } from 'styled-components/native';
 
-import { isNil } from 'lodash';
-
 interface RailThemeType {
   backgroundColor: string;
 }
@@ -149,6 +147,9 @@ const Mark = styled.View<MarkType>`
   height: ${DEFAULT.MARK.height};
   background-color: ${({ theme }): string => theme.backgroundColor};
 `;
+
+// Checks if null or undefined. temporary until using othe library like 'lodash'.
+const isNil = (value: any): boolean => value == null;
 
 const getStatefulTheme = ({
   theme,
