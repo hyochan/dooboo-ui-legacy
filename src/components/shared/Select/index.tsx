@@ -200,7 +200,7 @@ const RootSelect = styled.View<ViewType>`
       comp: CompEnum.rootbox,
       prop: StylePropEnum.bc,
     })};
-  /* ${({ theme }: { theme: ThemeEnum }): ThemeProp =>
+  ${({ theme }: { theme: ThemeEnum }): ThemeProp =>
     getThemeProp({
       theme: theme,
       comp: CompEnum.rootbox,
@@ -211,7 +211,7 @@ const RootSelect = styled.View<ViewType>`
       theme: theme,
       comp: CompEnum.rootbox,
       prop: StylePropEnum.border,
-    })}; */
+    })};
   width: 128px;
   height: 48px;
   flex-direction: row;
@@ -250,7 +250,6 @@ function Select(props: Props): React.ReactElement {
     [listOpen],
   );
 
-  // const isThemeEmpty = theme === null || theme === undefined || theme === '';
   const defaultTheme = !theme ? 'none' : theme;
   const rootViewTheme =
     !rootViewStyle || Object.keys(rootViewStyle).length > 0
