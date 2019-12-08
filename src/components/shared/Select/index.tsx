@@ -296,7 +296,7 @@ interface Props {
   disabled?: boolean;
   items: Item[];
   itemStyle?: ItemStyle;
-  onSelect: (Item) => {};
+  onSelect: (Item) => void;
   selectedItem: Item;
 }
 
