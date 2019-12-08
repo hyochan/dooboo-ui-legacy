@@ -427,6 +427,26 @@ const createMarks = ({
   });
 };
 
+const getRailWidth = (railStyle: ViewStyle): number => {
+  const { width } = railStyle;
+
+  if (isNil(width)) {
+    return DEFAULT.width;
+  }
+
+  return parseInt((width as string | number).toString());
+};
+
+const getMarkWidth = (markStyle: ViewStyle): number => {
+  const { width } = markStyle;
+
+  if (isNil(width)) {
+    return DEFAULT.MARK.width;
+  }
+  
+  return parseInt((width as string | number).toString());
+};
+
 const Rail: FC<Props> = ({
   testID,
   style = {},
@@ -453,7 +473,7 @@ const Rail: FC<Props> = ({
     }
   };
 
-  if (mark && !customMarkWidth) {
+  if (mark && isNil(customMarkWidth)) {
     throw Error('Must have customMarkWidth prop if it uses a cutsom mark.');
   }
 
@@ -476,18 +496,13 @@ const Rail: FC<Props> = ({
     backgroundColor: markStyleToApply.backgroundColor || defaultTheme.markColor,
   };
 
-  const railWidth = isNil(railStyleToApply.width) ? DEFAULT.width : railStyleToApply.width as string | number;
-  const railWidthInt = parseInt(railWidth.toString());
-
-  const markWidth = isNil(mark)
-    ? isNil(markStyleToApply.width) ? DEFAULT.MARK.width : markStyleToApply.width as string | number
-    : customMarkWidth as number;
-  const markWidthInt = parseInt(markWidth.toString());
+  const railWidth = getRailWidth(railStyleToApply);
+  const markWidth = isNil(mark) ? getMarkWidth(markStyleToApply) : customMarkWidth as number;
 
   const stepByPixel = step * pixelsPerStep;
   const markOptions = {
-    railWidth: railWidthInt,
-    markWidth: markWidthInt,
+    railWidth,
+    markWidth,
     step: stepByPixel,
     startMark,
     endMark,
@@ -508,7 +523,7 @@ const Rail: FC<Props> = ({
     style: markStyleToApply,
     theme: markThemeToApply,
     mark,
-    markWidth: markWidthInt,
+    markWidth,
     disabled,
     onMarkPress,
   });
