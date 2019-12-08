@@ -29,7 +29,9 @@ storiesOf('RadioButton', module).add('default', () => (
 function Default(): React.ReactElement {
   const [selectedGender, setSelectedGender] = React.useState('female');
   const [selectedStandAlone, setSelectedStandAlone] = React.useState('1');
-  const [selectedLabelPlacement, setSelectedLabelPlacement] = React.useState('top');
+  const [selectedLabelPlacement, setSelectedLabelPlacement] = React.useState(
+    'top',
+  );
 
   const handlePressGender = (value: string): void => {
     setSelectedGender(value);
@@ -45,9 +47,7 @@ function Default(): React.ReactElement {
 
   return (
     <Container>
-
       <Title>Gender</Title>
-      {/* <Text>{selectedGender}</Text> */}
       <RadioButton
         value={'female'}
         label={'Female'}
@@ -127,7 +127,6 @@ function Default(): React.ReactElement {
       <Divider />
 
       <Title>labelPlacement</Title>
-      {/* <Text>{selectedLabelPlacement}</Text> */}
       <View style={{ flexDirection: 'row', justifyContent: 'space-around' }}>
         <RadioButton
           value={'top'}
@@ -162,7 +161,6 @@ function Default(): React.ReactElement {
           labelPlacement={'end'}
         />
       </View>
-
     </Container>
   );
 }
