@@ -48,35 +48,46 @@ function Default(): React.ReactElement {
   return (
     <Container>
       <Title>Gender</Title>
-      <RadioButton
-        value={'female'}
-        label={'Female'}
-        color={'orange'}
-        selectedValue={selectedGender}
-        onPress={handlePressGender}
-      />
-      <RadioButton
-        value={'male'}
-        label={'Male'}
-        color={'orange'}
-        selectedValue={selectedGender}
-        onPress={handlePressGender}
-      />
-      <RadioButton
-        value={'other'}
-        label={'Other'}
-        color={'orange'}
-        selectedValue={selectedGender}
-        onPress={handlePressGender}
-      />
-      <RadioButton
-        value={''}
-        label={'(Disabled Value)'}
-        color={'#0000ff'}
-        selectedValue={selectedGender}
-        onPress={handlePressGender}
-        isDisabled={true}
-      />
+      <View style={{ paddingLeft: 10 }}>
+        <RadioButton
+          value={'female'}
+          label={'Female'}
+          color={'orange'}
+          selectedValue={selectedGender}
+          onPress={handlePressGender}
+        />
+        <RadioButton
+          value={'male'}
+          label={'Male'}
+          color={'orange'}
+          selectedValue={selectedGender}
+          onPress={handlePressGender}
+        />
+        <RadioButton
+          value={'other'}
+          label={'Other'}
+          color={'orange'}
+          selectedValue={selectedGender}
+          onPress={handlePressGender}
+        />
+        <RadioButton
+          value={''}
+          label={'(Disabled Value)'}
+          color={'#0000ff'}
+          selectedValue={selectedGender}
+          onPress={handlePressGender}
+          disabled={true}
+        />
+        <RadioButton
+          value={''}
+          label={'(Selected Disabled Value)'}
+          color={'#0000ff'}
+          selectedValue={selectedGender}
+          onPress={handlePressGender}
+          disabled={true}
+          selected={true}
+        />
+      </View>
 
       <Divider />
 
@@ -84,43 +95,38 @@ function Default(): React.ReactElement {
       <View style={{ flexDirection: 'row', justifyContent: 'space-around' }}>
         <RadioButton
           value={'1'}
-          label={''}
           selectedValue={selectedStandAlone}
           onPress={handlePressStandAlone}
           color={'orchid'}
-          size={17}
+          size={18}
         />
         <RadioButton
           value={'2'}
-          label={''}
           selectedValue={selectedStandAlone}
           onPress={handlePressStandAlone}
           color={'mediumorchid'}
-          size={22}
+          size={23}
         />
         <RadioButton
           value={'3'}
-          label={''}
           selectedValue={selectedStandAlone}
           onPress={handlePressStandAlone}
           color={'darkorchid'}
-          size={27}
+          size={28}
         />
         <RadioButton
           value={'4'}
-          label={''}
           selectedValue={selectedStandAlone}
           onPress={handlePressStandAlone}
           color={'darkmagenta'}
-          size={32}
+          size={33}
         />
         <RadioButton
           value={'5'}
-          label={''}
           selectedValue={selectedStandAlone}
           onPress={handlePressStandAlone}
           color={'indigo'}
-          size={37}
+          size={38}
         />
       </View>
 
