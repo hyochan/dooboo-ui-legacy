@@ -9,20 +9,20 @@
 
 ### Table of `Props`
 
-|                       | necessary | types                                                          | default |
-| --------------------- | --------- | -------------------------------------------------------------- | ------- |
-| testID                |           | string                                                         |         |
-| label                 |           | string                                                         |         |
-| items                 | ✓         | array                                                          |         |
-| placeholder           |           | string                                                         |         |
-| [theme](#theme)       |           | 'none', 'underbar', 'box'                                      | 'none'  |
-| rootViewStyle         |           | ViewStyle                                                      |         |
-| rootTextStyle         |           | TextStyle                                                      |         |
-| itemStyle             |           | {list:ViewStyle, defaultItem:ViewStyle, selectedItem:ViewStyle |         |
-| disabled              |           | boolean                                                        | `false` |
-| [onFocus](#onFocus)   |           | func                                                           |         |
-| [onBlur](#onBlur)     |           | func                                                           |         |
-| [onSelect](#onSelect) |           | func                                                           |         |
+|                       | necessary | types                                                                | default |
+| --------------------- | --------- | -------------------------------------------------------------------- | ------- |
+| testID                |           | string                                                               |         |
+| label                 |           | string                                                               |         |
+| items                 | ✓         | array                                                                |         |
+| placeholder           |           | string                                                               |         |
+| [theme](#theme)       |           | 'none', 'underbar', 'box'                                            | 'none'  |
+| rootViewStyle         |           | ViewStyle                                                            |         |
+| rootTextStyle         |           | TextStyle                                                            |         |
+| itemStyle             |           | { list: ViewStyle, defaultItem: ViewStyle, selectedItem: ViewStyle } |         |
+| disabled              |           | boolean                                                              | `false` |
+| [onFocus](#onFocus)   |           | func                                                                 |         |
+| [onBlur](#onBlur)     |           | func                                                                 |         |
+| [onSelect](#onSelect) |           | func                                                                 |         |
 
 ### Description of `Props`
 
@@ -73,6 +73,17 @@ yarn add @dooboo-ui/native-select
   ```
 
 - Usage
+
+  ```javascript
+  const ITEMS = [
+    { value: 'Category1', text: 'Category1' },
+    { value: 'Category2', text: 'Category2' },
+    { value: 'Category3', text: 'Category3' },
+    { value: 'Category4', text: 'Category4' },
+    { value: 'Category5', text: 'Category5' },
+  ];
+  ```
+
   ```jsx
   <Container>
     <Select
@@ -99,3 +110,7 @@ yarn add @dooboo-ui/native-select
     />
   </Container>
   ```
+
+```
+
+```
