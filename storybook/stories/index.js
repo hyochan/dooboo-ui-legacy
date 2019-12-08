@@ -4,4 +4,4 @@ import './Accordian.stories';
 import './ButtonGroup.stories';
 import './Button.stories';
 import './EditText.stories';
-import './Slider.stories';
+import './RadioButton.stories';
