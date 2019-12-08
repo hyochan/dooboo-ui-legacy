@@ -3,8 +3,8 @@ import React, { useState } from 'react';
 import styled from 'styled-components/native';
 
 interface ICircleProps {
-  color?: string;
-  size?: number;
+  color: string;
+  size: number;
 }
 
 interface IInputRowProps {
@@ -38,14 +38,7 @@ const defaultValue: {
 const COLOR: {
   [key: string]: string;
 } = {
-  WHITE: '#ffffff',
-  DODGERBLUE: '#3a8bff',
-  VERYLIGHTGRAY: '#cccccc',
   LIGHTGRAY: '#c8c8c8',
-  BLUE: '#0000ff',
-  STRONGBLUE: '#069ccd',
-  GRAY3: '#080808',
-  GRAY7: '#121212',
   GRAY59: '#969696',
 };
 
@@ -104,12 +97,12 @@ function RadioButton(props: IRadioButtonProps): React.ReactElement {
     onPress,
     value,
     selectedValue,
-    color,
     disabled,
     selected,
-    size,
     label,
     labelPlacement,
+    color = defaultValue.circleColor,
+    size = parseInt(defaultValue.outerCircleSize),
   } = props;
 
   const isSelected = selected || value === selectedValue;
@@ -144,8 +137,6 @@ RadioButton.defaultProps = {
   disabled: false,
   label: '',
   labelPlacement: 'end',
-  size: defaultValue.outerCircleSize,
-  color: defaultValue.circleColor,
 };
 
 export default RadioButton;
