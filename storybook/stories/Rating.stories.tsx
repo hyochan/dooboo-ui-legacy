@@ -17,35 +17,57 @@ const Container = styled.View`
   align-items: center;
   justify-content: center;
   width: 100%;
-  margin-top: 28;
-  padding-top: 80;
-
   flex-direction: column;
 `;
 const Title = styled.Text`
-  width: 200px;
+  width: 100%;
   font-size: 20px;
   font-weight: 600;
-  margin-bottom: 10px;
+  margin-bottom: 15px;
+  padding-left: 20px;
+`;
+const Result = styled.Text`
+  width: 200px;
+  font-size: 15px;
+  text-align: center;
+  margin: 10px 0;
 `;
 const Divider = styled.View`
-  width: 200px;
-  height: 2px;
+  width: 100%;
+  height: 1px;
   margin: 15px 0;
   background-color: lightgrey;
 `;
 
+interface RatingChangeProps {
+  stars: number;
+}
+
 function Default(): React.ReactElement {
+  const [stars1, setstars1] = React.useState(3);
+  const [stars2, setstars2] = React.useState(0);
+  const handleChange1 = (props: RatingChangeProps): void => {
+    setstars1(props.stars);
+  };
+  const handleChange2 = (props: RatingChangeProps): void => {
+    setstars2(props.stars);
+  };
   return (
     <Container>
       <Title>Controlled</Title>
-      <Rating total={5} />
+      <Rating total={5} value={stars1} onChange={handleChange1} />
+      <Result>Selected: {stars1} stars</Result>
       <Divider />
-      {/* <Title>Read only</Title>
-      <Rating />
+      <Title>Read only</Title>
+      <Rating total={5} value={3} readonly />
       <Divider />
       <Title>Disabled</Title>
-      <Rating /> */}
+      <Rating total={5} value={2} disabled />
+      <Divider />
+      <Title>10 Stars</Title>
+      <Rating total={10} value={stars2} onChange={handleChange2} />
+      <Result>Selected: {stars2} stars</Result>
+      <Divider />
     </Container>
   );
 }
