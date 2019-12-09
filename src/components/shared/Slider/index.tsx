@@ -2,8 +2,11 @@ import React, { FC } from 'react';
 import { PanResponder } from 'react-native';
 import Rail from './Rail';
 import styled from 'styled-components/native';
+import Thumb from './Thumb';
 
-const Container = styled.View``;
+const Container = styled.View`
+  position: relative;
+`;
 
 interface Props {
   defaultValue?: number;
@@ -19,7 +22,6 @@ const Slider: FC<Props> = () => {
       PanResponder.create({
         onStartShouldSetPanResponder: () => true,
         onPanResponderGrant: (evt, gestureState) => {
-          console.log(gestureState);
         },
       }),
     [],
@@ -28,6 +30,7 @@ const Slider: FC<Props> = () => {
   return (
     <Container {...panResponder.panHandlers}>
       <Rail />
+      <Thumb />
     </Container>
   );
 };
