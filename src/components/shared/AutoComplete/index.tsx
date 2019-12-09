@@ -67,8 +67,7 @@ export default function AutoComplete({
           onChangeText={(text: string): void => {
             setInnerValue(text);
           }}
-          placeholder={placeholderText || 'search...'}
-          placeholderTextColor={'#cdd2d7'}
+          label={placeholderText || 'Search...'}
         />
         <CaretContainer testID={caretBtnTestID} onPress={onPressCaret}>
           <StyledImage source={isOptionsOpen ? IC_ARR_UP : IC_ARR_DOWN} />

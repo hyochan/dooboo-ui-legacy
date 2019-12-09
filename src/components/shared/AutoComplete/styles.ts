@@ -21,7 +21,7 @@ export const InputContainer = styled.View<InputContainerProps>`
 `;
 
 export const Input = styled.TextInput`
-  flex-grow: 1;
+  flex: 1;
   align-self: center;
   font-size: 16px;
   padding: 10px;
