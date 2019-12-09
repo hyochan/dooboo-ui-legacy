@@ -1,51 +1,16 @@
-import { Text, View } from 'react-native';
-
 import * as React from 'react';
 
-import Slider from '../Slider';
-// Note: test renderer must be required after react-native.
-import renderer from 'react-test-renderer';
 import { fireEvent, render } from '@testing-library/react-native';
 import Rail from '../Slider/Rail';
-
-let props: any;
-let component: React.ReactElement;
-// let testingLib: RenderResult;
-
-const createTestProps = (obj: object): object => ({
-  navigation: {
-    navigate: jest.fn(),
-  },
-  ...obj,
-});
+import Slider from '../Slider';
+import { View } from 'react-native';
 
 describe('[Slider] render', () => {
-  beforeEach(() => {
-    props = createTestProps({});
-    component = <Slider {...props} />;
+  it('renders without crashing', () => {
+    const rendered = render(<Slider />).asJSON();
+    expect(rendered).toMatchSnapshot();
+    expect(rendered).toBeTruthy();
   });
-
-  // it('renders without crashing', () => {
-  //   const rendered: renderer.ReactTestRendererJSON | null = renderer
-  //     .create(component)
-  //     .toJSON();
-  //   expect(rendered).toMatchSnapshot();
-  //   expect(rendered).toBeTruthy();
-  // });
-
-  // describe('interactions', () => {
-  //   beforeEach(() => {
-  //     testingLib = render(component);
-  //   });
-
-  //   it('should simulate onClick', () => {
-  //     const btn = testingLib.queryByTestId('btn');
-  //     act(() => {
-  //       fireEvent.press(btn);
-  //     });
-  //     expect(cnt).toBe(3);
-  //   });
-  // });
 });
 
 describe('[Rail]', () => {
@@ -54,25 +19,19 @@ describe('[Rail]', () => {
     return <View testID={testID} />;
   };
 
-  it('calls onMarkPress when first or last mark is pressed ', () => {
-    const onMarkPress = jest.fn();
-    const { getAllByTestId } = render(
-      <Rail
-        mark={<Mark testID={TEST_ID} />}
-        customMarkWidth={1}
-        onMarkPress={onMarkPress}
-      />,
-    );
-    const marks = getAllByTestId(TEST_ID);
-    fireEvent.press(marks[0]);
-    fireEvent.press(marks[marks.length - 1]);
-    expect(onMarkPress).toBeCalledTimes(2);
+  it('renders without crashing', () => {
+    const rendered = render(
+      <Rail mark={<Mark testID={TEST_ID} />} customMarkWidth={1} />,
+    ).asJSON();
+    expect(rendered).toMatchSnapshot();
+    expect(rendered).toBeTruthy();
   });
 
-  it('calls onMarkPress with correct value, and index', () => {
+  it('calls onMarkPress with correct value and index', () => {
     const onMarkPress = jest.fn();
     const STEP = 10;
     const MARK_COUNT = 5;
+
     const { getAllByTestId } = render(
       <Rail
         mark={<Mark testID={TEST_ID} />}
@@ -90,5 +49,26 @@ describe('[Rail]', () => {
       expect(onMarkPress.mock.calls[i][0]).toBe(i * STEP);
       expect(onMarkPress.mock.calls[i][2]).toBe(i);
     }
+  });
+
+  it('calls onInit', () => {
+    const onInit = jest.fn();
+    const STEP = 8;
+    const MARK_COUNT = 4;
+
+    render(
+      <Rail
+        mark={<Mark testID={TEST_ID} />}
+        customMarkWidth={12}
+        style={{ width: 240 }}
+        step={STEP}
+        markCount={MARK_COUNT}
+        onInit={onInit}
+      />,
+    );
+    expect(onInit).toHaveBeenCalledTimes(1);
+    expect(onInit.mock.calls[0][0]).toStrictEqual(
+      Array.from({ length: MARK_COUNT }).map((_, ind) => STEP * ind),
+    );
   });
 });
