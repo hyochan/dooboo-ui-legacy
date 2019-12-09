@@ -1,6 +1,6 @@
-import { InputContainerProps, OptionTextProps } from './types';
+import { FlatList, TouchableHighlight } from 'react-native';
+import { InputContainerProps, OptionTextProps, OptionWrapperProps } from './types';
 
-import { FlatList } from 'react-native';
 import styled from 'styled-components/native';
 
 export const Wrapper = styled.View`
@@ -41,11 +41,16 @@ export const CaretContainer = styled.TouchableOpacity`
   align-items: center;
 `;
 
-export const OptionWrapper = styled.TouchableHighlight`
+export const OptionWrapper = styled(
+  TouchableHighlight as new () => TouchableHighlight,
+).attrs((props) => ({
+  underlayColor: props.underlayColor ? props.underlayColor : '#DBDBDB',
+})) <OptionWrapperProps>`
   width: 100%;
   justify-content: center;
   height: 42px;
   padding: 5px 20px;
+  background-color: ${({ isSelected }): string => (isSelected ? '#EBEBEB' : 'transparent')};
 `;
 
 export const OptionText = styled.Text<OptionTextProps>`
