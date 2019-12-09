@@ -10,6 +10,7 @@ const COLOR: {
   ACTIVE: '#FFB402',
   INACTIVE: '#BDBDBD',
 };
+
 interface Props {
   total: number;
   value: number;
@@ -17,11 +18,13 @@ interface Props {
   readonly: boolean;
   disabled: boolean;
 }
+
 interface ChildProps {
   total: number;
   on: boolean;
   focus: boolean;
 }
+
 const ContainerWrapper = styled.View`
   width: ${(props: Props): number => props.total * 30};
   height: 30px;
@@ -31,6 +34,7 @@ const ContainerWrapper = styled.View`
   align-items: center;
   opacity: ${(props: Props): number => (props.disabled ? 0.3 : 1)};
 `;
+
 const StarComponent = styled.TouchableOpacity`
   width: ${(props: ChildProps): string =>
     props.focus ? `${(100 / props.total) * 1.02}%` : `${100 / props.total}%`};
@@ -44,6 +48,7 @@ function Rating(props: Props): React.ReactElement {
   const [value, setValue] = useState(0);
   const [stars, setStars] = useState(new Array(props.total).fill(false));
   const [focus, setfocus] = useState(false);
+  const active = !(props.readonly || props.disabled);
   const _onChangeValue = (): void => {
     const result = stars.fill(false);
     let i = 0;
@@ -51,28 +56,32 @@ function Rating(props: Props): React.ReactElement {
       result[i] = true;
       i++;
     }
+
     setStars(result);
-    if (props.onChange) props.onChange({ stars: value });
+
+    props.onChange && props.onChange({ stars: value });
   };
+
   const _handlePress = (index: number): void => {
-    if (props.readonly || props.disabled) return;
-    setValue(index + 1);
+    active && setValue(index + 1);
   };
+
   const _handlePressIn = (): void => {
-    if (props.readonly || props.disabled) return;
-    setfocus(true);
+    active && setfocus(true);
   };
+
   const _handlePressOut = (): void => {
-    if (props.readonly || props.disabled) return;
-    setfocus(false);
+    active && setfocus(false);
   };
+
   React.useEffect(() => {
     setValue(props.value);
   }, []);
+
   React.useEffect(() => {
     _onChangeValue();
   }, [value]);
-  const isActive = props.readonly || props.disabled;
+
   return (
     <ContainerWrapper total={props.total} disabled={props.disabled}>
       {stars.map((item, index) => (
@@ -80,11 +89,11 @@ function Rating(props: Props): React.ReactElement {
           key={index}
           total={props.total}
           focus={focus}
-          onPress={(): void => (isActive ? null : _handlePress(index))}
+          onPress={(): void => _handlePress(index)}
           onPressIn={_handlePressIn}
           onPressOut={_handlePressOut}
           on={stars[index]}
-          activeOpacity={isActive ? 1 : 0.8}
+          activeOpacity={active ? 0.8 : 1}
         />
       ))}
     </ContainerWrapper>
