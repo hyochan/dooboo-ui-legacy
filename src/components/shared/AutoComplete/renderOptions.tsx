@@ -1,18 +1,20 @@
 import { OptionText, OptionWrapper, OptionsContainer } from './styles';
 import React, { FC, ReactElement } from 'react';
 
-import { RenderOptionProps } from './types';
+import { RenderOptionProps, RenderOptionsProps } from './types';
 
 const RenderOption: FC<RenderOptionProps> = ({
   id,
   label,
   value,
   onPress,
+  isSelected,
   underlayColor,
 }): ReactElement => {
   return (
     <OptionWrapper
-      onPress={(): void => onPress(label)}
+      isSelected={isSelected}
+      onPress={(): void => onPress({ id, label, value })}
       underlayColor={underlayColor}
     >
       <OptionText>{`${label} (${id}) +${value}`}</OptionText>
@@ -20,10 +22,11 @@ const RenderOption: FC<RenderOptionProps> = ({
   );
 };
 
-const RenderOptions = ({
+const RenderOptions: FC<RenderOptionsProps> = ({
   data,
   onPress,
-  underlayColor = 'black',
+  selectedData,
+  underlayColor,
 }): ReactElement => {
   return (
     <OptionsContainer
@@ -32,6 +35,7 @@ const RenderOptions = ({
       renderItem={({ item }): ReactElement => (
         <RenderOption
           {...item}
+          isSelected={selectedData && selectedData.id && item && item.id && selectedData.id === item.id}
           onPress={onPress}
           underlayColor={underlayColor}
         />

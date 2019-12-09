@@ -34,6 +34,7 @@ export default function AutoComplete({
   underlayColor,
 }: AutoCompleteProps): ReactElement {
   const [innerValue, setInnerValue] = useState<string>(value);
+  const [selectedData, setSelectedData] = useState<DummyDatum>();
   const [isOptionsOpen, toggleOptions] = useState(false);
   const debouncedValue = useDebounce(innerValue, debounceDelay);
   const [filteredData] = useState<DummyDatum[]>(dummyData);
@@ -52,8 +53,12 @@ export default function AutoComplete({
     toggleOptions((prevStatus) => !prevStatus);
   }, []);
 
-  const onPressOption = useCallback((label: string) => {
-    setInnerValue(label);
+  const onPressOption = useCallback((data: DummyDatum) => {
+    if (data && data.label) {
+      setInnerValue(data.label);
+    }
+    setSelectedData(data);
+
     setTimeout(() => {
       toggleOptions((prevStatus) => !prevStatus);
     }, 80);
@@ -86,13 +91,16 @@ export default function AutoComplete({
           <StyledImage source={isOptionsOpen ? IC_ARR_UP : IC_ARR_DOWN} />
         </CaretContainer>
       </InputContainer>
-      {isOptionsOpen && (
-        <Options
-          data={filterData}
-          underlayColor={underlayColor}
-          onPress={onPressOption}
-        />
-      )}
-    </Wrapper>
+      {
+        isOptionsOpen && (
+          <Options
+            data={filterData}
+            underlayColor={underlayColor}
+            onPress={onPressOption}
+            selectedData={selectedData}
+          />
+        )
+      }
+    </Wrapper >
   );
 }
