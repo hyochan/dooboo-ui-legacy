@@ -19,20 +19,25 @@ interface Props {
   disabled: boolean;
 }
 
+interface ContainerWrapperProps {
+  total: number;
+  disabled: boolean;
+}
+
 interface ChildProps {
   total: number;
   on: boolean;
   focus: boolean;
 }
 
-const ContainerWrapper = styled.View`
-  width: ${(props: Props): number => props.total * 30};
+const ContainerWrapper = styled.View<ContainerWrapperProps>`
+  width: ${({ total }): number => total * 30};
   height: 30px;
   background-color: ${COLOR.BACKGROUND};
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  opacity: ${(props: Props): number => (props.disabled ? 0.3 : 1)};
+  opacity: ${({ disabled }): number => (disabled ? 0.3 : 1)};
 `;
 
 const StarComponent = styled.TouchableOpacity`
