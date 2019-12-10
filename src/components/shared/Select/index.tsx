@@ -64,11 +64,8 @@ interface TextThemeType extends DefaultTheme {
     fontColor: string;
   };
 }
-// interface CompStyleType {
-//   rootbox: RootBoxThemeType;
-//   text: TextThemeType;
-// }
-interface ThemeType<T> extends DefaultTheme {
+
+interface ThemeStyle<T> extends DefaultTheme {
   blank: T;
   none: T;
   box: T;
@@ -123,7 +120,7 @@ const COLOR: {
 };
 
 const bsCss = css`
-  elevation: 8;
+  elevation: 1;
   shadow-color: ${COLOR.DODGERBLUE};
   shadow-offset: {
     width: 3;
@@ -133,19 +130,7 @@ const bsCss = css`
   shadow-radius: 5;
 `;
 
-export const themeStylePropCollection: ThemeStyle<ThemeEnum, RootBoxTheme | TextTheme> = {
-  disabled: {
-    rootbox: {
-      backgroundColor: 'transparent',
-      border: {
-        borderBottomColor: COLOR.LIGHTGRAY,
-        borderBottomWidth: 2,
-      },
-    },
-    text: {
-      fontColor: COLOR.LIGHTGRAY,
-    },
-  },
+export const themeStylePropCollection: ThemeStyle<RootBoxTheme | TextTheme> = {
   blank: {
     rootbox: {
       backgroundColor: 'transparent',
@@ -246,7 +231,10 @@ const RootSelect = styled.View<ThemeType>`
 const SelectListView = styled.View`
   elevation: 8;
   shadow-color: ${COLOR.DODGERBLUE};
-  shadow-offset: { width: 0, height: 5 };
+  shadow-offset: {
+    width: 0;
+    height: 5;
+  }
   shadow-opacity: 0.2;
 `;
 const SelectList = styled(FlatList)`
@@ -347,7 +335,9 @@ function Select(props: Props): React.ReactElement {
       ? 'blank'
       : defaultTheme;
 
-  const renderItem = ({ item }: { item: Item }): React.ReactElement => {
+  const renderItem = ({
+    item,
+  }: ListRenderItemInfo<Item>): React.ReactElement => {
     const style = itemStyle
       ? selectedItem && selectedItem.value === item.value
         ? itemStyle.selectedItem
