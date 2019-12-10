@@ -25,6 +25,7 @@ exports[`[EditText] renders without crashing 1`] = `
       ]
     }
   />
+  // @ts-ignore
   <TextInput
     allowFontScaling={true}
     autoCapitalize="none"
