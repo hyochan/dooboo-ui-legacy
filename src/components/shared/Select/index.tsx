@@ -8,7 +8,7 @@ import {
   ViewStyle,
 } from 'react-native';
 import React, { useCallback, useState } from 'react';
-import styled, { DefaultTheme } from 'styled-components/native';
+import styled, { DefaultTheme, css } from 'styled-components/native';
 
 enum ThemeEnum {
   blank = 'blank',
@@ -30,34 +30,18 @@ enum StylePropEnum {
 
 interface BoxShadowType extends ShadowStyleIOS {
   elevation: number;
-  // shadowOffset: { width: number; height: number };
-  // shadowColor: string;
-  // shadowOpacity: number;
-  // shadowRadius: number;
 }
 interface BorderStyle extends ViewStyle {
-  borderBottomColor?: string;
-  borderBottomEndRadius?: number;
-  borderBottomLeftRadius?: number;
-  borderBottomRightRadius?: number;
-  borderBottomStartRadius?: number;
-  borderBottomWidth?: number;
   borderColor?: string;
-  borderEndColor?: string;
+  borderWidth?: number;
+  borderBottomColor?: string;
+  borderBottomWidth?: number;
   borderLeftColor?: string;
   borderLeftWidth?: number;
-  borderRadius?: number;
   borderRightColor?: string;
   borderRightWidth?: number;
-  borderStartColor?: string;
-  borderStyle?: 'solid' | 'dotted' | 'dashed';
   borderTopColor?: string;
-  borderTopEndRadius?: number;
-  borderTopLeftRadius?: number;
-  borderTopRightRadius?: number;
-  borderTopStartRadius?: number;
   borderTopWidth?: number;
-  borderWidth?: number;
 }
 
 interface RootBoxThemeType extends DefaultTheme {
@@ -82,12 +66,6 @@ interface ThemeType<T> extends DefaultTheme {
   box: T;
   underbar: T;
 }
-// interface ViewType extends ThemeType<RootBoxThemeType> {
-//   theme: ThemeType<RootBoxThemeType>;
-// }
-// interface TextType extends ThemeType<TextThemeType> {
-//   theme: ThemeType<TextThemeType>;
-// }
 interface ViewType {
   theme: ThemeEnum;
 }
@@ -116,6 +94,13 @@ const COLOR: {
   DARK: '#09071d',
 };
 
+const bsCss = css`
+  elevation: 1;
+  shadow-color: ${COLOR.DODGERBLUE};
+  shadow-offset: {width: 3, height: 3};
+  shadow-opacity: 0.5;
+  shadow-radius: 5;
+`;
 export const themeStylePropCollection: ThemeType<
   RootBoxThemeType | TextThemeType
 > = {
@@ -130,31 +115,13 @@ export const themeStylePropCollection: ThemeType<
   none: {
     rootbox: {
       backgroundColor: COLOR.WHITE,
-      boxShadow: {
-        elevation: 1,
-        shadowColor: COLOR.DODGERBLUE,
-        shadowOffset: { width: 0, height: 0 },
-        shadowOpacity: 0.5,
-        shadowRadius: 5,
-      },
+      boxShadow: bsCss,
     },
     text: {
       fontColor: COLOR.DARK,
     },
   },
   box: {
-    rootbox: {
-      backgroundColor: COLOR.WHITE,
-      border: {
-        borderBottomColor: COLOR.GRAY59,
-        borderBottomWidth: 2,
-      },
-    },
-    text: {
-      fontColor: COLOR.DARK,
-    },
-  },
-  underbar: {
     rootbox: {
       backgroundColor: COLOR.WHITE,
       border: {
@@ -166,52 +133,62 @@ export const themeStylePropCollection: ThemeType<
       fontColor: COLOR.DARK,
     },
   },
+  underbar: {
+    rootbox: {
+      backgroundColor: COLOR.WHITE,
+      border: {
+        borderBottomColor: COLOR.GRAY59,
+        borderBottomWidth: 2,
+      },
+    },
+    text: {
+      fontColor: COLOR.DARK,
+    },
+  },
 };
 
-type ThemeProp = string | BoxShadowType | BorderStyle;
-
-const getThemeProp = ({
-  theme,
-  comp,
-  prop,
-}: {
+type ThemeStylePropType = BoxShadowType | BorderStyle;
+interface ThemePropParams {
   theme: ThemeEnum;
-  // theme: any;
   comp: CompEnum;
   prop: StylePropEnum;
-}): ThemeProp => {
+}
+const getThemeProp = ({ theme, comp, prop }: ThemePropParams): string | ThemeStylePropType => {
+  return themeStylePropCollection[theme][comp][prop];
+};
+const getThemeTextProp = ({ theme, comp, prop }: ThemePropParams): string => {
   return themeStylePropCollection[theme][comp][prop];
 };
 
 const Text = styled.Text<TextType>`
   font-size: 14px;
-  color: ${({ theme }: { theme: ThemeEnum }): ThemeProp =>
-    getThemeProp({
-      theme: theme,
+  color: ${(props): string =>
+    getThemeTextProp({
+      theme: props.theme,
       comp: CompEnum.text,
       prop: StylePropEnum.fc,
     })};
 `;
 
 const RootSelect = styled.View<ViewType>`
-  background-color: ${({ theme }: { theme: ThemeEnum }): ThemeProp =>
+  background-color: ${(props): string =>
     getThemeProp({
-      theme: theme,
+      theme: props.theme,
       comp: CompEnum.rootbox,
       prop: StylePropEnum.bc,
-    })};
-  ${({ theme }: { theme: ThemeEnum }): ThemeProp =>
+    })}
+  ${(props): BoxShadowType =>
     getThemeProp({
-      theme: theme,
+      theme: props.theme,
       comp: CompEnum.rootbox,
       prop: StylePropEnum.bs,
-    })};
-  ${({ theme }: { theme: ThemeEnum }): ThemeProp =>
+    })}
+  ${(props): BorderStyle =>
     getThemeProp({
-      theme: theme,
+      theme: props.theme,
       comp: CompEnum.rootbox,
       prop: StylePropEnum.border,
-    })};
+    })}
   width: 128px;
   height: 48px;
   flex-direction: row;
@@ -252,11 +229,11 @@ function Select(props: Props): React.ReactElement {
 
   const defaultTheme = !theme ? 'none' : theme;
   const rootViewTheme =
-    !rootViewStyle || Object.keys(rootViewStyle).length > 0
+    rootViewStyle && Object.keys(rootViewStyle).length > 0
       ? 'blank'
       : defaultTheme;
   const rootTextTheme =
-    !rootTextStyle || Object.keys(rootTextStyle).length > 0
+    rootTextStyle && Object.keys(rootTextStyle).length > 0
       ? 'blank'
       : defaultTheme;
 

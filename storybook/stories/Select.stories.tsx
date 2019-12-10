@@ -30,7 +30,62 @@ function Default(): React.ReactElement {
   return (
     <Container>
       <Select
+        itemStyle={{
+          list: {
+            shadowOffset: { width: 0, height: 5 },
+          },
+          defaultItem: {
+            color: 'grey',
+          },
+          selectedItem: {
+            color: 'black',
+          },
+        }}
+        placeholder={'select'}
+        onClick={action('Clicked')}
+        items={ITEMS}
+        onSelect={onSelect}
+        selectedItem={selectedItem}
+      />
+      <Select
+        theme={'box'}
+        itemStyle={{
+          list: {
+            shadowOffset: { width: 0, height: 5 },
+          },
+          defaultItem: {
+            color: 'grey',
+          },
+          selectedItem: {
+            color: 'black',
+          },
+        }}
+        placeholder={'select'}
+        onClick={action('Clicked')}
+        items={ITEMS}
+        onSelect={onSelect}
+        selectedItem={selectedItem}
+      />
+      <Select
         theme={'underbar'}
+        itemStyle={{
+          list: {
+            shadowOffset: { width: 0, height: 5 },
+          },
+          defaultItem: {
+            color: 'grey',
+          },
+          selectedItem: {
+            color: 'black',
+          },
+        }}
+        placeholder={'select'}
+        onClick={action('Clicked')}
+        items={ITEMS}
+        onSelect={onSelect}
+        selectedItem={selectedItem}
+      />
+      <Select
         rootViewStyle={{
           borderBottomColor: 'black',
           borderBottomWidth: 2,
