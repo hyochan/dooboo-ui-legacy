@@ -5,7 +5,7 @@ import { ContainerDeco } from '../decorators';
 import Snackbar from '../../src/components/shared/Snackbar';
 import { storiesOf } from '@storybook/react-native';
 import styled from 'styled-components/native';
-import { text } from '@storybook/addon-knobs';
+import { text, color } from '@storybook/addon-knobs';
 
 storiesOf('Snackbar', module)
   .addDecorator(ContainerDeco)
@@ -26,6 +26,9 @@ const Container = styled.View`
 
 function Default(): React.ReactElement {
   const [isOpen, setIsOpen] = useState<boolean>(false);
+  const snackbarText = text('Snackbar Text', 'Simple Snackbar is opened');
+  const containerColor = color('container color', '#1976D1');
+  const messageColor = color('message color', '#ffffff');
 
   return (
     <Container>
@@ -44,7 +47,14 @@ function Default(): React.ReactElement {
         onClick={(): void => setIsOpen(false)}
       />
       {isOpen && (
-        <Snackbar text={text('Snackbar Text', 'Simple Snackbar is opened')} />
+        <Snackbar text={snackbarText}
+          containerStyle={{
+            backgroundColor: containerColor,
+          }}
+          messageStyle={{
+            color: messageColor,
+          }}
+        />
       )}
     </Container>
   );

@@ -5,25 +5,21 @@ exports[`[Snackbar] renders without crashing 1`] = `
   style={
     Array [
       Object {
+        "backgroundColor": "#303235",
+        "borderRadius": 10,
+        "bottom": 50,
         "fontSize": 16,
+        "paddingBottom": 16,
+        "paddingLeft": 16,
+        "paddingRight": 16,
+        "paddingTop": 16,
         "position": "absolute",
         "textAlign": "left",
-      },
-      Object {
-        "backgroundColor": "#303235",
-        "bottom": 50,
-        "padding": 16,
       },
     ]
   }
   testID="snackbar"
 >
-  <Text
-    style={
-      Object {
-        "color": "#ffffff",
-      }
-    }
-  />
+  <Text />
 </View>
 `;
