@@ -3,10 +3,8 @@ import React, { useCallback, useState } from 'react';
 import { ContainerDeco } from '../decorators';
 import Select from '../../src/components/shared/Select';
 import { action } from '@storybook/addon-actions';
-import { grey } from 'ansi-colors';
 import { storiesOf } from '@storybook/react-native';
 import styled from 'styled-components/native';
-import { text } from '@storybook/addon-knobs';
 
 storiesOf('Select', module)
   .addDecorator(ContainerDeco)

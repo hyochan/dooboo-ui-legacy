@@ -402,7 +402,7 @@ function Select(props: Props): React.ReactElement {
             testID={`${testID}-${TESTID.SELECTLIST}`}
             data={items}
             renderItem={renderItem}
-            keyExtractor={(item, index) => item.value}
+            keyExtractor={(item): string => item.value}
           />
         </SelectListView>
       )}
