@@ -60,7 +60,7 @@ yarn add @dooboo-ui/native-select
 - Usage
   ```jsx
     <Select
-      theme={'underbar'}
+      theme={'underbar' | 'box'}
       rootViewStyle={{
         borderBottomColor: 'black',
         borderBottomWidth: 2,
