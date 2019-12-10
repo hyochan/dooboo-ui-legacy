@@ -113,6 +113,7 @@ function EditText(props: Props): ReactElement {
       >
         {label}
       </Title>
+      // @ts-ignore
       <StyledTextInput
         {...textInputProps}
         testID={testID}
