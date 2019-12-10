@@ -44,7 +44,7 @@ interface BorderStyle extends ViewStyle {
   borderTopWidth?: number;
 }
 
-interface RootBoxThemeType extends DefaultTheme {
+interface RootBoxTheme extends DefaultTheme {
   rootbox: {
     backgroundColor: string;
     boxShadow?: BoxShadowType;
@@ -163,14 +163,14 @@ const getThemeTextProp = ({ theme, comp, prop }: ThemePropParams): string => {
 const Text = styled.Text<TextType>`
   font-size: 14px;
   color: ${(props): string =>
-    getThemeTextProp({
+    getThemeProp({
       theme: props.theme,
       comp: CompEnum.text,
       prop: StylePropEnum.fc,
     })};
 `;
 
-const RootSelect = styled.View<ViewType>`
+const RootSelect = styled.View<ThemeType>`
   background-color: ${(props): string =>
     getThemeProp({
       theme: props.theme,
