@@ -397,12 +397,12 @@ function Select(props: Props): React.ReactElement {
       </TouchableOpacity>
       {listOpen && (
         <SelectListView style={itemStyle && itemStyle.list}>
-          <SelectList
+          <SelectList<Item>
             style={itemStyle && itemStyle.defaultItem}
             testID={`${testID}-${TESTID.SELECTLIST}`}
             data={items}
             renderItem={renderItem}
-            keyExtractor={(item: Item, index: number): string => item.value}
+            keyExtractor={(item, index) => item.value}
           />
         </SelectListView>
       )}
