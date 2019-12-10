@@ -77,7 +77,7 @@
     "react-test-renderer": "16.9.0",
     "styled-components": "^4.4.1",
     "ts-jest": "^24.2.0",
-    "typescript": "^3.6.4"
+    "typescript": "^3.7.3"
   },
   "jest": {
     "preset": "react-native"
