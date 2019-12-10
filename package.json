@@ -29,7 +29,8 @@
   },
   "homepage": "https://github.com/dooboolab/dooboo-ui-native#readme",
   "dependencies": {
-    "dooboolab-welcome": "^1.1.1"
+    "dooboolab-welcome": "^1.1.1",
+    "styled-components": "^4.4.1"
   },
   "peerDependencies": {
     "react": ">=16.8",
@@ -37,10 +38,10 @@
     "styled-components": ">=4.4.0"
   },
   "devDependencies": {
-    "@babel/core": "^7.7.4",
+    "@babel/core": "^7.7.5",
     "@babel/preset-typescript": "^7.7.4",
-    "@babel/runtime": "^7.7.4",
-    "@dooboo/eslint-config": "^0.2.0",
+    "@babel/runtime": "^7.7.6",
+    "@dooboo/eslint-config": "^0.3.0",
     "@storybook/addon-actions": "5.2.8",
     "@storybook/addon-knobs": "5.2.8",
     "@storybook/addon-links": "5.2.8",
@@ -51,14 +52,12 @@
     "@storybook/theming": "5.2.8",
     "@testing-library/react-native": "^5.0.2",
     "@types/jest": "^24.0.23",
-    "@types/node": "^12.12.14",
-    "@types/react": "^16.9.15",
-    "@types/react-native": "^0.60.23",
+    "@types/node": "^12.12.16",
+    "@types/react": "^16.9.16",
+    "@types/react-native": "^0.60.24",
     "@types/react-navigation": "^3.4.0",
     "@types/react-test-renderer": "^16.9.1",
-    "@types/styled-components": "^4.4.0",
-    "@typescript-eslint/eslint-plugin": "^2.10.0",
-    "@typescript-eslint/parser": "^2.10.0",
+    "@types/styled-components": "^4.4.1",
     "babel-jest": "^24.9.0",
     "babel-loader": "^8.0.6",
     "codecov": "^3.6.1",
@@ -69,12 +68,9 @@
     "react": "16.9.0",
     "react-dom": "16.9.0",
     "react-native": "0.60.4",
-    "react-native-gesture-handler": "git://github.com/hyochan/react-native-gesture-handler.git#package-names",
-    "react-native-safe-area-context": "^0.6.1",
-    "react-native-safe-area-view": "^1.0.0",
+    "react-native-gesture-handler": "^1.5.2",
     "react-navigation": "^4.0.10",
     "react-test-renderer": "16.9.0",
-    "styled-components": "^4.4.1",
     "ts-jest": "^24.2.0",
     "typescript": "^3.7.3"
   },
