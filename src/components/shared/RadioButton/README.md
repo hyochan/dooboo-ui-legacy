@@ -48,17 +48,17 @@ interface IRadioButtonProps {
 }
 ```
 
-|                |     necessary      | types                   | default                                |
-| -------------- | :----------------: | ----------------------- | -------------------------------------- |
-| onPress        | :white_check_mark: | (value: string) => void |                                        |
-| value          | :white_check_mark: | string                  |                                        |
-| selectedValue  | :white_check_mark: | string                  |                                        |
-| color          |                    | string                  | 'rgba(0, 0, 0, 0.54)'                  |
-| disabled       |                    | boolean                 |                                        |
-| selected       |                    | boolean                 |                                        |
-| size           |                    | number                  | 23                                     |
-| label          |                    | string                  |                                        |
-| labelPlacement |                    | string                  | 'end' (option)`|'top'|'start'|'bottom` |
+| Name           |      Required      | Type                           | Default               |
+| -------------- | :----------------: | ------------------------------ | --------------------- |
+| onPress        | :white_check_mark: | `func`                         |                       |
+| value          | :white_check_mark: | `string`                       |                       |
+| selectedValue  | :white_check_mark: | `string`                       |                       |
+| color          |                    | `string`                       | 'rgba(0, 0, 0, 0.54)' |
+| disabled       |                    | `boolean`                      |                       |
+| selected       |                    | `boolean`                      |                       |
+| size           |                    | `number`                       | 23                    |
+| label          |                    | `string`                       |                       |
+| labelPlacement |                    | `'end'|'start'|'top'|'bottom'` | 'end'                 |
 
 ## Getting started
 
