@@ -40,17 +40,19 @@ const Divider = styled.View`
 `;
 
 interface RatingChangeProps {
-  stars: number;
+  value: number;
 }
 
 function Default(): React.ReactElement {
   const [stars1, setstars1] = React.useState(3);
-  const [stars2, setstars2] = React.useState(0);
+  const [stars2, setstars2] = React.useState(3);
+
   const handleChange1 = (props: RatingChangeProps): void => {
-    setstars1(props.stars);
+    setstars1(props.value);
   };
+
   const handleChange2 = (props: RatingChangeProps): void => {
-    setstars2(props.stars);
+    setstars2(props.value);
   };
   return (
     <Container>
@@ -59,10 +61,10 @@ function Default(): React.ReactElement {
       <Result>Selected: {stars1} stars</Result>
       <Divider />
       <Title>Read only</Title>
-      <Rating total={5} value={3} readonly />
+      <Rating total={5} value={stars1} />
       <Divider />
       <Title>Disabled</Title>
-      <Rating total={5} value={2} disabled />
+      <Rating total={5} value={stars1} disabled />
       <Divider />
       <Title>10 Stars</Title>
       <Rating total={10} value={stars2} onChange={handleChange2} />
