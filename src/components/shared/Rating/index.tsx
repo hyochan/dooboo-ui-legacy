@@ -14,46 +14,88 @@ const COLOR: {
 interface Props {
   total: number;
   value: number;
-  onChange: Function;
-  readonly: boolean;
-  disabled: boolean;
+  onChange?: Function;
+  disabled?: boolean;
 }
 
 interface ContainerWrapperProps {
   total: number;
-  disabled: boolean;
+  disabled?: boolean;
 }
 
-interface ChildProps {
-  total: number;
-  on: boolean;
+interface StarWrapperProps {
   focus: boolean;
+  onPressIn: Function;
+  onPressOut: Function;
+  onPress: Function;
+  activeOpacity: number;
+}
+
+interface StarProps {
+  key: number;
+  on: boolean;
+  onPress: Function;
+  disabled?: boolean;
 }
 
 const ContainerWrapper = styled.View<ContainerWrapperProps>`
   width: ${({ total }): number => total * 30};
   height: 30px;
-  background-color: ${COLOR.BACKGROUND};
+  /* background-color: ${COLOR.BACKGROUND}; */
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  opacity: ${({ disabled }): number => (disabled ? 0.3 : 1)};
+  opacity: ${({ disabled }): number => (disabled ? 0.5 : 1)};
 `;
 
-const StarComponent = styled.TouchableOpacity`
-  width: ${(props: ChildProps): string =>
-    props.focus ? `${(100 / props.total) * 1.02}%` : `${100 / props.total}%`};
-  height: ${(props: ChildProps): string => (props.focus ? '102%' : '100%')};
-  background-color: ${(props: ChildProps): string =>
-    props.on ? COLOR.ACTIVE : COLOR.INACTIVE};
-  border: 1px solid white;
+const StarWrapper = styled.TouchableOpacity<StarWrapperProps>`
+  width: 30;
+  height: 100%;
 `;
+
+const StyledImage = styled.Image`
+  width: 100%;
+  height: 100%;
+`;
+
+function StarComponent(props: StarProps): React.ReactElement {
+  const [focus, setfocus] = useState(false);
+
+  const _handlePressIn = (): void => {
+    setfocus(true);
+  };
+
+  const handlePress = (): void => {
+    props.onPress();
+  };
+
+  const _handlePressOut = (): void => {
+    setfocus(false);
+  };
+
+  const image = props.on
+    ? require('./images/Star.png')
+    : require('./images/UnStar.png');
+
+  return (
+    <StarWrapper
+      focus={focus}
+      onPressIn={_handlePressIn}
+      onPress={handlePress}
+      onPressOut={_handlePressOut}
+      activeOpacity={props.disabled ? 1 : 0.7}
+    >
+      <StyledImage source={image} resizeMode="contain" />
+    </StarWrapper>
+  );
+}
 
 function Rating(props: Props): React.ReactElement {
   const [value, setValue] = useState(0);
   const [stars, setStars] = useState(new Array(props.total).fill(false));
-  const [focus, setfocus] = useState(false);
-  const active = !(props.readonly || props.disabled);
+  const active = props.onChange;
+  const disabled = props.disabled;
+
   const _onChangeValue = (): void => {
     const result = stars.fill(false);
     let i = 0;
@@ -64,19 +106,11 @@ function Rating(props: Props): React.ReactElement {
 
     setStars(result);
 
-    props.onChange && props.onChange({ stars: value });
+    props.onChange && props.onChange({ value });
   };
 
   const _handlePress = (index: number): void => {
-    active && setValue(index + 1);
-  };
-
-  const _handlePressIn = (): void => {
-    active && setfocus(true);
-  };
-
-  const _handlePressOut = (): void => {
-    active && setfocus(false);
+    active && !disabled && setValue(index + 1);
   };
 
   React.useEffect(() => {
@@ -89,18 +123,16 @@ function Rating(props: Props): React.ReactElement {
 
   return (
     <ContainerWrapper total={props.total} disabled={props.disabled}>
-      {stars.map((item, index) => (
-        <StarComponent
-          key={index}
-          total={props.total}
-          focus={focus}
-          onPress={(): void => _handlePress(index)}
-          onPressIn={_handlePressIn}
-          onPressOut={_handlePressOut}
-          on={stars[index]}
-          activeOpacity={active ? 0.8 : 1}
-        />
-      ))}
+      {stars.map((item, index) => {
+        return (
+          <StarComponent
+            key={index}
+            on={item}
+            onPress={(): void => _handlePress(index)}
+            disabled={!active || disabled}
+          />
+        );
+      })}
     </ContainerWrapper>
   );
 }
