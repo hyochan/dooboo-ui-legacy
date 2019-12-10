@@ -1,21 +1,29 @@
-import { Animated, Easing, TouchableWithoutFeedback } from 'react-native';
+import {
+  Animated,
+  Easing,
+  Platform,
+  TouchableWithoutFeedback,
+} from 'react-native';
 import React, { FC, ReactNode, useState } from 'react';
 import styled from 'styled-components/native';
 
-const Container = styled.View`
+const Container = styled.View<{ percentagePosition: number }>`
   position: absolute;
   width: 12;
   height: 12;
   background-color: #0b21e8;
   border-radius: 6;
   top: -4.5;
+  transform: translate(-6px);
+  left: ${({ percentagePosition }): string => `${percentagePosition}%`};
 `;
 
 interface Props {
   size?: number;
+  percentagePosition: number;
 }
 
-const Thumb: FC<Props> = ({ size = 12 }) => {
+const Thumb: FC<Props> = ({ size = 12, percentagePosition }) => {
   const [scaleValue, setScaleValue] = useState(new Animated.Value(0.01));
   const [opacityValue, setOpacityValue] = useState(new Animated.Value(0.12));
   const onPressedIn = (): void => {
@@ -23,6 +31,7 @@ const Thumb: FC<Props> = ({ size = 12 }) => {
       toValue: 1,
       duration: 225,
       easing: Easing.bezier(0.0, 0.0, 0.2, 1),
+      useNativeDriver: Platform.OS === 'android',
     }).start();
   };
 
@@ -56,7 +65,9 @@ const Thumb: FC<Props> = ({ size = 12 }) => {
 
   return (
     <TouchableWithoutFeedback onPressIn={onPressedIn} onPressOut={onPressedOut}>
-      <Container>{renderRippleView()}</Container>
+      <Container percentagePosition={percentagePosition}>
+        {renderRippleView()}
+      </Container>
     </TouchableWithoutFeedback>
   );
 };
