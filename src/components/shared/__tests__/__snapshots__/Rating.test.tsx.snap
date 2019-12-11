@@ -1,0 +1,43 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`[Rating] render renders without crashing 1`] = `
+<View
+  style={
+    Array [
+      Object {
+        "alignItems": "center",
+        "backgroundColor": "#EFF0F1",
+        "flexDirection": "row",
+        "height": 30,
+        "justifyContent": "center",
+        "opacity": 1,
+        "width": "NaN",
+      },
+    ]
+  }
+>
+  <View
+    accessible={true}
+    clickable={true}
+    isTVSelectable={true}
+    onClick={[Function]}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      Object {
+        "backgroundColor": "#BDBDBD",
+        "borderColor": "white",
+        "borderStyle": "solid",
+        "borderWidth": 1,
+        "height": "100%",
+        "opacity": 1,
+        "width": "NaN%",
+      }
+    }
+  />
+</View>
+`;
