@@ -58,16 +58,31 @@ export default function AutoComplete({
     }, 80);
   }, []);
 
+  const [isFocused, setIsFocused] = useState<boolean>(false);
+
+  const handleFocus = useCallback(
+    ({ isFocus }): void => {
+      setIsFocused(isFocus);
+    },
+    [isFocused],
+  );
+
   return (
     <Wrapper>
-      <InputContainer style={style} on={isOptionsOpen}>
+      <InputContainer
+        style={style}
+        on={isOptionsOpen || isFocused || innerValue !== ''}
+      >
         <RenderInput
+          on={isFocused || isOptionsOpen || innerValue !== ''}
           testID={renderInputTestID}
           value={innerValue}
           onChangeText={(text: string): void => {
             setInnerValue(text);
           }}
-          label={placeholderText || 'Search...'}
+          label={placeholderText || 'Choose a country'}
+          onFocus={(): void => handleFocus(true)}
+          onBlur={(): void => handleFocus(false)}
         />
         <CaretContainer testID={caretBtnTestID} onPress={onPressCaret}>
           <StyledImage source={isOptionsOpen ? IC_ARR_UP : IC_ARR_DOWN} />

@@ -1,52 +1,47 @@
-import React, { ReactElement, useCallback, useState, useEffect } from 'react';
-import { Text, View, Animated } from 'react-native';
+import React, { ReactElement, useEffect, useState } from 'react';
 
-import { Input, InputContainer } from './styles';
+import { Animated } from 'react-native';
+import { Input } from './styles';
 
 const RenderInput = (props): ReactElement => {
-  
-  const [isFocused, setIsFocused] = useState<boolean>(false);
-  const handleFocus = useCallback((): void => {
-    setIsFocused(true);
-  }, [isFocused]);
-  const handleBlur = useCallback((): void => {
-    setIsFocused(false);
-  }, [isFocused]);
-  const [animatedIsFocused] = useState(new Animated.Value(props.value === '' ? 0 : 1))
+  const [animatedIsFocused] = useState(new Animated.Value(props.on ? 1 : 0));
   useEffect(() => {
     Animated.timing(animatedIsFocused, {
-      toValue: (isFocused || props.value !== '') ? 1 : 0,
+      toValue: props.on ? 1 : 0,
       duration: 200,
     }).start();
-   }, [isFocused, props.value]) 
-   
+  }, [props.on]);
+
   return (
-   <>
-    <Animated.Text style={
-      { 
-        position: 'absolute',
-        top: animatedIsFocused.interpolate({
-          inputRange: [0, 1],
-          outputRange: [18, -10],
-        }),
-        left: animatedIsFocused.interpolate({
-          inputRange: [0, 1],
-          outputRange: [0, 10],
-        }),
-        fontSize: animatedIsFocused.interpolate({
-          inputRange: [0, 1],
-          outputRange: [20, 14],
-        }),
-        color: animatedIsFocused.interpolate({
-          inputRange: [0, 1],
-          outputRange: ['#cdd2d7', '#1976d2'],
-        })
-      }
-    }>
-      {props.label}
-    </Animated.Text>
-    <Input {...props} onFocus={handleFocus} onBlur={handleBlur} />
-   </>
+    <>
+      <Animated.Text
+        style={{
+          paddingLeft: 4,
+          paddingRight: 4,
+          position: 'absolute',
+          top: animatedIsFocused.interpolate({
+            inputRange: [0, 1],
+            outputRange: [18, -10],
+          }),
+          left: animatedIsFocused.interpolate({
+            inputRange: [0, 1],
+            outputRange: [7, 10],
+          }),
+          fontSize: animatedIsFocused.interpolate({
+            inputRange: [0, 1],
+            outputRange: [20, 14],
+          }),
+          color: animatedIsFocused.interpolate({
+            inputRange: [0, 1],
+            outputRange: ['#cdd2d7', 'royalblue'],
+          }),
+          backgroundColor: 'white',
+        }}
+      >
+        {props.label}
+      </Animated.Text>
+      <Input {...props} onFocus={props.onFocus} onBlur={props.onBlur} />
+    </>
   );
 };
 

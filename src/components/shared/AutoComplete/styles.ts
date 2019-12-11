@@ -11,13 +11,13 @@ export const Wrapper = styled.View`
 
 export const InputContainer = styled.View<InputContainerProps>`
   min-width: 250px;
-  background-color: #f3f5f7;
   height: 60px;
   margin: ${({ on }): string => (on ? '5px 20px' : '0 20px')};
   margin-right: 20px;
   border-radius: 6px;
   flex-direction: row;
-  border: 2px solid royalblue;
+  border: ${({ on }): string => (on ? '2px solid' : '1px solid')};
+  border-color: ${({ on }): string => (on ? 'royalblue' : '#000000')};
 `;
 
 export const Input = styled.TextInput`
