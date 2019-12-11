@@ -11,8 +11,8 @@ import {
   ViewStyle,
 } from 'react-native';
 import { IC_ARR_DOWN, IC_ARR_UP } from '../Icons';
-import React, { useCallback, useState } from 'react';
-import styled, { DefaultTheme } from 'styled-components/native';
+import React, { ReactElement, useCallback, useState } from 'react';
+import styled, { DefaultTheme, css } from 'styled-components/native';
 
 import { FlattenSimpleInterpolation } from 'styled-components';
 
@@ -260,17 +260,6 @@ const ItemText = styled.Text<Selected>`
   color: ${COLOR.BLACK};
 `;
 
-interface Item {
-  value: string;
-  text: string;
-}
-
-interface ItemStyle {
-  list?: StyleProp<DefaultTheme>;
-  defaultItem?: StyleProp<DefaultTheme>;
-  selectedItem?: StyleProp<DefaultTheme>;
-}
-
 interface Props {
   testID?: string;
   theme?: ThemeEnum;
@@ -280,7 +269,8 @@ interface Props {
   activeOpacity: number;
   disabled?: boolean;
   items: Item[];
-  itemStyle?: ItemStyle;
+  itemStyle?: StyleProp<ViewStyle>;
+  selectedItemStyle?: StyleProp<ViewStyle>;
   onSelect: (Item) => void;
   selectedItem: Item;
 }
@@ -300,7 +290,6 @@ export interface Props {
 }
 
 function Select(props: Props): React.ReactElement {
-  const selectRef = React.createRef();
   const {
     testID,
     theme,
@@ -314,13 +303,23 @@ function Select(props: Props): React.ReactElement {
     disabled,
     items,
     itemStyle,
+    selectedItemStyle,
     onSelect,
     selectedItem,
   } = props;
 
-  const [listOpen, setListOpen] = useState<boolean>(false);
+  const [selectRef] = useState(React.createRef<ReactElement>());
   const [layout, setLayout] = useState<object>({});
+  const getLayout = (): void => {
+    if (selectRef.current) {
+      selectRef.current.measureInWindow((ox, oy, width, height) => {
+        setLayout({ ox, oy, width, height });
+      });
+    }
+  };
+  const [listOpen, setListOpen] = useState<boolean>(false);
   const toggleList = useCallback(() => {
+    getLayout();
     setListOpen(!listOpen);
   }, [listOpen]);
 
@@ -343,11 +342,10 @@ function Select(props: Props): React.ReactElement {
   const renderItem = ({
     item,
   }: ListRenderItemInfo<Item>): React.ReactElement => {
-    const style = itemStyle
-      ? selectedItem && selectedItem.value === item.value
-        ? itemStyle.selectedItem
-        : itemStyle.defaultItem
-      : {};
+    const style =
+      selectedItem && selectedItem.value === item.value
+        ? selectedItemStyle
+        : itemStyle;
     return (
       <ItemView
         style={style}
@@ -367,14 +365,7 @@ function Select(props: Props): React.ReactElement {
     );
   };
   return (
-    <SelectContainer
-      ref={selectRef}
-      onLayout={(): void => {
-        selectRef.current.measure((ox, oy, width, height, px, py) => {
-          setLayout({ ox, oy, px, py, width, height });
-        });
-      }}
-    >
+    <SelectContainer ref={selectRef} onLayout={getLayout}>
       <TouchableOpacity
         testID={`${testID}-${TESTID.TOUCHABLEOPACITY}`}
         activeOpacity={activeOpacity}
@@ -407,17 +398,19 @@ function Select(props: Props): React.ReactElement {
         transparent={true}
       >
         <SelectListView
-          style={[
-            itemStyle && itemStyle.list,
-            { top: layout.py, left: layout.px, width: layout.width },
-          ]}
+          style={{
+            shadowOffset: { width: 0, height: 5 },
+            top: layout.oy,
+            left: layout.ox,
+            width: layout.width,
+          }}
         >
           <RootCloseView
             onPress={toggleList}
             style={{ height: layout.height }}
           ></RootCloseView>
           <SelectList
-            style={itemStyle && itemStyle.defaultItem}
+            style={itemStyle}
             testID={`${testID}-${TESTID.SELECTLIST}`}
             data={items}
             renderItem={renderItem}

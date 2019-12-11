@@ -9,11 +9,7 @@ import styled from 'styled-components/native';
 
 storiesOf('Select', module)
   .addDecorator(ContainerDeco)
-  .add('default', () => (
-    <>
-      <Default />
-    </>
-  ));
+  .add('default', () => <Default />);
 interface Item {
   value: string;
   text: string;
@@ -45,95 +41,67 @@ function Default(): React.ReactElement {
   );
   return (
     <Container>
-      <Container style={{ zIndex: 4 }}>
-        <Select
-          itemStyle={{
-            list: {
-              shadowOffset: { width: 0, height: 5 },
-            },
-            defaultItem: {
-              color: 'grey',
-            },
-            selectedItem: {
-              color: 'black',
-            },
-          }}
-          placeholder={'select'}
-          onClick={action('Clicked')}
-          items={ITEMS}
-          onSelect={onSelect}
-          selectedItem={selectedItem}
-        />
-      </Container>
-      <Container style={{ zIndex: 3 }}>
-        <Select
-          theme={'box'}
-          itemStyle={{
-            list: {
-              shadowOffset: { width: 0, height: 5 },
-            },
-            defaultItem: {
-              color: 'grey',
-            },
-            selectedItem: {
-              color: 'black',
-            },
-          }}
-          placeholder={'select'}
-          onClick={action('Clicked')}
-          items={ITEMS}
-          onSelect={onSelect}
-          selectedItem={selectedItem}
-        />
-      </Container>
-      <Container style={{ zIndex: 2 }}>
-        <Select
-          theme={'underbar'}
-          itemStyle={{
-            list: {
-              shadowOffset: { width: 0, height: 5 },
-            },
-            defaultItem: {
-              color: 'grey',
-            },
-            selectedItem: {
-              color: 'black',
-            },
-          }}
-          placeholder={'select'}
-          onClick={action('Clicked')}
-          items={ITEMS}
-          onSelect={onSelect}
-          selectedItem={selectedItem}
-        />
-      </Container>
-      <Container style={{ zIndex: 1 }}>
-        <Select
-          rootViewStyle={{
-            borderBottomColor: 'black',
-            borderBottomWidth: 2,
-          }}
-          rootTextStyle={{
-            color: 'orange',
-          }}
-          itemStyle={{
-            list: {
-              shadowOffset: { width: 0, height: 5 },
-            },
-            defaultItem: {
-              color: 'grey',
-            },
-            selectedItem: {
-              color: 'black',
-            },
-          }}
-          placeholder={'select'}
-          onClick={action('Clicked')}
-          items={ITEMS}
-          onSelect={onSelect}
-          selectedItem={selectedItem}
-        />
-      </Container>
+      <Select
+        itemStyle={{
+          color: 'grey',
+        }}
+        selectedItemStyle={{
+          color: 'black',
+        }}
+        placeholder={'select'}
+        onClick={action('Clicked')}
+        items={ITEMS}
+        onSelect={onSelect}
+        selectedItem={selectedItem}
+      />
+      <Select
+        theme={ThemeEnum.box}
+        itemStyle={{
+          color: 'grey',
+        }}
+        selectedItemStyle={{
+          color: 'black',
+        }}
+        placeholder={'select'}
+        onClick={action('Clicked')}
+        items={ITEMS}
+        onSelect={onSelect}
+        selectedItem={selectedItem}
+      />
+      <Select
+        theme={ThemeEnum.underbar}
+        itemStyle={{
+          color: 'grey',
+        }}
+        selectedItemStyle={{
+          color: 'black',
+        }}
+        placeholder={'select'}
+        onClick={action('Clicked')}
+        items={ITEMS}
+        onSelect={onSelect}
+        selectedItem={selectedItem}
+      />
+      <Select
+        rootViewStyle={{
+          borderBottomColor: 'black',
+          borderBottomWidth: 2,
+        }}
+        rootTextStyle={{
+          color: 'orange',
+        }}
+        itemStyle={{
+          color: 'grey',
+        }}
+        selectedItemStyle={{
+          color: 'black',
+        }}
+        placeholder={'select'}
+        onClick={action('Clicked')}
+        items={ITEMS}
+        onSelect={onSelect}
+        selectedItem={selectedItem}
+      />
     </Container>
   );
 }
