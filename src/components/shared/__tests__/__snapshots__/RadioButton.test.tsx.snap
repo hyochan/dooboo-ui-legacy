@@ -1,0 +1,266 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`[RadioButton] render [RadioButton] Interaction should simulate props 1`] = `
+<View
+  accessible={true}
+  clickable={true}
+  isTVSelectable={true}
+  onClick={[Function]}
+  onResponderGrant={[Function]}
+  onResponderMove={[Function]}
+  onResponderRelease={[Function]}
+  onResponderTerminate={[Function]}
+  onResponderTerminationRequest={[Function]}
+  onStartShouldSetResponder={[Function]}
+  style={
+    Object {
+      "alignItems": "center",
+      "flexDirection": "column",
+      "justifyContent": "center",
+      "opacity": 1,
+      "paddingVertical": 8,
+    }
+  }
+>
+  <Text
+    isDisabled={false}
+    style={
+      Array [
+        Object {
+          "color": "black",
+        },
+      ]
+    }
+  >
+    
+  </Text>
+  <View
+    borderRadius={12}
+    borderWidth={2}
+    color="rgba(0, 0, 0, 0.54)"
+    size={23}
+    style={
+      Array [
+        Object {
+          "alignItems": "center",
+          "borderColor": "rgba(0, 0, 0, 0.54)",
+          "height": 23,
+          "justifyContent": "center",
+          "marginBottom": 7,
+          "marginLeft": 7,
+          "marginRight": 7,
+          "marginTop": 7,
+          "width": 23,
+        },
+      ]
+    }
+  >
+    <View
+      style={
+        Object {
+          "backgroundColor": "rgba(0, 0, 0, 0.54)",
+          "borderRadius": 12,
+          "height": 0,
+          "width": 0,
+        }
+      }
+    />
+  </View>
+</View>
+`;
+
+exports[`[RadioButton] render [RadioButton] Interaction should simulate props 2`] = `
+<View
+  accessible={true}
+  clickable={true}
+  isTVSelectable={true}
+  onClick={[Function]}
+  onResponderGrant={[Function]}
+  onResponderMove={[Function]}
+  onResponderRelease={[Function]}
+  onResponderTerminate={[Function]}
+  onResponderTerminationRequest={[Function]}
+  onStartShouldSetResponder={[Function]}
+  style={
+    Object {
+      "alignItems": "center",
+      "flexDirection": "row",
+      "justifyContent": "flex-start",
+      "opacity": 1,
+      "paddingVertical": 8,
+    }
+  }
+>
+  <View
+    borderRadius={12}
+    borderWidth={2}
+    color="#c8c8c8"
+    size={23}
+    style={
+      Array [
+        Object {
+          "alignItems": "center",
+          "borderColor": "#c8c8c8",
+          "height": 23,
+          "justifyContent": "center",
+          "marginBottom": 7,
+          "marginLeft": 7,
+          "marginRight": 7,
+          "marginTop": 7,
+          "width": 23,
+        },
+      ]
+    }
+  >
+    <View
+      style={
+        Object {
+          "backgroundColor": "#c8c8c8",
+          "borderRadius": 12,
+          "height": 0,
+          "width": 0,
+        }
+      }
+    />
+  </View>
+  <Text
+    isDisabled={true}
+    style={
+      Array [
+        Object {
+          "color": "#969696",
+        },
+      ]
+    }
+  >
+    
+  </Text>
+</View>
+`;
+
+exports[`[RadioButton] render [RadioButton] Interaction should simulate props 3`] = `
+<View
+  accessible={true}
+  clickable={true}
+  isTVSelectable={true}
+  onClick={[Function]}
+  onResponderGrant={[Function]}
+  onResponderMove={[Function]}
+  onResponderRelease={[Function]}
+  onResponderTerminate={[Function]}
+  onResponderTerminationRequest={[Function]}
+  onStartShouldSetResponder={[Function]}
+  style={
+    Object {
+      "alignItems": "center",
+      "flexDirection": "row",
+      "justifyContent": "flex-start",
+      "opacity": 1,
+      "paddingVertical": 8,
+    }
+  }
+>
+  <View
+    borderRadius={12}
+    borderWidth={2}
+    color="rgba(0, 0, 0, 0.54)"
+    size={23}
+    style={
+      Array [
+        Object {
+          "alignItems": "center",
+          "borderColor": "rgba(0, 0, 0, 0.54)",
+          "height": 23,
+          "justifyContent": "center",
+          "marginBottom": 7,
+          "marginLeft": 7,
+          "marginRight": 7,
+          "marginTop": 7,
+          "width": 23,
+        },
+      ]
+    }
+  />
+  <Text
+    isDisabled={false}
+    style={
+      Array [
+        Object {
+          "color": "black",
+        },
+      ]
+    }
+  >
+    
+  </Text>
+</View>
+`;
+
+exports[`[RadioButton] render renders without crashing 1`] = `
+<View
+  accessible={true}
+  clickable={true}
+  isTVSelectable={true}
+  onClick={[Function]}
+  onResponderGrant={[Function]}
+  onResponderMove={[Function]}
+  onResponderRelease={[Function]}
+  onResponderTerminate={[Function]}
+  onResponderTerminationRequest={[Function]}
+  onStartShouldSetResponder={[Function]}
+  style={
+    Object {
+      "alignItems": "center",
+      "flexDirection": "row",
+      "justifyContent": "flex-start",
+      "opacity": 1,
+      "paddingVertical": 8,
+    }
+  }
+>
+  <View
+    borderRadius={12}
+    borderWidth={2}
+    color="rgba(0, 0, 0, 0.54)"
+    size={23}
+    style={
+      Array [
+        Object {
+          "alignItems": "center",
+          "borderColor": "rgba(0, 0, 0, 0.54)",
+          "height": 23,
+          "justifyContent": "center",
+          "marginBottom": 7,
+          "marginLeft": 7,
+          "marginRight": 7,
+          "marginTop": 7,
+          "width": 23,
+        },
+      ]
+    }
+  >
+    <View
+      style={
+        Object {
+          "backgroundColor": "rgba(0, 0, 0, 0.54)",
+          "borderRadius": 12,
+          "height": 0,
+          "width": 0,
+        }
+      }
+    />
+  </View>
+  <Text
+    isDisabled={false}
+    style={
+      Array [
+        Object {
+          "color": "black",
+        },
+      ]
+    }
+  >
+    
+  </Text>
+</View>
+`;
