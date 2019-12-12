@@ -70,10 +70,11 @@ describe('[RadioButton] render', () => {
       expect(rendered).toMatchSnapshot();
       expect(rendered).toBeTruthy();
 
-      rendered.update(component({ disabled: false, value: 0, selectedValue: 1 }));
+      rendered.update(
+        component({ disabled: false, value: 0, selectedValue: 1 }),
+      );
       expect(rendered).toMatchSnapshot();
       expect(rendered).toBeTruthy();
-    })
+    });
   });
 });
-
