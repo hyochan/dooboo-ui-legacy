@@ -21,6 +21,7 @@ const Container = styled.View<{ percent: number }>`
 interface Props {
   size?: number;
   percent: number;
+  defaultPercent?: number;
 }
 
 const Thumb: FC<Props> = ({ size = 12, percent }) => {

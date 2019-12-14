@@ -608,14 +608,14 @@ exports[`[Slider] render renders without crashing 1`] = `
     onResponderTerminate={[Function]}
     onResponderTerminationRequest={[Function]}
     onStartShouldSetResponder={[Function]}
-    percentagePosition={NaN}
+    percent={0}
     style={
       Array [
         Object {
           "backgroundColor": "#0b21e8",
           "borderRadius": 6,
           "height": 12,
-          "left": "NaN%",
+          "left": "0%",
           "position": "absolute",
           "top": -4.5,
           "transform": Array [

@@ -26,7 +26,12 @@ const Container = styled.View`
 function Default(): React.ReactElement {
   return (
     <Container>
-      <Slider />
+      <Slider
+        defaultValue={50}
+        onChange={(value): void => {
+          console.log(value);
+        }}
+      />
     </Container>
   );
 }

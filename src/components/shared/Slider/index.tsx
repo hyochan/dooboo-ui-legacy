@@ -1,4 +1,5 @@
 import React, { FC, useRef, useState } from 'react';
+import { getPercent, percentToValue, valueToPercent } from './utils';
 import { PanResponder } from 'react-native';
 import Rail from './Rail';
 import Thumb from './Thumb';
@@ -16,18 +17,18 @@ interface Props {
   step?: number;
 }
 
-const Slider: FC<Props> = ({ maxValue = 100, minValue = 0 }) => {
+const Slider: FC<Props> = ({
+  maxValue = 100,
+  minValue = 0,
+  defaultValue,
+  onChange,
+}) => {
   const sliderRef = useRef<any>();
-  const [sliderLength, setSliderLength] = useState(0);
+  const [sliderLength, setSliderLength] = useState<number>(0);
   const [sliderPositionX, setSliderPositionX] = useState(0);
-  const [positionX, setPositionX] = useState(0);
-
-  const getPercent = (): number => {
-    const percent = (positionX / sliderLength) * 100;
-    if (percent <= 0) return 0;
-    else if (percent >= 100) return 100;
-    else return percent;
-  };
+  const [percent, setPercent] = useState(
+    defaultValue ? valueToPercent(defaultValue, maxValue, minValue) : 0,
+  );
 
   const panResponder = React.useMemo(
     () =>
@@ -36,10 +37,14 @@ const Slider: FC<Props> = ({ maxValue = 100, minValue = 0 }) => {
         onPanResponderMove: (evt, gestureState) => {
           // the latest screen coordinates of the recently-moved touch
           const moveX = gestureState.moveX;
-          setPositionX(moveX - sliderPositionX);
+          const percent = getPercent(moveX - sliderPositionX, sliderLength);
+          setPercent(percent);
+          if (onChange) {
+            onChange(percentToValue(percent, maxValue, minValue));
+          }
         },
       }),
-    [sliderPositionX],
+    [sliderPositionX, sliderLength, onChange],
   );
 
   return (
@@ -56,7 +61,7 @@ const Slider: FC<Props> = ({ maxValue = 100, minValue = 0 }) => {
       }}
     >
       <Rail />
-      <Thumb percent={getPercent()} />
+      <Thumb percent={percent} />
     </Container>
   );
 };
