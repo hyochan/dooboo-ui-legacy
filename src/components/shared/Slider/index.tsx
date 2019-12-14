@@ -18,15 +18,15 @@ interface Props {
 
 const Slider: FC<Props> = ({ maxValue = 100, minValue = 0 }) => {
   const sliderRef = useRef<any>();
-  const [sliderWidth, setSliderWidth] = useState(0);
-  const [layoutX, setLayoutX] = useState(0);
+  const [sliderLength, setSliderLength] = useState(0);
+  const [sliderPositionX, setSliderPositionX] = useState(0);
   const [positionX, setPositionX] = useState(0);
 
-  const getPercentagePosition = (): number => {
-    const percentage = (positionX / sliderWidth) * 100;
-    if (percentage <= 0) return 0;
-    else if (percentage >= 100) return 100;
-    else return percentage;
+  const getPercent = (): number => {
+    const percent = (positionX / sliderLength) * 100;
+    if (percent <= 0) return 0;
+    else if (percent >= 100) return 100;
+    else return percent;
   };
 
   const panResponder = React.useMemo(
@@ -34,11 +34,12 @@ const Slider: FC<Props> = ({ maxValue = 100, minValue = 0 }) => {
       PanResponder.create({
         onMoveShouldSetPanResponder: () => true,
         onPanResponderMove: (evt, gestureState) => {
+          // the latest screen coordinates of the recently-moved touch
           const moveX = gestureState.moveX;
-          setPositionX(moveX - layoutX);
+          setPositionX(moveX - sliderPositionX);
         },
       }),
-    [layoutX],
+    [sliderPositionX],
   );
 
   return (
@@ -48,14 +49,14 @@ const Slider: FC<Props> = ({ maxValue = 100, minValue = 0 }) => {
       onLayout={(): void => {
         if (sliderRef) {
           sliderRef.current.measure((x, y, width, height, pageX) => {
-            setLayoutX(pageX);
-            setSliderWidth(width);
+            setSliderPositionX(pageX);
+            setSliderLength(width);
           });
         }
       }}
     >
       <Rail />
-      <Thumb percentagePosition={getPercentagePosition()} />
+      <Thumb percent={getPercent()} />
     </Container>
   );
 };

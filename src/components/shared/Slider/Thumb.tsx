@@ -7,7 +7,7 @@ import {
 import React, { FC, ReactNode, useState } from 'react';
 import styled from 'styled-components/native';
 
-const Container = styled.View<{ percentagePosition: number }>`
+const Container = styled.View<{ percent: number }>`
   position: absolute;
   width: 12;
   height: 12;
@@ -15,15 +15,15 @@ const Container = styled.View<{ percentagePosition: number }>`
   border-radius: 6;
   top: -4.5;
   transform: translate(-6px);
-  left: ${({ percentagePosition }): string => `${percentagePosition}%`};
+  left: ${({ percent }): string => `${percent}%`};
 `;
 
 interface Props {
   size?: number;
-  percentagePosition: number;
+  percent: number;
 }
 
-const Thumb: FC<Props> = ({ size = 12, percentagePosition }) => {
+const Thumb: FC<Props> = ({ size = 12, percent }) => {
   const [scaleValue, setScaleValue] = useState(new Animated.Value(0.01));
   const [opacityValue, setOpacityValue] = useState(new Animated.Value(0.12));
   const onPressedIn = (): void => {
@@ -65,7 +65,7 @@ const Thumb: FC<Props> = ({ size = 12, percentagePosition }) => {
 
   return (
     <TouchableWithoutFeedback onPressIn={onPressedIn} onPressOut={onPressedOut}>
-      <Container percentagePosition={percentagePosition}>
+      <Container percent={percent}>
         {renderRippleView()}
       </Container>
     </TouchableWithoutFeedback>
