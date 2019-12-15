@@ -10,7 +10,6 @@ import dummyData from './dummyData';
 // reference : https://dev.to/gabe_ragland/debouncing-with-react-hooks-jci
 function useDebounce(value: string, delay = 400): string {
   const [debouncedValue, setDebouncedValue] = useState<string>(value);
-
   useEffect(() => {
     const handler = setTimeout(() => {
       setDebouncedValue(value);
@@ -58,6 +57,15 @@ export default function AutoComplete({
     }, 80);
   }, []);
 
+  const filterData: DummyDatum[] = filteredData.filter(
+    ({ id, label, value }) => {
+      const innerValueLower = innerValue ? innerValue.toLowerCase() : null;
+      id.toLowerCase().includes(innerValueLower) ||
+        label.toLowerCase().includes(innerValueLower) ||
+        value.toLowerCase().includes(innerValueLower);
+    },
+  );
+
   return (
     <Wrapper>
       <InputContainer style={style} on={isOptionsOpen}>
@@ -74,7 +82,7 @@ export default function AutoComplete({
           <StyledImage source={isOptionsOpen ? IC_ARR_UP : IC_ARR_DOWN} />
         </CaretContainer>
       </InputContainer>
-      {isOptionsOpen && <Options data={filteredData} onPress={onPressOption} />}
+      {isOptionsOpen && <Options data={filterData} onPress={onPressOption} />}
     </Wrapper>
   );
 }
