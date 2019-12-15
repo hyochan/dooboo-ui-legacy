@@ -34,7 +34,7 @@ export default function AutoComplete({
   underlayColor,
 }: AutoCompleteProps): ReactElement {
   const [innerValue, setInnerValue] = useState<string>(value);
-  const [selectedData, setSelectedData] = useState<DummyDatum>();
+  const [selectedData, setSelectedData] = useState<DummyDatum | null>(null);
   const [isOptionsOpen, toggleOptions] = useState(false);
   const debouncedValue = useDebounce(innerValue, debounceDelay);
   const [filteredData] = useState<DummyDatum[]>(dummyData);
