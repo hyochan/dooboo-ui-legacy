@@ -195,17 +195,5 @@ describe('[Select] render', () => {
       expect(inputtedRootViewStyle).toBeUndefined();
       expect(inputtedRootTextStyle).toBeUndefined();
     });
-
-    // it('should call [setShowMenu] when focused', () => {
-    //   console.log('1-2. called');
-    //   const textInput = testingLib.getByTestId('input_chat');
-    //   textInput.props.onFocus();
-    // });
-
-    // it('should call [setShowMenu] when focused', () => {
-    //   console.log('1-4. called');
-    //   const touchMenu = testingLib.getByTestId('touch_menu');
-    //   fireEvent.press(touchMenu);
-    // });
   });
 });
