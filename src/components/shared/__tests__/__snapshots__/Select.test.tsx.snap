@@ -1,0 +1,81 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`[Select] render renders without crashing 1`] = `
+<View
+  style={
+    Array [
+      Object {
+        "zIndex": 1,
+      },
+    ]
+  }
+>
+  <View
+    accessible={true}
+    clickable={true}
+    isTVSelectable={true}
+    onClick={[Function]}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      Object {
+        "opacity": 1,
+      }
+    }
+  >
+    <View
+      style={
+        Array [
+          Object {
+            "alignItems": "center",
+            "backgroundColor": "#ffffff",
+            "elevation": 1,
+            "flexDirection": "row",
+            "height": 48,
+            "justifyContent": "space-between",
+            "paddingBottom": 14,
+            "paddingLeft": 6,
+            "paddingRight": 6,
+            "paddingTop": 14,
+            "shadowColor": "#5364ff",
+            "shadowOpacity": 0.5,
+            "shadowRadius": 5,
+            "width": 128,
+          },
+          null,
+        ]
+      }
+      testID="undefined-root-select"
+      theme="none"
+    >
+      <Text
+        style={
+          Array [
+            Object {
+              "color": "#09071d",
+              "fontSize": 14,
+            },
+            null,
+          ]
+        }
+        testID="undefined-root-text"
+        theme="none"
+      >
+        
+      </Text>
+      <Image
+        source={
+          Object {
+            "testUri": "../../../icons/ic_arr_down.png",
+          }
+        }
+        testID="undefined-root-arrow"
+      />
+    </View>
+  </View>
+</View>
+`;

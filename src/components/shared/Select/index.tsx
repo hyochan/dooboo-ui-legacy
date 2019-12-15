@@ -259,7 +259,7 @@ interface ItemStyle {
   selectedItem?: StyleProp<DefaultTheme>;
 }
 
-interface Props {
+export interface Props {
   testID?: string;
   items: string;
   theme?: ThemeEnum;
