@@ -24,7 +24,7 @@ export type RenderOptionProps = DummyDatum & {
 export type RenderOptionsProps = {
   data: DummyDatum[];
   onPress: OnPressOption;
-  selectedData: DummyDatum;
+  selectedData: DummyDatum | null;
   underlayColor?: string;
 };
 
