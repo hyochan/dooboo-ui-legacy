@@ -55,6 +55,10 @@ function Default(): React.ReactElement {
             color: 'black',
           },
         }}
+        title={'box with border'}
+        titleTextStyle={{
+          color: 'black',
+        }}
         placeholder={'select'}
         onClick={action('Clicked')}
         items={ITEMS}
@@ -72,6 +76,10 @@ function Default(): React.ReactElement {
             color: 'black',
           },
         }}
+        title={'box with underbar'}
+        titleTextStyle={{
+          color: 'skyblue',
+        }}
         placeholder={'select'}
         onClick={action('Clicked')}
         items={ITEMS}
@@ -83,6 +91,10 @@ function Default(): React.ReactElement {
         }}
         rootTextStyle={{
           color: 'orange',
+        }}
+        title={'box without bg'}
+        titleTextStyle={{
+          color: 'red',
         }}
         placeholder={'select'}
         onClick={action('Clicked')}
