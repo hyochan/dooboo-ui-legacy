@@ -1,11 +1,15 @@
-import React, { useEffect, useState } from 'react';
+import React, { useMemo } from 'react';
 
 import styled from 'styled-components/native';
+
+interface OnchangeProps {
+  value: number;
+}
 
 interface Props {
   total: number;
   value: number;
-  onChange?: Function;
+  onChange?: (props: OnchangeProps) => void;
   disabled?: boolean;
 }
 
@@ -17,7 +21,7 @@ interface ContainerWrapperProps {
 interface StarProps {
   key: number;
   on: boolean;
-  onPress: Function;
+  onPress: () => void;
   disabled?: boolean;
 }
 
@@ -57,33 +61,30 @@ function StarComponent(props: StarProps): React.ReactElement {
 }
 
 function Rating(props: Props): React.ReactElement {
-  const [position, setPosition] = useState(0);
-  const initStars = new Array(props.total).fill(false);
-  const active = Boolean(props.onChange);
-  const disabled = Boolean(props.disabled);
-
   const _handlePress = (position: number): void => {
     props.onChange && props.onChange({ value: position + 1 });
   };
 
-  useEffect(() => {
-    setPosition(props.value - 1);
-  }, [props.value]);
+  const initArr = useMemo(() => {
+    return new Array(props.total).fill(false);
+  }, [props.total]);
+
+  const starsArr = useMemo(() => {
+    return initArr.map((item, index) => (
+      <StarComponent
+        key={index}
+        on={props.value - 1 >= index}
+        onPress={(): void => {
+          props.onChange && _handlePress(index);
+        }}
+        disabled={!props.onChange || props.disabled}
+      />
+    ));
+  }, [props.value, props.onChange, props.disabled]);
 
   return (
     <ContainerWrapper total={props.total} disabled={props.disabled}>
-      {initStars.map((item, index) => {
-        return (
-          <StarComponent
-            key={index}
-            on={position >= index}
-            onPress={(): void => {
-              active && _handlePress(index);
-            }}
-            disabled={!active || disabled}
-          />
-        );
-      })}
+      {starsArr}
     </ContainerWrapper>
   );
 }
