@@ -24,7 +24,7 @@ exports[`[Select] render renders without crashing 1`] = `
         Object {
           "alignItems": "center",
           "backgroundColor": "#ffffff",
-          "elevation": 1,
+          "elevation": 8,
           "flexDirection": "row",
           "height": 48,
           "justifyContent": "space-between",
