@@ -23,7 +23,7 @@
      - Check your status by `git log --decorate --oneline --all --graph` or `yarn git:log`
 2. Git clone your forked repository.
    ```
-   git clone https://github.com/<your-id>/dooboo-nativeg-widgets.git
+   git clone https://github.com/<your-id>/dooboo-ui-native.git
    ```
 3. Install your packages
    ```
