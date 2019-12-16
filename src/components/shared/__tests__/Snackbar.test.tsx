@@ -4,27 +4,38 @@ import * as React from 'react';
 
 import Snackbar, { SnackbarProps } from '../Snackbar';
 
+import { render } from '@testing-library/react-native';
 import renderer from 'react-test-renderer';
 
 // Note: test renderer must be required after react-native.
 
-let props: SnackbarProps;
+const props: SnackbarProps = {
+  testID: 'snackbar',
+  text: 'SnackBar!',
+  show: true,
+  setShow: jest.fn(),
+};
 let component: React.ReactElement;
+
+jest.useFakeTimers();
 
 describe('[Snackbar]', () => {
   beforeEach(() => {
-    props = {
-      testID: 'snackbar',
-      text: 'SnackBar!',
-      show: true,
-      setShow: (): void => {},
-    };
     component = <Snackbar {...props} />;
   });
 
   it('renders without crashing', () => {
-    const rendered = renderer.create(component).toJSON();
-    expect(rendered).toMatchSnapshot();
-    expect(rendered).toBeTruthy();
+    const rendered = renderer.create(component);
+    expect(rendered.toJSON()).toMatchSnapshot();
+    expect(rendered.toJSON()).toBeTruthy();
+
+    rendered.update(<Snackbar {...{ ...props, show: false }} />);
+    expect(rendered.toJSON()).toBeFalsy();
+  });
+
+  it('should dismiss after timeout', async () => {
+    render(component);
+    jest.runAllTimers();
+    expect(props.setShow).toBeCalled();
   });
 });

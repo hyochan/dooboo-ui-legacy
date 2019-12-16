@@ -27,7 +27,6 @@ export enum Timer {
 
 const Snackbar: React.FC<SnackbarProps> = (props) => {
   const { testID, show, setShow, timer = Timer.SHORT } = props;
-  console.log('timer', timer);
   React.useEffect(() => {
     let timeout;
     if (show === true) {
@@ -37,7 +36,6 @@ const Snackbar: React.FC<SnackbarProps> = (props) => {
     }
     return (): void => clearTimeout(timeout);
   }, [show]);
-
   return (
     <>
       {show && (
