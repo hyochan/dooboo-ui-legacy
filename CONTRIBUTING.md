@@ -37,7 +37,7 @@
 
    1. **Run metro bundler**
       ```
-      yarn storybook
+      yarn start
       ```
    2. **run storybook web server**
       ```
