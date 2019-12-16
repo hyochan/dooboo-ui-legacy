@@ -38,17 +38,6 @@ function Default(): React.ReactElement {
   return (
     <Container>
       <Select
-        itemStyle={{
-          list: {
-            shadowOffset: { width: 0, height: 5 },
-          },
-          defaultItem: {
-            color: 'grey',
-          },
-          selectedItem: {
-            color: 'black',
-          },
-        }}
         placeholder={'select'}
         onClick={action('Clicked')}
         items={ITEMS}

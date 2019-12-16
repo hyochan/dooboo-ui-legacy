@@ -91,7 +91,7 @@ const COLOR: {
 };
 
 const bsCss = css`
-  elevation: 1;
+  elevation: 8;
   shadow-color: ${COLOR.DODGERBLUE};
   shadow-offset: {
     width: 3;
