@@ -39,20 +39,16 @@ const Divider = styled.View`
   background-color: lightgrey;
 `;
 
-interface RatingChangeProps {
-  value: number;
-}
-
 function Default(): React.ReactElement {
   const [stars1, setstars1] = React.useState(3);
   const [stars2, setstars2] = React.useState(3);
 
-  const handleChange1 = (props: RatingChangeProps): void => {
-    setstars1(props.value);
+  const handleChange1 = (value: number): void => {
+    setstars1(value);
   };
 
-  const handleChange2 = (props: RatingChangeProps): void => {
-    setstars2(props.value);
+  const handleChange2 = (value: number): void => {
+    setstars2(value);
   };
   return (
     <Container>

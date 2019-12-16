@@ -2,14 +2,10 @@ import React, { useMemo } from 'react';
 
 import styled from 'styled-components/native';
 
-interface OnchangeProps {
-  value: number;
-}
-
 interface Props {
   total: number;
   value: number;
-  onChange?: (props: OnchangeProps) => void;
+  onChange?: (value: number) => void;
   disabled?: boolean;
 }
 
@@ -62,7 +58,7 @@ function StarComponent(props: StarProps): React.ReactElement {
 
 function Rating(props: Props): React.ReactElement {
   const _handlePress = (position: number): void => {
-    props.onChange && props.onChange({ value: position + 1 });
+    props.onChange && props.onChange(position + 1);
   };
 
   const initArr = useMemo(() => {
