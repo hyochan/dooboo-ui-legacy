@@ -1,7 +1,6 @@
 import { IC_ARR_DOWN, IC_ARR_UP } from '../Icons';
 import {
   Image,
-  ShadowStyleIOS,
   StyleProp,
   TextStyle,
   TouchableOpacity,
@@ -31,9 +30,6 @@ enum StylePropEnum {
   border = 'border',
 }
 
-interface BoxShadowType extends ShadowStyleIOS {
-  elevation: number;
-}
 interface BorderStyle extends ViewStyle {
   borderColor?: string;
   borderWidth?: number;
@@ -50,19 +46,16 @@ interface BorderStyle extends ViewStyle {
 interface RootBoxTheme extends DefaultTheme {
   rootbox: {
     backgroundColor: string;
-    boxShadow?: BoxShadowType;
+    boxShadow?: FlattenSimpleInterpolation;
     border?: BorderStyle;
   };
 }
-interface TextThemeType extends DefaultTheme {
+
+interface TextTheme extends DefaultTheme {
   text: {
     fontColor: string;
   };
 }
-// interface CompStyleType {
-//   rootbox: RootBoxThemeType;
-//   text: TextThemeType;
-// }
 
 interface ThemeStyle<T> extends DefaultTheme {
   disabled: T;
@@ -71,10 +64,8 @@ interface ThemeStyle<T> extends DefaultTheme {
   box: T;
   underbar: T;
 }
-interface ViewType {
-  theme: ThemeEnum;
-}
-interface TextType {
+
+interface ThemeType {
   theme: ThemeEnum;
 }
 
@@ -166,20 +157,16 @@ export const themeStylePropCollection: ThemeStyle<RootBoxTheme | TextTheme> = {
   },
 };
 
-type ThemeStylePropType = BoxShadowType | BorderStyle;
 interface ThemePropParams {
   theme: ThemeEnum;
   comp: CompEnum;
   prop: StylePropEnum;
 }
-const getThemeProp = ({ theme, comp, prop }: ThemePropParams): string | ThemeStylePropType => {
-  return themeStylePropCollection[theme][comp][prop];
-};
-const getThemeTextProp = ({ theme, comp, prop }: ThemePropParams): string => {
+const getThemeProp = ({ theme, comp, prop }: ThemePropParams): string => {
   return themeStylePropCollection[theme][comp][prop];
 };
 
-const Text = styled.Text<TextType>`
+const Text = styled.Text<ThemeType>`
   font-size: 14px;
   color: ${(props): string =>
     getThemeProp({
@@ -196,13 +183,13 @@ const RootSelect = styled.View<ThemeType>`
       comp: CompEnum.rootbox,
       prop: StylePropEnum.bc,
     })}
-  ${(props): BoxShadowType =>
+  ${(props): string =>
     getThemeProp({
       theme: props.theme,
       comp: CompEnum.rootbox,
       prop: StylePropEnum.bs,
     })}
-  ${(props): BorderStyle =>
+  ${(props): string =>
     getThemeProp({
       theme: props.theme,
       comp: CompEnum.rootbox,
@@ -215,49 +202,6 @@ const RootSelect = styled.View<ThemeType>`
   align-items: center;
   padding: 14px 6px;
 `;
-
-const SelectListView = styled.View`
-  elevation: 8;
-  shadow-color: ${COLOR.DODGERBLUE};
-  shadow-offset: {
-    width: 0;
-    height: 5;
-  }
-  shadow-opacity: 0.2;
-`;
-
-interface Item {
-  value: string;
-  text: string;
-}
-
-const SelectList = styled(FlatList as new () => FlatList<Item>)`
-  background-color: ${COLOR.WHITE};
-  position: absolute;
-  top: 100%;
-  left: 0;
-  padding-top: 8px;
-`;
-
-const ItemView = styled.TouchableOpacity<Selected>`
-  background-color: ${({ selected }: { selected: boolean }): string =>
-    selected ? COLOR.LIGHTBLUE : COLOR.WHITE};
-  width: 128px;
-  height: 32px;
-  padding: 6px;
-  justify-content: center;
-`;
-
-const ItemText = styled.Text<Selected>`
-  font-size: 14px;
-  color: ${COLOR.BLACK};
-`;
-
-interface ItemStyle {
-  list?: StyleProp<DefaultTheme>;
-  defaultItem?: StyleProp<DefaultTheme>;
-  selectedItem?: StyleProp<DefaultTheme>;
-}
 
 export interface Props {
   testID?: string;
@@ -302,36 +246,7 @@ function Select(props: Props): React.ReactElement {
       : defaultTheme;
   const _rootViewStyle = disabled ? null : rootViewStyle;
   const _rootTextStyle = disabled ? null : rootTextStyle;
-  const renderItem = ({
-    item,
-  }: ListRenderItemInfo<Item>): React.ReactElement => {
-    const style = itemStyle
-      ? selectedItem && selectedItem.value === item.value
-        ? itemStyle.selectedItem
-        : itemStyle.defaultItem
-      : {};
-    return (
-      <ItemView
-        style={style}
-        selected={selectedItem && selectedItem.value === item.value}
-        activeOpacity={1}
-        onPress={(): void => {
-          handleSelect(item);
-        }}
-      >
-        <ItemText
-          selected={selectedItem && selectedItem.value === item.value}
-          style={
-            selectedItem && selectedItem.value === item.value
-              ? itemStyle && itemStyle.selectedItem
-              : itemStyle && itemStyle.defaultItem
-          }
-        >
-          {item.text}
-        </ItemText>
-      </ItemView>
-    );
-  };
+
   return (
     <>
       <TouchableOpacity

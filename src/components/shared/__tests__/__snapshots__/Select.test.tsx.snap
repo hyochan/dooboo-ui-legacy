@@ -2,80 +2,70 @@
 
 exports[`[Select] render renders without crashing 1`] = `
 <View
+  accessible={true}
+  clickable={true}
+  isTVSelectable={true}
+  onClick={[Function]}
+  onResponderGrant={[Function]}
+  onResponderMove={[Function]}
+  onResponderRelease={[Function]}
+  onResponderTerminate={[Function]}
+  onResponderTerminationRequest={[Function]}
+  onStartShouldSetResponder={[Function]}
   style={
-    Array [
-      Object {
-        "zIndex": 1,
-      },
-    ]
+    Object {
+      "opacity": 1,
+    }
   }
 >
   <View
-    accessible={true}
-    clickable={true}
-    isTVSelectable={true}
-    onClick={[Function]}
-    onResponderGrant={[Function]}
-    onResponderMove={[Function]}
-    onResponderRelease={[Function]}
-    onResponderTerminate={[Function]}
-    onResponderTerminationRequest={[Function]}
-    onStartShouldSetResponder={[Function]}
     style={
-      Object {
-        "opacity": 1,
-      }
+      Array [
+        Object {
+          "alignItems": "center",
+          "backgroundColor": "#ffffff",
+          "elevation": 1,
+          "flexDirection": "row",
+          "height": 48,
+          "justifyContent": "space-between",
+          "paddingBottom": 14,
+          "paddingLeft": 6,
+          "paddingRight": 6,
+          "paddingTop": 14,
+          "shadowColor": "#3a8bff",
+          "shadowOpacity": 0.5,
+          "shadowRadius": 5,
+          "width": 128,
+        },
+        null,
+      ]
     }
+    testID="undefined-root-select"
+    theme="none"
   >
-    <View
+    <Text
       style={
         Array [
           Object {
-            "alignItems": "center",
-            "backgroundColor": "#ffffff",
-            "elevation": 1,
-            "flexDirection": "row",
-            "height": 48,
-            "justifyContent": "space-between",
-            "paddingBottom": 14,
-            "paddingLeft": 6,
-            "paddingRight": 6,
-            "paddingTop": 14,
-            "shadowColor": "#5364ff",
-            "shadowOpacity": 0.5,
-            "shadowRadius": 5,
-            "width": 128,
+            "color": "#09071d",
+            "fontSize": 14,
           },
           null,
         ]
       }
-      testID="undefined-root-select"
+      testID="undefined-root-text"
       theme="none"
     >
-      <Text
-        style={
-          Array [
-            Object {
-              "color": "#09071d",
-              "fontSize": 14,
-            },
-            null,
-          ]
+      
+    </Text>
+    <Image
+      source={
+        Object {
+          "testUri": "../../../icons/ic_arr_down.png",
         }
-        testID="undefined-root-text"
-        theme="none"
-      >
-        
-      </Text>
-      <Image
-        source={
-          Object {
-            "testUri": "../../../icons/ic_arr_down.png",
-          }
-        }
-        testID="undefined-root-arrow"
-      />
-    </View>
+      }
+      testID="undefined-root-arrow"
+    />
   </View>
 </View>
 `;

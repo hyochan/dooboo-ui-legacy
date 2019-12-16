@@ -26,6 +26,14 @@ const Container = styled.View`
   flex-direction: column;
 `;
 
+const ITEMS = [
+  { value: 'Category1', text: 'Category1' },
+  { value: 'Category2', text: 'Category2' },
+  { value: 'Category3', text: 'Category3' },
+  { value: 'Category4', text: 'Category4' },
+  { value: 'Category5', text: 'Category5' },
+];
+
 function Default(): React.ReactElement {
   return (
     <Container>
@@ -44,8 +52,6 @@ function Default(): React.ReactElement {
         placeholder={'select'}
         onClick={action('Clicked')}
         items={ITEMS}
-        onSelect={onSelect}
-        selectedItem={selectedItem}
       />
       <Select
         theme={'box'}
@@ -63,8 +69,6 @@ function Default(): React.ReactElement {
         placeholder={'select'}
         onClick={action('Clicked')}
         items={ITEMS}
-        onSelect={onSelect}
-        selectedItem={selectedItem}
       />
       <Select
         theme={'underbar'}
@@ -82,8 +86,6 @@ function Default(): React.ReactElement {
         placeholder={'select'}
         onClick={action('Clicked')}
         items={ITEMS}
-        onSelect={onSelect}
-        selectedItem={selectedItem}
       />
       <Select
         rootViewStyle={{
