@@ -6,7 +6,6 @@ exports[`[Rating] render renders without crashing 1`] = `
     Array [
       Object {
         "alignItems": "center",
-        "backgroundColor": "#EFF0F1",
         "flexDirection": "row",
         "height": 30,
         "justifyContent": "center",
@@ -29,15 +28,28 @@ exports[`[Rating] render renders without crashing 1`] = `
     onStartShouldSetResponder={[Function]}
     style={
       Object {
-        "backgroundColor": "#BDBDBD",
-        "borderColor": "white",
-        "borderStyle": "solid",
-        "borderWidth": 1,
         "height": "100%",
         "opacity": 1,
-        "width": "NaN%",
+        "width": 30,
       }
     }
-  />
+  >
+    <Image
+      resizeMode="contain"
+      source={
+        Object {
+          "testUri": "../../../src/components/shared/Rating/images/UnStar.png",
+        }
+      }
+      style={
+        Array [
+          Object {
+            "height": "100%",
+            "width": "100%",
+          },
+        ]
+      }
+    />
+  </View>
 </View>
 `;
