@@ -3,32 +3,38 @@
 - [![Npm Version](http://img.shields.io/npm/v/@dooboo-ui/native-select.svg?style=flat-square)](https://npmjs.org/package/@dooboo-ui/native-select)
 - [![Downloads](http://img.shields.io/npm/dm/@dooboo-ui/native-select.svg?style=flat-square)](https://npmjs.org/package/@dooboo-ui/native-select)
 
-(Image Area: coming soon)
+![Select Component themes](https://user-images.githubusercontent.com/33364619/70374774-fd328c00-1939-11ea-9af4-776c6885bd41.png)
 
 ## Props
-
-|                | necessary | types                      | default |
-| -------------- | --------- | -------------------------- | ------- |
-| testID         |           | string                     |         |
-| label          |           | string                     |         |
-| items          | ✓         | array                      |         |
-| placeholder    |           | string                     |         |
-| theme          |           | 'underbar', 'box', 'none'  | `none`  |
-| rootStyle      |           | ViewStyle | TextStyle      |         |
-| itemStyle      |           | ViewStyle | TextStyle      |         |
-| disabled       |           | boolean                    | `false` |
+### Table of `Props`
+|                  | necessary | types                      | default |
+| ---------------- | --------- | -------------------------- | ------- |
+| testID           |           | string                     |         |
+| label            |           | string                     |         |
+| items            | ✓         | array                      |         |
+| placeholder      |           | string                     |         |
+| [theme](#theme)  |           | 'none', 'underbar', 'box'  | 'none'  |
+| rootViewStyle    |           | ViewStyle                  |         |
+| rootTextStyle    |           | TextStyle                  |         |
+| itemStyle        |           | ViewStyle | TextStyle      |         |
+| disabled         |           | boolean                    | `false` |
 | [onFocus](#onFocus)   |           | func                       |         |
 | [onBlur](#onBlur)     |           | func                       |         |
 | [onSelect](#onSelect) |           | func                       |         |
 
-## description
-### onFocus
+### Description of `Props`
+#### theme
+- injecting some value to prop `theme`, the other prop `rootViewStyle` doesn't work.
+  - `theme` & `rootTextStyle` props work
+- if you want to `rootViewStyle` work, make `theme` prop empty
+
+#### onFocus
 ...onFocus
 
-### onBlur
+#### onBlur
 ...onFocus
 
-### onSelect
+#### onSelect
 ...onFocus
 
 ## Installation
@@ -53,62 +59,16 @@ yarn add @dooboo-ui/native-select
 
 - Usage
   ```jsx
-  function Page(props: Props) {
-    return (
-      <Container>
-        <Button
-          testID="btn"
-          isLoading={false}
-          onClick={() => {}}
-        >
-          😀 😎 👍 💯
-        </Button>
-        <Button
-          style={{
-            marginVertical: 40,
-          }}
-          isDisabled={true}
-          onClick={() => {}}
-        >
-          This is disabled!!
-        </Button>
-        <Button
-          testID="btnGoogle"
-          iconLeft={<Image source={IC_GOOGLE} />}
-          isLoading={googleLoading}
-          indicatorColor="#023059"
-          onClick={() => {
-            setGoogleLoading(true);
-            const timeout = setTimeout(() => {
-              setGoogleLoading(false);
-              clearTimeout(timeout);
-            }, 2000);
-          }}
-        >
-          GOOGLE SIGN IN
-        </Button>
-        <Button
-          testID="btnFacebook"
-          iconLeft={<Image source={IC_FACEBOOK} />}
-          indicatorColor="#023059"
-          isLoading={facebookLoading}
-          style={{
-            marginTop: 40,
-            backgroundColor: '#ccc',
-            borderWidth: 0.5,
-            borderRadius: 0,
-          }}
-          onClick={() => {
-            setFacebookLoading(true);
-            const timeout = setTimeout(() => {
-              setFacebookLoading(false);
-              clearTimeout(timeout);
-            }, 2000);
-          }}
-        >
-          FACEBOOK SIGN IN
-        </Button>
-      </Container>
-    );
-  }
+    <Select
+      theme={'underbar' | 'box'}
+      rootViewStyle={{
+        borderBottomColor: 'black',
+        borderBottomWidth: 2,
+      }}
+      rootTextStyle={{
+        color: 'orange',
+      }}
+      placeholder={'select'}
+      onClick={action('Clicked')}
+    />
   ```
