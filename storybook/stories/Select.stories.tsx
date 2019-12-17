@@ -20,10 +20,12 @@ const Container = styled.View`
   align-items: center;
   justify-content: center;
   width: 100%;
-  margin-top: 28;
-  padding-top: 80;
+  height: 100%;
+  padding-top: 100px;
+  padding-bottom: 100px;
 
   flex-direction: column;
+  justify-content: space-around;
 `;
 
 const ITEMS = [
@@ -38,8 +40,44 @@ function Default(): React.ReactElement {
   return (
     <Container>
       <Select
+        rootViewStyle={{
+          borderBottomColor: 'black',
+          borderBottomWidth: 2,
+        }}
+        rootTextStyle={{
+          color: 'orange',
+        }}
         placeholder={'select'}
         onClick={action('Clicked')}
+      />
+      <Select
+        theme={'underbar'}
+        itemStyle={{
+          list: {
+            shadowOffset: { width: 0, height: 5 },
+          },
+          defaultItem: {
+            color: 'grey',
+          },
+          selectedItem: {
+            color: 'black',
+          },
+        }}
+        title={'Title'}
+        titleTextStyle={{
+          color: 'green',
+        }}
+        placeholder={'select'}
+        onClick={action('Clicked')}
+        items={ITEMS}
+      />
+      <Select
+        placeholder={'select'}
+        onClick={action('Clicked')}
+        title={'Title'}
+        titleTextStyle={{
+          color: 'blue',
+        }}
         items={ITEMS}
       />
       <Select
@@ -55,49 +93,13 @@ function Default(): React.ReactElement {
             color: 'black',
           },
         }}
-        title={'box with border'}
+        title={'Title'}
         titleTextStyle={{
           color: 'black',
         }}
         placeholder={'select'}
         onClick={action('Clicked')}
         items={ITEMS}
-      />
-      <Select
-        theme={'underbar'}
-        itemStyle={{
-          list: {
-            shadowOffset: { width: 0, height: 5 },
-          },
-          defaultItem: {
-            color: 'grey',
-          },
-          selectedItem: {
-            color: 'black',
-          },
-        }}
-        title={'box with underbar'}
-        titleTextStyle={{
-          color: 'skyblue',
-        }}
-        placeholder={'select'}
-        onClick={action('Clicked')}
-        items={ITEMS}
-      />
-      <Select
-        rootViewStyle={{
-          borderBottomColor: 'black',
-          borderBottomWidth: 2,
-        }}
-        rootTextStyle={{
-          color: 'orange',
-        }}
-        title={'box without bg'}
-        titleTextStyle={{
-          color: 'red',
-        }}
-        placeholder={'select'}
-        onClick={action('Clicked')}
       />
     </Container>
   );

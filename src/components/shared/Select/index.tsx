@@ -170,11 +170,10 @@ const getThemeProp = ({ theme, comp, prop }: ThemePropParams): string => {
 };
 
 const SelectContainer = styled.View`
-  z-index: 1;
-  margin-bottom: 20px;
 `;
 const Title = styled.Text<ThemeType>`
-  font-size: 14px;
+  font-size: 12px;
+  margin-bottom: 5px;
   color: ${(props): string =>
     getThemeProp({
       theme: props.theme,

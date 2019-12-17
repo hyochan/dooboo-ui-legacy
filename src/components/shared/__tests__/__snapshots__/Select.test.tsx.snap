@@ -4,10 +4,7 @@ exports[`[Select] render renders without crashing 1`] = `
 <View
   style={
     Array [
-      Object {
-        "marginBottom": 20,
-        "zIndex": 1,
-      },
+      Object {},
     ]
   }
 >
