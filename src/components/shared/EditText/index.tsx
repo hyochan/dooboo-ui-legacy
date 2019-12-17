@@ -70,7 +70,7 @@ interface Props {
   focusColor?: string;
   errorColor?: string;
   autoCapitalize?: TextInputProps['autoCapitalize'];
-  textInputProps?: TextInputProps;
+  textInputProps?: TextInputProps | any;
 }
 
 function EditText(props: Props): ReactElement {
