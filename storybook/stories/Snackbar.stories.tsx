@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
+import Snackbar, { Timer } from '../../src/components/shared/Snackbar';
 
 import Button from '../../src/components/shared/Button';
 import { ContainerDeco } from '../decorators';
-import Snackbar from '../../src/components/shared/Snackbar';
 import { storiesOf } from '@storybook/react-native';
 import styled from 'styled-components/native';
 import { text } from '@storybook/addon-knobs';
@@ -25,7 +25,8 @@ const Container = styled.View`
 `;
 
 function Default(): React.ReactElement {
-  const [isOpen, setIsOpen] = useState<boolean>(false);
+  const [show, setShow] = useState<boolean>(false);
+  const [timer, setTimer] = useState<Timer>(Timer.SHORT);
 
   return (
     <Container>
@@ -33,19 +34,28 @@ function Default(): React.ReactElement {
         style={{
           marginVertical: 40,
         }}
-        text="OPEN SIMPLE SNACKBAR"
-        onClick={(): void => setIsOpen(true)}
+        text="OPEN SNACKBAR (SHORT TIMER)"
+        onClick={(): void => {
+          setShow(true);
+          setTimer(Timer.SHORT);
+        }}
       />
       <Button
-        text="CLOSE SIMPLE SNACKBAR"
+        text="OPEN SNACKBAR (LONG TIMER)"
         style={{
           marginVertical: 40,
         }}
-        onClick={(): void => setIsOpen(false)}
+        onClick={(): void => {
+          setShow(true);
+          setTimer(Timer.LONG);
+        }}
       />
-      {isOpen && (
-        <Snackbar text={text('Snackbar Text', 'Simple Snackbar is opened')} />
-      )}
+      <Snackbar
+        text={text('Snackbar Text', 'Simple Snackbar is opened')}
+        show={show}
+        setShow={setShow}
+        timer={timer}
+      />
     </Container>
   );
 }
