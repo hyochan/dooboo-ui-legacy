@@ -13,7 +13,8 @@
     "build": "tsc --project tsconfigBuild.json",
     "lint": "eslint src storybook --ext .ts,.tsx,.js,.jsx",
     "codecov": "codecov",
-    "git:log": "git log --decorate --oneline --all --graph"
+    "git:log": "git log --decorate --oneline --all --graph",
+    "watch": "lerna run --parallel watch"
   },
   "postinstall": "dooboolab-welcome postinstall",
   "keywords": [
@@ -64,6 +65,7 @@
     "codecov": "^3.6.1",
     "eslint": "^6.7.2",
     "jest": "^24.9.0",
+    "lerna": "^3.19.0",
     "metro-react-native-babel-preset": "^0.57.0",
     "prettier": "^1.19.1",
     "react": "16.9.0",

@@ -5,7 +5,8 @@
   "version": "0.4.1",
   "license": "MIT",
   "scripts": {
-    "build": "rm -rf ./package && tsc"
+    "build": "rm -rf ./package && tsc",
+    "watch": "tsc -w"
   },
   "repository": {
     "type": "git",
