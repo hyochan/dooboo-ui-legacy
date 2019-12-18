@@ -31,6 +31,7 @@ export default function AutoComplete({
   placeholderText,
   debounceDelay,
   onDebounceOrOnReset,
+  underlayColor,
 }: AutoCompleteProps): ReactElement {
   const [innerValue, setInnerValue] = useState<string>(value);
   const [isOptionsOpen, toggleOptions] = useState(false);
@@ -99,7 +100,13 @@ export default function AutoComplete({
           <StyledImage source={isOptionsOpen ? IC_ARR_UP : IC_ARR_DOWN} />
         </CaretContainer>
       </InputContainer>
-      {isOptionsOpen && <Options data={filterData} onPress={onPressOption} />}
+      {isOptionsOpen && (
+        <Options
+          data={filteredData}
+          underlayColor={underlayColor}
+          onPress={onPressOption}
+        />
+      )}
     </Wrapper>
   );
 }
