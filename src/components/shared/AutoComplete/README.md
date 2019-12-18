@@ -15,6 +15,7 @@
 | placeholderText     | ✓         | string                           | `search...`        |
 | debounceDelay       |           | number                           | `400`              |
 | onDebounceOrOnReset |           | Dispatch<SetStateAction<string>> | `undefined`        |
+| underlayColor       |           | string                           | `black`            |
 
 # Getting started
 
