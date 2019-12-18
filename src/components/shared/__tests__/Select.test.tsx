@@ -16,7 +16,10 @@ const ITEMS = [
   { value: 'Category5', text: 'Category5' },
 ];
 
-const mockProp = {
+type selectProp<K> = {
+  [K in string]: Props;
+};
+const mockProp: selectProp<'noTheme' | 'inputTheme' | 'themeAndRootView' | 'disabled'> = {
   noTheme: {
     testID: 'select',
     placeholder: 'select',
@@ -24,12 +27,14 @@ const mockProp = {
       color: 'orange',
     },
     items: ITEMS,
+    activeOpacity: 0.5,
   },
   inputTheme: {
     testID: 'select',
     theme: ThemeEnum.box,
     placeholder: 'select',
     items: ITEMS,
+    activeOpacity: 0.5,
   },
   themeAndRootView: {
     testID: 'select',
@@ -41,6 +46,7 @@ const mockProp = {
     },
     placeholder: 'select',
     items: ITEMS,
+    activeOpacity: 0.5,
   },
   disabled: {
     testID: 'select',
@@ -56,12 +62,13 @@ const mockProp = {
     placeholder: 'select',
     items: ITEMS,
     disabled: true,
+    activeOpacity: 0.5,
   },
 };
 
 interface ObjParam {
-  case: number;
-  prop: object;
+  case?: number;
+  prop?: object;
 }
 const createTestProps = (obj: ObjParam): object => ({
   navigation: {

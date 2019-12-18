@@ -18,6 +18,7 @@ export enum ThemeEnum {
   box = 'box',
   underbar = 'underbar',
 }
+
 enum CompEnum {
   rootbox = 'rootbox',
   text = 'text',
@@ -28,6 +29,14 @@ enum StylePropEnum {
   fc = 'fontColor',
   bs = 'boxShadow',
   border = 'border',
+}
+
+type ThemeStyle<K, T> = {
+  [K in ThemeEnum]: T;
+}
+
+interface ThemeType {
+  theme: ThemeEnum;
 }
 
 interface BorderStyle extends ViewStyle {
@@ -55,18 +64,6 @@ interface TextTheme extends DefaultTheme {
   text: {
     fontColor: string;
   };
-}
-
-interface ThemeStyle<T> extends DefaultTheme {
-  disabled: T;
-  blank: T;
-  none: T;
-  box: T;
-  underbar: T;
-}
-
-interface ThemeType {
-  theme: ThemeEnum;
 }
 
 export const TESTID = {
@@ -101,7 +98,7 @@ const bsCss = css`
   shadow-radius: 5;
 `;
 
-export const themeStylePropCollection: ThemeStyle<RootBoxTheme | TextTheme> = {
+export const themeStylePropCollection: ThemeStyle<ThemeEnum, RootBoxTheme | TextTheme> = {
   disabled: {
     rootbox: {
       backgroundColor: 'transparent',
@@ -209,7 +206,7 @@ export interface Props {
   theme?: ThemeEnum;
   rootViewStyle?: StyleProp<ViewStyle>;
   rootTextStyle?: StyleProp<TextStyle>;
-  placeholder?: boolean;
+  placeholder?: string;
   activeOpacity: number;
   disabled?: boolean;
 }
