@@ -1,10 +1,10 @@
-import React, { useCallback, useState } from 'react';
-import Snackbar, { Timer } from '../../src/components/shared/Snackbar';
+import React, { useCallback, useRef, useState } from 'react';
+import Snackbar, { SnackbarRef, Timer } from '../../src/components/shared/Snackbar';
 import { color, text } from '@storybook/addon-knobs';
 
 import { ContainerDeco } from '../decorators';
 import SwitchToggle from '../../src/components/shared/SwitchToggle';
-import { Text } from 'react-native';
+import { Text, Alert } from 'react-native';
 import { storiesOf } from '@storybook/react-native';
 import styled from 'styled-components/native';
 
@@ -42,8 +42,6 @@ const Button = styled.TouchableOpacity`
 `;
 
 function Default(): React.ReactElement {
-  const [show, setShow] = useState<boolean>(false);
-  const [timer, setTimer] = useState<Timer>(Timer.SHORT);
   const [shortOrLong, setShortOrLong] = useState<boolean>(false);
   const [longText, setLongText] = useState<boolean>(false);
   const snackbarText = text('Snackbar Text', 'Simple Snackbar is opened');
@@ -54,9 +52,20 @@ function Default(): React.ReactElement {
   const containerColor = color('container color', '#1976D1');
   const messageColor = color('message color', '#ffffff');
   const onPress = useCallback((): void => {
-    setShow(true);
-    shortOrLong ? setTimer(Timer.LONG) : setTimer(Timer.SHORT);
-  }, [shortOrLong]);
+    snackbar.current && snackbar.current.show({
+      text: longText ? snackbarLongText : snackbarText,
+      timer: shortOrLong ? Timer.LONG : Timer.SHORT,
+      containerStyle: {
+        backgroundColor: containerColor,
+      },
+      messageStyle: {
+        color: messageColor,
+        fontSize: 17,
+      }
+    })
+  }, [shortOrLong, longText, containerColor, messageColor]);
+
+  const snackbar = useRef<SnackbarRef>();
 
   return (
     <Container>
@@ -79,26 +88,12 @@ function Default(): React.ReactElement {
       <Button onPress={onPress}>
         <Text style={{ textAlign: 'center' }}>OPEN SNACKBAR(Default)</Text>
       </Button>
-      <Snackbar
-        text={longText ? snackbarLongText : snackbarText}
-        show={show}
-        setShow={setShow}
-        timer={timer}
-        containerStyle={{
-          backgroundColor: containerColor,
-        }}
-        messageStyle={{
-          color: messageColor,
-          fontSize: 17,
-        }}
-      />
+      <Snackbar ref={snackbar}/>
     </Container>
   );
 }
 
 function WithAction(): React.ReactElement {
-  const [show, setShow] = useState<boolean>(false);
-  const [timer, setTimer] = useState<Timer>(Timer.SHORT);
   const [shortOrLong, setShortOrLong] = useState<boolean>(false);
   const [longText, setLongText] = useState<boolean>(false);
   const snackbarText = text('Snackbar Text', 'Simple Snackbar is opened');
@@ -106,17 +101,34 @@ function WithAction(): React.ReactElement {
     'Snackbar Long Text',
     'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Minus quia vel maxime nost',
   );
-  const actionText = text('action text', 'close');
+  const actionText = text('action text', 'Action');
   const containerColor = color('container color', '#2979ff');
   const messageColor = color('message color', '#ffffff');
   const actionColor = color('action color', '#000000');
   const onPressAction = useCallback((): void => {
-    setShow(false);
+    Alert.alert('Action!!');
   }, []);
   const onPress = useCallback((): void => {
-    setShow(true);
-    shortOrLong ? setTimer(Timer.LONG) : setTimer(Timer.SHORT);
-  }, [shortOrLong]);
+    snackbar.current && snackbar.current.show({
+      text: longText ? snackbarLongText : snackbarText,
+      timer: shortOrLong ? Timer.LONG : Timer.SHORT,
+      containerStyle: {
+        backgroundColor: containerColor,
+      },
+      messageStyle: {
+        color: messageColor,
+        fontSize: 17,
+      },
+      actionText,
+      actionStyle: {
+        color: actionColor,
+        fontSize: 17,
+      },
+      onPressAction,
+    })
+  }, [shortOrLong, longText, containerColor, messageColor]);
+
+  const snackbar = useRef<SnackbarRef>();
 
   return (
     <Container>
@@ -140,23 +152,7 @@ function WithAction(): React.ReactElement {
         <Text style={{ textAlign: 'center' }}>OPEN SNACKBAR(With Action)</Text>
       </Button>
       <Snackbar
-        text={longText ? snackbarLongText : snackbarText}
-        actionText={actionText}
-        show={show}
-        setShow={setShow}
-        timer={timer}
-        onPressAction={onPressAction}
-        actionStyle={{
-          color: actionColor,
-          fontSize: 17,
-        }}
-        containerStyle={{
-          backgroundColor: containerColor,
-        }}
-        messageStyle={{
-          color: messageColor,
-          fontSize: 17,
-        }}
+        ref={snackbar}
       />
     </Container>
   );
