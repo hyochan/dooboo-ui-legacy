@@ -38,11 +38,13 @@ const ActionButton = styled.View`
 `;
 
 export interface SnackbarProps {
+  testID?: string;
+  ref?: any;
+}
+
+interface Content {
   text: string;
   actionText?: string;
-  testID?: string;
-  show: boolean;
-  setShow: (show: boolean) => void;
   timer?: Timer;
   actionStyle?: TextStyle;
   containerStyle?: ViewStyle;
@@ -50,40 +52,66 @@ export interface SnackbarProps {
   onPressAction?: () => void;
 }
 
+interface ShowingState {
+  isVisible?: boolean;
+  isShowing?: boolean;
+  timeout?: any;
+}
+
+export interface SnackbarRef {
+  show(content: Content): void;
+}
+
 export enum Timer {
   SHORT = 1500,
   LONG = 3000,
 }
 
-const Snackbar: React.FC<SnackbarProps> = (props) => {
-  const { testID, show, setShow, timer = Timer.SHORT, actionText } = props;
+const Snackbar: React.FC<SnackbarProps> = React.forwardRef<SnackbarRef, SnackbarProps>((props, ref) => {
+  const { testID } = props;
+  const [showingState, setShowingState] = React.useState<ShowingState>({ isVisible: false, isShowing: false });
+  const [content, setContent] = React.useState<Content>({ text: '', timer: Timer.SHORT });
+  const { text, actionText, messageStyle, actionStyle, containerStyle, timer = Timer.SHORT, onPressAction } = content;
+  const { isShowing, isVisible, timeout } = showingState;
+  const show = (content): void => {
+    setContent(content);
+    clearTimeout(timeout);
+    setShowingState({ isShowing: true });
+  };
   React.useEffect(() => {
-    let timeout;
-    if (show === true) {
-      timeout = setTimeout(() => {
-        setShow(false);
-      }, timer);
+    if (isShowing) {
+      if (isVisible) {
+        setShowingState({ isVisible: false });
+      } else {
+        const timeout = setTimeout(() => {
+          setShowingState({ isVisible: false });
+        }, timer);
+
+        setShowingState({ isShowing: false, isVisible: true, timeout });
+      }
     }
-    return (): void => clearTimeout(timeout);
-  }, [show]);
+  }, [showingState]);
+  React.useImperativeHandle(ref, () => ({
+    show,
+  }));
   return (
     <>
-      {show && (
-        <Container testID={testID} style={props.containerStyle}>
-          <Text style={props.messageStyle}>{props.text}</Text>
-          {actionText && (
-            <ActionContainer>
-              <Touchable onPress={props.onPressAction}>
-                <ActionButton>
-                  <Text style={props.actionStyle}>{props.actionText}</Text>
-                </ActionButton>
-              </Touchable>
-            </ActionContainer>
-          )}
+      {showingState.isVisible && (
+        <Container testID={testID} style={containerStyle}>
+        <Text style={messageStyle}>{text}</Text>
+        {actionText && (
+          <ActionContainer>
+            <Touchable onPress={onPressAction}>
+              <ActionButton>
+                <Text style={actionStyle}>{actionText}</Text>
+              </ActionButton>
+            </Touchable>
+          </ActionContainer>
+        )}
         </Container>
       )}
     </>
   );
-};
+});
 
 export default Snackbar;
