@@ -20,7 +20,9 @@ exports[`[EditText] default renders without crashing 1`] = `
           "fontSize": 14,
           "fontWeight": "500",
         },
-        null,
+        Object {
+          "color": "#FF8989",
+        },
         undefined,
       ]
     }
@@ -54,75 +56,30 @@ exports[`[EditText] default renders without crashing 1`] = `
           "borderStyle": "solid",
           "borderWidth": 0.6,
         },
-        null,
+        Object {
+          "borderColor": "#FF8989",
+        },
         undefined,
       ]
     }
   />
-</View>
-`;
-
-exports[`[EditText] row renders without crashing 1`] = `
-<View
-  style={
-    Array [
-      Object {
-        "alignSelf": "stretch",
-        "flexDirection": "column",
-        "width": "100%",
-      },
-    ]
-  }
->
-  <View
+  <Text
     style={
       Array [
         Object {
-          "alignItems": "center",
-          "flexDirection": "row",
-          "justifyContent": "flex-end",
+          "color": "#ff8989",
+          "fontSize": 12,
+          "fontWeight": "500",
+          "marginTop": 5,
         },
+        Object {
+          "color": "#FF8989",
+        },
+        undefined,
       ]
     }
   >
-    <TextInput
-      allowFontScaling={true}
-      autoCapitalize="none"
-      onBlur={[Function]}
-      onFocus={[Function]}
-      rejectResponderTermination={true}
-      style={
-        Array [
-          Object {
-            "color": "#2c374e",
-            "fontSize": 14,
-            "fontWeight": "bold",
-            "paddingBottom": 16,
-            "paddingLeft": 120,
-            "paddingRight": 0,
-            "paddingTop": 16,
-            "textAlign": "right",
-            "width": "100%",
-          },
-        ]
-      }
-      underlineColorAndroid="transparent"
-    />
-  </View>
-  <View
-    style={
-      Array [
-        Object {
-          "borderColor": "#eaeaf9",
-          "borderStyle": "solid",
-          "borderWidth": 0.6,
-        },
-        Object {
-          "borderColor": "#eaeaf9",
-        },
-        null,
-      ]
-    }
-  />
+     error 
+  </Text>
 </View>
 `;

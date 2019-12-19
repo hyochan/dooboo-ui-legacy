@@ -149,7 +149,6 @@ function EditText(props: Props): ReactElement {
             <StyledRowLabel
               style={[
                 labelTextStyle,
-                // prettier-ignore
                 errorText
                   ? { color: errorColor }
                   : focused

@@ -23,7 +23,7 @@ describe('[EditText]', () => {
 
   describe('default', () => {
     beforeEach(() => {
-      props = {};
+      props = { onBlur: (): void => {}, onFocus: (): void => {}, errorText: 'error', focused: true };
       component = <EditText {...props} />;
     });
 
@@ -40,6 +40,8 @@ describe('[EditText]', () => {
         onChangeText: (word: string): void => {
           value = word;
         },
+        onBlur: (): void => {},
+        onFocus: (): void => {},
       };
       beforeEach(() => {
         component = <EditText {...props} />;
@@ -52,27 +54,36 @@ describe('[EditText]', () => {
           fireEvent.changeText(input, 'input test');
         });
         expect(value).toEqual('input test');
-        // expect(input.props).toEqual('input test');
+      });
+
+      it('should trigger blur', async () => {
+        const input = testingLib.getByTestId('INPUT_TEST');
+        act(() => {
+          fireEvent.blur(input);
+        });
+      });
+
+      it('should trigger onFocus', () => {
+        const input = testingLib.getByTestId('INPUT_TEST');
+        act(() => {
+          fireEvent.focus(input);
+        });
+      });
+
+      it('should trigger onSubmit', async () => {
+        const input = testingLib.getByTestId('INPUT_TEST');
+        act(() => {
+          fireEvent.submitEditing(input);
+        });
       });
     });
   });
 
   describe('row', () => {
-    beforeEach(() => {
-      props = { isRow: true };
-      component = <EditText {...props} />;
-    });
-
-    it('renders without crashing', () => {
-      const rendered = renderer.create(component).toJSON();
-      expect(rendered).toMatchSnapshot();
-      expect(rendered).toBeTruthy();
-    });
-
-    describe('interactions', () => {
+    describe('default', () => {
       const props = {
+        isRow: true,
         testID: 'INPUT_TEST',
-        testError: 'ERROR_TEST',
         onChangeText: (word: string): void => {
           value = word;
         },
@@ -88,7 +99,76 @@ describe('[EditText]', () => {
           fireEvent.changeText(input, 'input test');
         });
         expect(value).toEqual('input test');
-        // expect(input.props).toEqual('input test');
+      });
+
+      it('should trigger blur', async () => {
+        const input = testingLib.getByTestId('INPUT_TEST');
+        act(() => {
+          fireEvent.blur(input);
+        });
+      });
+
+      it('should trigger onFocus', () => {
+        const input = testingLib.getByTestId('INPUT_TEST');
+        act(() => {
+          fireEvent.focus(input);
+        });
+      });
+
+      it('should trigger onSubmit', async () => {
+        const input = testingLib.getByTestId('INPUT_TEST');
+        act(() => {
+          fireEvent.submitEditing(input);
+        });
+      });
+    });
+
+    describe('props', () => {
+      const props = {
+        isRow: true,
+        testID: 'INPUT_TEST',
+        testError: 'ERROR_TEST',
+        onChangeText: (word: string): void => {
+          value = word;
+        },
+        onBlur: (): void => {},
+        onFocus: (): void => {},
+        errorText: 'error',
+        focused: true,
+        label: 'label',
+      };
+      beforeEach(() => {
+        component = <EditText {...props} />;
+        testingLib = render(component);
+      });
+
+      it('should set error message when no valid email has been written', async () => {
+        const input = testingLib.getByTestId('INPUT_TEST');
+        act(() => {
+          fireEvent.changeText(input, 'input test');
+        });
+        expect(value).toEqual('input test');
+      });
+
+      it('should trigger blur', async () => {
+        const input = testingLib.getByTestId('INPUT_TEST');
+        act(() => {
+          fireEvent.blur(input);
+        });
+      });
+
+      it('should trigger onFocus', () => {
+        const input = testingLib.getByTestId('INPUT_TEST');
+        act(() => {
+          fireEvent.focus(input);
+        });
+      });
+
+      it('should trigger onSubmit', async () => {
+        const input = testingLib.getByTestId('INPUT_TEST');
+        act(() => {
+          fireEvent.submitEditing(input);
+        });
       });
     });
   });
