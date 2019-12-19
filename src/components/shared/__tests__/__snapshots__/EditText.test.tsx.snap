@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`[EditText] renders without crashing 1`] = `
+exports[`[EditText] default renders without crashing 1`] = `
 <View
   style={
     Array [
@@ -20,7 +20,9 @@ exports[`[EditText] renders without crashing 1`] = `
           "fontSize": 14,
           "fontWeight": "500",
         },
-        null,
+        Object {
+          "color": "#FF8989",
+        },
         undefined,
       ]
     }
@@ -54,10 +56,30 @@ exports[`[EditText] renders without crashing 1`] = `
           "borderStyle": "solid",
           "borderWidth": 0.6,
         },
-        null,
+        Object {
+          "borderColor": "#FF8989",
+        },
         undefined,
       ]
     }
   />
+  <Text
+    style={
+      Array [
+        Object {
+          "color": "#ff8989",
+          "fontSize": 12,
+          "fontWeight": "500",
+          "marginTop": 5,
+        },
+        Object {
+          "color": "#FF8989",
+        },
+        undefined,
+      ]
+    }
+  >
+     error 
+  </Text>
 </View>
 `;

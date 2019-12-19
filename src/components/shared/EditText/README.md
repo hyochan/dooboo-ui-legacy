@@ -13,6 +13,7 @@
 | -------------------- | --------- | ---------------------- | ------- |
 | testID               |           | string                 |         |
 | errorTestID          |           | string                 |         |
+| isRow                |           | boolean                |         |
 | style                |           | `StyleProp<ViewStyle>` |         |
 | underlineStyle       |           | `StyleProp<ViewStyle>` |         |
 | label                |           | string                 |         |
@@ -26,6 +27,7 @@
 | secureTextEntry      |           | boolean                |         |
 | onSubmitEditing      |           | func                   |         |
 | onChangeText         |           | (e) => {}              |         |
+| textInpuProps        |           | `TextInputProps`       |         |
 
 ## Installation
 

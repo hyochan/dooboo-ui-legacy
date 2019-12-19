@@ -1,6 +1,6 @@
 {
   "name": "@dooboo-ui/native",
-  "version": "0.4.5",
+  "version": "0.4.6",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
   "scripts": {
@@ -57,7 +57,7 @@
     "@babel/core": "^7.7.5",
     "@babel/preset-typescript": "^7.7.4",
     "@babel/runtime": "^7.7.6",
-    "@dooboo/eslint-config": "^0.3.0",
+    "@dooboo/eslint-config": "^0.3.1",
     "@storybook/addon-actions": "5.2.8",
     "@storybook/addon-knobs": "5.2.8",
     "@storybook/addon-links": "5.2.8",
