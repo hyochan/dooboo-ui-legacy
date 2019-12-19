@@ -1,5 +1,6 @@
 import {
   ActivityIndicator,
+  GestureResponderEvent,
   StyleProp,
   StyleSheet,
   TextStyle,
@@ -52,7 +53,7 @@ interface Props {
   activeOpacity: number;
   children?: string | React.ReactElement;
   text?: string;
-  onClick?: (params?: any) => void | Promise<void>;
+  onClick?: (e?: GestureResponderEvent) => void | Promise<void>;
 }
 
 export const TESTID = {

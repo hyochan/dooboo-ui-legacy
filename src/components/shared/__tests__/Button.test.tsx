@@ -5,7 +5,6 @@ import {
   NativeTestInstance,
   NativeTestInstanceJSON,
   RenderResult,
-  act,
   fireEvent,
   render,
 } from '@testing-library/react-native';
@@ -28,7 +27,7 @@ interface Props {
   activeOpacity?: number;
   children?: string | React.ReactElement;
   text?: string;
-  onClick?: (params?: any) => void | Promise<void>;
+  onClick?: () => void | Promise<void>;
 }
 
 const renderComponent = (props?: Props): RenderResult => {

@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`[EditText] renders without crashing 1`] = `
+exports[`[EditText] default renders without crashing 1`] = `
 <View
   style={
     Array [
@@ -56,6 +56,71 @@ exports[`[EditText] renders without crashing 1`] = `
         },
         null,
         undefined,
+      ]
+    }
+  />
+</View>
+`;
+
+exports[`[EditText] row renders without crashing 1`] = `
+<View
+  style={
+    Array [
+      Object {
+        "alignSelf": "stretch",
+        "flexDirection": "column",
+        "width": "100%",
+      },
+    ]
+  }
+>
+  <View
+    style={
+      Array [
+        Object {
+          "alignItems": "center",
+          "flexDirection": "row",
+          "justifyContent": "flex-end",
+        },
+      ]
+    }
+  >
+    <TextInput
+      allowFontScaling={true}
+      autoCapitalize="none"
+      onBlur={[Function]}
+      onFocus={[Function]}
+      rejectResponderTermination={true}
+      style={
+        Array [
+          Object {
+            "color": "#2c374e",
+            "fontSize": 14,
+            "fontWeight": "bold",
+            "paddingBottom": 16,
+            "paddingLeft": 120,
+            "paddingRight": 0,
+            "paddingTop": 16,
+            "textAlign": "right",
+            "width": "100%",
+          },
+        ]
+      }
+      underlineColorAndroid="transparent"
+    />
+  </View>
+  <View
+    style={
+      Array [
+        Object {
+          "borderColor": "#eaeaf9",
+          "borderStyle": "solid",
+          "borderWidth": 0.6,
+        },
+        Object {
+          "borderColor": "#eaeaf9",
+        },
+        null,
       ]
     }
   />
