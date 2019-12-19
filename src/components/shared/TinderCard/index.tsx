@@ -184,7 +184,7 @@ function TinderCard(props: Props): React.ReactElement {
   };
 
   return (
-    <Container testID={props.testID}>
+    <Container>
       {cardIndex > 0 && props.onCancel && (
         <CancelButton title="Undo" onPress={handleCancel} />
       )}
