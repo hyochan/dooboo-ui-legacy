@@ -1,0 +1,34 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`[TinderCard] render renders without crashing 1`] = `
+<View
+  style={
+    Array [
+      Object {
+        "width": 750,
+      },
+    ]
+  }
+>
+  <View
+    style={
+      Array [
+        Object {
+          "alignItems": "center",
+          "height": 200,
+          "justifyContent": "center",
+          "paddingBottom": 10,
+          "paddingLeft": 10,
+          "paddingRight": 10,
+          "paddingTop": 10,
+          "width": "100%",
+        },
+      ]
+    }
+  >
+    <Text>
+      No more cards
+    </Text>
+  </View>
+</View>
+`;
