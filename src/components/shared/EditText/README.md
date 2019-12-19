@@ -27,6 +27,7 @@
 | secureTextEntry      |           | boolean                |         |
 | onSubmitEditing      |           | func                   |         |
 | onChangeText         |           | (e) => {}              |         |
+| textInpuProps        |           | `TextInputProps`       |         |
 
 ## Installation
 
