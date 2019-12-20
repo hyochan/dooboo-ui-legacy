@@ -7,7 +7,7 @@ import {
   Text,
   UIManager,
 } from 'react-native';
-import React, { useCallback, useMemo, useState } from 'react';
+import React, { ReactElement, useCallback, useMemo, useState } from 'react';
 
 import styled from 'styled-components/native';
 
@@ -25,8 +25,8 @@ interface Props {
   onSwipeLeft?: (item: DataProps) => void;
   onCancel?: () => void;
   data: Array<DataProps>;
-  renderCards: (item: DataProps) => React.ReactElement;
-  renderNoMoreCards: () => React.ReactElement;
+  renderCards: (item: DataProps) => ReactElement;
+  renderNoMoreCards: () => ReactElement;
   rotate?: boolean;
   stackSize?: number;
 }
@@ -48,7 +48,7 @@ const NoCard = styled.View`
   padding: 10px;
 `;
 
-function TinderCard(props: Props): React.ReactElement {
+function TinderCard(props: Props): ReactElement {
   const [cardIndex, setCardIndex] = useState(0);
   const position = useMemo(() => new Animated.ValueXY(), []);
 
@@ -124,7 +124,7 @@ function TinderCard(props: Props): React.ReactElement {
     };
   };
 
-  const _renderCards = (): React.ReactElement | Array<any> => {
+  const _renderCards = (): ReactElement | ReactElement[] => {
     if (!props.data || cardIndex >= props.data.length) {
       return props.renderNoMoreCards();
     }
@@ -193,7 +193,7 @@ function TinderCard(props: Props): React.ReactElement {
   );
 }
 
-const _renderNoMoreCards = (): React.ReactElement => (
+const _renderNoMoreCards = (): ReactElement => (
   <NoCard>
     <Text>No more cards</Text>
   </NoCard>

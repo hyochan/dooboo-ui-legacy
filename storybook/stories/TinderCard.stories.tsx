@@ -6,6 +6,7 @@ import TinderCard from '../../src/components/shared/TinderCard';
 import { storiesOf } from '@storybook/react-native';
 import styled from 'styled-components/native';
 import { tinderCardDummyData } from './asset/dummyData/data';
+import useInterval from 'react-useinterval';
 
 const INNER_HEIGHT = Dimensions.get('screen').height;
 
@@ -86,6 +87,12 @@ const NoCard = styled.View`
 function Default(): React.ReactElement {
   const [like, setLike] = useState(0);
   const [unlike, setUnlike] = useState(0);
+  const [data, setData] = useState(tinderCardDummyData);
+
+  useInterval(() => {
+    if (data.length > 20) return;
+    setData([...data, ...tinderCardDummyData]);
+  }, 5000);
 
   const actionStack = useMemo(() => [], []);
 
@@ -133,11 +140,11 @@ function Default(): React.ReactElement {
         onSwipeRight={handleUnlike}
         onSwipeLeft={handleLike}
         onCancel={handleCancel}
-        data={tinderCardDummyData}
+        data={data}
         renderCards={_renderCards}
         renderNoMoreCards={_renderNoMoreCards}
         rotate
-        stackSize={3}
+        stackSize={0}
       />
     </Container>
   );
