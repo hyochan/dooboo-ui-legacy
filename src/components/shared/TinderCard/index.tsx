@@ -124,7 +124,7 @@ function TinderCard(props: Props): ReactElement {
     };
   };
 
-  const _renderCards = (): ReactElement | ReactElement[] => {
+  const _renderCards = (): ReactElement | (ReactElement|null)[] => {
     if (!props.data || cardIndex >= props.data.length) {
       return props.renderNoMoreCards();
     }
