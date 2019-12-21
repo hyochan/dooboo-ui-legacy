@@ -56,26 +56,20 @@ describe('[Rating] render', () => {
       });
       expect(handlePress).toHaveBeenCalled();
     });
-    // it('should simulate props', (): void => {
-    //   const rendered = renderer.create(
-    //     component({
-    //       testID: 'RADIOBUTTON_ID',
-    //     }),
-    //   );
+    it('should simulate props', (): void => {
+      const rendered = renderer.create(
+        component({
+          testID: 'RATING_ID',
+        }),
+      );
 
-    //   rendered.update(component({ labelPlacement: 'top' }));
-    //   expect(rendered).toMatchSnapshot();
-    //   expect(rendered).toBeTruthy();
+      rendered.update(component({ value: 1, index: 0 }));
+      expect(rendered).toMatchSnapshot();
+      expect(rendered).toBeTruthy();
 
-    //   rendered.update(component({ disabled: true }));
-    //   expect(rendered).toMatchSnapshot();
-    //   expect(rendered).toBeTruthy();
-
-    //   rendered.update(
-    //     component({ disabled: false, value: 0, selectedValue: 1 }),
-    //   );
-    //   expect(rendered).toMatchSnapshot();
-    //   expect(rendered).toBeTruthy();
-    // });
+      rendered.update(component({ disabled: true }));
+      expect(rendered).toMatchSnapshot();
+      expect(rendered).toBeTruthy();
+    });
   });
 });
