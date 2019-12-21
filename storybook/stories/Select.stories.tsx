@@ -1,18 +1,20 @@
 import React, { useCallback, useState } from 'react';
+import Select, {
+  Item,
+  Mode,
+  ThemeEnum,
+} from '../../src/components/shared/Select';
 
 import { ContainerDeco } from '../decorators';
-import Select from '../../src/components/shared/Select';
-import { action } from '@storybook/addon-actions';
 import { storiesOf } from '@storybook/react-native';
 import styled from 'styled-components/native';
 
+// import { action } from '@storybook/addon-actions';
+// import { text } from '@storybook/addon-knobs';
+
 storiesOf('Select', module)
   .addDecorator(ContainerDeco)
-  .add('default', () => (
-    <>
-      <Default />
-    </>
-  ));
+  .add('default', () => <Default />);
 interface Item {
   value: string;
   text: string;
@@ -30,11 +32,11 @@ const Container = styled.View`
 `;
 
 const ITEMS = [
-  { value: 'Category1', text: 'Category1' },
-  { value: 'Category2', text: 'Category2' },
-  { value: 'Category3', text: 'Category3' },
-  { value: 'Category4', text: 'Category4' },
-  { value: 'Category5', text: 'Category5' },
+  { value: 'Category1', label: 'Category1' },
+  { value: 'Category2', label: 'Category2' },
+  { value: 'Category3', label: 'Category3' },
+  { value: 'Category4', label: 'Category4' },
+  { value: 'Category5', label: 'Category5' },
 ];
 
 function Default(): React.ReactElement {
@@ -42,6 +44,10 @@ function Default(): React.ReactElement {
   const onSelect = useCallback((item: Item) => {
     setSelectedValue(item.value);
   }, []);
+  const onValueChange = useCallback((item: Item): void => {
+    setSelectedValue(item.value);
+  }, []);
+
   return (
     <Container>
       <Select
@@ -71,15 +77,13 @@ function Default(): React.ReactElement {
           color: 'green',
         }}
         placeholder={'select'}
-        onClick={action('Clicked')}
         items={ITEMS}
         onSelect={onSelect}
         selectedValue={selectedValue}
+        onValueChange={onValueChange}
       />
       <Select
-        placeholder={'select'}
-        onClick={action('Clicked')}
-        title={'Title'}
+        title="Title"
         titleTextStyle={{
           color: 'blue',
         }}
@@ -100,10 +104,12 @@ function Default(): React.ReactElement {
           color: 'pink',
         }}
         placeholder={'select'}
-        onClick={action('Clicked')}
         items={ITEMS}
         onSelect={onSelect}
         selectedValue={selectedValue}
+        onValueChange={onValueChange}
+        mode={Mode.picker}
+        itemListStyle={{ width: '100%', right: 0, bottom: 0 }}
       />
     </Container>
   );
