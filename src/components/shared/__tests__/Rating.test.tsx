@@ -1,14 +1,17 @@
-import 'react-native';
-
 import * as React from 'react';
 
 import Rating from '../Rating';
 // Note: test renderer must be required after react-native.
+import { TouchableOpacity } from 'react-native';
 import renderer from 'react-test-renderer';
 
 let props: any;
-let component: React.ReactElement;
+
 // let testingLib: RenderResult;
+
+const component = (props?): React.ReactElement => {
+  return <Rating {...props} />;
+};
 
 const createTestProps = (obj: object): object => ({
   navigation: {
@@ -20,28 +23,59 @@ const createTestProps = (obj: object): object => ({
 describe('[Rating] render', () => {
   beforeEach(() => {
     props = createTestProps({});
-    component = <Rating {...props} />;
   });
 
   it('renders without crashing', () => {
     const rendered: renderer.ReactTestRendererJSON | null = renderer
-      .create(component)
+      .create(component())
       .toJSON();
     expect(rendered).toMatchSnapshot();
     expect(rendered).toBeTruthy();
   });
 
-  // describe('interactions', () => {
-  //   beforeEach(() => {
-  //     testingLib = render(component);
-  //   });
+  describe('[Rating] Interaction', (): void => {
+    it('should simulate onPress', (): void => {
+      const handlePress = jest.fn();
+      const rendered = renderer.create(
+        component({
+          testID: 'RATING_ID',
+          onChange: handlePress,
+        }),
+        {
+          createNodeMock: (element) => {
+            return {
+              handlePressIn: handlePress,
+              handlePressOut: handlePress,
+            };
+          },
+        },
+      );
+      const ratingClick = rendered.root.findByType(TouchableOpacity);
+      renderer.act(() => {
+        ratingClick.props.onPress();
+      });
+      expect(handlePress).toHaveBeenCalled();
+    });
+    // it('should simulate props', (): void => {
+    //   const rendered = renderer.create(
+    //     component({
+    //       testID: 'RADIOBUTTON_ID',
+    //     }),
+    //   );
 
-  //   it('should simulate onClick', () => {
-  //     const btn = testingLib.queryByTestId('btn');
-  //     act(() => {
-  //       fireEvent.press(btn);
-  //     });
-  //     expect(cnt).toBe(3);
-  //   });
-  // });
+    //   rendered.update(component({ labelPlacement: 'top' }));
+    //   expect(rendered).toMatchSnapshot();
+    //   expect(rendered).toBeTruthy();
+
+    //   rendered.update(component({ disabled: true }));
+    //   expect(rendered).toMatchSnapshot();
+    //   expect(rendered).toBeTruthy();
+
+    //   rendered.update(
+    //     component({ disabled: false, value: 0, selectedValue: 1 }),
+    //   );
+    //   expect(rendered).toMatchSnapshot();
+    //   expect(rendered).toBeTruthy();
+    // });
+  });
 });
