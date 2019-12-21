@@ -24,7 +24,7 @@ const Slider: FC<Props> = ({
   onChange,
 }) => {
   const sliderRef = useRef<any>();
-  const [sliderLength, setSliderLength] = useState<number>(0);
+  const [sliderWidth, setSliderWidth] = useState<number>(0);
   const [sliderPositionX, setSliderPositionX] = useState(0);
   const [percent, setPercent] = useState(
     defaultValue ? valueToPercent(defaultValue, maxValue, minValue) : 0,
@@ -37,14 +37,14 @@ const Slider: FC<Props> = ({
         onPanResponderMove: (evt, gestureState) => {
           // the latest screen coordinates of the recently-moved touch
           const moveX = gestureState.moveX;
-          const percent = getPercent(moveX - sliderPositionX, sliderLength);
+          const percent = getPercent(moveX - sliderPositionX, sliderWidth);
           setPercent(percent);
           if (onChange) {
             onChange(percentToValue(percent, maxValue, minValue));
           }
         },
       }),
-    [sliderPositionX, sliderLength, onChange],
+    [sliderPositionX, sliderWidth, onChange],
   );
 
   return (
@@ -55,7 +55,7 @@ const Slider: FC<Props> = ({
         if (sliderRef) {
           sliderRef.current.measure((x, y, width, height, pageX) => {
             setSliderPositionX(pageX);
-            setSliderLength(width);
+            setSliderWidth(width);
           });
         }
       }}
