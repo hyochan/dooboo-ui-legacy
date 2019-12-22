@@ -54,7 +54,7 @@ const { width } = Dimensions.get('window');
 // };
 
 const CalendarCarousel: React.FC<CalendarProps> = (props: CalendarCarouselProps) => {
-  const { date, locale, selectedDates, onPress, weekStartsOn } = props as CalendarCarouselDefaultProps;
+  const { date } = props as CalendarCarouselDefaultProps;
   // const [{
   //   currentDate,
   //   currentStartOfMonth,
