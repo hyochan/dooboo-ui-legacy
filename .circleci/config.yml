@@ -7,29 +7,34 @@ jobs:
     steps:
       - checkout
 
-      # - restore_cache:
-      #     name: Restore Yarn Package Cache
-      #     keys:
-      #       - yarn-packages-{{ checksum "yarn.lock" }}
-      - run:
-          name: Install Dependencies
-          command: yarn install
-      # - save_cache:
-      #     name: Save Yarn Package Cache
-      #     key: yarn-packages-{{ checksum "yarn.lock" }}
-      #     paths:
-      #       - ~/.cache/yarn
+      - restore_cache:
+          key: yarn-v3-{{ checksum "yarn.lock" }}-{{ arch }}
 
-      # - persist_to_workspace:
-      #     root: ~/dooboo
-      #     paths:
-      #       - node_modules
+      - restore_cache:
+          key: node-v3-{{ checksum "package.json" }}-{{ arch }}
+
+      - run: yarn install
+
+      - save_cache:
+          key: yarn-v3-{{ checksum "yarn.lock" }}-{{ arch }}
+          paths:
+            - ~/.cache/yarn
+
+      - save_cache:
+          key: node-v3-{{ checksum "package.json" }}-{{ arch }}
+          paths:
+            - node_modules
+
+      - persist_to_workspace:
+          root: ~/dooboo
+          paths:
+            - node_modules
 
       - run:
           name: Pre build
           working_directory: .
           command: |
-            yarn cache clean && yarn pre
+            yarn pre
 
       - run:
           name: Lint Test
@@ -81,14 +86,22 @@ jobs:
           at: ~/dooboo
 
       - restore_cache:
-          key: yarn-v2-{{ checksum "yarn.lock" }}-{{ arch }}
+          key: yarn-v3-{{ checksum "yarn.lock" }}-{{ arch }}
 
-      - run: yarn
+      - restore_cache:
+          key: node-v3-{{ checksum "package.json" }}-{{ arch }}
+
+      - run: yarn install
 
       - save_cache:
-          key: yarn-v2-{{ checksum "yarn.lock" }}-{{ arch }}
+          key: yarn-v3-{{ checksum "yarn.lock" }}-{{ arch }}
           paths:
             - ~/.cache/yarn
+
+      - save_cache:
+          key: node-v3-{{ checksum "package.json" }}-{{ arch }}
+          paths:
+            - node_modules
 
       # - restore_cache:
       #     key: bundle-v1-{{ checksum "android/Gemfile.lock" }}-{{ arch }}
@@ -150,22 +163,22 @@ jobs:
           command: echo "ruby-2.4" > ~/.ruby-version
 
       - restore_cache:
-          key: yarn-v2-{{ checksum "yarn.lock" }}-{{ arch }}
+          key: yarn-v3-{{ checksum "yarn.lock" }}-{{ arch }}
 
       - restore_cache:
-          key: node-v2-{{ checksum "package.json" }}-{{ arch }}
+          key: node-v3-{{ checksum "package.json" }}-{{ arch }}
 
       # not using a workspace here as Node and Yarn versions
       # differ between our macOS executor image and the Docker containers above
       - run: yarn install
 
       - save_cache:
-          key: yarn-v2-{{ checksum "yarn.lock" }}-{{ arch }}
+          key: yarn-v3-{{ checksum "yarn.lock" }}-{{ arch }}
           paths:
             - ~/.cache/yarn
 
       - save_cache:
-          key: node-v2-{{ checksum "package.json" }}-{{ arch }}
+          key: node-v3-{{ checksum "package.json" }}-{{ arch }}
           paths:
             - node_modules
 
