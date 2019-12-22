@@ -1,17 +1,16 @@
 import {
-  Action,
-  ICalendarDefaultProps,
-  ICalendarProps,
-  ICalendarState,
-  IWeekOfDayItemTextProps,
-  IWeekOfayItemProps,
+  CalendarDefaultProps,
+  CalendarProps,
+  CalendarState,
+  WeekOfDayItemTextProps,
+  WeekOfayItemProps,
 } from './types';
 import {
   Image,
   Text,
   TouchableOpacity,
 } from 'react-native';
-import React, { useCallback, useEffect, useReducer, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import {
   WeekOfDay,
   getHeadPaddingOfMonth,
@@ -60,7 +59,7 @@ const TitleContainer = styled.View`
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
   margin-bottom: 5px;
 `;
 
@@ -97,10 +96,10 @@ const WeekOfDayItem = styled.TouchableOpacity`
   justify-content: center;
   align-items: center;
   border-radius: 40;
-  background-color: ${(props: IWeekOfayItemProps): string => props.backgroundColor};
+  background-color: ${(props: WeekOfayItemProps): string => props.backgroundColor};
 `;
 const WeekOfDayItemText = styled.Text`
-  color: ${(props: IWeekOfDayItemTextProps): string => props.color};
+  color: ${(props: WeekOfDayItemTextProps): string => props.color};
   font-size: 14;
   text-align: center;
   font-weight: 500;
@@ -114,7 +113,7 @@ const colors = {
   paleGray: '#e1e4e7',
 };
 
-const calendarStateFromDate = (date: Date): ICalendarState => {
+const calendarStateFromDate = (date: Date): CalendarState => {
   return {
     currentDate: date,
     currentStartOfMonth: startOfMonth(date),
@@ -123,39 +122,16 @@ const calendarStateFromDate = (date: Date): ICalendarState => {
   };
 };
 
-const reducer = (state: ICalendarState, action: Action<void>): ICalendarState => {
-  const { type } = action;
-
-  switch (type) {
-    case 'previous':
-      return {
-        ...state,
-        ...calendarStateFromDate(subMonths(state.currentDate, 1)),
-      };
-    case 'next':
-      return {
-        ...state,
-        ...calendarStateFromDate(addMonths(state.currentDate, 1)),
-      };
-    default:
-      return state;
-  }
-};
-
-const init = (date: Date): ICalendarState => {
-  return calendarStateFromDate(date);
-};
-
-const Calendar: React.FC<ICalendarProps> = (props: ICalendarProps) => {
-  const { date, locale, selectedDates, onPress, weekStartsOn } = props as ICalendarDefaultProps;
+const Calendar: React.FC<CalendarProps> = (props: CalendarProps) => {
+  const { date, locale, selectedDates, onPress, weekStartsOn } = props as CalendarDefaultProps;
   const [today, setToday] = useState<Date>(startOfDay(date));
   const [pressedDate, setPressedDate] = useState<Date | null>(null);
-  const [{
+  const {
     currentDate,
     currentStartOfMonth,
     currentEndOfMonth,
     currentNextStartOfMonth,
-  }, dispatch] = useReducer(reducer, date, init);
+  } = calendarStateFromDate(date);
   const [localeObj, setLocale] = useState<Locale>(getLocaleFromLocaleString(locale));
 
   useEffect(() => {
@@ -226,14 +202,6 @@ const Calendar: React.FC<ICalendarProps> = (props: ICalendarProps) => {
     };
   }, []);
 
-  const onPreviousMonth = useCallback((): void => {
-    dispatch({ type: 'previous' });
-  }, []);
-
-  const onNextMonth = useCallback((): void => {
-    dispatch({ type: 'next' });
-  }, []);
-
   const renderHeader = (): JSX.Element => {
     return (
       <RowContainer>
@@ -283,15 +251,9 @@ const Calendar: React.FC<ICalendarProps> = (props: ICalendarProps) => {
   const renderTitle = (): JSX.Element => {
     return (
       <TitleContainer>
-        <TouchableOpacity onPress={onPreviousMonth}>
-          <Text>Back</Text>
-        </TouchableOpacity>
         <Title>
           { format(currentDate, 'yyyy.MM') }
         </Title>
-        <TouchableOpacity onPress={onNextMonth}>
-          <Title>Next</Title>
-        </TouchableOpacity>
       </TitleContainer>
     );
   };
@@ -311,6 +273,6 @@ Calendar.defaultProps = {
   locale: 'en',
   selectedDates: [],
   weekStartsOn: WeekOfDay.Sun,
-} as ICalendarProps;
+} as CalendarProps;
 
-export default Calendar;
+export default React.memo(Calendar);

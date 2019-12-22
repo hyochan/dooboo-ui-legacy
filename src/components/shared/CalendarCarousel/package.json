@@ -18,7 +18,10 @@
   },
   "homepage": "https://github.com/dooboolab/dooboo-ui-native#readme",
   "dependencies": {
-    "dooboolab-welcome": "^1.1.1"
+    "date-fns": "^2.6.0",
+    "dooboolab-welcome": "^1.1.1",
+    "lodash": "^4.17.15",
+    "typescript-fsa": "^3.0.0"
   },
   "devDependencies": {
     "styled-components": "^4.4.0",
