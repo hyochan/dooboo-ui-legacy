@@ -1,17 +1,17 @@
 import { createAppContainer, createSwitchNavigator } from 'react-navigation';
 
-import CalendarSample from '../screen/CalendarCarouselSample';
+import CalendarCarouselSample from '../screen/CalendarCarouselSample';
 import EditTextSample from '../screen/EditTextSample';
 import LoadingIndicatorSample from '../screen/LoadingIndicatorSample';
 
 const SwitchNavigator = createSwitchNavigator(
   {
-    CalendarSample,
+    CalendarCarouselSample,
     LoadingIndicatorSample,
     EditTextSample,
   },
   {
-    initialRouteName: 'CalendarSample',
+    initialRouteName: 'CalendarCarouselSample',
   },
 );
 
