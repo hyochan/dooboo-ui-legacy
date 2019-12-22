@@ -31,12 +31,6 @@ jobs:
             - node_modules
 
       - run:
-          name: Pre build
-          working_directory: .
-          command: |
-            yarn pre
-
-      - run:
           name: Lint Test
           working_directory: .
           command: |
