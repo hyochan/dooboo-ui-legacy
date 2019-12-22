@@ -33,7 +33,6 @@
   "homepage": "https://github.com/dooboolab/dooboo-ui-native#readme",
   "dependencies": {
     "dooboolab-welcome": "^1.1.1",
-    "styled-components": "^4.4.0",
     "date-fns": "^2.6.0"
   },
   "peerDependencies": {
