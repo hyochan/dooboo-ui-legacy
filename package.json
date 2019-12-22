@@ -15,7 +15,8 @@
     "lint": "eslint src storybook --ext .ts,.tsx,.js,.jsx",
     "codecov": "codecov",
     "git:log": "git log --decorate --oneline --all --graph",
-    "watch": "lerna exec -- yarn && lerna run --parallel watch"
+    "watch": "lerna exec -- yarn && lerna run --parallel watch",
+    "pre": "lerna exec -- yarn && lerna run build"
   },
   "postinstall": "dooboolab-welcome postinstall",
   "keywords": [
