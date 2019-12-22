@@ -10,20 +10,12 @@ jobs:
       - restore_cache:
           key: yarn-v2-{{ checksum "yarn.lock" }}-{{ arch }}
 
-      - restore_cache:
-          key: node-v2-{{ checksum "package.json" }}-{{ arch }}
-
-      - run: yarn install
+      - run: yarn
 
       - save_cache:
           key: yarn-v2-{{ checksum "yarn.lock" }}-{{ arch }}
           paths:
             - ~/.cache/yarn
-
-      - save_cache:
-          key: node-v2-{{ checksum "package.json" }}-{{ arch }}
-          paths:
-            - node_modules
 
       - persist_to_workspace:
           root: ~/dooboo
@@ -88,20 +80,12 @@ jobs:
       - restore_cache:
           key: yarn-v2-{{ checksum "yarn.lock" }}-{{ arch }}
 
-      - restore_cache:
-          key: node-v2-{{ checksum "package.json" }}-{{ arch }}
-
-      - run: yarn install
+      - run: yarn
 
       - save_cache:
           key: yarn-v2-{{ checksum "yarn.lock" }}-{{ arch }}
           paths:
             - ~/.cache/yarn
-
-      - save_cache:
-          key: node-v2-{{ checksum "package.json" }}-{{ arch }}
-          paths:
-            - node_modules
 
       # - restore_cache:
       #     key: bundle-v1-{{ checksum "android/Gemfile.lock" }}-{{ arch }}
