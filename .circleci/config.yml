@@ -7,18 +7,18 @@ jobs:
     steps:
       - checkout
 
-      - restore_cache:
-          name: Restore Yarn Package Cache
-          keys:
-            - yarn-packages-{{ checksum "yarn.lock" }}
-      - run:
-          name: Install Dependencies
-          command: yarn install --frozen-lockfile
-      - save_cache:
-          name: Save Yarn Package Cache
-          key: yarn-packages-{{ checksum "yarn.lock" }}
-          paths:
-            - ~/.cache/yarn
+      # - restore_cache:
+      #     name: Restore Yarn Package Cache
+      #     keys:
+      #       - yarn-packages-{{ checksum "yarn.lock" }}
+      # - run:
+      #     name: Install Dependencies
+      #     command: yarn install --frozen-lockfile
+      # - save_cache:
+      #     name: Save Yarn Package Cache
+      #     key: yarn-packages-{{ checksum "yarn.lock" }}
+      #     paths:
+      #       - ~/.cache/yarn
 
       - persist_to_workspace:
           root: ~/dooboo
@@ -29,7 +29,7 @@ jobs:
           name: Pre build
           working_directory: .
           command: |
-            yarn pre
+            yarn cache clean && yarn pre
 
       - run:
           name: Lint Test
