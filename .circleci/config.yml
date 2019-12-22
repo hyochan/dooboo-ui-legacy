@@ -11,9 +11,9 @@ jobs:
       #     name: Restore Yarn Package Cache
       #     keys:
       #       - yarn-packages-{{ checksum "yarn.lock" }}
-      # - run:
-      #     name: Install Dependencies
-      #     command: yarn install --frozen-lockfile
+      - run:
+          name: Install Dependencies
+          command: yarn install
       # - save_cache:
       #     name: Save Yarn Package Cache
       #     key: yarn-packages-{{ checksum "yarn.lock" }}
