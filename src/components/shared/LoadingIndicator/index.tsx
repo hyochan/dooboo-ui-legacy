@@ -3,7 +3,6 @@ import {
   Image,
   ImageSourcePropType,
   ImageStyle,
-  ImageURISource,
   StyleProp,
   StyleSheet,
   View,
@@ -39,8 +38,8 @@ function LoadingIndicator(props: Props): React.ReactElement {
   const handleImgSize = (size: number | string | undefined): ImageStyle => {
     if (size === 'large') {
       return {
-        width: 100,
-        height: 100,
+        width: 80,
+        height: 80,
       };
     }
     if (size === 'small') {
@@ -59,7 +58,7 @@ function LoadingIndicator(props: Props): React.ReactElement {
     };
   };
 
-  const handleImgSourceType = (src: string | ImageSourcePropType): string | number | ImageURISource | ImageURISource[] | ImageSourcePropType | undefined => {
+  const handleImgSourceType = (src: string | ImageSourcePropType): ImageSourcePropType => {
     if (typeof src === 'string') {
       return {
         uri: src,

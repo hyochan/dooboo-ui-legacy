@@ -1,5 +1,3 @@
-import { IC_FACEBOOK, IC_GOOGLE } from '../../src/components/shared/Icons';
-
 import { ContainerDeco } from '../decorators';
 import LoadingIndicator from '../../src/components/shared/LoadingIndicator';
 import React from 'react';
@@ -43,8 +41,7 @@ function Default(): React.ReactElement {
 function ImgVersion(): React.ReactElement {
   return (
     <Container>
-      {/* <LoadingIndicator imgSource="https://user-images.githubusercontent.com/31176502/71331734-ca61d800-2576-11ea-8934-6a260a1d714e.gif" containerStyle={{ backgroundColor: 'white' }} /> */}
-      <LoadingIndicator imgSource={IC_FACEBOOK} containerStyle={{ backgroundColor: 'white' }} />
+      <LoadingIndicator imgSource="https://user-images.githubusercontent.com/31176502/71331734-ca61d800-2576-11ea-8934-6a260a1d714e.gif" containerStyle={{ backgroundColor: 'white' }} />
       <StyledText>Loading ... </StyledText>
     </Container>
   );
