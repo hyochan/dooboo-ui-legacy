@@ -10,6 +10,13 @@ interface MarkThemeType {
   backgroundColor: string;
 }
 
+type DefaultThemeNameType = 'lightblue' | 'dark' | 'blue' | undefined;
+type DefaultThemeType = {
+  LIGHTBLUE: 'lightblue';
+  DARK: 'dark';
+  BLUE: 'blue';
+};
+
 interface ThemeType extends DefaultTheme {
   backgroundColor: string;
   markColor: string;
@@ -45,9 +52,7 @@ interface Props {
   markCount?: number;
   startMark?: boolean;
   endMark?: boolean;
-  dark?: boolean;
-  lightblue?: boolean;
-  blue?: boolean;
+  defaultTheme?: 'lightblue' | 'dark' | 'blue';
   inverted?: boolean;
   disabled?: boolean;
   fit?: boolean;
@@ -79,11 +84,19 @@ const DEFAULT = {
   },
 };
 
+export const DEFAULT_THEME: DefaultThemeType = {
+  LIGHTBLUE: 'lightblue',
+  DARK: 'dark',
+  BLUE: 'blue',
+};
+
 export const THEME: {
+  NAME: DefaultThemeType;
   LIGHTBLUE: StatefulThemeType;
   DARK: StatefulThemeType;
   BLUE: StatefulThemeType;
 } = {
+  NAME: DEFAULT_THEME,
   LIGHTBLUE: {
     backgroundColor: COLOR.LIGHTBLUE1,
     markColor: COLOR.LIGHTBLUE2,
@@ -168,15 +181,11 @@ const getStatefulTheme = ({
 };
 
 const getDefaultTheme = ({
-  dark,
-  lightblue,
-  blue,
+  defaultTheme,
   inverted,
   disabled,
 }: {
-  dark?: boolean;
-  lightblue?: boolean;
-  blue?: boolean;
+  defaultTheme?: DefaultThemeNameType;
   inverted?: boolean;
   disabled?: boolean;
 }): ThemeType => {
@@ -185,21 +194,21 @@ const getDefaultTheme = ({
     disabled,
   };
 
-  if (dark) {
+  if (defaultTheme === THEME.NAME.DARK) {
     return getStatefulTheme({
       theme: THEME.DARK,
       ...statefulThemeOptions,
     });
   }
 
-  if (lightblue) {
+  if (defaultTheme === THEME.NAME.LIGHTBLUE) {
     return getStatefulTheme({
       theme: THEME.LIGHTBLUE,
       ...statefulThemeOptions,
     });
   }
 
-  if (blue) {
+  if (defaultTheme === THEME.NAME.BLUE) {
     return getStatefulTheme({
       theme: THEME.BLUE,
       ...statefulThemeOptions,
@@ -459,9 +468,7 @@ const Rail: FC<Props> = ({
   markCount,
   startMark = true,
   endMark = true,
-  dark,
-  lightblue,
-  blue,
+  defaultTheme,
   inverted = false,
   disabled = false,
   onInit,
@@ -480,20 +487,18 @@ const Rail: FC<Props> = ({
   const railStyleToApply = StyleSheet.flatten(style);
   const markStyleToApply = StyleSheet.flatten(markStyle);
 
-  const defaultTheme = getDefaultTheme({
-    dark,
-    lightblue,
-    blue,
+  const defaultThemeToApply = getDefaultTheme({
+    defaultTheme,
     inverted,
     disabled,
   });
 
   const railThemeToApply: RailThemeType = {
-    backgroundColor: railStyleToApply.backgroundColor || defaultTheme.backgroundColor,
+    backgroundColor: railStyleToApply.backgroundColor || defaultThemeToApply.backgroundColor,
   };
 
   const markThemeToApply: MarkThemeType = {
-    backgroundColor: markStyleToApply.backgroundColor || defaultTheme.markColor,
+    backgroundColor: markStyleToApply.backgroundColor || defaultThemeToApply.markColor,
   };
 
   const railWidth = getRailWidth(railStyleToApply);
