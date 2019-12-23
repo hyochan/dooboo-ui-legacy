@@ -20,7 +20,7 @@ function Page(): React.ReactElement {
           color: 'blue',
         }}
       >
-        dooboolab
+        calendar
       </Text>
     </View>
   );

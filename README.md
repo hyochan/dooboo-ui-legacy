@@ -17,6 +17,7 @@ We currently love [react-hooks](https://code.fb.com/open-source/react-hooks) and
   - dooboolab's [code of conduct](https://github.com/dooboolab/dooboolab.com/blob/master/code-of-conduct.md)
 - [Contributing](CONTRIBUTING.md)
   - Try to make good `shared` component and test it in `storybook` or in `sample` screen. Then it's all good to go for `pull request`. Give it a try :blossom:.
+- While implementing [Shared] component you should run `yarn watch` in order to build typescript file dynamically while developing. This is currently the best solution to sync with your typescript code using `package.json`. If you find something more efficient, please give a pull request.
 
 ## Usage
 

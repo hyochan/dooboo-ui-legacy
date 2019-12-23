@@ -1,0 +1,6 @@
+{
+  "packages": [
+    "src/components/shared/*"
+  ],
+  "version": "0.0.0"
+}

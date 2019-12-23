@@ -22,16 +22,27 @@ yarn add @dooboo-ui/native-snackbar
 # Props
 
 ```ts
+export enum Timer {
+  SHORT = 1500,
+  LONG = 3000,
+}
+
 export interface SnackbarProps {
   text: string;
-  testID: string;
+  testID?: string;
+  show: boolean;
+  setShow: (show: boolean) => void;
+  timer?: Timer;
 }
 ```
 
-|        | necessary | types  | default   | info |
-| ------ | :-------: | ------ | --------- | ---- |
-| text   |     ✓     | string | undefined |      |
-| testID |           | string | undefined |      |
+|         | necessary | types                   | default   | info         |
+| ------- | :-------: | ----------------------- | --------- | ------------ |
+| text    |     ✓     | string                  | undefined |              |
+| testID  |           | string                  | undefined |              |
+| timer   |           | number                  | 1500      | closing time |
+| show    |     ✓     | boolean                 | undefined |              |
+| setSHow |     ✓     | (show: boolean) => void | undefined |              |
 
 # Getting started
 
@@ -46,17 +57,38 @@ export interface SnackbarProps {
 - Usage
   ```tsx
   const SnackbarWithState = () => {
-    const [isOpen, setIsOpen] = useState(false);
+    const [show, setShow] = useState<boolean>(false);
+    const [timer, setTimer] = useState<Timer>(Timer.SHORT);
+
     return (
-      <>
+      <Container>
         <Button
-          text="OPEN SIMPLE SNACKBAR"
-          onClick={(): void => setIsOpen(true)}
+          style={{
+            marginVertical: 40,
+          }}
+          text="OPEN SNACKBAR (SHORT TIMER)"
+          onClick={(): void => {
+            setShow(true);
+            setTimer(Timer.SHORT);
+          }}
         />
-        {isOpen && (
-          <Snackbar text={text('Snackbar Text', 'Simple Snackbar is opened')} />
-        )}
-      </>
+        <Button
+          text="OPEN SNACKBAR (LONG TIMER)"
+          style={{
+            marginVertical: 40,
+          }}
+          onClick={(): void => {
+            setShow(true);
+            setTimer(Timer.LONG);
+          }}
+        />
+        <Snackbar
+          text={text('Snackbar Text', 'Simple Snackbar is opened')}
+          show={show}
+          setShow={setShow}
+          timer={timer}
+        />
+      </Container>
     );
   };
   ```

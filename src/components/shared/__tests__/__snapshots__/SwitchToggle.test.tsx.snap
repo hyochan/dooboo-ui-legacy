@@ -3,7 +3,7 @@
 exports[`[SwitchToggle] should render without crashing 1`] = `
 <View
   accessible={true}
-  clickable={true}
+  focusable={true}
   isTVSelectable={true}
   onClick={[Function]}
   onResponderGrant={[Function]}
