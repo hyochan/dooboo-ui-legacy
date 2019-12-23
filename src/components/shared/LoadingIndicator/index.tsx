@@ -1,5 +1,8 @@
 import {
   ActivityIndicator,
+  Image,
+  ImageSourcePropType,
+  ImageStyle,
   StyleProp,
   StyleSheet,
   View,
@@ -27,16 +30,56 @@ interface Props {
   style?: StyleProp<ViewStyle>;
   color?: string;
   size?: number | 'small' | 'large';
+  imgSource?: string | ImageSourcePropType;
 }
 
 function LoadingIndicator(props: Props): React.ReactElement {
+  const { containerStyle, style, size, color, imgSource } = props;
+
+  const handleImgSize = (size: number | string | undefined): ImageStyle => {
+    if (size === 'large') {
+      return {
+        width: 80,
+        height: 80,
+      };
+    }
+    if (size === 'small') {
+      return {
+        width: 50,
+        height: 50,
+      };
+    }
+    if (!size) {
+      return {};
+    }
+
+    return {
+      width: size,
+      height: size,
+    };
+  };
+
+  const handleImgSourceType = (src: string | ImageSourcePropType): ImageSourcePropType => {
+    if (typeof src === 'string') {
+      return {
+        uri: src,
+      };
+    }
+
+    return src;
+  };
+
   return (
-    <View style={[styles.container, props.containerStyle]}>
-      <ActivityIndicator
-        style={props.style}
-        size={props.size}
-        color={props.color}
-      />
+    <View style={[styles.container, containerStyle]}>
+      {!imgSource ? (
+        <ActivityIndicator
+          style={style}
+          size={size}
+          color={color}
+        />
+      ) : (
+        <Image source={handleImgSourceType(imgSource)} style={handleImgSize(size)} />
+      )}
     </View>
   );
 }

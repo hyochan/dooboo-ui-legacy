@@ -1,5 +1,197 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`[LoadingIndicator] render renders with !size with none string imgSource 1`] = `
+<View
+  style={
+    Array [
+      Object {
+        "alignItems": "center",
+        "alignSelf": "center",
+        "backgroundColor": "transparent",
+        "flex": 1,
+        "flexDirection": "row",
+        "height": "100%",
+        "justifyContent": "center",
+        "position": "absolute",
+        "width": "100%",
+      },
+      undefined,
+    ]
+  }
+>
+  <Image
+    source={10}
+    style={Object {}}
+  />
+</View>
+`;
+
+exports[`[LoadingIndicator] render renders with !size with string imgSource 1`] = `
+<View
+  style={
+    Array [
+      Object {
+        "alignItems": "center",
+        "alignSelf": "center",
+        "backgroundColor": "transparent",
+        "flex": 1,
+        "flexDirection": "row",
+        "height": "100%",
+        "justifyContent": "center",
+        "position": "absolute",
+        "width": "100%",
+      },
+      undefined,
+    ]
+  }
+>
+  <Image
+    source={
+      Object {
+        "uri": "test",
+      }
+    }
+    style={Object {}}
+  />
+</View>
+`;
+
+exports[`[LoadingIndicator] render renders with [imgSource] 1`] = `
+<View
+  style={
+    Array [
+      Object {
+        "alignItems": "center",
+        "alignSelf": "center",
+        "backgroundColor": "transparent",
+        "flex": 1,
+        "flexDirection": "row",
+        "height": "100%",
+        "justifyContent": "center",
+        "position": "absolute",
+        "width": "100%",
+      },
+      undefined,
+    ]
+  }
+>
+  <Image
+    source={
+      Object {
+        "uri": "http",
+      }
+    }
+    style={
+      Object {
+        "height": 80,
+        "width": 80,
+      }
+    }
+  />
+</View>
+`;
+
+exports[`[LoadingIndicator] render renders with size=small 1`] = `
+<View
+  style={
+    Array [
+      Object {
+        "alignItems": "center",
+        "alignSelf": "center",
+        "backgroundColor": "transparent",
+        "flex": 1,
+        "flexDirection": "row",
+        "height": "100%",
+        "justifyContent": "center",
+        "position": "absolute",
+        "width": "100%",
+      },
+      undefined,
+    ]
+  }
+>
+  <Image
+    source={
+      Object {
+        "uri": "http",
+      }
+    }
+    style={
+      Object {
+        "height": 50,
+        "width": 50,
+      }
+    }
+  />
+</View>
+`;
+
+exports[`[LoadingIndicator] render renders with size=test 1`] = `
+<View
+  style={
+    Array [
+      Object {
+        "alignItems": "center",
+        "alignSelf": "center",
+        "backgroundColor": "transparent",
+        "flex": 1,
+        "flexDirection": "row",
+        "height": "100%",
+        "justifyContent": "center",
+        "position": "absolute",
+        "width": "100%",
+      },
+      undefined,
+    ]
+  }
+>
+  <Image
+    source={10}
+    style={
+      Object {
+        "height": "test",
+        "width": "test",
+      }
+    }
+  />
+</View>
+`;
+
+exports[`[LoadingIndicator] render renders with size=undefined 1`] = `
+<View
+  style={
+    Array [
+      Object {
+        "alignItems": "center",
+        "alignSelf": "center",
+        "backgroundColor": "transparent",
+        "flex": 1,
+        "flexDirection": "row",
+        "height": "100%",
+        "justifyContent": "center",
+        "position": "absolute",
+        "width": "100%",
+      },
+      undefined,
+    ]
+  }
+>
+  <Image
+    source={
+      Object {
+        "uri": "http",
+      }
+    }
+    style={
+      Object {
+        "height": 80,
+        "width": 80,
+      }
+    }
+  />
+</View>
+`;
+
 exports[`[LoadingIndicator] render renders without crashing 1`] = `
 <View
   style={
