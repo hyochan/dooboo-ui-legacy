@@ -60,6 +60,7 @@ function LoadingIndicator(props: Props): React.ReactElement {
   };
 
   const handleImgSourceType = (src: string | ImageSourcePropType): ImageURISource | ImageSourcePropType | undefined => {
+    if (!src) return {};
     if (typeof src === 'string') {
       return {
         uri: src,
