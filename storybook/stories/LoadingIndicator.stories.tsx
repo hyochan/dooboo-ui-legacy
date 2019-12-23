@@ -1,4 +1,4 @@
-import { IC_FACEBOOK, IC_GOOGLE, IC_KAKAO_LOADING } from '../../src/components/shared/Icons';
+import { IC_FACEBOOK, IC_GOOGLE } from '../../src/components/shared/Icons';
 
 import { ContainerDeco } from '../decorators';
 import LoadingIndicator from '../../src/components/shared/LoadingIndicator';
@@ -26,6 +26,12 @@ const Container = styled.View`
   flex-direction: row;
 `;
 
+const StyledText = styled.Text`
+  font-size: 18px;
+  font-weight: bold;
+  margin-top: 120px;
+`;
+
 function Default(): React.ReactElement {
   return (
     <Container>
@@ -37,7 +43,8 @@ function Default(): React.ReactElement {
 function ImgVersion(): React.ReactElement {
   return (
     <Container>
-      <LoadingIndicator isImg={true} ImgSourceTypeUri={true} imgSource={{ uri: 'https://user-images.githubusercontent.com/27461460/62273345-49475e80-b478-11e9-8717-ce97f6f71230.png' }} containerStyle={{ backgroundColor: 'white' }} />
+      <LoadingIndicator isImg={true} imgSource="https://user-images.githubusercontent.com/31176502/71331734-ca61d800-2576-11ea-8934-6a260a1d714e.gif" containerStyle={{ backgroundColor: 'white' }} />
+      <StyledText>Loading ... </StyledText>
     </Container>
   );
 }

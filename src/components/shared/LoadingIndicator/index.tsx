@@ -32,7 +32,7 @@ interface Props {
   color?: string;
   size?: number | 'small' | 'large';
   isImg?: boolean;
-  imgSource?: ImageSourcePropType | string;
+  imgSource?: string | ImageSourcePropType;
 }
 
 function LoadingIndicator(props: Props): React.ReactElement {
@@ -55,7 +55,7 @@ function LoadingIndicator(props: Props): React.ReactElement {
     };
   };
 
-  const handleImgSourceType = (src: string | ImageSourcePropType): any => {
+  const handleImgSourceType = (src: string | ImageSourcePropType): ImageSourcePropType => {
     if (typeof src === 'string') {
       return {
         uri: src,
