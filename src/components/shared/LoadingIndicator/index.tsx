@@ -36,7 +36,7 @@ interface Props {
 }
 
 function LoadingIndicator(props: Props): React.ReactElement {
-  const handleImgSize = (size: number | string | null): ImageStyle => {
+  const handleImgSize = (size: number | string | undefined): ImageStyle => {
     if (size === 'large') {
       return {
         width: 100,
@@ -49,6 +49,10 @@ function LoadingIndicator(props: Props): React.ReactElement {
         height: 50,
       };
     }
+    if (size === undefined) {
+      return {};
+    }
+
     return {
       width: size,
       height: size,
