@@ -454,8 +454,8 @@ const Rail: FC<Props> = ({
   mark,
   customMarkWidth,
   hideMark = false,
-  step = 1,
-  pixelsPerStep = 20,
+  step = 20,
+  pixelsPerStep,
   markCount,
   startMark = true,
   endMark = true,
@@ -499,7 +499,7 @@ const Rail: FC<Props> = ({
   const railWidth = getRailWidth(railStyleToApply);
   const markWidth = isNil(mark) ? getMarkWidth(markStyleToApply) : customMarkWidth as number;
 
-  const stepByPixel = step * pixelsPerStep;
+  const stepByPixel = isNil(pixelsPerStep) ? step : step * (pixelsPerStep as number);
   const markOptions = {
     railWidth,
     markWidth,
