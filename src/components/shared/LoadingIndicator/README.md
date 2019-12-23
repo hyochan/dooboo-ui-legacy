@@ -13,7 +13,6 @@
 | style          |           | `StyleProp<ViewStyle>`         |             |                              |
 | color          |           | string                         | `'#969696'` |                              |
 | size           |           | string                         | `large`     | `number | 'small' | 'large'` |
-| isImg          |           | boolean                        | `false`     |                              |
 | imgSource      |           | `ImageSourcePropType | string` |             |                              |
 
 ## Installation
@@ -61,7 +60,6 @@ yarn add @dooboo-ui/native-loading-indicator
       return (
         <View>
           <LoadingIndicator
-            isImg={true}
             imgSource="https://user-images.githubusercontent.com/31176502/71331734-ca61d800-2576-11ea-8934-6a260a1d714e.gif"
             containerStyle={{ backgroundColor: 'white' }}
           />
@@ -79,7 +77,6 @@ yarn add @dooboo-ui/native-loading-indicator
       return (
         <View>
           <LoadingIndicator
-            isImg={true}
             imgSource={ImageName}
             containerStyle={{ backgroundColor: 'white' }}
           />

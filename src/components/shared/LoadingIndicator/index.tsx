@@ -3,13 +3,13 @@ import {
   Image,
   ImageSourcePropType,
   ImageStyle,
+  ImageURISource,
   StyleProp,
   StyleSheet,
   View,
   ViewStyle,
 } from 'react-native';
 
-// import { IC_GOOGLE } from '../Icons';
 import React from 'react';
 
 const styles = StyleSheet.create({
@@ -31,11 +31,11 @@ interface Props {
   style?: StyleProp<ViewStyle>;
   color?: string;
   size?: number | 'small' | 'large';
-  isImg?: boolean;
   imgSource?: string | ImageSourcePropType;
 }
 
 function LoadingIndicator(props: Props): React.ReactElement {
+  const { containerStyle, style, size, color, imgSource } = props;
   const handleImgSize = (size: number | string | undefined): ImageStyle => {
     if (size === 'large') {
       return {
@@ -59,7 +59,7 @@ function LoadingIndicator(props: Props): React.ReactElement {
     };
   };
 
-  const handleImgSourceType = (src: string | ImageSourcePropType): ImageSourcePropType => {
+  const handleImgSourceType = (src: string | ImageSourcePropType): ImageURISource | ImageSourcePropType => {
     if (typeof src === 'string') {
       return {
         uri: src,
@@ -69,15 +69,15 @@ function LoadingIndicator(props: Props): React.ReactElement {
   };
 
   return (
-    <View style={[styles.container, props.containerStyle]}>
-      {!props.isImg ? (
+    <View style={[styles.container, containerStyle]}>
+      {!props.imgSource ? (
         <ActivityIndicator
-          style={props.style}
-          size={props.size}
-          color={props.color}
+          style={style}
+          size={size}
+          color={color}
         />
       ) : (
-        <Image source={handleImgSourceType(props.imgSource)} style={handleImgSize(props.size)} />
+        <Image source={handleImgSourceType(imgSource)} style={handleImgSize(size)} />
       )}
     </View>
   );
@@ -86,7 +86,6 @@ function LoadingIndicator(props: Props): React.ReactElement {
 LoadingIndicator.defaultProps = {
   size: 'large',
   color: '#969696',
-  isImg: false,
 };
 
 export default LoadingIndicator;
