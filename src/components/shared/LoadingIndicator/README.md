@@ -4,16 +4,17 @@
 [![Downloads](http://img.shields.io/npm/dm/@dooboo-ui/native-loading-indicator.svg?style=flat-square)](https://npmjs.org/package/@dooboo-ui/native-loading-indicator)
 
 > Simple [LoadingIndicator] that overlaps screen indicating that it is doing something.
-> ![image](https://user-images.githubusercontent.com/27461460/62273345-49475e80-b478-11e9-8717-ce97f6f71230.png)
 
 ## Props
 
-|                | necessary | types                  | default                      |
-| -------------- | --------- | ---------------------- | ---------------------------- |
-| containerStyle |           | `StyleProp<ViewStyle>` |                              |
-| style          |           | `StyleProp<ViewStyle>` |                              |
-| color          |           | string                 |                              |
-| size           |           | string                 | `number | 'small' | 'large'` |
+|                | necessary | types                          | default     | options                      |
+| -------------- | --------- | ------------------------------ | ----------- | ---------------------------- |
+| containerStyle |           | `StyleProp<ViewStyle>`         |             |                              |
+| style          |           | `StyleProp<ViewStyle>`         |             |                              |
+| color          |           | string                         | `'#969696'` |                              |
+| size           |           | string                         | `large`     | `number | 'small' | 'large'` |
+| isImg          |           | boolean                        | `false`     |                              |
+| imgSource      |           | `ImageSourcePropType | string` |             |                              |
 
 ## Installation
 
@@ -38,10 +39,54 @@ yarn add @dooboo-ui/native-loading-indicator
   // or
   import LoadingIndicator from '@dooboo-ui/native-loading-indicator';
   ```
-
+  
 - Usage
-  ```javascript
-  function Page(props: Props) {
-    return <LoadingIndicator />;
-  }
-  ```
+  - Default
+
+    ```javascript
+    function Page(props: Props) {
+      return <LoadingIndicator />;
+    }
+    ```
+
+      ![loading_blue](https://user-images.githubusercontent.com/31176502/71320019-16663b80-24e9-11ea-8ec0-3a463d5c4632.gif)
+      ![loading_purple](https://user-images.githubusercontent.com/31176502/71320020-16663b80-24e9-11ea-8c34-0392f476d371.gif)
+      ![loading_default](https://user-images.githubusercontent.com/31176502/71320021-16663b80-24e9-11ea-8eac-e488c47eae1d.gif)
+      ![loading_pink](https://user-images.githubusercontent.com/31176502/71320022-16663b80-24e9-11ea-9f8b-39408cfb918f.gif)
+
+  - Image
+
+    ```javascript
+    function Page(props: Props) {
+      return (
+        <View>
+          <LoadingIndicator
+            isImg={true}
+            imgSource="https://user-images.githubusercontent.com/31176502/71331734-ca61d800-2576-11ea-8934-6a260a1d714e.gif"
+            containerStyle={{ backgroundColor: 'white' }}
+          />
+          <Text>Loading ... </Text>
+        </View>
+      );
+    }
+    ```
+
+    or
+
+    ```javascript
+    import { ImageName } from '[imgRoute]'
+    function Page(props: Props) {
+      return (
+        <View>
+          <LoadingIndicator
+            isImg={true}
+            imgSource={ImageName}
+            containerStyle={{ backgroundColor: 'white' }}
+          />
+          <Text>Loading ... </Text>
+        </View>
+      );
+    }
+    ```
+
+      ![is_img_true](https://user-images.githubusercontent.com/31176502/71334983-be304780-2583-11ea-9d22-fa92453e68e3.gif)
