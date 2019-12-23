@@ -43,9 +43,9 @@ const Snackbar: React.FC<SnackbarProps> = (props) => {
     <>
       {show && (
         <Container testID={testID}
-                   style={props.containerStyle}>
+          style={props.containerStyle}>
           <Text
-              style={props.messageStyle}
+            style={props.messageStyle}
           >
             {props.text}
           </Text>

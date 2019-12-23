@@ -6,6 +6,7 @@ exports[`[Snackbar] renders without crashing 1`] = `
     Array [
       Object {
         "backgroundColor": "#303235",
+        "borderRadius": 10,
         "bottom": 50,
         "fontSize": 16,
         "paddingBottom": 16,
@@ -19,13 +20,7 @@ exports[`[Snackbar] renders without crashing 1`] = `
   }
   testID="snackbar"
 >
-  <Text
-    style={
-      Object {
-        "color": "#ffffff",
-      }
-    }
-  >
+  <Text>
     SnackBar!
   </Text>
 </View>

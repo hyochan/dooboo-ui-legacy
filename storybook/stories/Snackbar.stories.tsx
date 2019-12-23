@@ -1,11 +1,10 @@
 import React, { useState } from 'react';
 import Snackbar, { Timer } from '../../src/components/shared/Snackbar';
-
+import { color, text } from '@storybook/addon-knobs';
 import Button from '../../src/components/shared/Button';
 import { ContainerDeco } from '../decorators';
 import { storiesOf } from '@storybook/react-native';
 import styled from 'styled-components/native';
-import { text, color } from '@storybook/addon-knobs';
 
 storiesOf('Snackbar', module)
   .addDecorator(ContainerDeco)
