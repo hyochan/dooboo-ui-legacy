@@ -49,7 +49,7 @@ function LoadingIndicator(props: Props): React.ReactElement {
         height: 50,
       };
     }
-    if (size === undefined) {
+    if (!size) {
       return {};
     }
 
