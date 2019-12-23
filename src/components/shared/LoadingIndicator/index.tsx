@@ -35,6 +35,7 @@ interface Props {
 
 function LoadingIndicator(props: Props): React.ReactElement {
   const { containerStyle, style, size, color, imgSource } = props;
+
   const handleImgSize = (size: number | string | undefined): ImageStyle => {
     if (size === 'large') {
       return {
@@ -70,7 +71,7 @@ function LoadingIndicator(props: Props): React.ReactElement {
 
   return (
     <View style={[styles.container, containerStyle]}>
-      {!props.imgSource ? (
+      {!imgSource ? (
         <ActivityIndicator
           style={style}
           size={size}
