@@ -1,33 +1,34 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`[Snackbar] renders without crashing 1`] = `
+exports[`[Snackbar] renders TestWrapper without crashing 1`] = `
 <View
   style={
-    Array [
-      Object {
-        "alignItems": "center",
-        "backgroundColor": "#303235",
-        "borderRadius": 10,
-        "bottom": 50,
-        "display": "flex",
-        "flexDirection": "row",
-        "flexWrap": "wrap",
-        "fontSize": 16,
-        "maxWidth": 718,
-        "minWidth": 150,
-        "paddingBottom": 10,
-        "paddingLeft": 16,
-        "paddingRight": 16,
-        "paddingTop": 10,
-        "position": "absolute",
-        "textAlign": "left",
-      },
-    ]
+    Object {
+      "flex": 1,
+    }
   }
-  testID="snackbar"
 >
-  <Text>
-    SnackBar!
-  </Text>
+  <View
+    accessible={true}
+    focusable={true}
+    isTVSelectable={true}
+    onClick={[Function]}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      Object {
+        "opacity": 1,
+      }
+    }
+    testID="Button"
+  >
+    <Text>
+      show snack bar
+    </Text>
+  </View>
 </View>
 `;
