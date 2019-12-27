@@ -70,6 +70,9 @@ exports[`[EditText] default renders without crashing 1`] = `
           "color": "#ff8989",
           "fontSize": 12,
           "fontWeight": "500",
+          "marginBottom": 0,
+          "marginLeft": 2,
+          "marginRight": 2,
           "marginTop": 5,
         },
         Object {
@@ -79,7 +82,7 @@ exports[`[EditText] default renders without crashing 1`] = `
       ]
     }
   >
-     error 
+    error
   </Text>
 </View>
 `;
