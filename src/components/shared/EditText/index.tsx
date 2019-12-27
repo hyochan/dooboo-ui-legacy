@@ -73,6 +73,7 @@ const StyledTextInput = Platform.select({
 });
 
 const StyledInvalidText = styled.Text`
+  margin: 0px 2px;
   font-size: 12px;
   font-weight: 500;
   margin-top: 5px;
@@ -186,7 +187,6 @@ function EditText(props: Props): ReactElement {
           />
         </StyledRowContent>
         <UnderLine
-          // prettier-ignore
           style={[
             { borderColor: borderColor },
             focused
@@ -235,7 +235,6 @@ function EditText(props: Props): ReactElement {
       />
       <UnderLine
         style={[
-          // prettier-ignore
           focused
             ? { borderColor: focusColor }
             : errorText
@@ -253,7 +252,7 @@ function EditText(props: Props): ReactElement {
             },
             errorTextStyle,
           ]}>
-          {` ${errorText} `}
+          {`${errorText}`}
         </StyledInvalidText>
       ) : null}
     </Container>

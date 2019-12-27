@@ -1,5 +1,7 @@
 ## Changelogs
 
+- **[0.4.6]**
+  - Fix default [EditText] `errorText` spacing.
 - **[0.4.5]**
   - Pass down all [TextInput] `props` to [EditText].
 - **[0.4.3]**
