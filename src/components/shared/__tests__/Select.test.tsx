@@ -24,6 +24,7 @@ const mockProp: selectProp<'noTheme' | 'inputTheme' | 'themeAndRootView' | 'disa
   noTheme: {
     testID: 'select',
     placeholder: 'select',
+    title: 'noTheme',
     rootTextStyle: {
       color: 'orange',
     },
@@ -33,6 +34,7 @@ const mockProp: selectProp<'noTheme' | 'inputTheme' | 'themeAndRootView' | 'disa
   inputTheme: {
     testID: 'select',
     theme: ThemeEnum.box,
+    title: 'inputTheme',
     placeholder: 'select',
     items: ITEMS,
     activeOpacity: 0.5,
@@ -40,6 +42,7 @@ const mockProp: selectProp<'noTheme' | 'inputTheme' | 'themeAndRootView' | 'disa
   themeAndRootView: {
     testID: 'select',
     theme: ThemeEnum.box,
+    title: 'themeAndRootView',
     rootViewStyle: {
       borderBottomColor: 'black',
       borderBottomWidth: 2,
@@ -51,6 +54,7 @@ const mockProp: selectProp<'noTheme' | 'inputTheme' | 'themeAndRootView' | 'disa
   },
   disabled: {
     testID: 'select',
+    title: 'disabled',
     theme: ThemeEnum.box,
     rootViewStyle: {
       borderBottomColor: 'black',
