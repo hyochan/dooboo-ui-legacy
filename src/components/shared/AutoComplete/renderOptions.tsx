@@ -8,21 +8,33 @@ const RenderOption: FC<RenderOptionProps> = ({
   label,
   value,
   onPress,
+  underlayColor,
 }): ReactElement => {
   return (
-    <OptionWrapper onPress={(): void => onPress(label)}>
+    <OptionWrapper
+      onPress={(): void => onPress(label)}
+      underlayColor={underlayColor}
+    >
       <OptionText>{`${label} (${id}) +${value}`}</OptionText>
     </OptionWrapper>
   );
 };
 
-const RenderOptions = ({ data, onPress }): ReactElement => {
+const RenderOptions = ({
+  data,
+  onPress,
+  underlayColor = 'black',
+}): ReactElement => {
   return (
     <OptionsContainer
       data={data}
       extraData={data}
       renderItem={({ item }): ReactElement => (
-        <RenderOption {...item} onPress={onPress} />
+        <RenderOption
+          {...item}
+          onPress={onPress}
+          underlayColor={underlayColor}
+        />
       )}
       keyExtractor={(item): string => item.id}
     />

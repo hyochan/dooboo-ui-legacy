@@ -34,6 +34,7 @@ function Default(): React.ReactElement {
         style={object('inputStyle', { backgroundColor: '#f3f5f7' })}
         debounceDelay={number('debounceDelay', 400)}
         placeholderText={text('placeholder', 'Choose a country')}
+        underlayColor={text('underlayColor', 'black')}
       />
     </Wrapper>
   );
