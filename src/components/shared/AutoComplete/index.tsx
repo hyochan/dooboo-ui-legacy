@@ -67,6 +67,17 @@ export default function AutoComplete({
     [isFocused],
   );
 
+  const filterData: DummyDatum[] = filteredData.filter(
+    ({ id, label, value }) => {
+      const innerValueLower = innerValue ? innerValue.toLowerCase() : null;
+      return innerValueLower ? (
+        id.toLowerCase().includes(innerValueLower) ||
+        label.toLowerCase().includes(innerValueLower) ||
+        value.toLowerCase().includes(innerValueLower)
+      ) : filteredData;
+    },
+  );
+
   return (
     <Wrapper>
       <InputContainer
@@ -88,7 +99,7 @@ export default function AutoComplete({
           <StyledImage source={isOptionsOpen ? IC_ARR_UP : IC_ARR_DOWN} />
         </CaretContainer>
       </InputContainer>
-      {isOptionsOpen && <Options data={filteredData} onPress={onPressOption} />}
+      {isOptionsOpen && <Options data={filterData} onPress={onPressOption} />}
     </Wrapper>
   );
 }
