@@ -23,11 +23,11 @@ exports[`[RadioButton] render [RadioButton] Interaction should simulate props 1`
   }
 >
   <Text
-    isDisabled={false}
+    disabled={true}
     style={
       Array [
         Object {
-          "color": "black",
+          "color": "#969696",
         },
       ]
     }
@@ -38,6 +38,7 @@ exports[`[RadioButton] render [RadioButton] Interaction should simulate props 1`
     borderRadius={12}
     borderWidth={2}
     color="rgba(0, 0, 0, 0.54)"
+    innerSize={12}
     size={23}
     style={
       Array [
@@ -95,6 +96,7 @@ exports[`[RadioButton] render [RadioButton] Interaction should simulate props 2`
     borderRadius={12}
     borderWidth={2}
     color="#c8c8c8"
+    innerSize={12}
     size={23}
     style={
       Array [
@@ -124,7 +126,7 @@ exports[`[RadioButton] render [RadioButton] Interaction should simulate props 2`
     />
   </View>
   <Text
-    isDisabled={true}
+    disabled={true}
     style={
       Array [
         Object {
@@ -164,6 +166,7 @@ exports[`[RadioButton] render [RadioButton] Interaction should simulate props 3`
     borderRadius={12}
     borderWidth={2}
     color="rgba(0, 0, 0, 0.54)"
+    innerSize={12}
     size={23}
     style={
       Array [
@@ -182,11 +185,11 @@ exports[`[RadioButton] render [RadioButton] Interaction should simulate props 3`
     }
   />
   <Text
-    isDisabled={false}
+    disabled={true}
     style={
       Array [
         Object {
-          "color": "black",
+          "color": "#969696",
         },
       ]
     }
@@ -222,6 +225,7 @@ exports[`[RadioButton] render renders without crashing 1`] = `
     borderRadius={12}
     borderWidth={2}
     color="rgba(0, 0, 0, 0.54)"
+    innerSize={12}
     size={23}
     style={
       Array [
@@ -251,11 +255,11 @@ exports[`[RadioButton] render renders without crashing 1`] = `
     />
   </View>
   <Text
-    isDisabled={false}
+    disabled={true}
     style={
       Array [
         Object {
-          "color": "black",
+          "color": "#969696",
         },
       ]
     }

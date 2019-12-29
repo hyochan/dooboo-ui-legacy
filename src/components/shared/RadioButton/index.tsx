@@ -5,14 +5,17 @@ import styled from 'styled-components/native';
 interface ICircleProps {
   color: string;
   size: number;
-}
-
-interface IInputRowProps {
-  isColumn: boolean;
+  innerSize: number;
+  borderRadius: number;
+  borderWidth: number;
 }
 
 interface ILabelTextProps {
-  isDisabled?: boolean;
+  disabled?: boolean;
+}
+
+interface IInputRowProps {
+  isLabelColumn: boolean;
 }
 
 interface IRadioButtonProps {
@@ -27,12 +30,12 @@ interface IRadioButtonProps {
   labelPlacement?: string;
 }
 
-const defaultValue: {
+const DEFAULT_CIRCLE: {
   [key: string]: string;
 } = {
-  outerCircleSize: '23',
-  circleColor: 'rgba(0, 0, 0, 0.54)',
-  circleBorderRadius: '12',
+  OUTER_SIZE: '23',
+  COLOR: 'rgba(0, 0, 0, 0.54)',
+  BORDER_RADIUS: '12',
 };
 
 const COLOR: {
@@ -42,18 +45,21 @@ const COLOR: {
   GRAY59: '#969696',
 };
 
-const InputRow = styled.TouchableOpacity<IInputRowProps>`
-  justify-content: ${({ isColumn }): string =>
-    isColumn ? 'center' : 'flex-start'};
-  flex-direction: ${({ isColumn }): string => (isColumn ? 'column' : 'row')};
+const SCInputRow = styled.TouchableOpacity<IInputRowProps>`
+  justify-content: ${({ isLabelColumn }): string =>
+    isLabelColumn ? 'center' : 'flex-start'};
+  flex-direction: ${({ isLabelColumn }): string =>
+    isLabelColumn ? 'column' : 'row'};
   align-items: center;
   padding-vertical: 8px;
 `;
 
-const OuterCircle = styled.View.attrs((props: ICircleProps) => ({
-  borderRadius: Math.round(props.size / 2),
-  borderWidth: Math.round(props.size / 10),
-}))<ICircleProps>`
+const SCOuterCircle = styled.View.attrs(
+  ({ borderRadius, borderWidth }: ICircleProps) => ({
+    borderRadius,
+    borderWidth,
+  }),
+)<ICircleProps>`
   width: ${({ size }): string => size.toString()};
   height: ${({ size }): string => size.toString()};
   border-color: ${({ color }): string => color};
@@ -62,18 +68,32 @@ const OuterCircle = styled.View.attrs((props: ICircleProps) => ({
   margin: 7px;
 `;
 
-const LabelText = styled.Text<ILabelTextProps>`
-  color: ${({ isDisabled }): string => (isDisabled ? COLOR.GRAY59 : 'black')};
+const SCLabelText = styled.Text<ILabelTextProps>`
+  color: ${({ disabled }): string => (disabled ? COLOR.GRAY59 : 'black')};
 `;
 
-const InnerCircleAnim = (props: ICircleProps): React.ReactElement => {
+const getCircleStyles = (size: number, color: string): ICircleProps => {
+  return {
+    color,
+    size,
+    innerSize: Math.round(size / 2),
+    borderRadius: Math.round(size / 2),
+    borderWidth: Math.round(size / 10),
+  };
+};
+
+const InnerCircleAnim = ({
+  innerSize,
+  borderRadius,
+  color,
+}: ICircleProps): React.ReactElement => {
   const [circleAnim] = useState(new Animated.ValueXY());
 
   React.useEffect(() => {
     Animated.timing(circleAnim, {
       toValue: {
-        x: props.size - Math.round(props.size / 2),
-        y: props.size - Math.round(props.size / 2),
+        x: innerSize,
+        y: innerSize,
       },
       easing: Easing.ease,
       duration: 80,
@@ -83,10 +103,10 @@ const InnerCircleAnim = (props: ICircleProps): React.ReactElement => {
   return (
     <Animated.View
       style={{
+        borderRadius,
         width: circleAnim.x,
         height: circleAnim.y,
-        borderRadius: Math.round(props.size / 2),
-        backgroundColor: props.color,
+        backgroundColor: color,
       }}
     />
   );
@@ -101,35 +121,32 @@ function RadioButton(props: IRadioButtonProps): React.ReactElement {
     selected,
     label,
     labelPlacement,
-    color = defaultValue.circleColor,
-    size = parseInt(defaultValue.outerCircleSize),
+    color = DEFAULT_CIRCLE.COLOR,
+    size = parseInt(DEFAULT_CIRCLE.OUTER_SIZE),
   } = props;
 
   const isSelected = selected || value === selectedValue;
-  const isColumn = labelPlacement === 'top' || labelPlacement === 'bottom';
-  const circleColor = disabled
-    ? COLOR.LIGHTGRAY
-    : isSelected
-    ? color
-    : defaultValue.circleColor;
+  const isLabelFront = labelPlacement === 'start' || labelPlacement === 'top';
+  const isLabelColumn = labelPlacement === 'top' || labelPlacement === 'bottom';
+
+  const circleStyles = getCircleStyles(
+    size,
+    disabled ? COLOR.LIGHTGRAY : isSelected ? color : DEFAULT_CIRCLE.COLOR,
+  );
 
   return (
-    <InputRow
+    <SCInputRow
       activeOpacity={1}
-      onPress={(): void => onPress(value)}
       disabled={disabled}
-      isColumn={isColumn}
+      isLabelColumn={isLabelColumn}
+      onPress={(): void => onPress(value)}
     >
-      {(labelPlacement === 'start' || labelPlacement === 'top') && (
-        <LabelText isDisabled={disabled}>{label}</LabelText>
-      )}
-      <OuterCircle color={circleColor} size={size}>
-        {isSelected && <InnerCircleAnim color={circleColor} size={size} />}
-      </OuterCircle>
-      {(labelPlacement === 'end' || labelPlacement === 'bottom') && (
-        <LabelText isDisabled={disabled}>{label}</LabelText>
-      )}
-    </InputRow>
+      {isLabelFront && <SCLabelText disabled>{label}</SCLabelText>}
+      <SCOuterCircle {...circleStyles}>
+        {isSelected && <InnerCircleAnim {...circleStyles} />}
+      </SCOuterCircle>
+      {!isLabelFront && <SCLabelText disabled>{label}</SCLabelText>}
+    </SCInputRow>
   );
 }
 
