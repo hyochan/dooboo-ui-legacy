@@ -9,10 +9,12 @@ export interface AutoCompleteProps {
   style?: StyleProp<ViewStyle>;
   debounceDelay?: number;
   placeholderText?: string;
+  underlayColor?: string;
 }
 
 export type RenderOptionProps = DummyDatum & {
   onPress: (label: string) => void;
+  underlayColor?: string;
 };
 
 export type InputContainerProps = {
