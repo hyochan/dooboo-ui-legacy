@@ -59,6 +59,17 @@ export default function AutoComplete({
     }, 80);
   }, []);
 
+  const filterData: DummyDatum[] = filteredData.filter(
+    ({ id, label, value }) => {
+      const innerValueLower = innerValue ? innerValue.toLowerCase() : null;
+      return innerValueLower ? (
+        id.toLowerCase().includes(innerValueLower) ||
+        label.toLowerCase().includes(innerValueLower) ||
+        value.toLowerCase().includes(innerValueLower)
+      ) : filteredData;
+    },
+  );
+
   return (
     <Wrapper>
       <InputContainer style={style} on={isOptionsOpen}>
@@ -77,7 +88,7 @@ export default function AutoComplete({
       </InputContainer>
       {isOptionsOpen && (
         <Options
-          data={filteredData}
+          data={filterData}
           underlayColor={underlayColor}
           onPress={onPressOption}
         />
