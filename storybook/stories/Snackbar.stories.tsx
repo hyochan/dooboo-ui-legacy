@@ -64,7 +64,7 @@ function Default(): React.ReactElement {
         }}
       />
       <Snackbar
-        text={text('Snackbar Text', 'Simple Snackbar is opnened')}
+        text={text('Snackbar Text', 'Simple Snackbar is opened')}
         show={show}
         setShow={setShow}
         timer={timer}
