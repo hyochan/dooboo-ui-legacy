@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import { Dimensions, Text } from 'react-native';
+import { Text, TextStyle, ViewStyle, Dimensions } from 'react-native';
 import styled from 'styled-components/native';
 
 const { width } = Dimensions.get('screen');
@@ -18,6 +18,7 @@ const Container = styled.View`
   padding: 16px;
   bottom: 50px;
   background-color: #303235;
+  border-radius: 10;
 `;
 
 const ActionContainer = styled.View`
@@ -34,6 +35,8 @@ export interface SnackbarProps {
   setShow: (show: boolean) => void;
   timer?: Timer;
   action?: React.ReactNode;
+  containerStyle?: ViewStyle;
+  messageStyle?: TextStyle;
 }
 
 export enum Timer {
@@ -55,11 +58,10 @@ const Snackbar: React.FC<SnackbarProps> = (props) => {
   return (
     <>
       {show && (
-        <Container testID={testID}>
+        <Container testID={testID}
+          style={props.containerStyle}>
           <Text
-            style={{
-              color: '#ffffff',
-            }}
+            style={props.messageStyle}
           >
             {props.text}
           </Text>
