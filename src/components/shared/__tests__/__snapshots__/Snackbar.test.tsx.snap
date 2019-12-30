@@ -7,7 +7,12 @@ exports[`[Snackbar] renders without crashing 1`] = `
       Object {
         "backgroundColor": "#303235",
         "bottom": 50,
+        "display": "flex",
+        "flexDirection": "row",
+        "flexWrap": "wrap",
         "fontSize": 16,
+        "maxWidth": 718,
+        "minWidth": 150,
         "paddingBottom": 16,
         "paddingLeft": 16,
         "paddingRight": 16,

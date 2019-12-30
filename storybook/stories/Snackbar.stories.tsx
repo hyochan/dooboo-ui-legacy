@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import Snackbar, { Timer } from '../../src/components/shared/Snackbar';
-
 import Button from '../../src/components/shared/Button';
 import { ContainerDeco } from '../decorators';
 import { storiesOf } from '@storybook/react-native';
@@ -24,9 +23,23 @@ const Container = styled.View`
   flex-direction: column;
 `;
 
+const ActionButton = styled(Button)`
+    width: auto;
+    border: none;
+    height: auto;
+    background-color: transparent;
+`;
+
 function Default(): React.ReactElement {
   const [show, setShow] = useState<boolean>(false);
   const [timer, setTimer] = useState<Timer>(Timer.SHORT);
+
+  const action = (
+    <ActionButton text = "action"
+      onClick={(): void => {
+        setShow(false);
+      }}/>
+  );
 
   return (
     <Container>
@@ -51,10 +64,11 @@ function Default(): React.ReactElement {
         }}
       />
       <Snackbar
-        text={text('Snackbar Text', 'Simple Snackbar is opened')}
+        text={text('Snackbar Text', 'Simple Snackbar is opnened')}
         show={show}
         setShow={setShow}
         timer={timer}
+        action={action}
       />
     </Container>
   );
