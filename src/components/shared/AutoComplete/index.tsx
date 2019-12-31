@@ -81,7 +81,7 @@ export default function AutoComplete({
         label.toLowerCase().includes(innerValueLower) ||
         value.toLowerCase().includes(innerValueLower)
       ) : filteredData;
-    },
+    }
   );
 
   return (
