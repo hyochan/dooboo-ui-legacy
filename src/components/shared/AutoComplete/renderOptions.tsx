@@ -1,6 +1,5 @@
 import { OptionText, OptionWrapper, OptionsContainer } from './styles';
 import React, { FC, ReactElement } from 'react';
-
 import { RenderOptionProps, RenderOptionsProps } from './types';
 
 const RenderOption: FC<RenderOptionProps> = ({
@@ -27,22 +26,25 @@ const RenderOptions: FC<RenderOptionsProps> = ({
   onPress,
   selectedData,
   underlayColor,
-}): ReactElement => {
-  return (
-    <OptionsContainer
-      data={data}
-      extraData={data}
-      renderItem={({ item }): ReactElement => (
+}): ReactElement => (
+  <OptionsContainer
+    data={data}
+    extraData={data}
+    renderItem={({ item }): ReactElement => {
+      const selectedDataId = selectedData && selectedData.id;
+      const itemId = item && item.id;
+
+      return (
         <RenderOption
           {...item}
-          isSelected={selectedData && selectedData.id && item && item.id && selectedData.id === item.id}
+          isSelected={selectedDataId && itemId && selectedData.id === item.id}
           onPress={onPress}
           underlayColor={underlayColor}
         />
-      )}
-      keyExtractor={(item): string => item.id}
-    />
-  );
-};
+      );
+    }}
+    keyExtractor={(item): string => item.id}
+  />
+);
 
 export default RenderOptions;
