@@ -1,5 +1,5 @@
+import { DummyDatum, InputContainerProps, OptionTextProps, OptionWrapperProps } from './types';
 import { FlatList, TouchableHighlight } from 'react-native';
-import { InputContainerProps, OptionTextProps, OptionWrapperProps } from './types';
 
 import styled from 'styled-components/native';
 
@@ -60,7 +60,7 @@ export const OptionText = styled.Text<OptionTextProps>`
 `;
 
 export const OptionsContainer = styled(
-  FlatList as new () => FlatList<any>,
+  FlatList as new () => FlatList<DummyDatum>,
 ).attrs(() => ({
   contentContainerStyle: { paddingVertical: 10 },
 }))`
