@@ -4,13 +4,14 @@ import { Animated } from 'react-native';
 import { Input } from './styles';
 
 const RenderInput = (props): ReactElement => {
-  const [animatedIsFocused] = useState(new Animated.Value(props.on ? 1 : 0));
+  const { on, label, onFocus, onBlur } = props;
+  const [animatedIsFocused] = useState(new Animated.Value(on ? 1 : 0));
   useEffect(() => {
     Animated.timing(animatedIsFocused, {
-      toValue: props.on ? 1 : 0,
+      toValue: on ? 1 : 0,
       duration: 200,
     }).start();
-  }, [props.on]);
+  }, [on]);
 
   return (
     <>
@@ -36,11 +37,12 @@ const RenderInput = (props): ReactElement => {
             outputRange: ['#cdd2d7', 'royalblue'],
           }),
           backgroundColor: 'white',
+          marginBottom: 2,
         }}
       >
-        {props.label}
+        {label}
       </Animated.Text>
-      <Input {...props} onFocus={props.onFocus} onBlur={props.onBlur} />
+      <Input {...props} onFocus={onFocus} onBlur={onBlur} />
     </>
   );
 };

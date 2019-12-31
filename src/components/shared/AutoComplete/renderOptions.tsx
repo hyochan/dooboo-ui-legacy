@@ -37,7 +37,9 @@ const RenderOptions: FC<RenderOptionsProps> = ({
       return (
         <RenderOption
           {...item}
-          isSelected={selectedDataId && itemId && selectedData.id === item.id}
+          isSelected={
+            selectedDataId && itemId ? selectedDataId === itemId : null
+          }
           onPress={onPress}
           underlayColor={underlayColor}
         />

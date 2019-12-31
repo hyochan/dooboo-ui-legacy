@@ -29,7 +29,7 @@ export type RenderOptionsProps = {
 };
 
 export type OptionWrapperProps = {
-  isSelected: boolean;
+  isSelected: boolean | null;
 };
 
 export type InputContainerProps = {

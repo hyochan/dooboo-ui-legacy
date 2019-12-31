@@ -37,7 +37,7 @@ export default function AutoComplete({
   const [selectedData, setSelectedData] = useState<DummyDatum | null>(null);
   const [isOptionsOpen, toggleOptions] = useState(false);
   const debouncedValue = useDebounce(innerValue, debounceDelay);
-  const [filteredData] = useState<DummyDatum[]>(dummyData);
+  const [fetchedData] = useState<DummyDatum[]>(dummyData);
 
   useEffect(() => {
     if (onDebounceOrOnReset) {
@@ -73,14 +73,14 @@ export default function AutoComplete({
     [isFocused],
   );
 
-  const filterData: DummyDatum[] = filteredData.filter(
+  const filteredData: DummyDatum[] = fetchedData.filter(
     ({ id, label, value }) => {
       const innerValueLower = innerValue ? innerValue.toLowerCase() : null;
-      return innerValueLower ? (
-        id.toLowerCase().includes(innerValueLower) ||
-        label.toLowerCase().includes(innerValueLower) ||
-        value.toLowerCase().includes(innerValueLower)
-      ) : filteredData;
+      return innerValueLower
+        ? id.toLowerCase().includes(innerValueLower) ||
+            label.toLowerCase().includes(innerValueLower) ||
+            value.toLowerCase().includes(innerValueLower)
+        : fetchedData;
     },
   );
 
@@ -105,16 +105,14 @@ export default function AutoComplete({
           <StyledImage source={isOptionsOpen ? IC_ARR_UP : IC_ARR_DOWN} />
         </CaretContainer>
       </InputContainer>
-      {
-        isOptionsOpen && (
-          <Options
-            data={filterData}
-            underlayColor={underlayColor}
-            onPress={onPressOption}
-            selectedData={selectedData}
-          />
-        )
-      }
-    </Wrapper >
+      {isOptionsOpen && (
+        <Options
+          data={filteredData}
+          underlayColor={underlayColor}
+          onPress={onPressOption}
+          selectedData={selectedData}
+        />
+      )}
+    </Wrapper>
   );
 }
