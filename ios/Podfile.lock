@@ -223,7 +223,7 @@ PODS:
     - React
   - RNCMaskedView (0.1.5):
     - React
-  - RNGestureHandler (1.5.2):
+  - RNGestureHandler (1.3.0):
     - React
   - RNLocalize (1.3.1):
     - React
@@ -369,7 +369,7 @@ SPEC CHECKSUMS:
   ReactCommon: 198c7c8d3591f975e5431bec1b0b3b581aa1c5dd
   RNCAsyncStorage: 44395cb9c7c1523104c2b499eb426ef7aff82bca
   RNCMaskedView: dd13f9f7b146a9ad82f9b7eb6c9b5548fcf6e990
-  RNGestureHandler: 946a7691e41df61e2c4b1884deab41a4cdc3afff
+  RNGestureHandler: 5329a942fce3d41c68b84c2c2276ce06a696d8b0
   RNLocalize: 07eb7a91d10021cdf59d80061ebf3adb8a5b5688
   RNReanimated: b2ab0b693dddd2339bd2f300e770f6302d2e960c
   RNScreens: 62284de159bbddba268edd282337afdb8771aaed
