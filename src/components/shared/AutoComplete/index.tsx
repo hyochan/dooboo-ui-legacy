@@ -37,7 +37,7 @@ export default function AutoComplete({
   const [selectedData, setSelectedData] = useState<DummyDatum | null>(null);
   const [isOptionsOpen, toggleOptions] = useState(false);
   const debouncedValue = useDebounce(innerValue, debounceDelay);
-  const [fetchedData] = useState<DummyDatum[]>(dummyData);
+  const [filteredData] = useState<DummyDatum[]>(dummyData);
 
   useEffect(() => {
     if (onDebounceOrOnReset) {
