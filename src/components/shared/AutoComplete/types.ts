@@ -16,8 +16,8 @@ type OnPressOption = (data: DummyDatum) => void;
 
 export type RenderOptionProps = DummyDatum & {
   onPress: OnPressOption;
-  index: number;
-  isSelected: boolean;
+  index?: number;
+  isSelected: boolean | null;
   underlayColor?: string;
 };
 
@@ -29,7 +29,7 @@ export type RenderOptionsProps = {
 };
 
 export type OptionWrapperProps = {
-  isSelected: boolean;
+  isSelected: boolean | null;
 };
 
 export type InputContainerProps = {

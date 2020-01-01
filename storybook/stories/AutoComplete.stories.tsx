@@ -31,7 +31,7 @@ function Default(): React.ReactElement {
     <Wrapper>
       <AutoComplete
         value={value}
-        style={object('inputStyle', { backgroundColor: '#f3f5f7' })}
+        style={object('inputStyle', { backgroundColor: '#ffffff' })}
         debounceDelay={number('debounceDelay', 400)}
         placeholderText={text('placeholder', 'Choose a country')}
         underlayColor={text('underlayColor', 'black')}

@@ -1,5 +1,5 @@
+import { DummyDatum, InputContainerProps, OptionTextProps, OptionWrapperProps } from './types';
 import { FlatList, TouchableHighlight } from 'react-native';
-import { InputContainerProps, OptionTextProps, OptionWrapperProps } from './types';
 
 import styled from 'styled-components/native';
 
@@ -11,17 +11,17 @@ export const Wrapper = styled.View`
 
 export const InputContainer = styled.View<InputContainerProps>`
   min-width: 250px;
-  background-color: #f3f5f7;
   height: 60px;
   margin: ${({ on }): string => (on ? '5px 20px' : '0 20px')};
   margin-right: 20px;
   border-radius: 6px;
   flex-direction: row;
-  border: 2px solid royalblue;
+  border: ${({ on }): string => (on ? '2px solid' : '1px solid')};
+  border-color: ${({ on }): string => (on ? 'royalblue' : '#000000')};
 `;
 
 export const Input = styled.TextInput`
-  flex-grow: 1;
+  flex: 1;
   align-self: center;
   font-size: 16px;
   padding: 10px;
@@ -60,7 +60,7 @@ export const OptionText = styled.Text<OptionTextProps>`
 `;
 
 export const OptionsContainer = styled(
-  FlatList as new () => FlatList<any>,
+  FlatList as new () => FlatList<DummyDatum>,
 ).attrs(() => ({
   contentContainerStyle: { paddingVertical: 10 },
 }))`

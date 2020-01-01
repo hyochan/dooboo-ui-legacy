@@ -5,7 +5,9 @@
 
 > [EditText] component is an enhanced version on pure react-native [TextInput] component.
 
-![image](https://user-images.githubusercontent.com/27461460/62299053-28e6c680-b4af-11e9-8c59-61b79ad82c4d.png)
+| Default | Row |
+|--|--|
+| ![upload_default](https://user-images.githubusercontent.com/31176502/71159083-64c8cf80-2288-11ea-89a5-c5e865653265.gif) | ![upload_row](https://user-images.githubusercontent.com/31176502/71159943-fc7aed80-2289-11ea-88fd-fc139fe65d10.gif) |
 
 ## Props
 
@@ -13,6 +15,7 @@
 | -------------------- | --------- | ---------------------- | ------- |
 | testID               |           | string                 |         |
 | errorTestID          |           | string                 |         |
+| isRow                |           | boolean                |         |
 | style                |           | `StyleProp<ViewStyle>` |         |
 | underlineStyle       |           | `StyleProp<ViewStyle>` |         |
 | label                |           | string                 |         |
@@ -26,6 +29,7 @@
 | secureTextEntry      |           | boolean                |         |
 | onSubmitEditing      |           | func                   |         |
 | onChangeText         |           | (e) => {}              |         |
+| textInpuProps        |           | `TextInputProps`       |         |
 
 ## Installation
 
