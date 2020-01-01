@@ -2801,11 +2801,6 @@
     prop-types "^15.7.2"
     util-deprecate "^1.0.2"
 
-"@storybook/addons@5.2.8":
-  version "5.2.8"
-  resolved "https://registry.yarnpkg.com/@storybook/addons/-/addons-5.2.8.tgz#f8bf8bd555b7a69fb1e9a52ab8cdb96384d931ff"
-  integrity sha512-yAo1N5z/45bNIQP8SD+HVTr7X898bYAtz1EZBrQ6zD8bGamzA2Br06rOLL9xXw29eQhsaVnPlqgDwCS1sTC7aQ==
-
 "@storybook/addon-ondevice-knobs@^5.2.8":
   version "5.2.8"
   resolved "https://registry.yarnpkg.com/@storybook/addon-ondevice-knobs/-/addon-ondevice-knobs-5.2.8.tgz#c7dfbdacff5935b6487b0c5b836a8503befc4c22"
@@ -2821,6 +2816,10 @@
     react-native-modal-selector "^1.0.2"
     react-native-switch "^1.5.0"
 
+"@storybook/addons@5.2.8":
+  version "5.2.8"
+  resolved "https://registry.yarnpkg.com/@storybook/addons/-/addons-5.2.8.tgz#f8bf8bd555b7a69fb1e9a52ab8cdb96384d931ff"
+  integrity sha512-yAo1N5z/45bNIQP8SD+HVTr7X898bYAtz1EZBrQ6zD8bGamzA2Br06rOLL9xXw29eQhsaVnPlqgDwCS1sTC7aQ==
   dependencies:
     "@storybook/api" "5.2.8"
     "@storybook/channels" "5.2.8"
@@ -5837,6 +5836,7 @@ dedent@^0.7.0:
   version "0.7.0"
   resolved "https://registry.yarnpkg.com/dedent/-/dedent-0.7.0.tgz#2495ddbaf6eb874abb0e1be9df22d2e5a544326c"
   integrity sha1-JJXduvbrh0q7Dhvp3yLS5aVEMmw=
+
 deep-equal@^1.0.1:
   version "1.1.1"
   resolved "https://registry.yarnpkg.com/deep-equal/-/deep-equal-1.1.1.tgz#b5c98c942ceffaf7cb051e24e1434a25a2e6076a"
@@ -7534,11 +7534,6 @@ gzip-size@5.1.1:
   dependencies:
     duplexer "^0.1.1"
     pify "^4.0.1"
-
-hammerjs@^2.0.8:
-  version "2.0.8"
-  resolved "https://registry.yarnpkg.com/hammerjs/-/hammerjs-2.0.8.tgz#04ef77862cff2bb79d30f7692095930222bf60f1"
-  integrity sha1-BO93hiz/K7edMPdpIJWTAiK/YPE=
 
 handlebars@^4.1.2, handlebars@^4.4.0:
   version "4.5.3"
@@ -10561,10 +10556,11 @@ object-inspect@^1.7.0:
   version "1.7.0"
   resolved "https://registry.yarnpkg.com/object-inspect/-/object-inspect-1.7.0.tgz#f4f6bd181ad77f006b5ece60bd0b6f398ff74a67"
   integrity sha512-a7pEHdh1xKIAgTySUGgLMx/xwDZskN1Ud6egYYN3EdRW4ZMPNEDUTF+hwy2LUC+Bl+SyLXANnwz/jyh/qutKUw==
+
 object-is@^1.0.1:
-  version "1.0.1"
-  resolved "https://registry.yarnpkg.com/object-is/-/object-is-1.0.1.tgz#0aa60ec9989a0b3ed795cf4d06f62cf1ad6539b6"
-  integrity sha1-CqYOyZiaCz7Xlc9NBvYs8a1lObY=
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/object-is/-/object-is-1.0.2.tgz#6b80eb84fe451498f65007982f035a5b445edec4"
+  integrity sha512-Epah+btZd5wrrfjkJZq1AOB9O6OxUQto45hzFd7lXGrpHPGE0W1k+426yrZV+k6NJOzLNNW/nVsmZdIWsAqoOQ==
 
 object-keys@^1.0.11, object-keys@^1.0.12, object-keys@^1.1.1:
   version "1.1.1"
@@ -11830,25 +11826,19 @@ react-native-color-picker@^0.4.0:
   version "1.3.0"
   resolved "git://github.com/hyochan/react-native-gesture-handler.git#9ee7279c0ada33d1dfd0b41d99ed7043cb682d21"
   dependencies:
-    hammerjs "^2.0.8"
     hoist-non-react-statics "^2.3.1"
-    invariant "^2.2.4"
-    prop-types "^15.7.2"
+    invariant "^2.2.2"
+    prop-types "^15.5.10"
 
 react-native-localize@^1.3.1:
   version "1.3.1"
   resolved "https://registry.yarnpkg.com/react-native-localize/-/react-native-localize-1.3.1.tgz#d0b7046acd4214ac2bcb61102317374351400c76"
   integrity sha512-Y3LzTHyrgsIsDYvjWSRguARBKjiLaahcbJg663ZqP1Tcpan4LYn/f3iusM+Oh6qYvClnlo9AlBkLdCZbWwe7Tw==
 
-react-native-reanimated@^1.4.0:
-  version "1.4.0"
-  resolved "https://registry.yarnpkg.com/react-native-reanimated/-/react-native-reanimated-1.4.0.tgz#7f1acbf9be08492d834f512700570978052be2f9"
-  integrity sha512-tO7nSNNP+iRLVbkcSS5GXyDBb7tSI02+XuRL3/S39EAr35rnvUy2JfeLUQG+fWSObJjnMVhasUDEUwlENk8IXw==
-
 react-native-modal-datetime-picker@^7.4.2:
-  version "7.6.0"
-  resolved "https://registry.yarnpkg.com/react-native-modal-datetime-picker/-/react-native-modal-datetime-picker-7.6.0.tgz#6818f221010d0f61a6396a956b303fee65726fee"
-  integrity sha512-p7MquU/oAFO+S7+d1IYYK/8b9mroZXuStK2HA2FxX3e8O1YeNyq2Bggr4KPr6D0saJ/6iGzq8pFwN0YfaCW9+A==
+  version "7.6.1"
+  resolved "https://registry.yarnpkg.com/react-native-modal-datetime-picker/-/react-native-modal-datetime-picker-7.6.1.tgz#463eaece1af98aa0b2fce00dab6cd203f89b86da"
+  integrity sha512-Ovq0p20Tbw6uWGV0VIDcCQ5qTaHxC9gEcYmB2a4fD1ksCSwCil9RJBEhC7VirvplvAGCKOKs3bblaKFmhiOBkg==
   dependencies:
     prop-types "^15.7.2"
     react-native-modal "^11.0.2"
@@ -11867,6 +11857,11 @@ react-native-modal@^11.0.2:
   dependencies:
     prop-types "^15.6.2"
     react-native-animatable "1.3.3"
+
+react-native-reanimated@^1.4.0:
+  version "1.4.0"
+  resolved "https://registry.yarnpkg.com/react-native-reanimated/-/react-native-reanimated-1.4.0.tgz#7f1acbf9be08492d834f512700570978052be2f9"
+  integrity sha512-tO7nSNNP+iRLVbkcSS5GXyDBb7tSI02+XuRL3/S39EAr35rnvUy2JfeLUQG+fWSObJjnMVhasUDEUwlENk8IXw==
 
 react-native-safe-area-context@^0.6.1:
   version "0.6.1"
@@ -11905,6 +11900,13 @@ react-native-swipe-gestures@^1.0.3:
   version "1.0.3"
   resolved "https://registry.yarnpkg.com/react-native-swipe-gestures/-/react-native-swipe-gestures-1.0.3.tgz#4160f8d459627323f3a3d2770af4bcd82fd054f5"
   integrity sha512-KOouRzPB2fHFjVombsSdRfYo8SFeNVa4Ho4B5il87DuuF26sPNOtb3je+qaT/xVptedOsCzRPJGbWFMsaBApgg==
+
+react-native-switch@^1.5.0:
+  version "1.5.0"
+  resolved "https://registry.yarnpkg.com/react-native-switch/-/react-native-switch-1.5.0.tgz#a5c8e72f87def649d1c9de027c5ae27e2037ea40"
+  integrity sha1-pcjnL4fe9knRyd4CfFrifiA36kA=
+  dependencies:
+    prop-types "^15.6.0"
 
 react-native@0.61.5:
   version "0.61.5"
