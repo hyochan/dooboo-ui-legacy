@@ -4,12 +4,12 @@
 
 ## Props
 
-|          | necessary | types   | default  |
-| -------- | --------- | ------- | -------- |
-| total    | ✓         | number  | 5        |
-| value    | ✓         | number  | 0        |
-| onChange |           | func    | () => {} |
-| disabled |           | boolean | false    |
+|          | necessary | types   | default  | description                |
+| -------- | --------- | ------- | -------- | -------------------------- |
+| total    | ✓         | number  | 5        | set the total rating value |
+| value    | ✓         | number  | 0        | set the rating value that will show on the screen. (The value will automatically round down.) |
+| onChange |           | func    | () => {} | set the handler to handle change event |
+| disabled |           | boolean | false    | disabled state of rating   |
 
 ## Usage
 
