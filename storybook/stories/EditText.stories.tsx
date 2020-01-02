@@ -91,6 +91,7 @@ const Default = (): React.ReactElement => {
             style={{ marginTop: 50 }}
             errorText={errorEmail}
             onSubmitEditing={onSignIn}
+            frameType="regular"
           />
           <EditText
             testID="PASSWORD_INPUT"
@@ -107,6 +108,7 @@ const Default = (): React.ReactElement => {
             }
             style={{ marginTop: 36 }}
             onSubmitEditing={onSignIn}
+            frameType="rounded"
           />
           <Button
             style={{
@@ -203,6 +205,7 @@ const RowEditText = (): React.ReactElement => {
             Sign in with Email
           </Text>
           <EditText
+            frameType="rounded"
             isRow
             testID="EMAIL_INPUT"
             errorTestID="EMAIL_INPUT_ERROR"
