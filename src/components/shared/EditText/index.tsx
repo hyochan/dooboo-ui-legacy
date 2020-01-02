@@ -29,6 +29,11 @@ const StyledRowLabel = styled.Text`
   color: #b9b9c4;
   position: absolute;
   left: 0;
+  width: 120px;
+`;
+
+const StyledRowInputWrapper = styled.View`
+  width: 100%;
 `;
 
 const StyledRowInput = Platform.select({
