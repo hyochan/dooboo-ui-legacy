@@ -30,12 +30,15 @@ const StyledRowLabel = styled.Text`
   color: #b9b9c4;
   position: absolute;
   left: 0;
+  width: 120px;
 `;
 
-const StyledRowInput = Platform.select({
-  ios: styled.TextInput`
-  padding-top: 16px;
-  padding-bottom: 16px;
+const StyledRowInputWrapper = styled.View`
+  width: 100%;
+`;
+
+const StyledRowInput = styled.TextInput`
+  padding: 16px 0 16px 0;
   font-size: 14px;
   font-weight: bold;
   width: 100%;
@@ -60,9 +63,6 @@ const Container = styled.View`
 `;
 
 const StyledLine = styled.View`  
-  flex-direction: row;
-  align-items: center;
-  justify-content: flex-end;
   width: 100%;
 `;
 
@@ -75,8 +75,7 @@ const StyledLabel = styled.Text`
 
 const StyledTextInput = Platform.select({
   ios: styled.TextInput`
-    padding-top: 15px;
-    padding-bottom: 15px;
+    padding: 15px 0 15px 0;
     font-size: 15px;
     font-weight: 500;
     width: 100%;
@@ -84,7 +83,7 @@ const StyledTextInput = Platform.select({
     color: #2c374e;
   `,
   android: styled.TextInput`
-    padding-top: 10px;
+    padding-left: 0px;
     padding-bottom: 10px;
     font-size: 15px;
     font-weight: 500;
@@ -104,6 +103,8 @@ const StyledInvalidText = styled.Text`
 
 interface Props {
   testID?: string;
+  frameType?: string; /** underlined(default), regular, rounded */
+  isRow?: boolean;
   errorTestID?: string;
   isRow?: boolean;
   style?: ViewStyle;
@@ -145,6 +146,8 @@ function EditText(props: Props): ReactElement {
     errorTestID,
     isRow = false,
     style,
+    lineStyle,
+    frameType,
     label,
     labelTextStyle,
     labelWidth = 110,
@@ -177,16 +180,15 @@ function EditText(props: Props): ReactElement {
       <StyledRowContainer style={style}>
         <StyledRowContent
           style={[
-            borderStyle,
             { borderColor: borderColor },
             focused
               ? { borderColor: focusColor }
               : errorText
                 ? { borderColor: errorColor }
                 : null,
-            inputContainerType === 'underlined' || !inputContainerType
-              ? [{ borderBottomWidth: borderWidth }]
-              : { borderWidth: borderWidth, borderRadius: inputContainerRadius },
+            frameType === 'underlined' || !frameType
+              ? [{ borderBottomWidth: 0.6 }, lineStyle]
+              : null,
           ]}
         >
           {label ? (
@@ -205,40 +207,56 @@ function EditText(props: Props): ReactElement {
               {label}
             </StyledRowLabel>
           ) : null}
-          <StyledRowInput
-            {...textInputProps}
-            testID={testID}
-            style={[
-              textStyle,
-              label
-                ? { paddingLeft: labelWidth }
-                : { paddingLeft: 15 },
-              inputContainerType === 'underlined' || !inputContainerType
-                ? { textAlign: 'right' }
-                : { paddingRight: 15 },
-            ]}
-            autoCapitalize={autoCapitalize}
-            onFocus={(): void => {
-              setFocus(true);
-              if (onFocus) {
-                onFocus();
-              }
-            }}
-            onBlur={(): void => {
-              setFocus(false);
-              if (onBlur) {
-                onBlur();
-              }
-            }}
-            onSubmitEditing={onSubmitEditing}
-            placeholder={placeholder}
-            placeholderTextColor={placeholderTextColor}
-            value={value}
-            numberOfLines={numberOfLines}
-            onChangeText={onChangeText}
-            secureTextEntry={secureTextEntry}
-            keyboardType={keyboardType}
-          />
+          <StyledRowInputWrapper
+            style={
+              frameType === 'regular' || frameType === 'rounded'
+                ? { paddingLeft: 80 }
+                : { paddingLeft: 120 }
+            }
+          >
+            <StyledRowInput
+              {...textInputProps}
+              testID={testID}
+              style={[
+                textStyle,
+                { borderColor: borderColor },
+                focused
+                  ? { borderColor: focusColor }
+                  : errorText
+                    ? { borderColor: errorColor }
+                    : null,
+                frameType === 'outlined' || !frameType
+                  ? { textAlign: 'right' }
+                  : [
+                    { borderWidth: 0.6, paddingLeft: 10 },
+                    frameType === 'regular'
+                      ? { borderRadius: 5 }
+                      : { borderRadius: 25 },
+                  ],
+              ]}
+              autoCapitalize={autoCapitalize}
+              onFocus={(): void => {
+                setFocus(true);
+                if (onFocus) {
+                  onFocus();
+                }
+              }}
+              onBlur={(): void => {
+                setFocus(false);
+                if (onBlur) {
+                  onBlur();
+                }
+              }}
+              onSubmitEditing={onSubmitEditing}
+              placeholder={placeholder}
+              placeholderTextColor={placeholderTextColor}
+              value={value}
+              numberOfLines={numberOfLines}
+              onChangeText={onChangeText}
+              secureTextEntry={secureTextEntry}
+              keyboardType={keyboardType}
+            />
+          </StyledRowInputWrapper>
         </StyledRowContent>
         {errorText ? (
           <StyledInvalidText testID={errorTestID} style={errorTextStyle}>
@@ -265,16 +283,18 @@ function EditText(props: Props): ReactElement {
       </StyledLabel>
       <StyledLine
         style={[
-          borderStyle,
           { borderColor: borderColor },
+          lineStyle,
           focused
             ? { borderColor: focusColor }
             : errorText
               ? { borderColor: errorColor }
               : null,
-          inputContainerType === 'underlined' || !inputContainerType
-            ? { borderBottomWidth: borderWidth }
-            : { borderWidth: borderWidth, borderRadius: inputContainerRadius, paddingLeft: 15, paddingRight: 15 },
+          frameType === 'regular'
+            ? { borderWidth: 0.6, borderRadius: 5, paddingLeft: 10 }
+            : frameType === 'rounded'
+              ? { borderWidth: 0.6, borderRadius: 25, paddingLeft: 10 }
+              : { borderBottomWidth: 0.6 },
         ]}
       >
         <StyledTextInput
@@ -286,14 +306,14 @@ function EditText(props: Props): ReactElement {
           placeholder={placeholder}
           placeholderTextColor={placeholderTextColor}
           value={value}
-          style={textStyle}
+          style={[textStyle, lineStyle]}
           onChangeText={onChangeText}
           secureTextEntry={secureTextEntry}
           onSubmitEditing={onSubmitEditing}
         />
       </StyledLine>
 
-      { errorText ? (
+      {errorText ? (
         <StyledInvalidText
           testID={errorTestID}
           style={[
