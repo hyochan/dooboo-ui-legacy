@@ -19,6 +19,7 @@ exports[`[EditText] default renders without crashing 1`] = `
           "color": "#b9b9c4",
           "fontSize": 14,
           "fontWeight": "500",
+          "marginBottom": 5,
         },
         Object {
           "color": "#FF8989",
@@ -27,42 +28,47 @@ exports[`[EditText] default renders without crashing 1`] = `
       ]
     }
   />
-  <TextInput
-    allowFontScaling={true}
-    autoCapitalize="none"
-    onBlur={[Function]}
-    onFocus={[Function]}
-    rejectResponderTermination={true}
-    style={
-      Array [
-        Object {
-          "color": "#2c374e",
-          "fontSize": 15,
-          "fontWeight": "500",
-          "paddingBottom": 10,
-          "paddingLeft": 0,
-          "paddingRight": 0,
-          "paddingTop": 15,
-        },
-      ]
-    }
-    underlineColorAndroid="transparent"
-  />
   <View
     style={
       Array [
         Object {
-          "borderColor": "#eaeaf9",
-          "borderStyle": "solid",
-          "borderWidth": 0.6,
+          "width": "100%",
         },
+        Object {
+          "borderColor": "#eaeaf9",
+        },
+        undefined,
         Object {
           "borderColor": "#FF8989",
         },
-        undefined,
+        Object {
+          "borderBottomWidth": 0.6,
+        },
       ]
     }
-  />
+  >
+    <TextInput
+      allowFontScaling={true}
+      autoCapitalize="none"
+      onBlur={[Function]}
+      onFocus={[Function]}
+      rejectResponderTermination={true}
+      style={
+        Array [
+          Object {
+            "color": "#2c374e",
+            "fontSize": 15,
+            "fontWeight": "500",
+            "paddingBottom": 15,
+            "paddingLeft": 0,
+            "paddingRight": 0,
+            "paddingTop": 15,
+          },
+        ]
+      }
+      underlineColorAndroid="transparent"
+    />
+  </View>
   <Text
     style={
       Array [
