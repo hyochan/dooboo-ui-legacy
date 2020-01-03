@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import { StyleProp, View, ViewStyle } from 'react-native';
+import { StyleProp, StyleSheet, View, ViewStyle } from 'react-native';
 
 import styled from 'styled-components/native';
 
@@ -85,7 +85,9 @@ const SearchInput: React.FC<SearchInputProps> = (props) => {
   }, [props.value]);
 
   return (
-    <Container style={props.style}>
+    <Container
+      style={StyleSheet.flatten(props.style)}
+    >
       {props.customIcon ? props.customIcon : <View style={{ width: 10 }} />}
       <Input
         testID={'SEARCH_INPUT'}
