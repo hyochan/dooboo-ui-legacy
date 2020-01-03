@@ -37,7 +37,6 @@ exports[`[EditText] default renders without crashing 1`] = `
         Object {
           "borderColor": "#eaeaf9",
         },
-        undefined,
         Object {
           "borderColor": "#FF8989",
         },
