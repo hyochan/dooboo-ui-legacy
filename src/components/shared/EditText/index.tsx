@@ -31,14 +31,24 @@ const StyledRowLabel = styled.Text`
   left: 0;
 `;
 
-const StyledRowInput = styled.TextInput`
-  text-align: right;
-  padding: 16px 0 16px 120px;
+const StyledRowInput = Platform.select({
+  ios: styled.TextInput`
+  padding-top: 16px;
+  padding-bottom: 16px;
   font-size: 14px;
   font-weight: bold;
   width: 100%;
   color: #2c374e;
-`;
+`,
+  android: styled.TextInput`
+  padding-top: 10px;
+  padding-bottom: 10px;
+  font-size: 14px;
+  font-weight: bold;
+  width: 100%;
+  color: #2c374e;
+`,
+});
 
 const Container = styled.View`
   flex-direction: column;
@@ -46,11 +56,12 @@ const Container = styled.View`
   width: 100%;
 `;
 
-const UnderLine = styled.View`
-  border: 0.6px solid #eaeaf9;
+const StyledLine = styled.View`  
+  width: 100%;
 `;
 
 const StyledLabel = styled.Text`
+  margin-bottom: 5px;
   font-size: 14px;
   font-weight: 500;
   color: #b9b9c4;
@@ -58,16 +69,19 @@ const StyledLabel = styled.Text`
 
 const StyledTextInput = Platform.select({
   ios: styled.TextInput`
-    padding: 15px 0 10px 0;
+    padding-top: 15px;
+    padding-bottom: 15px;
     font-size: 15px;
     font-weight: 500;
+    width: 100%;
     color: #2c374e;
   `,
   android: styled.TextInput`
-    padding-left: 0px;
-    padding-bottom: 5px;
+    padding-top: 10px;
+    padding-bottom: 10px;
     font-size: 15px;
     font-weight: 500;
+    width: 100%;
     color: #2c374e;
   `,
 });
@@ -82,18 +96,17 @@ const StyledInvalidText = styled.Text`
 
 interface Props {
   testID?: string;
-  isRow?: boolean;
   errorTestID?: string;
+  isRow?: boolean;
   style?: ViewStyle;
-  underlineStyle?: ViewStyle;
   label?: string;
-  textStyle?: TextStyle;
   labelTextStyle?: TextStyle;
-  errorTextStyle?: TextStyle;
-  errorText?: string;
-  keyboardType?: KeyboardTypeOptions;
-  numberOfLines?: number;
+  labelWidth?: number;
   value?: TextInputProps['value'];
+  inputContainerType?: string;
+  inputContainerRadius?: number;
+  borderColor?: string;
+  textStyle?: TextStyle;
   placeholder?: TextInputProps['placeholder'];
   placeholderTextColor?: TextInputProps['placeholderTextColor'];
   secureTextEntry?: TextInputProps['secureTextEntry'];
@@ -103,12 +116,15 @@ interface Props {
   ) => void;
   focusColor?: string;
   errorColor?: string;
-  borderColor?: string;
   autoCapitalize?: TextInputProps['autoCapitalize'];
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   textInputProps?: TextInputProps | any;
   onFocus?: () => void;
   onBlur?: () => void;
+  errorText?: string;
+  errorTextStyle?: TextStyle;
+  keyboardType?: KeyboardTypeOptions;
+  numberOfLines?: number;
 }
 
 function EditText(props: Props): ReactElement {
@@ -117,35 +133,49 @@ function EditText(props: Props): ReactElement {
   const {
     testID,
     errorTestID,
+    isRow = false,
     style,
-    underlineStyle,
     label,
-    textStyle,
     labelTextStyle,
-    errorTextStyle,
-    errorText,
-    keyboardType,
-    numberOfLines,
+    labelWidth = 110,
     value,
+    inputContainerType = 'underlined',
+    inputContainerRadius = 3,
+    borderColor = '#eaeaf9',
+    textStyle,
     placeholder,
     placeholderTextColor,
     secureTextEntry,
     onChangeText,
     onSubmitEditing,
-    focusColor,
-    errorColor,
-    borderColor = '#eaeaf9',
+    focusColor = '#79B3F5',
+    errorColor = '#FF8989',
     autoCapitalize = 'none',
-    isRow = false,
     textInputProps,
     onFocus,
     onBlur,
+    errorText,
+    errorTextStyle,
+    keyboardType,
+    numberOfLines,
   } = props;
 
   if (isRow) {
     return (
       <StyledRowContainer style={style}>
-        <StyledRowContent>
+        <StyledRowContent
+          style={[
+            { borderColor: borderColor },
+            focused
+              ? { borderColor: focusColor }
+              : errorText
+                ? { borderColor: errorColor }
+                : null,
+            inputContainerType === 'underlined' || !inputContainerType
+              ? [{ borderBottomWidth: 0.6 }]
+              : { borderWidth: 0.6, borderRadius: inputContainerRadius },
+          ]}
+        >
           {label ? (
             <StyledRowLabel
               style={[
@@ -155,6 +185,9 @@ function EditText(props: Props): ReactElement {
                   : focused
                     ? { color: focusColor }
                     : null,
+                inputContainerType === 'box'
+                  ? { marginLeft: 15 }
+                  : null,
               ]}>
               {label}
             </StyledRowLabel>
@@ -162,7 +195,18 @@ function EditText(props: Props): ReactElement {
           <StyledRowInput
             {...textInputProps}
             testID={testID}
-            style={textStyle}
+            style={[
+              textStyle,
+              { borderColor: borderColor, paddingLeft: labelWidth },
+              focused
+                ? { borderColor: focusColor }
+                : errorText
+                  ? { borderColor: errorColor }
+                  : null,
+              inputContainerType === 'underlined' || !inputContainerType
+                ? { textAlign: 'right' }
+                : { paddingRight: 15 },
+            ]}
             autoCapitalize={autoCapitalize}
             onFocus={(): void => {
               setFocus(true);
@@ -186,16 +230,6 @@ function EditText(props: Props): ReactElement {
             keyboardType={keyboardType}
           />
         </StyledRowContent>
-        <UnderLine
-          style={[
-            { borderColor: borderColor },
-            focused
-              ? { borderColor: focusColor }
-              : errorText
-                ? { borderColor: errorColor }
-                : null,
-          ]}
-        />
         {errorText ? (
           <StyledInvalidText testID={errorTestID} style={errorTextStyle}>
             {errorText}
@@ -219,31 +253,37 @@ function EditText(props: Props): ReactElement {
         ]}>
         {label}
       </StyledLabel>
-      <StyledTextInput
-        {...textInputProps}
-        testID={testID}
-        autoCapitalize={autoCapitalize}
-        onFocus={(): void => setFocus(true)}
-        onBlur={(): void => setFocus(false)}
-        placeholder={placeholder}
-        placeholderTextColor={placeholderTextColor}
-        value={value}
-        style={textStyle}
-        onChangeText={onChangeText}
-        secureTextEntry={secureTextEntry}
-        onSubmitEditing={onSubmitEditing}
-      />
-      <UnderLine
+      <StyledLine
         style={[
+          { borderColor: borderColor },
           focused
             ? { borderColor: focusColor }
             : errorText
               ? { borderColor: errorColor }
               : null,
-          underlineStyle,
+          inputContainerType === 'underlined' || !inputContainerType
+            ? { borderBottomWidth: 0.6 }
+            : { borderWidth: 0.6, borderRadius: inputContainerRadius, paddingLeft: 15, paddingRight: 15 },
+
         ]}
-      />
-      {errorText ? (
+      >
+        <StyledTextInput
+          {...textInputProps}
+          testID={testID}
+          autoCapitalize={autoCapitalize}
+          onFocus={(): void => setFocus(true)}
+          onBlur={(): void => setFocus(false)}
+          placeholder={placeholder}
+          placeholderTextColor={placeholderTextColor}
+          value={value}
+          style={textStyle}
+          onChangeText={onChangeText}
+          secureTextEntry={secureTextEntry}
+          onSubmitEditing={onSubmitEditing}
+        />
+      </StyledLine>
+
+      { errorText ? (
         <StyledInvalidText
           testID={errorTestID}
           style={[
@@ -254,14 +294,9 @@ function EditText(props: Props): ReactElement {
           ]}>
           {`${errorText}`}
         </StyledInvalidText>
-      ) : null}
+      ) : null }
     </Container>
   );
 }
-
-EditText.defaultProps = {
-  focusColor: '#79B3F5',
-  errorColor: '#FF8989',
-};
 
 export default EditText;

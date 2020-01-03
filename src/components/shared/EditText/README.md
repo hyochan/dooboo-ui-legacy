@@ -5,31 +5,37 @@
 
 > [EditText] component is an enhanced version on pure react-native [TextInput] component.
 
-| Default | Row |
-|--|--|
-| ![upload_default](https://user-images.githubusercontent.com/31176502/71159083-64c8cf80-2288-11ea-89a5-c5e865653265.gif) | ![upload_row](https://user-images.githubusercontent.com/31176502/71159943-fc7aed80-2289-11ea-88fd-fc139fe65d10.gif) |
+## Preview
+
+| | Default | Row |
+|--|---------------|--------------|
+| `underlined` |![underlined_default](https://user-images.githubusercontent.com/31176502/71721202-8bc9f880-2e67-11ea-8ffd-b6bf81814a26.gif) | ![underlined_row](https://user-images.githubusercontent.com/31176502/71721235-ad2ae480-2e67-11ea-914f-dc74ea4c6e7f.gif) |
+| <center>`box`</center> |![default](https://user-images.githubusercontent.com/31176502/71720764-26c1d300-2e66-11ea-9b21-27de441e727d.gif) | ![row](https://user-images.githubusercontent.com/31176502/71720737-1873b700-2e66-11ea-9b6b-1cdc175cbc0a.gif) |
 
 ## Props
 
-|                      | necessary | types                  | default |
-| -------------------- | --------- | ---------------------- | ------- |
-| testID               |           | string                 |         |
-| errorTestID          |           | string                 |         |
-| isRow                |           | boolean                |         |
-| style                |           | `StyleProp<ViewStyle>` |         |
-| underlineStyle       |           | `StyleProp<ViewStyle>` |         |
-| label                |           | string                 |         |
-| textStyle            |           | `StyleProp<TextStyle>` |         |
-| labelTextStyle       |           | `StyleProp<TextStyle>` |         |
-| errorTextStyle       |           | `StyleProp<TextStyle>` |         |
-| errorText            |           | string                 |         |
-| value                |           | string                 |         |
-| placeholder          |           | string                 |         |
-| placeholderTextColor |           | string                 |         |
-| secureTextEntry      |           | boolean                |         |
-| onSubmitEditing      |           | func                   |         |
-| onChangeText         |           | (e) => {}              |         |
-| textInpuProps        |           | `TextInputProps`       |         |
+|                      | necessary | types                  | default      |
+| -------------------- | --------- | ---------------------- | ------------ |
+| testID               |           | string                 |              |
+| errorTestID          |           | string                 |              |
+| isRow                |           | boolean                |    `false`   |
+| style                |           | `StyleProp<ViewStyle>` |              |
+| label                |           | string                 |              |
+| labelTextStyle       |           | `StyleProp<TextStyle>` |              |
+| value                |           | `TextInputProps`       |              |
+| inputContainerType   |           | string                 | `underlined` |
+| inputContainerRadius |           | string                 |      `3`     |
+| borderColor          |           | string                 |   `#eaeaf9`  |
+| inputLeftMargin      |           | number                 |     `110`    |
+| textStyle            |           | `StyleProp<TextStyle>` |              |
+| placeholder          |           | string                 |              |
+| placeholderTextColor |           | string                 |              |
+| secureTextEntry      |           | boolean                |              |
+| onChangeText         |           | (e) => {}              |              |
+| onSubmitEditing      |           | func                   |              |
+| textInputProps       |           | `TextInputProps`       |              |
+| errorText            |           | string                 |              |
+| errorTextStyle       |           | `StyleProp<TextStyle>` |              |
 
 ## Installation
 
@@ -105,8 +111,8 @@ yarn add @dooboo-ui/native-edit-text
             label="Email"
             placeholder="Write email address"
             placeholderTextColor="#ADB5BD"
-            text={email}
-            onTextChanged={(text: string) => onTextChanged('EMAIL', text)}
+            value={email}
+            onChangeText={(text: string) => onTextChanged('EMAIL', text)}
             style={{ marginTop: 50 }}
             errorText={errorEmail}
             onSubmitEditing={onSignIn}
@@ -120,8 +126,8 @@ yarn add @dooboo-ui/native-edit-text
             label="Password"
             placeholder="Please write your password"
             placeholderTextColor="#ADB5BD"
-            text={password}
-            onTextChanged={(text: string) => onTextChanged('PASSWORD', text)}
+            value={password}
+            onChangeText={(text: string) => onTextChanged('PASSWORD', text)}
             style={{ marginTop: 36 }}
             onSubmitEditing={onSignIn}
           />
