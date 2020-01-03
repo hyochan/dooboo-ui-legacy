@@ -29,11 +29,6 @@ const StyledRowLabel = styled.Text`
   color: #b9b9c4;
   position: absolute;
   left: 0;
-  width: 120px;
-`;
-
-const StyledRowInputWrapper = styled.View`
-  width: 100%;
 `;
 
 const StyledRowInput = Platform.select({
@@ -80,9 +75,6 @@ const StyledTextInput = Platform.select({
     font-weight: 500;
     width: 100%;
     color: #2c374e;
-    &::placeholder {
-      font-size: 10px;
-    }
   `,
   android: styled.TextInput`
     padding-top: 10px;
