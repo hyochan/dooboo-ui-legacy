@@ -45,7 +45,7 @@ export interface SnackbarProps {
   actionStyle?: TextStyle;
   containerStyle?: ViewStyle;
   messageStyle?: TextStyle;
-  onPressAction: () => void;
+  onPressAction?: () => void;
 }
 
 export enum Timer {
@@ -54,7 +54,7 @@ export enum Timer {
 }
 
 const Snackbar: React.FC<SnackbarProps> = (props) => {
-  const { testID, show, setShow, timer = Timer.SHORT } = props;
+  const { testID, show, setShow, timer = Timer.SHORT, actionText } = props;
   React.useEffect(() => {
     let timeout;
     if (show === true) {
@@ -69,13 +69,13 @@ const Snackbar: React.FC<SnackbarProps> = (props) => {
       {show && (
         <Container testID={testID} style={props.containerStyle}>
           <Text style={props.messageStyle}>{props.text}</Text>
-          {props.actionText ? (
+          {actionText && (
             <ActionContainer>
               <ActionButton onPress={props.onPressAction}>
                 <Text style={props.actionStyle}>{props.actionText}</Text>
               </ActionButton>
             </ActionContainer>
-          ) : null}
+          )}
         </Container>
       )}
     </>
