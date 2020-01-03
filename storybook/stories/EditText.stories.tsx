@@ -97,7 +97,6 @@ const Default = (): React.ReactElement => {
             style={{ marginTop: 50 }}
             errorText={errorEmail}
             onSubmitEditing={onSignIn}
-            inputContainerType="box"
           />
           <EditText
             testID="PASSWORD_INPUT"
@@ -114,7 +113,6 @@ const Default = (): React.ReactElement => {
             }
             style={{ marginTop: 36 }}
             onSubmitEditing={onSignIn}
-            inputContainerType="box"
           />
           <Button
             style={{
@@ -226,8 +224,6 @@ const RowEditText = (): React.ReactElement => {
               }
               setEmailErrorText('');
             }}
-            inputContainerType="box"
-            inputContainerRadius={25}
             label="E-mail"
             autoCapitalize="none"
             onChangeText={(text: string): void => {
@@ -241,11 +237,9 @@ const RowEditText = (): React.ReactElement => {
             errorTextStyle={{
               fontSize: 12,
             }}
-
           />
           <EditText
             isRow
-            inputContainerType="box"
             testID="PASSWORD_INPUT"
             errorTestID="PASSWORD_INPUT_ERROR"
             autoCapitalize="none"
@@ -383,8 +377,6 @@ const BoxEditText = (): React.ReactElement => {
             style={{ marginTop: 50 }}
             errorText={errorEmail}
             onSubmitEditing={onSignIn}
-            borderStyle={{ height: 60 }}
-            borderWidth={1}
           />
           <EditText
             testID="PASSWORD_INPUT"
@@ -520,7 +512,6 @@ const BoxRowEditText = (): React.ReactElement => {
             style={{ marginTop: 50 }}
             errorText={errorEmail}
             onSubmitEditing={onSignIn}
-            borderStyle={{ height: 60 }}
           />
           <EditText
             testID="PASSWORD_INPUT"
