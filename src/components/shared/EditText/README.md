@@ -7,10 +7,15 @@
 
 ## Preview
 
-| | Default | Row |
-|--|---------------|--------------|
-| `underlined` |![underlined_default](https://user-images.githubusercontent.com/31176502/71721202-8bc9f880-2e67-11ea-8ffd-b6bf81814a26.gif) | ![underlined_row](https://user-images.githubusercontent.com/31176502/71721235-ad2ae480-2e67-11ea-914f-dc74ea4c6e7f.gif) |
-| <center>`box`</center> |![default](https://user-images.githubusercontent.com/31176502/71720764-26c1d300-2e66-11ea-9b21-27de441e727d.gif) | ![row](https://user-images.githubusercontent.com/31176502/71720737-1873b700-2e66-11ea-9b6b-1cdc175cbc0a.gif) |
+| Default | Row |
+|---------------|--------------|
+|![upload_default](https://user-images.githubusercontent.com/31176502/71159083-64c8cf80-2288-11ea-89a5-c5e865653265.gif) | ![upload_row](https://user-images.githubusercontent.com/31176502/71159943-fc7aed80-2289-11ea-88fd-fc139fe65d10.gif) |
+
+### `inputContainer: "box"`
+
+| Default | Row |
+|---------------|----------------|
+|![upload_default](https://user-images.githubusercontent.com/31176502/71711569-f87fcb80-2e44-11ea-8d99-1d973e184994.png) | ![upload_row](https://user-images.githubusercontent.com/31176502/71711573-fae22580-2e44-11ea-81bd-da4b7d672cde.png) |
 
 ## Props
 
@@ -24,20 +29,24 @@
 | labelTextStyle       |           | `StyleProp<TextStyle>` |              |
 | value                |           | `TextInputProps`       |              |
 | inputContainerType   |           | string                 | `underlined` |
-| inputContainerRadius |           | string                 |      `3`     |
-| borderStyle          |           | `StyleProp<ViewStyle>` |              |
-| borderWidth          |           | number                 |     `0.6`    |
+| inputContainerRadius |           | string                 |      `5`     |
 | borderColor          |           | string                 |   `#eaeaf9`  |
-| inputLeftMargin      |           | number                 |     `110`    |
+| inputLeftMargin      |           | number                 |      `90`    |
 | textStyle            |           | `StyleProp<TextStyle>` |              |
 | placeholder          |           | string                 |              |
 | placeholderTextColor |           | string                 |              |
 | secureTextEntry      |           | boolean                |              |
 | onChangeText         |           | (e) => {}              |              |
 | onSubmitEditing      |           | func                   |              |
+| focusColor           |           | string                 |   `#79B3F5`  |
+| errorColor           |           | string                 |   `#FF8989`  |
+| autoCapitalize       |           | `TextInputProps`       |     `none`   |
 | textInputProps       |           | `TextInputProps`       |              |
+| onFocus              |           | (e) => {}              |              |
+| onBlur               |           | (e) => {}              |              |
 | errorText            |           | string                 |              |
 | errorTextStyle       |           | `StyleProp<TextStyle>` |              |
+| numberOfLines        |           | number                 |              |
 
 ## Installation
 
