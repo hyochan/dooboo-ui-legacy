@@ -59,9 +59,8 @@ exports[`[EditText] default renders without crashing 1`] = `
             "fontSize": 15,
             "fontWeight": "500",
             "paddingBottom": 15,
-            "paddingLeft": 0,
-            "paddingRight": 0,
             "paddingTop": 15,
+            "width": "100%",
           },
         ]
       }
