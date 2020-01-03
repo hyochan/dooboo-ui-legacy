@@ -37,14 +37,15 @@ const ActionButton = styled.TouchableOpacity`
 
 export interface SnackbarProps {
   text: string;
-  actionText: string;
+  actionText?: string;
   testID?: string;
   show: boolean;
   setShow: (show: boolean) => void;
   timer?: Timer;
-  actionStyle: TextStyle;
+  actionStyle?: TextStyle;
   containerStyle?: ViewStyle;
   messageStyle?: TextStyle;
+  onPressAction: () => void;
 }
 
 export enum Timer {
@@ -53,12 +54,7 @@ export enum Timer {
 }
 
 const Snackbar: React.FC<SnackbarProps> = (props) => {
-  const {
-    testID,
-    show,
-    setShow,
-    timer = Timer.SHORT,
-  } = props;
+  const { testID, show, setShow, timer = Timer.SHORT } = props;
   React.useEffect(() => {
     let timeout;
     if (show === true) {
@@ -75,7 +71,7 @@ const Snackbar: React.FC<SnackbarProps> = (props) => {
           <Text style={props.messageStyle}>{props.text}</Text>
           {props.actionText && (
             <ActionContainer>
-              <ActionButton onPress={(): void => setShow(false)}>
+              <ActionButton onPress={props.onPressAction}>
                 <Text style={props.actionStyle}>{props.actionText}</Text>
               </ActionButton>
             </ActionContainer>

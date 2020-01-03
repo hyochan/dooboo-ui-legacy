@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useCallback, useState } from 'react';
 import Snackbar, { Timer } from '../../src/components/shared/Snackbar';
 import { color, text } from '@storybook/addon-knobs';
 import Button from '../../src/components/shared/Button';
@@ -31,6 +31,9 @@ function Default(): React.ReactElement {
   const containerColor = color('container color', '#1976D1');
   const messageColor = color('message color', '#ffffff');
   const actionColor = color('action color', '#5F04B4');
+  const onPressAction = useCallback((): void => {
+    setShow(false);
+  }, []);
 
   return (
     <Container>
@@ -60,6 +63,7 @@ function Default(): React.ReactElement {
         show={show}
         setShow={setShow}
         timer={timer}
+        onPressAction={onPressAction}
         actionStyle={{
           color: actionColor,
         }}
