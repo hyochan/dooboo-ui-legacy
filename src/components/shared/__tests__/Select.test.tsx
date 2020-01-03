@@ -3,12 +3,12 @@ import 'react-native';
 import * as React from 'react';
 
 import { RenderResult, fireEvent, render } from '@testing-library/react-native';
-import Select, { Props, TESTID, ThemeEnum } from '../Select';
+import Select, { Item, Props, TESTID, ThemeEnum } from '../Select';
 
 // Note: test renderer must be required after react-native.
 import renderer from 'react-test-renderer';
 
-const ITEMS = [
+const ITEMS: Item[] = [
   { value: 'Category1', text: 'Category1' },
   { value: 'Category2', text: 'Category2' },
   { value: 'Category3', text: 'Category3' },
@@ -16,9 +16,10 @@ const ITEMS = [
   { value: 'Category5', text: 'Category5' },
 ];
 
-type selectProp<K> = {
-  [K in string]: Props;
+type selectProp<K extends string> = {
+  [T in K]: Props;
 };
+
 const mockProp: selectProp<'noTheme' | 'inputTheme' | 'themeAndRootView' | 'disabled'> = {
   noTheme: {
     testID: 'select',
