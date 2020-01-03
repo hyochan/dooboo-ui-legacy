@@ -80,6 +80,9 @@ const StyledTextInput = Platform.select({
     font-weight: 500;
     width: 100%;
     color: #2c374e;
+    &::placeholder {
+      font-size: 10px;
+    }
   `,
   android: styled.TextInput`
     padding-top: 10px;
