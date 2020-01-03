@@ -38,15 +38,9 @@
 | secureTextEntry      |           | boolean                |              |
 | onChangeText         |           | (e) => {}              |              |
 | onSubmitEditing      |           | func                   |              |
-| focusColor           |           | string                 |   `#79B3F5`  |
-| errorColor           |           | string                 |   `#FF8989`  |
-| autoCapitalize       |           | `TextInputProps`       |     `none`   |
 | textInputProps       |           | `TextInputProps`       |              |
-| onFocus              |           | (e) => {}              |              |
-| onBlur               |           | (e) => {}              |              |
 | errorText            |           | string                 |              |
 | errorTextStyle       |           | `StyleProp<TextStyle>` |              |
-| numberOfLines        |           | number                 |              |
 
 ## Installation
 
