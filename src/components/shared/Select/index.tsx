@@ -11,6 +11,11 @@ import styled, { DefaultTheme, css } from 'styled-components/native';
 
 import { FlattenSimpleInterpolation } from 'styled-components';
 
+export type Item = {
+  value: string;
+  text: string;
+}
+
 export enum ThemeEnum {
   disabled = 'disabled',
   blank = 'blank',
@@ -31,8 +36,8 @@ enum StylePropEnum {
   border = 'border',
 }
 
-type ThemeStyle<K, T> = {
-  [K in ThemeEnum]: T;
+type ThemeStyle<K extends string, T> = {
+  [P in K]: T;
 }
 
 interface ThemeType {
@@ -202,7 +207,7 @@ const RootSelect = styled.View<ThemeType>`
 
 export interface Props {
   testID?: string;
-  items: string;
+  items: Item[];
   theme?: ThemeEnum;
   rootViewStyle?: StyleProp<ViewStyle>;
   rootTextStyle?: StyleProp<TextStyle>;
