@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import { Text, TextStyle, ViewStyle, Dimensions } from 'react-native';
+import { Dimensions, Text, TextStyle, ViewStyle } from 'react-native';
 import styled from 'styled-components/native';
 
 const { width } = Dimensions.get('screen');
@@ -28,13 +28,21 @@ const ActionContainer = styled.View`
   padding-left: 16px;
 `;
 
+const ActionButton = styled.TouchableOpacity`
+  width: auto;
+  border: none;
+  height: auto;
+  background-color: transparent;
+`;
+
 export interface SnackbarProps {
   text: string;
+  actionText: string;
   testID?: string;
   show: boolean;
   setShow: (show: boolean) => void;
   timer?: Timer;
-  action?: React.ReactNode;
+  actionStyle: TextStyle;
   containerStyle?: ViewStyle;
   messageStyle?: TextStyle;
 }
@@ -45,7 +53,12 @@ export enum Timer {
 }
 
 const Snackbar: React.FC<SnackbarProps> = (props) => {
-  const { testID, show, setShow, timer = Timer.SHORT, action } = props;
+  const {
+    testID,
+    show,
+    setShow,
+    timer = Timer.SHORT,
+  } = props;
   React.useEffect(() => {
     let timeout;
     if (show === true) {
@@ -58,14 +71,15 @@ const Snackbar: React.FC<SnackbarProps> = (props) => {
   return (
     <>
       {show && (
-        <Container testID={testID}
-          style={props.containerStyle}>
-          <Text
-            style={props.messageStyle}
-          >
-            {props.text}
-          </Text>
-          {action && <ActionContainer>{action}</ActionContainer>}
+        <Container testID={testID} style={props.containerStyle}>
+          <Text style={props.messageStyle}>{props.text}</Text>
+          {props.actionText && (
+            <ActionContainer>
+              <ActionButton onPress={(): void => setShow(false)}>
+                <Text style={props.actionStyle}>{props.actionText}</Text>
+              </ActionButton>
+            </ActionContainer>
+          )}
         </Container>
       )}
     </>

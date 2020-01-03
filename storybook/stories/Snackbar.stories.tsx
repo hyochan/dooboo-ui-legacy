@@ -23,26 +23,14 @@ const Container = styled.View`
   flex-direction: column;
 `;
 
-const ActionButton = styled(Button)`
-    width: auto;
-    border: none;
-    height: auto;
-    background-color: transparent;
-`;
-
 function Default(): React.ReactElement {
   const [show, setShow] = useState<boolean>(false);
   const [timer, setTimer] = useState<Timer>(Timer.SHORT);
   const snackbarText = text('Snackbar Text', 'Simple Snackbar is opened');
+  const actionText = text('action text', 'close');
   const containerColor = color('container color', '#1976D1');
   const messageColor = color('message color', '#ffffff');
-
-  const action = (
-    <ActionButton text = "action"
-      onClick={(): void => {
-        setShow(false);
-      }}/>
-  );
+  const actionColor = color('action color', '#5F04B4');
 
   return (
     <Container>
@@ -68,10 +56,13 @@ function Default(): React.ReactElement {
       />
       <Snackbar
         text={snackbarText}
+        actionText={actionText}
         show={show}
         setShow={setShow}
         timer={timer}
-        action={action}
+        actionStyle={{
+          color: actionColor,
+        }}
         containerStyle={{
           backgroundColor: containerColor,
         }}
