@@ -10,7 +10,7 @@
 | | Default | Row |
 |--|---------------|--------------|
 | `underlined` |![underlined_default](https://user-images.githubusercontent.com/31176502/71721202-8bc9f880-2e67-11ea-8ffd-b6bf81814a26.gif) | ![underlined_row](https://user-images.githubusercontent.com/31176502/71721235-ad2ae480-2e67-11ea-914f-dc74ea4c6e7f.gif) |
-| <center>`box`</center> |![default](https://user-images.githubusercontent.com/31176502/71720764-26c1d300-2e66-11ea-9b21-27de441e727d.gif) | ![row](https://user-images.githubusercontent.com/31176502/71720737-1873b700-2e66-11ea-9b6b-1cdc175cbc0a.gif) |
+| <center>`box`</center> |![default](https://user-images.githubusercontent.com/31176502/71764827-4b827d00-2f30-11ea-85dd-887b218afeec.gif) | ![row](https://user-images.githubusercontent.com/31176502/71720737-1873b700-2e66-11ea-9b6b-1cdc175cbc0a.gif) |
 
 ## Props
 
@@ -35,6 +35,10 @@
 | secureTextEntry      |           | boolean                |              |
 | onChangeText         |           | (e) => {}              |              |
 | onSubmitEditing      |           | func                   |              |
+| leftIcon             |           | `ReactElement`         |              |
+| leftIconStyle        |           | `StyleProp<ViewStyle>` |              |
+| rightIcon            |           | `ReactElement`         |              |
+| rightIconStyle       |           | `StyleProp<ViewStyle>` |              |
 | textInputProps       |           | `TextInputProps`       |              |
 | errorText            |           | string                 |              |
 | errorTextStyle       |           | `StyleProp<TextStyle>` |              |
