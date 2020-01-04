@@ -34,43 +34,64 @@ exports[`[EditText] default renders without crashing 1`] = `
         Object {
           "alignItems": "center",
           "flexDirection": "row",
-          "justifyContent": "flex-end",
           "width": "100%",
-        },
-        undefined,
-        Object {
-          "borderColor": "#eaeaf9",
-        },
-        Object {
-          "borderColor": "#FF8989",
-        },
-        Object {
-          "borderBottomWidth": 0.6,
         },
       ]
     }
   >
-    <TextInput
-      allowFontScaling={true}
-      autoCapitalize="none"
-      onBlur={[Function]}
-      onFocus={[Function]}
-      rejectResponderTermination={true}
+    <View
       style={
         Array [
           Object {
-            "color": "#2c374e",
-            "fontSize": 15,
-            "fontWeight": "500",
-            "height": "100%",
-            "paddingBottom": 15,
-            "paddingTop": 15,
+            "alignItems": "center",
+            "flexDirection": "row",
+            "justifyContent": "space-between",
             "width": "100%",
+          },
+          undefined,
+          Object {
+            "borderColor": "#eaeaf9",
+          },
+          Object {
+            "borderColor": "#FF8989",
+          },
+          Object {
+            "borderBottomWidth": 0.6,
+          },
+          Object {
+            "paddingLeft": 15,
+          },
+          Object {
+            "paddingRight": 15,
           },
         ]
       }
-      underlineColorAndroid="transparent"
-    />
+    >
+      <TextInput
+        allowFontScaling={true}
+        autoCapitalize="none"
+        onBlur={[Function]}
+        onFocus={[Function]}
+        rejectResponderTermination={true}
+        style={
+          Array [
+            Object {
+              "color": "#2c374e",
+              "flexBasis": 0,
+              "flexGrow": 1,
+              "flexShrink": 1,
+              "fontSize": 15,
+              "fontWeight": "500",
+              "height": "100%",
+              "paddingBottom": 15,
+              "paddingTop": 15,
+            },
+            undefined,
+          ]
+        }
+        underlineColorAndroid="transparent"
+      />
+    </View>
   </View>
   <Text
     style={

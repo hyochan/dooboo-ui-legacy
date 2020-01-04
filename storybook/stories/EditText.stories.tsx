@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
+import { IC_CHECK, IC_EDIT } from '../../src/components/shared/Icons';
 import {
+  Image,
   SafeAreaView,
   ScrollView,
   Text,
@@ -7,6 +8,7 @@ import {
   TouchableOpacity,
   View,
 } from 'react-native';
+import React, { useState } from 'react';
 
 import Button from '../../src/components/shared/Button';
 import { ContainerDeco } from '../decorators';
@@ -379,6 +381,8 @@ const BoxEditText = (): React.ReactElement => {
             onSubmitEditing={onSignIn}
             borderStyle={{ height: 60 }}
             borderWidth={1}
+            leftIcon={<Image source={IC_EDIT} />}
+            rightIcon={<Image source={IC_CHECK} style={{ width: 16, height: 16 }}/>}
           />
           <EditText
             testID="PASSWORD_INPUT"
