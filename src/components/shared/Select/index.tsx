@@ -6,10 +6,11 @@ import {
   StyleProp,
   TextStyle,
   TouchableOpacity,
+  View,
   ViewStyle,
 } from 'react-native';
 import { IC_ARR_DOWN, IC_ARR_UP } from '../Icons';
-import React, { useCallback, useState } from 'react';
+import React, { ReactElement, useCallback, useState } from 'react';
 import styled, { DefaultTheme, css } from 'styled-components/native';
 
 import { FlattenSimpleInterpolation } from 'styled-components';
@@ -231,7 +232,7 @@ const SelectListView = styled.View`
   }
   shadow-opacity: 0.2;
 `;
-const SelectList = styled(FlatList)`
+const SelectList = styled(FlatList as new () => FlatList<Item>)`
   background-color: ${COLOR.WHITE};
   padding-top: 8px;
 `;
@@ -292,7 +293,7 @@ function Select(props: Props): React.ReactElement {
     selectedItem,
   } = props;
 
-  const selectRef = React.useRef(null);
+  const selectRef = React.useRef<View>(null);
   const [layout, setLayout] = useState<Layout>({
     ox: 0,
     oy: 0,
@@ -328,9 +329,7 @@ function Select(props: Props): React.ReactElement {
       ? 'blank'
       : defaultTheme;
 
-  const renderItem = ({
-    item,
-  }: ListRenderItemInfo<Item>): React.ReactElement => {
+  const renderItem = ({ item }: ListRenderItemInfo<Item>): ReactElement => {
     const style =
       selectedItem && selectedItem.value === item.value
         ? selectedItemStyle
@@ -365,7 +364,7 @@ function Select(props: Props): React.ReactElement {
           theme={rootViewTheme}
           style={rootViewStyle}
           testID={`${testID}-${TESTID.ROOTSELECT}`}
-          ref={selectRef}
+          ref={selectRef as any}
           onLayout={getLayout}
         >
           <Text
