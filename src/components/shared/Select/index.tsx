@@ -1,4 +1,3 @@
-import { IC_ARR_DOWN, IC_ARR_UP } from '../Icons';
 import {
   FlatList,
   Image,
@@ -7,7 +6,6 @@ import {
   StyleProp,
   TextStyle,
   TouchableOpacity,
-  View,
   ViewStyle,
 } from 'react-native';
 import { IC_ARR_DOWN, IC_ARR_UP } from '../Icons';
@@ -61,31 +59,19 @@ interface BorderStyle extends ViewStyle {
   borderTopColor?: string;
   borderTopWidth?: number;
 }
-interface TextThemeType extends DefaultTheme {
-  text: {
-    fontColor: string;
-  };
-}
 
-interface ThemeStyle<T> extends DefaultTheme {
-  blank: T;
-  none: T;
-  box: T;
-  underbar: T;
+interface RootBoxTheme extends DefaultTheme {
+  rootbox: {
+    backgroundColor: string;
+    boxShadow?: FlattenSimpleInterpolation;
+    border?: BorderStyle;
+  };
 }
 
 interface TextTheme extends DefaultTheme {
   text: {
     fontColor: string;
   };
-}
-
-interface ThemeStyle<T> extends DefaultTheme {
-  disabled: T;
-  blank: T;
-  none: T;
-  box: T;
-  underbar: T;
 }
 
 interface ThemeType {
@@ -132,7 +118,19 @@ const bsCss = css`
   shadow-radius: 5;
 `;
 
-export const themeStylePropCollection: ThemeStyle<RootBoxTheme | TextTheme> = {
+export const themeStylePropCollection: ThemeStyle<ThemeEnum, RootBoxTheme | TextTheme> = {
+  disabled: {
+    rootbox: {
+      backgroundColor: 'transparent',
+      border: {
+        borderBottomColor: COLOR.LIGHTGRAY,
+        borderBottomWidth: 2,
+      },
+    },
+    text: {
+      fontColor: COLOR.LIGHTGRAY,
+    },
+  },
   blank: {
     rootbox: {
       backgroundColor: 'transparent',
@@ -176,25 +174,19 @@ export const themeStylePropCollection: ThemeStyle<RootBoxTheme | TextTheme> = {
   },
 };
 
-type ThemeProp = string | BoxShadowType | BorderStyle;
-
-const getThemeProp = ({
-  theme,
-  comp,
-  prop,
-}: {
+interface ThemePropParams {
   theme: ThemeEnum;
-  // theme: any;
   comp: CompEnum;
   prop: StylePropEnum;
-}): ThemeProp => {
+}
+const getThemeProp = ({ theme, comp, prop }: ThemePropParams): string => {
   return themeStylePropCollection[theme][comp][prop];
 };
 
 const SelectContainer = styled.View`
   z-index: 1;
 `;
-const Text = styled.Text<TextType>`
+const Text = styled.Text<ThemeType>`
   font-size: 14px;
   color: ${(props): string =>
     getThemeProp({
@@ -260,33 +252,19 @@ const ItemText = styled.Text<Selected>`
   color: ${COLOR.BLACK};
 `;
 
-interface Props {
-  testID?: string;
-  theme?: ThemeEnum;
-  rootViewStyle?: StyleProp<ViewStyle>;
-  rootTextStyle?: StyleProp<TextStyle>;
-  placeholder?: string;
-  activeOpacity: number;
-  disabled?: boolean;
-  items: Item[];
-  itemStyle?: StyleProp<ViewStyle>;
-  selectedItemStyle?: StyleProp<ViewStyle>;
-  onSelect: (Item) => void;
-  selectedItem: Item;
-}
-
 export interface Props {
   testID?: string;
   items: Item[];
   theme?: ThemeEnum;
-  title?: string;
-  titleTextStyle?: StyleProp<TextStyle>;
-  style?: StyleProp<ViewStyle>;
   rootViewStyle?: StyleProp<ViewStyle>;
   rootTextStyle?: StyleProp<TextStyle>;
   placeholder?: string;
   activeOpacity: number;
   disabled?: boolean;
+  itemStyle?: StyleProp<ViewStyle>;
+  selectedItemStyle?: StyleProp<ViewStyle>;
+  onSelect: (Item) => void;
+  selectedItem: Item;
 }
 
 function Select(props: Props): React.ReactElement {
