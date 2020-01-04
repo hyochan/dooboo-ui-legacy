@@ -318,16 +318,19 @@ function Select(props: Props): React.ReactElement {
     setListOpen(false);
   };
 
-  // const isThemeEmpty = theme === null || theme === undefined || theme === '';
-  const defaultTheme = !theme ? 'none' : theme;
-  const rootViewTheme =
-    !rootViewStyle || Object.keys(rootViewStyle).length > 0
-      ? 'blank'
-      : defaultTheme;
-  const rootTextTheme =
-    !rootTextStyle || Object.keys(rootTextStyle).length > 0
-      ? 'blank'
-      : defaultTheme;
+  const defaultTheme = disabled ? 'disabled' : !theme ? 'none' : theme;
+  const rootViewTheme = disabled
+    ? 'disabled'
+    : rootViewStyle && Object.keys(rootViewStyle).length > 0
+    ? 'blank'
+    : defaultTheme;
+  const rootTextTheme = disabled
+    ? 'disabled'
+    : rootTextStyle && Object.keys(rootTextStyle).length > 0
+    ? 'blank'
+    : defaultTheme;
+  const _rootViewStyle = disabled ? null : rootViewStyle;
+  const _rootTextStyle = disabled ? null : rootTextStyle;
 
   const renderItem = ({ item }: ListRenderItemInfo<Item>): ReactElement => {
     const style =
@@ -362,14 +365,14 @@ function Select(props: Props): React.ReactElement {
       >
         <RootSelect
           theme={rootViewTheme}
-          style={rootViewStyle}
+          style={_rootViewStyle}
           testID={`${testID}-${TESTID.ROOTSELECT}`}
           ref={selectRef as any}
           onLayout={getLayout}
         >
           <Text
             theme={rootTextTheme}
-            style={rootTextStyle}
+            style={_rootTextStyle}
             testID={`${testID}-${TESTID.ROOTTEXT}`}
           >
             {selectedItem ? selectedItem.text : placeholder}
@@ -404,6 +407,7 @@ function Select(props: Props): React.ReactElement {
             testID={`${testID}-${TESTID.SELECTLIST}`}
             data={items}
             renderItem={renderItem}
+            keyExtractor={(item: Item): string => item.value}
           />
         </SelectListView>
       </Modal>
