@@ -6,10 +6,11 @@ import {
   StyleProp,
   TextStyle,
   TouchableOpacity,
+  View,
   ViewStyle,
 } from 'react-native';
 import { IC_ARR_DOWN, IC_ARR_UP } from '../Icons';
-import React, { ReactElement, useCallback, useState } from 'react';
+import React, { useCallback, useState } from 'react';
 import styled, { DefaultTheme, css } from 'styled-components/native';
 
 import { FlattenSimpleInterpolation } from 'styled-components';
@@ -17,7 +18,7 @@ import { FlattenSimpleInterpolation } from 'styled-components';
 export type Item = {
   value: string;
   text: string;
-}
+};
 
 export enum ThemeEnum {
   disabled = 'disabled',
@@ -41,7 +42,7 @@ enum StylePropEnum {
 
 type ThemeStyle<K extends string, T> = {
   [P in K]: T;
-}
+};
 
 interface ThemeType {
   theme: ThemeEnum;
@@ -118,7 +119,10 @@ const bsCss = css`
   shadow-radius: 5;
 `;
 
-export const themeStylePropCollection: ThemeStyle<ThemeEnum, RootBoxTheme | TextTheme> = {
+export const themeStylePropCollection: ThemeStyle<
+  ThemeEnum,
+  RootBoxTheme | TextTheme
+> = {
   disabled: {
     rootbox: {
       backgroundColor: 'transparent',
@@ -252,6 +256,12 @@ const ItemText = styled.Text<Selected>`
   color: ${COLOR.BLACK};
 `;
 
+export type Layout = {
+  ox: number;
+  oy: number;
+  width: number;
+  height: number;
+};
 export interface Props {
   testID?: string;
   items: Item[];
@@ -286,8 +296,13 @@ function Select(props: Props): React.ReactElement {
     selectedItem,
   } = props;
 
-  const [selectRef] = useState(React.createRef<ReactElement>());
-  const [layout, setLayout] = useState<object>({});
+  const selectRef = React.useRef<View>(null);
+  const [layout, setLayout] = useState<Layout>({
+    ox: 0,
+    oy: 0,
+    width: 0,
+    height: 0,
+  });
   const getLayout = (): void => {
     if (selectRef.current) {
       selectRef.current.measureInWindow((ox, oy, width, height) => {
@@ -392,7 +407,6 @@ function Select(props: Props): React.ReactElement {
             testID={`${testID}-${TESTID.SELECTLIST}`}
             data={items}
             renderItem={renderItem}
-            keyExtractor={(item): string => item.value}
           />
         </SelectListView>
       </Modal>

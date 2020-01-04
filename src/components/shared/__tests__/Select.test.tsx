@@ -20,7 +20,9 @@ type selectProp<K extends string> = {
   [T in K]: Props;
 };
 
-const mockProp: selectProp<'noTheme' | 'inputTheme' | 'themeAndRootView' | 'disabled'> = {
+const mockProp: selectProp<
+  'noTheme' | 'inputTheme' | 'themeAndRootView' | 'disabled'
+> = {
   noTheme: {
     testID: 'select',
     placeholder: 'select',
@@ -229,6 +231,23 @@ describe('[Select] render', () => {
       expect(selectRootText.props.theme).toEqual(ThemeEnum.disabled);
       expect(selectTitleText.props.children).toEqual(mockProp[theme].title);
       expect(selectRootText.props.children).toEqual(mockProp[theme].placeholder);
+      expect(inputtedRootViewStyle).toBeUndefined();
+      expect(inputtedRootTextStyle).toBeUndefined();
+    });
+
+    it('check render list', () => {
+      const component = <Select {...props} />;
+      const testingLib = render(component);
+      const select = testingLib.getByTestId(`${props.testID}-${TESTID}`);
+      const selectList = testingLib.getByTestId(
+        `${props.testID}-${TESTID.SELECTLIST}`,
+      );
+
+      expect(selectRoot.props.theme).toEqual(ThemeEnum.disabled);
+      expect(selectRootText.props.theme).toEqual(ThemeEnum.disabled);
+      expect(selectRootText.props.children).toEqual(
+        mockProp[theme].placeholder,
+      );
       expect(inputtedRootViewStyle).toBeUndefined();
       expect(inputtedRootTextStyle).toBeUndefined();
     });
