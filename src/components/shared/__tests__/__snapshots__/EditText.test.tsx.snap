@@ -32,8 +32,12 @@ exports[`[EditText] default renders without crashing 1`] = `
     style={
       Array [
         Object {
+          "alignItems": "center",
+          "flexDirection": "row",
+          "justifyContent": "flex-end",
           "width": "100%",
         },
+        undefined,
         Object {
           "borderColor": "#eaeaf9",
         },
@@ -58,6 +62,7 @@ exports[`[EditText] default renders without crashing 1`] = `
             "color": "#2c374e",
             "fontSize": 15,
             "fontWeight": "500",
+            "height": "100%",
             "paddingBottom": 15,
             "paddingTop": 15,
             "width": "100%",

@@ -25,6 +25,8 @@
 | value                |           | `TextInputProps`       |              |
 | inputContainerType   |           | string                 | `underlined` |
 | inputContainerRadius |           | string                 |      `3`     |
+| borderStyle          |           | `StyleProp<ViewStyle>` |              |
+| borderWidth          |           | number                 |     `0.6`    |
 | borderColor          |           | string                 |   `#eaeaf9`  |
 | inputLeftMargin      |           | number                 |     `110`    |
 | textStyle            |           | `StyleProp<TextStyle>` |              |

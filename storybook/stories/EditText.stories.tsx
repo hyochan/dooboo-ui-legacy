@@ -377,6 +377,8 @@ const BoxEditText = (): React.ReactElement => {
             style={{ marginTop: 50 }}
             errorText={errorEmail}
             onSubmitEditing={onSignIn}
+            borderStyle={{ height: 60 }}
+            borderWidth={1}
           />
           <EditText
             testID="PASSWORD_INPUT"
@@ -512,6 +514,7 @@ const BoxRowEditText = (): React.ReactElement => {
             style={{ marginTop: 50 }}
             errorText={errorEmail}
             onSubmitEditing={onSignIn}
+            borderStyle={{ height: 60 }}
           />
           <EditText
             testID="PASSWORD_INPUT"
