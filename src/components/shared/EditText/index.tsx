@@ -48,6 +48,7 @@ const StyledRowInput = Platform.select({
   font-size: 14px;
   font-weight: bold;
   width: 100%;
+  height: 100%;
   color: #2c374e;
 `,
 });
@@ -59,6 +60,9 @@ const Container = styled.View`
 `;
 
 const StyledLine = styled.View`  
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-end;
   width: 100%;
 `;
 
@@ -76,6 +80,7 @@ const StyledTextInput = Platform.select({
     font-size: 15px;
     font-weight: 500;
     width: 100%;
+    height: 100%;
     color: #2c374e;
   `,
   android: styled.TextInput`
@@ -84,6 +89,7 @@ const StyledTextInput = Platform.select({
     font-size: 15px;
     font-weight: 500;
     width: 100%;
+    height: 100%;
     color: #2c374e;
   `,
 });
@@ -107,6 +113,8 @@ interface Props {
   value?: TextInputProps['value'];
   inputContainerType?: string;
   inputContainerRadius?: number;
+  borderStyle?: ViewStyle;
+  borderWidth?: number;
   borderColor?: string;
   textStyle?: TextStyle;
   placeholder?: TextInputProps['placeholder'];
@@ -143,6 +151,8 @@ function EditText(props: Props): ReactElement {
     value,
     inputContainerType = 'underlined',
     inputContainerRadius = 3,
+    borderStyle,
+    borderWidth = 0.6,
     borderColor = '#eaeaf9',
     textStyle,
     placeholder,
@@ -167,6 +177,7 @@ function EditText(props: Props): ReactElement {
       <StyledRowContainer style={style}>
         <StyledRowContent
           style={[
+            borderStyle,
             { borderColor: borderColor },
             focused
               ? { borderColor: focusColor }
@@ -174,8 +185,8 @@ function EditText(props: Props): ReactElement {
                 ? { borderColor: errorColor }
                 : null,
             inputContainerType === 'underlined' || !inputContainerType
-              ? [{ borderBottomWidth: 0.6 }]
-              : { borderWidth: 0.6, borderRadius: inputContainerRadius },
+              ? [{ borderBottomWidth: borderWidth }]
+              : { borderWidth: borderWidth, borderRadius: inputContainerRadius },
           ]}
         >
           {label ? (
@@ -199,12 +210,9 @@ function EditText(props: Props): ReactElement {
             testID={testID}
             style={[
               textStyle,
-              { borderColor: borderColor, paddingLeft: labelWidth },
-              focused
-                ? { borderColor: focusColor }
-                : errorText
-                  ? { borderColor: errorColor }
-                  : null,
+              label
+                ? { paddingLeft: labelWidth }
+                : { paddingLeft: 15 },
               inputContainerType === 'underlined' || !inputContainerType
                 ? { textAlign: 'right' }
                 : { paddingRight: 15 },
@@ -257,6 +265,7 @@ function EditText(props: Props): ReactElement {
       </StyledLabel>
       <StyledLine
         style={[
+          borderStyle,
           { borderColor: borderColor },
           focused
             ? { borderColor: focusColor }
@@ -264,9 +273,8 @@ function EditText(props: Props): ReactElement {
               ? { borderColor: errorColor }
               : null,
           inputContainerType === 'underlined' || !inputContainerType
-            ? { borderBottomWidth: 0.6 }
-            : { borderWidth: 0.6, borderRadius: inputContainerRadius, paddingLeft: 15, paddingRight: 15 },
-
+            ? { borderBottomWidth: borderWidth }
+            : { borderWidth: borderWidth, borderRadius: inputContainerRadius, paddingLeft: 15, paddingRight: 15 },
         ]}
       >
         <StyledTextInput
