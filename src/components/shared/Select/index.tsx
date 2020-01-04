@@ -4,6 +4,7 @@ import {
   StyleProp,
   TextStyle,
   TouchableOpacity,
+  View,
   ViewStyle,
 } from 'react-native';
 import React, { useCallback, useState } from 'react';
@@ -169,8 +170,6 @@ const getThemeProp = ({ theme, comp, prop }: ThemePropParams): string => {
   return themeStylePropCollection[theme][comp][prop];
 };
 
-const SelectContainer = styled.View`
-`;
 const Title = styled.Text<ThemeType>`
   font-size: 12px;
   margin-bottom: 5px;
@@ -224,6 +223,7 @@ export interface Props {
   theme?: ThemeEnum;
   title?: string;
   titleTextStyle?: StyleProp<TextStyle>;
+  style?: StyleProp<ViewStyle>;
   rootViewStyle?: StyleProp<ViewStyle>;
   rootTextStyle?: StyleProp<TextStyle>;
   placeholder?: string;
@@ -237,6 +237,7 @@ function Select(props: Props): React.ReactElement {
     theme,
     title,
     titleTextStyle,
+    style,
     rootViewStyle,
     rootTextStyle,
     placeholder,
@@ -272,7 +273,7 @@ function Select(props: Props): React.ReactElement {
   const _rootTextStyle = disabled ? null : rootTextStyle;
 
   return (
-    <SelectContainer>
+    <View style={style}>
       {title && <Title
         theme={titleTextTheme}
         style={titleTextStyle}
@@ -305,7 +306,7 @@ function Select(props: Props): React.ReactElement {
         </RootSelect>
       </TouchableOpacity>
       {listOpen && <Text theme={rootTextTheme}>{'list item here!!'}</Text>}
-    </SelectContainer>
+    </View>
   );
 }
 
