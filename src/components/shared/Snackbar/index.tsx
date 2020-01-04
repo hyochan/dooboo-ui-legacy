@@ -13,6 +13,7 @@ const Container = styled.View`
   min-width: 150px;
   max-width: ${maxWidth};
   text-align: left;
+  align-items: center;
   position: absolute;
   font-size: 16;
   padding: 16px;
@@ -30,9 +31,8 @@ const ActionContainer = styled.View`
 
 const ActionButton = styled.TouchableOpacity`
   width: auto;
-  border: none;
   height: auto;
-  background-color: transparent;
+  padding: 5px 5px 5px 0px;
 `;
 
 export interface SnackbarProps {
