@@ -7,7 +7,6 @@ exports[`[EditText] default renders without crashing 1`] = `
       Object {
         "alignSelf": "stretch",
         "flexDirection": "column",
-        "width": "100%",
       },
     ]
   }
@@ -34,7 +33,6 @@ exports[`[EditText] default renders without crashing 1`] = `
         Object {
           "alignItems": "center",
           "flexDirection": "row",
-          "width": "100%",
         },
       ]
     }
