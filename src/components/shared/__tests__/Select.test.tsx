@@ -117,6 +117,9 @@ describe('[Select] render', () => {
       const selectRootText = testingLib.getByTestId(
         `${props.testID}-${TESTID.ROOTTEXT}`,
       );
+      const selectTitleText = testingLib.getByTestId(
+        `${props.testID}-${TESTID.TITLETEXT}`,
+      );
       const [inputtedRootTextStyle] =
         selectRootText.props.style &&
         selectRootText.props.style.filter((style) => {
@@ -124,6 +127,9 @@ describe('[Select] render', () => {
         });
       expect(selectRoot.props.theme).toEqual(ThemeEnum.none);
       expect(selectRootText.props.theme).toEqual(ThemeEnum.blank);
+      expect(selectTitleText.props.children).toEqual(
+        mockProp[theme].title,
+      );
       expect(selectRootText.props.children).toEqual(
         mockProp[theme].placeholder,
       );
@@ -141,6 +147,9 @@ describe('[Select] render', () => {
       const selectRootText = testingLib.getByTestId(
         `${props.testID}-${TESTID.ROOTTEXT}`,
       );
+      const selectTitleText = testingLib.getByTestId(
+        `${props.testID}-${TESTID.TITLETEXT}`,
+      );
       const [inputtedRootTextStyle] =
         selectRootText.props.style &&
         selectRootText.props.style.filter((style) => {
@@ -148,6 +157,9 @@ describe('[Select] render', () => {
         });
       expect(selectRoot.props.theme).toEqual(ThemeEnum.box);
       expect(selectRootText.props.theme).toEqual(ThemeEnum.box);
+      expect(selectTitleText.props.children).toEqual(
+        mockProp[theme].title,
+      );
       expect(selectRootText.props.children).toEqual(
         mockProp[theme].placeholder,
       );
@@ -165,6 +177,9 @@ describe('[Select] render', () => {
       const selectRootText = testingLib.getByTestId(
         `${props.testID}-${TESTID.ROOTTEXT}`,
       );
+      const selectTitleText = testingLib.getByTestId(
+        `${props.testID}-${TESTID.TITLETEXT}`,
+      );
       const [inputtedRootViewStyle] =
         selectRoot.props.style &&
         selectRoot.props.style.filter((style) => {
@@ -172,6 +187,9 @@ describe('[Select] render', () => {
         });
       expect(selectRoot.props.theme).toEqual(ThemeEnum.blank);
       expect(selectRootText.props.theme).toEqual(ThemeEnum.box);
+      expect(selectTitleText.props.children).toEqual(
+        mockProp[theme].title,
+      );
       expect(selectRootText.props.children).toEqual(
         mockProp[theme].placeholder,
       );
@@ -189,6 +207,9 @@ describe('[Select] render', () => {
       const selectRootText = testingLib.getByTestId(
         `${props.testID}-${TESTID.ROOTTEXT}`,
       );
+      const selectTitleText = testingLib.getByTestId(
+        `${props.testID}-${TESTID.TITLETEXT}`,
+      );
       const [inputtedRootViewStyle] =
         selectRoot.props.style &&
         selectRoot.props.style.filter((style) => {
@@ -201,6 +222,9 @@ describe('[Select] render', () => {
         });
       expect(selectRoot.props.theme).toEqual(ThemeEnum.disabled);
       expect(selectRootText.props.theme).toEqual(ThemeEnum.disabled);
+      expect(selectTitleText.props.children).toEqual(
+        mockProp[theme].title,
+      );
       expect(selectRootText.props.children).toEqual(
         mockProp[theme].placeholder,
       );
