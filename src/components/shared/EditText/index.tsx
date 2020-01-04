@@ -14,14 +14,12 @@ import styled from 'styled-components/native';
 const StyledRowContainer = styled.View`
   flex-direction: column;
   align-self: stretch;
-  width: 100%;
 `;
 
 const StyledRowContent = styled.View`
   flex-direction: row;
   align-items: center;
   justify-content: flex-end;
-  width: 100%;
 `;
 
 const StyledRowLabel = styled.Text`
@@ -56,13 +54,17 @@ const StyledRowInput = Platform.select({
 const Container = styled.View`
   flex-direction: column;
   align-self: stretch;
-  width: 100%;
+`;
+
+const StyledContent = styled.View`
+  flex-direction: row;
+  align-items: center;
 `;
 
 const StyledLine = styled.View`  
   flex-direction: row;
   align-items: center;
-  justify-content: flex-end;
+  justify-content: space-between;
   width: 100%;
 `;
 
@@ -73,24 +75,28 @@ const StyledLabel = styled.Text`
   color: #b9b9c4;
 `;
 
+const StyledIcon = styled.View`
+  align-items: center;
+  justify-content: center;
+`;
+
 const StyledTextInput = Platform.select({
   ios: styled.TextInput`
     padding-top: 15px;
     padding-bottom: 15px;
     font-size: 15px;
     font-weight: 500;
-    width: 100%;
     height: 100%;
     color: #2c374e;
+    flex: 1;
   `,
   android: styled.TextInput`
     padding-top: 10px;
     padding-bottom: 10px;
     font-size: 15px;
     font-weight: 500;
-    width: 100%;
-    height: 100%;
     color: #2c374e;
+    flex: 1;
   `,
 });
 
@@ -124,6 +130,10 @@ interface Props {
   onSubmitEditing?: (
     e: NativeSyntheticEvent<TextInputSubmitEditingEventData>,
   ) => void;
+  leftIcon?: ReactElement;
+  leftIconStyle?: ViewStyle;
+  rightIcon?: ReactElement;
+  rightIconStyle?: ViewStyle;
   focusColor?: string;
   errorColor?: string;
   autoCapitalize?: TextInputProps['autoCapitalize'];
@@ -160,6 +170,10 @@ function EditText(props: Props): ReactElement {
     secureTextEntry,
     onChangeText,
     onSubmitEditing,
+    leftIcon,
+    leftIconStyle,
+    rightIcon,
+    rightIconStyle,
     focusColor = '#79B3F5',
     errorColor = '#FF8989',
     autoCapitalize = 'none',
@@ -253,7 +267,6 @@ function EditText(props: Props): ReactElement {
     <Container style={style}>
       <StyledLabel
         style={[
-          // prettier-ignore
           focused
             ? { color: focusColor }
             : errorText
@@ -263,35 +276,61 @@ function EditText(props: Props): ReactElement {
         ]}>
         {label}
       </StyledLabel>
-      <StyledLine
-        style={[
-          borderStyle,
-          { borderColor: borderColor },
-          focused
-            ? { borderColor: focusColor }
-            : errorText
-              ? { borderColor: errorColor }
+      <StyledContent>
+        <StyledLine
+          style={[
+            borderStyle,
+            { borderColor: borderColor },
+            focused
+              ? { borderColor: focusColor }
+              : errorText
+                ? { borderColor: errorColor }
+                : null,
+            inputContainerType === 'underlined' || !inputContainerType
+              ? { borderBottomWidth: borderWidth }
+              : { borderWidth: borderWidth, borderRadius: inputContainerRadius },
+            !leftIcon
+              ? { paddingLeft: 15 }
               : null,
-          inputContainerType === 'underlined' || !inputContainerType
-            ? { borderBottomWidth: borderWidth }
-            : { borderWidth: borderWidth, borderRadius: inputContainerRadius, paddingLeft: 15, paddingRight: 15 },
-        ]}
-      >
-        <StyledTextInput
-          {...textInputProps}
-          testID={testID}
-          autoCapitalize={autoCapitalize}
-          onFocus={(): void => setFocus(true)}
-          onBlur={(): void => setFocus(false)}
-          placeholder={placeholder}
-          placeholderTextColor={placeholderTextColor}
-          value={value}
-          style={textStyle}
-          onChangeText={onChangeText}
-          secureTextEntry={secureTextEntry}
-          onSubmitEditing={onSubmitEditing}
-        />
-      </StyledLine>
+            !rightIcon
+              ? { paddingRight: 15 }
+              : null,
+          ]}
+        >
+          {
+            leftIcon
+              ? (
+                <StyledIcon style={[{ width: 40 }, leftIconStyle]}>
+                  {leftIcon}
+                </StyledIcon>
+              ) : null
+          }
+          <StyledTextInput
+            {...textInputProps}
+            testID={testID}
+            autoCapitalize={autoCapitalize}
+            onFocus={(): void => setFocus(true)}
+            onBlur={(): void => setFocus(false)}
+            placeholder={placeholder}
+            placeholderTextColor={placeholderTextColor}
+            value={value}
+            style={[
+              textStyle,
+            ]}
+            onChangeText={onChangeText}
+            secureTextEntry={secureTextEntry}
+            onSubmitEditing={onSubmitEditing}
+          />
+          {
+            rightIcon
+              ? (
+                <StyledIcon style={[{ width: 40 }, rightIconStyle]}>
+                  {rightIcon}
+                </StyledIcon>
+              ) : null
+          }
+        </StyledLine>
+      </StyledContent>
 
       { errorText ? (
         <StyledInvalidText
