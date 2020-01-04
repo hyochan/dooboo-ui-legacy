@@ -1,6 +1,7 @@
 import * as React from 'react';
 
 import { Dimensions, Text, TextStyle, ViewStyle } from 'react-native';
+
 import styled from 'styled-components/native';
 
 const { width } = Dimensions.get('screen');
@@ -26,6 +27,7 @@ const ActionContainer = styled.View`
   display: flex;
   align-items: center;
   margin-left: auto;
+  margin-right: -5px;
   padding-left: 16px;
 `;
 

@@ -1,8 +1,9 @@
 import React, { useCallback, useState } from 'react';
 import Snackbar, { Timer } from '../../src/components/shared/Snackbar';
 import { color, text } from '@storybook/addon-knobs';
-import Button from '../../src/components/shared/Button';
+
 import { ContainerDeco } from '../decorators';
+import { Text } from 'react-native';
 import { storiesOf } from '@storybook/react-native';
 import styled from 'styled-components/native';
 
@@ -23,6 +24,13 @@ const Container = styled.View`
   flex-direction: column;
 `;
 
+const Button = styled.TouchableOpacity`
+  width: 230px;
+  margin-bottom: 15px;
+  padding: 10px;
+  borderWidth: 2px;
+`;
+
 function Default(): React.ReactElement {
   const [show, setShow] = useState<boolean>(false);
   const [timer, setTimer] = useState<Timer>(Timer.SHORT);
@@ -34,29 +42,19 @@ function Default(): React.ReactElement {
   const onPressAction = useCallback((): void => {
     setShow(false);
   }, []);
+  const onPress = useCallback((props: string): void => {
+    setShow(true);
+    props === 'Long' ? setTimer(Timer.LONG) : setTimer(Timer.SHORT);
+  }, []);
 
   return (
     <Container>
-      <Button
-        style={{
-          marginVertical: 40,
-        }}
-        text="OPEN SNACKBAR (SHORT TIMER)"
-        onClick={(): void => {
-          setShow(true);
-          setTimer(Timer.SHORT);
-        }}
-      />
-      <Button
-        text="OPEN SNACKBAR (LONG TIMER)"
-        style={{
-          marginVertical: 40,
-        }}
-        onClick={(): void => {
-          setShow(true);
-          setTimer(Timer.LONG);
-        }}
-      />
+      <Button onPress={(): void => onPress('Short')}>
+        <Text>OPEN SNACKBAR(Short Timer)</Text>
+      </Button>
+      <Button onPress={(): void => onPress('Long')}>
+        <Text>OPEN SNACKBAR(Long Timer)</Text>
+      </Button>
       <Snackbar
         text={snackbarText}
         actionText={actionText}
