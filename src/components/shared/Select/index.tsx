@@ -6,7 +6,6 @@ import {
   StyleProp,
   TextStyle,
   TouchableOpacity,
-  View,
   ViewStyle,
 } from 'react-native';
 import { IC_ARR_DOWN, IC_ARR_UP } from '../Icons';
@@ -187,9 +186,6 @@ const getThemeProp = ({ theme, comp, prop }: ThemePropParams): string => {
   return themeStylePropCollection[theme][comp][prop];
 };
 
-const SelectContainer = styled.View`
-  z-index: 1;
-`;
 const Text = styled.Text<ThemeType>`
   font-size: 14px;
   color: ${(props): string =>
@@ -296,7 +292,7 @@ function Select(props: Props): React.ReactElement {
     selectedItem,
   } = props;
 
-  const selectRef = React.useRef<View>(null);
+  const selectRef = React.useRef(null);
   const [layout, setLayout] = useState<Layout>({
     ox: 0,
     oy: 0,
@@ -358,7 +354,7 @@ function Select(props: Props): React.ReactElement {
     );
   };
   return (
-    <SelectContainer ref={selectRef} onLayout={getLayout}>
+    <>
       <TouchableOpacity
         testID={`${testID}-${TESTID.TOUCHABLEOPACITY}`}
         activeOpacity={activeOpacity}
@@ -369,6 +365,8 @@ function Select(props: Props): React.ReactElement {
           theme={rootViewTheme}
           style={rootViewStyle}
           testID={`${testID}-${TESTID.ROOTSELECT}`}
+          ref={selectRef}
+          onLayout={getLayout}
         >
           <Text
             theme={rootTextTheme}
@@ -410,7 +408,7 @@ function Select(props: Props): React.ReactElement {
           />
         </SelectListView>
       </Modal>
-    </SelectContainer>
+    </>
   );
 }
 
