@@ -25,6 +25,9 @@ const mockProp: selectProp<'noTheme' | 'inputTheme' | 'themeAndRootView' | 'disa
     testID: 'select',
     placeholder: 'select',
     title: 'noTheme',
+    titleTextStyle: {
+      color: 'green',
+    },
     rootTextStyle: {
       color: 'orange',
     },
@@ -125,6 +128,11 @@ describe('[Select] render', () => {
         selectRootText.props.style.filter((style) => {
           return style === mockProp[theme].rootTextStyle;
         });
+      const [inputTitleTextStyle] =
+        selectTitleText.props.style &&
+        selectTitleText.props.style.filter((style) => {
+          return style === mockProp[theme].titleTextStyle;
+        });
       expect(selectRoot.props.theme).toEqual(ThemeEnum.none);
       expect(selectRootText.props.theme).toEqual(ThemeEnum.blank);
       expect(selectTitleText.props.children).toEqual(
@@ -134,6 +142,7 @@ describe('[Select] render', () => {
         mockProp[theme].placeholder,
       );
       expect(inputtedRootTextStyle).toEqual(mockProp[theme].rootTextStyle);
+      expect(inputTitleTextStyle).toEqual(mockProp[theme].titleTextStyle);
     });
 
     it('check theme and rootTextStyle and placeholder with case "inputTheme"', () => {
