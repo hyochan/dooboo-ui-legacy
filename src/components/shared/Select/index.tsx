@@ -73,6 +73,7 @@ interface TextTheme extends DefaultTheme {
 }
 
 export const TESTID = {
+  TOUCHABLEOPACITY: 'touchable-opacity',
   TITLETEXT: 'title-text',
   ROOTSELECT: 'root-select',
   ROOTTEXT: 'root-text',
@@ -273,7 +274,10 @@ function Select(props: Props): React.ReactElement {
   const _rootTextStyle = disabled ? null : rootTextStyle;
 
   return (
-    <View style={style}>
+    <View
+      style={style}
+      testID={testID}
+    >
       {title && <Title
         theme={titleTextTheme}
         style={titleTextStyle}
@@ -282,7 +286,7 @@ function Select(props: Props): React.ReactElement {
         {title}
       </Title>}
       <TouchableOpacity
-        testID={testID}
+        testID={`${testID}-${TESTID.TOUCHABLEOPACITY}`}
         activeOpacity={activeOpacity}
         onPress={toggleList}
         disabled={disabled}

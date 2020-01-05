@@ -18,6 +18,7 @@ exports[`[Select] render renders without crashing 1`] = `
         "opacity": 1,
       }
     }
+    testID="undefined-touchable-opacity"
   >
     <View
       style={

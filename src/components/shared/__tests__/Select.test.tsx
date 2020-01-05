@@ -109,11 +109,12 @@ describe('[Select] render', () => {
       testingLib = render(component);
     });
 
-    it('check theme and rootTextStyle and placeholder with case "notheme"', () => {
+    it('check theme, title, rootTextStyle, titleTextStyle, and placeholder with case "notheme"', () => {
       const theme = 'noTheme';
       const props = createTestProps({ case: theme });
       const component = <Select {...props} />;
       const testingLib = render(component);
+      const view = testingLib.getByTestId(props.testID);
       const selectRoot = testingLib.getByTestId(
         `${props.testID}-${TESTID.ROOTSELECT}`,
       );
@@ -128,28 +129,26 @@ describe('[Select] render', () => {
         selectRootText.props.style.filter((style) => {
           return style === mockProp[theme].rootTextStyle;
         });
-      const [inputTitleTextStyle] =
+      const [inputtedTitleTextStyle] =
         selectTitleText.props.style &&
         selectTitleText.props.style.filter((style) => {
           return style === mockProp[theme].titleTextStyle;
         });
+      expect(view.props.style).toEqual(mockProp[theme].style);
       expect(selectRoot.props.theme).toEqual(ThemeEnum.none);
       expect(selectRootText.props.theme).toEqual(ThemeEnum.blank);
-      expect(selectTitleText.props.children).toEqual(
-        mockProp[theme].title,
-      );
-      expect(selectRootText.props.children).toEqual(
-        mockProp[theme].placeholder,
-      );
+      expect(selectTitleText.props.children).toEqual(mockProp[theme].title);
+      expect(selectRootText.props.children).toEqual(mockProp[theme].placeholder);
       expect(inputtedRootTextStyle).toEqual(mockProp[theme].rootTextStyle);
-      expect(inputTitleTextStyle).toEqual(mockProp[theme].titleTextStyle);
+      expect(inputtedTitleTextStyle).toEqual(mockProp[theme].titleTextStyle);
     });
 
-    it('check theme and rootTextStyle and placeholder with case "inputTheme"', () => {
+    it('check theme, title, rootTextStyle, and placeholder with case "inputTheme"', () => {
       const theme = 'inputTheme';
       const props = createTestProps({ case: theme });
       const component = <Select {...props} />;
       const testingLib = render(component);
+      const view = testingLib.getByTestId(props.testID);
       const selectRoot = testingLib.getByTestId(
         `${props.testID}-${TESTID.ROOTSELECT}`,
       );
@@ -164,22 +163,20 @@ describe('[Select] render', () => {
         selectRootText.props.style.filter((style) => {
           return style === mockProp[theme].rootTextStyle;
         });
+      expect(view.props.style).toEqual(mockProp[theme].style);
       expect(selectRoot.props.theme).toEqual(ThemeEnum.box);
       expect(selectRootText.props.theme).toEqual(ThemeEnum.box);
-      expect(selectTitleText.props.children).toEqual(
-        mockProp[theme].title,
-      );
-      expect(selectRootText.props.children).toEqual(
-        mockProp[theme].placeholder,
-      );
+      expect(selectTitleText.props.children).toEqual(mockProp[theme].title);
+      expect(selectRootText.props.children).toEqual(mockProp[theme].placeholder);
       expect(inputtedRootTextStyle).toEqual(mockProp[theme].rootTextStyle);
     });
 
-    it('check theme and rootViewStyle and placeholder with case "themeAndRootView"', () => {
+    it('check theme, title, rootViewStyle, and placeholder with case "themeAndRootView"', () => {
       const theme = 'themeAndRootView';
       const props = createTestProps({ case: theme });
       const component = <Select {...props} />;
       const testingLib = render(component);
+      const view = testingLib.getByTestId(props.testID);
       const selectRoot = testingLib.getByTestId(
         `${props.testID}-${TESTID.ROOTSELECT}`,
       );
@@ -194,22 +191,20 @@ describe('[Select] render', () => {
         selectRoot.props.style.filter((style) => {
           return style === mockProp[theme].rootViewStyle;
         });
+      expect(view.props.style).toEqual(mockProp[theme].style);
       expect(selectRoot.props.theme).toEqual(ThemeEnum.blank);
       expect(selectRootText.props.theme).toEqual(ThemeEnum.box);
-      expect(selectTitleText.props.children).toEqual(
-        mockProp[theme].title,
-      );
-      expect(selectRootText.props.children).toEqual(
-        mockProp[theme].placeholder,
-      );
+      expect(selectTitleText.props.children).toEqual(mockProp[theme].title);
+      expect(selectRootText.props.children).toEqual(mockProp[theme].placeholder);
       expect(inputtedRootViewStyle).toEqual(mockProp[theme].rootViewStyle);
     });
 
-    it('check theme & rootViewStyle & rootTextTheme and placeholder with case "disabled"', () => {
+    it('check theme, title, rootViewStyle, rootTextTheme, and placeholder with case "disabled"', () => {
       const theme = 'disabled';
       const props = createTestProps({ case: theme });
       const component = <Select {...props} />;
       const testingLib = render(component);
+      const view = testingLib.getByTestId(props.testID);
       const selectRoot = testingLib.getByTestId(
         `${props.testID}-${TESTID.ROOTSELECT}`,
       );
@@ -229,14 +224,11 @@ describe('[Select] render', () => {
         selectRootText.props.style.filter((style) => {
           return style === mockProp[theme].rootTextStyle;
         });
+      expect(view.props.style).toEqual(mockProp[theme].style);
       expect(selectRoot.props.theme).toEqual(ThemeEnum.disabled);
       expect(selectRootText.props.theme).toEqual(ThemeEnum.disabled);
-      expect(selectTitleText.props.children).toEqual(
-        mockProp[theme].title,
-      );
-      expect(selectRootText.props.children).toEqual(
-        mockProp[theme].placeholder,
-      );
+      expect(selectTitleText.props.children).toEqual(mockProp[theme].title);
+      expect(selectRootText.props.children).toEqual(mockProp[theme].placeholder);
       expect(inputtedRootViewStyle).toBeUndefined();
       expect(inputtedRootTextStyle).toBeUndefined();
     });
