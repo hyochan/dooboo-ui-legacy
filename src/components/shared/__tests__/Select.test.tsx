@@ -2,7 +2,7 @@ import 'react-native';
 
 import * as React from 'react';
 
-import { RenderResult, fireEvent, render } from '@testing-library/react-native';
+import { RenderResult, act, render } from '@testing-library/react-native';
 import Select, { Item, Props, TESTID, ThemeEnum } from '../Select';
 
 // Note: test renderer must be required after react-native.
@@ -234,14 +234,19 @@ describe('[Select] render', () => {
       expect(inputtedRootViewStyle).toBeUndefined();
       expect(inputtedRootTextStyle).toBeUndefined();
     });
+  });
 
-    it('check render list', () => {
-      // const component = <Select {...props} />;
-      // const testingLib = render(component);
-      // const select = testingLib.getByTestId(`${props.testID}-${TESTID}`);
-      // const selectList = testingLib.getByTestId(
-      //   `${props.testID}-${TESTID.SELECTLIST}`,
-      // );
-    });
+  it('check render list when onPress', () => {
+    const theme = 'disabled';
+    const props = createTestProps({ case: theme });
+    const component = <Select {...props} />;
+    const testingLib = render(component);
+    const rootBtn = testingLib.getByTestId(`${props.testID}-${TESTID.ROOTBTN}`);
+    const selectListView = testingLib.getByTestId(
+      `${props.testID}-${TESTID.SELECTLISTVIEW}`,
+    );
+    act(() => rootBtn.props.onClick());
+
+    expect(selectListView.props.style[1].display).toBe('flex');
   });
 });

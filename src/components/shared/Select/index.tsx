@@ -83,12 +83,13 @@ interface Selected {
 }
 
 export const TESTID = {
-  TOUCHABLEOPACITY: 'touchable-opacity',
-  TITLETEXT: 'title-text',
+  ROOTBTN: 'root-btn',
   ROOTSELECT: 'root-select',
   ROOTTEXT: 'root-text',
   ROOTARROW: 'root-arrow',
-  SELECTLIST: 'list',
+  SELECTLISTVIEW: 'select-list-view',
+  SELECTLIST: 'select-list',
+  MODALCLOSEVIEW: 'modal-close-view',
 };
 
 const COLOR: {
@@ -362,6 +363,7 @@ function Select(props: Props): React.ReactElement {
         activeOpacity={activeOpacity}
         onPress={toggleList}
         disabled={disabled}
+        testID={`${testID}-${TESTID.ROOTBTN}`}
       >
         <RootSelect
           theme={rootViewTheme}
@@ -396,18 +398,21 @@ function Select(props: Props): React.ReactElement {
             top: layout.oy,
             left: layout.ox,
             width: layout.width,
+            display: listOpen ? 'flex' : 'none',
           }}
+          testID={`${testID}-${TESTID.SELECTLISTVIEW}`}
         >
           <RootCloseView
+            testID={`${testID}-${TESTID.MODALCLOSEVIEW}`}
             onPress={toggleList}
             style={{ height: layout.height }}
           ></RootCloseView>
           <SelectList
             style={itemStyle}
-            testID={`${testID}-${TESTID.SELECTLIST}`}
             data={items}
             renderItem={renderItem}
             keyExtractor={(item: Item): string => item.value}
+            testID={`${testID}-${TESTID.SELECTLIST}`}
           />
         </SelectListView>
       </Modal>

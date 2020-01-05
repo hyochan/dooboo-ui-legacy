@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`[Select] render renders without crashing 1`] = `
-<View>
+Array [
   <View
     accessible={true}
     clickable={true}
@@ -18,15 +18,16 @@ exports[`[Select] render renders without crashing 1`] = `
         "opacity": 1,
       }
     }
-    testID="undefined-touchable-opacity"
+    testID="undefined-root-btn"
   >
     <View
+      onLayout={[Function]}
       style={
         Array [
           Object {
             "alignItems": "center",
             "backgroundColor": "#ffffff",
-            "elevation": 8,
+            "elevation": 1,
             "flexDirection": "row",
             "height": 48,
             "justifyContent": "space-between",
@@ -34,7 +35,7 @@ exports[`[Select] render renders without crashing 1`] = `
             "paddingLeft": 6,
             "paddingRight": 6,
             "paddingTop": 14,
-            "shadowColor": "#3a8bff",
+            "shadowColor": "#5364ff",
             "shadowOpacity": 0.5,
             "shadowRadius": 5,
             "width": 128,
@@ -69,6 +70,91 @@ exports[`[Select] render renders without crashing 1`] = `
         testID="undefined-root-arrow"
       />
     </View>
-  </View>
-</View>
+  </View>,
+  <Modal
+    hardwareAccelerated={false}
+    onRequestClose={[Function]}
+    transparent={true}
+    visible={false}
+  >
+    <View
+      style={
+        Array [
+          Object {
+            "elevation": 8,
+            "shadowColor": "#5364ff",
+            "shadowOpacity": 0.2,
+          },
+          Object {
+            "display": "none",
+            "left": 0,
+            "shadowOffset": Object {
+              "height": 5,
+              "width": 0,
+            },
+            "top": 0,
+            "width": 0,
+          },
+        ]
+      }
+      testID="undefined-select-list-view"
+    >
+      <View
+        accessible={true}
+        clickable={true}
+        isTVSelectable={true}
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "height": 0,
+            "opacity": 1,
+            "width": "100%",
+          }
+        }
+        testID="undefined-modal-close-view"
+      />
+      <RCTScrollView
+        disableVirtualization={false}
+        getItem={[Function]}
+        getItemCount={[Function]}
+        horizontal={false}
+        initialNumToRender={10}
+        keyExtractor={[Function]}
+        maxToRenderPerBatch={10}
+        numColumns={1}
+        onContentSizeChange={[Function]}
+        onEndReachedThreshold={2}
+        onLayout={[Function]}
+        onMomentumScrollEnd={[Function]}
+        onScroll={[Function]}
+        onScrollBeginDrag={[Function]}
+        onScrollEndDrag={[Function]}
+        removeClippedSubviews={false}
+        renderItem={[Function]}
+        scrollEventThrottle={50}
+        stickyHeaderIndices={Array []}
+        style={
+          Array [
+            Object {
+              "backgroundColor": "#ffffff",
+              "paddingTop": 8,
+            },
+          ]
+        }
+        testID="undefined-select-list"
+        updateCellsBatchingPeriod={50}
+        viewabilityConfigCallbackPairs={Array []}
+        windowSize={21}
+      >
+        <View />
+      </RCTScrollView>
+    </View>
+  </Modal>,
+]
 `;
