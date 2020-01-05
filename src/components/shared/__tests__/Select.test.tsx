@@ -19,6 +19,9 @@ const ITEMS: Item[] = [
 type selectProp<K extends string> = {
   [T in K]: Props;
 };
+const onSelect = (item: Item): void => {
+  console.log(item);
+};
 
 const mockProp: selectProp<
   'noTheme' | 'inputTheme' | 'themeAndRootView' | 'disabled'
@@ -31,6 +34,7 @@ const mockProp: selectProp<
     },
     items: ITEMS,
     activeOpacity: 0.5,
+    onSelect,
   },
   inputTheme: {
     testID: 'select',
@@ -38,6 +42,7 @@ const mockProp: selectProp<
     placeholder: 'select',
     items: ITEMS,
     activeOpacity: 0.5,
+    onSelect,
   },
   themeAndRootView: {
     testID: 'select',
@@ -50,6 +55,7 @@ const mockProp: selectProp<
     placeholder: 'select',
     items: ITEMS,
     activeOpacity: 0.5,
+    onSelect,
   },
   disabled: {
     testID: 'select',
@@ -66,6 +72,7 @@ const mockProp: selectProp<
     items: ITEMS,
     disabled: true,
     activeOpacity: 0.5,
+    onSelect,
   },
 };
 
@@ -221,5 +228,47 @@ describe('[Select] render', () => {
     act(() => touchableOpacity.props.onClick());
 
     expect(selectListView.props.style[1].display).toBe('flex');
+  });
+
+  it('check hide list when click list item ', () => {
+    const theme = 'disabled';
+    const props = createTestProps({ case: theme });
+    const component = <Select {...props} />;
+    const testingLib = render(component);
+    const touchableOpacity = testingLib.getByTestId(
+      `${props.testID}-${TESTID.TOUCHABLEOPACITY}`,
+    );
+    const selectListView = testingLib.getByTestId(
+      `${props.testID}-${TESTID.SELECTLISTVIEW}`,
+    );
+    const firstListItem = testingLib.getByTestId(
+      `${props.testID}-${TESTID.LISTITEM}-${ITEMS[0].value}`,
+    );
+    act(() => touchableOpacity.props.onClick());
+    expect(selectListView.props.style[1].display).toBe('flex');
+
+    act(() => firstListItem.props.onClick());
+    expect(selectListView.props.style[1].display).toBe('none');
+  });
+
+  it('check hide list when click root close view  ', () => {
+    const theme = 'disabled';
+    const props = createTestProps({ case: theme });
+    const component = <Select {...props} />;
+    const testingLib = render(component);
+    const touchableOpacity = testingLib.getByTestId(
+      `${props.testID}-${TESTID.TOUCHABLEOPACITY}`,
+    );
+    const selectListView = testingLib.getByTestId(
+      `${props.testID}-${TESTID.SELECTLISTVIEW}`,
+    );
+    const rootCloseView = testingLib.getByTestId(
+      `${props.testID}-${TESTID.MODALCLOSEVIEW}`,
+    );
+    act(() => touchableOpacity.props.onClick());
+    expect(selectListView.props.style[1].display).toBe('flex');
+
+    act(() => rootCloseView.props.onClick());
+    expect(selectListView.props.style[1].display).toBe('none');
   });
 });

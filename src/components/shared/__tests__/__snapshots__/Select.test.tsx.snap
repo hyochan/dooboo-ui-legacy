@@ -147,7 +147,6 @@ exports[`[Select] render renders without crashing 1`] = `
             },
           ]
         }
-        testID="undefined-select-list"
         updateCellsBatchingPeriod={50}
         viewabilityConfigCallbackPairs={Array []}
         windowSize={21}

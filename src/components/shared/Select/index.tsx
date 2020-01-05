@@ -89,7 +89,7 @@ export const TESTID = {
   ROOTTEXT: 'root-text',
   ROOTARROW: 'root-arrow',
   SELECTLISTVIEW: 'select-list-view',
-  SELECTLIST: 'select-list',
+  LISTITEM: 'list-item',
   MODALCLOSEVIEW: 'modal-close-view',
 };
 
@@ -365,6 +365,7 @@ function Select(props: Props): React.ReactElement {
         onPress={(): void => {
           handleSelect(item);
         }}
+        testID={`${testID}-${TESTID.LISTITEM}-${item.value}`}
       >
         <ItemText
           selected={selectedItem && selectedItem.value === item.value}
@@ -439,7 +440,6 @@ function Select(props: Props): React.ReactElement {
             data={items}
             renderItem={renderItem}
             keyExtractor={(item: Item): string => item.value}
-            testID={`${testID}-${TESTID.SELECTLIST}`}
           />
         </SelectListView>
       </Modal>
