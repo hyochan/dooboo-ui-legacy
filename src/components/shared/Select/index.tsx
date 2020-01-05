@@ -415,9 +415,7 @@ function Select(props: Props): React.ReactElement {
       </TouchableOpacity>
       <Modal
         visible={listOpen}
-        onRequestClose={(): void => {
-          setListOpen(false);
-        }}
+        onRequestClose={(): void => {}}
         transparent={true}
       >
         <SelectListView
