@@ -8,7 +8,11 @@ import styled from 'styled-components/native';
 
 storiesOf('Select', module)
   .addDecorator(ContainerDeco)
-  .add('default', () => <Default />);
+  .add('default', () => (
+    <>
+      <Default />
+    </>
+  ));
 interface Item {
   value: string;
   text: string;
@@ -18,6 +22,9 @@ const Container = styled.View`
   align-items: center;
   justify-content: center;
   width: 100%;
+  height: 100%;
+  padding-top: 100px;
+  padding-bottom: 100px;
   flex-direction: column;
   justify-content: space-around;
 `;
@@ -41,25 +48,12 @@ function Default(): React.ReactElement {
   return (
     <Container>
       <Select
-        itemStyle={{
-          color: 'grey',
+        rootViewStyle={{
+          borderBottomColor: 'black',
+          borderBottomWidth: 2,
         }}
-        selectedItemStyle={{
-          color: 'black',
-        }}
-        placeholder={'select'}
-        onClick={action('Clicked')}
-        items={ITEMS}
-        onSelect={onSelect}
-        selectedItem={selectedItem}
-      />
-      <Select
-        theme={'box'}
-        itemStyle={{
-          color: 'grey',
-        }}
-        selectedItemStyle={{
-          color: 'black',
+        rootTextStyle={{
+          color: 'orange',
         }}
         placeholder={'select'}
         onClick={action('Clicked')}
@@ -75,6 +69,10 @@ function Default(): React.ReactElement {
         selectedItemStyle={{
           color: 'black',
         }}
+        title={'Title'}
+        titleTextStyle={{
+          color: 'green',
+        }}
         placeholder={'select'}
         onClick={action('Clicked')}
         items={ITEMS}
@@ -82,18 +80,27 @@ function Default(): React.ReactElement {
         selectedItem={selectedItem}
       />
       <Select
-        rootViewStyle={{
-          borderBottomColor: 'black',
-          borderBottomWidth: 2,
+        placeholder={'select'}
+        onClick={action('Clicked')}
+        title={'Title'}
+        titleTextStyle={{
+          color: 'blue',
         }}
-        rootTextStyle={{
-          color: 'orange',
+        items={ITEMS}
+        onSelect={onSelect}
+        selectedItem={selectedItem}
+      />
+      <Select
+        theme={'box'}
+        title={'Title'}
+        titleTextStyle={{
+          color: 'black',
         }}
         itemStyle={{
           color: 'grey',
         }}
         selectedItemStyle={{
-          color: 'black',
+          color: 'pink',
         }}
         placeholder={'select'}
         onClick={action('Clicked')}

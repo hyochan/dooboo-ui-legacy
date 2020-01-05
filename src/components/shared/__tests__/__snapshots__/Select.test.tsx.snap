@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`[Select] render renders without crashing 1`] = `
-Array [
+<View>
   <View
     accessible={true}
     clickable={true}
@@ -18,7 +18,7 @@ Array [
         "opacity": 1,
       }
     }
-    testID="undefined-root-btn"
+    testID="undefined-touchable-opacity"
   >
     <View
       onLayout={[Function]}
@@ -70,7 +70,7 @@ Array [
         testID="undefined-root-arrow"
       />
     </View>
-  </View>,
+  </View>
   <Modal
     hardwareAccelerated={false}
     onRequestClose={[Function]}
@@ -155,6 +155,6 @@ Array [
         <View />
       </RCTScrollView>
     </View>
-  </Modal>,
-]
+  </Modal>
+</View>
 `;

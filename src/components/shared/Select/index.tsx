@@ -83,7 +83,8 @@ interface Selected {
 }
 
 export const TESTID = {
-  ROOTBTN: 'root-btn',
+  TOUCHABLEOPACITY: 'touchable-opacity',
+  TITLETEXT: 'title-text',
   ROOTSELECT: 'root-select',
   ROOTTEXT: 'root-text',
   ROOTARROW: 'root-arrow',
@@ -188,6 +189,16 @@ const getThemeProp = ({ theme, comp, prop }: ThemePropParams): string => {
   return themeStylePropCollection[theme][comp][prop];
 };
 
+const Title = styled.Text<ThemeType>`
+  font-size: 12px;
+  margin-bottom: 5px;
+  color: ${(props): string =>
+    getThemeProp({
+      theme: props.theme,
+      comp: CompEnum.text,
+      prop: StylePropEnum.fc,
+    })};
+`;
 const Text = styled.Text<ThemeType>`
   font-size: 14px;
   color: ${(props): string =>
@@ -264,6 +275,9 @@ export interface Props {
   testID?: string;
   items: Item[];
   theme?: ThemeEnum;
+  title?: string;
+  titleTextStyle?: StyleProp<TextStyle>;
+  style?: StyleProp<ViewStyle>;
   rootViewStyle?: StyleProp<ViewStyle>;
   rootTextStyle?: StyleProp<TextStyle>;
   placeholder?: string;
@@ -330,6 +344,11 @@ function Select(props: Props): React.ReactElement {
     : rootTextStyle && Object.keys(rootTextStyle).length > 0
     ? 'blank'
     : defaultTheme;
+  const titleTextTheme = disabled
+    ? 'disabled'
+    : titleTextStyle && Object.keys(titleTextStyle).length > 0
+    ? 'blank'
+    : defaultTheme;
   const _rootViewStyle = disabled ? null : rootViewStyle;
   const _rootTextStyle = disabled ? null : rootTextStyle;
 
@@ -357,13 +376,21 @@ function Select(props: Props): React.ReactElement {
     );
   };
   return (
-    <>
+    <View style={style} testID={testID}>
+      {title && (
+        <Title
+          theme={titleTextTheme}
+          style={titleTextStyle}
+          testID={`${testID}-${TESTID.TITLETEXT}`}
+        >
+          {title}
+        </Title>
+      )}
       <TouchableOpacity
         testID={`${testID}-${TESTID.TOUCHABLEOPACITY}`}
         activeOpacity={activeOpacity}
         onPress={toggleList}
         disabled={disabled}
-        testID={`${testID}-${TESTID.ROOTBTN}`}
       >
         <RootSelect
           theme={rootViewTheme}
@@ -416,7 +443,7 @@ function Select(props: Props): React.ReactElement {
           />
         </SelectListView>
       </Modal>
-    </>
+    </View>
   );
 }
 
