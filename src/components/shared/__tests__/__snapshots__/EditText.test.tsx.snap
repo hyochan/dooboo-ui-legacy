@@ -1,5 +1,202 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`[EditText] box renders without crashing 1`] = `
+<View
+  style={
+    Array [
+      Object {
+        "alignSelf": "stretch",
+        "flexDirection": "column",
+      },
+    ]
+  }
+>
+  <Text
+    style={
+      Array [
+        Object {
+          "color": "#b9b9c4",
+          "fontSize": 14,
+          "fontWeight": "500",
+          "marginBottom": 5,
+        },
+        Object {
+          "color": "#FF8989",
+        },
+        undefined,
+      ]
+    }
+  />
+  <View
+    style={
+      Array [
+        Object {
+          "alignItems": "center",
+          "flexDirection": "row",
+        },
+      ]
+    }
+  >
+    <View
+      style={
+        Array [
+          Object {
+            "alignItems": "center",
+            "flexDirection": "row",
+            "justifyContent": "space-between",
+            "width": "100%",
+          },
+          Object {
+            "borderColor": "#eaeaf9",
+          },
+          Object {
+            "borderColor": "#FF8989",
+          },
+          Object {
+            "borderRadius": 3,
+            "borderWidth": 0.6,
+          },
+          Object {
+            "paddingLeft": 15,
+          },
+          Object {
+            "paddingRight": 15,
+          },
+          undefined,
+        ]
+      }
+    >
+      <TextInput
+        allowFontScaling={true}
+        autoCapitalize="none"
+        onBlur={[Function]}
+        onFocus={[Function]}
+        rejectResponderTermination={true}
+        style={
+          Array [
+            Object {
+              "color": "#2c374e",
+              "flexBasis": 0,
+              "flexGrow": 1,
+              "flexShrink": 1,
+              "fontSize": 15,
+              "fontWeight": "500",
+              "height": "100%",
+              "paddingBottom": 15,
+              "paddingTop": 15,
+            },
+          ]
+        }
+        underlineColorAndroid="transparent"
+      />
+    </View>
+  </View>
+  <Text
+    style={
+      Array [
+        Object {
+          "color": "#ff8989",
+          "fontSize": 12,
+          "fontWeight": "500",
+          "marginBottom": 0,
+          "marginLeft": 2,
+          "marginRight": 2,
+          "marginTop": 5,
+        },
+        Object {
+          "color": "#FF8989",
+        },
+        undefined,
+      ]
+    }
+  >
+    error
+  </Text>
+</View>
+`;
+
+exports[`[EditText] box row renders without crashing 1`] = `
+<View
+  style={
+    Array [
+      Object {
+        "alignSelf": "stretch",
+        "flexDirection": "column",
+      },
+    ]
+  }
+>
+  <View
+    style={
+      Array [
+        Object {
+          "alignItems": "center",
+          "flexDirection": "row",
+          "justifyContent": "space-between",
+          "width": "100%",
+        },
+        Object {
+          "borderRadius": 3,
+          "borderWidth": 0.6,
+        },
+        Object {
+          "borderColor": "#eaeaf9",
+        },
+        Object {
+          "borderColor": "#FF8989",
+        },
+        undefined,
+      ]
+    }
+  >
+    <TextInput
+      allowFontScaling={true}
+      autoCapitalize="none"
+      onBlur={[Function]}
+      onFocus={[Function]}
+      rejectResponderTermination={true}
+      style={
+        Array [
+          Object {
+            "color": "#2c374e",
+            "flexBasis": 0,
+            "flexGrow": 1,
+            "flexShrink": 1,
+            "fontSize": 14,
+            "fontWeight": "bold",
+            "height": "100%",
+            "paddingBottom": 16,
+            "paddingTop": 16,
+          },
+          Object {
+            "paddingRight": 15,
+          },
+          undefined,
+        ]
+      }
+      underlineColorAndroid="transparent"
+    />
+  </View>
+  <Text
+    style={
+      Array [
+        Object {
+          "color": "#ff8989",
+          "fontSize": 12,
+          "fontWeight": "500",
+          "marginBottom": 0,
+          "marginLeft": 2,
+          "marginRight": 2,
+          "marginTop": 5,
+        },
+      ]
+    }
+  >
+    error
+  </Text>
+</View>
+`;
+
 exports[`[EditText] default renders without crashing 1`] = `
 <View
   style={
@@ -46,7 +243,6 @@ exports[`[EditText] default renders without crashing 1`] = `
             "justifyContent": "space-between",
             "width": "100%",
           },
-          undefined,
           Object {
             "borderColor": "#eaeaf9",
           },
@@ -56,12 +252,7 @@ exports[`[EditText] default renders without crashing 1`] = `
           Object {
             "borderBottomWidth": 0.6,
           },
-          Object {
-            "paddingLeft": 15,
-          },
-          Object {
-            "paddingRight": 15,
-          },
+          undefined,
         ]
       }
     >
@@ -84,7 +275,6 @@ exports[`[EditText] default renders without crashing 1`] = `
               "paddingBottom": 15,
               "paddingTop": 15,
             },
-            undefined,
           ]
         }
         underlineColorAndroid="transparent"
@@ -107,6 +297,87 @@ exports[`[EditText] default renders without crashing 1`] = `
           "color": "#FF8989",
         },
         undefined,
+      ]
+    }
+  >
+    error
+  </Text>
+</View>
+`;
+
+exports[`[EditText] row renders without crashing 1`] = `
+<View
+  style={
+    Array [
+      Object {
+        "alignSelf": "stretch",
+        "flexDirection": "column",
+      },
+    ]
+  }
+>
+  <View
+    style={
+      Array [
+        Object {
+          "alignItems": "center",
+          "flexDirection": "row",
+          "justifyContent": "space-between",
+          "width": "100%",
+        },
+        Object {
+          "borderColor": "#eaeaf9",
+        },
+        Object {
+          "borderColor": "#FF8989",
+        },
+        Object {
+          "borderBottomWidth": 0.6,
+        },
+        undefined,
+      ]
+    }
+  >
+    <TextInput
+      allowFontScaling={true}
+      autoCapitalize="none"
+      onBlur={[Function]}
+      onFocus={[Function]}
+      rejectResponderTermination={true}
+      style={
+        Array [
+          Object {
+            "color": "#2c374e",
+            "flexBasis": 0,
+            "flexGrow": 1,
+            "flexShrink": 1,
+            "fontSize": 14,
+            "fontWeight": "bold",
+            "height": "100%",
+            "paddingBottom": 16,
+            "paddingTop": 16,
+          },
+          undefined,
+          Object {
+            "textAlign": "right",
+          },
+        ]
+      }
+      underlineColorAndroid="transparent"
+    />
+  </View>
+  <Text
+    style={
+      Array [
+        Object {
+          "color": "#ff8989",
+          "fontSize": 12,
+          "fontWeight": "500",
+          "marginBottom": 0,
+          "marginLeft": 2,
+          "marginRight": 2,
+          "marginTop": 5,
+        },
       ]
     }
   >
