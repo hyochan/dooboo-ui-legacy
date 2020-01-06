@@ -195,6 +195,7 @@ function EditText(props: Props): ReactElement {
 
   switch (type) {
     case EditTextInputType.DEFAULT:
+    default:
       return (
         <Container style={style}>
           <StyledLabel
@@ -252,7 +253,6 @@ function EditText(props: Props): ReactElement {
           ) : null }
         </Container>
       );
-
     case EditTextInputType.ROW:
       return (
         <StyledRowContainer style={style}>
@@ -406,8 +406,7 @@ function EditText(props: Props): ReactElement {
         <StyledRowContainer style={style}>
           <StyledRowContent
             style={[
-              { borderWidth: borderWidth, borderRadius: inputContainerRadius },
-              { borderColor: borderColor },
+              { borderWidth: borderWidth, borderRadius: inputContainerRadius, borderColor: borderColor },
               focused
                 ? { borderColor: focusColor }
                 : errorText

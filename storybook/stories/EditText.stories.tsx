@@ -381,8 +381,8 @@ const BoxEditText = (): React.ReactElement => {
             onSubmitEditing={onSignIn}
             borderStyle={{ height: 60 }}
             borderWidth={1}
-            leftIcon={<Image source={IC_EDIT} />}
-            rightIcon={<Image source={IC_CHECK} style={{ width: 16, height: 16 }}/>}
+            leftElement={<Image source={IC_EDIT} />}
+            rightElement={<Image source={IC_CHECK} style={{ width: 16, height: 16 }}/>}
           />
           <EditText
             testID="PASSWORD_INPUT"
@@ -401,8 +401,8 @@ const BoxEditText = (): React.ReactElement => {
             }
             style={{ marginTop: 36 }}
             onSubmitEditing={onSignIn}
-            leftIcon={<Image source={IC_EDIT} />}
-            leftIconStyle={{ width: 60 }}
+            leftElement={<Image source={IC_EDIT} />}
+            leftElementStyle={{ width: 60 }}
           />
           <Button
             style={{
@@ -552,7 +552,6 @@ const BoxRowEditText = (): React.ReactElement => {
             textStyle={fontStyle}
             text="Login"
           />
-          {/* Email SignUp text */}
           <View
             style={{
               marginTop: 20,
