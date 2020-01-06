@@ -11,7 +11,6 @@ import EditText from '../EditText';
 import { View } from 'react-native';
 // Note: test renderer must be required after react-native.
 import renderer from 'react-test-renderer';
-import { transpileModule } from 'typescript';
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 let props: any;
@@ -393,7 +392,7 @@ describe('[EditText]', () => {
           },
           onBlur: (): void => {},
           onFocus: (): void => {},
-          focused: true,
+          focused: false,
         };
         beforeEach(() => {
           component = <EditText {...props} />;
@@ -411,7 +410,7 @@ describe('[EditText]', () => {
           },
           onBlur: (): void => {},
           onFocus: (): void => {},
-          focused: true,
+          focused: false,
         };
         beforeEach(() => {
           component = <EditText {...props} />;

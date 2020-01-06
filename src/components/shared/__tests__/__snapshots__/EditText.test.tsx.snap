@@ -136,11 +136,9 @@ exports[`[EditText] box row renders without crashing 1`] = `
           "width": "100%",
         },
         Object {
+          "borderColor": "#eaeaf9",
           "borderRadius": 3,
           "borderWidth": 0.6,
-        },
-        Object {
-          "borderColor": "#eaeaf9",
         },
         Object {
           "borderColor": "#FF8989",
