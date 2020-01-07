@@ -1,27 +1,30 @@
 import * as React from 'react';
 
-import { Dimensions, Text, TextStyle, ViewStyle } from 'react-native';
+import { Animated, Dimensions, StyleSheet, Text, TextStyle, ViewStyle } from 'react-native';
 
 import styled from 'styled-components/native';
 
 const { width } = Dimensions.get('screen');
 const maxWidth = width - 32;
 
-const Container = styled.View`
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  min-width: 150px;
-  max-width: ${maxWidth};
-  text-align: left;
-  align-items: center;
-  position: absolute;
-  font-size: 16;
-  padding: 10px 16px;
-  bottom: 50px;
-  background-color: #303235;
-  border-radius: 10;
-`;
+const styles = StyleSheet.create({
+  container: {
+    display: 'flex',
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    minWidth: 150,
+    maxWidth,
+    textAlign: 'left',
+    alignItems: 'center',
+    position: 'absolute',
+    fontSize: 16,
+    paddingHorizontal: 16,
+    paddingVertical: 10,
+    bottom: 50,
+    backgroundColor: '#303235',
+    borderRadius: 10,
+  },
+});
 
 const ActionContainer = styled.View`
   display: flex;
@@ -73,21 +76,36 @@ const Snackbar: React.FC<SnackbarProps> = React.forwardRef<SnackbarRef, Snackbar
   const [content, setContent] = React.useState<Content>({ text: '', timer: Timer.SHORT });
   const { text, actionText, messageStyle, actionStyle, containerStyle, timer = Timer.SHORT, onPressAction } = content;
   const { isShowing, isVisible, timeout } = showingState;
+  const [fadeAnim] = React.useState(new Animated.Value(0));
   const show = (content): void => {
     setContent(content);
     clearTimeout(timeout);
     setShowingState({ isShowing: true });
   };
+  const close = (): void => {
+    Animated.timing(
+      fadeAnim,
+      {
+        toValue: 0,
+        duration: 200,
+      },
+    ).start(() => setShowingState({ isVisible: false }));
+  };
   React.useEffect(() => {
     if (isShowing) {
       if (isVisible) {
-        setShowingState({ isVisible: false });
+        close();
       } else {
         const timeout = setTimeout(() => {
-          setShowingState({ isVisible: false });
+          close();
         }, timer);
-
-        setShowingState({ isShowing: false, isVisible: true, timeout });
+        Animated.timing(
+          fadeAnim,
+          {
+            toValue: 1,
+            duration: 200,
+          },
+        ).start(() => setShowingState({ isShowing: false, isVisible: true, timeout }));
       }
     }
   }, [showingState]);
@@ -97,7 +115,7 @@ const Snackbar: React.FC<SnackbarProps> = React.forwardRef<SnackbarRef, Snackbar
   return (
     <>
       {showingState.isVisible && (
-        <Container testID={testID} style={containerStyle}>
+        <Animated.View testID={testID} style={[styles.container, containerStyle, { opacity: fadeAnim }]}>
           <Text style={messageStyle}>{text}</Text>
           {actionText && (
             <ActionContainer>
@@ -108,7 +126,7 @@ const Snackbar: React.FC<SnackbarProps> = React.forwardRef<SnackbarRef, Snackbar
               </Touchable>
             </ActionContainer>
           )}
-        </Container>
+        </Animated.View>
       )}
     </>
   );
