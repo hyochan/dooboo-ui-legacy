@@ -113,6 +113,7 @@ export const TESTID = {
   SELECTLISTVIEW: 'select-list-view',
   LISTITEM: 'list-item',
   MODALCLOSEVIEW: 'modal-close-view',
+  PICKER: 'picker',
 };
 
 export const COLOR: {
@@ -372,9 +373,13 @@ function Select(props: Props): React.ReactElement {
 
   const close = useCallback((): void => {
     setListOpen({ ...listOpen, isOpen: false });
-  });
+  }, []);
 
-  const defaultTheme = disabled ? 'disabled' : !theme ? 'none' : theme;
+  const defaultTheme = disabled
+    ? ThemeEnum.disabled
+    : !theme
+    ? ThemeEnum.none
+    : theme;
   const rootViewTheme = disabled
     ? ThemeEnum.disabled
     : rootViewStyle && Object.keys(rootViewStyle).length > 0
@@ -471,7 +476,7 @@ function Select(props: Props): React.ReactElement {
       {mode === Mode.picker && (
         <Picker
           {...props}
-          testID={'select-picker'}
+          testID={`${testID}-${TESTID.PICKER}`}
           listOpen={listOpen}
           setListOpen={setListOpen}
         />
@@ -484,7 +489,7 @@ Select.defaultProps = {
   theme: ThemeEnum.none,
   placeholder: '',
   activeOpacity: 0.8,
-  mode: Mode.dropdown,
+  mode: Mode.picker,
   showsVerticalScrollIndicator: false,
 };
 
