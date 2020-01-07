@@ -17,7 +17,7 @@ const Container = styled.View`
   align-items: center;
   position: absolute;
   font-size: 16;
-  padding: 16px;
+  padding: 10px 16px;
   bottom: 50px;
   background-color: #303235;
   border-radius: 10;
@@ -31,10 +31,10 @@ const ActionContainer = styled.View`
   padding-left: 16px;
 `;
 
-const ActionButton = styled.TouchableOpacity`
-  width: auto;
-  height: auto;
-  padding: 5px 5px 5px 0px;
+const Touchable = styled.TouchableOpacity``;
+
+const ActionButton = styled.View`
+  padding: 4px 4px 2px 2px;
 `;
 
 export interface SnackbarProps {
@@ -73,9 +73,11 @@ const Snackbar: React.FC<SnackbarProps> = (props) => {
           <Text style={props.messageStyle}>{props.text}</Text>
           {actionText && (
             <ActionContainer>
-              <ActionButton onPress={props.onPressAction}>
-                <Text style={props.actionStyle}>{props.actionText}</Text>
-              </ActionButton>
+              <Touchable onPress={props.onPressAction}>
+                <ActionButton>
+                  <Text style={props.actionStyle}>{props.actionText}</Text>
+                </ActionButton>
+              </Touchable>
             </ActionContainer>
           )}
         </Container>
