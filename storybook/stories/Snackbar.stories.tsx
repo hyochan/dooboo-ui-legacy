@@ -1,10 +1,10 @@
+import { Alert, Text } from 'react-native';
 import React, { useCallback, useRef, useState } from 'react';
 import Snackbar, { SnackbarRef, Timer } from '../../src/components/shared/Snackbar';
 import { color, text } from '@storybook/addon-knobs';
 
 import { ContainerDeco } from '../decorators';
 import SwitchToggle from '../../src/components/shared/SwitchToggle';
-import { Text, Alert } from 'react-native';
 import { storiesOf } from '@storybook/react-native';
 import styled from 'styled-components/native';
 
@@ -42,6 +42,7 @@ const Button = styled.TouchableOpacity`
 `;
 
 function Default(): React.ReactElement {
+  const snackbar = useRef<SnackbarRef>();
   const [shortOrLong, setShortOrLong] = useState<boolean>(false);
   const [longText, setLongText] = useState<boolean>(false);
   const snackbarText = text('Snackbar Text', 'Simple Snackbar is opened');
@@ -61,11 +62,9 @@ function Default(): React.ReactElement {
       messageStyle: {
         color: messageColor,
         fontSize: 17,
-      }
-    })
+      },
+    });
   }, [shortOrLong, longText, containerColor, messageColor]);
-
-  const snackbar = useRef<SnackbarRef>();
 
   return (
     <Container>
@@ -94,6 +93,7 @@ function Default(): React.ReactElement {
 }
 
 function WithAction(): React.ReactElement {
+  const snackbar = useRef<SnackbarRef>();
   const [shortOrLong, setShortOrLong] = useState<boolean>(false);
   const [longText, setLongText] = useState<boolean>(false);
   const snackbarText = text('Snackbar Text', 'Simple Snackbar is opened');
@@ -125,10 +125,8 @@ function WithAction(): React.ReactElement {
         fontSize: 17,
       },
       onPressAction,
-    })
+    });
   }, [shortOrLong, longText, containerColor, messageColor]);
-
-  const snackbar = useRef<SnackbarRef>();
 
   return (
     <Container>

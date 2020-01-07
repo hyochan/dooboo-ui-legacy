@@ -1,9 +1,9 @@
 import * as React from 'react';
 
-import Snackbar, { SnackbarProps, SnackbarRef } from '../Snackbar';
+import Snackbar, { SnackbarRef } from '../Snackbar';
 import { Text, TouchableOpacity, View } from 'react-native';
 
-import { render, waitForElement, fireEvent } from '@testing-library/react-native';
+import { fireEvent, render } from '@testing-library/react-native';
 import renderer, { act } from 'react-test-renderer';
 
 // Note: test renderer must be required after react-native.

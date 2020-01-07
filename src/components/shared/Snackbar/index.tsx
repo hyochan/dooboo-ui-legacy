@@ -98,16 +98,16 @@ const Snackbar: React.FC<SnackbarProps> = React.forwardRef<SnackbarRef, Snackbar
     <>
       {showingState.isVisible && (
         <Container testID={testID} style={containerStyle}>
-        <Text style={messageStyle}>{text}</Text>
-        {actionText && (
-          <ActionContainer>
-            <Touchable onPress={onPressAction}>
-              <ActionButton>
-                <Text style={actionStyle}>{actionText}</Text>
-              </ActionButton>
-            </Touchable>
-          </ActionContainer>
-        )}
+          <Text style={messageStyle}>{text}</Text>
+          {actionText && (
+            <ActionContainer>
+              <Touchable onPress={onPressAction}>
+                <ActionButton>
+                  <Text style={actionStyle}>{actionText}</Text>
+                </ActionButton>
+              </Touchable>
+            </ActionContainer>
+          )}
         </Container>
       )}
     </>
