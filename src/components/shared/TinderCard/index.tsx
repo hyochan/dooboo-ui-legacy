@@ -36,7 +36,7 @@ interface Props {
   onSwipeRight?: (item: DataProps) => void;
   onSwipeLeft?: (item: DataProps) => void;
   onCancel?: () => void;
-  data: Array<DataProps>;
+  data: DataProps[];
   renderCards: (item: DataProps) => ReactElement;
   renderNoMoreCards: () => ReactElement;
   rotate?: boolean;
