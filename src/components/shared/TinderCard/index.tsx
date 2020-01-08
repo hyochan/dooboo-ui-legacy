@@ -166,7 +166,7 @@ function TinderCard(props: Props, ref): ReactElement {
       const behindHeight =
         props.stackSize && idx - cardIndex < props.stackSize
           ? 40 + 15 * (idx - cardIndex)
-          : 55;
+          : 40;
 
       return (
         <Animated.View
