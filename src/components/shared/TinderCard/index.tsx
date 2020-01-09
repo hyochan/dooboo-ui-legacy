@@ -70,7 +70,7 @@ function TinderCard(props: Props, ref): ReactElement {
     }).start();
   };
 
-  const onSwipeCompleted = useCallback((direction: string): void => {
+  const onSwipeCompleted = useCallback((swipeOption: boolean): void => {
     const { onSwipeLeft, onSwipeRight, data } = props;
 
     position.setValue({ x: 0, y: 0 });
@@ -86,7 +86,7 @@ function TinderCard(props: Props, ref): ReactElement {
       return idx + 1;
     });
 
-    if (direction === 'right') {
+    if (swipeOption) {
       onSwipeRight && onSwipeRight(data[currentIndex]);
     } else {
       onSwipeLeft && onSwipeLeft(data[currentIndex]);
@@ -98,7 +98,7 @@ function TinderCard(props: Props, ref): ReactElement {
     Animated.timing(position, {
       toValue: { x, y: 0 },
       duration: SWIPE_OUT_DURATION,
-    }).start(() => onSwipeCompleted(direction));
+    }).start(() => onSwipeCompleted(swipeOption));
   };
 
   const _panResponder = useMemo(
