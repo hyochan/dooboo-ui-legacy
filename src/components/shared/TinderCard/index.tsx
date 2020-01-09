@@ -45,6 +45,7 @@ interface Props {
 
 const Container = styled.View`
   width: ${SCREEN_WIDTH};
+  align-items: center;
 `;
 
 const CancelButton = styled.Button`
@@ -163,10 +164,8 @@ function TinderCard(props: Props, ref): ReactElement {
         );
       }
 
-      const behindHeight =
-        props.stackSize && idx - cardIndex < props.stackSize
-          ? 40 + 15 * (idx - cardIndex)
-          : 40;
+      const indexGap = idx - cardIndex;
+      const behindHeight = indexGap < props.stackSize ? 40 + 10 * indexGap : 40 + 10 * (props.stackSize - 1);
 
       return (
         <Animated.View
@@ -174,7 +173,7 @@ function TinderCard(props: Props, ref): ReactElement {
           style={[
             {
               position: 'absolute',
-              width: SCREEN_WIDTH,
+              width: SCREEN_WIDTH - 10 * indexGap,
               top: behindHeight,
               zIndex: 5,
             },
