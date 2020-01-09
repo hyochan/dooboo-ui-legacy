@@ -171,7 +171,7 @@ function TinderCard(props: Props, ref): ReactElement {
               getCardStyle(),
               {
                 position: 'absolute',
-                top: 40,
+                top: 0,
                 width: SCREEN_WIDTH,
                 zIndex: 99,
               },
@@ -188,7 +188,7 @@ function TinderCard(props: Props, ref): ReactElement {
       const indexGap = idx - cardIndex;
       const stackSize = props.stackSize || 3;
       const behindHeight =
-        indexGap <= stackSize ? 40 + 10 * indexGap : 40 + 10 * stackSize;
+        indexGap <= stackSize ? 10 * indexGap : 10 * stackSize;
 
       return (
         <Animated.View
@@ -205,7 +205,7 @@ function TinderCard(props: Props, ref): ReactElement {
         </Animated.View>
       );
     });
-    return Platform.OS === 'android' ? dataSet : dataSet.reverse();
+    return dataSet.reverse();
   };
 
   const handleCancel = (): void => {
