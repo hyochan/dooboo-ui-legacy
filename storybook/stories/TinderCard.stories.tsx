@@ -1,5 +1,5 @@
-import { Dimensions, Text, TouchableOpacity, View } from 'react-native';
-import React, { useMemo, useRef, useState } from 'react';
+import { Dimensions, View } from 'react-native';
+import React, { ReactElement, useMemo, useRef, useState } from 'react';
 
 import { ContainerDeco } from '../decorators';
 import TinderCard from '../../src/components/shared/TinderCard';
@@ -53,6 +53,7 @@ const CardContainer = styled.View`
   border-width: 2px;
   border-color: white;
   border-radius: 5px;
+  position: relative;
 `;
 
 const IndexText = styled.Text`
@@ -74,6 +75,18 @@ const BannerImage = styled.Image`
   width: 100%;
   height: 100%;
   border-radius: 5px;
+`;
+
+const CardLabel = styled.Text`
+  width: 100%;
+  text-align: center;
+  position: absolute;
+  bottom: 50;
+  font-size: 35;
+  font-weight: 600;
+  color: lightcyan;
+  position: absolute;
+  top: 50;
 `;
 
 const NoCard = styled.View`
@@ -115,7 +128,7 @@ function Default(): React.ReactElement {
     }
   };
 
-  const _renderCards = (item: DataProps): React.ReactElement => {
+  const _renderCards = (item: DataProps): ReactElement => {
     return (
       <CardContainer>
         <IndexText>{item.id}</IndexText>
@@ -124,7 +137,15 @@ function Default(): React.ReactElement {
     );
   };
 
-  const _renderNoMoreCards = (): React.ReactElement => (
+  const _renderCardLabel = (type: number): ReactElement => {
+    if (type === 1) {
+      return <CardLabel>Like</CardLabel>;
+    } else if (type === 2) {
+      return <CardLabel>Unike</CardLabel>;
+    } else return null;
+  };
+
+  const _renderNoMoreCards = (): ReactElement => (
     <NoCard>
       <StyledText>No more cards</StyledText>
     </NoCard>

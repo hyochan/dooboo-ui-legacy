@@ -37,8 +37,9 @@ interface Props {
   onSwipeLeft?: (item: DataProps) => void;
   onCancel?: () => void;
   data: DataProps[];
-  renderCards: (item: DataProps) => ReactElement;
+  renderCards: (item: DataProps, type?: number) => ReactElement;
   renderNoMoreCards: () => ReactElement;
+  renderCardLabel?: (type: number) => ReactElement;
   rotate?: boolean;
   stackSize?: number;
 }
@@ -53,6 +54,14 @@ const CancelButton = styled.Button`
   color: blue;
 `;
 
+const TextArea = styled.View`
+  width: ${SCREEN_WIDTH};
+  height: 100%;
+  z-index: 99;
+  position: absolute;
+  top: 20;
+`;
+
 const NoCard = styled.View`
   width: 100%;
   height: 200px;
@@ -63,9 +72,11 @@ const NoCard = styled.View`
 
 function TinderCard(props: Props, ref): ReactElement {
   const [cardIndex, setCardIndex] = useState(0);
+  const [type, setType] = useState(0);
   const position = useMemo(() => new Animated.ValueXY(), []);
 
   const resetPosition = (): void => {
+    setType(0);
     Animated.spring(position, {
       toValue: { x: 0, y: 0 },
     }).start();
@@ -99,7 +110,10 @@ function TinderCard(props: Props, ref): ReactElement {
     Animated.timing(position, {
       toValue: { x, y: 0 },
       duration: SWIPE_OUT_DURATION,
-    }).start(() => onSwipeCompleted(swipeOption));
+    }).start(() => {
+      onSwipeCompleted(swipeOption);
+      setType(0);
+    });
   };
 
   const _panResponder = useMemo(
@@ -108,6 +122,11 @@ function TinderCard(props: Props, ref): ReactElement {
         // Ask to be the responder:
         onStartShouldSetPanResponder: (evt, gestureState) => true,
         onPanResponderMove: (evt, gestureState) => {
+          if (gestureState.dx > 0) {
+            setType(2);
+          } else if (gestureState.dx < 0) {
+            setType(1);
+          }
           position.setValue({ x: gestureState.dx, y: gestureState.dy });
         },
         onPanResponderRelease: (evt, gesture) => {
@@ -137,7 +156,7 @@ function TinderCard(props: Props, ref): ReactElement {
     };
   };
 
-  const _renderCards = (): ReactElement | (ReactElement|null)[] => {
+  const _renderCards = (): ReactElement | (ReactElement | null)[] => {
     if (!props.data || cardIndex >= props.data.length) {
       return props.renderNoMoreCards();
     }
@@ -157,15 +176,19 @@ function TinderCard(props: Props, ref): ReactElement {
                 zIndex: 99,
               },
             ]}
-            {..._panResponder.panHandlers}
-          >
-            {props.renderCards(item)}
+            {..._panResponder.panHandlers}>
+            {props.renderCards(item, type)}
+            <TextArea>
+              {props.renderCardLabel && props.renderCardLabel(type)}
+            </TextArea>
           </Animated.View>
         );
       }
 
       const indexGap = idx - cardIndex;
-      const behindHeight = indexGap < props.stackSize ? 40 + 10 * indexGap : 40 + 10 * (props.stackSize - 1);
+      const stackSize = props.stackSize || 3;
+      const behindHeight =
+        indexGap <= stackSize ? 40 + 10 * indexGap : 40 + 10 * stackSize;
 
       return (
         <Animated.View
@@ -177,13 +200,11 @@ function TinderCard(props: Props, ref): ReactElement {
               top: behindHeight,
               zIndex: 5,
             },
-          ]}
-        >
+          ]}>
           {props.renderCards(item)}
         </Animated.View>
       );
     });
-
     return Platform.OS === 'android' ? dataSet : dataSet.reverse();
   };
 
