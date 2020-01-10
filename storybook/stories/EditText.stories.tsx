@@ -1,5 +1,7 @@
-import React, { useState } from 'react';
+import EditText, { EditTextInputType } from '../../src/components/shared/EditText';
+import { IC_CHECK, IC_EDIT } from '../../src/components/shared/Icons';
 import {
+  Image,
   SafeAreaView,
   ScrollView,
   Text,
@@ -7,10 +9,10 @@ import {
   TouchableOpacity,
   View,
 } from 'react-native';
+import React, { useState } from 'react';
 
 import Button from '../../src/components/shared/Button';
 import { ContainerDeco } from '../decorators';
-import EditText from '../../src/components/shared/EditText';
 import { storiesOf } from '@storybook/react-native';
 
 storiesOf('EditText', module)
@@ -209,9 +211,9 @@ const RowEditText = (): React.ReactElement => {
             Sign in with Email
           </Text>
           <EditText
-            isRow
             testID="EMAIL_INPUT"
             errorTestID="EMAIL_INPUT_ERROR"
+            type={EditTextInputType.ROW}
             value={email}
             numberOfLines={1}
             style={{
@@ -239,9 +241,9 @@ const RowEditText = (): React.ReactElement => {
             }}
           />
           <EditText
-            isRow
             testID="PASSWORD_INPUT"
             errorTestID="PASSWORD_INPUT_ERROR"
+            type={EditTextInputType.ROW}
             autoCapitalize="none"
             style={{
               marginTop: 10,
@@ -365,7 +367,7 @@ const BoxEditText = (): React.ReactElement => {
           </Text>
           <EditText
             testID="EMAIL_INPUT"
-            inputContainerType="box"
+            type={EditTextInputType.BOX}
             textStyle={{
               color: '#495057',
             }}
@@ -377,11 +379,15 @@ const BoxEditText = (): React.ReactElement => {
             style={{ marginTop: 50 }}
             errorText={errorEmail}
             onSubmitEditing={onSignIn}
+            borderStyle={{ height: 60 }}
+            borderWidth={1}
+            leftElement={<Image source={IC_EDIT} />}
+            rightElement={<Image source={IC_CHECK} style={{ width: 16, height: 16 }}/>}
           />
           <EditText
             testID="PASSWORD_INPUT"
-            inputContainerType="box"
-            inputContainerRadius={25}
+            type={EditTextInputType.BOX}
+            inputContainerRadius={30}
             textStyle={{
               color: '#ADB5BD',
             }}
@@ -395,6 +401,8 @@ const BoxEditText = (): React.ReactElement => {
             }
             style={{ marginTop: 36 }}
             onSubmitEditing={onSignIn}
+            leftElement={<Image source={IC_EDIT} />}
+            leftElementStyle={{ width: 60 }}
           />
           <Button
             style={{
@@ -499,8 +507,7 @@ const BoxRowEditText = (): React.ReactElement => {
           </Text>
           <EditText
             testID="EMAIL_INPUT"
-            isRow={true}
-            inputContainerType="box"
+            type="rowBox"
             textStyle={{
               color: '#495057',
             }}
@@ -512,11 +519,11 @@ const BoxRowEditText = (): React.ReactElement => {
             style={{ marginTop: 50 }}
             errorText={errorEmail}
             onSubmitEditing={onSignIn}
+            borderStyle={{ height: 60 }}
           />
           <EditText
             testID="PASSWORD_INPUT"
-            isRow={true}
-            inputContainerType="box"
+            type={EditTextInputType.ROW_BOX}
             inputContainerRadius={25}
             textStyle={{
               color: '#ADB5BD',
@@ -545,7 +552,6 @@ const BoxRowEditText = (): React.ReactElement => {
             textStyle={fontStyle}
             text="Login"
           />
-          {/* Email SignUp text */}
           <View
             style={{
               marginTop: 20,
