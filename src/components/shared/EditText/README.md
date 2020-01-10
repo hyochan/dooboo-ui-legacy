@@ -35,10 +35,10 @@
 | secureTextEntry      |           | boolean                |              |
 | onChangeText         |           | (e) => {}              |              |
 | onSubmitEditing      |           | func                   |              |
-| leftIcon             |           | `ReactElement`         |              |
-| leftIconStyle        |           | `StyleProp<ViewStyle>` |              |
-| rightIcon            |           | `ReactElement`         |              |
-| rightIconStyle       |           | `StyleProp<ViewStyle>` |              |
+| leftElement          |           | `ReactElement`         |              |
+| leftElementStyle     |           | `StyleProp<ViewStyle>` |              |
+| rightElement         |           | `ReactElement`         |              |
+| rightElementStyle    |           | `StyleProp<ViewStyle>` |              |
 | textInputProps       |           | `TextInputProps`       |              |
 | errorText            |           | string                 |              |
 | errorTextStyle       |           | `StyleProp<TextStyle>` |              |
@@ -164,7 +164,3 @@ yarn add @dooboo-ui/native-edit-text
     );
   }
   ```
-
-```
-
-```
