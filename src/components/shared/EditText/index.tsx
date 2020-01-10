@@ -135,6 +135,8 @@ interface Props {
   leftElementStyle?: ViewStyle;
   rightElement?: ReactElement;
   rightElementStyle?: ViewStyle;
+  focusedLabelStyle?: TextStyle;
+  focusedBorderWidth?: number;
   focusColor?: string;
   errorColor?: string;
   autoCapitalize?: TextInputProps['autoCapitalize'];
@@ -181,6 +183,8 @@ function EditText(props: Props): ReactElement {
     leftElementStyle,
     rightElement,
     rightElementStyle,
+    focusedLabelStyle = { fontWeight: 'bold' },
+    focusedBorderWidth = 1,
     focusColor = '#79B3F5',
     errorColor = '#FF8989',
     autoCapitalize = 'none',
@@ -199,27 +203,27 @@ function EditText(props: Props): ReactElement {
       return (
         <Container style={style}>
           <StyledLabel
+            // @ts-ignore
             style={[
-              focused
-                ? { color: focusColor }
-                : errorText
-                  ? { color: errorColor }
-                  : null,
               labelTextStyle,
+              errorText
+                ? { color: errorColor }
+                : focused
+                  ? [{ color: focusColor }, focusedLabelStyle]
+                  : null,
             ]}>
             {label}
           </StyledLabel>
           <StyledContent>
             <StyledLine
               style={[
-                { borderColor: borderColor },
-                focused
-                  ? { borderColor: focusColor }
-                  : errorText
-                    ? { borderColor: errorColor }
-                    : null,
-                { borderBottomWidth: borderWidth },
+                { borderBottomWidth: borderWidth, borderColor: borderColor },
                 borderStyle,
+                errorText
+                  ? { borderColor: errorColor }
+                  : focused
+                    ? [{ borderColor: focusColor }, { borderBottomWidth: focusedBorderWidth }]
+                    : null,
               ]}
             >
               <StyledTextInput
@@ -258,26 +262,26 @@ function EditText(props: Props): ReactElement {
         <StyledRowContainer style={style}>
           <StyledRowContent
             style={[
-              { borderColor: borderColor },
-              focused
-                ? { borderColor: focusColor }
-                : errorText
-                  ? { borderColor: errorColor }
-                  : null,
-              { borderBottomWidth: borderWidth },
+              { borderColor: borderColor, borderBottomWidth: borderWidth },
               borderStyle,
+              errorText
+                ? { borderColor: errorColor, borderBottomWidth: focusedBorderWidth }
+                : focused
+                  ? { borderColor: focusColor, borderBottomWidth: focusedBorderWidth }
+                  : null,
             ]}
           >
             {label ? (
               <StyledRowLabel
+                // @ts-ignore
                 style={[
+                  labelTextStyle,
                   errorText
-                    ? { color: errorColor }
+                    ? [{ color: errorColor }, focusedLabelStyle]
                     : focused
-                      ? { color: focusColor }
+                      ? [{ color: focusColor }, focusedLabelStyle]
                       : null,
                   { width: labelWidth },
-                  labelTextStyle,
                 ]}>
                 {label}
               </StyledRowLabel>
@@ -324,33 +328,33 @@ function EditText(props: Props): ReactElement {
       return (
         <Container style={style}>
           <StyledLabel
+            // @ts-ignore
             style={[
-              focused
-                ? { color: focusColor }
-                : errorText
-                  ? { color: errorColor }
-                  : null,
               labelTextStyle,
+              errorText
+                ? { color: errorColor }
+                : focused
+                  ? [{ color: focusColor }, focusedLabelStyle]
+                  : null,
             ]}>
             {label}
           </StyledLabel>
           <StyledContent>
             <StyledLine
               style={[
-                { borderColor: borderColor },
-                focused
-                  ? { borderColor: focusColor }
-                  : errorText
-                    ? { borderColor: errorColor }
+                { borderWidth: borderWidth, borderRadius: inputContainerRadius, borderColor: borderColor },
+                borderStyle,
+                errorText
+                  ? { borderColor: errorColor }
+                  : focused
+                    ? [{ borderColor: focusColor }, { borderWidth: focusedBorderWidth }]
                     : null,
-                { borderWidth: borderWidth, borderRadius: inputContainerRadius },
                 !leftElement
                   ? { paddingLeft: 15 }
                   : null,
                 !rightElement
                   ? { paddingRight: 15 }
                   : null,
-                borderStyle,
               ]}
             >
               {
@@ -407,24 +411,25 @@ function EditText(props: Props): ReactElement {
           <StyledRowContent
             style={[
               { borderWidth: borderWidth, borderRadius: inputContainerRadius, borderColor: borderColor },
-              focused
-                ? { borderColor: focusColor }
-                : errorText
-                  ? { borderColor: errorColor }
-                  : null,
               borderStyle,
+              errorText
+                ? { borderColor: errorColor, borderWidth: focusedBorderWidth }
+                : focused
+                  ? { borderColor: focusColor, borderWidth: focusedBorderWidth }
+                  : null,
             ]}
           >
             {label ? (
               <StyledRowLabel
+                // @ts-ignore
                 style={[
+                  labelTextStyle,
                   errorText
-                    ? { color: errorColor }
+                    ? [{ color: errorColor }, focusedLabelStyle]
                     : focused
-                      ? { color: focusColor }
+                      ? [{ color: focusColor }, focusedLabelStyle]
                       : null,
                   { marginLeft: 15, width: labelWidth },
-                  labelTextStyle,
                 ]}>
                 {label}
               </StyledRowLabel>

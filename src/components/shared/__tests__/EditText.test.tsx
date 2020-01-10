@@ -2,7 +2,6 @@ import * as React from 'react';
 
 import {
   RenderResult,
-  act,
   fireEvent,
   render,
   wait,
@@ -41,6 +40,9 @@ describe('[EditText]', () => {
       leftElementStyle: {},
       focusColor: '#fff',
       inputContainerRadius: 30,
+      onFocus: undefined,
+      focusLabelStyle: { fontWeight: 500 },
+      focusBorderWidth: 10,
     };
 
     beforeEach(() => {
@@ -50,11 +52,9 @@ describe('[EditText]', () => {
 
     it('should set error message when no valid email has been written', async () => {
       const input = await waitForElement(() => testingLib.getByTestId('INPUT_TEST'));
-      act(() => {
+      await wait(() => {
         fireEvent.changeText(input, 'input test');
       });
-
-      act(() => wait());
 
       expect(value).toEqual('input test');
     });
@@ -62,8 +62,19 @@ describe('[EditText]', () => {
     it('should trigger onSubmit', async () => {
       const input = await waitForElement(() => testingLib.getByTestId('INPUT_TEST'));
 
-      act(() => {
+      await wait(() => {
         fireEvent.submitEditing(input);
+      });
+    });
+
+    it('renders editText and running onFocus', async () => {
+      props.onFocus = (): void => {};
+      component = <EditText {...props} />;
+      testingLib = render(component);
+      const input = await waitForElement(() => testingLib.getByTestId('INPUT_TEST'));
+
+      await wait(() => {
+        fireEvent.focus(input);
       });
     });
   });
@@ -93,7 +104,7 @@ describe('[EditText]', () => {
       testingLib = render(component);
       const input = await waitForElement(() => testingLib.getByTestId('INPUT_TEST'));
 
-      act(() => {
+      await wait(() => {
         fireEvent.focus(input);
       });
     });
@@ -106,7 +117,7 @@ describe('[EditText]', () => {
         testingLib = render(component);
         const input = await waitForElement(() => testingLib.getByTestId('INPUT_TEST'));
 
-        act(() => {
+        await wait(() => {
           fireEvent.blur(input);
         });
       });
@@ -117,7 +128,7 @@ describe('[EditText]', () => {
         testingLib = render(component);
         const input = await waitForElement(() => testingLib.getByTestId('INPUT_TEST'));
 
-        act(() => {
+        await wait(() => {
           fireEvent.blur(input);
         });
       });
@@ -150,7 +161,7 @@ describe('[EditText]', () => {
       testingLib = render(component);
       const input = await waitForElement(() => testingLib.getByTestId('INPUT_TEST'));
 
-      act(() => {
+      await wait(() => {
         fireEvent.focus(input);
       });
     });
@@ -164,7 +175,7 @@ describe('[EditText]', () => {
         testingLib = render(component);
         const input = await waitForElement(() => testingLib.getByTestId('INPUT_TEST'));
 
-        act(() => {
+        await wait(() => {
           fireEvent.blur(input);
         });
       });
@@ -175,7 +186,7 @@ describe('[EditText]', () => {
         testingLib = render(component);
         const input = await waitForElement(() => testingLib.getByTestId('INPUT_TEST'));
 
-        act(() => {
+        await wait(() => {
           fireEvent.blur(input);
         });
       });
@@ -187,11 +198,11 @@ describe('[EditText]', () => {
         testingLib = render(component);
         const input = await waitForElement(() => testingLib.getByTestId('INPUT_TEST'));
 
-        act(() => {
+        await wait(() => {
           fireEvent.blur(input);
         });
 
-        act(() => {
+        await wait(() => {
           fireEvent.focus(input);
         });
       });
@@ -223,7 +234,7 @@ describe('[EditText]', () => {
       testingLib = render(component);
       const input = await waitForElement(() => testingLib.getByTestId('INPUT_TEST'));
 
-      act(() => {
+      await wait(() => {
         fireEvent.focus(input);
       });
     });
@@ -236,7 +247,7 @@ describe('[EditText]', () => {
         testingLib = render(component);
         const input = await waitForElement(() => testingLib.getByTestId('INPUT_TEST'));
 
-        act(() => {
+        await wait(() => {
           fireEvent.blur(input);
         });
       });
@@ -247,7 +258,7 @@ describe('[EditText]', () => {
         testingLib = render(component);
         const input = await waitForElement(() => testingLib.getByTestId('INPUT_TEST'));
 
-        act(() => {
+        await wait(() => {
           fireEvent.blur(input);
         });
       });
@@ -280,7 +291,7 @@ describe('[EditText]', () => {
       testingLib = render(component);
       const input = await waitForElement(() => testingLib.getByTestId('INPUT_TEST'));
 
-      act(() => {
+      await wait(() => {
         fireEvent.focus(input);
       });
     });
@@ -294,7 +305,7 @@ describe('[EditText]', () => {
         testingLib = render(component);
         const input = await waitForElement(() => testingLib.getByTestId('INPUT_TEST'));
 
-        act(() => {
+        await wait(() => {
           fireEvent.blur(input);
         });
       });
@@ -305,7 +316,7 @@ describe('[EditText]', () => {
         testingLib = render(component);
         const input = await waitForElement(() => testingLib.getByTestId('INPUT_TEST'));
 
-        act(() => {
+        await wait(() => {
           fireEvent.blur(input);
         });
       });
@@ -317,11 +328,11 @@ describe('[EditText]', () => {
         testingLib = render(component);
         const input = await waitForElement(() => testingLib.getByTestId('INPUT_TEST'));
 
-        act(() => {
+        await wait(() => {
           fireEvent.blur(input);
         });
 
-        act(() => {
+        await wait(() => {
           fireEvent.focus(input);
         });
       });

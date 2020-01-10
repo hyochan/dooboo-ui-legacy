@@ -14,34 +14,38 @@
 
 ## Props
 
-|                      | necessary | types                  | default      |
-| -------------------- | --------- | ---------------------- | ------------ |
-| testID               |           | string                 |              |
-| errorTestID          |           | string                 |              |
-| isRow                |           | boolean                |    `false`   |
-| style                |           | `StyleProp<ViewStyle>` |              |
-| label                |           | string                 |              |
-| labelTextStyle       |           | `StyleProp<TextStyle>` |              |
-| value                |           | `TextInputProps`       |              |
-| inputContainerType   |           | string                 | `underlined` |
-| inputContainerRadius |           | string                 |      `3`     |
-| borderStyle          |           | `StyleProp<ViewStyle>` |              |
-| borderWidth          |           | number                 |     `0.6`    |
-| borderColor          |           | string                 |   `#eaeaf9`  |
-| inputLeftMargin      |           | number                 |     `110`    |
-| textStyle            |           | `StyleProp<TextStyle>` |              |
-| placeholder          |           | string                 |              |
-| placeholderTextColor |           | string                 |              |
-| secureTextEntry      |           | boolean                |              |
-| onChangeText         |           | (e) => {}              |              |
-| onSubmitEditing      |           | func                   |              |
-| leftElement          |           | `ReactElement`         |              |
-| leftElementStyle     |           | `StyleProp<ViewStyle>` |              |
-| rightElement         |           | `ReactElement`         |              |
-| rightElementStyle    |           | `StyleProp<ViewStyle>` |              |
-| textInputProps       |           | `TextInputProps`       |              |
-| errorText            |           | string                 |              |
-| errorTextStyle       |           | `StyleProp<TextStyle>` |              |
+|                      | necessary | types                  | default              |
+| -------------------- | --------- | ---------------------- | -------------------- |
+| testID               |           | string                 |                      |
+| errorTestID          |           | string                 |                      |
+| isRow                |           | boolean                |        `false`       |
+| style                |           | `ViewStyle`            |                      |
+| label                |           | string                 |                      |
+| labelTextStyle       |           | `TextStyle`            |                      |
+| value                |           | `TextInputProps`       |                      |
+| inputContainerType   |           | string                 |     `underlined`     |
+| inputContainerRadius |           | string                 |          `3`         |
+| borderStyle          |           | `ViewStyle`            |                      |
+| borderWidth          |           | number                 |         `0.6`        |
+| borderColor          |           | string                 |       `#eaeaf9`      |
+| inputLeftMargin      |           | number                 |         `110`        |
+| textStyle            |           | `TextStyle`            |                      |
+| placeholder          |           | string                 |                      |
+| placeholderTextColor |           | string                 |                      |
+| secureTextEntry      |           | boolean                |                      |
+| onChangeText         |           | (e) => {}              |                      |
+| onSubmitEditing      |           | func                   |                      |
+| leftElement          |           | `ReactElement`         |                      |
+| leftElementStyle     |           | `ViewStyle`            |                      |
+| rightElement         |           | `ReactElement`         |                      |
+| rightElementStyle    |           | `ViewStyle`            |                      |
+| textInputProps       |           | `TextInputProps`       |                      |
+| focusedLabelStyle    |           | `TextStyle`            | `fontWeight: 'bold'` |
+| focusedBorderWidth   |           | number                 |          `1`         | 
+| focusColor           |           | string                 |       `#79B3F5`      |
+| errorColor           |           | string                 |       `#FF8989`      |
+| errorText            |           | string                 |                      |
+| errorTextStyle       |           | `TextStyle`            |                      |
 
 ## Installation
 

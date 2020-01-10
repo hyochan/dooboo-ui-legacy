@@ -20,8 +20,8 @@ exports[`[EditText] Type: [box] renders without crashing 1`] = `
           "fontWeight": "500",
           "marginBottom": 5,
         },
-        null,
         undefined,
+        null,
       ]
     }
   >
@@ -48,19 +48,17 @@ exports[`[EditText] Type: [box] renders without crashing 1`] = `
           },
           Object {
             "borderColor": "#eaeaf9",
-          },
-          null,
-          Object {
             "borderRadius": 3,
             "borderWidth": 0.6,
           },
+          undefined,
+          null,
           Object {
             "paddingLeft": 15,
           },
           Object {
             "paddingRight": 15,
           },
-          undefined,
         ]
       }
     >
@@ -113,8 +111,8 @@ exports[`[EditText] Type: [default] renders without crashing 1`] = `
           "fontWeight": "500",
           "marginBottom": 5,
         },
-        null,
         undefined,
+        null,
       ]
     }
   >
@@ -140,13 +138,11 @@ exports[`[EditText] Type: [default] renders without crashing 1`] = `
             "width": "100%",
           },
           Object {
+            "borderBottomWidth": 0.6,
             "borderColor": "#eaeaf9",
           },
-          null,
-          Object {
-            "borderBottomWidth": 0.6,
-          },
           undefined,
+          null,
         ]
       }
     >
@@ -200,13 +196,11 @@ exports[`[EditText] Type: [row] renders without crashing 1`] = `
           "width": "100%",
         },
         Object {
+          "borderBottomWidth": 0.6,
           "borderColor": "#eaeaf9",
         },
-        null,
-        Object {
-          "borderBottomWidth": 0.6,
-        },
         undefined,
+        null,
       ]
     }
   >
@@ -267,8 +261,8 @@ exports[`[EditText] Type: [rowBox] renders without crashing 1`] = `
           "borderRadius": 3,
           "borderWidth": 0.6,
         },
-        null,
         undefined,
+        null,
       ]
     }
   >
