@@ -1,6 +1,6 @@
 ## Changelogs
 
-- **[0.4.11]**
+- **[0.4.12]**
   - Revert [Button] to how it was originally used [#123](https://github.com/dooboolab/
   dooboo-ui-native/pull/123).
   - Support new feature for [EditText](https://github.com/dooboolab/dooboo-ui-native/pull/120).

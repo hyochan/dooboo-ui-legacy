@@ -5,6 +5,7 @@ import { Text } from 'react-native';
 // Note: test renderer must be required after react-native.
 import renderer from 'react-test-renderer';
 
+// eslint-disable-next-line
 const component = (props?: any): React.ReactElement => {
   return <Button {...props} />;
 };

@@ -10,8 +10,6 @@ import styled from 'styled-components/native';
 
 const StyledButton = styled.View`
   align-self: center;
-  border-radius: 4;
-  border-width: 2;
   width: 320;
   height: 52;
   border-color: blue;
@@ -26,7 +24,7 @@ const StyledDisabled = styled(StyledButton)`
 `;
 
 const StyledText = styled.Text`
-  font-size: 14px;
+  font-size: 16px;
   color: #069ccd;
 `;
 
