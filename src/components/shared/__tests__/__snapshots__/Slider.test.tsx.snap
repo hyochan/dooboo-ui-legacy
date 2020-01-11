@@ -1,26 +1,13 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`[Slider] render renders without crashing 1`] = `
+exports[`[Rail] renders without crashing 1`] = `
 <View
-  onLayout={[Function]}
-  onMoveShouldSetResponder={[Function]}
-  onMoveShouldSetResponderCapture={[Function]}
-  onResponderEnd={[Function]}
-  onResponderGrant={[Function]}
-  onResponderMove={[Function]}
-  onResponderReject={[Function]}
-  onResponderRelease={[Function]}
-  onResponderStart={[Function]}
-  onResponderTerminate={[Function]}
-  onResponderTerminationRequest={[Function]}
-  onStartShouldSetResponder={[Function]}
-  onStartShouldSetResponderCapture={[Function]}
+  collapsable={true}
+  pointerEvents="box-none"
   style={
-    Array [
-      Object {
-        "position": "relative",
-      },
-    ]
+    Object {
+      "flex": 1,
+    }
   }
 >
   <View
@@ -54,602 +41,829 @@ exports[`[Slider] render renders without crashing 1`] = `
     <View
       accessible={true}
       clickable={true}
-      onClick={[Function]}
-      onResponderGrant={[Function]}
-      onResponderMove={[Function]}
-      onResponderRelease={[Function]}
-      onResponderTerminate={[Function]}
-      onResponderTerminationRequest={[Function]}
-      onStartShouldSetResponder={[Function]}
-      position={-8.801282051282051}
+      position={-9.878205128205128}
       style={
         Array [
           Object {
             "alignItems": "center",
             "display": "flex",
-            "left": -8.801282051282051,
+            "left": -9.878205128205128,
             "position": "absolute",
-            "width": 20.602564102564102,
+            "width": 20.756410256410255,
           },
         ]
       }
-      width={20.602564102564102}
+      width={20.756410256410255}
     >
       <View
-        style={
-          Array [
-            Object {
-              "backgroundColor": "#4163F4",
-              "height": 3,
-              "width": 3,
-            },
-            Object {},
-          ]
-        }
-        theme={
-          Object {
-            "backgroundColor": "#4163F4",
-          }
-        }
+        testID="TEST_ID_FOR_MARK"
       />
     </View>
     <View
       accessible={true}
       clickable={true}
-      onClick={[Function]}
-      onResponderGrant={[Function]}
-      onResponderMove={[Function]}
-      onResponderRelease={[Function]}
-      onResponderTerminate={[Function]}
-      onResponderTerminationRequest={[Function]}
-      onStartShouldSetResponder={[Function]}
-      position={11.801282051282051}
+      position={10.878205128205128}
       style={
         Array [
           Object {
             "alignItems": "center",
             "display": "flex",
-            "left": 11.801282051282051,
+            "left": 10.878205128205128,
             "position": "absolute",
-            "width": 20.602564102564102,
+            "width": 20.756410256410255,
           },
         ]
       }
-      width={20.602564102564102}
+      width={20.756410256410255}
     >
       <View
-        style={
-          Array [
-            Object {
-              "backgroundColor": "#4163F4",
-              "height": 3,
-              "width": 3,
-            },
-            Object {},
-          ]
-        }
-        theme={
-          Object {
-            "backgroundColor": "#4163F4",
-          }
-        }
+        testID="TEST_ID_FOR_MARK"
       />
     </View>
     <View
       accessible={true}
       clickable={true}
-      onClick={[Function]}
-      onResponderGrant={[Function]}
-      onResponderMove={[Function]}
-      onResponderRelease={[Function]}
-      onResponderTerminate={[Function]}
-      onResponderTerminationRequest={[Function]}
-      onStartShouldSetResponder={[Function]}
-      position={32.40384615384615}
+      position={31.634615384615383}
       style={
         Array [
           Object {
             "alignItems": "center",
             "display": "flex",
-            "left": 32.40384615384615,
+            "left": 31.634615384615383,
             "position": "absolute",
-            "width": 20.602564102564102,
+            "width": 20.756410256410255,
           },
         ]
       }
-      width={20.602564102564102}
+      width={20.756410256410255}
     >
       <View
-        style={
-          Array [
-            Object {
-              "backgroundColor": "#4163F4",
-              "height": 3,
-              "width": 3,
-            },
-            Object {},
-          ]
-        }
-        theme={
-          Object {
-            "backgroundColor": "#4163F4",
-          }
-        }
+        testID="TEST_ID_FOR_MARK"
       />
     </View>
     <View
       accessible={true}
       clickable={true}
-      onClick={[Function]}
-      onResponderGrant={[Function]}
-      onResponderMove={[Function]}
-      onResponderRelease={[Function]}
-      onResponderTerminate={[Function]}
-      onResponderTerminationRequest={[Function]}
-      onStartShouldSetResponder={[Function]}
-      position={53.006410256410255}
+      position={52.391025641025635}
       style={
         Array [
           Object {
             "alignItems": "center",
             "display": "flex",
-            "left": 53.006410256410255,
+            "left": 52.391025641025635,
             "position": "absolute",
-            "width": 20.602564102564102,
+            "width": 20.756410256410255,
           },
         ]
       }
-      width={20.602564102564102}
+      width={20.756410256410255}
     >
       <View
-        style={
-          Array [
-            Object {
-              "backgroundColor": "#4163F4",
-              "height": 3,
-              "width": 3,
-            },
-            Object {},
-          ]
-        }
-        theme={
-          Object {
-            "backgroundColor": "#4163F4",
-          }
-        }
+        testID="TEST_ID_FOR_MARK"
       />
     </View>
     <View
       accessible={true}
       clickable={true}
-      onClick={[Function]}
-      onResponderGrant={[Function]}
-      onResponderMove={[Function]}
-      onResponderRelease={[Function]}
-      onResponderTerminate={[Function]}
-      onResponderTerminationRequest={[Function]}
-      onStartShouldSetResponder={[Function]}
-      position={73.60897435897436}
+      position={73.1474358974359}
       style={
         Array [
           Object {
             "alignItems": "center",
             "display": "flex",
-            "left": 73.60897435897436,
+            "left": 73.1474358974359,
             "position": "absolute",
-            "width": 20.602564102564102,
+            "width": 20.756410256410255,
           },
         ]
       }
-      width={20.602564102564102}
+      width={20.756410256410255}
     >
       <View
-        style={
-          Array [
-            Object {
-              "backgroundColor": "#4163F4",
-              "height": 3,
-              "width": 3,
-            },
-            Object {},
-          ]
-        }
-        theme={
-          Object {
-            "backgroundColor": "#4163F4",
-          }
-        }
+        testID="TEST_ID_FOR_MARK"
       />
     </View>
     <View
       accessible={true}
       clickable={true}
-      onClick={[Function]}
-      onResponderGrant={[Function]}
-      onResponderMove={[Function]}
-      onResponderRelease={[Function]}
-      onResponderTerminate={[Function]}
-      onResponderTerminationRequest={[Function]}
-      onStartShouldSetResponder={[Function]}
-      position={94.21153846153845}
+      position={93.90384615384615}
       style={
         Array [
           Object {
             "alignItems": "center",
             "display": "flex",
-            "left": 94.21153846153845,
+            "left": 93.90384615384615,
             "position": "absolute",
-            "width": 20.602564102564102,
+            "width": 20.756410256410255,
           },
         ]
       }
-      width={20.602564102564102}
+      width={20.756410256410255}
     >
       <View
-        style={
-          Array [
-            Object {
-              "backgroundColor": "#4163F4",
-              "height": 3,
-              "width": 3,
-            },
-            Object {},
-          ]
-        }
-        theme={
-          Object {
-            "backgroundColor": "#4163F4",
-          }
-        }
+        testID="TEST_ID_FOR_MARK"
       />
     </View>
     <View
       accessible={true}
       clickable={true}
-      onClick={[Function]}
-      onResponderGrant={[Function]}
-      onResponderMove={[Function]}
-      onResponderRelease={[Function]}
-      onResponderTerminate={[Function]}
-      onResponderTerminationRequest={[Function]}
-      onStartShouldSetResponder={[Function]}
-      position={114.81410256410257}
+      position={114.66025641025641}
       style={
         Array [
           Object {
             "alignItems": "center",
             "display": "flex",
-            "left": 114.81410256410257,
+            "left": 114.66025641025641,
             "position": "absolute",
-            "width": 20.602564102564102,
+            "width": 20.756410256410255,
           },
         ]
       }
-      width={20.602564102564102}
+      width={20.756410256410255}
     >
       <View
-        style={
-          Array [
-            Object {
-              "backgroundColor": "#4163F4",
-              "height": 3,
-              "width": 3,
-            },
-            Object {},
-          ]
-        }
-        theme={
-          Object {
-            "backgroundColor": "#4163F4",
-          }
-        }
+        testID="TEST_ID_FOR_MARK"
       />
     </View>
     <View
       accessible={true}
       clickable={true}
-      onClick={[Function]}
-      onResponderGrant={[Function]}
-      onResponderMove={[Function]}
-      onResponderRelease={[Function]}
-      onResponderTerminate={[Function]}
-      onResponderTerminationRequest={[Function]}
-      onStartShouldSetResponder={[Function]}
-      position={135.41666666666669}
+      position={135.41666666666666}
       style={
         Array [
           Object {
             "alignItems": "center",
             "display": "flex",
-            "left": 135.41666666666669,
+            "left": 135.41666666666666,
             "position": "absolute",
-            "width": 20.602564102564102,
+            "width": 20.756410256410255,
           },
         ]
       }
-      width={20.602564102564102}
+      width={20.756410256410255}
     >
       <View
-        style={
-          Array [
-            Object {
-              "backgroundColor": "#4163F4",
-              "height": 3,
-              "width": 3,
-            },
-            Object {},
-          ]
-        }
-        theme={
-          Object {
-            "backgroundColor": "#4163F4",
-          }
-        }
+        testID="TEST_ID_FOR_MARK"
       />
     </View>
     <View
       accessible={true}
       clickable={true}
-      onClick={[Function]}
-      onResponderGrant={[Function]}
-      onResponderMove={[Function]}
-      onResponderRelease={[Function]}
-      onResponderTerminate={[Function]}
-      onResponderTerminationRequest={[Function]}
-      onStartShouldSetResponder={[Function]}
-      position={156.01923076923077}
+      position={156.1730769230769}
       style={
         Array [
           Object {
             "alignItems": "center",
             "display": "flex",
-            "left": 156.01923076923077,
+            "left": 156.1730769230769,
             "position": "absolute",
-            "width": 20.602564102564102,
+            "width": 20.756410256410255,
           },
         ]
       }
-      width={20.602564102564102}
+      width={20.756410256410255}
     >
       <View
-        style={
-          Array [
-            Object {
-              "backgroundColor": "#4163F4",
-              "height": 3,
-              "width": 3,
-            },
-            Object {},
-          ]
-        }
-        theme={
-          Object {
-            "backgroundColor": "#4163F4",
-          }
-        }
+        testID="TEST_ID_FOR_MARK"
       />
     </View>
     <View
       accessible={true}
       clickable={true}
-      onClick={[Function]}
-      onResponderGrant={[Function]}
-      onResponderMove={[Function]}
-      onResponderRelease={[Function]}
-      onResponderTerminate={[Function]}
-      onResponderTerminationRequest={[Function]}
-      onStartShouldSetResponder={[Function]}
-      position={176.62179487179486}
+      position={176.92948717948715}
       style={
         Array [
           Object {
             "alignItems": "center",
             "display": "flex",
-            "left": 176.62179487179486,
+            "left": 176.92948717948715,
             "position": "absolute",
-            "width": 20.602564102564102,
+            "width": 20.756410256410255,
           },
         ]
       }
-      width={20.602564102564102}
+      width={20.756410256410255}
     >
       <View
-        style={
-          Array [
-            Object {
-              "backgroundColor": "#4163F4",
-              "height": 3,
-              "width": 3,
-            },
-            Object {},
-          ]
-        }
-        theme={
-          Object {
-            "backgroundColor": "#4163F4",
-          }
-        }
+        testID="TEST_ID_FOR_MARK"
       />
     </View>
     <View
       accessible={true}
       clickable={true}
-      onClick={[Function]}
-      onResponderGrant={[Function]}
-      onResponderMove={[Function]}
-      onResponderRelease={[Function]}
-      onResponderTerminate={[Function]}
-      onResponderTerminationRequest={[Function]}
-      onStartShouldSetResponder={[Function]}
-      position={197.22435897435898}
+      position={197.6858974358974}
       style={
         Array [
           Object {
             "alignItems": "center",
             "display": "flex",
-            "left": 197.22435897435898,
+            "left": 197.6858974358974,
             "position": "absolute",
-            "width": 20.602564102564102,
+            "width": 20.756410256410255,
           },
         ]
       }
-      width={20.602564102564102}
+      width={20.756410256410255}
     >
       <View
-        style={
-          Array [
-            Object {
-              "backgroundColor": "#4163F4",
-              "height": 3,
-              "width": 3,
-            },
-            Object {},
-          ]
-        }
-        theme={
-          Object {
-            "backgroundColor": "#4163F4",
-          }
-        }
+        testID="TEST_ID_FOR_MARK"
       />
     </View>
     <View
       accessible={true}
       clickable={true}
-      onClick={[Function]}
-      onResponderGrant={[Function]}
-      onResponderMove={[Function]}
-      onResponderRelease={[Function]}
-      onResponderTerminate={[Function]}
-      onResponderTerminationRequest={[Function]}
-      onStartShouldSetResponder={[Function]}
-      position={217.8269230769231}
+      position={218.44230769230768}
       style={
         Array [
           Object {
             "alignItems": "center",
             "display": "flex",
-            "left": 217.8269230769231,
+            "left": 218.44230769230768,
             "position": "absolute",
-            "width": 20.602564102564102,
+            "width": 20.756410256410255,
           },
         ]
       }
-      width={20.602564102564102}
+      width={20.756410256410255}
     >
       <View
-        style={
-          Array [
-            Object {
-              "backgroundColor": "#4163F4",
-              "height": 3,
-              "width": 3,
-            },
-            Object {},
-          ]
-        }
-        theme={
-          Object {
-            "backgroundColor": "#4163F4",
-          }
-        }
+        testID="TEST_ID_FOR_MARK"
       />
     </View>
     <View
       accessible={true}
       clickable={true}
-      onClick={[Function]}
-      onResponderGrant={[Function]}
-      onResponderMove={[Function]}
-      onResponderRelease={[Function]}
-      onResponderTerminate={[Function]}
-      onResponderTerminationRequest={[Function]}
-      onStartShouldSetResponder={[Function]}
-      position={238.42948717948718}
+      position={239.19871794871793}
       style={
         Array [
           Object {
             "alignItems": "center",
             "display": "flex",
-            "left": 238.42948717948718,
+            "left": 239.19871794871793,
             "position": "absolute",
-            "width": 20.602564102564102,
+            "width": 20.756410256410255,
           },
         ]
       }
-      width={20.602564102564102}
+      width={20.756410256410255}
     >
       <View
-        style={
-          Array [
-            Object {
-              "backgroundColor": "#4163F4",
-              "height": 3,
-              "width": 3,
-            },
-            Object {},
-          ]
-        }
-        theme={
-          Object {
-            "backgroundColor": "#4163F4",
-          }
-        }
+        testID="TEST_ID_FOR_MARK"
       />
     </View>
   </View>
+</View>
+`;
+
+exports[`[Slider] render renders without crashing 1`] = `
+<View
+  collapsable={true}
+  pointerEvents="box-none"
+  style={
+    Object {
+      "flex": 1,
+    }
+  }
+>
   <View
-    accessible={true}
-    clickable={false}
-    onClick={[Function]}
-    onResponderGrant={[Function]}
-    onResponderMove={[Function]}
-    onResponderRelease={[Function]}
-    onResponderTerminate={[Function]}
-    onResponderTerminationRequest={[Function]}
-    onStartShouldSetResponder={[Function]}
-    percent={0}
     style={
       Array [
         Object {
-          "backgroundColor": "#0b21e8",
-          "borderRadius": 6,
-          "height": 12,
-          "left": "0%",
-          "position": "absolute",
-          "top": -4.5,
-          "transform": Array [
-            Object {
-              "translateY": 0,
-            },
-            Object {
-              "translateX": -6,
-            },
-          ],
-          "width": 12,
+          "position": "relative",
         },
       ]
     }
   >
     <View
       style={
-        Object {
-          "backgroundColor": "black",
-          "borderRadius": 12,
-          "height": 24,
-          "left": -6,
-          "opacity": 0.12,
-          "position": "absolute",
-          "top": -6,
-          "transform": Array [
-            Object {
-              "scale": 0.01,
-            },
-          ],
-          "width": 24,
-        }
+        Array [
+          Object {
+            "display": "flex",
+            "justifyContent": "center",
+          },
+        ]
       }
-    />
+    >
+      <View
+        style={
+          Array [
+            Object {
+              "backgroundColor": "#90A4F9",
+              "borderRadius": 1,
+              "height": 3,
+              "width": 250,
+            },
+            Object {},
+          ]
+        }
+        theme={
+          Object {
+            "backgroundColor": "#90A4F9",
+          }
+        }
+      />
+      <View
+        accessible={true}
+        clickable={true}
+        position={-8.801282051282051}
+        style={
+          Array [
+            Object {
+              "alignItems": "center",
+              "display": "flex",
+              "left": -8.801282051282051,
+              "position": "absolute",
+              "width": 20.602564102564102,
+            },
+          ]
+        }
+        width={20.602564102564102}
+      >
+        <View
+          style={
+            Array [
+              Object {
+                "backgroundColor": "#4163F4",
+                "height": 3,
+                "width": 3,
+              },
+              Object {},
+            ]
+          }
+          theme={
+            Object {
+              "backgroundColor": "#4163F4",
+            }
+          }
+        />
+      </View>
+      <View
+        accessible={true}
+        clickable={true}
+        position={11.801282051282051}
+        style={
+          Array [
+            Object {
+              "alignItems": "center",
+              "display": "flex",
+              "left": 11.801282051282051,
+              "position": "absolute",
+              "width": 20.602564102564102,
+            },
+          ]
+        }
+        width={20.602564102564102}
+      >
+        <View
+          style={
+            Array [
+              Object {
+                "backgroundColor": "#4163F4",
+                "height": 3,
+                "width": 3,
+              },
+              Object {},
+            ]
+          }
+          theme={
+            Object {
+              "backgroundColor": "#4163F4",
+            }
+          }
+        />
+      </View>
+      <View
+        accessible={true}
+        clickable={true}
+        position={32.40384615384615}
+        style={
+          Array [
+            Object {
+              "alignItems": "center",
+              "display": "flex",
+              "left": 32.40384615384615,
+              "position": "absolute",
+              "width": 20.602564102564102,
+            },
+          ]
+        }
+        width={20.602564102564102}
+      >
+        <View
+          style={
+            Array [
+              Object {
+                "backgroundColor": "#4163F4",
+                "height": 3,
+                "width": 3,
+              },
+              Object {},
+            ]
+          }
+          theme={
+            Object {
+              "backgroundColor": "#4163F4",
+            }
+          }
+        />
+      </View>
+      <View
+        accessible={true}
+        clickable={true}
+        position={53.006410256410255}
+        style={
+          Array [
+            Object {
+              "alignItems": "center",
+              "display": "flex",
+              "left": 53.006410256410255,
+              "position": "absolute",
+              "width": 20.602564102564102,
+            },
+          ]
+        }
+        width={20.602564102564102}
+      >
+        <View
+          style={
+            Array [
+              Object {
+                "backgroundColor": "#4163F4",
+                "height": 3,
+                "width": 3,
+              },
+              Object {},
+            ]
+          }
+          theme={
+            Object {
+              "backgroundColor": "#4163F4",
+            }
+          }
+        />
+      </View>
+      <View
+        accessible={true}
+        clickable={true}
+        position={73.60897435897436}
+        style={
+          Array [
+            Object {
+              "alignItems": "center",
+              "display": "flex",
+              "left": 73.60897435897436,
+              "position": "absolute",
+              "width": 20.602564102564102,
+            },
+          ]
+        }
+        width={20.602564102564102}
+      >
+        <View
+          style={
+            Array [
+              Object {
+                "backgroundColor": "#4163F4",
+                "height": 3,
+                "width": 3,
+              },
+              Object {},
+            ]
+          }
+          theme={
+            Object {
+              "backgroundColor": "#4163F4",
+            }
+          }
+        />
+      </View>
+      <View
+        accessible={true}
+        clickable={true}
+        position={94.21153846153845}
+        style={
+          Array [
+            Object {
+              "alignItems": "center",
+              "display": "flex",
+              "left": 94.21153846153845,
+              "position": "absolute",
+              "width": 20.602564102564102,
+            },
+          ]
+        }
+        width={20.602564102564102}
+      >
+        <View
+          style={
+            Array [
+              Object {
+                "backgroundColor": "#4163F4",
+                "height": 3,
+                "width": 3,
+              },
+              Object {},
+            ]
+          }
+          theme={
+            Object {
+              "backgroundColor": "#4163F4",
+            }
+          }
+        />
+      </View>
+      <View
+        accessible={true}
+        clickable={true}
+        position={114.81410256410257}
+        style={
+          Array [
+            Object {
+              "alignItems": "center",
+              "display": "flex",
+              "left": 114.81410256410257,
+              "position": "absolute",
+              "width": 20.602564102564102,
+            },
+          ]
+        }
+        width={20.602564102564102}
+      >
+        <View
+          style={
+            Array [
+              Object {
+                "backgroundColor": "#4163F4",
+                "height": 3,
+                "width": 3,
+              },
+              Object {},
+            ]
+          }
+          theme={
+            Object {
+              "backgroundColor": "#4163F4",
+            }
+          }
+        />
+      </View>
+      <View
+        accessible={true}
+        clickable={true}
+        position={135.41666666666669}
+        style={
+          Array [
+            Object {
+              "alignItems": "center",
+              "display": "flex",
+              "left": 135.41666666666669,
+              "position": "absolute",
+              "width": 20.602564102564102,
+            },
+          ]
+        }
+        width={20.602564102564102}
+      >
+        <View
+          style={
+            Array [
+              Object {
+                "backgroundColor": "#4163F4",
+                "height": 3,
+                "width": 3,
+              },
+              Object {},
+            ]
+          }
+          theme={
+            Object {
+              "backgroundColor": "#4163F4",
+            }
+          }
+        />
+      </View>
+      <View
+        accessible={true}
+        clickable={true}
+        position={156.01923076923077}
+        style={
+          Array [
+            Object {
+              "alignItems": "center",
+              "display": "flex",
+              "left": 156.01923076923077,
+              "position": "absolute",
+              "width": 20.602564102564102,
+            },
+          ]
+        }
+        width={20.602564102564102}
+      >
+        <View
+          style={
+            Array [
+              Object {
+                "backgroundColor": "#4163F4",
+                "height": 3,
+                "width": 3,
+              },
+              Object {},
+            ]
+          }
+          theme={
+            Object {
+              "backgroundColor": "#4163F4",
+            }
+          }
+        />
+      </View>
+      <View
+        accessible={true}
+        clickable={true}
+        position={176.62179487179486}
+        style={
+          Array [
+            Object {
+              "alignItems": "center",
+              "display": "flex",
+              "left": 176.62179487179486,
+              "position": "absolute",
+              "width": 20.602564102564102,
+            },
+          ]
+        }
+        width={20.602564102564102}
+      >
+        <View
+          style={
+            Array [
+              Object {
+                "backgroundColor": "#4163F4",
+                "height": 3,
+                "width": 3,
+              },
+              Object {},
+            ]
+          }
+          theme={
+            Object {
+              "backgroundColor": "#4163F4",
+            }
+          }
+        />
+      </View>
+      <View
+        accessible={true}
+        clickable={true}
+        position={197.22435897435898}
+        style={
+          Array [
+            Object {
+              "alignItems": "center",
+              "display": "flex",
+              "left": 197.22435897435898,
+              "position": "absolute",
+              "width": 20.602564102564102,
+            },
+          ]
+        }
+        width={20.602564102564102}
+      >
+        <View
+          style={
+            Array [
+              Object {
+                "backgroundColor": "#4163F4",
+                "height": 3,
+                "width": 3,
+              },
+              Object {},
+            ]
+          }
+          theme={
+            Object {
+              "backgroundColor": "#4163F4",
+            }
+          }
+        />
+      </View>
+      <View
+        accessible={true}
+        clickable={true}
+        position={217.8269230769231}
+        style={
+          Array [
+            Object {
+              "alignItems": "center",
+              "display": "flex",
+              "left": 217.8269230769231,
+              "position": "absolute",
+              "width": 20.602564102564102,
+            },
+          ]
+        }
+        width={20.602564102564102}
+      >
+        <View
+          style={
+            Array [
+              Object {
+                "backgroundColor": "#4163F4",
+                "height": 3,
+                "width": 3,
+              },
+              Object {},
+            ]
+          }
+          theme={
+            Object {
+              "backgroundColor": "#4163F4",
+            }
+          }
+        />
+      </View>
+      <View
+        accessible={true}
+        clickable={true}
+        position={238.42948717948718}
+        style={
+          Array [
+            Object {
+              "alignItems": "center",
+              "display": "flex",
+              "left": 238.42948717948718,
+              "position": "absolute",
+              "width": 20.602564102564102,
+            },
+          ]
+        }
+        width={20.602564102564102}
+      >
+        <View
+          style={
+            Array [
+              Object {
+                "backgroundColor": "#4163F4",
+                "height": 3,
+                "width": 3,
+              },
+              Object {},
+            ]
+          }
+          theme={
+            Object {
+              "backgroundColor": "#4163F4",
+            }
+          }
+        />
+      </View>
+    </View>
+    <View
+      accessible={true}
+      clickable={false}
+      percent={0}
+      style={
+        Array [
+          Object {
+            "backgroundColor": "#0b21e8",
+            "borderRadius": 6,
+            "height": 12,
+            "left": "0%",
+            "position": "absolute",
+            "top": -4.5,
+            "transform": Array [
+              Object {
+                "translateY": 0,
+              },
+              Object {
+                "translateX": -6,
+              },
+            ],
+            "width": 12,
+          },
+        ]
+      }
+    >
+      <View
+        style={
+          Object {
+            "backgroundColor": "black",
+            "borderRadius": 12,
+            "height": 24,
+            "left": -6,
+            "opacity": 0.12,
+            "position": "absolute",
+            "top": -6,
+            "transform": Array [
+              Object {
+                "scale": 0.01,
+              },
+            ],
+            "width": 24,
+          }
+        }
+      />
+    </View>
   </View>
 </View>
 `;
