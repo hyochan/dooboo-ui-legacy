@@ -5,26 +5,24 @@ import {
   TouchableWithoutFeedback,
 } from 'react-native';
 import React, { FC, ReactNode, useState } from 'react';
+
 import styled from 'styled-components/native';
 
-const Container = styled.View<{ percent: number }>`
-  position: absolute;
+const Container = styled.View`
   width: 12;
   height: 12;
-  background-color: #0b21e8;
+  background-color: #0B21E8;
   border-radius: 6;
-  top: -4.5;
   transform: translate(-6px);
-  left: ${({ percent }): string => `${percent}%`};
 `;
 
 interface Props {
   size?: number;
-  percent: number;
-  defaultPercent?: number;
 }
 
-const Thumb: FC<Props> = ({ size = 12, percent }) => {
+const Thumb: FC<Props> = ({
+  size = 12,
+}) => {
   const [scaleValue, setScaleValue] = useState(new Animated.Value(0.01));
   const [opacityValue, setOpacityValue] = useState(new Animated.Value(0.12));
   const onPressedIn = (): void => {
@@ -65,8 +63,11 @@ const Thumb: FC<Props> = ({ size = 12, percent }) => {
   };
 
   return (
-    <TouchableWithoutFeedback onPressIn={onPressedIn} onPressOut={onPressedOut}>
-      <Container percent={percent}>
+    <TouchableWithoutFeedback
+      onPressIn={onPressedIn}
+      onPressOut={onPressedOut}
+    >
+      <Container>
         {renderRippleView()}
       </Container>
     </TouchableWithoutFeedback>
