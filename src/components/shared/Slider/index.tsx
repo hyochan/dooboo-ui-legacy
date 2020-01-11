@@ -1,5 +1,6 @@
 import React, { FC, useRef, useState } from 'react';
 import { getPercent, percentToValue, valueToPercent } from './utils';
+
 import { PanResponder } from 'react-native';
 import Rail from './Rail';
 import Thumb from './Thumb';
