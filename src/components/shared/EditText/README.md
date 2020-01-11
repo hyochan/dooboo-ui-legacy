@@ -143,7 +143,7 @@ yarn add @dooboo-ui/native-edit-text
           />
           <StyledSignInButton
             testID="btnEmail"
-            onClick={() => onSignIn()}
+            onPress={() => onSignIn()}
             textStyle={fontStyle}
             text="Login"
           />

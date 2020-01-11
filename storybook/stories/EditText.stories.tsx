@@ -125,7 +125,7 @@ const Default = (): React.ReactElement => {
               backgroundColor: 'rgb(36, 205, 151)',
             }}
             testID="btnEmail"
-            onClick={(): void => onSignIn()}
+            onPress={(): void => onSignIn()}
             textStyle={fontStyle}
             text="Login"
           />
@@ -273,7 +273,7 @@ const RowEditText = (): React.ReactElement => {
               backgroundColor: 'rgb(36, 205, 151)',
             }}
             testID="btnEmail"
-            onClick={(): void => onSignIn()}
+            onPress={(): void => onSignIn()}
             textStyle={fontStyle}
             text="Login"
           />
@@ -413,7 +413,7 @@ const BoxEditText = (): React.ReactElement => {
               backgroundColor: 'rgb(36, 205, 151)',
             }}
             testID="btnEmail"
-            onClick={(): void => onSignIn()}
+            onPress={(): void => onSignIn()}
             textStyle={fontStyle}
             text="Login"
           />
@@ -548,7 +548,7 @@ const BoxRowEditText = (): React.ReactElement => {
               backgroundColor: 'rgb(36, 205, 151)',
             }}
             testID="btnEmail"
-            onClick={(): void => onSignIn()}
+            onPress={(): void => onSignIn()}
             textStyle={fontStyle}
             text="Login"
           />
