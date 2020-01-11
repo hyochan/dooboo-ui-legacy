@@ -1,6 +1,7 @@
 import * as React from 'react';
 
 import { fireEvent, render } from '@testing-library/react-native';
+
 import Rail from '../Slider/Rail';
 import Slider from '../Slider';
 import { View } from 'react-native';
@@ -27,8 +28,8 @@ describe('[Rail]', () => {
     expect(rendered).toBeTruthy();
   });
 
-  it('calls onMarkPress with correct value and index', () => {
-    const onMarkPress = jest.fn();
+  it('calls onMarkPress with expected arguments', () => {
+    const handleMarkPress = jest.fn();
     const STEP = 10;
     const MARK_COUNT = 5;
 
@@ -38,7 +39,7 @@ describe('[Rail]', () => {
         customMarkWidth={10}
         step={STEP}
         markCount={MARK_COUNT}
-        onMarkPress={onMarkPress}
+        onMarkPress={handleMarkPress}
       />,
     );
     const marks = getAllByTestId(TEST_ID);
@@ -46,12 +47,13 @@ describe('[Rail]', () => {
       fireEvent.press(marks[i]);
     }
     for (let i = 0; i < MARK_COUNT; i += 1) {
-      expect(onMarkPress.mock.calls[i][0]).toBe(i * STEP);
-      expect(onMarkPress.mock.calls[i][2]).toBe(i);
+      const [value, position, index] = handleMarkPress.mock.calls[i];
+      expect(value).toBe(i * STEP);
+      expect(index).toBe(i);
     }
   });
 
-  it('calls onInit', () => {
+  it('calls onInit with expected arguments', () => {
     const onInit = jest.fn();
     const STEP = 8;
     const MARK_COUNT = 4;
@@ -67,8 +69,10 @@ describe('[Rail]', () => {
       />,
     );
     expect(onInit).toHaveBeenCalledTimes(1);
-    expect(onInit.mock.calls[0][0]).toStrictEqual(
-      Array.from({ length: MARK_COUNT }).map((_, ind) => STEP * ind),
+    const expectedArgumentForOnInit = Array.from({ length: MARK_COUNT }).map((_, ind) => STEP * ind);
+    const actualArgumentForOnInit = onInit.mock.calls[0][0];
+    expect(actualArgumentForOnInit).toStrictEqual(
+      expectedArgumentForOnInit,
     );
   });
 });
