@@ -39,7 +39,7 @@ describe('[ButtonGroup] render', () => {
       testingLib = render(component);
     });
 
-    it('should simulate onClick', () => {
+    it('should simulate onPress', () => {
       const btn1 = testingLib.queryByTestId('CHILD_1');
       act(() => {
         fireEvent.press(btn1);
