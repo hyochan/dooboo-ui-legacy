@@ -188,19 +188,6 @@ exports[`[Slider] render renders without crashing 1`] = `
       style={
         Array [
           Object {
-            "backgroundColor": "#0B21E8",
-            "height": 3,
-            "position": "absolute",
-            "width": "0%",
-          },
-        ]
-      }
-      width={0}
-    />
-    <View
-      style={
-        Array [
-          Object {
             "display": "flex",
             "justifyContent": "center",
             "position": "absolute",
