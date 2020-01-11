@@ -15,14 +15,14 @@ describe('[Slider] render', () => {
 });
 
 describe('[Rail]', () => {
-  const TEST_ID = 'TEST_ID_FOR_MARK';
+  const TEST_ID_MARK = 'TEST_ID_FOR_MARK';
   const Mark: React.FC<{ testID: string }> = ({ testID }) => {
     return <View testID={testID} />;
   };
 
   it('renders without crashing', () => {
     const rendered = render(
-      <Rail mark={<Mark testID={TEST_ID} />} customMarkWidth={1} />,
+      <Rail mark={<Mark testID={TEST_ID_MARK} />} customMarkWidth={1} />,
     ).asJSON();
     expect(rendered).toMatchSnapshot();
     expect(rendered).toBeTruthy();
@@ -35,14 +35,14 @@ describe('[Rail]', () => {
 
     const { getAllByTestId } = render(
       <Rail
-        mark={<Mark testID={TEST_ID} />}
+        mark={<Mark testID={TEST_ID_MARK} />}
         customMarkWidth={10}
         step={STEP}
         markCount={MARK_COUNT}
         onMarkPress={handleMarkPress}
       />,
     );
-    const marks = getAllByTestId(TEST_ID);
+    const marks = getAllByTestId(TEST_ID_MARK);
     for (let i = 0; i < MARK_COUNT; i += 1) {
       fireEvent.press(marks[i]);
     }
@@ -60,7 +60,7 @@ describe('[Rail]', () => {
 
     render(
       <Rail
-        mark={<Mark testID={TEST_ID} />}
+        mark={<Mark testID={TEST_ID_MARK} />}
         customMarkWidth={12}
         style={{ width: 240 }}
         step={STEP}
