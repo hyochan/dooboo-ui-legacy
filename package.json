@@ -1,6 +1,6 @@
 {
   "name": "@dooboo-ui/native",
-  "version": "0.4.12",
+  "version": "0.5.0",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
   "scripts": {
