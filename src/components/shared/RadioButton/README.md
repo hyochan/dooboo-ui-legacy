@@ -1,16 +1,13 @@
 # Radio Button
 
-<!--
-[![Npm Version](http://img.shields.io/npm/v/@dooboo-ui/native-search-input.svg?style=flat-square)](https://npmjs.org/package/@dooboo-ui/native-search-input)
-[![Downloads](http://img.shields.io/npm/dm/@dooboo-ui/native-search-input.svg?style=flat-square)](https://npmjs.org/package/@dooboo-ui/native-search-input)
--->
+<!-- [![Npm Version](http://img.shields.io/npm/v/@dooboo-ui/native-search-input.svg?style=flat-square)](https://npmjs.org/package/@dooboo-ui/native-search-input)
+[![Downloads](http://img.shields.io/npm/dm/@dooboo-ui/native-search-input.svg?style=flat-square)](https://npmjs.org/package/@dooboo-ui/native-search-input) -->
 
 > Simple radio button for react-native.  
 > Refer : <https://material-ui.com/components/radio-buttons>
 
 ## Installation
 
-<!--
 ```sh
 yarn add @dooboo-ui/native
 ```
@@ -18,19 +15,8 @@ yarn add @dooboo-ui/native
 or
 
 ```sh
-yarn add @dooboo-ui/native-search-input
+yarn add @dooboo-ui/radio-button
 ```
--->
-
-## Usage
-
-<!--
-![](https://i.imgur.com/t84mZ1e.gif)
-
-- debounced input
-- reset button
-- customizable icon
--->
 
 ## Props
 
@@ -48,7 +34,9 @@ interface IRadioButtonProps {
 }
 ```
 
-| Name           |      Required      | Type                           | Default               |
+## API
+
+| Property       |      Required      | Type                           | Default               |
 | -------------- | :----------------: | ------------------------------ | --------------------- |
 | onPress        | :white_check_mark: | `func`                         |                       |
 | value          | :white_check_mark: | `string`                       |                       |
@@ -62,30 +50,47 @@ interface IRadioButtonProps {
 
 ## Getting started
 
-<!--
-- Import
+### Import
 
-  ```tsx
-  import { SearchInput } from '@dooboo-ui/native';
-  // or
-  import SearchInput from '@dooboo-ui/native-search-input';
-  ```
+```tsx
+import { RadioButton } from '@dooboo-ui/native';
+// or
+import RadioButton from '@dooboo-ui/radio-button';
+```
 
-- Usage
-  ```tsx
-  const SearchInputWithState = () => {
-    const [value, setValue] = useState('');
-    return (
-      <>
-        <SearchInput
-          value={value}
-          onDebounceOrOnReset={setValue}
-          debounceDelay={number('delay', 400)}
-          placeholderText={text('placeholder', '')}
+### Usage
+
+```tsx
+const RadioButtonWithState = () => {
+  const [selectedGender, setSelectedGender] = React.useState('female');
+
+  return (
+    <>
+      <Title>Gender</Title>
+      <View>
+        <RadioButton
+          value={'female'}
+          label={'Female'}
+          color={'orange'}
+          selectedValue={selectedGender}
+          onPress={(value: string): void => setSelectedGender(value)}
         />
-        <Value>{`value (after debounced delay) : ${value}`}</Value>
-      </>
-    );
-  };
-  ```
--->
+        <RadioButton
+          value={'male'}
+          label={'Male'}
+          color={'orange'}
+          selectedValue={selectedGender}
+          onPress={(value: string): void => setSelectedGender(value)}
+        />
+        <RadioButton
+          value={'other'}
+          label={'Other'}
+          color={'orange'}
+          selectedValue={selectedGender}
+          onPress={(value: string): void => setSelectedGender(value)}
+        />
+      </View>
+    </>
+  );
+};
+```
