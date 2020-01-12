@@ -33,18 +33,6 @@ function Default(): React.ReactElement {
     'top',
   );
 
-  const handlePressGender = (value: string): void => {
-    setSelectedGender(value);
-  };
-
-  const handlePressStandAlone = (value: string): void => {
-    setSelectedStandAlone(value);
-  };
-
-  const handlePressLabelPlacement = (value: string): void => {
-    setSelectedLabelPlacement(value);
-  };
-
   return (
     <Container>
       <Title>Gender</Title>
@@ -54,28 +42,28 @@ function Default(): React.ReactElement {
           label={'Female'}
           color={'orange'}
           selectedValue={selectedGender}
-          onPress={handlePressGender}
+          onPress={(value: string): void => setSelectedGender(value)}
         />
         <RadioButton
           value={'male'}
           label={'Male'}
           color={'orange'}
           selectedValue={selectedGender}
-          onPress={handlePressGender}
+          onPress={(value: string): void => setSelectedGender(value)}
         />
         <RadioButton
           value={'other'}
           label={'Other'}
           color={'orange'}
           selectedValue={selectedGender}
-          onPress={handlePressGender}
+          onPress={(value: string): void => setSelectedGender(value)}
         />
         <RadioButton
           value={''}
           label={'(Disabled Value)'}
           color={'#0000ff'}
           selectedValue={selectedGender}
-          onPress={handlePressGender}
+          onPress={(value: string): void => setSelectedGender(value)}
           disabled={true}
         />
         <RadioButton
@@ -83,7 +71,7 @@ function Default(): React.ReactElement {
           label={'(Selected Disabled Value)'}
           color={'#0000ff'}
           selectedValue={selectedGender}
-          onPress={handlePressGender}
+          onPress={(value: string): void => setSelectedGender(value)}
           disabled={true}
           selected={true}
         />
@@ -96,35 +84,35 @@ function Default(): React.ReactElement {
         <RadioButton
           value={'1'}
           selectedValue={selectedStandAlone}
-          onPress={handlePressStandAlone}
+          onPress={(value: string): void => setSelectedStandAlone(value)}
           color={'orchid'}
           size={18}
         />
         <RadioButton
           value={'2'}
           selectedValue={selectedStandAlone}
-          onPress={handlePressStandAlone}
+          onPress={(value: string): void => setSelectedStandAlone(value)}
           color={'mediumorchid'}
           size={23}
         />
         <RadioButton
           value={'3'}
           selectedValue={selectedStandAlone}
-          onPress={handlePressStandAlone}
+          onPress={(value: string): void => setSelectedStandAlone(value)}
           color={'darkorchid'}
           size={28}
         />
         <RadioButton
           value={'4'}
           selectedValue={selectedStandAlone}
-          onPress={handlePressStandAlone}
+          onPress={(value: string): void => setSelectedStandAlone(value)}
           color={'darkmagenta'}
           size={33}
         />
         <RadioButton
           value={'5'}
           selectedValue={selectedStandAlone}
-          onPress={handlePressStandAlone}
+          onPress={(value: string): void => setSelectedStandAlone(value)}
           color={'indigo'}
           size={38}
         />
@@ -138,7 +126,7 @@ function Default(): React.ReactElement {
           value={'top'}
           label={'Top'}
           selectedValue={selectedLabelPlacement}
-          onPress={handlePressLabelPlacement}
+          onPress={(value: string): void => setSelectedLabelPlacement(value)}
           color={'green'}
           labelPlacement={'top'}
         />
@@ -146,7 +134,7 @@ function Default(): React.ReactElement {
           value={'start'}
           label={'Start'}
           selectedValue={selectedLabelPlacement}
-          onPress={handlePressLabelPlacement}
+          onPress={(value: string): void => setSelectedLabelPlacement(value)}
           color={'green'}
           labelPlacement={'start'}
         />
@@ -154,7 +142,7 @@ function Default(): React.ReactElement {
           value={'bottom'}
           label={'Bottom'}
           selectedValue={selectedLabelPlacement}
-          onPress={handlePressLabelPlacement}
+          onPress={(value: string): void => setSelectedLabelPlacement(value)}
           color={'green'}
           labelPlacement={'bottom'}
         />
@@ -162,7 +150,7 @@ function Default(): React.ReactElement {
           value={'end'}
           label={'End'}
           selectedValue={selectedLabelPlacement}
-          onPress={handlePressLabelPlacement}
+          onPress={(value: string): void => setSelectedLabelPlacement(value)}
           color={'green'}
           labelPlacement={'end'}
         />
