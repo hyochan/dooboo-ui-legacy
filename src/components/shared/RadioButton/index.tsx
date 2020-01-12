@@ -51,7 +51,7 @@ const SCInputRow = styled.TouchableOpacity<IInputRowProps>`
   flex-direction: ${({ isLabelColumn }): string =>
     isLabelColumn ? 'column' : 'row'};
   align-items: center;
-  padding-vertical: 8px;
+  padding: 8px 0;
 `;
 
 const SCOuterCircle = styled.View.attrs(
