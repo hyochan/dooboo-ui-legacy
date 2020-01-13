@@ -90,6 +90,47 @@ exports[`[Snackbar] should simulate showing snackbar 1`] = `
       <Text>
         snackbar content
       </Text>
+      <View
+        style={
+          Array [
+            Object {
+              "alignItems": "center",
+              "display": "flex",
+              "marginLeft": "auto",
+              "marginRight": -5,
+              "paddingLeft": 16,
+            },
+          ]
+        }
+      >
+        <View
+          accessible={true}
+          focusable={false}
+          isTVSelectable={true}
+          style={
+            Object {
+              "opacity": 1,
+            }
+          }
+        >
+          <View
+            style={
+              Array [
+                Object {
+                  "paddingBottom": 2,
+                  "paddingLeft": 2,
+                  "paddingRight": 4,
+                  "paddingTop": 4,
+                },
+              ]
+            }
+          >
+            <Text>
+              some action
+            </Text>
+          </View>
+        </View>
+      </View>
     </View>
   </View>
 </View>

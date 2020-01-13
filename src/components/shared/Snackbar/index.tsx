@@ -79,7 +79,7 @@ const Snackbar: React.FC<SnackbarProps> = React.forwardRef<SnackbarRef, Snackbar
   const [fadeAnim] = React.useState(new Animated.Value(0));
   const show = (content: Content): void => {
     setContent(content);
-    clearTimeout(timeout);
+    timeout && clearTimeout(timeout);
     setShowingState((prevState) => ({ ...prevState, isShowing: true }));
   };
   const hide = (duration = 200): void => {
