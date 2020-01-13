@@ -42,7 +42,7 @@ const ActionButton = styled.View`
 
 export interface SnackbarProps {
   testID?: string;
-  ref?: any;
+  ref?: React.MutableRefObject<SnackbarRef>;
 }
 
 interface Content {
@@ -58,7 +58,7 @@ interface Content {
 interface ShowingState {
   isVisible?: boolean;
   isShowing?: boolean;
-  timeout?: any;
+  timeout?: NodeJS.Timeout;
 }
 
 export interface SnackbarRef {
@@ -80,21 +80,21 @@ const Snackbar: React.FC<SnackbarProps> = React.forwardRef<SnackbarRef, Snackbar
   const show = (content): void => {
     setContent(content);
     clearTimeout(timeout);
-    setShowingState({ isShowing: true });
+    setShowingState({ ...showingState, isShowing: true });
   };
-  const close = (): void => {
+  const close = (duration = 200): void => {
     Animated.timing(
       fadeAnim,
       {
         toValue: 0,
-        duration: 200,
+        duration: duration,
       },
-    ).start(() => setShowingState({ isVisible: false }));
+    ).start(() => setShowingState((prevState) => ({ ...prevState, isVisible: false })));
   };
   React.useEffect(() => {
     if (isShowing) {
       if (isVisible) {
-        close();
+        close(50);
       } else {
         const timeout = setTimeout(() => {
           close();
