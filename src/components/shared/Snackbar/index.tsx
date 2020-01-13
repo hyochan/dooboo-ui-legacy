@@ -77,12 +77,12 @@ const Snackbar: React.FC<SnackbarProps> = React.forwardRef<SnackbarRef, Snackbar
   const { text, actionText, messageStyle, actionStyle, containerStyle, timer = Timer.SHORT, onPressAction } = content;
   const { isShowing, isVisible, timeout } = showingState;
   const [fadeAnim] = React.useState(new Animated.Value(0));
-  const show = (content): void => {
+  const show = (content: Content): void => {
     setContent(content);
     clearTimeout(timeout);
-    setShowingState({ ...showingState, isShowing: true });
+    setShowingState((prevState) => ({ ...prevState, isShowing: true }));
   };
-  const close = (duration = 200): void => {
+  const hide = (duration = 200): void => {
     Animated.timing(
       fadeAnim,
       {
@@ -94,18 +94,19 @@ const Snackbar: React.FC<SnackbarProps> = React.forwardRef<SnackbarRef, Snackbar
   React.useEffect(() => {
     if (isShowing) {
       if (isVisible) {
-        close(50);
+        hide(50);
       } else {
         const timeout = setTimeout(() => {
-          close();
-        }, timer);
+          hide();
+        }, timer + 200);
+        setShowingState({ isShowing: false, isVisible: true, timeout });
         Animated.timing(
           fadeAnim,
           {
             toValue: 1,
             duration: 200,
           },
-        ).start(() => setShowingState({ isShowing: false, isVisible: true, timeout }));
+        ).start();
       }
     }
   }, [showingState]);
