@@ -32,3 +32,106 @@ exports[`[Snackbar] renders TestWrapper without crashing 1`] = `
   </View>
 </View>
 `;
+
+exports[`[Snackbar] should simulate showing snackbar 1`] = `
+<View
+  collapsable={true}
+  pointerEvents="box-none"
+  style={
+    Object {
+      "flex": 1,
+    }
+  }
+>
+  <View
+    style={
+      Object {
+        "flex": 1,
+      }
+    }
+  >
+    <View
+      accessible={true}
+      focusable={true}
+      isTVSelectable={true}
+      style={
+        Object {
+          "opacity": 1,
+        }
+      }
+      testID="Button"
+    >
+      <Text>
+        show snack bar
+      </Text>
+    </View>
+    <View
+      style={
+        Object {
+          "alignItems": "center",
+          "backgroundColor": "#303235",
+          "borderRadius": 10,
+          "bottom": 50,
+          "display": "flex",
+          "flexDirection": "row",
+          "flexWrap": "wrap",
+          "fontSize": 16,
+          "maxWidth": 718,
+          "minWidth": 150,
+          "opacity": 0,
+          "paddingHorizontal": 16,
+          "paddingVertical": 10,
+          "position": "absolute",
+          "textAlign": "left",
+        }
+      }
+      testID="snackbar"
+    >
+      <Text>
+        snackbar content
+      </Text>
+      <View
+        style={
+          Array [
+            Object {
+              "alignItems": "center",
+              "display": "flex",
+              "marginLeft": "auto",
+              "marginRight": -5,
+              "paddingLeft": 16,
+            },
+          ]
+        }
+      >
+        <View
+          accessible={true}
+          focusable={false}
+          isTVSelectable={true}
+          style={
+            Object {
+              "opacity": 1,
+            }
+          }
+        >
+          <View
+            style={
+              Array [
+                Object {
+                  "paddingBottom": 2,
+                  "paddingLeft": 2,
+                  "paddingRight": 4,
+                  "paddingTop": 4,
+                },
+              ]
+            }
+          >
+            <Text>
+              some action
+            </Text>
+          </View>
+        </View>
+      </View>
+    </View>
+  </View>
+</View>
+`;
