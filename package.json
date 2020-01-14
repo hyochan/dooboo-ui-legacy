@@ -4,7 +4,7 @@
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
   "scripts": {
-    "pre": "lerna clean --yes && lerna exec -- yarn && lerna run build",
+    "pre": "lerna clean --yes && lerna bootstrap && lerna run build",
     "start": "react-native start",
     "ios": "react-native run-ios",
     "android": "react-native run-android",
