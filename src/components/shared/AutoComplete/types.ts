@@ -14,6 +14,24 @@ export interface AutoCompleteProps {
 
 type OnPressOption = (data: DummyDatum) => void;
 
+export type InputWrapper = {
+  on: boolean;
+  width: number;
+  inSets: {
+    top: number;
+    left: number;
+    bottom: number;
+    right: number;
+  };
+};
+
+export type RenderInputProps = {
+  on: boolean;
+  label: string;
+  onFocus: () => void;
+  onBlur: () => void;
+}
+
 export type RenderOptionProps = DummyDatum & {
   onPress: OnPressOption;
   index?: number;
@@ -24,6 +42,7 @@ export type RenderOptionProps = DummyDatum & {
 export type RenderOptionsProps = {
   data: DummyDatum[];
   onPress: OnPressOption;
+  onPressOutside: () => void;
   selectedData: DummyDatum | null;
   underlayColor?: string;
 };

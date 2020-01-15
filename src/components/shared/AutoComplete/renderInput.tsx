@@ -1,14 +1,16 @@
-import React, { ReactElement, useEffect, useState } from 'react';
+import React, { ForwardRefExoticComponent, forwardRef, useEffect, useState } from 'react';
 
 import { Animated } from 'react-native';
 import { Input } from './styles';
+import { RenderInputProps } from './types';
 
-const RenderInput = (props): ReactElement => {
+const RenderInput: ForwardRefExoticComponent<RenderInputProps> = forwardRef((props, ref) => {
   const { on, label, onFocus, onBlur } = props;
   const [animatedIsFocused] = useState(new Animated.Value(on ? 1 : 0));
   useEffect(() => {
     Animated.timing(animatedIsFocused, {
       toValue: on ? 1 : 0,
+      delay: 80,
       duration: 200,
     }).start();
   }, [on]);
@@ -42,9 +44,11 @@ const RenderInput = (props): ReactElement => {
       >
         {label}
       </Animated.Text>
-      <Input {...props} onFocus={onFocus} onBlur={onBlur} />
+      <Input {...props} onFocus={onFocus} onBlur={onBlur} ref={ref} />
     </>
   );
-};
+});
+
+RenderInput.displayName = 'AutoComplete';
 
 export default RenderInput;

@@ -1,12 +1,19 @@
-import { DummyDatum, InputContainerProps, OptionTextProps, OptionWrapperProps } from './types';
-import { FlatList, TouchableHighlight } from 'react-native';
+import { InputContainerProps, InputWrapper, OptionTextProps, OptionWrapperProps } from './types';
 
+import { TouchableHighlight } from 'react-native';
 import styled from 'styled-components/native';
 
-export const Wrapper = styled.View`
-  flex: 1;
+export const Wrapper = styled.View<InputWrapper>`
+  background-color: white;
   flex-direction: column;
   justify-content: center;
+  top: ${({ on, inSets }): number => on ? inSets.top : 0}px;
+  left: ${({ on, inSets }): number => on ? inSets.left : 0}px;
+  bottom: ${({ on, inSets }): number => on ? inSets.bottom : 0}px;
+  right: ${({ on, inSets }): number => on ? inSets.right : 0}px;
+  width: ${({ on, width }): string => on ? `${width}px` : 'auto'};
+  position: ${({ on }): string => on ? 'absolute' : 'relative'};
+  z-index: ${({ on }): number => on ? 99 : 0};
 `;
 
 export const InputContainer = styled.View<InputContainerProps>`
@@ -59,11 +66,7 @@ export const OptionText = styled.Text<OptionTextProps>`
   font-size: ${({ fontSize }): number => fontSize || 16}px;
 `;
 
-export const OptionsContainer = styled(
-  FlatList as new () => FlatList<DummyDatum>,
-).attrs(() => ({
-  contentContainerStyle: { paddingVertical: 10 },
-}))`
+export const OptionsContainer = styled.TouchableOpacity`
   flex-direction: column;
   border: 1px solid #ededed;
   border-radius: 6px;
