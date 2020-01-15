@@ -38,13 +38,10 @@ const ITEMS = [
 ];
 
 function Default(): React.ReactElement {
-  const [selectedItem, setSelectedItem] = useState<Item>(null);
-  const onSelect = useCallback(
-    (item: Item) => {
-      setSelectedItem(item);
-    },
-    [selectedItem],
-  );
+  const [selectedValue, setSelectedValue] = useState<string>(ITEMS[0].value);
+  const onSelect = useCallback((item: Item) => {
+    setSelectedValue(item.value);
+  }, []);
   return (
     <Container>
       <Select
@@ -59,7 +56,7 @@ function Default(): React.ReactElement {
         onClick={action('Clicked')}
         items={ITEMS}
         onSelect={onSelect}
-        selectedItem={selectedItem}
+        selectedValue={selectedValue}
       />
       <Select
         theme={'underbar'}
@@ -77,7 +74,7 @@ function Default(): React.ReactElement {
         onClick={action('Clicked')}
         items={ITEMS}
         onSelect={onSelect}
-        selectedItem={selectedItem}
+        selectedValue={selectedValue}
       />
       <Select
         placeholder={'select'}
@@ -88,7 +85,7 @@ function Default(): React.ReactElement {
         }}
         items={ITEMS}
         onSelect={onSelect}
-        selectedItem={selectedItem}
+        selectedValue={selectedValue}
       />
       <Select
         theme={'box'}
@@ -106,7 +103,7 @@ function Default(): React.ReactElement {
         onClick={action('Clicked')}
         items={ITEMS}
         onSelect={onSelect}
-        selectedItem={selectedItem}
+        selectedValue={selectedValue}
       />
     </Container>
   );

@@ -235,6 +235,13 @@ const RootSelect = styled.View<ThemeType>`
   align-items: center;
   padding: 14px 6px;
 `;
+const ModalBackground = styled.TouchableOpacity`
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+`;
 const SelectListView = styled.View`
   elevation: 8;
   shadow-color: ${COLOR.DODGERBLUE};
@@ -286,7 +293,7 @@ export interface Props {
   itemStyle?: StyleProp<ViewStyle>;
   selectedItemStyle?: StyleProp<ViewStyle>;
   onSelect: (Item) => void;
-  selectedItem: Item;
+  selectedValue: string;
 }
 
 function Select(props: Props): React.ReactElement {
@@ -305,7 +312,7 @@ function Select(props: Props): React.ReactElement {
     itemStyle,
     selectedItemStyle,
     onSelect,
-    selectedItem,
+    selectedValue,
   } = props;
 
   const selectRef = React.useRef<View>(null);
@@ -353,24 +360,18 @@ function Select(props: Props): React.ReactElement {
   const _rootTextStyle = disabled ? null : rootTextStyle;
 
   const renderItem = ({ item }: ListRenderItemInfo<Item>): ReactElement => {
-    const style =
-      selectedItem && selectedItem.value === item.value
-        ? selectedItemStyle
-        : itemStyle;
+    const style = selectedValue === item.value ? selectedItemStyle : itemStyle;
     return (
       <ItemView
         style={style}
-        selected={selectedItem && selectedItem.value === item.value}
+        selected={selectedValue === item.value}
         activeOpacity={1}
         onPress={(): void => {
           handleSelect(item);
         }}
         testID={`${testID}-${TESTID.LISTITEM}-${item.value}`}
       >
-        <ItemText
-          selected={selectedItem && selectedItem.value === item.value}
-          style={style}
-        >
+        <ItemText selected={selectedValue === item.value} style={style}>
           {item.text}
         </ItemText>
       </ItemView>
@@ -405,7 +406,7 @@ function Select(props: Props): React.ReactElement {
             style={_rootTextStyle}
             testID={`${testID}-${TESTID.ROOTTEXT}`}
           >
-            {selectedItem ? selectedItem.text : placeholder}
+            {selectedValue || placeholder}
           </Text>
           <Image
             source={!listOpen ? IC_ARR_DOWN : IC_ARR_UP}
@@ -414,6 +415,7 @@ function Select(props: Props): React.ReactElement {
         </RootSelect>
       </TouchableOpacity>
       <Modal visible={listOpen} transparent={true}>
+        <ModalBackground onPress={toggleList} />
         <SelectListView
           style={{
             shadowOffset: { width: 0, height: 5 },

@@ -2,7 +2,12 @@ import 'react-native';
 
 import * as React from 'react';
 
-import { RenderResult, act, render } from '@testing-library/react-native';
+import {
+  RenderResult,
+  act,
+  fireEvent,
+  render,
+} from '@testing-library/react-native';
 import Select, { Item, Props, TESTID, ThemeEnum } from '../Select';
 
 // Note: test renderer must be required after react-native.
@@ -266,61 +271,94 @@ describe('[Select] render', () => {
     });
   });
 
-  it('should render list when onPress', () => {
-    const theme = 'disabled';
-    const props = createTestProps({ case: theme });
-    const component = <Select {...props} />;
-    const testingLib = render(component);
-    const touchableOpacity = testingLib.getByTestId(
-      `${props.testID}-${TESTID.TOUCHABLEOPACITY}`,
-    );
-    const selectListView = testingLib.getByTestId(
-      `${props.testID}-${TESTID.SELECTLISTVIEW}`,
-    );
-    act(() => touchableOpacity.props.onClick());
+  describe('rendering list', () => {
+    let testingLib: RenderResult;
 
-    expect(selectListView.props.style[1].display).toBe('flex');
-  });
+    it('should render list when onPress', () => {
+      const theme = 'disabled';
+      const props = createTestProps({ case: theme });
+      const component = <Select {...props} />;
+      testingLib = render(component);
+      const touchableOpacity = testingLib.getByTestId(
+        `${props.testID}-${TESTID.TOUCHABLEOPACITY}`,
+      );
+      const selectListView = testingLib.getByTestId(
+        `${props.testID}-${TESTID.SELECTLISTVIEW}`,
+      );
+      act(() => touchableOpacity.props.onClick());
 
-  it('should hide list when click list item ', () => {
-    const theme = 'disabled';
-    const props = createTestProps({ case: theme });
-    const component = <Select {...props} />;
-    const testingLib = render(component);
-    const touchableOpacity = testingLib.getByTestId(
-      `${props.testID}-${TESTID.TOUCHABLEOPACITY}`,
-    );
-    const selectListView = testingLib.getByTestId(
-      `${props.testID}-${TESTID.SELECTLISTVIEW}`,
-    );
-    const firstListItem = testingLib.getByTestId(
-      `${props.testID}-${TESTID.LISTITEM}-${ITEMS[0].value}`,
-    );
-    act(() => touchableOpacity.props.onClick());
-    expect(selectListView.props.style[1].display).toBe('flex');
+      expect(selectListView.props.style[1].display).toBe('flex');
+    });
 
-    act(() => firstListItem.props.onClick());
-    expect(selectListView.props.style[1].display).toBe('none');
-  });
+    it('should hide list when click list item ', () => {
+      const theme = 'disabled';
+      const props = createTestProps({
+        case: theme,
+      });
+      const component = <Select {...props} />;
+      testingLib = render(component);
+      const touchableOpacity = testingLib.getByTestId(
+        `${props.testID}-${TESTID.TOUCHABLEOPACITY}`,
+      );
+      const selectListView = testingLib.getByTestId(
+        `${props.testID}-${TESTID.SELECTLISTVIEW}`,
+      );
+      const firstListItem = testingLib.getByTestId(
+        `${props.testID}-${TESTID.LISTITEM}-${ITEMS[0].value}`,
+      );
+      act(() => touchableOpacity.props.onClick());
+      expect(selectListView.props.style[1].display).toBe('flex');
 
-  it('should hide list when click root close view', () => {
-    const theme = 'disabled';
-    const props = createTestProps({ case: theme });
-    const component = <Select {...props} />;
-    const testingLib = render(component);
-    const touchableOpacity = testingLib.getByTestId(
-      `${props.testID}-${TESTID.TOUCHABLEOPACITY}`,
-    );
-    const selectListView = testingLib.getByTestId(
-      `${props.testID}-${TESTID.SELECTLISTVIEW}`,
-    );
-    const rootCloseView = testingLib.getByTestId(
-      `${props.testID}-${TESTID.MODALCLOSEVIEW}`,
-    );
-    act(() => touchableOpacity.props.onClick());
-    expect(selectListView.props.style[1].display).toBe('flex');
+      act(() => firstListItem.props.onClick());
+      expect(selectListView.props.style[1].display).toBe('none');
+    });
 
-    act(() => rootCloseView.props.onClick());
-    expect(selectListView.props.style[1].display).toBe('none');
+    it('should hide list when click root close view', () => {
+      const theme = 'disabled';
+      const props = createTestProps({ case: theme });
+      const component = <Select {...props} />;
+      const testingLib = render(component);
+      const touchableOpacity = testingLib.getByTestId(
+        `${props.testID}-${TESTID.TOUCHABLEOPACITY}`,
+      );
+      const selectListView = testingLib.getByTestId(
+        `${props.testID}-${TESTID.SELECTLISTVIEW}`,
+      );
+      const rootCloseView = testingLib.getByTestId(
+        `${props.testID}-${TESTID.MODALCLOSEVIEW}`,
+      );
+      act(() => touchableOpacity.props.onClick());
+      expect(selectListView.props.style[1].display).toBe('flex');
+
+      act(() => rootCloseView.props.onClick());
+      expect(selectListView.props.style[1].display).toBe('none');
+    });
+    it('should change placeholder', () => {
+      const theme = 'disabled';
+      const props = createTestProps({
+        case: theme,
+        selectedValue: ITEMS[0].value,
+      });
+      const component = <Select {...props} />;
+      testingLib = render(component);
+      const touchableOpacity = testingLib.queryByTestId(
+        `${props.testID}-${TESTID.TOUCHABLEOPACITY}`,
+      );
+      const selectListView = testingLib.queryByTestId(
+        `${props.testID}-${TESTID.SELECTLISTVIEW}`,
+      );
+      const firstListItem = testingLib.queryByTestId(
+        `${props.testID}-${TESTID.LISTITEM}-${ITEMS[0].value}`,
+      );
+      act(() => touchableOpacity.props.onClick());
+      expect(selectListView.props.style[1].display).toBe('flex');
+
+      act(() => {
+        fireEvent.press(firstListItem);
+      });
+      expect(selectListView.props.style[1].display).toBe('none');
+
+      expect(testingLib.asJSON()).toMatchSnapshot();
+    });
   });
 });
