@@ -413,11 +413,7 @@ function Select(props: Props): React.ReactElement {
           />
         </RootSelect>
       </TouchableOpacity>
-      <Modal
-        visible={listOpen}
-        onRequestClose={(): void => {}}
-        transparent={true}
-      >
+      <Modal visible={listOpen} transparent={true}>
         <SelectListView
           style={{
             shadowOffset: { width: 0, height: 5 },

@@ -73,7 +73,6 @@ exports[`[Select] render [Select] render renders without crashing 1`] = `
   </View>
   <Modal
     hardwareAccelerated={false}
-    onRequestClose={[Function]}
     transparent={true}
     visible={false}
   >
@@ -231,7 +230,6 @@ exports[`[Select] render renders without crashing 1`] = `
   </View>
   <Modal
     hardwareAccelerated={false}
-    onRequestClose={[Function]}
     transparent={true}
     visible={false}
   >

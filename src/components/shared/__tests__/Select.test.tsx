@@ -19,9 +19,7 @@ const ITEMS: Item[] = [
 type selectProp<K extends string> = {
   [T in K]: Props;
 };
-const onSelect = (item: Item): void => {
-  console.log(item);
-};
+const onSelect = jest.fn();
 
 const mockProp: selectProp<
   'noTheme' | 'inputTheme' | 'themeAndRootView' | 'disabled'
@@ -268,7 +266,7 @@ describe('[Select] render', () => {
     });
   });
 
-  it('check render list when onPress', () => {
+  it('should render list when onPress', () => {
     const theme = 'disabled';
     const props = createTestProps({ case: theme });
     const component = <Select {...props} />;
@@ -284,7 +282,7 @@ describe('[Select] render', () => {
     expect(selectListView.props.style[1].display).toBe('flex');
   });
 
-  it('check hide list when click list item ', () => {
+  it('should hide list when click list item ', () => {
     const theme = 'disabled';
     const props = createTestProps({ case: theme });
     const component = <Select {...props} />;
@@ -305,7 +303,7 @@ describe('[Select] render', () => {
     expect(selectListView.props.style[1].display).toBe('none');
   });
 
-  it('check hide list when click root close view  ', () => {
+  it('should hide list when click root close view', () => {
     const theme = 'disabled';
     const props = createTestProps({ case: theme });
     const component = <Select {...props} />;
