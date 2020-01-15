@@ -70,7 +70,7 @@ function LoadingIndicator(props: Props): React.ReactElement {
   };
 
   return (
-    <View style={[styles.container, containerStyle]}>
+    <View style={StyleSheet.flatten([styles.container, containerStyle])}>
       {!imgSource ? (
         <ActivityIndicator
           style={style}

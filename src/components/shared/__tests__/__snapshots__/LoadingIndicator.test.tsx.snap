@@ -3,20 +3,17 @@
 exports[`[LoadingIndicator] render renders with !size with none string imgSource 1`] = `
 <View
   style={
-    Array [
-      Object {
-        "alignItems": "center",
-        "alignSelf": "center",
-        "backgroundColor": "transparent",
-        "flex": 1,
-        "flexDirection": "row",
-        "height": "100%",
-        "justifyContent": "center",
-        "position": "absolute",
-        "width": "100%",
-      },
-      undefined,
-    ]
+    Object {
+      "alignItems": "center",
+      "alignSelf": "center",
+      "backgroundColor": "transparent",
+      "flex": 1,
+      "flexDirection": "row",
+      "height": "100%",
+      "justifyContent": "center",
+      "position": "absolute",
+      "width": "100%",
+    }
   }
 >
   <Image
@@ -29,20 +26,17 @@ exports[`[LoadingIndicator] render renders with !size with none string imgSource
 exports[`[LoadingIndicator] render renders with !size with string imgSource 1`] = `
 <View
   style={
-    Array [
-      Object {
-        "alignItems": "center",
-        "alignSelf": "center",
-        "backgroundColor": "transparent",
-        "flex": 1,
-        "flexDirection": "row",
-        "height": "100%",
-        "justifyContent": "center",
-        "position": "absolute",
-        "width": "100%",
-      },
-      undefined,
-    ]
+    Object {
+      "alignItems": "center",
+      "alignSelf": "center",
+      "backgroundColor": "transparent",
+      "flex": 1,
+      "flexDirection": "row",
+      "height": "100%",
+      "justifyContent": "center",
+      "position": "absolute",
+      "width": "100%",
+    }
   }
 >
   <Image
@@ -59,20 +53,17 @@ exports[`[LoadingIndicator] render renders with !size with string imgSource 1`] 
 exports[`[LoadingIndicator] render renders with [imgSource] 1`] = `
 <View
   style={
-    Array [
-      Object {
-        "alignItems": "center",
-        "alignSelf": "center",
-        "backgroundColor": "transparent",
-        "flex": 1,
-        "flexDirection": "row",
-        "height": "100%",
-        "justifyContent": "center",
-        "position": "absolute",
-        "width": "100%",
-      },
-      undefined,
-    ]
+    Object {
+      "alignItems": "center",
+      "alignSelf": "center",
+      "backgroundColor": "transparent",
+      "flex": 1,
+      "flexDirection": "row",
+      "height": "100%",
+      "justifyContent": "center",
+      "position": "absolute",
+      "width": "100%",
+    }
   }
 >
   <Image
@@ -94,20 +85,17 @@ exports[`[LoadingIndicator] render renders with [imgSource] 1`] = `
 exports[`[LoadingIndicator] render renders with size=small 1`] = `
 <View
   style={
-    Array [
-      Object {
-        "alignItems": "center",
-        "alignSelf": "center",
-        "backgroundColor": "transparent",
-        "flex": 1,
-        "flexDirection": "row",
-        "height": "100%",
-        "justifyContent": "center",
-        "position": "absolute",
-        "width": "100%",
-      },
-      undefined,
-    ]
+    Object {
+      "alignItems": "center",
+      "alignSelf": "center",
+      "backgroundColor": "transparent",
+      "flex": 1,
+      "flexDirection": "row",
+      "height": "100%",
+      "justifyContent": "center",
+      "position": "absolute",
+      "width": "100%",
+    }
   }
 >
   <Image
@@ -129,20 +117,17 @@ exports[`[LoadingIndicator] render renders with size=small 1`] = `
 exports[`[LoadingIndicator] render renders with size=test 1`] = `
 <View
   style={
-    Array [
-      Object {
-        "alignItems": "center",
-        "alignSelf": "center",
-        "backgroundColor": "transparent",
-        "flex": 1,
-        "flexDirection": "row",
-        "height": "100%",
-        "justifyContent": "center",
-        "position": "absolute",
-        "width": "100%",
-      },
-      undefined,
-    ]
+    Object {
+      "alignItems": "center",
+      "alignSelf": "center",
+      "backgroundColor": "transparent",
+      "flex": 1,
+      "flexDirection": "row",
+      "height": "100%",
+      "justifyContent": "center",
+      "position": "absolute",
+      "width": "100%",
+    }
   }
 >
   <Image
@@ -160,20 +145,17 @@ exports[`[LoadingIndicator] render renders with size=test 1`] = `
 exports[`[LoadingIndicator] render renders with size=undefined 1`] = `
 <View
   style={
-    Array [
-      Object {
-        "alignItems": "center",
-        "alignSelf": "center",
-        "backgroundColor": "transparent",
-        "flex": 1,
-        "flexDirection": "row",
-        "height": "100%",
-        "justifyContent": "center",
-        "position": "absolute",
-        "width": "100%",
-      },
-      undefined,
-    ]
+    Object {
+      "alignItems": "center",
+      "alignSelf": "center",
+      "backgroundColor": "transparent",
+      "flex": 1,
+      "flexDirection": "row",
+      "height": "100%",
+      "justifyContent": "center",
+      "position": "absolute",
+      "width": "100%",
+    }
   }
 >
   <Image
@@ -195,20 +177,17 @@ exports[`[LoadingIndicator] render renders with size=undefined 1`] = `
 exports[`[LoadingIndicator] render renders without crashing 1`] = `
 <View
   style={
-    Array [
-      Object {
-        "alignItems": "center",
-        "alignSelf": "center",
-        "backgroundColor": "transparent",
-        "flex": 1,
-        "flexDirection": "row",
-        "height": "100%",
-        "justifyContent": "center",
-        "position": "absolute",
-        "width": "100%",
-      },
-      undefined,
-    ]
+    Object {
+      "alignItems": "center",
+      "alignSelf": "center",
+      "backgroundColor": "transparent",
+      "flex": 1,
+      "flexDirection": "row",
+      "height": "100%",
+      "justifyContent": "center",
+      "position": "absolute",
+      "width": "100%",
+    }
   }
 >
   <ActivityIndicator
