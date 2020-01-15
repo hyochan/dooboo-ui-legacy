@@ -393,23 +393,33 @@ describe('[Select] render', () => {
         items: ITEMS,
         onShow: jest.fn(),
         onDismiss: jest.fn(),
-        onValueChange: jest.fn(),
+
         ...props,
       };
     };
 
-    const createTestComponent = (props): React.ReactElement => (
-      <View
-        style={{
-          justifyContent: 'center',
-          alignItems: 'center',
-          width: 300,
-          height: 400,
-        }}
-      >
-        <Select {...props} />
-      </View>
-    );
+    const TestComponent = (props): React.ReactElement => {
+      const [selectedValue, setSelectedValue] = React.useState(ITEMS[0].value);
+      const onValueChange = jest.fn((item, index) => {
+        setSelectedValue(item.value);
+      });
+      return (
+        <View
+          style={{
+            justifyContent: 'center',
+            alignItems: 'center',
+            width: 300,
+            height: 400,
+          }}
+        >
+          <Select
+            {...props}
+            selectedValue={selectedValue}
+            onValueChange={onValueChange}
+          />
+        </View>
+      );
+    };
 
     beforeEach(() => {
       props = {
@@ -440,7 +450,7 @@ describe('[Select] render', () => {
 
       it('Make sure that none is applied when the theme is undefined', () => {
         const testProps = createTestProps(props);
-        component = createTestComponent(testProps);
+        component = <TestComponent {...testProps} />;
         const { queryByTestId, asJSON } = render(component);
         const rootButton = queryByTestId(
           `${testProps.testID}-${TESTID.ROOTBUTTON}`,
@@ -454,7 +464,7 @@ describe('[Select] render', () => {
       it('Make sure that box is applied when the theme is "box"', () => {
         props.theme = ThemeEnum.box;
         const testProps = createTestProps(props);
-        component = createTestComponent(testProps);
+        component = <TestComponent {...testProps} />;
         const { queryByTestId, asJSON } = render(component);
         const rootButton = queryByTestId(
           `${testProps.testID}-${TESTID.ROOTBUTTON}`,
@@ -468,7 +478,7 @@ describe('[Select] render', () => {
       it('Make sure that default is applied when the theme is "blank"', () => {
         props.theme = ThemeEnum.blank;
         const testProps = createTestProps(props);
-        component = createTestComponent(testProps);
+        component = <TestComponent {...testProps} />;
         const { queryByTestId, asJSON } = render(component);
         const rootButton = queryByTestId(
           `${testProps.testID}-${TESTID.ROOTBUTTON}`,
@@ -482,7 +492,7 @@ describe('[Select] render', () => {
       it('Make sure that default is applied when the theme is "underbar"', () => {
         props.theme = ThemeEnum.underbar;
         const testProps = createTestProps(props);
-        component = createTestComponent(testProps);
+        component = <TestComponent {...testProps} />;
         const { queryByTestId, asJSON } = render(component);
         const rootButton = queryByTestId(
           `${testProps.testID}-${TESTID.ROOTBUTTON}`,
@@ -502,7 +512,7 @@ describe('[Select] render', () => {
           bottom: 0,
         };
         const testProps = createTestProps(props);
-        component = createTestComponent(testProps);
+        component = <TestComponent {...testProps} />;
         const { queryByTestId, asJSON } = render(component);
         const rootButton = queryByTestId(
           `${testProps.testID}-${TESTID.ROOTBUTTON}`,
@@ -517,7 +527,7 @@ describe('[Select] render', () => {
       when you apply bottom and right styles to the itemStyle`, () => {
         props.itemViewStyle = {};
         let testProps = createTestProps(props);
-        component = createTestComponent(testProps);
+        component = <TestComponent {...testProps} />;
         let testingLib = render(component);
         let rootButton = testingLib.queryByTestId(
           `${testProps.testID}-${TESTID.ROOTBUTTON}`,
@@ -528,7 +538,7 @@ describe('[Select] render', () => {
         expect(testingLib.asJSON()).toMatchSnapshot();
         props.itemViewStyle = { height: 20 };
         testProps = createTestProps(props);
-        component = createTestComponent(testProps);
+        component = <TestComponent {...testProps} />;
         testingLib = render(component);
         rootButton = testingLib.queryByTestId(
           `${testProps.testID}-${TESTID.ROOTBUTTON}`,
@@ -542,7 +552,7 @@ describe('[Select] render', () => {
       it('If bottom and right are not applied to itemListStyle, the default value is applied', () => {
         props.itemListStyle = {};
         const testProps = createTestProps(props);
-        component = createTestComponent(testProps);
+        component = <TestComponent {...testProps} />;
         const { queryByTestId, asJSON } = render(component);
         const rootButton = queryByTestId(testProps.testID);
         act(() => {
@@ -559,7 +569,7 @@ describe('[Select] render', () => {
       let nativeEvent;
       beforeEach(() => {
         testProps = createTestProps(props);
-        component = createTestComponent(testProps);
+        component = <TestComponent {...testProps} />;
         testingLib = render(component);
         rootButton = testingLib.queryByTestId(
           `${testProps.testID}-${TESTID.ROOTBUTTON}`,
@@ -578,7 +588,7 @@ describe('[Select] render', () => {
 
       it('If onValueChange is not defined, no callback is executed', () => {
         delete testProps.onValueChange;
-        component = createTestComponent(testProps);
+        component = <TestComponent {...testProps} />;
         testingLib = render(component);
         rootButton = testingLib.queryByTestId(
           `${testProps.testID}-${TESTID.ROOTBUTTON}`,
@@ -595,7 +605,7 @@ describe('[Select] render', () => {
         }
       });
 
-      it('This list disappeaers when you press a part other than the list', () => {
+      it('This list disappears when you press a part other than the list', () => {
         const close = testingLib.queryByTestId(
           `${testProps.testID}-picker-${PICKER_TEST_ID.CLOSE}`,
         );
@@ -608,6 +618,16 @@ describe('[Select] render', () => {
       it('Pressing on an item that is not selected will move to scroll', () => {
         const item = testingLib.queryByTestId(
           `${testProps.testID}-picker-${PICKER_TEST_ID.ITEM}-3`,
+        );
+        act(() => {
+          fireEvent.press(item);
+        });
+        expect(testingLib.asJSON()).toMatchSnapshot();
+      });
+
+      it('The list disappears when the selected item is pressed.', () => {
+        const item = testingLib.queryByTestId(
+          `${testProps.testID}-picker-${PICKER_TEST_ID.ITEM}-0`,
         );
         act(() => {
           fireEvent.press(item);
@@ -643,7 +663,7 @@ describe('[Select] render', () => {
       it('Given a selected value, the initial position of the list is determined', () => {
         props.selectedValue = 'Category3';
         const testProps = createTestProps(props);
-        const component = createTestComponent(testProps);
+        const component = <TestComponent {...testProps} />;
         const testingLib = render(component);
         const rootButton = testingLib.queryByTestId(
           `${testProps.testID}-${TESTID.ROOTBUTTON}`,

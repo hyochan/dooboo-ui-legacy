@@ -1,147 +1,5 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`[Select] render [Select] render renders without crashing 1`] = `
-<View>
-  <View
-    accessible={true}
-    clickable={true}
-    isTVSelectable={true}
-    onClick={[Function]}
-    onResponderGrant={[Function]}
-    onResponderMove={[Function]}
-    onResponderRelease={[Function]}
-    onResponderTerminate={[Function]}
-    onResponderTerminationRequest={[Function]}
-    onStartShouldSetResponder={[Function]}
-    style={
-      Object {
-        "opacity": 1,
-      }
-    }
-    testID="undefined-root-button"
-  >
-    <View
-      style={
-        Array [
-          Object {
-            "alignItems": "center",
-            "backgroundColor": "#ffffff",
-            "elevation": 1,
-            "flexDirection": "row",
-            "height": 48,
-            "justifyContent": "space-between",
-            "paddingBottom": 14,
-            "paddingLeft": 6,
-            "paddingRight": 6,
-            "paddingTop": 14,
-            "shadowColor": "#5364ff",
-            "shadowOpacity": 0.5,
-            "shadowRadius": 3,
-            "width": 128,
-          },
-        ]
-      }
-      testID="undefined-root-select"
-      theme="none"
-    >
-      <Image
-        source={
-          Object {
-            "testUri": "../../../icons/ic_arr_down.png",
-          }
-        }
-        testID="undefined-root-arrow"
-      />
-    </View>
-  </View>
-  <Modal
-    hardwareAccelerated={false}
-    transparent={true}
-    visible={false}
-  >
-    <View
-      accessible={true}
-      clickable={true}
-      isTVSelectable={true}
-      onClick={[Function]}
-      onResponderGrant={[Function]}
-      onResponderMove={[Function]}
-      onResponderRelease={[Function]}
-      onResponderTerminate={[Function]}
-      onResponderTerminationRequest={[Function]}
-      onStartShouldSetResponder={[Function]}
-      style={
-        Object {
-          "height": "100%",
-          "left": 0,
-          "opacity": 1,
-          "position": "absolute",
-          "top": 0,
-          "width": "100%",
-        }
-      }
-    />
-    <View
-      style={
-        Array [
-          Object {
-            "elevation": 8,
-            "shadowColor": "#5364ff",
-            "shadowOpacity": 0.2,
-          },
-          Object {
-            "display": "flex",
-            "left": 0,
-            "shadowOffset": Object {
-              "height": 5,
-              "width": 0,
-            },
-            "top": 0,
-            "width": 0,
-          },
-        ]
-      }
-      testID="undefined-select-list-view"
-    >
-      <RCTScrollView
-        disableVirtualization={false}
-        getItem={[Function]}
-        getItemCount={[Function]}
-        horizontal={false}
-        initialNumToRender={10}
-        keyExtractor={[Function]}
-        maxToRenderPerBatch={10}
-        numColumns={1}
-        onContentSizeChange={[Function]}
-        onEndReachedThreshold={2}
-        onLayout={[Function]}
-        onMomentumScrollEnd={[Function]}
-        onScroll={[Function]}
-        onScrollBeginDrag={[Function]}
-        onScrollEndDrag={[Function]}
-        removeClippedSubviews={false}
-        renderItem={[Function]}
-        scrollEventThrottle={50}
-        stickyHeaderIndices={Array []}
-        style={
-          Array [
-            Object {
-              "backgroundColor": "#ffffff",
-              "paddingTop": 8,
-            },
-          ]
-        }
-        updateCellsBatchingPeriod={50}
-        viewabilityConfigCallbackPairs={Array []}
-        windowSize={21}
-      >
-        <View />
-      </RCTScrollView>
-    </View>
-  </Modal>
-</View>
-`;
-
 exports[`[Select] render Interaction when mode is picker Check the interaction based on user behavior Pressing on an item that is not selected will move to scroll 1`] = `
 <View
   collapsable={true}
@@ -312,7 +170,7 @@ exports[`[Select] render Interaction when mode is picker Check the interaction b
                   isTVSelectable={true}
                   style={
                     Object {
-                      "backgroundColor": "#ffffff",
+                      "backgroundColor": "#bcdbfb",
                       "height": 32,
                       "justifyContent": "center",
                       "opacity": 1,
@@ -325,7 +183,7 @@ exports[`[Select] render Interaction when mode is picker Check the interaction b
                   testID="select-list-item-Category1"
                 >
                   <Text
-                    selected={false}
+                    selected={true}
                     style={
                       Array [
                         Object {
@@ -334,7 +192,9 @@ exports[`[Select] render Interaction when mode is picker Check the interaction b
                         },
                       ]
                     }
-                  />
+                  >
+                    Category1
+                  </Text>
                 </View>
               </View>
               <View
@@ -368,7 +228,9 @@ exports[`[Select] render Interaction when mode is picker Check the interaction b
                         },
                       ]
                     }
-                  />
+                  >
+                    Category2
+                  </Text>
                 </View>
               </View>
               <View
@@ -402,7 +264,9 @@ exports[`[Select] render Interaction when mode is picker Check the interaction b
                         },
                       ]
                     }
-                  />
+                  >
+                    Category3
+                  </Text>
                 </View>
               </View>
               <View
@@ -436,7 +300,9 @@ exports[`[Select] render Interaction when mode is picker Check the interaction b
                         },
                       ]
                     }
-                  />
+                  >
+                    Category4
+                  </Text>
                 </View>
               </View>
               <View
@@ -470,7 +336,9 @@ exports[`[Select] render Interaction when mode is picker Check the interaction b
                         },
                       ]
                     }
-                  />
+                  >
+                    Category5
+                  </Text>
                 </View>
               </View>
               <View
@@ -884,7 +752,7 @@ exports[`[Select] render Interaction when mode is picker Check the interaction b
 </View>
 `;
 
-exports[`[Select] render Interaction when mode is picker Check the interaction based on user behavior This list disappeaers when you press a part other than the list 1`] = `
+exports[`[Select] render Interaction when mode is picker Check the interaction based on user behavior The list disappears when the selected item is pressed. 1`] = `
 <View
   collapsable={true}
   pointerEvents="box-none"
@@ -1054,7 +922,7 @@ exports[`[Select] render Interaction when mode is picker Check the interaction b
                   isTVSelectable={true}
                   style={
                     Object {
-                      "backgroundColor": "#ffffff",
+                      "backgroundColor": "#bcdbfb",
                       "height": 32,
                       "justifyContent": "center",
                       "opacity": 1,
@@ -1067,7 +935,7 @@ exports[`[Select] render Interaction when mode is picker Check the interaction b
                   testID="select-list-item-Category1"
                 >
                   <Text
-                    selected={false}
+                    selected={true}
                     style={
                       Array [
                         Object {
@@ -1076,7 +944,9 @@ exports[`[Select] render Interaction when mode is picker Check the interaction b
                         },
                       ]
                     }
-                  />
+                  >
+                    Category1
+                  </Text>
                 </View>
               </View>
               <View
@@ -1110,7 +980,9 @@ exports[`[Select] render Interaction when mode is picker Check the interaction b
                         },
                       ]
                     }
-                  />
+                  >
+                    Category2
+                  </Text>
                 </View>
               </View>
               <View
@@ -1144,7 +1016,9 @@ exports[`[Select] render Interaction when mode is picker Check the interaction b
                         },
                       ]
                     }
-                  />
+                  >
+                    Category3
+                  </Text>
                 </View>
               </View>
               <View
@@ -1178,7 +1052,9 @@ exports[`[Select] render Interaction when mode is picker Check the interaction b
                         },
                       ]
                     }
-                  />
+                  >
+                    Category4
+                  </Text>
                 </View>
               </View>
               <View
@@ -1212,7 +1088,761 @@ exports[`[Select] render Interaction when mode is picker Check the interaction b
                         },
                       ]
                     }
+                  >
+                    Category5
+                  </Text>
+                </View>
+              </View>
+              <View
+                style={null}
+              >
+                <View
+                  accessible={true}
+                  clickable={true}
+                  isTVSelectable={true}
+                  style={
+                    Object {
+                      "backgroundColor": "#ffffff",
+                      "height": 32,
+                      "justifyContent": "center",
+                      "opacity": 1,
+                      "paddingBottom": 6,
+                      "paddingLeft": 6,
+                      "paddingRight": 6,
+                      "paddingTop": 6,
+                    }
+                  }
+                  testID="select-list-item-Category6"
+                >
+                  <Text
+                    selected={false}
+                    style={
+                      Array [
+                        Object {
+                          "color": "#000000",
+                          "fontSize": 14,
+                        },
+                      ]
+                    }
                   />
+                </View>
+              </View>
+            </View>
+          </RCTScrollView>
+        </View>
+      </Modal>
+      <Modal
+        hardwareAccelerated={false}
+        transparent={true}
+        visible={false}
+      >
+        <View
+          accessible={true}
+          clickable={true}
+          isTVSelectable={true}
+          style={
+            Object {
+              "backgroundColor": "#efefef55",
+              "height": "100%",
+              "opacity": 1,
+              "position": "absolute",
+              "width": "100%",
+            }
+          }
+          testID="select-picker-close"
+        />
+        <View
+          style={
+            Array [
+              Object {
+                "borderRadius": 1,
+                "height": 240,
+                "width": 200,
+              },
+              Object {
+                "backgroundColor": "#ffffff",
+                "elevation": 6,
+                "left": 0,
+                "position": "absolute",
+                "shadowColor": "#5364ff",
+                "shadowOffset": Object {
+                  "height": 3,
+                  "width": 2,
+                },
+                "shadowOpacity": 0.2,
+                "shadowRadius": 5,
+                "top": -100,
+                "width": 0,
+              },
+            ]
+          }
+          testID="select-picker-list-wrapper"
+        >
+          <RCTScrollView
+            ListFooterComponent={
+              <ForwardRef
+                style={
+                  Object {
+                    "height": 100,
+                  }
+                }
+              />
+            }
+            ListHeaderComponent={
+              <ForwardRef
+                style={
+                  Object {
+                    "height": 100,
+                  }
+                }
+              />
+            }
+            data={
+              Array [
+                Object {
+                  "label": "Category1",
+                  "value": "Category1",
+                },
+                Object {
+                  "label": "Category2",
+                  "value": "Category2",
+                },
+                Object {
+                  "label": "Category3",
+                  "value": "Category3",
+                },
+                Object {
+                  "label": "Category4",
+                  "value": "Category4",
+                },
+                Object {
+                  "label": "Category5",
+                  "value": "Category5",
+                },
+                Object {
+                  "value": "Category6",
+                },
+              ]
+            }
+            disableVirtualization={false}
+            horizontal={false}
+            initialNumToRender={10}
+            initialScrollIndex={0}
+            maxToRenderPerBatch={10}
+            numColumns={1}
+            onEndReachedThreshold={2}
+            removeClippedSubviews={false}
+            scrollEventThrottle={50}
+            showsVerticalScrollIndicator={false}
+            stickyHeaderIndices={Array []}
+            style={
+              Array [
+                Object {
+                  "height": "100%",
+                  "width": "100%",
+                },
+              ]
+            }
+            testID="select-picker-list"
+            updateCellsBatchingPeriod={50}
+            viewabilityConfigCallbackPairs={Array []}
+            windowSize={21}
+          >
+            <View>
+              <View>
+                <View
+                  style={
+                    Array [
+                      Object {
+                        "height": 80,
+                        "width": "100%",
+                      },
+                      Object {
+                        "height": 100,
+                      },
+                    ]
+                  }
+                />
+              </View>
+              <View
+                style={null}
+              >
+                <View
+                  accessible={true}
+                  clickable={true}
+                  isTVSelectable={true}
+                  style={
+                    Object {
+                      "alignItems": "center",
+                      "height": 40,
+                      "justifyContent": "center",
+                      "opacity": 1,
+                      "width": "100%",
+                    }
+                  }
+                  testID="select-picker-item-0"
+                >
+                  <Text
+                    style={
+                      Array [
+                        Object {
+                          "fontSize": 14,
+                        },
+                      ]
+                    }
+                  >
+                    Category1
+                  </Text>
+                </View>
+              </View>
+              <View
+                style={null}
+              >
+                <View
+                  accessible={true}
+                  clickable={true}
+                  isTVSelectable={true}
+                  style={
+                    Object {
+                      "alignItems": "center",
+                      "height": 40,
+                      "justifyContent": "center",
+                      "opacity": 1,
+                      "width": "100%",
+                    }
+                  }
+                  testID="select-picker-item-1"
+                >
+                  <Text
+                    style={
+                      Array [
+                        Object {
+                          "fontSize": 14,
+                        },
+                      ]
+                    }
+                  >
+                    Category2
+                  </Text>
+                </View>
+              </View>
+              <View
+                style={null}
+              >
+                <View
+                  accessible={true}
+                  clickable={true}
+                  isTVSelectable={true}
+                  style={
+                    Object {
+                      "alignItems": "center",
+                      "height": 40,
+                      "justifyContent": "center",
+                      "opacity": 1,
+                      "width": "100%",
+                    }
+                  }
+                  testID="select-picker-item-2"
+                >
+                  <Text
+                    style={
+                      Array [
+                        Object {
+                          "fontSize": 14,
+                        },
+                      ]
+                    }
+                  >
+                    Category3
+                  </Text>
+                </View>
+              </View>
+              <View
+                style={null}
+              >
+                <View
+                  accessible={true}
+                  clickable={true}
+                  isTVSelectable={true}
+                  style={
+                    Object {
+                      "alignItems": "center",
+                      "height": 40,
+                      "justifyContent": "center",
+                      "opacity": 1,
+                      "width": "100%",
+                    }
+                  }
+                  testID="select-picker-item-3"
+                >
+                  <Text
+                    style={
+                      Array [
+                        Object {
+                          "fontSize": 14,
+                        },
+                      ]
+                    }
+                  >
+                    Category4
+                  </Text>
+                </View>
+              </View>
+              <View
+                style={null}
+              >
+                <View
+                  accessible={true}
+                  clickable={true}
+                  isTVSelectable={true}
+                  style={
+                    Object {
+                      "alignItems": "center",
+                      "height": 40,
+                      "justifyContent": "center",
+                      "opacity": 1,
+                      "width": "100%",
+                    }
+                  }
+                  testID="select-picker-item-4"
+                >
+                  <Text
+                    style={
+                      Array [
+                        Object {
+                          "fontSize": 14,
+                        },
+                      ]
+                    }
+                  >
+                    Category5
+                  </Text>
+                </View>
+              </View>
+              <View
+                style={null}
+              >
+                <View
+                  accessible={true}
+                  clickable={true}
+                  isTVSelectable={true}
+                  style={
+                    Object {
+                      "alignItems": "center",
+                      "height": 40,
+                      "justifyContent": "center",
+                      "opacity": 1,
+                      "width": "100%",
+                    }
+                  }
+                  testID="select-picker-item-5"
+                >
+                  <Text
+                    style={
+                      Array [
+                        Object {
+                          "fontSize": 14,
+                        },
+                      ]
+                    }
+                  >
+                    Category6
+                  </Text>
+                </View>
+              </View>
+              <View>
+                <View
+                  style={
+                    Array [
+                      Object {
+                        "height": 80,
+                        "width": "100%",
+                      },
+                      Object {
+                        "height": 100,
+                      },
+                    ]
+                  }
+                />
+              </View>
+            </View>
+          </RCTScrollView>
+          <View
+            style={
+              Array [
+                Object {
+                  "backgroundColor": "grey",
+                  "height": 1,
+                  "position": "absolute",
+                  "width": "100%",
+                },
+                Object {
+                  "top": 100,
+                },
+              ]
+            }
+          />
+          <View
+            style={
+              Array [
+                Object {
+                  "backgroundColor": "grey",
+                  "height": 1,
+                  "position": "absolute",
+                  "width": "100%",
+                },
+                Object {
+                  "bottom": 100,
+                },
+              ]
+            }
+          />
+        </View>
+      </Modal>
+    </View>
+  </View>
+</View>
+`;
+
+exports[`[Select] render Interaction when mode is picker Check the interaction based on user behavior This list disappears when you press a part other than the list 1`] = `
+<View
+  collapsable={true}
+  pointerEvents="box-none"
+  style={
+    Object {
+      "flex": 1,
+    }
+  }
+>
+  <View
+    style={
+      Object {
+        "alignItems": "center",
+        "height": 400,
+        "justifyContent": "center",
+        "width": 300,
+      }
+    }
+  >
+    <View
+      testID="select"
+    >
+      <View
+        accessible={true}
+        clickable={true}
+        isTVSelectable={true}
+        style={
+          Object {
+            "opacity": 1,
+          }
+        }
+        testID="select-root-button"
+      >
+        <View
+          style={
+            Array [
+              Object {
+                "alignItems": "center",
+                "backgroundColor": "transparent",
+                "flexDirection": "row",
+                "height": 48,
+                "justifyContent": "space-between",
+                "paddingBottom": 14,
+                "paddingLeft": 6,
+                "paddingRight": 6,
+                "paddingTop": 14,
+                "width": 128,
+              },
+              Object {
+                "left": 100,
+                "position": "absolute",
+                "top": 100,
+              },
+            ]
+          }
+          testID="select-root-select"
+          theme="blank"
+        >
+          <Image
+            source={
+              Object {
+                "testUri": "../../../icons/ic_arr_down.png",
+              }
+            }
+            testID="select-root-arrow"
+          />
+        </View>
+      </View>
+      <Modal
+        hardwareAccelerated={false}
+        transparent={true}
+        visible={false}
+      >
+        <View
+          accessible={true}
+          clickable={true}
+          isTVSelectable={true}
+          style={
+            Object {
+              "height": "100%",
+              "left": 0,
+              "opacity": 1,
+              "position": "absolute",
+              "top": 0,
+              "width": "100%",
+            }
+          }
+        />
+        <View
+          style={
+            Array [
+              Object {
+                "elevation": 8,
+                "shadowColor": "#5364ff",
+                "shadowOpacity": 0.2,
+              },
+              Object {
+                "display": "flex",
+                "left": 0,
+                "shadowOffset": Object {
+                  "height": 5,
+                  "width": 0,
+                },
+                "top": 0,
+                "width": 0,
+              },
+            ]
+          }
+          testID="select-select-list-view"
+        >
+          <RCTScrollView
+            data={
+              Array [
+                Object {
+                  "label": "Category1",
+                  "value": "Category1",
+                },
+                Object {
+                  "label": "Category2",
+                  "value": "Category2",
+                },
+                Object {
+                  "label": "Category3",
+                  "value": "Category3",
+                },
+                Object {
+                  "label": "Category4",
+                  "value": "Category4",
+                },
+                Object {
+                  "label": "Category5",
+                  "value": "Category5",
+                },
+                Object {
+                  "value": "Category6",
+                },
+              ]
+            }
+            disableVirtualization={false}
+            horizontal={false}
+            initialNumToRender={10}
+            maxToRenderPerBatch={10}
+            numColumns={1}
+            onEndReachedThreshold={2}
+            removeClippedSubviews={false}
+            scrollEventThrottle={50}
+            stickyHeaderIndices={Array []}
+            style={
+              Array [
+                Object {
+                  "backgroundColor": "#ffffff",
+                  "paddingTop": 8,
+                },
+              ]
+            }
+            updateCellsBatchingPeriod={50}
+            viewabilityConfigCallbackPairs={Array []}
+            windowSize={21}
+          >
+            <View>
+              <View
+                style={null}
+              >
+                <View
+                  accessible={true}
+                  clickable={true}
+                  isTVSelectable={true}
+                  style={
+                    Object {
+                      "backgroundColor": "#bcdbfb",
+                      "height": 32,
+                      "justifyContent": "center",
+                      "opacity": 1,
+                      "paddingBottom": 6,
+                      "paddingLeft": 6,
+                      "paddingRight": 6,
+                      "paddingTop": 6,
+                    }
+                  }
+                  testID="select-list-item-Category1"
+                >
+                  <Text
+                    selected={true}
+                    style={
+                      Array [
+                        Object {
+                          "color": "#000000",
+                          "fontSize": 14,
+                        },
+                      ]
+                    }
+                  >
+                    Category1
+                  </Text>
+                </View>
+              </View>
+              <View
+                style={null}
+              >
+                <View
+                  accessible={true}
+                  clickable={true}
+                  isTVSelectable={true}
+                  style={
+                    Object {
+                      "backgroundColor": "#ffffff",
+                      "height": 32,
+                      "justifyContent": "center",
+                      "opacity": 1,
+                      "paddingBottom": 6,
+                      "paddingLeft": 6,
+                      "paddingRight": 6,
+                      "paddingTop": 6,
+                    }
+                  }
+                  testID="select-list-item-Category2"
+                >
+                  <Text
+                    selected={false}
+                    style={
+                      Array [
+                        Object {
+                          "color": "#000000",
+                          "fontSize": 14,
+                        },
+                      ]
+                    }
+                  >
+                    Category2
+                  </Text>
+                </View>
+              </View>
+              <View
+                style={null}
+              >
+                <View
+                  accessible={true}
+                  clickable={true}
+                  isTVSelectable={true}
+                  style={
+                    Object {
+                      "backgroundColor": "#ffffff",
+                      "height": 32,
+                      "justifyContent": "center",
+                      "opacity": 1,
+                      "paddingBottom": 6,
+                      "paddingLeft": 6,
+                      "paddingRight": 6,
+                      "paddingTop": 6,
+                    }
+                  }
+                  testID="select-list-item-Category3"
+                >
+                  <Text
+                    selected={false}
+                    style={
+                      Array [
+                        Object {
+                          "color": "#000000",
+                          "fontSize": 14,
+                        },
+                      ]
+                    }
+                  >
+                    Category3
+                  </Text>
+                </View>
+              </View>
+              <View
+                style={null}
+              >
+                <View
+                  accessible={true}
+                  clickable={true}
+                  isTVSelectable={true}
+                  style={
+                    Object {
+                      "backgroundColor": "#ffffff",
+                      "height": 32,
+                      "justifyContent": "center",
+                      "opacity": 1,
+                      "paddingBottom": 6,
+                      "paddingLeft": 6,
+                      "paddingRight": 6,
+                      "paddingTop": 6,
+                    }
+                  }
+                  testID="select-list-item-Category4"
+                >
+                  <Text
+                    selected={false}
+                    style={
+                      Array [
+                        Object {
+                          "color": "#000000",
+                          "fontSize": 14,
+                        },
+                      ]
+                    }
+                  >
+                    Category4
+                  </Text>
+                </View>
+              </View>
+              <View
+                style={null}
+              >
+                <View
+                  accessible={true}
+                  clickable={true}
+                  isTVSelectable={true}
+                  style={
+                    Object {
+                      "backgroundColor": "#ffffff",
+                      "height": 32,
+                      "justifyContent": "center",
+                      "opacity": 1,
+                      "paddingBottom": 6,
+                      "paddingLeft": 6,
+                      "paddingRight": 6,
+                      "paddingTop": 6,
+                    }
+                  }
+                  testID="select-list-item-Category5"
+                >
+                  <Text
+                    selected={false}
+                    style={
+                      Array [
+                        Object {
+                          "color": "#000000",
+                          "fontSize": 14,
+                        },
+                      ]
+                    }
+                  >
+                    Category5
+                  </Text>
                 </View>
               </View>
               <View
@@ -1797,7 +2427,7 @@ exports[`[Select] render Interaction when mode is picker Check the interaction o
                   isTVSelectable={true}
                   style={
                     Object {
-                      "backgroundColor": "#ffffff",
+                      "backgroundColor": "#bcdbfb",
                       "height": 32,
                       "justifyContent": "center",
                       "opacity": 1,
@@ -1810,7 +2440,7 @@ exports[`[Select] render Interaction when mode is picker Check the interaction o
                   testID="select-list-item-Category1"
                 >
                   <Text
-                    selected={false}
+                    selected={true}
                     style={
                       Array [
                         Object {
@@ -1819,7 +2449,9 @@ exports[`[Select] render Interaction when mode is picker Check the interaction o
                         },
                       ]
                     }
-                  />
+                  >
+                    Category1
+                  </Text>
                 </View>
               </View>
               <View
@@ -1853,7 +2485,9 @@ exports[`[Select] render Interaction when mode is picker Check the interaction o
                         },
                       ]
                     }
-                  />
+                  >
+                    Category2
+                  </Text>
                 </View>
               </View>
               <View
@@ -1887,7 +2521,9 @@ exports[`[Select] render Interaction when mode is picker Check the interaction o
                         },
                       ]
                     }
-                  />
+                  >
+                    Category3
+                  </Text>
                 </View>
               </View>
               <View
@@ -1921,7 +2557,9 @@ exports[`[Select] render Interaction when mode is picker Check the interaction o
                         },
                       ]
                     }
-                  />
+                  >
+                    Category4
+                  </Text>
                 </View>
               </View>
               <View
@@ -1955,7 +2593,9 @@ exports[`[Select] render Interaction when mode is picker Check the interaction o
                         },
                       ]
                     }
-                  />
+                  >
+                    Category5
+                  </Text>
                 </View>
               </View>
               <View
@@ -2532,7 +3172,7 @@ exports[`[Select] render Interaction when mode is picker Check the interaction o
                   isTVSelectable={true}
                   style={
                     Object {
-                      "backgroundColor": "#ffffff",
+                      "backgroundColor": "#bcdbfb",
                       "height": 32,
                       "justifyContent": "center",
                       "opacity": 1,
@@ -2545,7 +3185,7 @@ exports[`[Select] render Interaction when mode is picker Check the interaction o
                   testID="select-list-item-Category1"
                 >
                   <Text
-                    selected={false}
+                    selected={true}
                     style={
                       Array [
                         Object {
@@ -2554,7 +3194,9 @@ exports[`[Select] render Interaction when mode is picker Check the interaction o
                         },
                       ]
                     }
-                  />
+                  >
+                    Category1
+                  </Text>
                 </View>
               </View>
               <View
@@ -2588,7 +3230,9 @@ exports[`[Select] render Interaction when mode is picker Check the interaction o
                         },
                       ]
                     }
-                  />
+                  >
+                    Category2
+                  </Text>
                 </View>
               </View>
               <View
@@ -2622,7 +3266,9 @@ exports[`[Select] render Interaction when mode is picker Check the interaction o
                         },
                       ]
                     }
-                  />
+                  >
+                    Category3
+                  </Text>
                 </View>
               </View>
               <View
@@ -2656,7 +3302,9 @@ exports[`[Select] render Interaction when mode is picker Check the interaction o
                         },
                       ]
                     }
-                  />
+                  >
+                    Category4
+                  </Text>
                 </View>
               </View>
               <View
@@ -2690,7 +3338,9 @@ exports[`[Select] render Interaction when mode is picker Check the interaction o
                         },
                       ]
                     }
-                  />
+                  >
+                    Category5
+                  </Text>
                 </View>
               </View>
               <View
@@ -3275,7 +3925,7 @@ exports[`[Select] render Interaction when mode is picker Check the interaction o
                   isTVSelectable={true}
                   style={
                     Object {
-                      "backgroundColor": "#ffffff",
+                      "backgroundColor": "#bcdbfb",
                       "height": 32,
                       "justifyContent": "center",
                       "opacity": 1,
@@ -3288,7 +3938,7 @@ exports[`[Select] render Interaction when mode is picker Check the interaction o
                   testID="select-list-item-Category1"
                 >
                   <Text
-                    selected={false}
+                    selected={true}
                     style={
                       Array [
                         Object {
@@ -3297,7 +3947,9 @@ exports[`[Select] render Interaction when mode is picker Check the interaction o
                         },
                       ]
                     }
-                  />
+                  >
+                    Category1
+                  </Text>
                 </View>
               </View>
               <View
@@ -3331,7 +3983,9 @@ exports[`[Select] render Interaction when mode is picker Check the interaction o
                         },
                       ]
                     }
-                  />
+                  >
+                    Category2
+                  </Text>
                 </View>
               </View>
               <View
@@ -3365,7 +4019,9 @@ exports[`[Select] render Interaction when mode is picker Check the interaction o
                         },
                       ]
                     }
-                  />
+                  >
+                    Category3
+                  </Text>
                 </View>
               </View>
               <View
@@ -3399,7 +4055,9 @@ exports[`[Select] render Interaction when mode is picker Check the interaction o
                         },
                       ]
                     }
-                  />
+                  >
+                    Category4
+                  </Text>
                 </View>
               </View>
               <View
@@ -3433,7 +4091,9 @@ exports[`[Select] render Interaction when mode is picker Check the interaction o
                         },
                       ]
                     }
-                  />
+                  >
+                    Category5
+                  </Text>
                 </View>
               </View>
               <View
@@ -4017,7 +4677,7 @@ exports[`[Select] render Interaction when mode is picker Check the interaction o
                   isTVSelectable={true}
                   style={
                     Object {
-                      "backgroundColor": "#ffffff",
+                      "backgroundColor": "#bcdbfb",
                       "height": 32,
                       "justifyContent": "center",
                       "opacity": 1,
@@ -4030,7 +4690,7 @@ exports[`[Select] render Interaction when mode is picker Check the interaction o
                   testID="select-list-item-Category1"
                 >
                   <Text
-                    selected={false}
+                    selected={true}
                     style={
                       Array [
                         Object {
@@ -4039,7 +4699,9 @@ exports[`[Select] render Interaction when mode is picker Check the interaction o
                         },
                       ]
                     }
-                  />
+                  >
+                    Category1
+                  </Text>
                 </View>
               </View>
               <View
@@ -4073,7 +4735,9 @@ exports[`[Select] render Interaction when mode is picker Check the interaction o
                         },
                       ]
                     }
-                  />
+                  >
+                    Category2
+                  </Text>
                 </View>
               </View>
               <View
@@ -4107,7 +4771,9 @@ exports[`[Select] render Interaction when mode is picker Check the interaction o
                         },
                       ]
                     }
-                  />
+                  >
+                    Category3
+                  </Text>
                 </View>
               </View>
               <View
@@ -4141,7 +4807,9 @@ exports[`[Select] render Interaction when mode is picker Check the interaction o
                         },
                       ]
                     }
-                  />
+                  >
+                    Category4
+                  </Text>
                 </View>
               </View>
               <View
@@ -4175,7 +4843,9 @@ exports[`[Select] render Interaction when mode is picker Check the interaction o
                         },
                       ]
                     }
-                  />
+                  >
+                    Category5
+                  </Text>
                 </View>
               </View>
               <View
@@ -4751,7 +5421,7 @@ exports[`[Select] render Interaction when mode is picker Check the interaction o
                   isTVSelectable={true}
                   style={
                     Object {
-                      "backgroundColor": "#ffffff",
+                      "backgroundColor": "#bcdbfb",
                       "height": 32,
                       "justifyContent": "center",
                       "opacity": 1,
@@ -4764,7 +5434,7 @@ exports[`[Select] render Interaction when mode is picker Check the interaction o
                   testID="select-list-item-Category1"
                 >
                   <Text
-                    selected={false}
+                    selected={true}
                     style={
                       Array [
                         Object {
@@ -4773,7 +5443,9 @@ exports[`[Select] render Interaction when mode is picker Check the interaction o
                         },
                       ]
                     }
-                  />
+                  >
+                    Category1
+                  </Text>
                 </View>
               </View>
               <View
@@ -4807,7 +5479,9 @@ exports[`[Select] render Interaction when mode is picker Check the interaction o
                         },
                       ]
                     }
-                  />
+                  >
+                    Category2
+                  </Text>
                 </View>
               </View>
               <View
@@ -4841,7 +5515,9 @@ exports[`[Select] render Interaction when mode is picker Check the interaction o
                         },
                       ]
                     }
-                  />
+                  >
+                    Category3
+                  </Text>
                 </View>
               </View>
               <View
@@ -4875,7 +5551,9 @@ exports[`[Select] render Interaction when mode is picker Check the interaction o
                         },
                       ]
                     }
-                  />
+                  >
+                    Category4
+                  </Text>
                 </View>
               </View>
               <View
@@ -4909,7 +5587,9 @@ exports[`[Select] render Interaction when mode is picker Check the interaction o
                         },
                       ]
                     }
-                  />
+                  >
+                    Category5
+                  </Text>
                 </View>
               </View>
               <View
@@ -5487,7 +6167,7 @@ exports[`[Select] render Interaction when mode is picker Check the interaction o
                   isTVSelectable={true}
                   style={
                     Object {
-                      "backgroundColor": "#ffffff",
+                      "backgroundColor": "#bcdbfb",
                       "height": 32,
                       "justifyContent": "center",
                       "opacity": 1,
@@ -5500,7 +6180,7 @@ exports[`[Select] render Interaction when mode is picker Check the interaction o
                   testID="select-list-item-Category1"
                 >
                   <Text
-                    selected={false}
+                    selected={true}
                     style={
                       Array [
                         Object {
@@ -5509,7 +6189,9 @@ exports[`[Select] render Interaction when mode is picker Check the interaction o
                         },
                       ]
                     }
-                  />
+                  >
+                    Category1
+                  </Text>
                 </View>
               </View>
               <View
@@ -5543,7 +6225,9 @@ exports[`[Select] render Interaction when mode is picker Check the interaction o
                         },
                       ]
                     }
-                  />
+                  >
+                    Category2
+                  </Text>
                 </View>
               </View>
               <View
@@ -5577,7 +6261,9 @@ exports[`[Select] render Interaction when mode is picker Check the interaction o
                         },
                       ]
                     }
-                  />
+                  >
+                    Category3
+                  </Text>
                 </View>
               </View>
               <View
@@ -5611,7 +6297,9 @@ exports[`[Select] render Interaction when mode is picker Check the interaction o
                         },
                       ]
                     }
-                  />
+                  >
+                    Category4
+                  </Text>
                 </View>
               </View>
               <View
@@ -5645,7 +6333,9 @@ exports[`[Select] render Interaction when mode is picker Check the interaction o
                         },
                       ]
                     }
-                  />
+                  >
+                    Category5
+                  </Text>
                 </View>
               </View>
               <View
@@ -6229,7 +6919,7 @@ exports[`[Select] render Interaction when mode is picker Check the interaction o
                   isTVSelectable={true}
                   style={
                     Object {
-                      "backgroundColor": "#ffffff",
+                      "backgroundColor": "#bcdbfb",
                       "height": 32,
                       "justifyContent": "center",
                       "opacity": 1,
@@ -6242,7 +6932,7 @@ exports[`[Select] render Interaction when mode is picker Check the interaction o
                   testID="select-list-item-Category1"
                 >
                   <Text
-                    selected={false}
+                    selected={true}
                     style={
                       Array [
                         Object {
@@ -6251,7 +6941,9 @@ exports[`[Select] render Interaction when mode is picker Check the interaction o
                         },
                       ]
                     }
-                  />
+                  >
+                    Category1
+                  </Text>
                 </View>
               </View>
               <View
@@ -6285,7 +6977,9 @@ exports[`[Select] render Interaction when mode is picker Check the interaction o
                         },
                       ]
                     }
-                  />
+                  >
+                    Category2
+                  </Text>
                 </View>
               </View>
               <View
@@ -6319,7 +7013,9 @@ exports[`[Select] render Interaction when mode is picker Check the interaction o
                         },
                       ]
                     }
-                  />
+                  >
+                    Category3
+                  </Text>
                 </View>
               </View>
               <View
@@ -6353,7 +7049,9 @@ exports[`[Select] render Interaction when mode is picker Check the interaction o
                         },
                       ]
                     }
-                  />
+                  >
+                    Category4
+                  </Text>
                 </View>
               </View>
               <View
@@ -6387,7 +7085,9 @@ exports[`[Select] render Interaction when mode is picker Check the interaction o
                         },
                       ]
                     }
-                  />
+                  >
+                    Category5
+                  </Text>
                 </View>
               </View>
               <View
@@ -6971,7 +7671,7 @@ exports[`[Select] render Interaction when mode is picker Check the interaction o
                   isTVSelectable={true}
                   style={
                     Object {
-                      "backgroundColor": "#ffffff",
+                      "backgroundColor": "#bcdbfb",
                       "height": 32,
                       "justifyContent": "center",
                       "opacity": 1,
@@ -6984,7 +7684,7 @@ exports[`[Select] render Interaction when mode is picker Check the interaction o
                   testID="select-list-item-Category1"
                 >
                   <Text
-                    selected={false}
+                    selected={true}
                     style={
                       Array [
                         Object {
@@ -6993,7 +7693,9 @@ exports[`[Select] render Interaction when mode is picker Check the interaction o
                         },
                       ]
                     }
-                  />
+                  >
+                    Category1
+                  </Text>
                 </View>
               </View>
               <View
@@ -7027,7 +7729,9 @@ exports[`[Select] render Interaction when mode is picker Check the interaction o
                         },
                       ]
                     }
-                  />
+                  >
+                    Category2
+                  </Text>
                 </View>
               </View>
               <View
@@ -7061,7 +7765,9 @@ exports[`[Select] render Interaction when mode is picker Check the interaction o
                         },
                       ]
                     }
-                  />
+                  >
+                    Category3
+                  </Text>
                 </View>
               </View>
               <View
@@ -7095,7 +7801,9 @@ exports[`[Select] render Interaction when mode is picker Check the interaction o
                         },
                       ]
                     }
-                  />
+                  >
+                    Category4
+                  </Text>
                 </View>
               </View>
               <View
@@ -7129,7 +7837,9 @@ exports[`[Select] render Interaction when mode is picker Check the interaction o
                         },
                       ]
                     }
-                  />
+                  >
+                    Category5
+                  </Text>
                 </View>
               </View>
               <View
@@ -7713,7 +8423,7 @@ exports[`[Select] render Interaction when mode is picker Check the interaction o
                   isTVSelectable={true}
                   style={
                     Object {
-                      "backgroundColor": "#ffffff",
+                      "backgroundColor": "#bcdbfb",
                       "height": 32,
                       "justifyContent": "center",
                       "opacity": 1,
@@ -7726,7 +8436,7 @@ exports[`[Select] render Interaction when mode is picker Check the interaction o
                   testID="select-list-item-Category1"
                 >
                   <Text
-                    selected={false}
+                    selected={true}
                     style={
                       Array [
                         Object {
@@ -7735,7 +8445,9 @@ exports[`[Select] render Interaction when mode is picker Check the interaction o
                         },
                       ]
                     }
-                  />
+                  >
+                    Category1
+                  </Text>
                 </View>
               </View>
               <View
@@ -7769,7 +8481,9 @@ exports[`[Select] render Interaction when mode is picker Check the interaction o
                         },
                       ]
                     }
-                  />
+                  >
+                    Category2
+                  </Text>
                 </View>
               </View>
               <View
@@ -7781,7 +8495,7 @@ exports[`[Select] render Interaction when mode is picker Check the interaction o
                   isTVSelectable={true}
                   style={
                     Object {
-                      "backgroundColor": "#bcdbfb",
+                      "backgroundColor": "#ffffff",
                       "height": 32,
                       "justifyContent": "center",
                       "opacity": 1,
@@ -7794,7 +8508,7 @@ exports[`[Select] render Interaction when mode is picker Check the interaction o
                   testID="select-list-item-Category3"
                 >
                   <Text
-                    selected={true}
+                    selected={false}
                     style={
                       Array [
                         Object {
@@ -7803,7 +8517,9 @@ exports[`[Select] render Interaction when mode is picker Check the interaction o
                         },
                       ]
                     }
-                  />
+                  >
+                    Category3
+                  </Text>
                 </View>
               </View>
               <View
@@ -7837,7 +8553,9 @@ exports[`[Select] render Interaction when mode is picker Check the interaction o
                         },
                       ]
                     }
-                  />
+                  >
+                    Category4
+                  </Text>
                 </View>
               </View>
               <View
@@ -7871,7 +8589,9 @@ exports[`[Select] render Interaction when mode is picker Check the interaction o
                         },
                       ]
                     }
-                  />
+                  >
+                    Category5
+                  </Text>
                 </View>
               </View>
               <View
@@ -8008,7 +8728,7 @@ exports[`[Select] render Interaction when mode is picker Check the interaction o
             disableVirtualization={false}
             horizontal={false}
             initialNumToRender={10}
-            initialScrollIndex={2}
+            initialScrollIndex={0}
             maxToRenderPerBatch={10}
             numColumns={1}
             onEndReachedThreshold={2}

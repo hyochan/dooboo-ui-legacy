@@ -183,7 +183,8 @@ function Picker({
 
   const renderItem = ({ item: { value, label }, index }: {item: Item; index: number}): React.ReactElement => {
     const onPress = (): void => {
-      scrollToPosition(index);
+      if (value === selectedValue) close();
+      else scrollToPosition(index);
     };
     return (
       <ItemView
