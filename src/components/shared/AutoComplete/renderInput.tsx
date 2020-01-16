@@ -56,7 +56,7 @@ const RenderInput =
         >
           {!value && placeholderLabel}
         </Animated.Text>
-        <Input {...props} onFocus={onFocus} onBlur={onBlur} ref={ref} />
+        <Input {...props} onFocus={onFocus} onBlur={onBlur} ref={ref as any} />
         {!!value && (
           <ResetContainer
             testID={testID}
@@ -64,7 +64,9 @@ const RenderInput =
               if (onDebounceOrOnReset) {
                 onDebounceOrOnReset('');
               }
-              onChangeText('');
+              if (onChangeText) {
+                onChangeText('');
+              }
             }}>
             <ResetCircle>
               <ResetText>X</ResetText>

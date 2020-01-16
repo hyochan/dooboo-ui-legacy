@@ -35,7 +35,7 @@ export const InputInnerContainer = styled.View`
   align-items: stretch;
 `;
 
-export const Input = styled.TextInput`
+export const Input = styled.TextInput<any>`
   flex: 1;
   align-self: center;
   font-size: 16px;
