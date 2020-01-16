@@ -1,18 +1,37 @@
 import { Dispatch, SetStateAction } from 'react';
-import { StyleProp, ViewStyle } from 'react-native';
+import { TextInputProps, ViewStyle } from 'react-native';
 
 export interface AutoCompleteProps {
   renderInputTestID?: string;
   caretBtnTestID?: string;
   value: string;
   onDebounceOrOnReset?: Dispatch<SetStateAction<string>>;
-  style?: StyleProp<ViewStyle>;
+  style?: ViewStyle;
   debounceDelay?: number;
   placeholderText?: string;
   underlayColor?: string;
 }
 
 type OnPressOption = (data: DummyDatum) => void;
+
+export type InputWrapper = {
+  on: boolean;
+  width: number;
+  inSets: {
+    top: number;
+    left: number;
+    bottom: number;
+    right: number;
+  };
+};
+
+export type RenderInputProps = TextInputProps & {
+  on: boolean;
+  placeholderLabel: string;
+  onDebounceOrOnReset?: (params?: any) => any;
+  onFocus: () => void;
+  onBlur?: () => void;
+}
 
 export type RenderOptionProps = DummyDatum & {
   onPress: OnPressOption;
@@ -33,7 +52,7 @@ export type OptionWrapperProps = {
 };
 
 export type InputContainerProps = {
-  on: boolean;
+  focus: boolean;
 };
 
 export type OptionTextProps = {

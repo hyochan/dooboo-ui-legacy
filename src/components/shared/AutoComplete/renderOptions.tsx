@@ -1,6 +1,8 @@
-import { OptionText, OptionWrapper, OptionsContainer } from './styles';
+import { DummyDatum, RenderOptionProps, RenderOptionsProps } from './types';
+import { OptionText, OptionWrapper, styles } from './styles';
 import React, { FC, ReactElement } from 'react';
-import { RenderOptionProps, RenderOptionsProps } from './types';
+
+import { FlatList } from 'react-native';
 
 const RenderOption: FC<RenderOptionProps> = ({
   id,
@@ -27,12 +29,15 @@ const RenderOptions: FC<RenderOptionsProps> = ({
   selectedData,
   underlayColor,
 }): ReactElement => (
-  <OptionsContainer
+  <FlatList<DummyDatum>
+    keyboardShouldPersistTaps="always"
+    contentContainerStyle={{ paddingVertical: 10 }}
+    style={styles.optionsWrapper}
     data={data}
     extraData={data}
     renderItem={({ item }): ReactElement => {
-      const selectedDataId = selectedData && selectedData.id;
-      const itemId = item && item.id;
+      const selectedDataId = selectedData?.id;
+      const itemId = item?.id;
 
       return (
         <RenderOption

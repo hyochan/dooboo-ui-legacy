@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import {
   StyleProp,
+  StyleSheet,
   Text,
   TextStyle,
   TouchableOpacity,
@@ -24,7 +25,7 @@ function Shared(props: Props): React.ReactElement {
   const [selectedOption, setSelectedOption] = useState(0);
 
   return (
-    <View testID={props.testID} style={[props.containerStyle, props.style]}>
+    <View testID={props.testID} style={StyleSheet.flatten([props.containerStyle, props.style])}>
       {props.data.map((text, i) => {
         return (
           <TouchableOpacity
@@ -40,7 +41,7 @@ function Shared(props: Props): React.ReactElement {
           >
             <View
               // prettier-ignore
-              style={[
+              style={StyleSheet.flatten([
                 selectedOption === i
                   ? props.selectedViewStyle
                   : props.viewStyle,
@@ -49,7 +50,7 @@ function Shared(props: Props): React.ReactElement {
                     borderRightWidth: 1,
                   }
                   : null,
-              ]}
+              ])}
             >
               <Text
                 style={
