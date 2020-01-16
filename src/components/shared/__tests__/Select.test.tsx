@@ -2,7 +2,12 @@ import 'react-native';
 
 import * as React from 'react';
 
-import { RenderResult, fireEvent, render } from '@testing-library/react-native';
+import {
+  RenderResult,
+  act,
+  fireEvent,
+  render,
+} from '@testing-library/react-native';
 import Select, { Item, Props, TESTID, ThemeEnum } from '../Select';
 
 // Note: test renderer must be required after react-native.
@@ -19,8 +24,11 @@ const ITEMS: Item[] = [
 type selectProp<K extends string> = {
   [T in K]: Props;
 };
+const onSelect = jest.fn();
 
-const mockProp: selectProp<'noTheme' | 'inputTheme' | 'themeAndRootView' | 'disabled'> = {
+const mockProp: selectProp<
+  'noTheme' | 'inputTheme' | 'themeAndRootView' | 'disabled'
+> = {
   noTheme: {
     testID: 'select',
     placeholder: 'select',
@@ -33,6 +41,7 @@ const mockProp: selectProp<'noTheme' | 'inputTheme' | 'themeAndRootView' | 'disa
     },
     items: ITEMS,
     activeOpacity: 0.5,
+    onSelect,
   },
   inputTheme: {
     testID: 'select',
@@ -41,6 +50,7 @@ const mockProp: selectProp<'noTheme' | 'inputTheme' | 'themeAndRootView' | 'disa
     placeholder: 'select',
     items: ITEMS,
     activeOpacity: 0.5,
+    onSelect,
   },
   themeAndRootView: {
     testID: 'select',
@@ -54,11 +64,12 @@ const mockProp: selectProp<'noTheme' | 'inputTheme' | 'themeAndRootView' | 'disa
     placeholder: 'select',
     items: ITEMS,
     activeOpacity: 0.5,
+    onSelect,
   },
   disabled: {
     testID: 'select',
-    title: 'disabled',
     theme: ThemeEnum.box,
+    title: 'disabled',
     rootViewStyle: {
       borderBottomColor: 'black',
       borderBottomWidth: 2,
@@ -71,6 +82,7 @@ const mockProp: selectProp<'noTheme' | 'inputTheme' | 'themeAndRootView' | 'disa
     items: ITEMS,
     disabled: true,
     activeOpacity: 0.5,
+    onSelect,
   },
 };
 
@@ -102,135 +114,251 @@ describe('[Select] render', () => {
     expect(rendered).toBeTruthy();
   });
 
-  describe('interactions', () => {
+  describe('[Select] render', () => {
+    let props: Props;
+    let component: React.ReactElement;
+    beforeEach(() => {
+      props = createTestProps({});
+      component = <Select {...props} />;
+    });
+
+    it('renders without crashing', () => {
+      const rendered: renderer.ReactTestRendererJSON | null = renderer
+        .create(component)
+        .toJSON();
+      expect(rendered).toMatchSnapshot();
+      expect(rendered).toBeTruthy();
+    });
+
+    describe('interactions', () => {
+      let testingLib: RenderResult;
+
+      beforeEach(() => {
+        testingLib = render(component);
+      });
+
+      it('check theme, title, rootTextStyle, titleTextStyle, and placeholder with case "notheme"', () => {
+        const theme = 'noTheme';
+        const props = createTestProps({ case: theme });
+        const component = <Select {...props} />;
+        const testingLib = render(component);
+        const view = testingLib.getByTestId(props.testID);
+        const selectRoot = testingLib.getByTestId(
+          `${props.testID}-${TESTID.ROOTSELECT}`,
+        );
+        const selectRootText = testingLib.getByTestId(
+          `${props.testID}-${TESTID.ROOTTEXT}`,
+        );
+        const selectTitleText = testingLib.getByTestId(
+          `${props.testID}-${TESTID.TITLETEXT}`,
+        );
+        const [inputtedRootTextStyle] =
+          selectRootText.props.style &&
+          selectRootText.props.style.filter((style) => {
+            return style === mockProp[theme].rootTextStyle;
+          });
+        const [inputtedTitleTextStyle] =
+          selectTitleText.props.style &&
+          selectTitleText.props.style.filter((style) => {
+            return style === mockProp[theme].titleTextStyle;
+          });
+        expect(view.props.style).toEqual(mockProp[theme].style);
+        expect(selectRoot.props.theme).toEqual(ThemeEnum.none);
+        expect(selectRootText.props.theme).toEqual(ThemeEnum.blank);
+        expect(selectTitleText.props.children).toEqual(mockProp[theme].title);
+        expect(selectRootText.props.children).toEqual(
+          mockProp[theme].placeholder,
+        );
+        expect(inputtedRootTextStyle).toEqual(mockProp[theme].rootTextStyle);
+        expect(inputtedTitleTextStyle).toEqual(mockProp[theme].titleTextStyle);
+      });
+
+      it('check theme, title, rootTextStyle, and placeholder with case "inputTheme"', () => {
+        const theme = 'inputTheme';
+        const props = createTestProps({ case: theme });
+        const component = <Select {...props} />;
+        const testingLib = render(component);
+        const view = testingLib.getByTestId(props.testID);
+        const selectRoot = testingLib.getByTestId(
+          `${props.testID}-${TESTID.ROOTSELECT}`,
+        );
+        const selectRootText = testingLib.getByTestId(
+          `${props.testID}-${TESTID.ROOTTEXT}`,
+        );
+        const selectTitleText = testingLib.getByTestId(
+          `${props.testID}-${TESTID.TITLETEXT}`,
+        );
+        const [inputtedRootTextStyle] =
+          selectRootText.props.style &&
+          selectRootText.props.style.filter((style) => {
+            return style === mockProp[theme].rootTextStyle;
+          });
+        expect(view.props.style).toEqual(mockProp[theme].style);
+        expect(selectRoot.props.theme).toEqual(ThemeEnum.box);
+        expect(selectRootText.props.theme).toEqual(ThemeEnum.box);
+        expect(selectTitleText.props.children).toEqual(mockProp[theme].title);
+        expect(selectRootText.props.children).toEqual(
+          mockProp[theme].placeholder,
+        );
+        expect(inputtedRootTextStyle).toEqual(mockProp[theme].rootTextStyle);
+      });
+
+      it('check theme, title, rootViewStyle, and placeholder with case "themeAndRootView"', () => {
+        const theme = 'themeAndRootView';
+        const props = createTestProps({ case: theme });
+        const component = <Select {...props} />;
+        const testingLib = render(component);
+        const view = testingLib.getByTestId(props.testID);
+        const selectRoot = testingLib.getByTestId(
+          `${props.testID}-${TESTID.ROOTSELECT}`,
+        );
+        const selectRootText = testingLib.getByTestId(
+          `${props.testID}-${TESTID.ROOTTEXT}`,
+        );
+        const selectTitleText = testingLib.getByTestId(
+          `${props.testID}-${TESTID.TITLETEXT}`,
+        );
+        const [inputtedRootViewStyle] =
+          selectRoot.props.style &&
+          selectRoot.props.style.filter((style) => {
+            return style === mockProp[theme].rootViewStyle;
+          });
+        expect(view.props.style).toEqual(mockProp[theme].style);
+        expect(selectRoot.props.theme).toEqual(ThemeEnum.blank);
+        expect(selectRootText.props.theme).toEqual(ThemeEnum.box);
+        expect(selectTitleText.props.children).toEqual(mockProp[theme].title);
+        expect(selectRootText.props.children).toEqual(
+          mockProp[theme].placeholder,
+        );
+        expect(inputtedRootViewStyle).toEqual(mockProp[theme].rootViewStyle);
+      });
+
+      it('check theme, title, rootViewStyle, rootTextTheme, and placeholder with case "disabled"', () => {
+        const theme = 'disabled';
+        const props = createTestProps({ case: theme });
+        const component = <Select {...props} />;
+        const testingLib = render(component);
+        const view = testingLib.getByTestId(props.testID);
+        const selectRoot = testingLib.getByTestId(
+          `${props.testID}-${TESTID.ROOTSELECT}`,
+        );
+        const selectRootText = testingLib.getByTestId(
+          `${props.testID}-${TESTID.ROOTTEXT}`,
+        );
+        const selectTitleText = testingLib.getByTestId(
+          `${props.testID}-${TESTID.TITLETEXT}`,
+        );
+        const [inputtedRootViewStyle] =
+          selectRoot.props.style &&
+          selectRoot.props.style.filter((style) => {
+            return style === mockProp[theme].rootViewStyle;
+          });
+        const [inputtedRootTextStyle] =
+          selectRootText.props.style &&
+          selectRootText.props.style.filter((style) => {
+            return style === mockProp[theme].rootTextStyle;
+          });
+        expect(view.props.style).toEqual(mockProp[theme].style);
+        expect(selectRoot.props.theme).toEqual(ThemeEnum.disabled);
+        expect(selectRootText.props.theme).toEqual(ThemeEnum.disabled);
+        expect(selectTitleText.props.children).toEqual(mockProp[theme].title);
+        expect(selectRootText.props.children).toEqual(
+          mockProp[theme].placeholder,
+        );
+        expect(inputtedRootViewStyle).toBeUndefined();
+        expect(inputtedRootTextStyle).toBeUndefined();
+      });
+    });
+  });
+
+  describe('rendering list', () => {
     let testingLib: RenderResult;
 
-    beforeEach(() => {
+    it('should render list when onPress', () => {
+      const theme = 'disabled';
+      const props = createTestProps({ case: theme });
+      const component = <Select {...props} />;
       testingLib = render(component);
+      const touchableOpacity = testingLib.getByTestId(
+        `${props.testID}-${TESTID.TOUCHABLEOPACITY}`,
+      );
+      const selectListView = testingLib.getByTestId(
+        `${props.testID}-${TESTID.SELECTLISTVIEW}`,
+      );
+      act(() => touchableOpacity.props.onClick());
+
+      expect(selectListView.props.style[1].display).toBe('flex');
     });
 
-    it('check theme, title, rootTextStyle, titleTextStyle, and placeholder with case "notheme"', () => {
-      const theme = 'noTheme';
-      const props = createTestProps({ case: theme });
+    it('should hide list when click list item ', () => {
+      const theme = 'disabled';
+      const props = createTestProps({
+        case: theme,
+      });
       const component = <Select {...props} />;
-      const testingLib = render(component);
-      const view = testingLib.getByTestId(props.testID);
-      const selectRoot = testingLib.getByTestId(
-        `${props.testID}-${TESTID.ROOTSELECT}`,
+      testingLib = render(component);
+      const touchableOpacity = testingLib.getByTestId(
+        `${props.testID}-${TESTID.TOUCHABLEOPACITY}`,
       );
-      const selectRootText = testingLib.getByTestId(
-        `${props.testID}-${TESTID.ROOTTEXT}`,
+      const selectListView = testingLib.getByTestId(
+        `${props.testID}-${TESTID.SELECTLISTVIEW}`,
       );
-      const selectTitleText = testingLib.getByTestId(
-        `${props.testID}-${TESTID.TITLETEXT}`,
+      const firstListItem = testingLib.getByTestId(
+        `${props.testID}-${TESTID.LISTITEM}-${ITEMS[0].value}`,
       );
-      const [inputtedRootTextStyle] =
-        selectRootText.props.style &&
-        selectRootText.props.style.filter((style) => {
-          return style === mockProp[theme].rootTextStyle;
-        });
-      const [inputtedTitleTextStyle] =
-        selectTitleText.props.style &&
-        selectTitleText.props.style.filter((style) => {
-          return style === mockProp[theme].titleTextStyle;
-        });
-      expect(view.props.style).toEqual(mockProp[theme].style);
-      expect(selectRoot.props.theme).toEqual(ThemeEnum.none);
-      expect(selectRootText.props.theme).toEqual(ThemeEnum.blank);
-      expect(selectTitleText.props.children).toEqual(mockProp[theme].title);
-      expect(selectRootText.props.children).toEqual(mockProp[theme].placeholder);
-      expect(inputtedRootTextStyle).toEqual(mockProp[theme].rootTextStyle);
-      expect(inputtedTitleTextStyle).toEqual(mockProp[theme].titleTextStyle);
+      act(() => touchableOpacity.props.onClick());
+      expect(selectListView.props.style[1].display).toBe('flex');
+
+      act(() => firstListItem.props.onClick());
+      expect(selectListView.props.style[1].display).toBe('none');
     });
 
-    it('check theme, title, rootTextStyle, and placeholder with case "inputTheme"', () => {
-      const theme = 'inputTheme';
-      const props = createTestProps({ case: theme });
-      const component = <Select {...props} />;
-      const testingLib = render(component);
-      const view = testingLib.getByTestId(props.testID);
-      const selectRoot = testingLib.getByTestId(
-        `${props.testID}-${TESTID.ROOTSELECT}`,
-      );
-      const selectRootText = testingLib.getByTestId(
-        `${props.testID}-${TESTID.ROOTTEXT}`,
-      );
-      const selectTitleText = testingLib.getByTestId(
-        `${props.testID}-${TESTID.TITLETEXT}`,
-      );
-      const [inputtedRootTextStyle] =
-        selectRootText.props.style &&
-        selectRootText.props.style.filter((style) => {
-          return style === mockProp[theme].rootTextStyle;
-        });
-      expect(view.props.style).toEqual(mockProp[theme].style);
-      expect(selectRoot.props.theme).toEqual(ThemeEnum.box);
-      expect(selectRootText.props.theme).toEqual(ThemeEnum.box);
-      expect(selectTitleText.props.children).toEqual(mockProp[theme].title);
-      expect(selectRootText.props.children).toEqual(mockProp[theme].placeholder);
-      expect(inputtedRootTextStyle).toEqual(mockProp[theme].rootTextStyle);
-    });
-
-    it('check theme, title, rootViewStyle, and placeholder with case "themeAndRootView"', () => {
-      const theme = 'themeAndRootView';
-      const props = createTestProps({ case: theme });
-      const component = <Select {...props} />;
-      const testingLib = render(component);
-      const view = testingLib.getByTestId(props.testID);
-      const selectRoot = testingLib.getByTestId(
-        `${props.testID}-${TESTID.ROOTSELECT}`,
-      );
-      const selectRootText = testingLib.getByTestId(
-        `${props.testID}-${TESTID.ROOTTEXT}`,
-      );
-      const selectTitleText = testingLib.getByTestId(
-        `${props.testID}-${TESTID.TITLETEXT}`,
-      );
-      const [inputtedRootViewStyle] =
-        selectRoot.props.style &&
-        selectRoot.props.style.filter((style) => {
-          return style === mockProp[theme].rootViewStyle;
-        });
-      expect(view.props.style).toEqual(mockProp[theme].style);
-      expect(selectRoot.props.theme).toEqual(ThemeEnum.blank);
-      expect(selectRootText.props.theme).toEqual(ThemeEnum.box);
-      expect(selectTitleText.props.children).toEqual(mockProp[theme].title);
-      expect(selectRootText.props.children).toEqual(mockProp[theme].placeholder);
-      expect(inputtedRootViewStyle).toEqual(mockProp[theme].rootViewStyle);
-    });
-
-    it('check theme, title, rootViewStyle, rootTextTheme, and placeholder with case "disabled"', () => {
+    it('should hide list when click root close view', () => {
       const theme = 'disabled';
       const props = createTestProps({ case: theme });
       const component = <Select {...props} />;
       const testingLib = render(component);
-      const view = testingLib.getByTestId(props.testID);
-      const selectRoot = testingLib.getByTestId(
-        `${props.testID}-${TESTID.ROOTSELECT}`,
+      const touchableOpacity = testingLib.getByTestId(
+        `${props.testID}-${TESTID.TOUCHABLEOPACITY}`,
       );
-      const selectRootText = testingLib.getByTestId(
-        `${props.testID}-${TESTID.ROOTTEXT}`,
+      const selectListView = testingLib.getByTestId(
+        `${props.testID}-${TESTID.SELECTLISTVIEW}`,
       );
-      const selectTitleText = testingLib.getByTestId(
-        `${props.testID}-${TESTID.TITLETEXT}`,
+      const rootCloseView = testingLib.getByTestId(
+        `${props.testID}-${TESTID.MODALCLOSEVIEW}`,
       );
-      const [inputtedRootViewStyle] =
-        selectRoot.props.style &&
-        selectRoot.props.style.filter((style) => {
-          return style === mockProp[theme].rootViewStyle;
-        });
-      const [inputtedRootTextStyle] =
-        selectRootText.props.style &&
-        selectRootText.props.style.filter((style) => {
-          return style === mockProp[theme].rootTextStyle;
-        });
-      expect(view.props.style).toEqual(mockProp[theme].style);
-      expect(selectRoot.props.theme).toEqual(ThemeEnum.disabled);
-      expect(selectRootText.props.theme).toEqual(ThemeEnum.disabled);
-      expect(selectTitleText.props.children).toEqual(mockProp[theme].title);
-      expect(selectRootText.props.children).toEqual(mockProp[theme].placeholder);
-      expect(inputtedRootViewStyle).toBeUndefined();
-      expect(inputtedRootTextStyle).toBeUndefined();
+      act(() => touchableOpacity.props.onClick());
+      expect(selectListView.props.style[1].display).toBe('flex');
+
+      act(() => rootCloseView.props.onClick());
+      expect(selectListView.props.style[1].display).toBe('none');
+    });
+    it('should change placeholder', () => {
+      const theme = 'disabled';
+      const props = createTestProps({
+        case: theme,
+        selectedValue: ITEMS[0].value,
+      });
+      const component = <Select {...props} />;
+      testingLib = render(component);
+      const touchableOpacity = testingLib.queryByTestId(
+        `${props.testID}-${TESTID.TOUCHABLEOPACITY}`,
+      );
+      const selectListView = testingLib.queryByTestId(
+        `${props.testID}-${TESTID.SELECTLISTVIEW}`,
+      );
+      const firstListItem = testingLib.queryByTestId(
+        `${props.testID}-${TESTID.LISTITEM}-${ITEMS[0].value}`,
+      );
+      act(() => touchableOpacity.props.onClick());
+      expect(selectListView.props.style[1].display).toBe('flex');
+
+      act(() => {
+        fireEvent.press(firstListItem);
+      });
+      expect(selectListView.props.style[1].display).toBe('none');
+
+      expect(testingLib.asJSON()).toMatchSnapshot();
     });
   });
 });

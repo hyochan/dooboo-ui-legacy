@@ -1,13 +1,16 @@
-import { IC_ARR_DOWN, IC_ARR_UP } from '../Icons';
 import {
+  FlatList,
   Image,
+  ListRenderItemInfo,
+  Modal,
   StyleProp,
   TextStyle,
   TouchableOpacity,
   View,
   ViewStyle,
 } from 'react-native';
-import React, { useCallback, useState } from 'react';
+import { IC_ARR_DOWN, IC_ARR_UP } from '../Icons';
+import React, { ReactElement, useCallback, useState } from 'react';
 import styled, { DefaultTheme, css } from 'styled-components/native';
 
 import { FlattenSimpleInterpolation } from 'styled-components';
@@ -15,7 +18,7 @@ import { FlattenSimpleInterpolation } from 'styled-components';
 export type Item = {
   value: string;
   text: string;
-}
+};
 
 export enum ThemeEnum {
   disabled = 'disabled',
@@ -39,7 +42,7 @@ enum StylePropEnum {
 
 type ThemeStyle<K extends string, T> = {
   [P in K]: T;
-}
+};
 
 interface ThemeType {
   theme: ThemeEnum;
@@ -72,19 +75,29 @@ interface TextTheme extends DefaultTheme {
   };
 }
 
+interface ThemeType {
+  theme: ThemeEnum;
+}
+interface Selected {
+  selected: boolean;
+}
+
 export const TESTID = {
   TOUCHABLEOPACITY: 'touchable-opacity',
   TITLETEXT: 'title-text',
   ROOTSELECT: 'root-select',
   ROOTTEXT: 'root-text',
   ROOTARROW: 'root-arrow',
+  SELECTLISTVIEW: 'select-list-view',
+  LISTITEM: 'list-item',
+  MODALCLOSEVIEW: 'modal-close-view',
 };
 
 const COLOR: {
   [key: string]: string;
 } = {
   WHITE: '#ffffff',
-  DODGERBLUE: '#3a8bff',
+  DODGERBLUE: '#5364ff',
   VERYLIGHTGRAY: '#cccccc',
   LIGHTGRAY: '#c8c8c8',
   BLUE: '#0000ff',
@@ -93,10 +106,12 @@ const COLOR: {
   GRAY7: '#121212',
   GRAY59: '#969696',
   DARK: '#09071d',
+  LIGHTBLUE: '#bcdbfb',
+  BLACK: '#000000',
 };
 
 const bsCss = css`
-  elevation: 8;
+  elevation: 1;
   shadow-color: ${COLOR.DODGERBLUE};
   shadow-offset: {
     width: 3;
@@ -106,7 +121,10 @@ const bsCss = css`
   shadow-radius: 5;
 `;
 
-export const themeStylePropCollection: ThemeStyle<ThemeEnum, RootBoxTheme | TextTheme> = {
+export const themeStylePropCollection: ThemeStyle<
+  ThemeEnum,
+  RootBoxTheme | TextTheme
+> = {
   disabled: {
     rootbox: {
       backgroundColor: 'transparent',
@@ -217,7 +235,49 @@ const RootSelect = styled.View<ThemeType>`
   align-items: center;
   padding: 14px 6px;
 `;
+const ModalBackground = styled.TouchableOpacity`
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+`;
+const SelectListView = styled.View`
+  elevation: 8;
+  shadow-color: ${COLOR.DODGERBLUE};
+  shadow-offset: {
+    width: 0;
+    height: 5;
+  }
+  shadow-opacity: 0.2;
+`;
+const SelectList = styled(FlatList as new () => FlatList<Item>)`
+  background-color: ${COLOR.WHITE};
+  padding-top: 8px;
+`;
 
+const RootCloseView = styled.TouchableOpacity`
+  width: 100%;
+`;
+
+const ItemView = styled.TouchableOpacity<Selected>`
+  background-color: ${({ selected }: { selected: boolean }): string =>
+    selected ? COLOR.LIGHTBLUE : COLOR.WHITE};
+  height: 32px;
+  padding: 6px;
+  justify-content: center;
+`;
+const ItemText = styled.Text<Selected>`
+  font-size: 14px;
+  color: ${COLOR.BLACK};
+`;
+
+export type Layout = {
+  ox: number;
+  oy: number;
+  width: number;
+  height: number;
+};
 export interface Props {
   testID?: string;
   items: Item[];
@@ -230,6 +290,10 @@ export interface Props {
   placeholder?: string;
   activeOpacity: number;
   disabled?: boolean;
+  itemStyle?: StyleProp<ViewStyle>;
+  selectedItemStyle?: StyleProp<ViewStyle>;
+  onSelect: (Item) => void;
+  selectedValue: string;
 }
 
 function Select(props: Props): React.ReactElement {
@@ -244,47 +308,86 @@ function Select(props: Props): React.ReactElement {
     placeholder,
     activeOpacity,
     disabled,
+    items,
+    itemStyle,
+    selectedItemStyle,
+    onSelect,
+    selectedValue,
   } = props;
 
+  const selectRef = React.useRef<View>(null);
+  const [layout, setLayout] = useState<Layout>({
+    ox: 0,
+    oy: 0,
+    width: 0,
+    height: 0,
+  });
+  const getLayout = (): void => {
+    if (selectRef.current) {
+      selectRef.current.measureInWindow((ox, oy, width, height) => {
+        setLayout({ ox, oy, width, height });
+      });
+    }
+  };
   const [listOpen, setListOpen] = useState<boolean>(false);
-  const toggleList = useCallback(
-    (e) => {
-      setListOpen(!listOpen);
-    },
-    [listOpen],
-  );
+  const toggleList = useCallback(() => {
+    getLayout();
+    setListOpen(!listOpen);
+  }, [listOpen]);
+
+  const handleSelect = (item: Item): void => {
+    onSelect(item);
+    setListOpen(false);
+  };
 
   const defaultTheme = disabled ? 'disabled' : !theme ? 'none' : theme;
   const rootViewTheme = disabled
     ? 'disabled'
     : rootViewStyle && Object.keys(rootViewStyle).length > 0
-      ? 'blank'
-      : defaultTheme;
+    ? 'blank'
+    : defaultTheme;
   const rootTextTheme = disabled
     ? 'disabled'
     : rootTextStyle && Object.keys(rootTextStyle).length > 0
-      ? 'blank'
-      : defaultTheme;
+    ? 'blank'
+    : defaultTheme;
   const titleTextTheme = disabled
     ? 'disabled'
     : titleTextStyle && Object.keys(titleTextStyle).length > 0
-      ? 'blank'
-      : defaultTheme;
+    ? 'blank'
+    : defaultTheme;
   const _rootViewStyle = disabled ? null : rootViewStyle;
   const _rootTextStyle = disabled ? null : rootTextStyle;
 
-  return (
-    <View
-      style={style}
-      testID={testID}
-    >
-      {title && <Title
-        theme={titleTextTheme}
-        style={titleTextStyle}
-        testID={`${testID}-${TESTID.TITLETEXT}`}
+  const renderItem = ({ item }: ListRenderItemInfo<Item>): ReactElement => {
+    const style = selectedValue === item.value ? selectedItemStyle : itemStyle;
+    return (
+      <ItemView
+        style={style}
+        selected={selectedValue === item.value}
+        activeOpacity={1}
+        onPress={(): void => {
+          handleSelect(item);
+        }}
+        testID={`${testID}-${TESTID.LISTITEM}-${item.value}`}
       >
-        {title}
-      </Title>}
+        <ItemText selected={selectedValue === item.value} style={style}>
+          {item.text}
+        </ItemText>
+      </ItemView>
+    );
+  };
+  return (
+    <View style={style} testID={testID}>
+      {title && (
+        <Title
+          theme={titleTextTheme}
+          style={titleTextStyle}
+          testID={`${testID}-${TESTID.TITLETEXT}`}
+        >
+          {title}
+        </Title>
+      )}
       <TouchableOpacity
         testID={`${testID}-${TESTID.TOUCHABLEOPACITY}`}
         activeOpacity={activeOpacity}
@@ -295,13 +398,15 @@ function Select(props: Props): React.ReactElement {
           theme={rootViewTheme}
           style={_rootViewStyle}
           testID={`${testID}-${TESTID.ROOTSELECT}`}
+          ref={selectRef as any}
+          onLayout={getLayout}
         >
           <Text
             theme={rootTextTheme}
             style={_rootTextStyle}
             testID={`${testID}-${TESTID.ROOTTEXT}`}
           >
-            {placeholder}
+            {selectedValue || placeholder}
           </Text>
           <Image
             source={!listOpen ? IC_ARR_DOWN : IC_ARR_UP}
@@ -309,7 +414,31 @@ function Select(props: Props): React.ReactElement {
           />
         </RootSelect>
       </TouchableOpacity>
-      {listOpen && <Text theme={rootTextTheme}>{'list item here!!'}</Text>}
+      <Modal visible={listOpen} transparent={true}>
+        <ModalBackground onPress={toggleList} />
+        <SelectListView
+          style={{
+            shadowOffset: { width: 0, height: 5 },
+            top: layout.oy,
+            left: layout.ox,
+            width: layout.width,
+            display: listOpen ? 'flex' : 'none',
+          }}
+          testID={`${testID}-${TESTID.SELECTLISTVIEW}`}
+        >
+          <RootCloseView
+            testID={`${testID}-${TESTID.MODALCLOSEVIEW}`}
+            onPress={toggleList}
+            style={{ height: layout.height }}
+          ></RootCloseView>
+          <SelectList
+            style={itemStyle}
+            data={items}
+            renderItem={renderItem}
+            keyExtractor={(item: Item): string => item.value}
+          />
+        </SelectListView>
+      </Modal>
     </View>
   );
 }

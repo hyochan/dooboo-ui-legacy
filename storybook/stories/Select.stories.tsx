@@ -1,11 +1,10 @@
-import React, { useState } from 'react';
+import React, { useCallback, useState } from 'react';
 
 import { ContainerDeco } from '../decorators';
 import Select from '../../src/components/shared/Select';
 import { action } from '@storybook/addon-actions';
 import { storiesOf } from '@storybook/react-native';
 import styled from 'styled-components/native';
-import { text } from '@storybook/addon-knobs';
 
 storiesOf('Select', module)
   .addDecorator(ContainerDeco)
@@ -14,7 +13,10 @@ storiesOf('Select', module)
       <Default />
     </>
   ));
-
+interface Item {
+  value: string;
+  text: string;
+}
 const Container = styled.View`
   background-color: transparent;
   align-items: center;
@@ -23,7 +25,6 @@ const Container = styled.View`
   height: 100%;
   padding-top: 100px;
   padding-bottom: 100px;
-
   flex-direction: column;
   justify-content: space-around;
 `;
@@ -37,6 +38,10 @@ const ITEMS = [
 ];
 
 function Default(): React.ReactElement {
+  const [selectedValue, setSelectedValue] = useState<string>(ITEMS[0].value);
+  const onSelect = useCallback((item: Item) => {
+    setSelectedValue(item.value);
+  }, []);
   return (
     <Container>
       <Select
@@ -49,19 +54,17 @@ function Default(): React.ReactElement {
         }}
         placeholder={'select'}
         onClick={action('Clicked')}
+        items={ITEMS}
+        onSelect={onSelect}
+        selectedValue={selectedValue}
       />
       <Select
         theme={'underbar'}
         itemStyle={{
-          list: {
-            shadowOffset: { width: 0, height: 5 },
-          },
-          defaultItem: {
-            color: 'grey',
-          },
-          selectedItem: {
-            color: 'black',
-          },
+          color: 'grey',
+        }}
+        selectedItemStyle={{
+          color: 'black',
         }}
         title={'Title'}
         titleTextStyle={{
@@ -70,6 +73,8 @@ function Default(): React.ReactElement {
         placeholder={'select'}
         onClick={action('Clicked')}
         items={ITEMS}
+        onSelect={onSelect}
+        selectedValue={selectedValue}
       />
       <Select
         placeholder={'select'}
@@ -79,27 +84,26 @@ function Default(): React.ReactElement {
           color: 'blue',
         }}
         items={ITEMS}
+        onSelect={onSelect}
+        selectedValue={selectedValue}
       />
       <Select
         theme={'box'}
-        itemStyle={{
-          list: {
-            shadowOffset: { width: 0, height: 5 },
-          },
-          defaultItem: {
-            color: 'grey',
-          },
-          selectedItem: {
-            color: 'black',
-          },
-        }}
         title={'Title'}
         titleTextStyle={{
           color: 'black',
         }}
+        itemStyle={{
+          color: 'grey',
+        }}
+        selectedItemStyle={{
+          color: 'pink',
+        }}
         placeholder={'select'}
         onClick={action('Clicked')}
         items={ITEMS}
+        onSelect={onSelect}
+        selectedValue={selectedValue}
       />
     </Container>
   );

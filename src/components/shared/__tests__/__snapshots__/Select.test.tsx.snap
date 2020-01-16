@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`[Select] render renders without crashing 1`] = `
+exports[`[Select] render [Select] render renders without crashing 1`] = `
 <View>
   <View
     accessible={true}
@@ -21,12 +21,13 @@ exports[`[Select] render renders without crashing 1`] = `
     testID="undefined-touchable-opacity"
   >
     <View
+      onLayout={[Function]}
       style={
         Array [
           Object {
             "alignItems": "center",
             "backgroundColor": "#ffffff",
-            "elevation": 8,
+            "elevation": 1,
             "flexDirection": "row",
             "height": 48,
             "justifyContent": "space-between",
@@ -34,7 +35,7 @@ exports[`[Select] render renders without crashing 1`] = `
             "paddingLeft": 6,
             "paddingRight": 6,
             "paddingTop": 14,
-            "shadowColor": "#3a8bff",
+            "shadowColor": "#5364ff",
             "shadowOpacity": 0.5,
             "shadowRadius": 5,
             "width": 128,
@@ -70,5 +71,666 @@ exports[`[Select] render renders without crashing 1`] = `
       />
     </View>
   </View>
+  <Modal
+    hardwareAccelerated={false}
+    transparent={true}
+    visible={false}
+  >
+    <View
+      accessible={true}
+      clickable={true}
+      isTVSelectable={true}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "height": "100%",
+          "left": 0,
+          "opacity": 1,
+          "position": "absolute",
+          "top": 0,
+          "width": "100%",
+        }
+      }
+    />
+    <View
+      style={
+        Array [
+          Object {
+            "elevation": 8,
+            "shadowColor": "#5364ff",
+            "shadowOpacity": 0.2,
+          },
+          Object {
+            "display": "none",
+            "left": 0,
+            "shadowOffset": Object {
+              "height": 5,
+              "width": 0,
+            },
+            "top": 0,
+            "width": 0,
+          },
+        ]
+      }
+      testID="undefined-select-list-view"
+    >
+      <View
+        accessible={true}
+        clickable={true}
+        isTVSelectable={true}
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "height": 0,
+            "opacity": 1,
+            "width": "100%",
+          }
+        }
+        testID="undefined-modal-close-view"
+      />
+      <RCTScrollView
+        disableVirtualization={false}
+        getItem={[Function]}
+        getItemCount={[Function]}
+        horizontal={false}
+        initialNumToRender={10}
+        keyExtractor={[Function]}
+        maxToRenderPerBatch={10}
+        numColumns={1}
+        onContentSizeChange={[Function]}
+        onEndReachedThreshold={2}
+        onLayout={[Function]}
+        onMomentumScrollEnd={[Function]}
+        onScroll={[Function]}
+        onScrollBeginDrag={[Function]}
+        onScrollEndDrag={[Function]}
+        removeClippedSubviews={false}
+        renderItem={[Function]}
+        scrollEventThrottle={50}
+        stickyHeaderIndices={Array []}
+        style={
+          Array [
+            Object {
+              "backgroundColor": "#ffffff",
+              "paddingTop": 8,
+            },
+          ]
+        }
+        updateCellsBatchingPeriod={50}
+        viewabilityConfigCallbackPairs={Array []}
+        windowSize={21}
+      >
+        <View />
+      </RCTScrollView>
+    </View>
+  </Modal>
+</View>
+`;
+
+exports[`[Select] render rendering list should change placeholder 1`] = `
+<View
+  collapsable={true}
+  pointerEvents="box-none"
+  style={
+    Object {
+      "flex": 1,
+    }
+  }
+>
+  <View
+    testID="select"
+  >
+    <Text
+      style={
+        Array [
+          Object {
+            "color": "#c8c8c8",
+            "fontSize": 12,
+            "marginBottom": 5,
+          },
+        ]
+      }
+      testID="select-title-text"
+      theme="disabled"
+    >
+      disabled
+    </Text>
+    <View
+      accessible={true}
+      clickable={true}
+      isTVSelectable={true}
+      style={
+        Object {
+          "opacity": 1,
+        }
+      }
+      testID="select-touchable-opacity"
+    >
+      <View
+        style={
+          Array [
+            Object {
+              "alignItems": "center",
+              "backgroundColor": "transparent",
+              "borderBottomColor": "#c8c8c8",
+              "borderBottomWidth": 2,
+              "flexDirection": "row",
+              "height": 48,
+              "justifyContent": "space-between",
+              "paddingBottom": 14,
+              "paddingLeft": 6,
+              "paddingRight": 6,
+              "paddingTop": 14,
+              "width": 128,
+            },
+            null,
+          ]
+        }
+        testID="select-root-select"
+        theme="disabled"
+      >
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#c8c8c8",
+                "fontSize": 14,
+              },
+              null,
+            ]
+          }
+          testID="select-root-text"
+          theme="disabled"
+        >
+          select
+        </Text>
+        <Image
+          source={
+            Object {
+              "testUri": "../../../icons/ic_arr_down.png",
+            }
+          }
+          testID="select-root-arrow"
+        />
+      </View>
+    </View>
+    <Modal
+      hardwareAccelerated={false}
+      transparent={true}
+      visible={false}
+    >
+      <View
+        accessible={true}
+        clickable={true}
+        isTVSelectable={true}
+        style={
+          Object {
+            "height": "100%",
+            "left": 0,
+            "opacity": 1,
+            "position": "absolute",
+            "top": 0,
+            "width": "100%",
+          }
+        }
+      />
+      <View
+        style={
+          Array [
+            Object {
+              "elevation": 8,
+              "shadowColor": "#5364ff",
+              "shadowOpacity": 0.2,
+            },
+            Object {
+              "display": "none",
+              "left": 0,
+              "shadowOffset": Object {
+                "height": 5,
+                "width": 0,
+              },
+              "top": 0,
+              "width": 0,
+            },
+          ]
+        }
+        testID="select-select-list-view"
+      >
+        <View
+          accessible={true}
+          clickable={true}
+          isTVSelectable={true}
+          style={
+            Object {
+              "height": 0,
+              "opacity": 1,
+              "width": "100%",
+            }
+          }
+          testID="select-modal-close-view"
+        />
+        <RCTScrollView
+          data={
+            Array [
+              Object {
+                "text": "Category1",
+                "value": "Category1",
+              },
+              Object {
+                "text": "Category2",
+                "value": "Category2",
+              },
+              Object {
+                "text": "Category3",
+                "value": "Category3",
+              },
+              Object {
+                "text": "Category4",
+                "value": "Category4",
+              },
+              Object {
+                "text": "Category5",
+                "value": "Category5",
+              },
+            ]
+          }
+          disableVirtualization={false}
+          horizontal={false}
+          initialNumToRender={10}
+          maxToRenderPerBatch={10}
+          numColumns={1}
+          onEndReachedThreshold={2}
+          removeClippedSubviews={false}
+          scrollEventThrottle={50}
+          stickyHeaderIndices={Array []}
+          style={
+            Array [
+              Object {
+                "backgroundColor": "#ffffff",
+                "paddingTop": 8,
+              },
+            ]
+          }
+          updateCellsBatchingPeriod={50}
+          viewabilityConfigCallbackPairs={Array []}
+          windowSize={21}
+        >
+          <View>
+            <View
+              style={null}
+            >
+              <View
+                accessible={true}
+                clickable={true}
+                isTVSelectable={true}
+                style={
+                  Object {
+                    "backgroundColor": "#ffffff",
+                    "height": 32,
+                    "justifyContent": "center",
+                    "opacity": 1,
+                    "paddingBottom": 6,
+                    "paddingLeft": 6,
+                    "paddingRight": 6,
+                    "paddingTop": 6,
+                  }
+                }
+                testID="select-list-item-Category1"
+              >
+                <Text
+                  selected={false}
+                  style={
+                    Array [
+                      Object {
+                        "color": "#000000",
+                        "fontSize": 14,
+                      },
+                    ]
+                  }
+                >
+                  Category1
+                </Text>
+              </View>
+            </View>
+            <View
+              style={null}
+            >
+              <View
+                accessible={true}
+                clickable={true}
+                isTVSelectable={true}
+                style={
+                  Object {
+                    "backgroundColor": "#ffffff",
+                    "height": 32,
+                    "justifyContent": "center",
+                    "opacity": 1,
+                    "paddingBottom": 6,
+                    "paddingLeft": 6,
+                    "paddingRight": 6,
+                    "paddingTop": 6,
+                  }
+                }
+                testID="select-list-item-Category2"
+              >
+                <Text
+                  selected={false}
+                  style={
+                    Array [
+                      Object {
+                        "color": "#000000",
+                        "fontSize": 14,
+                      },
+                    ]
+                  }
+                >
+                  Category2
+                </Text>
+              </View>
+            </View>
+            <View
+              style={null}
+            >
+              <View
+                accessible={true}
+                clickable={true}
+                isTVSelectable={true}
+                style={
+                  Object {
+                    "backgroundColor": "#ffffff",
+                    "height": 32,
+                    "justifyContent": "center",
+                    "opacity": 1,
+                    "paddingBottom": 6,
+                    "paddingLeft": 6,
+                    "paddingRight": 6,
+                    "paddingTop": 6,
+                  }
+                }
+                testID="select-list-item-Category3"
+              >
+                <Text
+                  selected={false}
+                  style={
+                    Array [
+                      Object {
+                        "color": "#000000",
+                        "fontSize": 14,
+                      },
+                    ]
+                  }
+                >
+                  Category3
+                </Text>
+              </View>
+            </View>
+            <View
+              style={null}
+            >
+              <View
+                accessible={true}
+                clickable={true}
+                isTVSelectable={true}
+                style={
+                  Object {
+                    "backgroundColor": "#ffffff",
+                    "height": 32,
+                    "justifyContent": "center",
+                    "opacity": 1,
+                    "paddingBottom": 6,
+                    "paddingLeft": 6,
+                    "paddingRight": 6,
+                    "paddingTop": 6,
+                  }
+                }
+                testID="select-list-item-Category4"
+              >
+                <Text
+                  selected={false}
+                  style={
+                    Array [
+                      Object {
+                        "color": "#000000",
+                        "fontSize": 14,
+                      },
+                    ]
+                  }
+                >
+                  Category4
+                </Text>
+              </View>
+            </View>
+            <View
+              style={null}
+            >
+              <View
+                accessible={true}
+                clickable={true}
+                isTVSelectable={true}
+                style={
+                  Object {
+                    "backgroundColor": "#ffffff",
+                    "height": 32,
+                    "justifyContent": "center",
+                    "opacity": 1,
+                    "paddingBottom": 6,
+                    "paddingLeft": 6,
+                    "paddingRight": 6,
+                    "paddingTop": 6,
+                  }
+                }
+                testID="select-list-item-Category5"
+              >
+                <Text
+                  selected={false}
+                  style={
+                    Array [
+                      Object {
+                        "color": "#000000",
+                        "fontSize": 14,
+                      },
+                    ]
+                  }
+                >
+                  Category5
+                </Text>
+              </View>
+            </View>
+          </View>
+        </RCTScrollView>
+      </View>
+    </Modal>
+  </View>
+</View>
+`;
+
+exports[`[Select] render renders without crashing 1`] = `
+<View>
+  <View
+    accessible={true}
+    clickable={true}
+    isTVSelectable={true}
+    onClick={[Function]}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      Object {
+        "opacity": 1,
+      }
+    }
+    testID="undefined-touchable-opacity"
+  >
+    <View
+      onLayout={[Function]}
+      style={
+        Array [
+          Object {
+            "alignItems": "center",
+            "backgroundColor": "#ffffff",
+            "elevation": 1,
+            "flexDirection": "row",
+            "height": 48,
+            "justifyContent": "space-between",
+            "paddingBottom": 14,
+            "paddingLeft": 6,
+            "paddingRight": 6,
+            "paddingTop": 14,
+            "shadowColor": "#5364ff",
+            "shadowOpacity": 0.5,
+            "shadowRadius": 5,
+            "width": 128,
+          },
+          null,
+        ]
+      }
+      testID="undefined-root-select"
+      theme="none"
+    >
+      <Text
+        style={
+          Array [
+            Object {
+              "color": "#09071d",
+              "fontSize": 14,
+            },
+            null,
+          ]
+        }
+        testID="undefined-root-text"
+        theme="none"
+      >
+        
+      </Text>
+      <Image
+        source={
+          Object {
+            "testUri": "../../../icons/ic_arr_down.png",
+          }
+        }
+        testID="undefined-root-arrow"
+      />
+    </View>
+  </View>
+  <Modal
+    hardwareAccelerated={false}
+    transparent={true}
+    visible={false}
+  >
+    <View
+      accessible={true}
+      clickable={true}
+      isTVSelectable={true}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "height": "100%",
+          "left": 0,
+          "opacity": 1,
+          "position": "absolute",
+          "top": 0,
+          "width": "100%",
+        }
+      }
+    />
+    <View
+      style={
+        Array [
+          Object {
+            "elevation": 8,
+            "shadowColor": "#5364ff",
+            "shadowOpacity": 0.2,
+          },
+          Object {
+            "display": "none",
+            "left": 0,
+            "shadowOffset": Object {
+              "height": 5,
+              "width": 0,
+            },
+            "top": 0,
+            "width": 0,
+          },
+        ]
+      }
+      testID="undefined-select-list-view"
+    >
+      <View
+        accessible={true}
+        clickable={true}
+        isTVSelectable={true}
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "height": 0,
+            "opacity": 1,
+            "width": "100%",
+          }
+        }
+        testID="undefined-modal-close-view"
+      />
+      <RCTScrollView
+        disableVirtualization={false}
+        getItem={[Function]}
+        getItemCount={[Function]}
+        horizontal={false}
+        initialNumToRender={10}
+        keyExtractor={[Function]}
+        maxToRenderPerBatch={10}
+        numColumns={1}
+        onContentSizeChange={[Function]}
+        onEndReachedThreshold={2}
+        onLayout={[Function]}
+        onMomentumScrollEnd={[Function]}
+        onScroll={[Function]}
+        onScrollBeginDrag={[Function]}
+        onScrollEndDrag={[Function]}
+        removeClippedSubviews={false}
+        renderItem={[Function]}
+        scrollEventThrottle={50}
+        stickyHeaderIndices={Array []}
+        style={
+          Array [
+            Object {
+              "backgroundColor": "#ffffff",
+              "paddingTop": 8,
+            },
+          ]
+        }
+        updateCellsBatchingPeriod={50}
+        viewabilityConfigCallbackPairs={Array []}
+        windowSize={21}
+      >
+        <View />
+      </RCTScrollView>
+    </View>
+  </Modal>
 </View>
 `;
