@@ -1,12 +1,12 @@
 import { Dispatch, SetStateAction } from 'react';
-import { StyleProp, ViewStyle } from 'react-native';
+import { TextInputProps, ViewStyle } from 'react-native';
 
 export interface AutoCompleteProps {
   renderInputTestID?: string;
   caretBtnTestID?: string;
   value: string;
   onDebounceOrOnReset?: Dispatch<SetStateAction<string>>;
-  style?: StyleProp<ViewStyle>;
+  style?: ViewStyle;
   debounceDelay?: number;
   placeholderText?: string;
   underlayColor?: string;
@@ -25,11 +25,12 @@ export type InputWrapper = {
   };
 };
 
-export type RenderInputProps = {
+export type RenderInputProps = TextInputProps & {
   on: boolean;
-  label: string;
+  placeholderLabel: string;
+  onDebounceOrOnReset?: (params?: any) => any;
   onFocus: () => void;
-  onBlur: () => void;
+  onBlur?: () => void;
 }
 
 export type RenderOptionProps = DummyDatum & {
@@ -42,7 +43,6 @@ export type RenderOptionProps = DummyDatum & {
 export type RenderOptionsProps = {
   data: DummyDatum[];
   onPress: OnPressOption;
-  onPressOutside: () => void;
   selectedData: DummyDatum | null;
   underlayColor?: string;
 };
@@ -52,7 +52,7 @@ export type OptionWrapperProps = {
 };
 
 export type InputContainerProps = {
-  on: boolean;
+  focus: boolean;
 };
 
 export type OptionTextProps = {

@@ -1,6 +1,6 @@
 import { AutoCompleteProps, DummyDatum } from './types';
-import { CaretContainer, InputContainer, StyledImage, Wrapper } from './styles';
-import { Dimensions, TouchableWithoutFeedback } from 'react-native';
+import { CaretContainer, InputContainer, StyledImage, Wrapper, inputMargin } from './styles';
+import { Dimensions, TextInput, TouchableWithoutFeedback } from 'react-native';
 import { IC_ARR_DOWN, IC_ARR_UP } from '../Icons';
 import React, {
   ReactElement,
@@ -15,6 +15,8 @@ import Options from './renderOptions';
 import RenderInput from './renderInput';
 import dummyData from './dummyData';
 import { useSafeArea } from 'react-native-safe-area-context';
+
+export const defaultPlaceholder = 'Choose a country';
 
 // reference : https://dev.to/gabe_ragland/debouncing-with-react-hooks-jci
 function useDebounce(value: string, delay = 400): string {
@@ -44,9 +46,8 @@ export default function AutoComplete({
 }: AutoCompleteProps): ReactElement {
   const [innerValue, setInnerValue] = useState<string>(value);
   const [selectedData, setSelectedData] = useState<DummyDatum | null>(null);
-  const [isOptionsOpen, toggleOptions] = useState<boolean>(false);
   const [isFocused, setIsFocused] = useState<boolean>(false);
-  const inputRef = useRef<HTMLInputElement>(null);
+  const inputRef = useRef<TextInput>(null);
 
   const debouncedValue = useDebounce(innerValue, debounceDelay);
   const [fetchedData] = useState<DummyDatum[]>(dummyData);
@@ -64,34 +65,37 @@ export default function AutoComplete({
     setInnerValue(value);
   }, [value]);
 
+  useEffect(() => {
+    if (inputRef.current) {
+      if (isFocused) {
+        inputRef.current.focus();
+      } else {
+        inputRef.current.blur();
+      }
+    }
+  }, [isFocused]);
+
   const onPressCaret = useCallback((): void => {
     setTimeout(() => {
-      toggleOptions((prevStatus) => !prevStatus);
-      setIsFocused((prevStatus) => {
-        console.log({ prevStatus });
-        if (inputRef.current && !prevStatus) {
-          inputRef.current.blur();
-        }
-        return !prevStatus;
-      });
-    }, 80);
+      setIsFocused((prevStatus) => !prevStatus);
+    }, 200);
   }, []);
 
   const onPressOption = useCallback((data: DummyDatum) => {
-    if (data && data.label) {
-      setInnerValue(data.label);
-    }
-    setSelectedData(data);
-
+    setTimeout(() => {
+      if (data?.label) {
+        setInnerValue(data.label);
+      }
+      setSelectedData(data);
+    }, 300);
     onPressCaret();
   }, []);
 
   const handleFocus = useCallback(
-    ({ isFocus }): void => {
-      console.log('onFocus');
+    (isFocus: boolean): void => {
       setIsFocused(isFocus);
     },
-    [isFocused],
+    [],
   );
 
   const filteredData: DummyDatum[] = fetchedData.filter(
@@ -107,40 +111,41 @@ export default function AutoComplete({
 
   const adjustedStyle = useMemo(
     () => ({
-      ...(style as any),
-      width: isOptionsOpen ? screenWidth - 40 : style.width,
+      ...style,
+      width: isFocused ? screenWidth - (2 * inputMargin) : style.width,
     }),
-    [style, isOptionsOpen],
+    [style, isFocused],
   );
 
   return (
     <TouchableWithoutFeedback onPress={onPressCaret}>
-      <Wrapper on={isOptionsOpen} width={screenWidth} inSets={inSets}>
+      <Wrapper on={isFocused} width={screenWidth} inSets={inSets}>
         <InputContainer
           style={adjustedStyle}
-          on={isOptionsOpen || isFocused || innerValue !== ''}>
+          focus={isFocused}
+        >
           <RenderInput
             ref={inputRef}
-            on={isFocused || isOptionsOpen || innerValue !== ''}
+            on={isFocused}
             testID={renderInputTestID}
             value={innerValue}
             onChangeText={(text: string): void => {
               setInnerValue(text);
             }}
-            label={placeholderText || 'Choose a country'}
+            placeholderLabel={placeholderText || defaultPlaceholder}
             onFocus={(): void => handleFocus(true)}
-            onBlur={(): void => handleFocus(false)}
+            // onBlur={(): void => handleFocus(false)}
+            onDebounceOrOnReset={onDebounceOrOnReset}
           />
           <CaretContainer testID={caretBtnTestID} onPress={onPressCaret}>
-            <StyledImage source={isOptionsOpen ? IC_ARR_UP : IC_ARR_DOWN} />
+            <StyledImage source={isFocused ? IC_ARR_UP : IC_ARR_DOWN} />
           </CaretContainer>
         </InputContainer>
-        {isOptionsOpen && (
+        {isFocused && (
           <Options
             data={filteredData}
             underlayColor={underlayColor}
             onPress={onPressOption}
-            onPressOutside={onPressCaret}
             selectedData={selectedData}
           />
         )}

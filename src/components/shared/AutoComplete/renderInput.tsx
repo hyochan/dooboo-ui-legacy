@@ -1,54 +1,80 @@
-import React, { ForwardRefExoticComponent, forwardRef, useEffect, useState } from 'react';
+import { Animated, TextInput } from 'react-native';
+import { Input, InputInnerContainer, ResetCircle, ResetContainer, ResetText } from './styles';
+import React, { forwardRef, useEffect, useState } from 'react';
 
-import { Animated } from 'react-native';
-import { Input } from './styles';
 import { RenderInputProps } from './types';
 
-const RenderInput: ForwardRefExoticComponent<RenderInputProps> = forwardRef((props, ref) => {
-  const { on, label, onFocus, onBlur } = props;
-  const [animatedIsFocused] = useState(new Animated.Value(on ? 1 : 0));
-  useEffect(() => {
-    Animated.timing(animatedIsFocused, {
-      toValue: on ? 1 : 0,
-      delay: 80,
-      duration: 200,
-    }).start();
-  }, [on]);
+const RenderInput =
+  forwardRef<TextInput, RenderInputProps>((props, ref) => {
+    const {
+      on,
+      placeholderLabel,
+      onFocus,
+      onBlur,
+      onDebounceOrOnReset,
+      testID,
+      value,
+      onChangeText,
+    } = props;
 
-  return (
-    <>
-      <Animated.Text
-        style={{
-          paddingLeft: 4,
-          paddingRight: 4,
-          position: 'absolute',
-          top: animatedIsFocused.interpolate({
-            inputRange: [0, 1],
-            outputRange: [18, -10],
-          }),
-          left: animatedIsFocused.interpolate({
-            inputRange: [0, 1],
-            outputRange: [7, 10],
-          }),
-          fontSize: animatedIsFocused.interpolate({
-            inputRange: [0, 1],
-            outputRange: [20, 14],
-          }),
-          color: animatedIsFocused.interpolate({
-            inputRange: [0, 1],
-            outputRange: ['#cdd2d7', 'royalblue'],
-          }),
-          backgroundColor: 'white',
-          marginBottom: 2,
-        }}
-      >
-        {label}
-      </Animated.Text>
-      <Input {...props} onFocus={onFocus} onBlur={onBlur} ref={ref} />
-    </>
-  );
-});
+    const [animatedIsFocused] = useState(new Animated.Value(on ? 1 : 0));
 
-RenderInput.displayName = 'AutoComplete';
+    useEffect(() => {
+      Animated.timing(animatedIsFocused, {
+        toValue: on ? 1 : 0,
+        delay: 300,
+        duration: 200,
+      }).start();
+    }, [on]);
+
+    return (
+      <InputInnerContainer>
+        <Animated.Text
+          style={{
+            paddingLeft: 4,
+            paddingRight: 4,
+            position: 'absolute',
+            top: animatedIsFocused.interpolate({
+              inputRange: [0, 1],
+              outputRange: [17, -10],
+            }),
+            left: animatedIsFocused.interpolate({
+              inputRange: [0, 1],
+              outputRange: [7, 10],
+            }),
+            fontSize: animatedIsFocused.interpolate({
+              inputRange: [0, 1],
+              outputRange: [20, 14],
+            }),
+            color: animatedIsFocused.interpolate({
+              inputRange: [0, 1],
+              outputRange: ['#cdd2d7', 'royalblue'],
+            }),
+            backgroundColor: 'white',
+            marginBottom: 2,
+          }}
+        >
+          {!value && placeholderLabel}
+        </Animated.Text>
+        <Input {...props} onFocus={onFocus} onBlur={onBlur} ref={ref} />
+        {!!value && (
+          <ResetContainer
+            testID={testID}
+            onPress={(): void => {
+              if (onDebounceOrOnReset) {
+                onDebounceOrOnReset('');
+              }
+              onChangeText('');
+            }}>
+            <ResetCircle>
+              <ResetText>X</ResetText>
+            </ResetCircle>
+          </ResetContainer>
+        )}
+      </InputInnerContainer>
+    );
+  });
+
+RenderInput.displayName = 'RenderInput';
 
 export default RenderInput;

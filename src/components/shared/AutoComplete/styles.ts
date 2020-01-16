@@ -1,7 +1,9 @@
 import { InputContainerProps, InputWrapper, OptionTextProps, OptionWrapperProps } from './types';
 
-import { TouchableHighlight } from 'react-native';
+import { StyleSheet } from 'react-native';
 import styled from 'styled-components/native';
+
+export const inputMargin = 20;
 
 export const Wrapper = styled.View<InputWrapper>`
   background-color: white;
@@ -19,12 +21,18 @@ export const Wrapper = styled.View<InputWrapper>`
 export const InputContainer = styled.View<InputContainerProps>`
   min-width: 250px;
   height: 60px;
-  margin: ${({ on }): string => (on ? '5px 20px' : '0 20px')};
-  margin-right: 20px;
+  margin: ${({ focus }): string => (focus ? `5px ${inputMargin}px` : `0 ${inputMargin}px`)};
   border-radius: 6px;
   flex-direction: row;
-  border: ${({ on }): string => (on ? '2px solid' : '1px solid')};
-  border-color: ${({ on }): string => (on ? 'royalblue' : '#000000')};
+  border: ${({ focus }): string => (focus ? '2px solid' : '1px solid')};
+  border-color: ${({ focus }): string => (focus ? 'royalblue' : '#000000')};
+`;
+
+export const InputInnerContainer = styled.View`
+  flex: 1;
+  flex-direction: row;
+  justify-content: center;
+  align-items: stretch;
 `;
 
 export const Input = styled.TextInput`
@@ -42,15 +50,13 @@ export const StyledImage = styled.Image`
 `;
 
 export const CaretContainer = styled.TouchableOpacity`
-  width: 60px;
-  height: 60px;
+  width: 50px;
+  height: 56px;
   justify-content: center;
   align-items: center;
 `;
 
-export const OptionWrapper = styled(
-  TouchableHighlight as new () => TouchableHighlight,
-).attrs((props) => ({
+export const OptionWrapper = styled.TouchableHighlight.attrs((props) => ({
   underlayColor: props.underlayColor ? props.underlayColor : '#DBDBDB',
 })) <OptionWrapperProps>`
   width: 100%;
@@ -66,10 +72,38 @@ export const OptionText = styled.Text<OptionTextProps>`
   font-size: ${({ fontSize }): number => fontSize || 16}px;
 `;
 
-export const OptionsContainer = styled.TouchableOpacity`
-  flex-direction: column;
-  border: 1px solid #ededed;
-  border-radius: 6px;
-  margin: 0 20px 20px;
-  background-color: whitesmoke;
+export const styles = StyleSheet.create({
+  optionsWrapper: {
+    flexGrow: 0,
+    flexDirection: 'column',
+    borderWidth: 1,
+    borderColor: '#ededed',
+    borderRadius: 6,
+    marginHorizontal: inputMargin,
+    backgroundColor: 'whitesmoke',
+  },
+});
+
+/** @namespace SearchInput Reset Button */
+
+export const ResetContainer = styled.TouchableOpacity`
+  flex-direction: row;
+  padding: 10px;
+  justify-content: flex-end;
+  align-items: center;
 `;
+
+export const ResetCircle = styled.View`
+  background-color: #c6ccd1;
+  border-radius: 20;
+  width: 20;
+  height: 20;
+  justify-content: center;
+  align-items: center;
+`;
+
+export const ResetText = styled.Text`
+  color: white;
+`;
+
+/** @end SearchInput Reset Button */
