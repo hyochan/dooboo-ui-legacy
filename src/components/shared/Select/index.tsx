@@ -222,7 +222,7 @@ const Title = styled.Text<ThemeType>`
       prop: StylePropEnum.fc,
     })};
 `;
-const Text = styled.Text<ThemeType>`
+const RootText = styled.Text<ThemeType>`
   font-size: 14px;
   color: ${(props): string =>
     getThemeProp({
@@ -400,14 +400,15 @@ function Select(props: Props): React.ReactElement {
 
   const renderItem = ({ item }: ListRenderItemInfo<Item>): ReactElement => {
     const style = selectedValue === item.value ? selectedItemStyle : itemStyle;
+    const onPress = (): void => {
+      if (onSelect) onSelect(item);
+    };
     return (
       <ItemView
         style={style}
         selected={selectedValue === item.value}
         activeOpacity={1}
-        onPress={(): void => {
-          handleSelect(item);
-        }}
+        onPress={onPress}
         testID={`${testID}-${TESTID.LISTITEM}-${item.value}`}
       >
         <ItemText selected={selectedValue === item.value} style={style}>
@@ -439,6 +440,13 @@ function Select(props: Props): React.ReactElement {
           style={_rootViewStyle}
           testID={`${testID}-${TESTID.ROOTSELECT}`}
         >
+          <RootText
+            theme={rootTextTheme}
+            style={_rootTextStyle}
+            testID={`${testID}-${TESTID.ROOTTEXT}`}
+          >
+            {selectedValue || placeholder}
+          </RootText>
           <Image
             source={!listOpen.isOpen ? IC_ARR_DOWN : IC_ARR_UP}
             testID={`${testID}-${TESTID.ROOTARROW}`}

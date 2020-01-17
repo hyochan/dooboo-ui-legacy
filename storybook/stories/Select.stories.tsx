@@ -1,15 +1,11 @@
 import React, { useCallback, useState } from 'react';
-import Select, {
-  Item,
-  Mode,
-  ThemeEnum,
-} from '../../src/components/shared/Select';
+import Select, { Item, Mode } from '../../src/components/shared/Select';
 
 import { ContainerDeco } from '../decorators';
+import { action } from '@storybook/addon-actions';
 import { storiesOf } from '@storybook/react-native';
 import styled from 'styled-components/native';
 
-// import { action } from '@storybook/addon-actions';
 // import { text } from '@storybook/addon-knobs';
 
 storiesOf('Select', module)

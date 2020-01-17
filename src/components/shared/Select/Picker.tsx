@@ -1,6 +1,12 @@
 import * as Select from './index';
 
-import { FlatList, Modal, NativeScrollEvent, NativeSyntheticEvent, ViewStyle } from 'react-native';
+import {
+  FlatList,
+  Modal,
+  NativeScrollEvent,
+  NativeSyntheticEvent,
+  ViewStyle,
+} from 'react-native';
 import React, { useCallback, useRef } from 'react';
 
 import styled from 'styled-components/native';
@@ -13,7 +19,7 @@ export enum PICKER_TEST_ID {
   CLOSE = 'close',
   LIST_WRAPPER = 'list-wrapper',
   LIST = 'list',
-  ITEM = 'item'
+  ITEM = 'item',
 }
 
 /**
@@ -33,7 +39,7 @@ type ItemLayout = {
   length: number;
   offset: number;
   index: number;
-}
+};
 
 /**
  * constants
@@ -52,7 +58,7 @@ const CloseTouchableOpacity = styled.TouchableOpacity`
 `;
 
 const ItemListContainer = styled.View`
-  height: 240px; 
+  height: 240px;
   width: 200px;
   border-radius: 1px;
 `;
@@ -85,7 +91,12 @@ const Line = styled.View`
   background-color: grey;
 `;
 
-const getListStyle = ({ theme, itemListStyle, listOpen, itemHeight }): ViewStyle => {
+const getListStyle = ({
+  theme,
+  itemListStyle,
+  listOpen,
+  itemHeight,
+}): ViewStyle => {
   const listStyle: ViewStyle = {
     position: 'absolute',
     top: listOpen.y - itemHeight * 2.5,
@@ -150,11 +161,15 @@ function Picker({
 }: Props): React.ReactElement {
   // check valid props;
   if (!items || !items.length) throw new Error(ERR_MSG_ITEMS_REQUIRED);
-  const flatList = useRef<FlatList<Item>>(null);
+  const flatListEl = useRef<FlatList<Item>>(null);
 
   // constants
-  const itemHeight = itemViewStyle ? itemViewStyle.height || ITEM_HEIGHT : ITEM_HEIGHT;
-  const itemListHeight = itemListStyle ? itemListStyle.height || ITEM_LIST_HEIGHT : ITEM_LIST_HEIGHT;
+  const itemHeight = itemViewStyle
+    ? itemViewStyle.height || ITEM_HEIGHT
+    : ITEM_HEIGHT;
+  const itemListHeight = itemListStyle
+    ? itemListStyle.height || ITEM_LIST_HEIGHT
+    : ITEM_LIST_HEIGHT;
   const itemThreshold = itemHeight / 2;
   let position = items.findIndex((item) => item.value === selectedValue);
   if (position === -1) position = 0;
@@ -171,8 +186,8 @@ function Picker({
   };
 
   const scrollToOffset = ({ offset }): void => {
-    if (flatList && flatList.current) {
-      flatList.current.scrollToOffset({ offset });
+    if (flatListEl && flatListEl.current) {
+      flatListEl.current.scrollToOffset({ offset });
     }
   };
 
@@ -181,7 +196,13 @@ function Picker({
     scrollToOffset({ offset });
   };
 
-  const renderItem = ({ item: { value, label }, index }: {item: Item; index: number}): React.ReactElement => {
+  const renderItem = ({
+    item: { value, label },
+    index,
+  }: {
+    item: Item;
+    index: number;
+  }): React.ReactElement => {
     const onPress = (): void => {
       if (value === selectedValue) close();
       else scrollToPosition(index);
@@ -190,23 +211,31 @@ function Picker({
       <ItemView
         testID={`${testID}-${PICKER_TEST_ID.ITEM}-${index}`}
         style={itemViewStyle}
-        onPress={onPress}>
+        onPress={onPress}
+      >
         <ItemText style={itemTextStyle}>{label || value}</ItemText>
       </ItemView>
     );
   };
 
-  const onScroll = useCallback((e: NativeSyntheticEvent<NativeScrollEvent>): void => {
-    const { nativeEvent: { contentOffset: { y } } } = e;
-    newPosition = Math.floor(y / itemHeight);
-    if (y % itemHeight > itemThreshold) newPosition++;
-    if (newPosition < 0) newPosition = 0;
-    else if (newPosition >= items.length) newPosition = items.length - 1;
-    if (position !== newPosition) {
-      position = newPosition;
-      if (onValueChange) onValueChange(items[position], position);
-    }
-  }, []);
+  const onScroll = useCallback(
+    (e: NativeSyntheticEvent<NativeScrollEvent>): void => {
+      const {
+        nativeEvent: {
+          contentOffset: { y },
+        },
+      } = e;
+      newPosition = Math.floor(y / itemHeight);
+      if (y % itemHeight > itemThreshold) newPosition++;
+      if (newPosition < 0) newPosition = 0;
+      else if (newPosition >= items.length) newPosition = items.length - 1;
+      if (position !== newPosition) {
+        position = newPosition;
+        if (onValueChange) onValueChange(items[position], position);
+      }
+    },
+    [],
+  );
 
   const onScrollBeginDrag = useCallback((): void => {
     isScrolling = true;
@@ -237,7 +266,12 @@ function Picker({
     index,
   });
 
-  const listStyle = getListStyle({ theme, itemListStyle, listOpen, itemHeight });
+  const listStyle = getListStyle({
+    theme,
+    itemListStyle,
+    listOpen,
+    itemHeight,
+  });
 
   return (
     <Modal
@@ -249,16 +283,22 @@ function Picker({
       <CloseTouchableOpacity
         testID={`${testID}-${PICKER_TEST_ID.CLOSE}`}
         onPress={close}
-        activeOpacity={1}/>
+        activeOpacity={1}
+      />
       <ItemListContainer
         testID={`${testID}-${PICKER_TEST_ID.LIST_WRAPPER}`}
-        style={listStyle}>
+        style={listStyle}
+      >
         <ItemFlatList
-          ref={flatList}
+          ref={flatListEl}
           testID={`${testID}-${PICKER_TEST_ID.LIST}`}
           showsVerticalScrollIndicator={showsVerticalScrollIndicator}
-          ListHeaderComponent={<EmptyView style={{ height: emptyViewHeight }}/>}
-          ListFooterComponent={<EmptyView style={{ height: emptyViewHeight }}/>}
+          ListHeaderComponent={
+            <EmptyView style={{ height: emptyViewHeight }} />
+          }
+          ListFooterComponent={
+            <EmptyView style={{ height: emptyViewHeight }} />
+          }
           keyExtractor={({ value }: Item): string => value}
           data={items}
           renderItem={renderItem}
@@ -270,8 +310,8 @@ function Picker({
           initialScrollIndex={position}
           getItemLayout={getItemLayout}
         />
-        <Line style={{ top: emptyViewHeight }}/>
-        <Line style={{ bottom: emptyViewHeight }}/>
+        <Line style={{ top: emptyViewHeight }} />
+        <Line style={{ bottom: emptyViewHeight }} />
       </ItemListContainer>
     </Modal>
   );
