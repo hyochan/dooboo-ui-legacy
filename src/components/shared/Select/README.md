@@ -5,25 +5,37 @@
 
 ![Select Component themes](https://user-images.githubusercontent.com/33364619/70374774-fd328c00-1939-11ea-9af4-776c6885bd41.png)
 
+## Types
+
+| name | describe                         | required |
+| ---- | -------------------------------- | -------- |
+| Item | { value: string, label: string } | value    |
+
 ## Props
 
-### Table of `Props`
-
-|                       | necessary | types                                                                | default |
-| --------------------- | --------- | -------------------------------------------------------------------- | ------- |
-| testID                |           | string                                                               |         |
-| label                 |           | string                                                               |         |
-| items                 | ✓         | array                                                                |         |
-| placeholder           |           | string                                                               |         |
-| [theme](#theme)       |           | 'none', 'underbar', 'box'                                            | 'none'  |
-| rootViewStyle         |           | ViewStyle                                                            |         |
-| rootTextStyle         |           | TextStyle                                                            |         |
-| itemStyle             |           | { list: ViewStyle, defaultItem: ViewStyle, selectedItem: ViewStyle } |         |
-| disabled              |           | boolean                                                              | `false` |
-| [onFocus](#onFocus)   |           | func                                                                 |         |
-| [onBlur](#onBlur)     |           | func                                                                 |         |
-| [onSelect](#onSelect) | ✓         | func                                                                 |         |
-| selectedItem          | ✓         | { value: string, text: string }                                      |         |
+|                                 | necessary | types                                | default    |
+| ------------------------------- | --------- | ------------------------------------ | ---------- |
+| testID                          |           | string                               |            |
+| items                           | ✓         | Item[ ]                              |            |
+| style                           |           | ViewStyle                            |            |
+| [theme](#theme)                 |           | enum('none', 'underbar', 'box')      | 'none'     |
+| title                           |           | string                               |            |
+| titleStyle                      |           | TextStyle                            |            |
+| selectedValue                   |           | string                               |            |
+| placeholder                     |           | string                               | ''         |
+| activeOpacity                   |           | number(0 - 1.0)                      | 0.8        |
+| rootViewStyle                   |           | ViewStyle                            |            |
+| rootTextStyle                   |           | TextStyle                            |            |
+| mode                            |           | enum('dropdown', 'dialog', 'picker') | 'dropdown' |
+| itemListStyle                   |           | ViewStyle                            |            |
+| itemViewStyle                   |           | ViewStyle                            |            |
+| itemTextStyle                   |           | TextStyle                            |            |
+| showsVerticalScrollIndicator    |           | boolean                              |            |
+| disabled                        |           | boolean                              | `false`    |
+| [onSelect](#onSelect)           |           | (item: Item) => void                 |            |
+| [onShow](#onShow)               |           | ( ) => void                          |            |
+| [onDismiss](#onDismiss)         |           | ( ) => void                          |            |
+| [onValueChange](#onValueChange) |           | (item: Item, index: number) => void  |            |
 
 ### Description of `Props`
 
@@ -41,17 +53,39 @@
 
 - This text style will be applied to Title section.
 
-#### onFocus
-
-...onFocus
-
-#### onBlur
-
-...onFocus
-
 #### onSelect
 
-...onFocus
+...
+
+#### onShow
+
+The **onShow** prop allows passing a function that will be called once the item list has been shown.
+
+| type     | required |
+| -------- | -------- |
+| function | No       |
+
+#### onDismiss
+
+The **onDismiss** prop allows passing a function that will be called once the item list has been dismissed.
+
+| type     | required |
+| -------- | -------- |
+| function | No       |
+
+#### onValueChange
+
+(mode **picker** only)
+Callback for when an item is changes in picker mode. This is called with the following parameters:
+
+item: the value prop of the item that was selected,
+index: the index of the selected item in this picker
+
+| type     | required |
+| -------- | -------- |
+| function | No       |
+
+> > > > > > > add picker component and test code for picker mode
 
 ## Installation
 
