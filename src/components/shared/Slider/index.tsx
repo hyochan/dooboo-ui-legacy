@@ -1,16 +1,29 @@
-import React, { FC, useRef, useState } from 'react';
+import React, { FC, useMemo, useRef, useState } from 'react';
 import { getPercent, percentToValue, valueToPercent } from './utils';
 
+import Marks from './Marks';
 import { PanResponder } from 'react-native';
 import Rail from './Rail';
 import Thumb from './Thumb';
 import styled from 'styled-components/native';
 
+interface ThumbPositionerType {
+  percent: number;
+}
+
 const Container = styled.View`
+  display: flex;
+  justify-content: center;
   position: relative;
 `;
 
+const ThumbPositioner = styled.View<ThumbPositionerType>`
+  position: absolute;
+  left: ${({ percent }): string => `${percent}%`};
+`;
+
 interface Props {
+  hideMark?: boolean;
   defaultValue?: number;
   maxValue?: number;
   minValue?: number;
@@ -19,6 +32,7 @@ interface Props {
 }
 
 const Slider: FC<Props> = ({
+  hideMark = false,
   maxValue = 100,
   minValue = 0,
   defaultValue,
@@ -31,7 +45,7 @@ const Slider: FC<Props> = ({
     defaultValue ? valueToPercent(defaultValue, maxValue, minValue) : 0,
   );
 
-  const panResponder = React.useMemo(
+  const panResponder = useMemo(
     () =>
       PanResponder.create({
         onMoveShouldSetPanResponder: () => true,
@@ -39,9 +53,12 @@ const Slider: FC<Props> = ({
           // the latest screen coordinates of the recently-moved touch
           const moveX = gestureState.moveX;
           const percent = getPercent(moveX - sliderPositionX, sliderWidth);
+
           setPercent(percent);
+
           if (onChange) {
-            onChange(percentToValue(percent, maxValue, minValue));
+            const value = percentToValue(percent, maxValue, minValue);
+            onChange(value);
           }
         },
       }),
@@ -62,7 +79,12 @@ const Slider: FC<Props> = ({
       }}
     >
       <Rail />
-      <Thumb percent={percent} />
+      {!hideMark && <Marks
+        sliderWidth={sliderWidth}
+      />}
+      <ThumbPositioner percent={percent}>
+        <Thumb />
+      </ThumbPositioner>
     </Container>
   );
 };

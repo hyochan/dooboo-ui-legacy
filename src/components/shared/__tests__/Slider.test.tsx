@@ -2,7 +2,7 @@ import * as React from 'react';
 
 import { fireEvent, render } from '@testing-library/react-native';
 
-import Rail from '../Slider/Rail';
+import Marks from '../Slider/Marks';
 import Slider from '../Slider';
 import { View } from 'react-native';
 
@@ -14,7 +14,7 @@ describe('[Slider] render', () => {
   });
 });
 
-describe('[Rail]', () => {
+describe('[Marks]', () => {
   const TEST_ID_MARK = 'TEST_ID_FOR_MARK';
   const Mark: React.FC<{ testID: string }> = ({ testID }) => {
     return <View testID={testID} />;
@@ -22,7 +22,11 @@ describe('[Rail]', () => {
 
   it('renders without crashing', () => {
     const rendered = render(
-      <Rail mark={<Mark testID={TEST_ID_MARK} />} customMarkWidth={1} />,
+      <Marks
+        sliderWidth={100}
+        mark={<Mark testID={TEST_ID_MARK} />}
+        customMarkWidth={1}
+      />,
     ).asJSON();
     expect(rendered).toMatchSnapshot();
     expect(rendered).toBeTruthy();
@@ -34,7 +38,8 @@ describe('[Rail]', () => {
     const MARK_COUNT = 5;
 
     const { getAllByTestId } = render(
-      <Rail
+      <Marks
+        sliderWidth={100}
         mark={<Mark testID={TEST_ID_MARK} />}
         customMarkWidth={10}
         step={STEP}
@@ -59,7 +64,8 @@ describe('[Rail]', () => {
     const MARK_COUNT = 4;
 
     render(
-      <Rail
+      <Marks
+        sliderWidth={100}
         mark={<Mark testID={TEST_ID_MARK} />}
         customMarkWidth={12}
         style={{ width: 240 }}
