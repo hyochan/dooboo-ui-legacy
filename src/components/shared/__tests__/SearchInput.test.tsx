@@ -1,9 +1,8 @@
 import * as React from 'react';
 
-import renderer, { act } from 'react-test-renderer';
-
 import SearchInput from '../SearchInput';
 import { render } from '@testing-library/react-native';
+import renderer from 'react-test-renderer';
 
 const createTestProps = ({ value = '' }: { value: string }): object => ({
   testID: 'RESET_BUTTON',

@@ -14,19 +14,19 @@
 |                | necessary | types                | default |
 | -------------- | --------- | -------------------- | ------- |
 | testID         |           | string               |         |
+| containerStyle |           | ViewStyle            |         |
 | style          |           | ViewStyle            |         |
+| disabledStyle  |           | ViewStyle            |         |
 | textStyle      |           | TextStyle            |         |
-| dark           |           | boolean              |         |
-| inverted       |           | boolean              |         |
+| didsabledTextStyle |       | TextStyle            |         |
 | isLoading      |           | boolean              |         |
 | isDisabled     |           | boolean              |         |
-| iconLeft       |           | ReactElement         |         |
-| iconRight      |           | ReactElement         |         |
+| leftElement    |           | ReactElement         |         |
+| rightElement   |           | ReactElement         |         |
 | indicatorColor |           | string               |'#ffffff'|
 | activeOpacity  |           | number               |   0.5   |
-| children       |           | string, ReactElement |         |
 | text           |           | string               |         |
-| onClick        |           | func                 |         |
+| onPress        |           | func                 |         |
 
 ## Installation
 
@@ -60,7 +60,7 @@ yarn add @dooboo-ui/native-button
     textStyle={{
       color: 'white',
     }}
-    onClick={(): void => {}}
+    onPress={(): void => {}}
   >
     Sample button
   </Button>
@@ -72,7 +72,7 @@ yarn add @dooboo-ui/native-button
       backgroundColor: 'red',
       borderColor: 'blue',
     }}
-    onClick={(): void => {}}
+    onPress={(): void => {}}
   >
     <SampleText>Sample button</SampleText>
   </Button>
@@ -95,7 +95,7 @@ yarn add @dooboo-ui/native-button
     textStyle={{
       color: 'white',
     }}
-    onClick={(): void => {}}
+    onPress={(): void => {}}
   >
     Sample button
   </SampleButton>
@@ -113,7 +113,7 @@ yarn add @dooboo-ui/native-button
   `;
   <SampleButton
     testID="sampleButton"
-    onClick={(): void => {}}
+    onPress={(): void => {}}
   >
     <SampleText>Sample button</SampleText>
   </SampleButton>
@@ -127,7 +127,7 @@ yarn add @dooboo-ui/native-button
         <Button
           testID="btn"
           isLoading={false}
-          onClick={() => {}}
+          onPress={() => {}}
         >
           😀 😎 👍 💯
         </Button>
@@ -136,7 +136,7 @@ yarn add @dooboo-ui/native-button
             marginVertical: 40,
           }}
           isDisabled={true}
-          onClick={() => {}}
+          onPress={() => {}}
         >
           This is disabled!!
         </Button>
@@ -145,7 +145,7 @@ yarn add @dooboo-ui/native-button
           iconLeft={<Image source={IC_GOOGLE} />}
           isLoading={googleLoading}
           indicatorColor="#023059"
-          onClick={() => {
+          onPress={() => {
             setGoogleLoading(true);
             const timeout = setTimeout(() => {
               setGoogleLoading(false);
@@ -166,7 +166,7 @@ yarn add @dooboo-ui/native-button
             borderWidth: 0.5,
             borderRadius: 0,
           }}
-          onClick={() => {
+          onPress={() => {
             setFacebookLoading(true);
             const timeout = setTimeout(() => {
               setFacebookLoading(false);
