@@ -5,6 +5,7 @@ import Marks from './Marks';
 import { PanResponder } from 'react-native';
 import Rail from './Rail';
 import Thumb from './Thumb';
+import Track from './Track';
 import styled from 'styled-components/native';
 
 interface ThumbPositionerType {
@@ -36,8 +37,9 @@ const Slider: FC<Props> = ({
   hideMark = false,
   maxValue = 100,
   minValue = 0,
-  defaultValue,
+  defaultValue = 0,
   onChange,
+  step,
 }) => {
   const sliderRef = useRef<any>();
   const [sliderWidth, setSliderWidth] = useState<number>(0);
@@ -59,13 +61,12 @@ const Slider: FC<Props> = ({
 
           if (onChange) {
             const value = percentToValue(percent, maxValue, minValue);
-            onChange(value);
+            onChange(Math.round(value));
           }
         },
       }),
     [sliderPositionX, sliderWidth, onChange],
   );
-
   return (
     <Container
       ref={sliderRef}
@@ -79,10 +80,16 @@ const Slider: FC<Props> = ({
         }
       }}
     >
-      <Rail/>
-      {!hideMark && <Marks
-        sliderWidth={sliderWidth}
-      />}
+      <Rail />
+      <Track percent={percent} />
+      {!hideMark && step && (
+        <Marks
+          sliderWidth={sliderWidth}
+          minValue={minValue}
+          maxValue={maxValue}
+          step={step}
+        />
+      )}
       <ThumbPositioner percent={percent}>
         <Thumb />
       </ThumbPositioner>

@@ -27,7 +27,6 @@ function Default(): React.ReactElement {
   return (
     <Container>
       <Slider
-        defaultValue={50}
         onChange={(value): void => {
           console.log(value);
         }}
