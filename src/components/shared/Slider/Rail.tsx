@@ -19,8 +19,8 @@ const StyledRail = styled.View`
   background-color: #bcdbfb;
 `;
 
-const Rail: FC<Props> = memo(({ testID, style }) => {
+const Rail: FC<Props> = ({ testID, style }) => {
   return <StyledRail testID={testID} style={style} />;
-});
+};
 
 export default Rail;

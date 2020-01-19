@@ -1,5 +1,5 @@
-import { ContainerDeco } from '../decorators';
 import React, { useState } from 'react';
+import { ContainerDeco } from '../decorators';
 import Slider from '../../src/components/shared/Slider';
 import { storiesOf } from '@storybook/react-native';
 import styled from 'styled-components/native';

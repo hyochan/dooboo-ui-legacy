@@ -20,134 +20,7 @@ exports[`[Marks] renders without crashing 1`] = `
         },
       ]
     }
-  >
-    <View
-      accessible={true}
-      clickable={true}
-      position={-9.416666666666666}
-      style={
-        Array [
-          Object {
-            "alignItems": "center",
-            "display": "flex",
-            "left": -9.416666666666666,
-            "position": "absolute",
-            "width": 19.833333333333332,
-          },
-        ]
-      }
-      width={19.833333333333332}
-    >
-      <View
-        testID="TEST_ID_FOR_MARK"
-      />
-    </View>
-    <View
-      accessible={true}
-      clickable={true}
-      position={10.416666666666666}
-      style={
-        Array [
-          Object {
-            "alignItems": "center",
-            "display": "flex",
-            "left": 10.416666666666666,
-            "position": "absolute",
-            "width": 19.833333333333332,
-          },
-        ]
-      }
-      width={19.833333333333332}
-    >
-      <View
-        testID="TEST_ID_FOR_MARK"
-      />
-    </View>
-    <View
-      accessible={true}
-      clickable={true}
-      position={30.25}
-      style={
-        Array [
-          Object {
-            "alignItems": "center",
-            "display": "flex",
-            "left": 30.25,
-            "position": "absolute",
-            "width": 19.833333333333332,
-          },
-        ]
-      }
-      width={19.833333333333332}
-    >
-      <View
-        testID="TEST_ID_FOR_MARK"
-      />
-    </View>
-    <View
-      accessible={true}
-      clickable={true}
-      position={50.083333333333336}
-      style={
-        Array [
-          Object {
-            "alignItems": "center",
-            "display": "flex",
-            "left": 50.083333333333336,
-            "position": "absolute",
-            "width": 19.833333333333332,
-          },
-        ]
-      }
-      width={19.833333333333332}
-    >
-      <View
-        testID="TEST_ID_FOR_MARK"
-      />
-    </View>
-    <View
-      accessible={true}
-      clickable={true}
-      position={69.91666666666666}
-      style={
-        Array [
-          Object {
-            "alignItems": "center",
-            "display": "flex",
-            "left": 69.91666666666666,
-            "position": "absolute",
-            "width": 19.833333333333332,
-          },
-        ]
-      }
-      width={19.833333333333332}
-    >
-      <View
-        testID="TEST_ID_FOR_MARK"
-      />
-    </View>
-    <View
-      accessible={true}
-      clickable={true}
-      position={89.74999999999999}
-      style={
-        Array [
-          Object {
-            "alignItems": "center",
-            "display": "flex",
-            "left": 89.74999999999999,
-            "position": "absolute",
-            "width": 19.833333333333332,
-          },
-        ]
-      }
-      width={19.833333333333332}
-    >
-      <View
-        testID="TEST_ID_FOR_MARK"
-      />
-    </View>
-  </View>
+  />
 </View>
 `;
 
@@ -168,6 +41,7 @@ exports[`[Slider] render renders without crashing 1`] = `
           "display": "flex",
           "justifyContent": "center",
           "position": "relative",
+          "width": "100%",
         },
       ]
     }
@@ -176,10 +50,10 @@ exports[`[Slider] render renders without crashing 1`] = `
       style={
         Array [
           Object {
-            "backgroundColor": "#BCDBFB",
+            "backgroundColor": "#bcdbfb",
             "borderRadius": 1,
             "height": 3,
-            "width": 250,
+            "width": "100%",
           },
         ]
       }
@@ -188,74 +62,17 @@ exports[`[Slider] render renders without crashing 1`] = `
       style={
         Array [
           Object {
-            "display": "flex",
-            "justifyContent": "center",
+            "backgroundColor": "#0B21E8",
+            "height": 3,
+            "left": 0,
             "position": "absolute",
+            "top": 0,
+            "width": "0%",
           },
         ]
       }
-    >
-      <View
-        accessible={true}
-        clickable={true}
-        position={2.25}
-        style={
-          Array [
-            Object {
-              "alignItems": "center",
-              "display": "flex",
-              "left": 2.25,
-              "position": "absolute",
-              "width": -1.5,
-            },
-          ]
-        }
-        width={-1.5}
-      >
-        <View
-          style={
-            Array [
-              Object {
-                "backgroundColor": "#4163F4",
-                "height": 3,
-                "width": 3,
-              },
-              Object {},
-            ]
-          }
-        />
-      </View>
-      <View
-        accessible={true}
-        clickable={true}
-        position={0.75}
-        style={
-          Array [
-            Object {
-              "alignItems": "center",
-              "display": "flex",
-              "left": 0.75,
-              "position": "absolute",
-              "width": -1.5,
-            },
-          ]
-        }
-        width={-1.5}
-      >
-        <View
-          style={
-            Array [
-              Object {
-                "backgroundColor": "#4163F4",
-                "height": 3,
-                "width": 3,
-              },
-              Object {},
-            ]
-          }
-        />
-      </View>
-    </View>
+      width={0}
+    />
     <View
       percent={0}
       style={
