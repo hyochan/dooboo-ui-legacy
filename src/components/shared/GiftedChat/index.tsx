@@ -1,4 +1,4 @@
-import { FlatList, Keyboard, ListRenderItem, View } from 'react-native';
+import { EmitterSubscription, FlatList, Keyboard, ListRenderItem, View } from 'react-native';
 import React, { useEffect, useRef, useState } from 'react';
 
 import styled from 'styled-components/native';
@@ -55,11 +55,13 @@ const StyledViewMenu = styled.View<{ height: number }>`
 interface Props {
   inputTestID?: string;
   touchTestID?: string;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   chats?: any;
   borderColor?: string;
   backgroundColor?: string;
   fontColor?: string;
   keyboardOffset?: number;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   renderItem: ListRenderItem<any>;
   optionView?: React.ReactElement;
   emptyItem?: React.ReactElement;
@@ -72,9 +74,10 @@ interface Props {
 }
 
 function Shared(props: Props): React.ReactElement {
-  let keyboardShowListener: any;
-  // TODO: typings
+  let keyboardShowListener: EmitterSubscription;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const input1 = useRef<any>();
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const input2 = useRef<any>();
 
   const {
