@@ -9,28 +9,19 @@ interface Props {
 }
 
 const DEFAULT = {
-  width: 250,
   height: 3,
   borderRadius: 1,
 };
 
 const StyledRail = styled.View`
-  width: ${`${DEFAULT.width}px`};
+  width: 100%;
   height: ${`${DEFAULT.height}px`};
   border-radius: ${DEFAULT.borderRadius};
-  background-color: #BCDBFB;
+  background-color: #bcdbfb;
 `;
 
-const Rail: FC<Props> = ({
-  testID,
-  style,
-}) => {
-  return (
-    <StyledRail
-      testID={testID}
-      style={style}
-    />
-  );
+const Rail: FC<Props> = ({ testID, style }) => {
+  return <StyledRail testID={testID} style={style} />;
 };
 
 export default Rail;

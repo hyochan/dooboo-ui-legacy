@@ -15,6 +15,7 @@ const Container = styled.View`
   display: flex;
   justify-content: center;
   position: relative;
+  width: 100%;
 `;
 
 const ThumbPositioner = styled.View<ThumbPositionerType>`
@@ -78,7 +79,7 @@ const Slider: FC<Props> = ({
         }
       }}
     >
-      <Rail />
+      <Rail/>
       {!hideMark && <Marks
         sliderWidth={sliderWidth}
       />}
