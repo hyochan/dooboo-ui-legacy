@@ -55,8 +55,7 @@ const Slider: FC<Props> = ({
         onPanResponderMove: (evt, gestureState) => {
           // the latest screen coordinates of the recently-moved touch
           const moveX = gestureState.moveX;
-          const percent = getPercent(moveX - sliderPositionX, sliderWidth);
-
+          const percent = Math.round(getPercent(moveX - sliderPositionX, sliderWidth));
           setPercent(percent);
 
           if (onChange) {
