@@ -1,56 +1,61 @@
-import 'react-native';
-
 import * as React from 'react';
 
-import Button, { THEME } from '../Button';
-import {
-  RenderResult,
-  act,
-  fireEvent,
-  render,
-} from '@testing-library/react-native';
-
-import { ThemeProvider } from 'styled-components/native';
+import Button from '../Button';
+import { Text } from 'react-native';
 // Note: test renderer must be required after react-native.
 import renderer from 'react-test-renderer';
 
-let props: any;
-let component: React.ReactElement;
-let testingLib: RenderResult;
+// eslint-disable-next-line
+const component = (props?: any): React.ReactElement => {
+  return <Button {...props} />;
+};
 
 describe('[Button]', () => {
-  let cnt = 1;
+  let rendered: renderer.ReactTestRenderer;
+  let root: renderer.ReactTestInstance;
 
-  beforeEach(() => {
-    props = {
-      onClick: (): number => cnt++,
-      testID: 'btn',
-    };
-    component = (
-      <ThemeProvider theme={THEME.LIGHT}>
-        <Button {...props} />
-      </ThemeProvider>
-    );
+  it('should render without crashing', () => {
+    rendered = renderer.create(component());
+    expect(rendered.toJSON()).toMatchSnapshot();
+    expect(rendered.toJSON()).toBeTruthy();
   });
 
-  it('renders without crashing', () => {
-    const rendered = renderer.create(component).toJSON();
-    expect(rendered).toMatchSnapshot();
-    expect(rendered).toBeTruthy();
+  it('should render loading status', () => {
+    rendered = renderer.create(component({ isLoading: true }));
+    root = rendered.root;
+
+    const texts = root.findAllByType(Text);
+    expect(texts).toHaveLength(0);
   });
 
-  describe('interactions', () => {
-    beforeEach(() => {
-      testingLib = render(component);
-    });
+  it('should render disabled status', () => {
+    rendered = renderer.create(component({ isDisabled: true }));
+    root = rendered.root;
 
-    it('should simulate onClick', () => {
-      const btn = testingLib.queryByTestId('btn');
-      act(() => {
-        fireEvent.press(btn);
-        fireEvent.press(btn);
-      });
-      expect(cnt).toBe(3);
+    const texts = root.findAllByType(Text);
+    expect(texts).toHaveLength(1);
+  });
+
+  it('should render left and right elements', () => {
+    rendered = renderer.create(component({ leftElement: <Text/>, rightElement: <Text/> }));
+    root = rendered.root;
+
+    const texts = root.findAllByType(Text);
+    expect(texts).toHaveLength(3);
+  });
+
+  describe('[Button] Interaction', () => {
+    let cnt = 1;
+    it('simulate onPress', () => {
+      rendered = renderer.create(
+        component({
+          onClick: () => cnt++,
+        }),
+      );
+      root = rendered.root;
+
+      root.findByType(Button).props.onClick();
+      expect(cnt).toBe(2);
     });
   });
 });

@@ -106,7 +106,7 @@ function Page(): React.ReactElement {
           }}
           textStyle={fontStyle}
           testID="btnEmail"
-          onClick={(): void => onSignIn()}
+          onPress={(): void => onSignIn()}
           text="Login"
         />
         {/* Email SignUp text */}
