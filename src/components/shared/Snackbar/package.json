@@ -1,8 +1,8 @@
 {
-  "name": "@dooboo-ui/native-edit-text",
+  "name": "@dooboo-ui/native-snackbar",
   "main": "package/index.js",
   "types": "package/index.d.ts",
-  "version": "0.4.5",
+  "version": "0.1.0",
   "license": "MIT",
   "postinstall": "tsc",
   "scripts": {
@@ -12,7 +12,7 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/dooboolab/dooboo-ui-native.git",
-    "directory": "src/components/shared/EditText"
+    "directory": "src/components/shared/Snackbar"
   },
   "bugs": {
     "url": "https://github.com/dooboolab/dooboo-ui-native/issues"
@@ -34,7 +34,7 @@
     "access": "public"
   },
   "keywords": [
-    "edit-text",
+    "snackbar",
     "react-hook",
     "react-native",
     "dooboo-ui/native",
