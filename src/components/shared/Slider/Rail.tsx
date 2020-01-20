@@ -1,4 +1,4 @@
-import React, { FC, memo } from 'react';
+import React, { FC } from 'react';
 import { StyleProp, ViewStyle } from 'react-native';
 import styled from 'styled-components/native';
 
