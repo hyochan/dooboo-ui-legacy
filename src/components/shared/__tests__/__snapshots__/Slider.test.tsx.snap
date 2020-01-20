@@ -85,12 +85,10 @@ exports[`[Slider] render renders without crashing 1`] = `
       }
     >
       <View
-        accessible={true}
-        clickable={false}
         style={
           Array [
             Object {
-              "backgroundColor": "#0B21E8",
+              "backgroundColor": "#0b21e8",
               "borderRadius": 6,
               "height": 12,
               "transform": Array [

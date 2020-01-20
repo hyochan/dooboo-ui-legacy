@@ -1,5 +1,5 @@
-import { Animated } from 'react-native';
 import React, { FC, ReactNode } from 'react';
+import { Animated } from 'react-native';
 
 import styled from 'styled-components/native';
 
