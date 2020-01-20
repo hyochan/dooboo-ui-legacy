@@ -5,7 +5,10 @@ import * as React from 'react';
 import Calendar from '../CalendarCarousel';
 import renderer from 'react-test-renderer';
 
-const component = (props?: any): React.ReactElement => {
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+let props: any;
+
+const component = (): React.ReactElement => {
   return <Calendar {...props} />;
 };
 

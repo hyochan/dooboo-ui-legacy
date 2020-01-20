@@ -1,0 +1,10 @@
+{
+  "upgrade": true,
+  "reject": [
+    "react",
+    "react-native",
+    "styled-components",
+    "react-dom",
+    "react-test-renderer"
+  ]
+}

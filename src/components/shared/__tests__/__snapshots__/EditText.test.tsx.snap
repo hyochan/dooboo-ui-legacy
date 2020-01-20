@@ -1,13 +1,12 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`[EditText] renders without crashing 1`] = `
+exports[`[EditText] Type: [box] renders without crashing 1`] = `
 <View
   style={
     Array [
       Object {
         "alignSelf": "stretch",
         "flexDirection": "column",
-        "width": "100%",
       },
     ]
   }
@@ -19,45 +18,292 @@ exports[`[EditText] renders without crashing 1`] = `
           "color": "#b9b9c4",
           "fontSize": 14,
           "fontWeight": "500",
+          "marginBottom": 5,
         },
-        null,
         undefined,
+        null,
       ]
     }
-  />
-  <TextInput
-    allowFontScaling={true}
-    autoCapitalize="none"
-    onBlur={[Function]}
-    onFocus={[Function]}
-    rejectResponderTermination={true}
-    style={
-      Array [
-        Object {
-          "color": "#2c374e",
-          "fontSize": 15,
-          "fontWeight": "500",
-          "paddingBottom": 10,
-          "paddingLeft": 0,
-          "paddingRight": 0,
-          "paddingTop": 15,
-        },
-      ]
-    }
-    underlineColorAndroid="transparent"
-  />
+  >
+    label text
+  </Text>
   <View
     style={
       Array [
         Object {
-          "borderColor": "#eaeaf9",
-          "borderStyle": "solid",
-          "borderWidth": 0.6,
+          "alignItems": "center",
+          "flexDirection": "row",
         },
-        null,
-        undefined,
       ]
     }
-  />
+  >
+    <View
+      style={
+        Array [
+          Object {
+            "alignItems": "center",
+            "flexDirection": "row",
+            "justifyContent": "space-between",
+            "width": "100%",
+          },
+          Object {
+            "borderColor": "#eaeaf9",
+            "borderRadius": 3,
+            "borderWidth": 0.6,
+          },
+          undefined,
+          null,
+          Object {
+            "paddingLeft": 15,
+          },
+          Object {
+            "paddingRight": 15,
+          },
+        ]
+      }
+    >
+      <TextInput
+        allowFontScaling={true}
+        autoCapitalize="none"
+        onBlur={[Function]}
+        onFocus={[Function]}
+        rejectResponderTermination={true}
+        style={
+          Array [
+            Object {
+              "color": "#2c374e",
+              "flexBasis": 0,
+              "flexGrow": 1,
+              "flexShrink": 1,
+              "fontSize": 15,
+              "fontWeight": "500",
+              "height": "100%",
+              "paddingBottom": 15,
+              "paddingTop": 15,
+            },
+            Object {
+              "paddingVertical": 16,
+            },
+          ]
+        }
+        testID="INPUT_TEST"
+        underlineColorAndroid="transparent"
+      />
+    </View>
+  </View>
+</View>
+`;
+
+exports[`[EditText] Type: [default] renders without crashing 1`] = `
+<View
+  style={
+    Array [
+      Object {
+        "alignSelf": "stretch",
+        "flexDirection": "column",
+      },
+    ]
+  }
+>
+  <Text
+    style={
+      Array [
+        Object {
+          "color": "#b9b9c4",
+          "fontSize": 14,
+          "fontWeight": "500",
+          "marginBottom": 5,
+        },
+        undefined,
+        null,
+      ]
+    }
+  >
+    label text
+  </Text>
+  <View
+    style={
+      Array [
+        Object {
+          "alignItems": "center",
+          "flexDirection": "row",
+        },
+      ]
+    }
+  >
+    <View
+      style={
+        Array [
+          Object {
+            "alignItems": "center",
+            "flexDirection": "row",
+            "justifyContent": "space-between",
+            "width": "100%",
+          },
+          Object {
+            "borderBottomWidth": 0.6,
+            "borderColor": "#eaeaf9",
+          },
+          undefined,
+          null,
+        ]
+      }
+    >
+      <TextInput
+        allowFontScaling={true}
+        autoCapitalize="none"
+        onBlur={[Function]}
+        onFocus={[Function]}
+        rejectResponderTermination={true}
+        style={
+          Array [
+            Object {
+              "color": "#2c374e",
+              "flexBasis": 0,
+              "flexGrow": 1,
+              "flexShrink": 1,
+              "fontSize": 15,
+              "fontWeight": "500",
+              "height": "100%",
+              "paddingBottom": 15,
+              "paddingTop": 15,
+            },
+            Object {
+              "paddingVertical": 16,
+            },
+          ]
+        }
+        testID="INPUT_TEST"
+        underlineColorAndroid="transparent"
+      />
+    </View>
+  </View>
+</View>
+`;
+
+exports[`[EditText] Type: [row] renders without crashing 1`] = `
+<View
+  style={
+    Array [
+      Object {
+        "alignSelf": "stretch",
+        "flexDirection": "column",
+      },
+    ]
+  }
+>
+  <View
+    style={
+      Array [
+        Object {
+          "alignItems": "center",
+          "flexDirection": "row",
+          "justifyContent": "space-between",
+          "width": "100%",
+        },
+        Object {
+          "borderBottomWidth": 0.6,
+          "borderColor": "#eaeaf9",
+        },
+        undefined,
+        null,
+      ]
+    }
+  >
+    <TextInput
+      allowFontScaling={true}
+      autoCapitalize="none"
+      onBlur={[Function]}
+      onFocus={[Function]}
+      rejectResponderTermination={true}
+      style={
+        Array [
+          Object {
+            "color": "#2c374e",
+            "flexBasis": 0,
+            "flexGrow": 1,
+            "flexShrink": 1,
+            "fontSize": 14,
+            "fontWeight": "bold",
+            "height": "100%",
+            "paddingBottom": 16,
+            "paddingTop": 16,
+          },
+          Object {
+            "paddingVertical": 16,
+          },
+          Object {
+            "textAlign": "right",
+          },
+        ]
+      }
+      testID="INPUT_TEST"
+      underlineColorAndroid="transparent"
+    />
+  </View>
+</View>
+`;
+
+exports[`[EditText] Type: [rowBox] renders without crashing 1`] = `
+<View
+  style={
+    Array [
+      Object {
+        "alignSelf": "stretch",
+        "flexDirection": "column",
+      },
+    ]
+  }
+>
+  <View
+    style={
+      Array [
+        Object {
+          "alignItems": "center",
+          "flexDirection": "row",
+          "justifyContent": "space-between",
+          "width": "100%",
+        },
+        Object {
+          "borderColor": "#eaeaf9",
+          "borderRadius": 3,
+          "borderWidth": 0.6,
+        },
+        undefined,
+        null,
+      ]
+    }
+  >
+    <TextInput
+      allowFontScaling={true}
+      autoCapitalize="none"
+      onBlur={[Function]}
+      onFocus={[Function]}
+      rejectResponderTermination={true}
+      style={
+        Array [
+          Object {
+            "color": "#2c374e",
+            "flexBasis": 0,
+            "flexGrow": 1,
+            "flexShrink": 1,
+            "fontSize": 14,
+            "fontWeight": "bold",
+            "height": "100%",
+            "paddingBottom": 16,
+            "paddingTop": 16,
+          },
+          Object {
+            "paddingRight": 15,
+          },
+          Object {
+            "paddingVertical": 16,
+          },
+        ]
+      }
+      testID="INPUT_TEST"
+      underlineColorAndroid="transparent"
+    />
+  </View>
 </View>
 `;

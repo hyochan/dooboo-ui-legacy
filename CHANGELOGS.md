@@ -1,5 +1,21 @@
 ## Changelogs
-
+- **[0.5.0]**
+  - [0.5.1]
+    - Added `TinderCard@0.0.1`.
+  - [0.5.3]
+    - Properly include the `TinderCard` in multi repo `@dooboo-ui/native`.
+  - [0.5.5]
+    - [TinderCard]
+      - Remove `defaultProps` for `forwardingRef` since react warns it.
+      - Rename `rotate` props to `shouldRotate`.
+    - Put `px` after value since this is more safe to use `styled-component`.
+- **[0.4.12]**
+  - Revert [Button] to how it was originally used [#123](https://github.com/dooboolab/
+  dooboo-ui-native/pull/123).
+  - Support new feature for [EditText](https://github.com/dooboolab/dooboo-ui-native/pull/120).
+  - Update packages and resolves storybook issue.
+- **[0.4.6]**
+  - Fix default [EditText] `errorText` spacing.
 - **[0.4.5]**
   - Pass down all [TextInput] `props` to [EditText].
 - **[0.4.3]**

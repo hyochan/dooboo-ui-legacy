@@ -1,9 +1,9 @@
 import { IC_FACEBOOK, IC_GOOGLE } from '../../src/components/shared/Icons';
+import { Image, View } from 'react-native';
 import React, { useState } from 'react';
 
 import Button from '../../src/components/shared/Button';
 import { ContainerDeco } from '../decorators';
-import { Image } from 'react-native';
 import { action } from '@storybook/addon-actions';
 import { storiesOf } from '@storybook/react-native';
 import styled from 'styled-components/native';
@@ -22,8 +22,8 @@ const Container = styled.View`
   align-items: center;
   justify-content: center;
   width: 100%;
-  margin-top: 28;
-  padding-top: 80;
+  margin-top: 28px;
+  padding-top: 80px;
 
   flex-direction: column;
 `;
@@ -37,21 +37,26 @@ function Default(): React.ReactElement {
       <Button
         isLoading={false}
         text="😀 😎 👍 💯"
-        onClick={action('Clicked')}
+        onPress={action('Clicked')}
       />
       <Button
         style={{
           marginVertical: 40,
         }}
+        containerStyle={{
+          marginTop: 32,
+        }}
         isDisabled={true}
-        // text='This is disabled!!'
         text={text('button text', 'this is disabled')}
       />
       <Button
-        iconLeft={<Image source={IC_GOOGLE} />}
+        leftElement={<Image width={12} height={12} source={IC_GOOGLE} />}
         isLoading={googleLoading}
         indicatorColor="#023059"
-        onClick={(): void => {
+        containerStyle={{
+          marginTop: 32,
+        }}
+        onPress={(): void => {
           setGoogleLoading(true);
           const timeout = setTimeout(() => {
             setGoogleLoading(false);
@@ -62,16 +67,25 @@ function Default(): React.ReactElement {
       />
       <Button
         testID="btnFacebook"
-        iconLeft={<Image source={IC_FACEBOOK} />}
+        leftElement={
+          <View style={{
+            position: 'absolute',
+            left: 16,
+          }}>
+            <Image width={12} height={12} source={IC_FACEBOOK} />
+          </View>
+        }
         indicatorColor="#023059"
         isLoading={facebookLoading}
+        containerStyle={{
+          marginTop: 32,
+        }}
         style={{
-          marginTop: 40,
           backgroundColor: '#ccc',
           borderWidth: 0.5,
           borderRadius: 0,
         }}
-        onClick={(): void => {
+        onPress={(): void => {
           setFacebookLoading(true);
           const timeout = setTimeout(() => {
             setFacebookLoading(false);

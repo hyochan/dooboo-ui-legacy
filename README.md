@@ -28,7 +28,7 @@ If you want to use only `SwitchToggle`, you can install it by running `yarn add 
 ## Compatability
 | package           | version |
 |-------------------|---------|
-| react             | >=16.8  |
+| react             | >=16.9  |
 | react-native      | >=0.59  |
 | styled-components | >=4.4.0 |
 
