@@ -9,6 +9,8 @@ const DEFAULT = {
 
 const StyledTrack = styled.View<{ width: number }>`
   position: absolute;
+  top: 0;
+  left: 0;
   width: ${({ width }): string => `${width}%`};
   height: ${DEFAULT.height};
   background-color: #0B21E8;
