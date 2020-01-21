@@ -90,6 +90,7 @@
     "styled-components": "^4.4.1",
     "react-test-renderer": "16.9.0",
     "react-useinterval": "^1.0.1",
+    "styled-components": "^4.4.1",
     "ts-jest": "^24.2.0",
     "typescript": "^3.7.4"
   },
