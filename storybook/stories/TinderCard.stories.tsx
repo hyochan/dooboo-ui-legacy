@@ -1,6 +1,5 @@
-import { Dimensions, Text, TouchableOpacity, View } from 'react-native';
+import { Dimensions, ImageSourcePropType, Text, TouchableOpacity, View } from 'react-native';
 import React, {
-  ImageSourceProps,
   ReactElement,
   useMemo,
   useRef,
@@ -101,7 +100,7 @@ const NoCard = styled.View`
 
 interface Item {
   id: string;
-  image: ImageSourceProps;
+  image: ImageSourcePropType;
 }
 
 function Default(): React.ReactElement {
