@@ -49,11 +49,6 @@ const Container = styled.View`
   align-items: center;
 `;
 
-const CancelButton = styled.Button`
-  background-color: blue;
-  color: blue;
-`;
-
 const TextArea = styled.View`
   width: ${SCREEN_WIDTH};
   height: 100%;
@@ -217,13 +212,11 @@ function TinderCard(props: Props, ref): ReactElement {
 
   useImperativeHandle(ref, () => ({
     forceSwipe,
+    handleCancel,
   }));
 
   return (
     <Container>
-      {cardIndex > 0 && props.onCancel && (
-        <CancelButton title="Undo" onPress={handleCancel} />
-      )}
       {_renderCards()}
     </Container>
   );

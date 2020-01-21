@@ -1,8 +1,8 @@
 import { Dimensions, Text, TouchableOpacity, View } from 'react-native';
 import React, { ReactElement, useMemo, useRef, useState } from 'react';
+import TinderCard, { TinderCardDirection } from '../../src/components/shared/TinderCard';
 
 import { ContainerDeco } from '../decorators';
-import TinderCard from '../../src/components/shared/TinderCard';
 import { storiesOf } from '@storybook/react-native';
 import styled from 'styled-components/native';
 import { tinderCardDummyData } from './asset/dummyData/data';
@@ -189,7 +189,7 @@ function Default(): React.ReactElement {
               padding: 8,
             }}
             onPress={(): void => {
-              tinderCard.current.forceSwipe('left');
+              tinderCard.current.forceSwipe(TinderCardDirection.LEFT);
             }}
           ><Text>LEFT</Text></TouchableOpacity>
           <TouchableOpacity
@@ -197,7 +197,15 @@ function Default(): React.ReactElement {
               padding: 8,
             }}
             onPress={(): void => {
-              tinderCard.current.forceSwipe('right');
+              tinderCard.current.handleCancel();
+            }}
+          ><Text>UNDO</Text></TouchableOpacity>
+          <TouchableOpacity
+            style={{
+              padding: 8,
+            }}
+            onPress={(): void => {
+              tinderCard.current.forceSwipe(TinderCardDirection.RIGHT);
             }}
           ><Text>RIGHT</Text></TouchableOpacity>
         </View>
