@@ -1,4 +1,4 @@
-import { Dimensions, View } from 'react-native';
+import { Dimensions, Text, TouchableOpacity, View } from 'react-native';
 import React, { ReactElement, useMemo, useRef, useState } from 'react';
 
 import { ContainerDeco } from '../decorators';
