@@ -6,6 +6,3 @@ import './LoadingIndicator.stories';
 import './SearchInput.stories';
 import './SwitchToggle.stories';
 import './TinderCard.stories';
-import './LoadingIndicator.stories';
-import './SearchInput.stories';
-import './SwitchToggle.stories';

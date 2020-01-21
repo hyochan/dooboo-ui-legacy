@@ -3,9 +3,9 @@ import {
   Dimensions,
   LayoutAnimation,
   PanResponder,
-  Platform,
   Text,
   UIManager,
+  View,
 } from 'react-native';
 import React, {
   ReactElement,
@@ -114,7 +114,6 @@ function TinderCard(props: Props, ref): ReactElement {
   const _panResponder = useMemo(
     () =>
       PanResponder.create({
-        // Ask to be the responder:
         onStartShouldSetPanResponder: (evt, gestureState) => true,
         onPanResponderMove: (evt, gestureState) => {
           if (gestureState.dx > 0) {
@@ -153,7 +152,11 @@ function TinderCard(props: Props, ref): ReactElement {
 
   const _renderCards = (): ReactElement | (ReactElement | null)[] => {
     if (!props.data || cardIndex >= props.data.length) {
-      return props.renderNoMoreCards();
+      if (props.renderNoMoreCards) {
+        return props.renderNoMoreCards();
+      } else {
+        return <View/>;
+      }
     }
 
     const dataSet = props.data.map((item, idx) => {

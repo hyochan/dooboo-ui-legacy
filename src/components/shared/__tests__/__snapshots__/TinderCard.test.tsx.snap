@@ -5,30 +5,12 @@ exports[`[TinderCard] render renders without crashing 1`] = `
   style={
     Array [
       Object {
+        "alignItems": "center",
         "width": 750,
       },
     ]
   }
 >
-  <View
-    style={
-      Array [
-        Object {
-          "alignItems": "center",
-          "height": 200,
-          "justifyContent": "center",
-          "paddingBottom": 10,
-          "paddingLeft": 10,
-          "paddingRight": 10,
-          "paddingTop": 10,
-          "width": "100%",
-        },
-      ]
-    }
-  >
-    <Text>
-      No more cards
-    </Text>
-  </View>
+  <View />
 </View>
 `;
