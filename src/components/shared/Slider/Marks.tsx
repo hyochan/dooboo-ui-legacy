@@ -1,5 +1,10 @@
 import React, { FC, useEffect, useMemo } from 'react';
-import { StyleProp, StyleSheet, TouchableWithoutFeedback, ViewStyle } from 'react-native';
+import {
+  StyleProp,
+  StyleSheet,
+  TouchableWithoutFeedback,
+  ViewStyle,
+} from 'react-native';
 
 import styled from 'styled-components/native';
 
@@ -14,14 +19,23 @@ interface Props {
   style?: StyleProp<ViewStyle>;
   mark?: React.ReactElement;
   customMarkWidth?: number;
-  step?: number;
+  step: number;
   pixelsPerStep?: number;
   markCount?: number;
   startMark?: boolean;
   endMark?: boolean;
   disabled?: boolean;
-  onInit?: (markValues: number[], markPositions: number[]) => void | Promise<void>;
-  onMarkPress?: (value: number, position: number, index: number) => void | Promise<void>;
+  onInit?: (
+    markValues: number[],
+    markPositions: number[],
+  ) => void | Promise<void>;
+  onMarkPress?: (
+    value: number,
+    position: number,
+    index: number,
+  ) => void | Promise<void>;
+  minValue: number;
+  maxValue: number;
 }
 
 const DEFAULT = {
@@ -46,7 +60,7 @@ const MarkPositioner = styled.View<MarkPositionerType>`
 const Mark = styled.View`
   width: ${DEFAULT.width};
   height: ${DEFAULT.height};
-  background-color: #4163F4;
+  background-color: #4163f4;
 `;
 
 // Checks if null or undefined. temporary until using othe library like 'lodash'.
@@ -57,14 +71,18 @@ const getMarkCountByStep = ({
   step,
   startMark,
   endMark,
+  minValue,
+  maxValue,
 }: {
   railWidth: number;
   step: number;
   startMark: boolean;
   endMark: boolean;
+  minValue: number;
+  maxValue: number;
 }): number => {
-  const count = Math.floor(railWidth / step);
-  const countToApply = (count <= 0) ? 2 : count + 1;
+  const count = Math.floor((maxValue - minValue) / step);
+  const countToApply = count <= 0 ? 2 : count + 1;
 
   return countToApply - (startMark ? 0 : 1) - (endMark ? 0 : 1);
 };
@@ -158,6 +176,8 @@ const getStepDistance = ({
   markCount,
   startMark,
   endMark,
+  minValue,
+  maxValue,
 }: {
   railWidth: number;
   markWidth: number;
@@ -165,6 +185,8 @@ const getStepDistance = ({
   markCount?: number;
   startMark: boolean;
   endMark: boolean;
+  minValue: number;
+  maxValue: number;
 }): {
   markCount: number;
   stepDistance: number;
@@ -182,6 +204,8 @@ const getStepDistance = ({
       step,
       startMark,
       endMark,
+      minValue,
+      maxValue,
     });
 
     return {
@@ -191,7 +215,7 @@ const getStepDistance = ({
         markCount: count,
       }),
     };
-  };
+  }
 
   return {
     markCount: markCount as number,
@@ -213,14 +237,15 @@ const getMarkPositions = ({
 }): number[] => {
   const startAt = startMark ? 0 : stepDistance;
 
-  return Array.from({ length: count }).map((_, index: number) => startAt + (stepDistance * index));
+  return Array.from({ length: count }).map(
+    (_, index: number) => startAt + stepDistance * index,
+  );
 };
 
-const getMarkValue = (step: number, markIndex: number): number => step * markIndex;
-const getMarkValues = (
-  step: number,
-  markPositions: number[],
-): number[] => markPositions.map((_, index) => getMarkValue(step, index));
+const getMarkValue = (step: number, markIndex: number): number =>
+  step * markIndex;
+const getMarkValues = (step: number, markPositions: number[]): number[] =>
+  markPositions.map((_, index) => getMarkValue(step, index));
 
 const createMarks = ({
   positions,
@@ -239,31 +264,40 @@ const createMarks = ({
   mark?: React.ReactElement;
   markWidth: number;
   disabled?: boolean;
-  onMarkPress?: (value: number, position: number, index: number) => void | Promise<void>;
+  onMarkPress?: (
+    value: number,
+    position: number,
+    index: number,
+  ) => void | Promise<void>;
 }): React.ReactElement[] => {
   const halfStepDistance = stepDistance / 2;
-  const fineTunedHalfStepDistance = halfStepDistance - (markWidth / 2);
+  const fineTunedHalfStepDistance = halfStepDistance - markWidth / 2;
 
-  return positions.map((position: number, index: number): React.ReactElement => {
-    const handlePress = (): void => {
-      if (disabled) {
-        return;
-      }
+  return positions.map(
+    (position: number, index: number): React.ReactElement => {
+      const handlePress = (): void => {
+        if (disabled) {
+          return;
+        }
 
-      const value = getMarkValue(step, index);
-      if (onMarkPress) {
-        onMarkPress(value, position, index);
-      }
-    };
+        const value = getMarkValue(step, index);
+        if (onMarkPress) {
+          onMarkPress(value, position, index);
+        }
+      };
 
-    return (
-      <TouchableWithoutFeedback key={position} onPress={handlePress}>
-        <MarkPositioner width={stepDistance} position={position - fineTunedHalfStepDistance}>
-          {mark || <Mark style={style} />}
-        </MarkPositioner>
-      </TouchableWithoutFeedback>
-    );
-  });
+      return (
+        <TouchableWithoutFeedback key={position} onPress={handlePress}>
+          <MarkPositioner
+            width={stepDistance}
+            position={position - fineTunedHalfStepDistance}
+          >
+            {mark || <Mark style={style} />}
+          </MarkPositioner>
+        </TouchableWithoutFeedback>
+      );
+    },
+  );
 };
 
 const getMarkWidth = (markStyle: ViewStyle): number => {
@@ -282,7 +316,7 @@ const Marks: FC<Props> = ({
   style = {},
   mark,
   customMarkWidth,
-  step = 20,
+  step,
   pixelsPerStep,
   markCount,
   startMark = true,
@@ -290,6 +324,8 @@ const Marks: FC<Props> = ({
   disabled = false,
   onInit,
   onMarkPress,
+  minValue,
+  maxValue,
 }) => {
   const handleInit = (markValues: number[], markPositions: number[]): void => {
     if (onInit) {
@@ -304,9 +340,13 @@ const Marks: FC<Props> = ({
   const markStyleToApply = StyleSheet.flatten(style);
 
   const railWidth = sliderWidth;
-  const markWidth = isNil(mark) ? getMarkWidth(markStyleToApply) : customMarkWidth as number;
+  const markWidth = isNil(mark)
+    ? getMarkWidth(markStyleToApply)
+    : (customMarkWidth as number);
 
-  const stepByPixel = isNil(pixelsPerStep) ? step : step * (pixelsPerStep as number);
+  const stepByPixel = isNil(pixelsPerStep)
+    ? step
+    : step * (pixelsPerStep as number);
 
   const markOptions = {
     railWidth,
@@ -314,18 +354,28 @@ const Marks: FC<Props> = ({
     step: stepByPixel,
     startMark,
     endMark,
+    minValue,
+    maxValue,
   };
 
-  const { markCount: markCountToApply, stepDistance } = useMemo(() => getStepDistance({
-    ...markOptions,
-    markCount,
-  }), Object.values(markOptions));
+  const { markCount: markCountToApply, stepDistance } = useMemo(
+    () =>
+      getStepDistance({
+        ...markOptions,
+        markCount,
+      }),
+    Object.values(markOptions),
+  );
 
-  const markPositions = useMemo(() => getMarkPositions({
-    startMark,
-    count: markCountToApply,
-    stepDistance,
-  }), [startMark, markCountToApply, stepDistance]);
+  const markPositions = useMemo(
+    () =>
+      getMarkPositions({
+        startMark,
+        count: markCountToApply,
+        stepDistance,
+      }),
+    [startMark, markCountToApply, stepDistance],
+  );
 
   const marks = createMarks({
     positions: markPositions,
@@ -337,18 +387,13 @@ const Marks: FC<Props> = ({
     disabled,
     onMarkPress,
   });
-
   useEffect(() => {
     const markValues = getMarkValues(step, markPositions);
 
     handleInit(markValues, markPositions);
   }, []);
 
-  return (
-    <Container testID={testID}>
-      {marks}
-    </Container>
-  );
+  return <Container testID={testID}>{marks}</Container>;
 };
 
 export default Marks;
