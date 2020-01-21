@@ -23,7 +23,7 @@
   },
   "devDependencies": {
     "styled-components": "^4.4.0",
-    "typescript": "^3.6.4"
+    "typescript": "^3.7.5"
   },
   "peerDependencies": {
     "react": ">=16.8",
