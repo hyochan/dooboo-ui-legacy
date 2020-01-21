@@ -81,6 +81,9 @@ exports[`[EditText] Type: [box] renders without crashing 1`] = `
               "paddingBottom": 15,
               "paddingTop": 15,
             },
+            Object {
+              "paddingVertical": 16,
+            },
           ]
         }
         testID="INPUT_TEST"
@@ -165,6 +168,9 @@ exports[`[EditText] Type: [default] renders without crashing 1`] = `
               "paddingBottom": 15,
               "paddingTop": 15,
             },
+            Object {
+              "paddingVertical": 16,
+            },
           ]
         }
         testID="INPUT_TEST"
@@ -223,7 +229,9 @@ exports[`[EditText] Type: [row] renders without crashing 1`] = `
             "paddingBottom": 16,
             "paddingTop": 16,
           },
-          undefined,
+          Object {
+            "paddingVertical": 16,
+          },
           Object {
             "textAlign": "right",
           },
@@ -288,7 +296,9 @@ exports[`[EditText] Type: [rowBox] renders without crashing 1`] = `
           Object {
             "paddingRight": 15,
           },
-          undefined,
+          Object {
+            "paddingVertical": 16,
+          },
         ]
       }
       testID="INPUT_TEST"
