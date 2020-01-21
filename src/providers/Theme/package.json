@@ -20,7 +20,7 @@
     "dooboolab-welcome": "^1.1.1"
   },
   "devDependencies": {
-    "typescript": "^3.6.4",
+    "typescript": "^3.7.5",
     "styled-components": "^4.4.1"
   },
   "peerDependencies": {
