@@ -7,13 +7,25 @@ import {
   Text,
   UIManager,
 } from 'react-native';
-import React, { ReactElement, useCallback, useMemo, useState } from 'react';
+import React, {
+  ReactElement,
+  forwardRef,
+  useCallback,
+  useImperativeHandle,
+  useMemo,
+  useState,
+} from 'react';
 
 import styled from 'styled-components/native';
 
 const SCREEN_WIDTH = Dimensions.get('screen').width;
 const SWIPE_THRESHOLD = 0.25 * SCREEN_WIDTH;
 const SWIPE_OUT_DURATION = 250;
+
+export enum TinderCardDirection {
+  RIGHT = 'right',
+  LEFT = 'left'
+}
 
 interface DataProps {
   [key: string]: any;
@@ -48,7 +60,7 @@ const NoCard = styled.View`
   padding: 10px;
 `;
 
-function TinderCard(props: Props): ReactElement {
+function TinderCard(props: Props, ref): ReactElement {
   const [cardIndex, setCardIndex] = useState(0);
   const position = useMemo(() => new Animated.ValueXY(), []);
 
@@ -81,8 +93,8 @@ function TinderCard(props: Props): ReactElement {
     }
   }, []);
 
-  const forceSwipe = (direction: string): void => {
-    const x = direction === 'right' ? SCREEN_WIDTH : -SCREEN_WIDTH;
+  const forceSwipe = (direction: TinderCardDirection): void => {
+    const x = direction === TinderCardDirection.RIGHT ? SCREEN_WIDTH : -SCREEN_WIDTH;
     Animated.timing(position, {
       toValue: { x, y: 0 },
       duration: SWIPE_OUT_DURATION,
@@ -99,9 +111,9 @@ function TinderCard(props: Props): ReactElement {
         },
         onPanResponderRelease: (evt, gesture) => {
           if (gesture.dx > SWIPE_THRESHOLD) {
-            forceSwipe('right');
+            forceSwipe(TinderCardDirection.RIGHT);
           } else if (gesture.dx < -SWIPE_THRESHOLD) {
-            forceSwipe('left');
+            forceSwipe(TinderCardDirection.LEFT);
           } else {
             resetPosition();
           }
@@ -183,6 +195,10 @@ function TinderCard(props: Props): ReactElement {
     }
   };
 
+  useImperativeHandle(ref, () => ({
+    forceSwipe,
+  }));
+
   return (
     <Container>
       {cardIndex > 0 && props.onCancel && (
@@ -208,4 +224,4 @@ TinderCard.defaultProps = {
   stackSize: 3,
 };
 
-export default TinderCard;
+export default forwardRef(TinderCard);

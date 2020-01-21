@@ -1,7 +1,7 @@
-import React, { useMemo, useState } from 'react';
+import { Dimensions, Text, TouchableOpacity, View } from 'react-native';
+import React, { useMemo, useRef, useState } from 'react';
 
 import { ContainerDeco } from '../decorators';
-import { Dimensions } from 'react-native';
 import TinderCard from '../../src/components/shared/TinderCard';
 import { storiesOf } from '@storybook/react-native';
 import styled from 'styled-components/native';
@@ -38,7 +38,7 @@ const HeadContainer = styled.View`
   border-radius: 5px;
 `;
 
-const Text = styled.Text`
+const StyledText = styled.Text`
   font-size: 20px;
   font-weight: 600;
 `;
@@ -85,6 +85,7 @@ const NoCard = styled.View`
 `;
 
 function Default(): React.ReactElement {
+  const tinderCard = useRef(null);
   const [like, setLike] = useState(0);
   const [unlike, setUnlike] = useState(0);
   const [data, setData] = useState(tinderCardDummyData);
@@ -125,27 +126,61 @@ function Default(): React.ReactElement {
 
   const _renderNoMoreCards = (): React.ReactElement => (
     <NoCard>
-      <Text>No more cards</Text>
+      <StyledText>No more cards</StyledText>
     </NoCard>
   );
 
   return (
     <Container>
       <HeadContainer>
-        <Text style={{ color: 'red' }}>Like: {like}</Text>
-        <Text style={{ color: 'blue' }}>Unlike: {unlike}</Text>
+        <StyledText style={{ color: 'red' }}>Like: {like}</StyledText>
+        <StyledText style={{ color: 'blue' }}>Unlike: {unlike}</StyledText>
       </HeadContainer>
-      <TinderCard
-        testID="tinderCard"
-        onSwipeRight={handleUnlike}
-        onSwipeLeft={handleLike}
-        onCancel={handleCancel}
-        data={data}
-        renderCards={_renderCards}
-        renderNoMoreCards={_renderNoMoreCards}
-        rotate
-        stackSize={0}
-      />
+      <View
+        style={{
+          width: '100%',
+          height: 600,
+          alignItems: 'center',
+        }}
+      >
+        <TinderCard
+          testID="tinderCard"
+          ref={tinderCard}
+          onSwipeRight={handleUnlike}
+          onSwipeLeft={handleLike}
+          onCancel={handleCancel}
+          data={data}
+          renderCards={_renderCards}
+          renderNoMoreCards={_renderNoMoreCards}
+          rotate
+          stackSize={0}
+        />
+        <View style={{
+          flexDirection: 'row',
+          position: 'absolute',
+          bottom: 0,
+          width: '100%',
+          paddingHorizontal: 80,
+          justifyContent: 'space-between',
+        }}>
+          <TouchableOpacity
+            style={{
+              padding: 8,
+            }}
+            onPress={(): void => {
+              tinderCard.current.forceSwipe('left');
+            }}
+          ><Text>LEFT</Text></TouchableOpacity>
+          <TouchableOpacity
+            style={{
+              padding: 8,
+            }}
+            onPress={(): void => {
+              tinderCard.current.forceSwipe('right');
+            }}
+          ><Text>RIGHT</Text></TouchableOpacity>
+        </View>
+      </View>
     </Container>
   );
 }
