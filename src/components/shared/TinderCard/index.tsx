@@ -9,6 +9,7 @@ import {
 } from 'react-native';
 import React, {
   ReactElement,
+  RefForwardingComponent,
   forwardRef,
   useCallback,
   useImperativeHandle,
@@ -27,17 +28,18 @@ export enum TinderCardDirection {
   LEFT = 'left'
 }
 
-interface DataProps {
-  [key: string]: any;
+export interface TinderCardRef {
+  handleCancel: () => void;
+  forceSwipe: (direction: TinderCardDirection) => void;
 }
 
 interface Props {
   testID?: string;
-  onSwipeRight?: (item: DataProps) => void;
-  onSwipeLeft?: (item: DataProps) => void;
+  onSwipeRight?: (item: any) => void;
+  onSwipeLeft?: (item: any) => void;
   onCancel?: () => void;
-  data: DataProps[];
-  renderCards: (item: DataProps, type?: number) => ReactElement;
+  data: any[];
+  renderCards: (item: any, type?: number) => ReactElement;
   renderNoMoreCards: () => ReactElement;
   renderCardLabel?: (type: number) => ReactElement;
   rotate?: boolean;
@@ -65,7 +67,10 @@ const NoCard = styled.View`
   padding: 10px;
 `;
 
-function TinderCard(props: Props, ref): ReactElement {
+const TinderCard: RefForwardingComponent<TinderCardRef, Props> = (
+  props,
+  ref,
+): ReactElement => {
   const [cardIndex, setCardIndex] = useState(0);
   const [type, setType] = useState(0);
   const position = useMemo(() => new Animated.ValueXY(), []);
@@ -114,7 +119,7 @@ function TinderCard(props: Props, ref): ReactElement {
   const _panResponder = useMemo(
     () =>
       PanResponder.create({
-        onStartShouldSetPanResponder: (evt, gestureState) => true,
+        onStartShouldSetPanResponder: () => true,
         onPanResponderMove: (evt, gestureState) => {
           if (gestureState.dx > 0) {
             setType(2);
@@ -223,7 +228,7 @@ function TinderCard(props: Props, ref): ReactElement {
       {_renderCards()}
     </Container>
   );
-}
+};
 
 const _renderNoMoreCards = (): ReactElement => (
   <NoCard>

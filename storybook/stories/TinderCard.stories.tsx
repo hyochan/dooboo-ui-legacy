@@ -1,6 +1,12 @@
 import { Dimensions, Text, TouchableOpacity, View } from 'react-native';
-import React, { ReactElement, useMemo, useRef, useState } from 'react';
-import TinderCard, { TinderCardDirection } from '../../src/components/shared/TinderCard';
+import React, {
+  ImageSourceProps,
+  ReactElement,
+  useMemo,
+  useRef,
+  useState,
+} from 'react';
+import TinderCard, { TinderCardDirection, TinderCardRef } from '../../src/components/shared/TinderCard';
 
 import { ContainerDeco } from '../decorators';
 import { storiesOf } from '@storybook/react-native';
@@ -17,10 +23,6 @@ storiesOf('TinderCard', module)
       <Default />
     </>
   ));
-
-interface DataProps {
-  [key: string]: any;
-}
 
 const Container = styled.SafeAreaView`
   flex: 1;
@@ -97,8 +99,13 @@ const NoCard = styled.View`
   padding: 10px;
 `;
 
+interface Item {
+  id: string;
+  image: ImageSourceProps;
+}
+
 function Default(): React.ReactElement {
-  const tinderCard = useRef(null);
+  const tinderCard = useRef<TinderCardRef>(null);
   const [like, setLike] = useState(0);
   const [unlike, setUnlike] = useState(0);
   const [data, setData] = useState(tinderCardDummyData);
@@ -110,12 +117,12 @@ function Default(): React.ReactElement {
 
   const actionStack = useMemo(() => [], []);
 
-  const handleUnlike = (item: DataProps): void => {
+  const handleUnlike = (): void => {
     setUnlike((unlike) => unlike + 1);
     actionStack.push('unlike');
   };
 
-  const handleLike = (item: DataProps): void => {
+  const handleLike = (): void => {
     setLike((like) => like + 1);
     actionStack.push('like');
   };
@@ -128,7 +135,7 @@ function Default(): React.ReactElement {
     }
   };
 
-  const _renderCards = (item: DataProps): ReactElement => {
+  const _renderCards = (item: Item): ReactElement => {
     return (
       <CardContainer>
         <IndexText>{item.id}</IndexText>
