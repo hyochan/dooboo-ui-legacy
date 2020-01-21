@@ -1,48 +1,23 @@
-import {
-  Animated,
-  Easing,
-  Platform,
-  TouchableWithoutFeedback,
-} from 'react-native';
-import React, { FC, ReactNode, useState } from 'react';
+import React, { FC, ReactNode } from 'react';
+import { Animated } from 'react-native';
 
 import styled from 'styled-components/native';
 
 const Container = styled.View`
   width: 12;
   height: 12;
-  background-color: #0B21E8;
+  background-color: #0b21e8;
   border-radius: 6;
   transform: translate(-6px);
 `;
 
 interface Props {
   size?: number;
+  opacityValue: Animated.Value;
+  scaleValue: Animated.Value;
 }
 
-const Thumb: FC<Props> = ({
-  size = 12,
-}) => {
-  const [scaleValue, setScaleValue] = useState(new Animated.Value(0.01));
-  const [opacityValue, setOpacityValue] = useState(new Animated.Value(0.12));
-  const onPressedIn = (): void => {
-    Animated.timing(scaleValue, {
-      toValue: 1,
-      duration: 225,
-      easing: Easing.bezier(0.0, 0.0, 0.2, 1),
-      useNativeDriver: Platform.OS === 'android',
-    }).start();
-  };
-
-  const onPressedOut = (): void => {
-    Animated.timing(opacityValue, {
-      toValue: 0,
-    }).start(() => {
-      setOpacityValue(new Animated.Value(0.12));
-      setScaleValue(new Animated.Value(0.01));
-    });
-  };
-
+const Thumb: FC<Props> = ({ size = 12, scaleValue, opacityValue }) => {
   const rippleSize = size * 2;
   const renderRippleView = (): ReactNode => {
     return (
@@ -62,16 +37,7 @@ const Thumb: FC<Props> = ({
     );
   };
 
-  return (
-    <TouchableWithoutFeedback
-      onPressIn={onPressedIn}
-      onPressOut={onPressedOut}
-    >
-      <Container>
-        {renderRippleView()}
-      </Container>
-    </TouchableWithoutFeedback>
-  );
+  return <Container>{renderRippleView()}</Container>;
 };
 
 export default Thumb;
