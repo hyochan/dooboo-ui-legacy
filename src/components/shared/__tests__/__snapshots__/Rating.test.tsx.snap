@@ -17,7 +17,7 @@ exports[`[Rating] render [Rating] Interaction should simulate props 1`] = `
 >
   <View
     accessible={true}
-    clickable={true}
+    focusable={true}
     isTVSelectable={true}
     onClick={[Function]}
     onResponderGrant={[Function]}
@@ -72,7 +72,7 @@ exports[`[Rating] render [Rating] Interaction should simulate props 2`] = `
 >
   <View
     accessible={true}
-    clickable={true}
+    focusable={true}
     isTVSelectable={true}
     onClick={[Function]}
     onResponderGrant={[Function]}
@@ -126,7 +126,7 @@ exports[`[Rating] render renders without crashing 1`] = `
 >
   <View
     accessible={true}
-    clickable={true}
+    focusable={true}
     isTVSelectable={true}
     onClick={[Function]}
     onResponderGrant={[Function]}
