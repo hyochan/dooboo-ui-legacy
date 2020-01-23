@@ -8,8 +8,9 @@ import {
   View,
 } from 'react-native';
 import React, {
+  PropsWithChildren,
   ReactElement,
-  RefForwardingComponent,
+  Ref,
   forwardRef,
   useCallback,
   useImperativeHandle,
@@ -33,13 +34,13 @@ export interface TinderCardRef {
   forceSwipe: (direction: TinderCardDirection) => void;
 }
 
-interface Props {
+interface Props<T> {
   testID?: string;
-  onSwipeRight?: (item: any) => void;
-  onSwipeLeft?: (item: any) => void;
+  onSwipeRight?: (item: T) => void;
+  onSwipeLeft?: (item: T) => void;
   onCancel?: () => void;
-  data: any[];
-  renderCards: (item: any, type?: number) => ReactElement;
+  data: T[];
+  renderCards: (item: T, type?: number) => ReactElement;
   renderNoMoreCards: () => ReactElement;
   renderCardLabel?: (type: number) => ReactElement;
   rotate?: boolean;
@@ -67,10 +68,10 @@ const NoCard = styled.View`
   padding: 10px;
 `;
 
-const TinderCard: RefForwardingComponent<TinderCardRef, Props> = (
-  props,
-  ref,
-): ReactElement => {
+function TinderCard<T>(
+  props: PropsWithChildren<Props<T>>,
+  ref: Ref<TinderCardRef>,
+): ReactElement {
   const [cardIndex, setCardIndex] = useState(0);
   const [type, setType] = useState(0);
   const position = useMemo(() => new Animated.ValueXY(), []);
