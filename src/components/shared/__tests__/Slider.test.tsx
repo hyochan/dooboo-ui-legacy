@@ -26,6 +26,9 @@ describe('[Marks]', () => {
         sliderWidth={100}
         mark={<Mark testID={TEST_ID_MARK} />}
         customMarkWidth={1}
+        step={10}
+        minValue={0}
+        maxValue={100}
       />,
     ).asJSON();
     expect(rendered).toMatchSnapshot();
@@ -35,7 +38,7 @@ describe('[Marks]', () => {
   it('calls onMarkPress with expected arguments', () => {
     const handleMarkPress = jest.fn();
     const STEP = 10;
-    const MARK_COUNT = 5;
+    const MARK_COUNT = 10;
 
     const { getAllByTestId } = render(
       <Marks
@@ -43,7 +46,8 @@ describe('[Marks]', () => {
         mark={<Mark testID={TEST_ID_MARK} />}
         customMarkWidth={10}
         step={STEP}
-        markCount={MARK_COUNT}
+        minValue={0}
+        maxValue={100}
         onMarkPress={handleMarkPress}
       />,
     );
@@ -61,7 +65,9 @@ describe('[Marks]', () => {
   it('calls onInit with expected arguments', () => {
     const onInit = jest.fn();
     const STEP = 8;
-    const MARK_COUNT = 4;
+    const MIN_VALUE = 0;
+    const MAX_VALUE = 96;
+    const MARK_COUNT = Math.floor((MAX_VALUE - MIN_VALUE) / STEP);
 
     render(
       <Marks
@@ -70,13 +76,15 @@ describe('[Marks]', () => {
         customMarkWidth={12}
         style={{ width: 240 }}
         step={STEP}
-        markCount={MARK_COUNT}
+        minValue={MIN_VALUE}
+        maxValue={MAX_VALUE}
         onInit={onInit}
       />,
     );
     expect(onInit).toHaveBeenCalledTimes(1);
-    const expectedArgumentForOnInit = Array.from({ length: MARK_COUNT }).map((_, ind) => STEP * ind);
+    const expectedArgumentForOnInit = Array.from({ length: MARK_COUNT + 1 }).map((_, idx) => STEP * idx);
     const actualArgumentForOnInit = onInit.mock.calls[0][0];
+
     expect(actualArgumentForOnInit).toStrictEqual(
       expectedArgumentForOnInit,
     );
