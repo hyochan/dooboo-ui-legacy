@@ -2,6 +2,8 @@
 - **[0.5.0]**
   - [0.5.1]
     - Added `TinderCard@0.0.1`.
+  - [0.5.3]
+    - Properly include the `TinderCard` in multi repo `@dooboo-ui/native`.
 - **[0.4.12]**
   - Revert [Button] to how it was originally used [#123](https://github.com/dooboolab/
   dooboo-ui-native/pull/123).
