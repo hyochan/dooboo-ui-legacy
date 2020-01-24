@@ -7,26 +7,26 @@ import { RenderInputProps } from './types';
 const RenderInput =
   forwardRef<TextInput, RenderInputProps>((props, ref) => {
     const {
-      on,
+      focused,
       placeholderLabel,
       onFocus,
       onBlur,
       onDebounceOrOnReset,
       testID,
-      value,
+      label,
       onChangeText,
     } = props;
 
-    const [animatedIsFocused] = useState(new Animated.Value(on ? 1 : 0));
+    const [animatedIsFocused] = useState(new Animated.Value(focused ? 1 : 0));
 
     useEffect(() => {
       const config = {
-        toValue: on ? 1 : value ? 2 : 0,
-        delay: value ? 0 : 300,
-        duration: value ? 0 : 200,
+        toValue: focused ? 1 : label ? 2 : 0,
+        delay: label ? 0 : 300,
+        duration: label ? 0 : 200,
       };
       Animated.timing(animatedIsFocused, config).start();
-    }, [on, value]);
+    }, [focused, label]);
 
     return (
       <InputInnerContainer>
