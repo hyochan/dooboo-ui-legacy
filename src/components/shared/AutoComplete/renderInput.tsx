@@ -58,7 +58,7 @@ const RenderInput =
           {placeholderLabel}
         </Animated.Text>
         <Input {...props} onFocus={onFocus} onBlur={onBlur} ref={ref as any} />
-        {!!value && (
+        {!!label && (
           <ResetContainer
             testID={testID}
             onPress={(): void => {
