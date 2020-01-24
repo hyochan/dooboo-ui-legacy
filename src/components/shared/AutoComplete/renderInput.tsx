@@ -20,12 +20,13 @@ const RenderInput =
     const [animatedIsFocused] = useState(new Animated.Value(focused ? 1 : 0));
 
     useEffect(() => {
-      Animated.timing(animatedIsFocused, {
-        toValue: focused ? 1 : 0,
-        delay: 300,
-        duration: 200,
-      }).start();
-    }, [focused]);
+      const config = {
+        toValue: focused ? 1 : label ? 2 : 0,
+        delay: label ? 0 : 300,
+        duration: label ? 0 : 200,
+      };
+      Animated.timing(animatedIsFocused, config).start();
+    }, [focused, label]);
 
     return (
       <InputInnerContainer>
@@ -35,26 +36,26 @@ const RenderInput =
             paddingRight: 4,
             position: 'absolute',
             top: animatedIsFocused.interpolate({
-              inputRange: [0, 1],
-              outputRange: [17, -10],
+              inputRange: [0, 1, 2],
+              outputRange: [17, -10, -10],
             }),
             left: animatedIsFocused.interpolate({
-              inputRange: [0, 1],
-              outputRange: [7, 10],
+              inputRange: [0, 1, 2],
+              outputRange: [7, 10, 10],
             }),
             fontSize: animatedIsFocused.interpolate({
-              inputRange: [0, 1],
-              outputRange: [20, 14],
+              inputRange: [0, 1, 2],
+              outputRange: [20, 14, 14],
             }),
             color: animatedIsFocused.interpolate({
-              inputRange: [0, 1],
-              outputRange: ['#cdd2d7', 'royalblue'],
+              inputRange: [0, 1, 2],
+              outputRange: ['#cdd2d7', 'royalblue', '#000000'],
             }),
             backgroundColor: 'white',
             marginBottom: 2,
           }}
         >
-          {!label && placeholderLabel}
+          {placeholderLabel}
         </Animated.Text>
         <Input {...props} onFocus={onFocus} onBlur={onBlur} ref={ref as any} />
         {!!label && (
