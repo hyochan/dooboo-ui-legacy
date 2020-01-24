@@ -3,25 +3,22 @@
 exports[`[ButtonGroup] render renders without crashing 1`] = `
 <View
   style={
-    Array [
-      Object {
-        "alignItems": "center",
-        "alignSelf": "stretch",
-        "backgroundColor": "transparent",
-        "borderColor": "rgb(62,126,255)",
-        "borderWidth": 1,
-        "flexDirection": "row",
-        "height": 32,
-        "justifyContent": "center",
-        "marginTop": 24,
-      },
-      undefined,
-    ]
+    Object {
+      "alignItems": "center",
+      "alignSelf": "stretch",
+      "backgroundColor": "transparent",
+      "borderColor": "rgb(62,126,255)",
+      "borderWidth": 1,
+      "flexDirection": "row",
+      "height": 32,
+      "justifyContent": "center",
+      "marginTop": 24,
+    }
   }
 >
   <View
     accessible={true}
-    clickable={true}
+    focusable={true}
     isTVSelectable={true}
     onClick={[Function]}
     onResponderGrant={[Function]}
@@ -40,19 +37,15 @@ exports[`[ButtonGroup] render renders without crashing 1`] = `
   >
     <View
       style={
-        Array [
-          Object {
-            "alignItems": "center",
-            "alignSelf": "stretch",
-            "backgroundColor": "rgb(62,126,255)",
-            "borderColor": "rgb(62,126,255)",
-            "height": 30,
-            "justifyContent": "center",
-          },
-          Object {
-            "borderRightWidth": 1,
-          },
-        ]
+        Object {
+          "alignItems": "center",
+          "alignSelf": "stretch",
+          "backgroundColor": "rgb(62,126,255)",
+          "borderColor": "rgb(62,126,255)",
+          "borderRightWidth": 1,
+          "height": 30,
+          "justifyContent": "center",
+        }
       }
     >
       <Text
@@ -71,7 +64,7 @@ exports[`[ButtonGroup] render renders without crashing 1`] = `
   </View>
   <View
     accessible={true}
-    clickable={true}
+    focusable={true}
     isTVSelectable={true}
     onClick={[Function]}
     onResponderGrant={[Function]}
@@ -90,17 +83,14 @@ exports[`[ButtonGroup] render renders without crashing 1`] = `
   >
     <View
       style={
-        Array [
-          Object {
-            "alignItems": "center",
-            "alignSelf": "stretch",
-            "backgroundColor": "white",
-            "borderColor": "rgb(62,126,255)",
-            "height": 30,
-            "justifyContent": "center",
-          },
-          null,
-        ]
+        Object {
+          "alignItems": "center",
+          "alignSelf": "stretch",
+          "backgroundColor": "white",
+          "borderColor": "rgb(62,126,255)",
+          "height": 30,
+          "justifyContent": "center",
+        }
       }
     >
       <Text

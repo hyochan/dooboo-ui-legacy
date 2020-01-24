@@ -24,7 +24,6 @@ function Page(): React.ReactElement {
         testID="btn"
         isLoading={false}
         text="😀 😎 👍 💯"
-        onClick={(): void => {}}
       />
       <Button
         style={{
@@ -32,14 +31,13 @@ function Page(): React.ReactElement {
         }}
         isDisabled={true}
         text="This is disabled!!"
-        onClick={(): void => {}}
       />
       <Button
         testID="btnGoogle"
-        iconLeft={<Image source={IC_GOOGLE} />}
+        leftElement={<Image source={IC_GOOGLE} />}
         isLoading={googleLoading}
         indicatorColor="#023059"
-        onClick={(): void => {
+        onPress={(): void => {
           setGoogleLoading(true);
           const timeout = setTimeout(() => {
             setGoogleLoading(false);
@@ -50,7 +48,7 @@ function Page(): React.ReactElement {
       />
       <Button
         testID="btnFacebook"
-        iconLeft={<Image source={IC_FACEBOOK} />}
+        leftElement={<Image source={IC_FACEBOOK} />}
         indicatorColor="#023059"
         isLoading={facebookLoading}
         style={{
@@ -59,7 +57,7 @@ function Page(): React.ReactElement {
           borderWidth: 0.5,
           borderRadius: 0,
         }}
-        onClick={(): void => {
+        onPress={(): void => {
           setFacebookLoading(true);
           const timeout = setTimeout(() => {
             setFacebookLoading(false);

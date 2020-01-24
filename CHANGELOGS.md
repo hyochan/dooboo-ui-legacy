@@ -1,5 +1,14 @@
 ## Changelogs
 
+- **[0.4.12]**
+  - Revert [Button] to how it was originally used [#123](https://github.com/dooboolab/
+  dooboo-ui-native/pull/123).
+  - Support new feature for [EditText](https://github.com/dooboolab/dooboo-ui-native/pull/120).
+  - Update packages and resolves storybook issue.
+- **[0.4.6]**
+  - Fix default [EditText] `errorText` spacing.
+- **[0.4.5]**
+  - Pass down all [TextInput] `props` to [EditText].
 - **[0.4.3]**
   - Upgraded styled-components to `4.4.1`.
 - **[0.4.2]**
