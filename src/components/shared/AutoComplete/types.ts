@@ -26,7 +26,7 @@ export type InputWrapper = {
 };
 
 export type RenderInputProps = TextInputProps & {
-  on: boolean;
+  focused: boolean;
   placeholderLabel: string;
   onDebounceOrOnReset?: (params?: any) => any;
   onFocus: () => void;

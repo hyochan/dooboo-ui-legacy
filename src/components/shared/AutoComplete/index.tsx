@@ -126,7 +126,7 @@ export default function AutoComplete({
         >
           <RenderInput
             ref={inputRef}
-            on={isFocused}
+            focused={isFocused}
             testID={renderInputTestID}
             value={innerValue}
             onChangeText={(text: string): void => {
