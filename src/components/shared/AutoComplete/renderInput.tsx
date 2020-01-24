@@ -13,7 +13,7 @@ const RenderInput =
       onBlur,
       onDebounceOrOnReset,
       testID,
-      label,
+      value: label,
       onChangeText,
     } = props;
 
