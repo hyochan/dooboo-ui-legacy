@@ -16,6 +16,8 @@ import RenderInput from './renderInput';
 import dummyData from './dummyData';
 import { useSafeArea } from 'react-native-safe-area-context';
 
+const DEFAULT_WIDTH = 240;
+
 export const defaultPlaceholder = 'Choose a country';
 
 // reference : https://dev.to/gabe_ragland/debouncing-with-react-hooks-jci
@@ -112,14 +114,14 @@ export default function AutoComplete({
   const adjustedStyle = useMemo(
     () => ({
       ...style,
-      width: isFocused ? screenWidth - (2 * inputMargin) : style?.width,
+      width: isFocused ? screenWidth - (2 * inputMargin) : (style?.width ?? DEFAULT_WIDTH),
     }),
     [style, isFocused],
   );
 
   return (
     <TouchableWithoutFeedback onPress={onPressCaret}>
-      <Wrapper on={isFocused} width={screenWidth} inSets={inSets}>
+      <Wrapper focused={isFocused} width={screenWidth} inSets={inSets}>
         <InputContainer
           style={adjustedStyle}
           focus={isFocused}
@@ -134,8 +136,8 @@ export default function AutoComplete({
             }}
             placeholderLabel={placeholderText || defaultPlaceholder}
             onFocus={(): void => handleFocus(true)}
-            // onBlur={(): void => handleFocus(false)}
             onDebounceOrOnReset={onDebounceOrOnReset}
+            bgColor={style?.backgroundColor}
           />
           <CaretContainer testID={caretBtnTestID} onPress={onPressCaret}>
             <StyledImage source={isFocused ? IC_ARR_UP : IC_ARR_DOWN} />

@@ -9,17 +9,16 @@ export const Wrapper = styled.View<InputWrapper>`
   background-color: white;
   flex-direction: column;
   justify-content: center;
-  top: ${({ on, inSets }): number => on ? inSets.top : 0}px;
-  left: ${({ on, inSets }): number => on ? inSets.left : 0}px;
-  bottom: ${({ on, inSets }): number => on ? inSets.bottom : 0}px;
-  right: ${({ on, inSets }): number => on ? inSets.right : 0}px;
-  width: ${({ on, width }): string => on ? `${width}px` : 'auto'};
-  position: ${({ on }): string => on ? 'absolute' : 'relative'};
-  z-index: ${({ on }): number => on ? 99 : 0};
+  top: ${({ focused, inSets }): number => focused ? inSets.top : 0}px;
+  left: ${({ focused, inSets }): number => focused ? inSets.left : 0}px;
+  bottom: ${({ focused, inSets }): number => focused ? inSets.bottom : 0}px;
+  right: ${({ focused, inSets }): number => focused ? inSets.right : 0}px;
+  width: ${({ focused, width }): string => focused ? `${width}px` : 'auto'};
+  position: ${({ focused }): string => focused ? 'absolute' : 'relative'};
+  z-index: ${({ focused }): number => focused ? 99 : 0};
 `;
 
 export const InputContainer = styled.View<InputContainerProps>`
-  min-width: 250px;
   height: 60px;
   margin: ${({ focus }): string => (focus ? `5px ${inputMargin}px` : `0 ${inputMargin}px`)};
   border-radius: 6px;
@@ -35,6 +34,8 @@ export const InputInnerContainer = styled.View`
   align-items: stretch;
 `;
 
+// prop type any is due to the inconsistency of types between ReactNative.TextInput and Styled-component's ReactNative.TextInput.
+// in this case, 'style' and 'ref' props' styles are not matching.
 export const Input = styled.TextInput<any>`
   flex: 1;
   align-self: center;
@@ -84,7 +85,7 @@ export const styles = StyleSheet.create({
   },
 });
 
-/** @namespace SearchInput Reset Button */
+/** @namespace SearchInput Reset Button modified */
 
 export const ResetContainer = styled.TouchableOpacity`
   flex-direction: row;

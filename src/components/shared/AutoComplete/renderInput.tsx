@@ -5,16 +5,16 @@ import React, { forwardRef, useEffect, useState } from 'react';
 import { RenderInputProps } from './types';
 
 const RenderInput =
-  forwardRef<TextInput, RenderInputProps>((props, ref) => {
+  forwardRef<TextInput, RenderInputProps>((props, ref?) => {
     const {
       focused,
       placeholderLabel,
       onFocus,
-      onBlur,
       onDebounceOrOnReset,
       testID,
       value: label,
       onChangeText,
+      bgColor,
     } = props;
 
     const [animatedIsFocused] = useState(new Animated.Value(focused ? 1 : 0));
@@ -51,13 +51,13 @@ const RenderInput =
               inputRange: [0, 1, 2],
               outputRange: ['#cdd2d7', 'royalblue', '#000000'],
             }),
-            backgroundColor: 'white',
+            backgroundColor: bgColor || 'white',
             marginBottom: 2,
           }}
         >
           {placeholderLabel}
         </Animated.Text>
-        <Input {...props} onFocus={onFocus} onBlur={onBlur} ref={ref as any} />
+        <Input {...props} onFocus={onFocus} ref={ref} />
         {!!label && (
           <ResetContainer
             testID={testID}
