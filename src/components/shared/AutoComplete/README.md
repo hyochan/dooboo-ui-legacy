@@ -24,6 +24,51 @@
 - in [\$PROJECT/App.js](https://github.com/marsinearth/dooboo-ui-native/blob/feat%2FautoComplete/App.js#L9), please disable storybook by `const STORYBOOK_START = false;` for now before work on this component.
   _supposed be already done by now but if not, please change it._
 
+# Data Structure & example
+
+```tsx
+  import React, { useState } from 'react';
+  import { AutoComplete } from '@dooboo-ui/native';
+
+  type Datum = {
+    id: string; // should be unique id
+    label: string; // label that to be shown on option list
+    value: string; // value that to be used as state or parameter for your API, etc.
+    leftIcon?: string; // left icon to be shown as an option item, optional.
+  }
+
+  const data: Datum[] = [{
+    id: '123',
+    label: 'React',
+    value: 'js SPA framework which rules the world atm',
+    leftIcon: '⚛️'
+  }, {
+    id: '456',
+    label: 'React Native',
+    value: 'js hybrid mobile app framework which is one of the top atm',
+    leftIcon: '⚛️'
+  }, {
+    id: '789',
+    label: 'Vue',
+    value: 'js SPA framework which is a rising star atm',
+    leftIcon: '♈'
+  }];
+
+  export default function AutoCompleteSample() {
+    const [selected, setSelected] = useState('');
+
+    return (
+      <AutoComplete
+        data={data}
+        value={selected}
+        onDebounceOrOnReset={setSelected}
+        ...
+      />
+    );
+  }  
+
+```
+
 ## Structures
 
 | name                                                  | content                            | features                                                                         |
