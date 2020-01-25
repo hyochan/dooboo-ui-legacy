@@ -2,6 +2,7 @@ import React, { ReactElement, useState } from 'react';
 
 import AutoComplete from '../shared/AutoComplete';
 import { SafeAreaView } from 'react-native-safe-area-context';
+import dummyData from '../shared/AutoComplete/dummyData';
 import styled from 'styled-components/native';
 
 const Wrapper = styled(SafeAreaView)`
@@ -16,9 +17,9 @@ function AutoCompleteSamplePage(): ReactElement {
   const [text, setText] = useState('');
   return (
     <Wrapper>
-      <AutoComplete value={text} onDebounceOrOnReset={setText} style={{ width: 160 }} />
-      <AutoComplete value={text} onDebounceOrOnReset={setText} style={{ width: 160 }} />
-      <AutoComplete value={text} onDebounceOrOnReset={setText} style={{ width: 160 }} />
+      <AutoComplete data={dummyData} value={text} onDebounceOrOnReset={setText} style={{ width: 160 }} />
+      <AutoComplete data={dummyData} value={text} onDebounceOrOnReset={setText} style={{ width: 160 }} />
+      <AutoComplete data={dummyData} value={text} onDebounceOrOnReset={setText} style={{ width: 160 }} />
     </Wrapper>
   );
 }

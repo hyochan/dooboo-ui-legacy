@@ -3,6 +3,7 @@ import { color, number, object, text } from '@storybook/addon-knobs';
 
 import AutoComplete from '../../src/components/shared/AutoComplete';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
+import dummyData from '../../src/components/shared/AutoComplete/dummyData';
 import { storiesOf } from '@storybook/react-native';
 import styled from 'styled-components/native';
 
@@ -41,6 +42,7 @@ function Default(): React.ReactElement {
     <Wrapper>
       <AutoComplete
         value={value}
+        data={object('data', dummyData)}
         style={object('inputStyle', { backgroundColor: '#ffffff' })}
         debounceDelay={number('debounceDelay', 400, debounceOptions)}
         placeholderText={text('placeholder', 'Choose a country')}
@@ -73,6 +75,7 @@ function Multiple(): React.ReactElement {
           <AutoComplete
             key={index}
             value={value}
+            data={object('data', dummyData, 'inputs')}
             style={object(`${orderLabel[index]} inputStyle`, containerStyles[index], 'inputs')}
             debounceDelay={number(`${orderLabel[index]} debounceDelay`, 400, debounceOptions, 'inputs')}
             placeholderText={text(`${orderLabel[index]} placeholder`, 'Choose a country', 'inputs')}

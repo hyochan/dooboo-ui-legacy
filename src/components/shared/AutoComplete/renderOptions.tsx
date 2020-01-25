@@ -1,4 +1,4 @@
-import { DummyDatum, RenderOptionProps, RenderOptionsProps } from './types';
+import { Datum, RenderOptionProps, RenderOptionsProps } from './types';
 import { OptionText, OptionWrapper, styles } from './styles';
 import React, { FC, ReactElement } from 'react';
 
@@ -19,7 +19,7 @@ const RenderOption: FC<RenderOptionProps> = ({
       onPress={(): void => onPress({ id, label, value, flag })}
       underlayColor={underlayColor}
     >
-      <OptionText>{`${flag} ${label} (${id}) +${value}`}</OptionText>
+      <OptionText>{`${flag ? flag + ' ' : ''}${label} (${id}) ${value}`}</OptionText>
     </OptionWrapper>
   );
 };
@@ -31,7 +31,7 @@ const RenderOptions: FC<RenderOptionsProps> = ({
   underlayColor,
   bgColor,
 }): ReactElement => (
-  <FlatList<DummyDatum>
+  <FlatList<Datum>
     keyboardShouldPersistTaps="always"
     contentContainerStyle={{ paddingVertical: 10 }}
     style={[styles.optionsWrapper, { backgroundColor: bgColor || 'whitesmoke' }]}

@@ -1,4 +1,4 @@
-import { AutoCompleteProps, DummyDatum } from './types';
+import { AutoCompleteProps, Datum } from './types';
 import { CaretContainer, InputContainer, StyledImage, Wrapper, inputMargin } from './styles';
 import { Dimensions, TextInput, TouchableWithoutFeedback } from 'react-native';
 import { IC_ARR_DOWN, IC_ARR_UP } from '../Icons';
@@ -13,7 +13,6 @@ import React, {
 
 import Options from './renderOptions';
 import RenderInput from './renderInput';
-import dummyData from './dummyData';
 import { useSafeArea } from 'react-native-safe-area-context';
 
 const DEFAULT_WIDTH = 240;
@@ -41,18 +40,19 @@ export default function AutoComplete({
   caretBtnTestID = 'CaretBtn_test',
   value,
   style,
+  data,
   placeholderText,
   debounceDelay,
   onDebounceOrOnReset,
   underlayColor,
 }: AutoCompleteProps): ReactElement {
   const [innerValue, setInnerValue] = useState<string>(value);
-  const [selectedData, setSelectedData] = useState<DummyDatum | null>(null);
+  const [selectedData, setSelectedData] = useState<Datum | null>(null);
   const [isFocused, setIsFocused] = useState<boolean>(false);
   const inputRef = useRef<TextInput>(null);
 
   const debouncedValue = useDebounce(innerValue, debounceDelay);
-  const [fetchedData] = useState<DummyDatum[]>(dummyData);
+  const [fetchedData] = useState<Datum[]>(data);
 
   const screenWidth = useMemo(() => Dimensions.get('screen').width, []);
   const inSets = useSafeArea();
@@ -83,7 +83,7 @@ export default function AutoComplete({
     }, 200);
   }, []);
 
-  const onPressOption = useCallback((data: DummyDatum) => {
+  const onPressOption = useCallback((data: Datum) => {
     setTimeout(() => {
       if (data?.label) {
         setInnerValue(data.label);
@@ -100,7 +100,7 @@ export default function AutoComplete({
     [],
   );
 
-  const filteredData: DummyDatum[] = fetchedData.filter(
+  const filteredData: Datum[] = fetchedData.filter(
     ({ id, label, value }) => {
       const innerValueLower = innerValue ? innerValue.toLowerCase() : null;
       return innerValueLower

@@ -10,7 +10,8 @@
 | ------------------- | --------- | -------------------------------- | ------------------ |
 | renderInputTestID   |           | string                           | `RenderInput_test` |
 | caretBtnTestID      | ✓         | string                           | `CaretBtn_test`    |
-| value               |           | string                           | `''`               |
+| caretBtnTestID      | ✓         | string                           | `CaretBtn_test`    |
+| data                | ✓         | Datum[]                          | `dummyData`        |
 | style               |           | `StyleProp<ViewStyle>`           | `undefined`        |
 | placeholderText     | ✓         | string                           | `search...`        |
 | debounceDelay       |           | number                           | `400`              |
@@ -25,14 +26,15 @@
 
 ## Structures
 
-| name                                                  | content                            | features                                                  |
-| ----------------------------------------------------- | ---------------------------------- | --------------------------------------------------------- |
-| index.tsx                                             | AutoComplete root Component        | props from outside of the components, overall logic       |
-| renderInput.tsx                                       | TextInput Component                | textInput for search, clear, match, placeholder animation |
-| renderOptions.tsx                                     | OptionList and Option Components   | FlatList for searchItems                                  |
-| styles.ts                                             | Styled-Components and RN Styles    | styles                                                    |
-| types.ts                                              | TypeScript Types & Interfaces      | types for props, state, func params, etc.                 |
-| ../../../storybook/stories/AutoComplete.stories.tsx   | Storybook for AutoComplete         | visual testing / documentation of the component           |
+| name                                                  | content                            | features                                                                         |
+| ----------------------------------------------------- | ---------------------------------- | -------------------------------------------------------------------------------- |
+| index.tsx                                             | AutoComplete root Component        | props from outside of the components, overall logic                              |
+| dummyData.ts                                          | AutoComplete dummy data            | dummy data with types of Datum[], contains country info starting with letter 'A' |
+| renderInput.tsx                                       | TextInput Component                | textInput for search, clear, match, placeholder animation                        |
+| renderOptions.tsx                                     | OptionList and Option Components   | FlatList for searchItems                                                         |
+| styles.ts                                             | Styled-Components and RN Styles    | styles                                                                           |
+| types.ts                                              | TypeScript Types & Interfaces      | types for props, state, func params, etc.                                        |
+| ../../../storybook/stories/AutoComplete.stories.tsx   | Storybook for AutoComplete         | visual testing / documentation of the component                                  |
 
 # Todo
 

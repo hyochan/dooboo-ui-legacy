@@ -5,6 +5,7 @@ export interface AutoCompleteProps {
   renderInputTestID?: string;
   caretBtnTestID?: string;
   value: string;
+  data: Datum[];
   onDebounceOrOnReset?: Dispatch<SetStateAction<string>>;
   style?: ViewStyle;
   debounceDelay?: number;
@@ -12,7 +13,7 @@ export interface AutoCompleteProps {
   underlayColor?: string;
 }
 
-type OnPressOption = (data: DummyDatum) => void;
+type OnPressOption = (data: Datum) => void;
 
 export type InputWrapper = {
   focused: boolean;
@@ -33,7 +34,7 @@ export type RenderInputProps = TextInputProps & {
   onFocus: () => void;
 }
 
-export type RenderOptionProps = DummyDatum & {
+export type RenderOptionProps = Datum & {
   onPress: OnPressOption;
   index?: number;
   isSelected: boolean | null;
@@ -41,9 +42,9 @@ export type RenderOptionProps = DummyDatum & {
 };
 
 export type RenderOptionsProps = {
-  data: DummyDatum[];
+  data: Datum[];
   onPress: OnPressOption;
-  selectedData: DummyDatum | null;
+  selectedData: Datum | null;
   underlayColor?: string;
   bgColor?: string;
 };
@@ -61,9 +62,9 @@ export type OptionTextProps = {
   fontWeight?: string;
 };
 
-export type DummyDatum = {
+export type Datum = {
   id: string;
   label: string;
   value: string;
-  flag: string;
+  flag?: string;
 };
