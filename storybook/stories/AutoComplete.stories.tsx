@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { boolean, color, number, object, text } from '@storybook/addon-knobs';
+import { color, number, object, text } from '@storybook/addon-knobs';
 
 import AutoComplete from '../../src/components/shared/AutoComplete';
 import { SafeAreaProvider } from 'react-native-safe-area-context';

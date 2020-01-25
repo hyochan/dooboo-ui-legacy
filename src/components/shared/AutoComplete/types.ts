@@ -1,4 +1,4 @@
-import { Dispatch, ReactText, SetStateAction } from 'react';
+import { Dispatch, SetStateAction } from 'react';
 import { TextInputProps, ViewStyle } from 'react-native';
 
 export interface AutoCompleteProps {
@@ -28,7 +28,7 @@ export type InputWrapper = {
 export type RenderInputProps = TextInputProps & {
   focused: boolean;
   placeholderLabel: string;
-  bgColor?: ReactText;
+  bgColor?: string;
   onDebounceOrOnReset?: (params?: any) => any;
   onFocus: () => void;
 }
@@ -45,6 +45,7 @@ export type RenderOptionsProps = {
   onPress: OnPressOption;
   selectedData: DummyDatum | null;
   underlayColor?: string;
+  bgColor?: string;
 };
 
 export type OptionWrapperProps = {
@@ -64,4 +65,5 @@ export type DummyDatum = {
   id: string;
   label: string;
   value: string;
+  flag: string;
 };

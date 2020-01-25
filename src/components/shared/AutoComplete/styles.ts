@@ -1,6 +1,7 @@
 import { InputContainerProps, InputWrapper, OptionTextProps, OptionWrapperProps } from './types';
 
 import { StyleSheet } from 'react-native';
+import chroma from 'chroma-js';
 import styled from 'styled-components/native';
 
 export const inputMargin = 20;
@@ -57,14 +58,18 @@ export const CaretContainer = styled.TouchableOpacity`
   align-items: center;
 `;
 
-export const OptionWrapper = styled.TouchableHighlight.attrs((props) => ({
-  underlayColor: props.underlayColor ? props.underlayColor : '#DBDBDB',
+export const OptionWrapper = styled.TouchableHighlight.attrs(({ underlayColor }) => ({
+  underlayColor: underlayColor || '#DBDBDB',
 })) <OptionWrapperProps>`
   width: 100%;
   justify-content: center;
   height: 42px;
   padding: 5px 20px;
-  background-color: ${({ isSelected }): string => (isSelected ? '#EBEBEB' : 'transparent')};
+  background-color: ${({ isSelected, underlayColor }): string => (
+    isSelected
+      ? chroma(underlayColor).brighten(3).hex()
+      : 'transparent'
+  )};
 `;
 
 export const OptionText = styled.Text<OptionTextProps>`
@@ -81,7 +86,6 @@ export const styles = StyleSheet.create({
     borderColor: '#ededed',
     borderRadius: 6,
     marginHorizontal: inputMargin,
-    backgroundColor: 'whitesmoke',
   },
 });
 

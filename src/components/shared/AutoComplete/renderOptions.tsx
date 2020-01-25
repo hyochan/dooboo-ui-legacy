@@ -8,6 +8,7 @@ const RenderOption: FC<RenderOptionProps> = ({
   id,
   label,
   value,
+  flag,
   onPress,
   isSelected,
   underlayColor,
@@ -15,10 +16,10 @@ const RenderOption: FC<RenderOptionProps> = ({
   return (
     <OptionWrapper
       isSelected={isSelected}
-      onPress={(): void => onPress({ id, label, value })}
+      onPress={(): void => onPress({ id, label, value, flag })}
       underlayColor={underlayColor}
     >
-      <OptionText>{`${label} (${id}) +${value}`}</OptionText>
+      <OptionText>{`${flag} ${label} (${id}) +${value}`}</OptionText>
     </OptionWrapper>
   );
 };
@@ -28,11 +29,12 @@ const RenderOptions: FC<RenderOptionsProps> = ({
   onPress,
   selectedData,
   underlayColor,
+  bgColor,
 }): ReactElement => (
   <FlatList<DummyDatum>
     keyboardShouldPersistTaps="always"
     contentContainerStyle={{ paddingVertical: 10 }}
-    style={styles.optionsWrapper}
+    style={[styles.optionsWrapper, { backgroundColor: bgColor || 'whitesmoke' }]}
     data={data}
     extraData={data}
     renderItem={({ item }): ReactElement => {

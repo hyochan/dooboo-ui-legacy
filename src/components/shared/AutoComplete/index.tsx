@@ -149,6 +149,7 @@ export default function AutoComplete({
             underlayColor={underlayColor}
             onPress={onPressOption}
             selectedData={selectedData}
+            bgColor={style?.backgroundColor}
           />
         )}
       </Wrapper>
