@@ -60,7 +60,7 @@ const CardContainer = styled.View`
 const IndexText = styled.Text`
   position: absolute;
   color: white;
-  font-size: 32;
+  font-size: 32px;
   font-weight: 600;
   text-align: center;
   margin-bottom: 5px;
@@ -83,7 +83,7 @@ const CardLabel = styled.Text`
   text-align: center;
   position: absolute;
   bottom: 50;
-  font-size: 35;
+  font-size: 35px;
   font-weight: 600;
   color: lightcyan;
   position: absolute;
@@ -143,14 +143,6 @@ function Default(): React.ReactElement {
     );
   };
 
-  const _renderCardLabel = (type: number): ReactElement => {
-    if (type === 1) {
-      return <CardLabel>Like</CardLabel>;
-    } else if (type === 2) {
-      return <CardLabel>Unike</CardLabel>;
-    } else return null;
-  };
-
   const _renderNoMoreCards = (): ReactElement => (
     <NoCard>
       <StyledText>No more cards</StyledText>
@@ -179,7 +171,7 @@ function Default(): React.ReactElement {
           data={data}
           renderCards={_renderCards}
           renderNoMoreCards={_renderNoMoreCards}
-          rotate
+          shouldRotate
           stackSize={0}
         />
         <View style={{

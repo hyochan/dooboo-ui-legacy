@@ -43,7 +43,7 @@ interface Props<T> {
   renderCards: (item: T, type?: number) => ReactElement;
   renderNoMoreCards: () => ReactElement;
   renderCardLabel?: (type: number) => ReactElement;
-  rotate?: boolean;
+  shouldRotate?: boolean;
   stackSize?: number;
 }
 
@@ -68,10 +68,25 @@ const NoCard = styled.View`
   padding: 10px;
 `;
 
+const _renderNoMoreCards = (): ReactElement => (
+  <NoCard>
+    <Text>No more cards</Text>
+  </NoCard>
+);
+
 function TinderCard<T>(
   props: PropsWithChildren<Props<T>>,
   ref: Ref<TinderCardRef>,
 ): ReactElement {
+  const {
+    onSwipeLeft,
+    onSwipeRight,
+    data,
+    renderNoMoreCards = _renderNoMoreCards,
+    shouldRotate = false,
+    stackSize = 3,
+  } = props;
+
   const [cardIndex, setCardIndex] = useState(0);
   const [type, setType] = useState(0);
   const position = useMemo(() => new Animated.ValueXY(), []);
@@ -84,8 +99,6 @@ function TinderCard<T>(
   };
 
   const onSwipeCompleted = useCallback((direction: TinderCardDirection): void => {
-    const { onSwipeLeft, onSwipeRight, data } = props;
-
     position.setValue({ x: 0, y: 0 });
 
     UIManager.setLayoutAnimationEnabledExperimental &&
@@ -143,12 +156,12 @@ function TinderCard<T>(
   );
 
   const getCardStyle = (): {} => {
-    const rotate = position.x.interpolate({
+    const rotateValue = position.x.interpolate({
       inputRange: [-SCREEN_WIDTH * 1.5, 0, SCREEN_WIDTH * 1.5],
       outputRange: ['-45deg', '0deg', '45deg'],
     });
 
-    const rotateStyle = props.rotate ? { transform: [{ rotate }] } : {};
+    const rotateStyle = shouldRotate ? { transform: [{ rotate: rotateValue }] } : {};
 
     return {
       ...position.getLayout(),
@@ -158,8 +171,8 @@ function TinderCard<T>(
 
   const _renderCards = (): ReactElement | (ReactElement | null)[] => {
     if (!props.data || cardIndex >= props.data.length) {
-      if (props.renderNoMoreCards) {
-        return props.renderNoMoreCards();
+      if (renderNoMoreCards) {
+        return renderNoMoreCards();
       } else {
         return <View/>;
       }
@@ -190,9 +203,9 @@ function TinderCard<T>(
       }
 
       const indexGap = idx - cardIndex;
-      const stackSize = props.stackSize || 3;
+      const stackSizes = stackSize || 3;
       const behindHeight =
-        indexGap <= stackSize ? 10 * indexGap : 10 * stackSize;
+        indexGap <= stackSizes ? 10 * indexGap : 10 * stackSizes;
 
       return (
         <Animated.View
@@ -229,21 +242,6 @@ function TinderCard<T>(
       {_renderCards()}
     </Container>
   );
-};
-
-const _renderNoMoreCards = (): ReactElement => (
-  <NoCard>
-    <Text>No more cards</Text>
-  </NoCard>
-);
-
-TinderCard.defaultProps = {
-  onSwipeRight: (): void => {},
-  onSwipeLeft: (): void => {},
-  onCancel: (): void => {},
-  renderNoMoreCards: _renderNoMoreCards,
-  rotate: false,
-  stackSize: 3,
 };
 
 export default forwardRef(TinderCard);

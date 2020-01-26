@@ -10,8 +10,8 @@ import styled from 'styled-components/native';
 
 const StyledButton = styled.View`
   align-self: center;
-  /* width: 320; */
-  height: 52;
+  /* width: 320px; */
+  height: 52px;
   border-color: blue;
   align-items: center;
   justify-content: center;

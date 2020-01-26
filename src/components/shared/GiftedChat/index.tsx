@@ -15,9 +15,9 @@ const StyledViewChat = styled.View`
   width: 100%;
   border-top-width: 0.5px;
   min-height: 52px;
-  max-height: 52;
-  padding-right: 8;
-  padding-left: 8;
+  max-height: 52px;
+  padding-right: 8px;
+  padding-left: 8px;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
