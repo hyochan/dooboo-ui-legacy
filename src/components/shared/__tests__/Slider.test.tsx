@@ -3,6 +3,7 @@ import * as React from 'react';
 import { fireEvent, render } from '@testing-library/react-native';
 
 import Marks from '../Slider/Marks';
+import Rail from '../Slider/Rail';
 import Slider from '../Slider';
 import { View } from 'react-native';
 
@@ -88,5 +89,18 @@ describe('[Marks]', () => {
     expect(actualArgumentForOnInit).toStrictEqual(
       expectedArgumentForOnInit,
     );
+  });
+});
+
+describe('[Rail]', () => {
+  it('renders without crashing', () => {
+    const rendered = render(
+      <Rail
+        testID="RailTestID"
+        style={{ backgroundColor: 'red' }}
+      />,
+    ).asJSON();
+    expect(rendered).toMatchSnapshot();
+    expect(rendered).toBeTruthy();
   });
 });
