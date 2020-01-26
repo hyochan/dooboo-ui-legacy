@@ -43,6 +43,7 @@ const COLOR: {
 } = {
   LIGHTGRAY: '#c8c8c8',
   GRAY59: '#969696',
+  BLACK: '#000000',
 };
 
 const SCInputRow = styled.TouchableOpacity<IInputRowProps>`
@@ -59,7 +60,7 @@ const SCOuterCircle = styled.View.attrs(
     borderRadius,
     borderWidth,
   }),
-)<ICircleProps>`
+) <ICircleProps>`
   width: ${({ size }): string => size.toString()};
   height: ${({ size }): string => size.toString()};
   border-color: ${({ color }): string => color};
@@ -69,7 +70,7 @@ const SCOuterCircle = styled.View.attrs(
 `;
 
 const SCLabelText = styled.Text<ILabelTextProps>`
-  color: ${({ disabled }): string => (disabled ? COLOR.GRAY59 : 'black')};
+  color: ${({ disabled }): string => (disabled ? COLOR.GRAY59 : COLOR.BLACK)};
 `;
 
 const getCircleStyles = (size: number, color: string): ICircleProps => {
@@ -141,11 +142,11 @@ function RadioButton(props: IRadioButtonProps): React.ReactElement {
       isLabelColumn={isLabelColumn}
       onPress={(): void => onPress(value)}
     >
-      {isLabelFront && <SCLabelText disabled>{label}</SCLabelText>}
+      {isLabelFront && <SCLabelText disabled={disabled}>{label}</SCLabelText>}
       <SCOuterCircle {...circleStyles}>
         {isSelected && <InnerCircleAnim {...circleStyles} />}
       </SCOuterCircle>
-      {!isLabelFront && <SCLabelText disabled>{label}</SCLabelText>}
+      {!isLabelFront && <SCLabelText disabled={disabled}>{label}</SCLabelText>}
     </SCInputRow>
   );
 }
