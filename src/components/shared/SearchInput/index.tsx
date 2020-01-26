@@ -33,9 +33,9 @@ const ResetContainer = styled.View`
 
 const Reset = styled.TouchableOpacity`
   background-color: #c6ccd1;
-  border-radius: 20;
-  width: 20;
-  height: 20;
+  border-radius: 20px;
+  width: 20px;
+  height: 20px;
   justify-content: center;
   align-items: center;
 `;

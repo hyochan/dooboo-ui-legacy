@@ -4,7 +4,7 @@
     - Added `TinderCard@0.0.1`.
   - [0.5.3]
     - Properly include the `TinderCard` in multi repo `@dooboo-ui/native`.
-  - [0.5.4]
+  - [0.5.5]
     - [TinderCard]
       - Remove `defaultProps` for `forwardingRef` since react warns it.
       - Rename `rotate` props to `shouldRotate`.
