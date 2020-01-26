@@ -1,6 +1,7 @@
 import { Animated, Easing, PanResponder, Platform } from 'react-native';
 import React, { FC, useMemo, useRef, useState } from 'react';
-import { getPercent, percentToValue, valueToPercent } from './utils';
+import { getNearestPercentByValue, getPercentByPositionX, getStepPercent, getStepValueByPercent } from './utils';
+
 import Marks from './Marks';
 import Rail from './Rail';
 import Thumb from './Thumb';
@@ -38,13 +39,18 @@ const Slider: FC<Props> = ({
   minValue = 0,
   defaultValue = 0,
   onChange,
-  step,
+  step = 1,
 }) => {
   const sliderRef = useRef<any>();
   const [sliderWidth, setSliderWidth] = useState<number>(0);
   const [sliderPositionX, setSliderPositionX] = useState(0);
   const [percent, setPercent] = useState(
-    defaultValue ? valueToPercent(defaultValue, maxValue, minValue) : 0,
+    getNearestPercentByValue({
+      value: defaultValue || minValue,
+      minValue,
+      maxValue,
+      step,
+    }),
   );
   const [scaleValue] = useState(new Animated.Value(0.01));
   const [opacityValue] = useState(new Animated.Value(0.12));
@@ -73,15 +79,25 @@ const Slider: FC<Props> = ({
         },
         onPanResponderMove: (evt, gestureState) => {
           // the latest screen coordinates of the recently-moved touch
-          const moveX = gestureState.moveX;
-          const percent = Math.round(
-            getPercent(moveX - sliderPositionX, sliderWidth),
-          );
+          const stepPercent = getStepPercent({
+            minValue,
+            maxValue,
+            step,
+          });
+          const percent = getPercentByPositionX({
+            positionX: gestureState.moveX - sliderPositionX,
+            sliderWidth,
+            stepPercent,
+          });
           setPercent(percent);
 
           if (onChange) {
-            const value = percentToValue(percent, maxValue, minValue);
-            onChange(Math.round(value));
+            const value = getStepValueByPercent({
+              percent,
+              stepPercent,
+              step,
+            });
+            onChange(value);
           }
         },
       }),
