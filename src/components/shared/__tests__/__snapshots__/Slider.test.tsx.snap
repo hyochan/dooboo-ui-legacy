@@ -20,7 +20,239 @@ exports[`[Marks] renders without crashing 1`] = `
         },
       ]
     }
-  />
+  >
+    <View
+      accessible={true}
+      clickable={true}
+      position={-4.454545454545454}
+      style={
+        Array [
+          Object {
+            "alignItems": "center",
+            "display": "flex",
+            "left": -4.454545454545454,
+            "position": "absolute",
+            "width": 9.909090909090908,
+          },
+        ]
+      }
+      width={9.909090909090908}
+    >
+      <View
+        testID="TEST_ID_FOR_MARK"
+      />
+    </View>
+    <View
+      accessible={true}
+      clickable={true}
+      position={5.454545454545454}
+      style={
+        Array [
+          Object {
+            "alignItems": "center",
+            "display": "flex",
+            "left": 5.454545454545454,
+            "position": "absolute",
+            "width": 9.909090909090908,
+          },
+        ]
+      }
+      width={9.909090909090908}
+    >
+      <View
+        testID="TEST_ID_FOR_MARK"
+      />
+    </View>
+    <View
+      accessible={true}
+      clickable={true}
+      position={15.363636363636363}
+      style={
+        Array [
+          Object {
+            "alignItems": "center",
+            "display": "flex",
+            "left": 15.363636363636363,
+            "position": "absolute",
+            "width": 9.909090909090908,
+          },
+        ]
+      }
+      width={9.909090909090908}
+    >
+      <View
+        testID="TEST_ID_FOR_MARK"
+      />
+    </View>
+    <View
+      accessible={true}
+      clickable={true}
+      position={25.272727272727273}
+      style={
+        Array [
+          Object {
+            "alignItems": "center",
+            "display": "flex",
+            "left": 25.272727272727273,
+            "position": "absolute",
+            "width": 9.909090909090908,
+          },
+        ]
+      }
+      width={9.909090909090908}
+    >
+      <View
+        testID="TEST_ID_FOR_MARK"
+      />
+    </View>
+    <View
+      accessible={true}
+      clickable={true}
+      position={35.18181818181818}
+      style={
+        Array [
+          Object {
+            "alignItems": "center",
+            "display": "flex",
+            "left": 35.18181818181818,
+            "position": "absolute",
+            "width": 9.909090909090908,
+          },
+        ]
+      }
+      width={9.909090909090908}
+    >
+      <View
+        testID="TEST_ID_FOR_MARK"
+      />
+    </View>
+    <View
+      accessible={true}
+      clickable={true}
+      position={45.090909090909086}
+      style={
+        Array [
+          Object {
+            "alignItems": "center",
+            "display": "flex",
+            "left": 45.090909090909086,
+            "position": "absolute",
+            "width": 9.909090909090908,
+          },
+        ]
+      }
+      width={9.909090909090908}
+    >
+      <View
+        testID="TEST_ID_FOR_MARK"
+      />
+    </View>
+    <View
+      accessible={true}
+      clickable={true}
+      position={55}
+      style={
+        Array [
+          Object {
+            "alignItems": "center",
+            "display": "flex",
+            "left": 55,
+            "position": "absolute",
+            "width": 9.909090909090908,
+          },
+        ]
+      }
+      width={9.909090909090908}
+    >
+      <View
+        testID="TEST_ID_FOR_MARK"
+      />
+    </View>
+    <View
+      accessible={true}
+      clickable={true}
+      position={64.9090909090909}
+      style={
+        Array [
+          Object {
+            "alignItems": "center",
+            "display": "flex",
+            "left": 64.9090909090909,
+            "position": "absolute",
+            "width": 9.909090909090908,
+          },
+        ]
+      }
+      width={9.909090909090908}
+    >
+      <View
+        testID="TEST_ID_FOR_MARK"
+      />
+    </View>
+    <View
+      accessible={true}
+      clickable={true}
+      position={74.81818181818181}
+      style={
+        Array [
+          Object {
+            "alignItems": "center",
+            "display": "flex",
+            "left": 74.81818181818181,
+            "position": "absolute",
+            "width": 9.909090909090908,
+          },
+        ]
+      }
+      width={9.909090909090908}
+    >
+      <View
+        testID="TEST_ID_FOR_MARK"
+      />
+    </View>
+    <View
+      accessible={true}
+      clickable={true}
+      position={84.72727272727272}
+      style={
+        Array [
+          Object {
+            "alignItems": "center",
+            "display": "flex",
+            "left": 84.72727272727272,
+            "position": "absolute",
+            "width": 9.909090909090908,
+          },
+        ]
+      }
+      width={9.909090909090908}
+    >
+      <View
+        testID="TEST_ID_FOR_MARK"
+      />
+    </View>
+    <View
+      accessible={true}
+      clickable={true}
+      position={94.63636363636363}
+      style={
+        Array [
+          Object {
+            "alignItems": "center",
+            "display": "flex",
+            "left": 94.63636363636363,
+            "position": "absolute",
+            "width": 9.909090909090908,
+          },
+        ]
+      }
+      width={9.909090909090908}
+    >
+      <View
+        testID="TEST_ID_FOR_MARK"
+      />
+    </View>
+  </View>
 </View>
 `;
 

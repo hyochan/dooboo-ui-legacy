@@ -20,8 +20,6 @@ interface Props {
   mark?: React.ReactElement;
   customMarkWidth?: number;
   step: number;
-  pixelsPerStep?: number;
-  markCount?: number;
   startMark?: boolean;
   endMark?: boolean;
   disabled?: boolean;
@@ -67,14 +65,12 @@ const Mark = styled.View`
 const isNil = (value: any): boolean => value == null;
 
 const getMarkCountByStep = ({
-  railWidth,
   step,
   startMark,
   endMark,
   minValue,
   maxValue,
 }: {
-  railWidth: number;
   step: number;
   startMark: boolean;
   endMark: boolean;
@@ -173,7 +169,6 @@ const getStepDistance = ({
   railWidth,
   markWidth,
   step,
-  markCount,
   startMark,
   endMark,
   minValue,
@@ -182,7 +177,6 @@ const getStepDistance = ({
   railWidth: number;
   markWidth: number;
   step: number;
-  markCount?: number;
   startMark: boolean;
   endMark: boolean;
   minValue: number;
@@ -198,30 +192,19 @@ const getStepDistance = ({
     endMark,
   };
 
-  if (isNil(markCount)) {
-    const count = getMarkCountByStep({
-      railWidth,
-      step,
-      startMark,
-      endMark,
-      minValue,
-      maxValue,
-    });
-
-    return {
-      markCount: count,
-      stepDistance: getStepDistanceByStep({
-        ...options,
-        markCount: count,
-      }),
-    };
-  }
+  const count = getMarkCountByStep({
+    step,
+    startMark,
+    endMark,
+    minValue,
+    maxValue,
+  });
 
   return {
-    markCount: markCount as number,
-    stepDistance: getStepDistanceByMarkCount({
+    markCount: count,
+    stepDistance: getStepDistanceByStep({
       ...options,
-      count: markCount as number,
+      markCount: count,
     }),
   };
 };
@@ -317,8 +300,6 @@ const Marks: FC<Props> = ({
   mark,
   customMarkWidth,
   step,
-  pixelsPerStep,
-  markCount,
   startMark = true,
   endMark = true,
   disabled = false,
@@ -344,14 +325,10 @@ const Marks: FC<Props> = ({
     ? getMarkWidth(markStyleToApply)
     : (customMarkWidth as number);
 
-  const stepByPixel = isNil(pixelsPerStep)
-    ? step
-    : step * (pixelsPerStep as number);
-
   const markOptions = {
     railWidth,
     markWidth,
-    step: stepByPixel,
+    step,
     startMark,
     endMark,
     minValue,
@@ -360,10 +337,7 @@ const Marks: FC<Props> = ({
 
   const { markCount: markCountToApply, stepDistance } = useMemo(
     () =>
-      getStepDistance({
-        ...markOptions,
-        markCount,
-      }),
+      getStepDistance(markOptions),
     Object.values(markOptions),
   );
 
