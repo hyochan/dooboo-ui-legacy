@@ -1,10 +1,11 @@
 import * as React from 'react';
 
-import { fireEvent, render } from '@testing-library/react-native';
+import { fireEvent, getByTestId, render } from '@testing-library/react-native';
 
 import Marks from '../Slider/Marks';
 import Rail from '../Slider/Rail';
 import Slider from '../Slider';
+import Track from '../Slider/Track';
 import { View } from 'react-native';
 
 describe('[Slider] render', () => {
@@ -102,5 +103,34 @@ describe('[Rail]', () => {
     ).asJSON();
     expect(rendered).toMatchSnapshot();
     expect(rendered).toBeTruthy();
+  });
+});
+
+describe('[Track]', () => {
+  it('renders without crashing', () => {
+    const rendered = render(
+      <Track
+        testID="TrackTestID"
+        style={{ backgroundColor: 'red' }}
+        percent={50}
+      />,
+    ).asJSON();
+    expect(rendered).toMatchSnapshot();
+    expect(rendered).toBeTruthy();
+  });
+
+  it('should be n% width of Slider.', () => {
+    const TEST_ID_TRACK = 'TrackTestID';
+    const percent = 50;
+    const { getByTestId } = render(
+      <Track
+        testID="TrackTestID"
+        style={{ backgroundColor: 'red' }}
+        percent={50}
+      />,
+    );
+    const track = getByTestId(TEST_ID_TRACK);
+
+    expect(track.getProp('width')).toBe(percent);
   });
 });
