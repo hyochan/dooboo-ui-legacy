@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import { fireEvent, getByTestId, render } from '@testing-library/react-native';
+import { fireEvent, render } from '@testing-library/react-native';
 
 import Marks from '../Slider/Marks';
 import Rail from '../Slider/Rail';
