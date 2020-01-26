@@ -3431,3 +3431,35 @@ exports[`[Slider] render renders without crashing 1`] = `
   </View>
 </View>
 `;
+
+exports[`[Track] renders without crashing 1`] = `
+<View
+  collapsable={true}
+  pointerEvents="box-none"
+  style={
+    Object {
+      "flex": 1,
+    }
+  }
+>
+  <View
+    style={
+      Array [
+        Object {
+          "backgroundColor": "#0B21E8",
+          "height": 3,
+          "left": 0,
+          "position": "absolute",
+          "top": 0,
+          "width": "50%",
+        },
+        Object {
+          "backgroundColor": "red",
+        },
+      ]
+    }
+    testID="TrackTestID"
+    width={50}
+  />
+</View>
+`;
