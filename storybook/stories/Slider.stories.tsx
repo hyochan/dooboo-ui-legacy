@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+
 import { ContainerDeco } from '../decorators';
 import Slider from '../../src/components/shared/Slider';
 import { storiesOf } from '@storybook/react-native';
@@ -33,12 +34,13 @@ const Value = styled.Text`
 `;
 function Default(): React.ReactElement {
   const [temperature, setTemperature] = useState(0);
-  const [smallStep, setSmallStep] = useState(0);
+  const [smallStep, setSmallStep] = useState(10);
   const [bigStep, setBigStep] = useState(0);
   return (
     <Container>
       <SubTitle>Temperature</SubTitle>
       <Slider
+        hideMark
         minValue={0}
         maxValue={100}
         onChange={(value): void => {
@@ -48,6 +50,7 @@ function Default(): React.ReactElement {
       <Value>temperature: {temperature}</Value>
       <SubTitle>small Step</SubTitle>
       <Slider
+        defaultValue={smallStep}
         minValue={0}
         maxValue={100}
         step={10}
