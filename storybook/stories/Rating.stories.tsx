@@ -4,6 +4,9 @@ import React from 'react';
 import { storiesOf } from '@storybook/react-native';
 import styled from 'styled-components/native';
 
+// eslint-disable-next-line sort-imports
+import { boolean, number } from '@storybook/addon-knobs';
+
 storiesOf('Rating', module)
   .addDecorator(ContainerDeco)
   .add('default', () => (
@@ -19,53 +22,31 @@ const Container = styled.View`
   width: 100%;
   flex-direction: column;
 `;
-const Title = styled.Text`
-  width: 100%;
-  font-size: 20px;
-  font-weight: 600;
-  margin-bottom: 15px;
-  padding-left: 20px;
-`;
+
 const Result = styled.Text`
   width: 200px;
   font-size: 15px;
   text-align: center;
   margin: 10px 0;
 `;
-const Divider = styled.View`
-  width: 100%;
-  height: 1px;
-  margin: 15px 0;
-  background-color: lightgrey;
-`;
 
 function Default(): React.ReactElement {
-  const [stars1, setstars1] = React.useState(3);
-  const [stars2, setstars2] = React.useState(3);
+  const [value, setvalue] = React.useState(number('value', 3));
+  const disabled = boolean('disabled', false);
 
-  const handleChange1 = (value: number): void => {
-    setstars1(value);
+  const handleChange = (value: number): void => {
+    setvalue(value);
   };
 
-  const handleChange2 = (value: number): void => {
-    setstars2(value);
-  };
   return (
     <Container>
-      <Title>Controlled</Title>
-      <Rating total={5} value={stars1} onChange={handleChange1} />
-      <Result>Selected: {stars1} stars</Result>
-      <Divider />
-      <Title>Read only</Title>
-      <Rating total={5} value={stars1} />
-      <Divider />
-      <Title>Disabled</Title>
-      <Rating total={5} value={stars1} disabled />
-      <Divider />
-      <Title>10 Stars</Title>
-      <Rating total={10} value={stars2} onChange={handleChange2} />
-      <Result>Selected: {stars2} stars</Result>
-      <Divider />
+      <Rating
+        total={number('total', 5)}
+        value={value}
+        onChange={!disabled && handleChange}
+        disabled={disabled}
+      />
+      <Result>Selected: {value} stars</Result>
     </Container>
   );
 }
