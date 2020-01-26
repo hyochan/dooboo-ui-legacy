@@ -256,6 +256,35 @@ exports[`[Marks] renders without crashing 1`] = `
 </View>
 `;
 
+exports[`[Rail] renders without crashing 1`] = `
+<View
+  collapsable={true}
+  pointerEvents="box-none"
+  style={
+    Object {
+      "flex": 1,
+    }
+  }
+>
+  <View
+    style={
+      Array [
+        Object {
+          "backgroundColor": "#bcdbfb",
+          "borderRadius": 1,
+          "height": 3,
+          "width": "100%",
+        },
+        Object {
+          "backgroundColor": "red",
+        },
+      ]
+    }
+    testID="RailTestID"
+  />
+</View>
+`;
+
 exports[`[Slider] render renders without crashing 1`] = `
 <View
   collapsable={true}
