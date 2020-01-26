@@ -1,9 +1,9 @@
-import React, { FC, ReactNode } from 'react';
-import { Animated } from 'react-native';
+import React, { FC } from 'react';
 
+import { Animated } from 'react-native';
 import styled from 'styled-components/native';
 
-const Container = styled.View`
+const StyledThumb = styled.View`
   width: 12;
   height: 12;
   background-color: #0b21e8;
@@ -12,15 +12,22 @@ const Container = styled.View`
 `;
 
 interface Props {
+  testID?: string;
   size?: number;
   opacityValue: Animated.Value;
   scaleValue: Animated.Value;
 }
 
-const Thumb: FC<Props> = ({ size = 12, scaleValue, opacityValue }) => {
+const Thumb: FC<Props> = ({
+  testID,
+  size = 12,
+  scaleValue,
+  opacityValue,
+}) => {
   const rippleSize = size * 2;
-  const renderRippleView = (): ReactNode => {
-    return (
+
+  return (
+    <StyledThumb testID={testID}>
       <Animated.View
         style={{
           position: 'absolute',
@@ -34,10 +41,8 @@ const Thumb: FC<Props> = ({ size = 12, scaleValue, opacityValue }) => {
           backgroundColor: 'black',
         }}
       />
-    );
-  };
-
-  return <Container>{renderRippleView()}</Container>;
+    </StyledThumb>
+  );
 };
 
 export default Thumb;
