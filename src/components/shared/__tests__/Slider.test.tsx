@@ -291,17 +291,17 @@ describe('[Track]', () => {
 
         expect(result).toBe(20);
       });
-    });
 
-    it('should return the ceiled rate according to value between minValue and maxValue.', () => {
-      const result = getNearestPercentByValue({
-        value: 13,
-        minValue: 10,
-        maxValue: 60,
-        step: 5,
+      it('should return the ceiled rate according to value between minValue and maxValue.', () => {
+        const result = getNearestPercentByValue({
+          value: 13,
+          minValue: 10,
+          maxValue: 60,
+          step: 5,
+        });
+
+        expect(result).toBe(30);
       });
-
-      expect(result).toBe(30);
     });
 
     describe('getStepValueByPercent', () => {
