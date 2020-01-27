@@ -1,5 +1,64 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+
+
+exports[`[Label] renders without crashing 1`] = `
+<View
+  collapsable={true}
+  pointerEvents="box-none"
+  style={
+    Object {
+      "flex": 1,
+    }
+  }
+>
+  <View
+    style={
+      Object {
+        "alignItems": "center",
+        "backgroundColor": "#4163f4",
+        "borderBottomRightRadius": 16,
+        "borderTopLeftRadius": 16,
+        "borderTopRightRadius": 16,
+        "display": "flex",
+        "height": 32,
+        "justifyContent": "center",
+        "left": "0%",
+        "position": "absolute",
+        "top": -64,
+        "transform": Array [
+          Object {
+            "rotate": "-45deg",
+          },
+          Object {
+            "translateX": -22.627416997969522,
+          },
+        ],
+        "width": 32,
+      }
+    }
+    testID="LabelTestID"
+  >
+    <Text
+      style={
+        Array [
+          Object {
+            "color": "white",
+            "transform": Array [
+              Object {
+                "rotate": "45deg",
+              },
+            ],
+          },
+        ]
+      }
+    >
+      0
+    </Text>
+  </View>
+</View>
+`;
+
 exports[`[Marks] renders without crashing 1`] = `
 <View
   collapsable={true}

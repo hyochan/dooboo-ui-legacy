@@ -368,6 +368,7 @@ const Marks: FC<Props> = ({
   }, []);
 
   return <Container testID={testID} style={style}>{marks}</Container>;
+
 };
 
 export default Marks;

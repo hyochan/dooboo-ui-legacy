@@ -72,6 +72,16 @@ export const getNearestPercentByValue = ({
     step,
   });
 
+  const percent = getPercentByValue(value, maxValue, minValue);
+
+  if (percent <= 0) {
+    return 0;
+  }
+
+  if (percent >= 100) {
+    return 100;
+  }
+
   return roundNearest(
     getPercentByValue(value, maxValue, minValue),
     stepPercent,

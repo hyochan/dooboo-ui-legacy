@@ -18,6 +18,5 @@ export {
   EditText,
   GiftedChat,
   ButtonGroup,
-  TinderCard,
   Slider,
 };

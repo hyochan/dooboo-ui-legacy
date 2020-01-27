@@ -1,8 +1,16 @@
 import * as React from 'react';
-
 import { Animated, View } from 'react-native';
 import { fireEvent, render } from '@testing-library/react-native';
+import {
+  getNearestPercentByValue,
+  getPercentByPositionX,
+  getPercentByValue,
+  getStepValueByPercent,
+  getValueByPercent,
+  roundNearest,
+} from '../Slider/utils';
 
+import Label from '../Slider/Label';
 import Marks from '../Slider/Marks';
 import Rail from '../Slider/Rail';
 import Slider from '../Slider';
@@ -85,21 +93,32 @@ describe('[Marks]', () => {
       />,
     );
     expect(onInit).toHaveBeenCalledTimes(1);
-    const expectedArgumentForOnInit = Array.from({ length: MARK_COUNT + 1 }).map((_, idx) => STEP * idx);
+    const expectedArgumentForOnInit = Array.from({
+      length: MARK_COUNT + 1,
+    }).map((_, idx) => STEP * idx);
     const actualArgumentForOnInit = onInit.mock.calls[0][0];
 
-    expect(actualArgumentForOnInit).toStrictEqual(
-      expectedArgumentForOnInit,
-    );
+    expect(actualArgumentForOnInit).toStrictEqual(expectedArgumentForOnInit);
   });
 });
 
 describe('[Rail]', () => {
   it('renders without crashing', () => {
     const rendered = render(
-      <Rail
-        testID="RailTestID"
-        style={{ backgroundColor: 'red' }}
+      <Rail testID="RailTestID" style={{ backgroundColor: 'red' }} />,
+    ).asJSON();
+    expect(rendered).toMatchSnapshot();
+    expect(rendered).toBeTruthy();
+  });
+});
+
+describe('[Label]', () => {
+  it('renders without crashing', () => {
+    const rendered = render(
+      <Label
+        percentValue={new Animated.Value(0)}
+        testID="LabelTestID"
+        value={0}
       />,
     ).asJSON();
     expect(rendered).toMatchSnapshot();
@@ -175,6 +194,137 @@ describe('[Track]', () => {
       ).asJSON();
       expect(rendered).toMatchSnapshot();
       expect(rendered).toBeTruthy();
+    });
+  });
+
+  describe('utils', () => {
+    describe('roundNearest', () => {
+      it('should return floored when the number is smaller than half of the digit.', () => {
+        const result = roundNearest(12, 5);
+
+        expect(result).toBe(10);
+      });
+      it('should return ceiled when the number is smaller than half of the digit.', () => {
+        const result = roundNearest(13, 5);
+
+        expect(result).toBe(15);
+      });
+    });
+
+    describe('getPercentByValue', () => {
+      it('should return the rate of value between minValue and maxValue.', () => {
+        const result = getPercentByValue(5, 60, 10);
+
+        expect(result).toBe(10);
+      });
+    });
+
+    describe('getValueByPercent', () => {
+      it('should return the value of rate between minValue and maxValue.', () => {
+        const result = getValueByPercent(10, 60, 10);
+
+        expect(result).toBe(5);
+      });
+    });
+
+    describe('getPercentByPositionX', () => {
+      it('should return 0 when the rate of positionX is equal or smaller than 0.', () => {
+        const result = getPercentByPositionX({
+          positionX: -1,
+          sliderWidth: 100,
+          stepPercent: 5,
+        });
+
+        expect(result).toBe(0);
+      });
+
+      it('should return 100 when the rate of positionX is equal or smaller than 100.', () => {
+        const result = getPercentByPositionX({
+          positionX: 110,
+          sliderWidth: 100,
+          stepPercent: 5,
+        });
+
+        expect(result).toBe(100);
+      });
+
+      it('should return the floored rate of positionX according to step.', () => {
+        const result = getPercentByPositionX({
+          positionX: 12,
+          sliderWidth: 100,
+          stepPercent: 5,
+        });
+
+        expect(result).toBe(10);
+      });
+
+      it('should return the ceiled rate of positionX according to step.', () => {
+        const result = getPercentByPositionX({
+          positionX: 13,
+          sliderWidth: 100,
+          stepPercent: 5,
+        });
+
+        expect(result).toBe(15);
+      });
+    });
+
+    describe('getNearestPercentByValue', () => {
+      it('should return 0 when the rate of value is equal or smaller than 0.', () => {
+        const result = getNearestPercentByValue({
+          value: 1,
+          minValue: 10,
+          maxValue: 60,
+          step: 5,
+        });
+
+        expect(result).toBe(0);
+      });
+
+      it('should return 100 when the rate of value is equal or smaller than 100.', () => {
+        const result = getNearestPercentByValue({
+          value: 70,
+          minValue: 10,
+          maxValue: 60,
+          step: 5,
+        });
+
+        expect(result).toBe(100);
+      });
+
+      it('should return the floored rate according to value between minValue and maxValue.', () => {
+        const result = getNearestPercentByValue({
+          value: 12,
+          minValue: 10,
+          maxValue: 60,
+          step: 5,
+        });
+
+        expect(result).toBe(20);
+      });
+
+      it('should return the ceiled rate according to value between minValue and maxValue.', () => {
+        const result = getNearestPercentByValue({
+          value: 13,
+          minValue: 10,
+          maxValue: 60,
+          step: 5,
+        });
+
+        expect(result).toBe(30);
+      });
+    });
+
+    describe('getStepValueByPercent', () => {
+      it('should return value of step according to percent.', () => {
+        const result = getStepValueByPercent({
+          percent: 10,
+          stepPercent: 40,
+          step: 5,
+        });
+
+        expect(result).toBe(1.25);
+      });
     });
   });
 });

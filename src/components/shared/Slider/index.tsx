@@ -1,7 +1,12 @@
 import { Animated, Easing, PanResponder, Platform } from 'react-native';
-import React, { FC, useMemo, useRef, useState } from 'react';
-import { getNearestPercentByValue, getPercentByPositionX, getStepPercent, getStepValueByPercent } from './utils';
-
+import React, { FC, useEffect, useMemo, useRef, useState } from 'react';
+import {
+  getNearestPercentByValue,
+  getPercentByPositionX,
+  getStepPercent,
+  getStepValueByPercent,
+} from './utils';
+import Label from './Label';
 import Marks from './Marks';
 import Rail from './Rail';
 import Thumb from './Thumb';
@@ -24,6 +29,8 @@ const ThumbPositioner = styled.View<ThumbPositionerType>`
   left: ${({ percent }): string => `${percent}%`};
 `;
 
+type LabelDisplay = 'on' | 'off' | 'auto';
+
 interface Props {
   hideMark?: boolean;
   defaultValue?: number;
@@ -34,6 +41,7 @@ interface Props {
   markColor?: string;
   railColor?: string;
   trackColor?: string;
+  labelDisplay?: LabelDisplay;
 }
 
 const Slider: FC<Props> = ({
@@ -46,6 +54,7 @@ const Slider: FC<Props> = ({
   markColor = '#4163f4',
   railColor = '#bcdbfb',
   trackColor = '#0b21e8',
+  labelDisplay = 'off',
 }) => {
   const sliderRef = useRef<any>();
   const [sliderWidth, setSliderWidth] = useState<number>(0);
@@ -60,6 +69,27 @@ const Slider: FC<Props> = ({
   );
   const [scaleValue] = useState(new Animated.Value(0.01));
   const [opacityValue] = useState(new Animated.Value(0.12));
+  const [value, setValue] = useState(defaultValue);
+  const [scaleValue] = useState(new Animated.Value(0.01));
+  const [opacityValue] = useState(new Animated.Value(0.12));
+  const [isVisibleLabel, setIsVisibleLabel] = useState(false);
+  const [percentValue] = useState(new Animated.Value(0));
+
+  useEffect(() => {
+    if (labelDisplay === 'on') {
+      setIsVisibleLabel(true);
+    }
+  }, []);
+
+  useEffect(() => {
+    // Set Label percent animated Value
+    Animated.timing(percentValue, {
+      toValue: percent,
+      duration: 255,
+      easing: Easing.elastic(1),
+      useNativeDriver: Platform.OS === 'android',
+    }).start();
+  }, [percent]);
 
   const panResponder = useMemo(
     () =>
@@ -74,6 +104,10 @@ const Slider: FC<Props> = ({
             easing: Easing.bezier(0.0, 0.0, 0.2, 1),
             useNativeDriver: Platform.OS === 'android',
           }).start();
+
+          if (labelDisplay === 'auto') {
+            setIsVisibleLabel(true);
+          }
         },
         onPanResponderRelease: () => {
           Animated.timing(scaleValue, {
@@ -82,6 +116,10 @@ const Slider: FC<Props> = ({
             easing: Easing.bezier(0.0, 0.0, 0.2, 1),
             useNativeDriver: Platform.OS === 'android',
           }).start();
+
+          if (labelDisplay === 'auto') {
+            setIsVisibleLabel(false);
+          }
         },
         onPanResponderMove: (evt, gestureState) => {
           // the latest screen coordinates of the recently-moved touch
@@ -103,6 +141,17 @@ const Slider: FC<Props> = ({
               stepPercent,
               step,
             });
+
+          const value = getStepValueByPercent({
+            percent,
+            stepPercent,
+            step,
+          });
+
+          setPercent(percent);
+          setValue(value);
+
+          if (onChange) {
             onChange(value);
           }
         },
@@ -122,6 +171,7 @@ const Slider: FC<Props> = ({
         }
       }}
     >
+
       <Rail style={{ backgroundColor: railColor }}/>
       <Track percent={percent} style={{ backgroundColor: trackColor }}/>
       {!hideMark && step && (

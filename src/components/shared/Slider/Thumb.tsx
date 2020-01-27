@@ -1,6 +1,6 @@
+
 import { Animated, StyleProp, ViewStyle } from 'react-native';
 import React, { FC } from 'react';
-
 import styled from 'styled-components/native';
 
 const StyledThumb = styled.View`
