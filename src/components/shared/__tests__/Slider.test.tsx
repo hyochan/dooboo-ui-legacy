@@ -1,5 +1,4 @@
 import * as React from 'react';
-
 import { Animated, View } from 'react-native';
 import { fireEvent, render } from '@testing-library/react-native';
 import {
@@ -11,6 +10,7 @@ import {
   roundNearest,
 } from '../Slider/utils';
 
+import Label from '../Slider/Label';
 import Marks from '../Slider/Marks';
 import Rail from '../Slider/Rail';
 import Slider from '../Slider';
@@ -93,21 +93,32 @@ describe('[Marks]', () => {
       />,
     );
     expect(onInit).toHaveBeenCalledTimes(1);
-    const expectedArgumentForOnInit = Array.from({ length: MARK_COUNT + 1 }).map((_, idx) => STEP * idx);
+    const expectedArgumentForOnInit = Array.from({
+      length: MARK_COUNT + 1,
+    }).map((_, idx) => STEP * idx);
     const actualArgumentForOnInit = onInit.mock.calls[0][0];
 
-    expect(actualArgumentForOnInit).toStrictEqual(
-      expectedArgumentForOnInit,
-    );
+    expect(actualArgumentForOnInit).toStrictEqual(expectedArgumentForOnInit);
   });
 });
 
 describe('[Rail]', () => {
   it('renders without crashing', () => {
     const rendered = render(
-      <Rail
-        testID="RailTestID"
-        style={{ backgroundColor: 'red' }}
+      <Rail testID="RailTestID" style={{ backgroundColor: 'red' }} />,
+    ).asJSON();
+    expect(rendered).toMatchSnapshot();
+    expect(rendered).toBeTruthy();
+  });
+});
+
+describe('[Label]', () => {
+  it('renders without crashing', () => {
+    const rendered = render(
+      <Label
+        percentValue={new Animated.Value(0)}
+        testID="LabelTestID"
+        value={0}
       />,
     ).asJSON();
     expect(rendered).toMatchSnapshot();
