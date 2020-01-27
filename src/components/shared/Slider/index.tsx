@@ -12,31 +12,42 @@ import Marks from './Marks';
 import Rail from './Rail';
 import styled from 'styled-components/native';
 
-const Container = styled.View``;
+interface ThumbPositionerType {
+  percent: number;
+}
+
+const Container = styled.View`
+  display: flex;
+  justify-content: center;
+  position: relative;
+  width: 100%;
+`;
+
+const ThumbPositioner = styled.View<ThumbPositionerType>`
+  position: absolute;
+  left: ${({ percent }): string => `${percent}%`};
+`;
 
 interface Props {
-  defaultValue?: number;
-  maxValue?: number;
-  minValue?: number;
-  onChange?: (value: number) => void;
+  hideMark?: boolean;
+  hideLabel?: boolean;
+  autoLabel?: boolean;
   step?: number;
-  labelDisplay?: LabelDisplay;
-  markColor?: string;
-  railColor?: string;
-  trackColor?: string;
+  defaultValue?: number;
+  minValue?: number;
+  maxValue?: number;
+  onChange?: (value: number) => void;
 }
 
 const Slider: FC<Props> = ({
   hideMark = false,
-  maxValue = 100,
-  minValue = 0,
-  defaultValue = 0,
-  onChange,
+  hideLabel = true,
+  autoLabel = false,
   step = 1,
-  labelDisplay = 'off',
-  markColor = '#4163f4',
-  railColor = '#bcdbfb',
-  trackColor = '#0b21e8',
+  defaultValue = 0,
+  minValue = 0,
+  maxValue = 100,
+  onChange,
 }) => {
   const sliderRef = useRef<any>();
   const [sliderWidth, setSliderWidth] = useState<number>(0);
@@ -56,7 +67,7 @@ const Slider: FC<Props> = ({
   const [percentValue] = useState(new Animated.Value(0));
 
   useEffect(() => {
-    if (labelDisplay === 'on') {
+    if (!hideLabel && !autoLabel) {
       setIsVisibleLabel(true);
     }
   }, []);
@@ -84,7 +95,7 @@ const Slider: FC<Props> = ({
             easing: Easing.bezier(0.0, 0.0, 0.2, 1),
             useNativeDriver: Platform.OS === 'android',
           }).start();
-          if (labelDisplay === 'auto') {
+          if (!hideLabel && autoLabel) {
             setIsVisibleLabel(true);
           }
         },
@@ -95,7 +106,7 @@ const Slider: FC<Props> = ({
             easing: Easing.bezier(0.0, 0.0, 0.2, 1),
             useNativeDriver: Platform.OS === 'android',
           }).start();
-          if (labelDisplay === 'auto') {
+          if (!hideLabel && autoLabel) {
             setIsVisibleLabel(false);
           }
         },
