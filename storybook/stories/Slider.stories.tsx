@@ -36,6 +36,8 @@ function Default(): React.ReactElement {
   const [temperature, setTemperature] = useState(0);
   const [smallStep, setSmallStep] = useState(10);
   const [bigStep, setBigStep] = useState(0);
+  const [displayLabel, setDisplayLabel] = useState(0);
+  const [displayLabelAuto, setDisplayLabelAuto] = useState(0);
   return (
     <Container>
       <SubTitle>Temperature</SubTitle>
@@ -66,6 +68,28 @@ function Default(): React.ReactElement {
         step={1}
         onChange={(value): void => {
           setBigStep(value);
+        }}
+      />
+      <Value>big step: {bigStep}</Value>
+      <SubTitle>Display Label</SubTitle>
+      <Slider
+        minValue={0}
+        maxValue={5}
+        step={1}
+        labelDisplay="on"
+        onChange={(value): void => {
+          setDisplayLabel(value);
+        }}
+      />
+      <Value>big step: {displayLabel}</Value>
+      <SubTitle>Label Auto Display</SubTitle>
+      <Slider
+        minValue={0}
+        maxValue={5}
+        step={1}
+        labelDisplay="auto"
+        onChange={(value): void => {
+          setDisplayLabelAuto(displayLabelAuto);
         }}
       />
       <Value>big step: {bigStep}</Value>
