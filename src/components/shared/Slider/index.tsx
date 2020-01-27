@@ -39,6 +39,11 @@ interface Props {
   minValue?: number;
   maxValue?: number;
   onChange?: (value: number) => void;
+  step?: number;
+  labelDisplay?: LabelDisplay;
+  markColor?: string;
+  railColor?: string;
+  trackColor?: string;
 }
 
 const Slider: FC<Props> = ({
@@ -50,6 +55,11 @@ const Slider: FC<Props> = ({
   minValue = 0,
   maxValue = 100,
   onChange,
+  step = 1,
+  labelDisplay = 'off',
+  markColor = '#4163f4',
+  railColor = '#bcdbfb',
+  trackColor = '#0b21e8',
 }) => {
   const sliderRef = useRef<any>();
   const [sliderWidth, setSliderWidth] = useState<number>(0);
@@ -153,19 +163,20 @@ const Slider: FC<Props> = ({
         }
       }}
     >
-      <Rail testID="rail-test-id" />
-      <Track testID="track-test-id" percent={percent} />
-      {!hideMark && (step > 0) && (
+      <Rail style={{ backgroundColor: railColor }}/>
+      <Track percent={percent} style={{ backgroundColor: trackColor }}/>
+      {!hideMark && step && (
         <Marks
           testID="marks-test-id"
           sliderWidth={sliderWidth}
           minValue={minValue}
           maxValue={maxValue}
           step={step}
+          style={{ backgroundColor: markColor }}
         />
       )}
-      <ThumbPositioner testID="thumb-positioner-test-id" percent={percent}>
-        <Thumb testID="thumb-test-id" scaleValue={scaleValue} opacityValue={opacityValue} />
+      <ThumbPositioner percent={percent}>
+        <Thumb scaleValue={scaleValue} opacityValue={opacityValue} style={{ backgroundColor: trackColor }}/>
       </ThumbPositioner>
       {isVisibleLabel && <Label percentValue={percentValue} value={value} />}
     </Container>

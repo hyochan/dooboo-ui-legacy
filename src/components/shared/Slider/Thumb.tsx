@@ -1,6 +1,6 @@
+import { Animated, StyleProp, ViewStyle } from 'react-native';
 import React, { FC } from 'react';
 
-import { Animated } from 'react-native';
 import styled from 'styled-components/native';
 
 const StyledThumb = styled.View`
@@ -16,6 +16,7 @@ interface Props {
   size?: number;
   opacityValue: Animated.Value;
   scaleValue: Animated.Value;
+  style?: StyleProp<ViewStyle>;
 }
 
 const Thumb: FC<Props> = ({
@@ -23,11 +24,12 @@ const Thumb: FC<Props> = ({
   size = 12,
   scaleValue,
   opacityValue,
+  style,
 }) => {
   const rippleSize = size * 2;
 
   return (
-    <StyledThumb testID={testID}>
+    <StyledThumb testID={testID} style={style}>
       <Animated.View
         style={{
           position: 'absolute',
