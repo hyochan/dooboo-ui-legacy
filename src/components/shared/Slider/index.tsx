@@ -75,8 +75,54 @@ const Slider: FC<Props> = ({
     () =>
       PanResponder.create({
         onStartShouldSetPanResponder: () => true,
-        onPanResponderGrant: (evt, gestureState) => {
-          console.log(gestureState);
+        onMoveShouldSetPanResponder: () => true,
+        onPanResponderTerminationRequest: () => true,
+        onPanResponderGrant: () => {
+          Animated.timing(scaleValue, {
+            toValue: 1,
+            duration: 225,
+            easing: Easing.bezier(0.0, 0.0, 0.2, 1),
+            useNativeDriver: Platform.OS === 'android',
+          }).start();
+          if (labelDisplay === 'auto') {
+            setIsVisibleLabel(true);
+          }
+        },
+        onPanResponderRelease: () => {
+          Animated.timing(scaleValue, {
+            toValue: 0,
+            duration: 225,
+            easing: Easing.bezier(0.0, 0.0, 0.2, 1),
+            useNativeDriver: Platform.OS === 'android',
+          }).start();
+          if (labelDisplay === 'auto') {
+            setIsVisibleLabel(false);
+          }
+        },
+        onPanResponderMove: (evt, gestureState) => {
+          // the latest screen coordinates of the recently-moved touch
+          const stepPercent = getStepPercent({
+            minValue,
+            maxValue,
+            step,
+          });
+          const percent = getPercentByPositionX({
+            positionX: gestureState.moveX - sliderPositionX,
+            sliderWidth,
+            stepPercent,
+          });
+          const value = getStepValueByPercent({
+            percent,
+            stepPercent,
+            step,
+          });
+
+          setPercent(percent);
+          setValue(value);
+
+          if (onChange) {
+            onChange(value);
+          }
         },
       }),
     [],
@@ -95,10 +141,11 @@ const Slider: FC<Props> = ({
         }
       }}
     >
-      <Rail style={{ backgroundColor: railColor }}/>
-      <Track percent={percent} style={{ backgroundColor: trackColor }}/>
-      {!hideMark && step && (
+      <Rail testID="rail-test-id" />
+      <Track testID="track-test-id" percent={percent} />
+      {!hideMark && (step > 0) && (
         <Marks
+          testID="marks-test-id"
           sliderWidth={sliderWidth}
           minValue={minValue}
           maxValue={maxValue}
@@ -106,8 +153,8 @@ const Slider: FC<Props> = ({
           style={{ backgroundColor: markColor }}
         />
       )}
-      <ThumbPositioner percent={percent}>
-        <Thumb scaleValue={scaleValue} opacityValue={opacityValue} style={{ backgroundColor: trackColor }}/>
+      <ThumbPositioner testID="thumb-positioner-test-id" percent={percent}>
+        <Thumb testID="thumb-test-id" scaleValue={scaleValue} opacityValue={opacityValue} />
       </ThumbPositioner>
       {isVisibleLabel && <Label percentValue={percentValue} value={value} />}
     </Container>
