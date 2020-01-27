@@ -30,13 +30,14 @@ const ThumbPositioner = styled.View<ThumbPositionerType>`
   left: ${({ percent }): string => `${percent}%`};
 `;
 
-type LabelDisplay = 'on' | 'off' | 'auto';
-
 interface Props {
   hideMark?: boolean;
+  hideLabel?: boolean;
+  autoLabel?: boolean;
+  step?: number;
   defaultValue?: number;
-  maxValue?: number;
   minValue?: number;
+  maxValue?: number;
   onChange?: (value: number) => void;
   step?: number;
   labelDisplay?: LabelDisplay;
@@ -47,9 +48,12 @@ interface Props {
 
 const Slider: FC<Props> = ({
   hideMark = false,
-  maxValue = 100,
-  minValue = 0,
+  hideLabel = true,
+  autoLabel = false,
+  step = 1,
   defaultValue = 0,
+  minValue = 0,
+  maxValue = 100,
   onChange,
   step = 1,
   labelDisplay = 'off',
@@ -75,7 +79,7 @@ const Slider: FC<Props> = ({
   const [percentValue] = useState(new Animated.Value(0));
 
   useEffect(() => {
-    if (labelDisplay === 'on') {
+    if (!hideLabel && !autoLabel) {
       setIsVisibleLabel(true);
     }
   }, []);
@@ -103,7 +107,7 @@ const Slider: FC<Props> = ({
             easing: Easing.bezier(0.0, 0.0, 0.2, 1),
             useNativeDriver: Platform.OS === 'android',
           }).start();
-          if (labelDisplay === 'auto') {
+          if (!hideLabel && autoLabel) {
             setIsVisibleLabel(true);
           }
         },
@@ -114,7 +118,7 @@ const Slider: FC<Props> = ({
             easing: Easing.bezier(0.0, 0.0, 0.2, 1),
             useNativeDriver: Platform.OS === 'android',
           }).start();
-          if (labelDisplay === 'auto') {
+          if (!hideLabel && autoLabel) {
             setIsVisibleLabel(false);
           }
         },

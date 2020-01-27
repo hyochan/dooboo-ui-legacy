@@ -78,7 +78,7 @@ function Default(): React.ReactElement {
         minValue={0}
         maxValue={5}
         step={1}
-        labelDisplay="on"
+        hideLabel={false}
         onChange={(value): void => {
           setDisplayLabel(value);
         }}
@@ -91,7 +91,8 @@ function Default(): React.ReactElement {
         minValue={0}
         maxValue={5}
         step={1}
-        labelDisplay="auto"
+        hideLabel={false}
+        autoLabel
         onChange={(value): void => {
           setDisplayLabelAuto(displayLabelAuto);
         }}
