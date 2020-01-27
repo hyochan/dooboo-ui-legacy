@@ -6,6 +6,7 @@ import {
   getStepPercent,
   getStepValueByPercent,
 } from './utils';
+
 import Label from './Label';
 import Marks from './Marks';
 import Rail from './Rail';
@@ -29,26 +30,26 @@ const ThumbPositioner = styled.View<ThumbPositionerType>`
   left: ${({ percent }): string => `${percent}%`};
 `;
 
-type LabelDisplay = 'on' | 'off' | 'auto';
-
 interface Props {
   hideMark?: boolean;
-  defaultValue?: number;
-  maxValue?: number;
-  minValue?: number;
-  onChange?: (value: number) => void;
+  hideLabel?: boolean;
+  autoLabel?: boolean;
   step?: number;
-  labelDisplay?: LabelDisplay;
+  defaultValue?: number;
+  minValue?: number;
+  maxValue?: number;
+  onChange?: (value: number) => void;
 }
 
 const Slider: FC<Props> = ({
   hideMark = false,
-  maxValue = 100,
-  minValue = 0,
-  defaultValue = 0,
-  onChange,
+  hideLabel = true,
+  autoLabel = false,
   step = 1,
-  labelDisplay = 'off',
+  defaultValue = 0,
+  minValue = 0,
+  maxValue = 100,
+  onChange,
 }) => {
   const sliderRef = useRef<any>();
   const [sliderWidth, setSliderWidth] = useState<number>(0);
@@ -68,7 +69,7 @@ const Slider: FC<Props> = ({
   const [percentValue] = useState(new Animated.Value(0));
 
   useEffect(() => {
-    if (labelDisplay === 'on') {
+    if (!hideLabel) {
       setIsVisibleLabel(true);
     }
   }, []);
@@ -96,7 +97,7 @@ const Slider: FC<Props> = ({
             easing: Easing.bezier(0.0, 0.0, 0.2, 1),
             useNativeDriver: Platform.OS === 'android',
           }).start();
-          if (labelDisplay === 'auto') {
+          if (!hideLabel && autoLabel) {
             setIsVisibleLabel(true);
           }
         },
@@ -107,7 +108,7 @@ const Slider: FC<Props> = ({
             easing: Easing.bezier(0.0, 0.0, 0.2, 1),
             useNativeDriver: Platform.OS === 'android',
           }).start();
-          if (labelDisplay === 'auto') {
+          if (!hideLabel && autoLabel) {
             setIsVisibleLabel(false);
           }
         },
