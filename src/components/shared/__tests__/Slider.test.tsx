@@ -1,4 +1,5 @@
 import * as React from 'react';
+
 import { Animated, View } from 'react-native';
 import { fireEvent, render } from '@testing-library/react-native';
 import {
@@ -17,16 +18,120 @@ import Slider from '../Slider';
 import Thumb from '../Slider/Thumb';
 import Track from '../Slider/Track';
 
+const TEST_ID = {
+  RAIL: 'rail-test-id',
+  TRACK: 'track-test-id',
+  MARKS: 'marks-test-id',
+  THUMB: 'thumb-test-id',
+  THUMBPOSITIONER: 'thumb-positioner-test-id',
+};
+
 describe('[Slider] render', () => {
   it('renders without crashing', () => {
-    const rendered = render(<Slider />).asJSON();
+    const rendered = render(
+      <Slider
+        hideMark={false}
+        defaultValue={10}
+        minValue={0}
+        maxValue={100}
+        step={10}
+        onChange={(): void => {}}
+      />,
+    ).asJSON();
     expect(rendered).toMatchSnapshot();
     expect(rendered).toBeTruthy();
+  });
+
+  describe('required components', () => {
+    it('should have a [Rail].', () => {
+      const { queryByTestId } = render(
+        <Slider />,
+      );
+      const rail = queryByTestId(TEST_ID.RAIL);
+
+      expect(rail).not.toBeNull();
+    });
+
+    it('should have a [Track].', () => {
+      const { queryByTestId } = render(
+        <Slider />,
+      );
+      const track = queryByTestId(TEST_ID.TRACK);
+
+      expect(track).not.toBeNull();
+    });
+
+    it('should have a [Marks].', () => {
+      const { queryByTestId } = render(
+        <Slider />,
+      );
+      const marks = queryByTestId(TEST_ID.MARKS);
+
+      expect(marks).not.toBeNull();
+    });
+
+    it('should have a [Thumb].', () => {
+      const { queryByTestId } = render(
+        <Slider />,
+      );
+      const thumb = queryByTestId(TEST_ID.THUMB);
+
+      expect(thumb).not.toBeNull();
+    });
+  });
+
+  it('should hide [Marks] when hideMark is true.', () => {
+    const { queryByTestId } = render(
+      <Slider
+        hideMark={true}
+      />,
+    );
+    const marks = queryByTestId(TEST_ID.MARKS);
+
+    expect(marks).toBeNull();
+  });
+
+  it('should hide [Marks] when step is less than 0.', () => {
+    const { queryByTestId } = render(
+      <Slider
+        step={-1}
+      />,
+    );
+    const marks = queryByTestId(TEST_ID.MARKS);
+
+    expect(marks).toBeNull();
+  });
+
+  it('should hide [Marks] when step is equal to 0.', () => {
+    const { queryByTestId } = render(
+      <Slider
+        step={0}
+      />,
+    );
+    const marks = queryByTestId(TEST_ID.MARKS);
+
+    expect(marks).toBeNull();
+  });
+
+  it('should pose [Thumb] to given defaultValue.', () => {
+    const DEFAULT_VALUE = 30;
+    const MIN_VALUE = 20;
+    const MAX_VALUE = 60;
+    const { getByTestId } = render(
+      <Slider
+        defaultValue={DEFAULT_VALUE}
+        minValue={MIN_VALUE}
+        maxValue={MAX_VALUE}
+      />,
+    );
+    const thumbPositioner = getByTestId(TEST_ID.THUMBPOSITIONER);
+    const percent = getPercentByValue(DEFAULT_VALUE, MAX_VALUE, MIN_VALUE);
+
+    expect(thumbPositioner.props.percent).toBe(percent);
   });
 });
 
 describe('[Marks]', () => {
-  const TEST_ID_MARK = 'TEST_ID_FOR_MARK';
   const Mark: React.FC<{ testID: string }> = ({ testID }) => {
     return <View testID={testID} />;
   };
@@ -35,7 +140,7 @@ describe('[Marks]', () => {
     const rendered = render(
       <Marks
         sliderWidth={100}
-        mark={<Mark testID={TEST_ID_MARK} />}
+        mark={<Mark testID={TEST_ID.MARKS} />}
         customMarkWidth={1}
         step={10}
         minValue={0}
@@ -54,7 +159,7 @@ describe('[Marks]', () => {
     const { getAllByTestId } = render(
       <Marks
         sliderWidth={100}
-        mark={<Mark testID={TEST_ID_MARK} />}
+        mark={<Mark testID={TEST_ID.MARKS} />}
         customMarkWidth={10}
         step={STEP}
         minValue={0}
@@ -62,7 +167,7 @@ describe('[Marks]', () => {
         onMarkPress={handleMarkPress}
       />,
     );
-    const marks = getAllByTestId(TEST_ID_MARK);
+    const marks = getAllByTestId(TEST_ID.MARKS);
     for (let i = 0; i < MARK_COUNT; i += 1) {
       fireEvent.press(marks[i]);
     }
@@ -83,7 +188,7 @@ describe('[Marks]', () => {
     render(
       <Marks
         sliderWidth={100}
-        mark={<Mark testID={TEST_ID_MARK} />}
+        mark={<Mark testID={TEST_ID.MARKS} />}
         customMarkWidth={12}
         style={{ width: 240 }}
         step={STEP}
