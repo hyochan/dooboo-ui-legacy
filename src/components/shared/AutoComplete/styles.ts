@@ -1,4 +1,10 @@
-import { InputContainerProps, InputWrapper, OptionTextProps, OptionWrapperProps } from './types';
+import {
+  InputContainerProps,
+  InputWrapper,
+  MarginSpaceProps,
+  OptionTextProps,
+  OptionWrapperProps,
+} from './types';
 
 import { StyleSheet } from 'react-native';
 import chroma from 'chroma-js';
@@ -70,6 +76,16 @@ export const OptionWrapper = styled.TouchableHighlight.attrs(({ underlayColor })
       ? chroma(underlayColor).brighten(3).hex()
       : 'transparent'
   )};
+`;
+
+export const InnerOptionWrapper = styled.View`
+  flex: 1;
+  flex-direction: row;
+  align-items: center;
+`;
+
+export const MarginSpace = styled.View<MarginSpaceProps>`
+  ${({ location }): string => (location === 'left' ? 'margin-left: 10px' : 'margin-right: 10px')}
 `;
 
 export const OptionText = styled.Text<OptionTextProps>`

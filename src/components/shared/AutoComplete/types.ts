@@ -1,4 +1,4 @@
-import { Dispatch, SetStateAction } from 'react';
+import { Dispatch, ReactChild, SetStateAction } from 'react';
 import { TextInputProps, ViewStyle } from 'react-native';
 
 export interface AutoCompleteProps {
@@ -57,6 +57,15 @@ export type InputContainerProps = {
   focus: boolean;
 };
 
+export enum Direction {
+  left = 'left',
+  right = 'right'
+}
+
+export type MarginSpaceProps = {
+  location: Direction;
+}
+
 export type OptionTextProps = {
   fontSize?: number;
   fontWeight?: string;
@@ -66,5 +75,6 @@ export type Datum = {
   id: string;
   label: string;
   value: string;
-  flag?: string;
+  leftIcon?: ReactChild;
+  rightIcon?: ReactChild;
 };

@@ -27,14 +27,15 @@
 # Data Structure & example
 
 ```tsx
-  import React, { useState } from 'react';
+  import React, { useState, ReactChild } from 'react';
   import { AutoComplete } from '@dooboo-ui/native';
 
   type Datum = {
     id: string; // should be unique id
     label: string; // label that to be shown on option list
     value: string; // value that to be used as state or parameter for your API, etc.
-    leftIcon?: string; // left icon to be shown as an option item, optional.
+    leftIcon?: ReactChild; // left icon to be shown as an option item, optional.
+    rightIcon?: ReactChild; // right icon to be shown as an option item, optional.
   }
 
   const data: Datum[] = [{
@@ -51,7 +52,7 @@
     id: '789',
     label: 'Vue',
     value: 'js SPA framework which is a rising star atm',
-    leftIcon: '♈'
+    rightIcon: '♈'
   }];
 
   export default function AutoCompleteSample() {
@@ -74,7 +75,7 @@
 | name                                                  | content                            | features                                                                         |
 | ----------------------------------------------------- | ---------------------------------- | -------------------------------------------------------------------------------- |
 | index.tsx                                             | AutoComplete root Component        | props from outside of the components, overall logic                              |
-| dummyData.ts                                          | AutoComplete dummy data            | dummy data with types of Datum[], contains country info starting with letter 'A' |
+| dummyData.tsx                                         | AutoComplete dummy data            | dummy data with types of Datum[], contains country info starting with letter 'A' |
 | renderInput.tsx                                       | TextInput Component                | textInput for search, clear, match, placeholder animation                        |
 | renderOptions.tsx                                     | OptionList and Option Components   | FlatList for searchItems                                                         |
 | styles.ts                                             | Styled-Components and RN Styles    | styles                                                                           |

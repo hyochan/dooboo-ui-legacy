@@ -1,100 +1,116 @@
+import { IC_FACEBOOK, IC_GOOGLE } from '../Icons';
+
 import { Datum } from './types';
+import { Image } from 'react-native';
+import React from 'react';
 
 export default [
   {
     id: 'AD',
     label: 'Andorra',
     value: '+376',
-    flag: '🇦🇩',
+    leftIcon: '🇦🇩',
   },
   {
     id: 'AE',
     label: 'United Arab Emirates',
     value: '+971',
-    flag: '🇦🇪',
+    leftIcon: '🇦🇪',
   },
   {
     id: 'AF',
     label: 'Afghanistan',
     value: '+93',
-    flag: '🇦🇫',
+    leftIcon: '🇦🇫',
   },
   {
     id: 'AG',
     label: 'Antigua and Barbuda',
     value: '+1-268',
-    flag: '🇦🇬',
+    leftIcon: '🇦🇬',
   },
   {
     id: 'AI',
     label: 'Anguilla',
     value: '+1-264',
-    flag: '🇦🇮',
+    leftIcon: '🇦🇮',
   },
   {
     id: 'AL',
     label: 'Albania',
     value: '+355',
-    flag: '🇦🇱',
+    leftIcon: '🇦🇱',
   },
   {
     id: 'AM',
     label: 'Armenia',
     value: '+374',
-    flag: '🇦🇲',
+    leftIcon: '🇦🇲',
   },
   {
     id: 'AO',
     label: 'Angola',
     value: '+244',
-    flag: '🇦🇴',
+    leftIcon: '🇦🇴',
   },
   {
     id: 'AQ',
     label: 'Antarctica',
     value: '+672',
-    flag: '🇦🇶',
+    leftIcon: '🇦🇶',
   },
   {
     id: 'AR',
     label: 'Argentina',
     value: '+54',
-    flag: '🇦🇷',
+    leftIcon: '🇦🇷',
   },
   {
     id: 'AS',
     label: 'American Samoa',
     value: '+1-684',
-    flag: '🇦🇸',
+    leftIcon: '🇦🇸',
   },
   {
     id: 'AT',
     label: 'Austria',
     value: '+43',
-    flag: '🇦🇹',
+    leftIcon: '🇦🇹',
   },
   {
     id: 'AU',
     label: 'Australia',
     value: '+61',
-    flag: '🇦🇺',
+    leftIcon: '🇦🇺',
   },
   {
     id: 'AW',
     label: 'Aruba',
     value: '+297',
-    flag: '🇦🇼',
+    leftIcon: '🇦🇼',
   },
   {
     id: 'AX',
     label: 'Åland Islands',
     value: '+358',
-    flag: '🇦🇽',
+    leftIcon: '🇦🇽',
   },
   {
     id: 'AZ',
     label: 'Azerbaijan',
     value: '+994',
-    flag: '🇦🇿',
+    leftIcon: '🇦🇿',
+  },
+  {
+    id: 'LI',
+    label: 'Left Icon Test',
+    value: '+111',
+    leftIcon: <Image source={IC_FACEBOOK} style={{ width: 16, height: 16 }} />,
+  },
+  {
+    id: 'RI',
+    label: 'Right Icon Test',
+    value: '+999',
+    rightIcon: <Image source={IC_GOOGLE} style={{ width: 16, height: 16 }} />,
   },
 ] as Datum[];
