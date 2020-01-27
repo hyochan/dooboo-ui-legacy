@@ -172,7 +172,12 @@ const Slider: FC<Props> = ({
         />
       )}
       <ThumbPositioner testID="thumb-positioner-test-id" percent={percent}>
-        <Thumb testID="thumb-test-id" scaleValue={scaleValue} opacityValue={opacityValue} style={{ backgroundColor: trackColor }}/>
+        <Thumb
+          testID="thumb-test-id"
+          scaleValue={scaleValue}
+          opacityValue={opacityValue}
+          style={{ backgroundColor: trackColor }}
+        />
       </ThumbPositioner>
       {isVisibleLabel && <Label percentValue={percentValue} value={value} />}
     </Container>
