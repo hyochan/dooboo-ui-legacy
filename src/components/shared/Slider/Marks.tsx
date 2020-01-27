@@ -367,7 +367,7 @@ const Marks: FC<Props> = ({
     handleInit(markValues, markPositions);
   }, []);
 
-  return <Container testID={testID}>{marks}</Container>;
+  return <Container testID={testID} style={style}>{marks}</Container>;
 };
 
 export default Marks;

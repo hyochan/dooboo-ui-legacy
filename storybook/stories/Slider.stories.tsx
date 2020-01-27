@@ -57,6 +57,8 @@ function Default(): React.ReactElement {
         onChange={(value): void => {
           setSmallStep(value);
         }}
+        markColor={'yellow'}
+        trackColor={'green'}
       />
       <Value>small step: {smallStep}</Value>
       <SubTitle>Big Step</SubTitle>
@@ -67,6 +69,8 @@ function Default(): React.ReactElement {
         onChange={(value): void => {
           setBigStep(value);
         }}
+        railColor={'gray'}
+        trackColor={'black'}
       />
       <Value>big step: {bigStep}</Value>
     </Container>

@@ -31,6 +31,9 @@ interface Props {
   minValue?: number;
   onChange?: (value: number) => void;
   step?: number;
+  markColor?: string;
+  railColor?: string;
+  trackColor?: string;
 }
 
 const Slider: FC<Props> = ({
@@ -40,6 +43,9 @@ const Slider: FC<Props> = ({
   defaultValue = 0,
   onChange,
   step = 1,
+  markColor = '#4163f4',
+  railColor = '#bcdbfb',
+  trackColor = '#0b21e8',
 }) => {
   const sliderRef = useRef<any>();
   const [sliderWidth, setSliderWidth] = useState<number>(0);
@@ -116,18 +122,19 @@ const Slider: FC<Props> = ({
         }
       }}
     >
-      <Rail />
-      <Track percent={percent} />
+      <Rail style={{ backgroundColor: railColor }}/>
+      <Track percent={percent} style={{ backgroundColor: trackColor }}/>
       {!hideMark && step && (
         <Marks
           sliderWidth={sliderWidth}
           minValue={minValue}
           maxValue={maxValue}
           step={step}
+          style={{ backgroundColor: markColor }}
         />
       )}
       <ThumbPositioner percent={percent}>
-        <Thumb scaleValue={scaleValue} opacityValue={opacityValue} />
+        <Thumb scaleValue={scaleValue} opacityValue={opacityValue} style={{ backgroundColor: trackColor }} />
       </ThumbPositioner>
     </Container>
   );
