@@ -26,7 +26,65 @@ const Container = styled.View`
 function Default(): React.ReactElement {
   return (
     <Container>
-      <Slider />
+      <SubTitle>Temperature</SubTitle>
+      <Slider
+        hideMark
+        minValue={0}
+        maxValue={100}
+        onChange={(value): void => {
+          setTemperature(value);
+        }}
+      />
+      <Value>temperature: {temperature}</Value>
+      <SubTitle>small Step</SubTitle>
+      <Slider
+        defaultValue={smallStep}
+        minValue={0}
+        maxValue={100}
+        step={10}
+        onChange={(value): void => {
+          setSmallStep(value);
+        }}
+      />
+      <Value>small step: {smallStep}</Value>
+      <SubTitle>Big Step</SubTitle>
+      <Slider
+        minValue={0}
+        maxValue={5}
+        step={1}
+        onChange={(value): void => {
+          setBigStep(value);
+        }}
+        markColor={'yellow'}
+        trackColor={'green'}
+      />
+      <Value>big step: {bigStep}</Value>
+      <SubTitle>Display Label</SubTitle>
+      <Slider
+        minValue={0}
+        maxValue={5}
+        step={1}
+        labelDisplay="on"
+        onChange={(value): void => {
+          setDisplayLabel(value);
+        }}
+        railColor={'gray'}
+        trackColor={'black'}
+      />
+      <Value>big step: {displayLabel}</Value>
+      <SubTitle>Label Auto Display</SubTitle>
+      <Slider
+        minValue={0}
+        maxValue={5}
+        step={1}
+        labelDisplay="auto"
+        onChange={(value): void => {
+          setDisplayLabelAuto(displayLabelAuto);
+        }}
+        railColor={'gray'}
+        trackColor={'black'}
+      />
+      <Value>big step: {bigStep}</Value>
     </Container>
   );
 }
