@@ -163,8 +163,8 @@ const Slider: FC<Props> = ({
         }
       }}
     >
-      <Rail style={{ backgroundColor: railColor }}/>
-      <Track percent={percent} style={{ backgroundColor: trackColor }}/>
+      <Rail testID="rail-test-id" style={{ backgroundColor: railColor }}/>
+      <Track testID="track-test-id" percent={percent} style={{ backgroundColor: trackColor }}/>
       {!hideMark && step && (
         <Marks
           testID="marks-test-id"
@@ -176,12 +176,7 @@ const Slider: FC<Props> = ({
         />
       )}
       <ThumbPositioner testID="thumb-positioner-test-id" percent={percent}>
-        <Thumb
-          testID="thumb-test-id"
-          scaleValue={scaleValue}
-          opacityValue={opacityValue}
-          style={{ backgroundColor: trackColor }}
-        />
+        <Thumb testID="thumb-test-id" scaleValue={scaleValue} opacityValue={opacityValue} style={{ backgroundColor: trackColor }}/>
       </ThumbPositioner>
       {isVisibleLabel && <Label percentValue={percentValue} value={value} />}
     </Container>
