@@ -69,7 +69,7 @@ const Slider: FC<Props> = ({
   const [percentValue] = useState(new Animated.Value(0));
 
   useEffect(() => {
-    if (!hideLabel) {
+    if (!hideLabel && !autoLabel) {
       setIsVisibleLabel(true);
     }
   }, []);
