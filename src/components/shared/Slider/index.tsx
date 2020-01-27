@@ -6,6 +6,7 @@ import {
   getStepPercent,
   getStepValueByPercent,
 } from './utils';
+
 import Label from './Label';
 import Marks from './Marks';
 import Rail from './Rail';
@@ -123,7 +124,6 @@ const Slider: FC<Props> = ({
             sliderWidth,
             stepPercent,
           });
-
           const value = getStepValueByPercent({
             percent,
             stepPercent,
@@ -153,18 +153,19 @@ const Slider: FC<Props> = ({
         }
       }}
     >
-      <Rail />
-      <Track percent={percent} />
-      {!hideMark && step && (
+      <Rail testID="rail-test-id" />
+      <Track testID="track-test-id" percent={percent} />
+      {!hideMark && (step > 0) && (
         <Marks
+          testID="marks-test-id"
           sliderWidth={sliderWidth}
           minValue={minValue}
           maxValue={maxValue}
           step={step}
         />
       )}
-      <ThumbPositioner percent={percent}>
-        <Thumb scaleValue={scaleValue} opacityValue={opacityValue} />
+      <ThumbPositioner testID="thumb-positioner-test-id" percent={percent}>
+        <Thumb testID="thumb-test-id" scaleValue={scaleValue} opacityValue={opacityValue} />
       </ThumbPositioner>
       {isVisibleLabel && <Label percentValue={percentValue} value={value} />}
     </Container>
