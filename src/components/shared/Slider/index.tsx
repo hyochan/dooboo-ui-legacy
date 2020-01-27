@@ -130,7 +130,6 @@ const Slider: FC<Props> = ({
             sliderWidth,
             stepPercent,
           });
-
           const value = getStepValueByPercent({
             percent,
             stepPercent,
@@ -160,10 +159,11 @@ const Slider: FC<Props> = ({
         }
       }}
     >
-      <Rail style={{ backgroundColor: railColor }}/>
-      <Track percent={percent} style={{ backgroundColor: trackColor }}/>
-      {!hideMark && step && (
+      <Rail testID="rail-test-id" style={{ backgroundColor: railColor }}/>
+      <Track testID="track-test-id" percent={percent} style={{ backgroundColor: trackColor }}/>
+      {!hideMark && (step > 0) && (
         <Marks
+          testID="marks-test-id"
           sliderWidth={sliderWidth}
           minValue={minValue}
           maxValue={maxValue}
@@ -171,8 +171,8 @@ const Slider: FC<Props> = ({
           style={{ backgroundColor: markColor }}
         />
       )}
-      <ThumbPositioner percent={percent}>
-        <Thumb scaleValue={scaleValue} opacityValue={opacityValue} style={{ backgroundColor: trackColor }}/>
+      <ThumbPositioner testID="thumb-positioner-test-id" percent={percent}>
+        <Thumb testID="thumb-test-id" scaleValue={scaleValue} opacityValue={opacityValue} style={{ backgroundColor: trackColor }}/>
       </ThumbPositioner>
       {isVisibleLabel && <Label percentValue={percentValue} value={value} />}
     </Container>
