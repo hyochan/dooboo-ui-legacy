@@ -20,7 +20,7 @@ const styles = StyleSheet.create({
     fontSize: 16,
     paddingHorizontal: 16,
     paddingVertical: 10,
-    bottom: 50,
+    bottom: 10,
     backgroundColor: '#303235',
     borderRadius: 10,
   },
@@ -42,10 +42,10 @@ const ActionButton = styled.View`
 
 export interface SnackbarProps {
   testID?: string;
-  ref?: React.MutableRefObject<SnackbarRef>;
+  ref: React.MutableRefObject<SnackbarRef>;
 }
 
-interface Content {
+export interface Content {
   text: string;
   actionText?: string;
   timer?: Timer;
@@ -70,7 +70,7 @@ export enum Timer {
   LONG = 3000,
 }
 
-const Snackbar: React.FC<SnackbarProps> = React.forwardRef<SnackbarRef, SnackbarProps>((props, ref) => {
+const Snackbar = (props: SnackbarProps, ref: React.Ref<SnackbarRef>): React.ReactElement => {
   const { testID } = props;
   const [showingState, setShowingState] = React.useState<ShowingState>({ isVisible: false, isShowing: false });
   const [content, setContent] = React.useState<Content>({ text: '', timer: Timer.SHORT });
@@ -131,6 +131,6 @@ const Snackbar: React.FC<SnackbarProps> = React.forwardRef<SnackbarRef, Snackbar
       )}
     </>
   );
-});
+};
 
-export default Snackbar;
+export default React.forwardRef<SnackbarRef, SnackbarProps>(Snackbar);
