@@ -71,7 +71,7 @@ function Rating(props: Props): React.ReactElement {
         key={index}
         on={props.value - 1 >= index}
         onPress={(): void => {
-          props.onChange && _handlePress(index);
+          (props.onChange && !props.disabled) && _handlePress(index);
         }}
         disabled={!props.onChange || props.disabled}
       />
