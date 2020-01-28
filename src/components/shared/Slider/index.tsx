@@ -80,7 +80,6 @@ const Slider: FC<Props> = ({
       toValue: percent,
       duration: 255,
       easing: Easing.elastic(1),
-      useNativeDriver: Platform.OS === 'android',
     }).start();
   }, [percent]);
 
@@ -155,7 +154,7 @@ const Slider: FC<Props> = ({
     >
       <Rail testID="rail-test-id" />
       <Track testID="track-test-id" percent={percent} />
-      {!hideMark && (step > 0) && (
+      {!hideMark && step > 0 && (
         <Marks
           testID="marks-test-id"
           sliderWidth={sliderWidth}
@@ -165,7 +164,11 @@ const Slider: FC<Props> = ({
         />
       )}
       <ThumbPositioner testID="thumb-positioner-test-id" percent={percent}>
-        <Thumb testID="thumb-test-id" scaleValue={scaleValue} opacityValue={opacityValue} />
+        <Thumb
+          testID="thumb-test-id"
+          scaleValue={scaleValue}
+          opacityValue={opacityValue}
+        />
       </ThumbPositioner>
       {isVisibleLabel && <Label percentValue={percentValue} value={value} />}
     </Container>
