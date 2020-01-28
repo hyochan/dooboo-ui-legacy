@@ -50,5 +50,7 @@ If you want to use only `SwitchToggle`, you can install it by running `yarn add 
   - `@dooboo-ui/native-loading-indicator`
 - [SearchInput](https://github.com/dooboolab/dooboo-ui-native/tree/master/src/components/shared/SearchInput)
   - `@dooboo-ui/native-search-input`
+- [SnackBar](https://github.com/dooboolab/dooboo-ui-native/tree/master/src/components/shared/SnackBar)
+  - `@dooboo-ui/snackbar` (WIP)
 - [SwitchToggle](https://github.com/dooboolab/dooboo-ui-native/tree/master/src/components/shared/SwitchToggle)
   - `@dooboo-ui/native-switch-toggle`
