@@ -5,7 +5,11 @@
 
 > Simple snackbar for react-native.
 
+![Jan-28-2020 15-59-38](https://user-images.githubusercontent.com/17980230/73242107-548d0400-41e7-11ea-946b-630ba7053584.gif)
+
 ## Installation
+
+At this point, this component has not yet been published, and after it has been published, it may be installed with the command below.
 
 ```sh
 yarn add @dooboo-ui/native
@@ -19,7 +23,7 @@ yarn add @dooboo-ui/native-snackbar
 
 ## Usage
 
-# Props
+# Types
 
 ```ts
 export enum Timer {
@@ -28,21 +32,45 @@ export enum Timer {
 }
 
 export interface SnackbarProps {
-  text: string;
   testID?: string;
-  show: boolean;
-  setShow: (show: boolean) => void;
+  ref: React.MutableRefObject<SnackbarRef>;
+}
+
+export interface SnackbarRef {
+  show(content: Content): void;
+}
+
+export interface Content {
+  text: string;
+  actionText?: string;
   timer?: Timer;
+  actionStyle?: TextStyle;
+  containerStyle?: ViewStyle;
+  messageStyle?: TextStyle;
+  onPressAction?: () => void;
 }
 ```
 
+- SnackbarProps
+
 |         | necessary | types                   | default   | info         |
 | ------- | :-------: | ----------------------- | --------- | ------------ |
-| text    |     ✓     | string                  | undefined |              |
+| ref     |     v     | MutableRefObject        | undefined |              |
 | testID  |           | string                  | undefined |              |
-| timer   |           | number                  | 1500      | closing time |
-| show    |     ✓     | boolean                 | undefined |              |
-| setSHow |     ✓     | (show: boolean) => void | undefined |              |
+
+- Content
+
+An object of this type is needed to show an Snackbar. 
+
+|                | necessary | types            | default            | info               |
+| -------------- | :-------: | ---------------- | ------------------ | ------------------ |
+| text           |     v     | string           | undefined          |                    |
+| timer          |           | number           | 1500 (Timer.SHORT) | Closing time       |
+| messageStyle   |           | TextStyle        | undefined          | Message text style |
+| containerStyle |           | ViewStyle        | undefined          |                    |
+| actionText     |           | string           | undefined          |                    |
+| actionStyle    |           | TextStyle        | undefined          | Action text style  |
+| onPressAction  |           | function         | undefined          |                    |
 
 # Getting started
 
@@ -56,39 +84,39 @@ export interface SnackbarProps {
 
 - Usage
   ```tsx
-  const SnackbarWithState = () => {
-    const [show, setShow] = useState<boolean>(false);
-    const [timer, setTimer] = useState<Timer>(Timer.SHORT);
+
+  function Container(): React.ReactElement {
+    const snackbar = useRef<SnackbarRef>();
+    const onPress = (): void => {
+      snackbar.current && snackbar.current.show({
+        text: 'Simple Snackbar is opened',
+        timer: Timer.LONG,
+        containerStyle: {
+          backgroundColor: '#ccccff',
+        },
+        messageStyle: {
+          color: '#ffffff',
+          fontSize: 17,
+        },
+      actionText: 'ACTION',
+      actionStyle: {
+        color: '#0066ff',
+        fontSize: 17,
+      },
+      onPressAction: () => Alert.alert('Action!!'),
+      });
+    };
 
     return (
       <Container>
-        <Button
-          style={{
-            marginVertical: 40,
-          }}
-          text="OPEN SNACKBAR (SHORT TIMER)"
-          onClick={(): void => {
-            setShow(true);
-            setTimer(Timer.SHORT);
-          }}
-        />
-        <Button
-          text="OPEN SNACKBAR (LONG TIMER)"
-          style={{
-            marginVertical: 40,
-          }}
-          onClick={(): void => {
-            setShow(true);
-            setTimer(Timer.LONG);
-          }}
-        />
-        <Snackbar
-          text={text('Snackbar Text', 'Simple Snackbar is opened')}
-          show={show}
-          setShow={setShow}
-          timer={timer}
-        />
+        <Button onPress={onPress}>
+          <Text style={{ textAlign: 'center' }}>OPEN SNACKBAR</Text>
+        </Button>
+        <Snackbar ref={snackbar}/>
       </Container>
     );
-  };
+  }
+
   ```
+To show a `SnackBar` component, just provide `ref` props to the component and call the `show` function  (with a `Content` type parameter) of it.
+This component will appear at the bottom of the parent view, **not at the bottom of the screen**.
