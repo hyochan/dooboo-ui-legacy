@@ -13,6 +13,9 @@ const ThumbPositioner = styled.View<ThumbPositionerType>`
 `;
 
 const StyledThumb = styled.View`
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: 12;
   height: 12;
   background-color: #0b21e8;
@@ -39,7 +42,7 @@ const Thumb: FC<Props> = ({
   customThumb,
   style,
 }) => {
-  const rippleSize = size * 2;
+  const rippleSize = (size - 2) * 2 + 48 / size;
 
   return (
     <ThumbPositioner testID="thumb-positioner-test-id" percent={percent}>
@@ -47,12 +50,9 @@ const Thumb: FC<Props> = ({
         <StyledThumb testID={testID} style={style}>
           <Animated.View
             style={{
-              position: 'absolute',
-              top: -6,
-              left: -6,
               width: rippleSize,
               height: rippleSize,
-              borderRadius: rippleSize / 2,
+              borderRadius: 100,
               transform: [{ scale: scaleValue }],
               opacity: opacityValue,
               backgroundColor: '#0b21e8',
