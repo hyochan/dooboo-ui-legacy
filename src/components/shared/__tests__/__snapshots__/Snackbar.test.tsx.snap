@@ -71,7 +71,7 @@ exports[`[Snackbar] should simulate showing snackbar 1`] = `
           "alignItems": "center",
           "backgroundColor": "#303235",
           "borderRadius": 10,
-          "bottom": 50,
+          "bottom": 10,
           "display": "flex",
           "flexDirection": "row",
           "flexWrap": "wrap",
