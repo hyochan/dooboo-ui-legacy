@@ -37,7 +37,7 @@ const RenderInput =
             position: 'absolute',
             top: animatedIsFocused.interpolate({
               inputRange: [0, 1, 2],
-              outputRange: [17, -10, -10],
+              outputRange: [16, -10, -10],
             }),
             left: animatedIsFocused.interpolate({
               inputRange: [0, 1, 2],

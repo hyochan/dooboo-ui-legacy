@@ -105,12 +105,12 @@ export default [
     id: 'LI',
     label: 'Left Icon Test',
     value: '+111',
-    leftIcon: <Image source={IC_FACEBOOK} style={{ width: 16, height: 16 }} />,
+    leftIcon: <Image key="LI" source={IC_FACEBOOK} style={{ width: 16, height: 16 }} />,
   },
   {
     id: 'RI',
     label: 'Right Icon Test',
     value: '+999',
-    rightIcon: <Image source={IC_GOOGLE} style={{ width: 16, height: 16 }} />,
+    rightIcon: <Image key="RI" source={IC_GOOGLE} style={{ width: 16, height: 16 }} />,
   },
 ] as Datum[];
