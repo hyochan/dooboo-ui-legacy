@@ -1,10 +1,11 @@
-import { Dispatch, SetStateAction } from 'react';
+import { Dispatch, ReactChild, SetStateAction } from 'react';
 import { TextInputProps, ViewStyle } from 'react-native';
 
 export interface AutoCompleteProps {
   renderInputTestID?: string;
   caretBtnTestID?: string;
   value: string;
+  data: Datum[];
   onDebounceOrOnReset?: Dispatch<SetStateAction<string>>;
   style?: ViewStyle;
   debounceDelay?: number;
@@ -12,10 +13,10 @@ export interface AutoCompleteProps {
   underlayColor?: string;
 }
 
-type OnPressOption = (data: DummyDatum) => void;
+type OnPressOption = (data: Datum) => void;
 
 export type InputWrapper = {
-  on: boolean;
+  focused: boolean;
   width: number;
   inSets: {
     top: number;
@@ -28,12 +29,12 @@ export type InputWrapper = {
 export type RenderInputProps = TextInputProps & {
   focused: boolean;
   placeholderLabel: string;
+  bgColor?: string;
   onDebounceOrOnReset?: (params?: any) => any;
   onFocus: () => void;
-  onBlur?: () => void;
 }
 
-export type RenderOptionProps = DummyDatum & {
+export type RenderOptionProps = Datum & {
   onPress: OnPressOption;
   index?: number;
   isSelected: boolean | null;
@@ -41,10 +42,11 @@ export type RenderOptionProps = DummyDatum & {
 };
 
 export type RenderOptionsProps = {
-  data: DummyDatum[];
+  data: Datum[];
   onPress: OnPressOption;
-  selectedData: DummyDatum | null;
+  selectedData: Datum | null;
   underlayColor?: string;
+  bgColor?: string;
 };
 
 export type OptionWrapperProps = {
@@ -55,13 +57,24 @@ export type InputContainerProps = {
   focus: boolean;
 };
 
+export enum Direction {
+  left = 'left',
+  right = 'right'
+}
+
+export type MarginSpaceProps = {
+  location: Direction;
+}
+
 export type OptionTextProps = {
   fontSize?: number;
   fontWeight?: string;
 };
 
-export type DummyDatum = {
+export type Datum = {
   id: string;
   label: string;
   value: string;
+  leftIcon?: ReactChild;
+  rightIcon?: ReactChild;
 };

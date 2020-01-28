@@ -1,5 +1,5 @@
-import { DummyDatum, RenderOptionProps, RenderOptionsProps } from './types';
-import { OptionText, OptionWrapper, styles } from './styles';
+import { Datum, Direction, RenderOptionProps, RenderOptionsProps } from './types';
+import { InnerOptionWrapper, MarginSpace, OptionText, OptionWrapper, styles } from './styles';
 import React, { FC, ReactElement } from 'react';
 
 import { FlatList } from 'react-native';
@@ -8,6 +8,8 @@ const RenderOption: FC<RenderOptionProps> = ({
   id,
   label,
   value,
+  leftIcon,
+  rightIcon,
   onPress,
   isSelected,
   underlayColor,
@@ -15,10 +17,27 @@ const RenderOption: FC<RenderOptionProps> = ({
   return (
     <OptionWrapper
       isSelected={isSelected}
-      onPress={(): void => onPress({ id, label, value })}
-      underlayColor={underlayColor}
-    >
-      <OptionText>{`${label} (${id}) +${value}`}</OptionText>
+      onPress={(): void => onPress({ id, label, value, leftIcon, rightIcon })}
+      underlayColor={underlayColor}>
+      <InnerOptionWrapper>
+        {(leftIcon && typeof leftIcon !== 'string') &&
+          [
+            leftIcon,
+            <MarginSpace key={Direction.right} location={Direction.right} />,
+          ]
+        }
+        <OptionText>{`${
+          typeof leftIcon === 'string' ? leftIcon + ' ' : ''
+        }${label} (${id}) ${value}${
+          typeof rightIcon === 'string' ? ' ' + rightIcon : ''
+        }`}</OptionText>
+        {(rightIcon && typeof rightIcon !== 'string') &&
+          [
+            <MarginSpace key={Direction.left} location={Direction.left} />,
+            rightIcon,
+          ]
+        }
+      </InnerOptionWrapper>
     </OptionWrapper>
   );
 };
@@ -28,11 +47,15 @@ const RenderOptions: FC<RenderOptionsProps> = ({
   onPress,
   selectedData,
   underlayColor,
+  bgColor,
 }): ReactElement => (
-  <FlatList<DummyDatum>
+  <FlatList<Datum>
     keyboardShouldPersistTaps="always"
     contentContainerStyle={{ paddingVertical: 10 }}
-    style={styles.optionsWrapper}
+    style={[
+      styles.optionsWrapper,
+      { backgroundColor: bgColor || 'whitesmoke' },
+    ]}
     data={data}
     extraData={data}
     renderItem={({ item }): ReactElement => {
