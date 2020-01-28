@@ -23,6 +23,7 @@ const TEST_ID = {
   TRACK: 'track-test-id',
   MARKS: 'marks-test-id',
   THUMB: 'thumb-test-id',
+  LABEL: 'label-test-id',
   THUMBPOSITIONER: 'thumb-positioner-test-id',
 };
 
@@ -78,6 +79,26 @@ describe('[Slider] render', () => {
 
       expect(thumb).not.toBeNull();
     });
+
+    it('should hide [Label].', () => {
+      const { queryByTestId } = render(
+        <Slider />,
+      );
+      const label = queryByTestId(TEST_ID.LABEL);
+
+      expect(label).toBeNull();
+    });
+
+    it('should have a [Label].', () => {
+      const { queryByTestId } = render(
+        <Slider
+          hideLabel={false}
+        />,
+      );
+      const label = queryByTestId(TEST_ID.LABEL);
+
+      expect(label).not.toBeNull();
+    });
   });
 
   it('should hide [Marks] when hideMark is true.', () => {
@@ -111,23 +132,6 @@ describe('[Slider] render', () => {
     const marks = queryByTestId(TEST_ID.MARKS);
 
     expect(marks).toBeNull();
-  });
-
-  it('should pose [Thumb] to given defaultValue.', () => {
-    const DEFAULT_VALUE = 30;
-    const MIN_VALUE = 20;
-    const MAX_VALUE = 60;
-    const { getByTestId } = render(
-      <Slider
-        defaultValue={DEFAULT_VALUE}
-        minValue={MIN_VALUE}
-        maxValue={MAX_VALUE}
-      />,
-    );
-    const thumbPositioner = getByTestId(TEST_ID.THUMBPOSITIONER);
-    const percent = getPercentByValue(DEFAULT_VALUE, MAX_VALUE, MIN_VALUE);
-
-    expect(thumbPositioner.props.percent).toBe(percent);
   });
 });
 
@@ -295,10 +299,24 @@ describe('[Track]', () => {
           testID="ThumbTestID"
           opacityValue={new Animated.Value(0.12)}
           scaleValue={new Animated.Value(0.01)}
+          percent={50}
+          size={10}
         />,
       ).asJSON();
       expect(rendered).toMatchSnapshot();
       expect(rendered).toBeTruthy();
+    });
+
+    it('should pose [Thumb] to given percent.', () => {
+      const PERCENT = 30;
+      const { container } = render(
+        <Thumb
+          percent={PERCENT}
+        />,
+      );
+      const thumb = container.props.children;
+
+      expect(thumb.props.percent).toBe(PERCENT);
     });
   });
 
