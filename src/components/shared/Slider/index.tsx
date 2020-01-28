@@ -63,7 +63,7 @@ const Slider: FC<Props> = ({
   railStyle,
   trackStyle,
   thumbStyle,
-  labelSize = 32,
+  labelSize,
   labelStyle,
   labelTextStyle,
   onChange,

@@ -3,7 +3,8 @@
 [![Npm Version](http://img.shields.io/npm/v/@dooboo-ui/native-slider.svg?style=flat-square)](https://npmjs.org/package/@dooboo-ui/native-slider)
 [![Downloads](http://img.shields.io/npm/dm/@dooboo-ui/native-slider.svg?style=flat-square)](https://npmjs.org/package/@dooboo-ui/native-slider)
 
-<img src="https://user-images.githubusercontent.com/11019960/73190141-dee25300-4168-11ea-8ba0-f806c2307f9a.png" width="400" />
+<img src="https://user-images.githubusercontent.com/11019960/73301465-2d215000-4256-11ea-974f-e45be574a4a4.png" width="400" />
+<img src="https://user-images.githubusercontent.com/11019960/73301499-3c080280-4256-11ea-9095-80c40703191f.png" width="400" />
 
 ## Props
 
@@ -16,7 +17,20 @@
 | defaultValue         |           | number                  |0        |
 | minValue             |           | number                  |0        |
 | maxValue             |           | number                  |100      |
-| onChange             |           | (value: number) => void |-        |
+| thumb                |           | React.ReactElement      |         |
+| thumbSize            |           | number                  |         |
+| mark                 |           | React.ReactElement      |         |
+| customMarkWidth      |           | number                  |         |
+| startMark            |           | boolean                 |true     |
+| endMark              |           | boolean                 |true     |
+| markStyle            |           | StyleProp<ViewStyle>    |         |
+| railStyle            |           | StyleProp<ViewStyle>    |         |
+| trackStyle           |           | StyleProp<ViewStyle>    |         |
+| thumbStyle           |           | StyleProp<ViewStyle>    |         |
+| labelSize            |           | number                  |         |
+| labelStyle           |           | StyleProp<ViewStyle>    |         |
+| labelTextStyle       |           | StyleProp<TextStyle>    |         |
+| onChange             |           | (value: number) => void |         |
 
 ## Installation
 
@@ -60,6 +74,22 @@ function Page(): ReactElement {
         step={1}
         hideLabel={false}
         autoLabel
+        onChange={handleChange}
+      />
+
+      <Slider
+        minValue={0}
+        maxValue={10}
+        defaultValue={6}
+        step={1}
+        railStyle={{ backgroundColor: '#90A4F9' }}
+        trackStyle={{ backgroundColor: '#0B21E8' }}
+        thumbSize={8}
+        thumbStyle={{ backgroundColor: '#0B21E8' }}
+        markStyle={{ backgroundColor: '#4163F4' }}
+        labelSize={15}
+        labelStyle={{ backgroundColor: '#0B21E8' }}
+        labelTextStyle={{ color: '#FFFFFF', fontSize: 12 }}
         onChange={handleChange}
       />
     </Container>
