@@ -39,8 +39,8 @@ function Default(): React.ReactElement {
   };
 
   React.useEffect(() => {
-    setValue(number('value', 3) || 0);
-  }, [number('value', 3)]);
+    setValue(number('initValue', 3) || 0);
+  }, [number('initValue', 3)]);
 
   return (
     <Container>
