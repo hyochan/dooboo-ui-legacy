@@ -238,7 +238,8 @@ export interface Props {
   style?: StyleProp<ViewStyle>;
   textStyle?: StyleProp<TextStyle>;
   mode?: Mode;
-  itemListStyle?: ItemListStyle;
+  listStyle?: ItemListStyle;
+  listTitleStyle?: TextStyle;
   itemViewStyle?: ItemViewStyle;
   itemTextStyle?: TextStyle;
   selectedItemViewStyle?: ItemViewStyle;
@@ -247,9 +248,11 @@ export interface Props {
   disabled?: boolean;
   nullable?: boolean;
   nullableLabel?: string;
-  onSelect?: (item: NullableItem, index: number) => void;
   onOpen?: () => void;
   onClose?: () => void;
+  onItemPressIn?: () => void;
+  onItemPressOut?: () => void;
+  onSelect?: (item: NullableItem, index: number) => void;
   onValueChange?: (item: NullableItem, index: number) => void;
 }
 
@@ -321,12 +324,13 @@ function Select(props: Props): React.ReactElement {
   };
 
   const open = useCallback((): void => {
-    const nextState = {
-      ...listOpen,
-      isOpen: true,
-    };
     if (rootEl && rootEl.current) {
       rootEl.current.measureInWindow((x, y, width, height) => {
+        const nextState = {
+          ...listOpen,
+          isOpen: true,
+        };
+
         nextState.x = x;
         nextState.y = y;
         nextState.width = width;
@@ -354,8 +358,8 @@ function Select(props: Props): React.ReactElement {
     ]).start();
   }, [listOpen.isOpen]);
 
-  const rootViewTheme = style ? ThemeEnum.blank : theme || ThemeEnum.none;
-  const rootTextTheme = textStyle ? ThemeEnum.blank : theme || ThemeEnum.none;
+  const rootViewTheme = style ? ThemeEnum.blank : theme;
+  const rootTextTheme = textStyle ? ThemeEnum.blank : theme;
   return (
     <>
       <TouchableWithoutFeedback
@@ -367,7 +371,6 @@ function Select(props: Props): React.ReactElement {
           ref={rootEl}
           theme={disabled ? ThemeEnum.disabled : rootViewTheme}
           style={style}
-          testID={`${testID}-${TESTID.ROOTSELECT}`}
         >
           <RootText
             theme={disabled ? ThemeEnum.disabled : rootTextTheme}
@@ -415,7 +418,6 @@ function Select(props: Props): React.ReactElement {
           {mode === Mode.dropdown && (
             <DropDown
               {...props}
-              testID={`${testID}-${TESTID.DROPDOWN}`}
               items={items}
               listOpen={listOpen}
               close={close}
@@ -426,7 +428,6 @@ function Select(props: Props): React.ReactElement {
           {mode === Mode.dialog && (
             <Dialog
               {...props}
-              testID={`${testID}-${TESTID.DIALOG}`}
               items={items}
               close={close}
               openValue={openValue}
@@ -435,7 +436,6 @@ function Select(props: Props): React.ReactElement {
           {mode === Mode.picker && (
             <Picker
               {...props}
-              testID={`${testID}-${TESTID.PICKER}`}
               items={items}
               listOpen={listOpen}
               close={close}

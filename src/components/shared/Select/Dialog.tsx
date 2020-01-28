@@ -12,9 +12,11 @@ import React, { useRef } from 'react';
 import styled from 'styled-components/native';
 
 export enum DIALOG_TEST_ID {
-  LIST_WRAPPER = 'list-wrapper',
-  LIST = 'list',
-  ITEM = 'item',
+  LIST_WRAPPER = 'dialog-list-wrapper',
+  TITLE_WRAPPER = 'dialog-title-wrapper',
+  TITLE = 'dialog-title',
+  LIST = 'dialog-list',
+  ITEM = 'dialog-item',
 }
 
 interface Item {
@@ -43,12 +45,12 @@ const ItemListWrapper = styled(Animated.View)`
 `;
 
 const TitleWrapper = styled.View`
-  padding: 12px 20px;
   border-bottom-width: 1px;
   border-bottom-color: ${COLOR.GRAY59};
 `;
 
 const Title = styled.Text`
+  margin: 12px 20px;
   font-size: 18;
   font-weight: bold;
 `;
@@ -77,22 +79,23 @@ function Dialog(props: Props): React.ReactElement {
     showsVerticalScrollIndicator,
     selectedValue,
     onSelect,
-    itemListStyle,
+    listStyle,
+    listTitleStyle,
     itemViewStyle,
     selectedItemViewStyle,
     itemTextStyle,
     selectedItemTextStyle,
     close,
     openValue,
+    onItemPressIn,
+    onItemPressOut,
   } = props;
   const flatListEl = useRef<FlatList<Item>>(null);
   const itemHeight = itemViewStyle
     ? itemViewStyle.height || ITEM_HEIGHT
     : ITEM_HEIGHT;
 
-  let position = !items
-    ? 0
-    : items.findIndex((item) => item.value === selectedValue);
+  let position = items.findIndex((item) => item.value === selectedValue);
   if (position === -1) position = 0;
 
   const getItemLayout = (data: Item[] | null, index: number): ItemLayout => ({
@@ -116,21 +119,27 @@ function Dialog(props: Props): React.ReactElement {
         toValue: 1,
         duration: 200,
       }).start();
+      if (onItemPressIn) onItemPressIn();
     };
     const onPressOut = (): void => {
       Animated.timing(pressValue, {
         toValue: 0,
         duration: 200,
       }).start();
+      if (onItemPressOut) onItemPressOut();
     };
 
     const animatedBackgroundColor = pressValue.interpolate({
       inputRange: [0, 1],
-      outputRange: [isSelected ? COLOR.LIGHTBLUE : COLOR.WHITE, COLOR.DEEPBLUE],
+      outputRange: [
+        isSelected ? 'rgba(0, 0, 0, 0.1)' : 'rgba(0, 0, 0, 0)',
+        'rgba(0, 0, 0, 0.15)',
+      ],
     });
 
     return (
       <TouchableWithoutFeedback
+        testID={`${testID}-${DIALOG_TEST_ID.ITEM}-${index}`}
         onPress={onPress}
         onPressIn={onPressIn}
         onPressOut={onPressOut}
@@ -140,10 +149,9 @@ function Dialog(props: Props): React.ReactElement {
             { backgroundColor: animatedBackgroundColor },
             isSelected ? selectedItemViewStyle : itemViewStyle,
           ]}
-          testID={`${testID}-${DIALOG_TEST_ID.ITEM}-${index}`}
         >
           <ItemText style={isSelected ? selectedItemTextStyle : itemTextStyle}>
-            {item.label}
+            {item.label || item.value}
           </ItemText>
         </ItemView>
       </TouchableWithoutFeedback>
@@ -151,14 +159,23 @@ function Dialog(props: Props): React.ReactElement {
   };
 
   return (
-    <ItemListWrapper style={[{ opacity: openValue }, itemListStyle]}>
+    <ItemListWrapper
+      testID={`${testID}-${DIALOG_TEST_ID.LIST_WRAPPER}`}
+      style={[{ opacity: openValue }, listStyle]}
+    >
       {title && (
-        <TitleWrapper>
-          <Title>{title}</Title>
+        <TitleWrapper testID={`${testID}-${DIALOG_TEST_ID.TITLE_WRAPPER}`}>
+          <Title
+            testID={`${testID}-${DIALOG_TEST_ID.TITLE}`}
+            style={listTitleStyle}
+          >
+            {title}
+          </Title>
         </TitleWrapper>
       )}
       <ItemList
         ref={flatListEl}
+        testID={`${testID}-${DIALOG_TEST_ID.LIST}`}
         showsVerticalScrollIndicator={showsVerticalScrollIndicator}
         keyExtractor={(item: Item): string => item.value || 'null'}
         data={items}

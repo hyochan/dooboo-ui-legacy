@@ -1,11 +1,11 @@
-import { Dimensions, Text, TouchableWithoutFeedback } from 'react-native';
 import {
   Mode,
   SCREEN_HEIGHT,
   ThemeEnum,
 } from '../../src/components/shared/Select/constants';
 import React, { useCallback, useEffect, useRef, useState } from 'react';
-import { boolean, number, object, select, text } from '@storybook/addon-knobs';
+import { Text, TouchableWithoutFeedback } from 'react-native';
+import { boolean, object, select, text } from '@storybook/addon-knobs';
 
 import { ContainerDeco } from '../decorators';
 import Select from '../../src/components/shared/Select';
@@ -140,7 +140,9 @@ function Default(): React.ReactElement {
   const title = text('title', 'Number', GROUP_ID);
   const titleStyle = object('titleStyle', undefined, GROUP_ID);
 
-  const itemListStyle = object('itemListStyle', undefined, GROUP_ID);
+  const listStyle = object('listStyle', undefined, GROUP_ID);
+  const listTitleStyle = object('listTitleStyle', undefined, GROUP_ID);
+
   const itemViewStyle = object('itemViewStyle', undefined, GROUP_ID);
   const itemTextStyle = object('itemTextStyle', undefined, GROUP_ID);
   const selectedItemViewStyle = object(
@@ -148,7 +150,11 @@ function Default(): React.ReactElement {
     undefined,
     GROUP_ID,
   );
-  const selectedItemTextStyle = object('itemListStyle', undefined, GROUP_ID);
+  const selectedItemTextStyle = object(
+    'selectedItemTextStyle',
+    undefined,
+    GROUP_ID,
+  );
 
   const showsVerticalScrollIndicator = boolean(
     'showsVerticalScrollIndicator',
@@ -196,7 +202,8 @@ function Default(): React.ReactElement {
     style,
     textStyle,
     titleStyle,
-    itemListStyle,
+    listStyle,
+    listTitleStyle,
     itemViewStyle,
     itemTextStyle,
     selectedItemViewStyle,
@@ -243,10 +250,12 @@ function Default(): React.ReactElement {
             <Prop name="textStyle" value={textStyle} />
             <Prop name="title" value={title} />
             <Prop name="titleStyle" value={titleStyle} />
-            <Prop name="itemListStyle" value={itemListStyle} />
+            <Prop name="listStyle" value={listStyle} />
+            <Prop name="listTitleStyle" value={listTitleStyle} />
             <Prop name="itemViewStyle" value={itemViewStyle} />
             <Prop name="itemTextStyle" value={itemTextStyle} />
             <Prop name="selectedItemViewStyle" value={selectedItemViewStyle} />
+            <Prop name="selectedItemTextStyle" value={selectedItemTextStyle} />
             <Prop
               name="showsVerticalScrollIndicator"
               value={showsVerticalScrollIndicator}

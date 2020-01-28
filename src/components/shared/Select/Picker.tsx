@@ -17,11 +17,9 @@ export const ERR_MSG_ITEMS_REQUIRED = `items is required.
 Please put items of the form [{value: string, label?: string}, ...].`;
 
 export enum PICKER_TEST_ID {
-  MODAL = 'modal',
-  CLOSE = 'close',
-  LIST_WRAPPER = 'list-wrapper',
-  LIST = 'list',
-  ITEM = 'item',
+  LIST_WRAPPER = 'picker-list-wrapper',
+  LIST = 'picker-list',
+  ITEM = 'picker-item',
 }
 
 /**
@@ -83,14 +81,14 @@ const Line = styled.View`
   background-color: grey;
 `;
 
-const getListStyle = ({
+const createListWrapperStyle = ({
   theme,
-  itemListStyle,
+  listStyle,
   listOpen,
   itemHeight,
   openValue,
 }): ViewStyle => {
-  const listStyle: ViewStyle = {
+  const listWrapperStyle: ViewStyle = {
     position: 'absolute',
     top: listOpen.y - itemHeight * 2.5,
     left: listOpen.x,
@@ -99,10 +97,10 @@ const getListStyle = ({
     opacity: openValue,
   };
 
-  if (itemListStyle) {
-    if (itemListStyle.bottom !== undefined) delete listStyle.top;
-    if (itemListStyle.right !== undefined) delete listStyle.left;
-    return { ...listStyle, ...itemListStyle };
+  if (listStyle) {
+    if (listStyle.bottom !== undefined) delete listWrapperStyle.top;
+    if (listStyle.right !== undefined) delete listWrapperStyle.left;
+    return { ...listWrapperStyle, ...listStyle };
   } else {
     let themeStyle;
     switch (theme) {
@@ -128,7 +126,7 @@ const getListStyle = ({
         break;
       }
     }
-    return { ...listStyle, ...themeStyle };
+    return { ...listWrapperStyle, ...themeStyle };
   }
 };
 
@@ -137,7 +135,7 @@ function Picker({
   onValueChange,
   selectedValue,
   items,
-  itemListStyle,
+  listStyle,
   itemViewStyle,
   itemTextStyle,
   showsVerticalScrollIndicator,
@@ -150,8 +148,7 @@ function Picker({
 
   // constants
   const itemHeight = (itemViewStyle && itemViewStyle.height) || ITEM_HEIGHT;
-  const itemListHeight =
-    (itemListStyle && itemListStyle.height) || PICKER_LIST_HEIGHT;
+  const itemListHeight = (listStyle && listStyle.height) || PICKER_LIST_HEIGHT;
   const itemThreshold = itemHeight / 2;
   let position = items.findIndex((item) => item.value === selectedValue);
   if (position === -1) position = 0;
@@ -159,7 +156,6 @@ function Picker({
   let isScrolling = false;
 
   const emptyViewHeight = (itemListHeight - itemHeight) / 2;
-  console.log(itemListHeight, itemHeight, emptyViewHeight);
 
   const scrollToOffset = ({ offset }): void => {
     if (flatListEl && flatListEl.current) {
@@ -185,6 +181,7 @@ function Picker({
         testID={`${testID}-${PICKER_TEST_ID.ITEM}-${index}`}
         style={itemViewStyle}
         onPress={onPress}
+        activeOpacity={0.8}
       >
         <ItemText style={itemTextStyle}>{label || value}</ItemText>
       </ItemView>
@@ -239,9 +236,9 @@ function Picker({
     index,
   });
 
-  const listStyle = getListStyle({
+  const listWrapperStyle = createListWrapperStyle({
     theme,
-    itemListStyle,
+    listStyle,
     listOpen,
     itemHeight,
     openValue,
@@ -250,7 +247,7 @@ function Picker({
   return (
     <ItemListWrapper
       testID={`${testID}-${PICKER_TEST_ID.LIST_WRAPPER}`}
-      style={listStyle}
+      style={listWrapperStyle}
     >
       <ItemList
         ref={flatListEl}

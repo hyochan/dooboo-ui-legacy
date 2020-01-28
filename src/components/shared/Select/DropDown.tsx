@@ -62,20 +62,19 @@ const ItemText = styled(Animated.Text)`
   color: ${COLOR.BLACK};
 `;
 
-const getListStyle = ({
+const createListWrapperStyle = ({
   theme,
-  itemListStyle,
+  listStyle,
   listOpen,
   itemHeight,
   itemCount,
   openValue,
   position,
 }): ViewStyle => {
-  const listMaxHeight =
-    (itemListStyle && itemListStyle.height) || LIST_MAX_HEIGHT;
+  const listMaxHeight = (listStyle && listStyle.height) || LIST_MAX_HEIGHT;
   const listHeight = Math.min(itemHeight * itemCount, listMaxHeight);
 
-  const listStyle: ViewStyle = {
+  const listWrapperStyle: ViewStyle = {
     position: 'absolute',
     left: listOpen.x,
     width: listOpen.width,
@@ -86,16 +85,16 @@ const getListStyle = ({
   };
 
   if (WINDOW_HEIGHT > listHeight + listOpen.y - position * itemHeight) {
-    listStyle.top = listOpen.y - position * itemHeight;
-    if (listStyle.top < 30) listStyle.top = 30;
+    listWrapperStyle.top = listOpen.y - position * itemHeight;
+    if (listWrapperStyle.top < 30) listWrapperStyle.top = 30;
   } else {
-    listStyle.bottom = 30;
+    listWrapperStyle.bottom = 30;
   }
 
-  if (itemListStyle) {
-    if (itemListStyle.bottom !== undefined) delete listStyle.top;
-    if (itemListStyle.right !== undefined) delete listStyle.left;
-    return { ...listStyle, ...itemListStyle };
+  if (listStyle) {
+    if (listStyle.bottom !== undefined) delete listWrapperStyle.top;
+    if (listStyle.right !== undefined) delete listWrapperStyle.left;
+    return { ...listWrapperStyle, ...listStyle };
   } else {
     let themeStyle;
     switch (theme) {
@@ -121,7 +120,7 @@ const getListStyle = ({
         break;
       }
     }
-    return { ...listStyle, ...themeStyle };
+    return { ...listWrapperStyle, ...themeStyle };
   }
 };
 
@@ -132,7 +131,7 @@ function DropDown(props: Props): React.ReactElement {
     listOpen,
     testID,
     onSelect,
-    itemListStyle,
+    listStyle,
     itemViewStyle,
     itemTextStyle,
     selectedItemViewStyle,
@@ -140,6 +139,9 @@ function DropDown(props: Props): React.ReactElement {
     selectedValue,
     close,
     openValue,
+    showsVerticalScrollIndicator,
+    onItemPressIn,
+    onItemPressOut,
   } = props;
 
   const itemHeight = (itemViewStyle && itemViewStyle.height) || ITEM_HEIGHT;
@@ -169,21 +171,27 @@ function DropDown(props: Props): React.ReactElement {
         toValue: 1,
         duration: 200,
       }).start();
+      if (onItemPressIn) onItemPressIn();
     };
     const onPressOut = (): void => {
       Animated.timing(pressValue, {
         toValue: 0,
         duration: 200,
       }).start();
+      if (onItemPressOut) onItemPressOut();
     };
 
     const animatedBackgroundColor = pressValue.interpolate({
       inputRange: [0, 1],
-      outputRange: [isSelected ? COLOR.LIGHTBLUE : COLOR.WHITE, COLOR.DEEPBLUE],
+      outputRange: [
+        isSelected ? 'rgba(0, 0, 0, 0.1)' : 'rgba(0, 0, 0, 0)',
+        'rgba(0, 0, 0, 0.15)',
+      ],
     });
 
     return (
       <TouchableWithoutFeedback
+        testID={`${testID}-${DROPDOWN_TEST_ID.ITEM}-${index}`}
         onPress={onPress}
         onPressIn={onPressIn}
         onPressOut={onPressOut}
@@ -193,19 +201,18 @@ function DropDown(props: Props): React.ReactElement {
             { backgroundColor: animatedBackgroundColor },
             isSelected ? selectedItemViewStyle : itemViewStyle,
           ]}
-          testID={`${testID}-${DROPDOWN_TEST_ID.ITEM}-${index}`}
         >
           <ItemText style={isSelected ? selectedItemTextStyle : itemTextStyle}>
-            {item.label}
+            {item.label || item.value}
           </ItemText>
         </ItemView>
       </TouchableWithoutFeedback>
     );
   };
 
-  const listStyle = getListStyle({
+  const listWrapperStyle = createListWrapperStyle({
     theme,
-    itemListStyle,
+    listStyle,
     listOpen,
     itemHeight,
     itemCount,
@@ -215,7 +222,7 @@ function DropDown(props: Props): React.ReactElement {
 
   return (
     <ItemListWrapper
-      style={listStyle}
+      style={listWrapperStyle}
       testID={`${testID}-${DROPDOWN_TEST_ID.LIST}`}
     >
       <ItemList
@@ -224,6 +231,7 @@ function DropDown(props: Props): React.ReactElement {
         keyExtractor={(item: Item): string => item.value || 'null'}
         initialScrollIndex={position}
         getItemLayout={getItemLayout}
+        showsVerticalScrollIndicator={showsVerticalScrollIndicator}
       />
     </ItemListWrapper>
   );
