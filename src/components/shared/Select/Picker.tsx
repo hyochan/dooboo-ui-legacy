@@ -1,12 +1,14 @@
 import * as Select from './index';
 
 import {
+  Animated,
   FlatList,
-  Modal,
+  ListRenderItemInfo,
   NativeScrollEvent,
   NativeSyntheticEvent,
   ViewStyle,
 } from 'react-native';
+import { COLOR, ITEM_HEIGHT, PICKER_LIST_HEIGHT, ThemeEnum } from './constants';
 import React, { useCallback, useRef } from 'react';
 
 import styled from 'styled-components/native';
@@ -26,13 +28,15 @@ export enum PICKER_TEST_ID {
  * interfaces
  */
 interface Item {
+  value: string | null;
   label?: string;
-  value: string;
 }
 
-interface Props extends Partial<Select.Props> {
+interface Props extends Omit<Select.Props, 'items'> {
   listOpen: Select.ListOpen;
-  setListOpen: (listOpen: Select.ListOpen) => void;
+  close: () => void;
+  openValue: Animated.Value;
+  items: Item[];
 }
 
 type ItemLayout = {
@@ -42,28 +46,16 @@ type ItemLayout = {
 };
 
 /**
- * constants
- */
-const ITEM_HEIGHT = 40;
-const ITEM_LIST_HEIGHT = 240;
-
-/**
  * styled components
  */
-const CloseTouchableOpacity = styled.TouchableOpacity`
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  background-color: #efefef55;
-`;
 
-const ItemListContainer = styled.View`
+const ItemListWrapper = styled(Animated.View)`
   height: 240px;
   width: 200px;
   border-radius: 1px;
 `;
 
-const ItemFlatList = styled(FlatList as new () => FlatList<Item>)`
+const ItemList = styled(FlatList as new () => FlatList<Item>)`
   width: 100%;
   height: 100%;
 `;
@@ -96,13 +88,15 @@ const getListStyle = ({
   itemListStyle,
   listOpen,
   itemHeight,
+  openValue,
 }): ViewStyle => {
   const listStyle: ViewStyle = {
     position: 'absolute',
     top: listOpen.y - itemHeight * 2.5,
     left: listOpen.x,
     width: listOpen.width,
-    backgroundColor: Select.COLOR.WHITE,
+    backgroundColor: COLOR.WHITE,
+    opacity: openValue,
   };
 
   if (itemListStyle) {
@@ -112,30 +106,24 @@ const getListStyle = ({
   } else {
     let themeStyle;
     switch (theme) {
-      case Select.ThemeEnum.none: {
+      case ThemeEnum.box: {
         themeStyle = {
-          shadowColor: Select.COLOR.DODGERBLUE,
-          shadowOffset: { width: 2, height: 3 },
-          shadowOpacity: 0.2,
-          shadowRadius: 5,
-          elevation: 6,
-        };
-        break;
-      }
-      case Select.ThemeEnum.box: {
-        themeStyle = {
-          borderColor: Select.COLOR.GRAY59,
-          borderWidth: 2,
+          borderColor: COLOR.GRAY59,
+          borderWidth: 1,
         };
         break;
       }
       default: {
         themeStyle = {
-          shadowColor: Select.COLOR.GRAY59,
-          shadowOffset: { width: 2, height: 3 },
-          shadowOpacity: 0.2,
+          shadowColor:
+            theme === ThemeEnum.none ? COLOR.DODGERBLUE : COLOR.GRAY75,
+          shadowOffset: {
+            width: 0,
+            height: 10,
+          },
+          shadowOpacity: 0.5,
           shadowRadius: 5,
-          elevation: 6,
+          elevation: 10,
         };
         break;
       }
@@ -146,9 +134,6 @@ const getListStyle = ({
 
 function Picker({
   listOpen,
-  onShow,
-  onDismiss,
-  setListOpen,
   onValueChange,
   selectedValue,
   items,
@@ -158,18 +143,15 @@ function Picker({
   showsVerticalScrollIndicator,
   testID,
   theme,
+  close,
+  openValue,
 }: Props): React.ReactElement {
-  // check valid props;
-  if (!items || !items.length) throw new Error(ERR_MSG_ITEMS_REQUIRED);
   const flatListEl = useRef<FlatList<Item>>(null);
 
   // constants
-  const itemHeight = itemViewStyle
-    ? itemViewStyle.height || ITEM_HEIGHT
-    : ITEM_HEIGHT;
-  const itemListHeight = itemListStyle
-    ? itemListStyle.height || ITEM_LIST_HEIGHT
-    : ITEM_LIST_HEIGHT;
+  const itemHeight = (itemViewStyle && itemViewStyle.height) || ITEM_HEIGHT;
+  const itemListHeight =
+    (itemListStyle && itemListStyle.height) || PICKER_LIST_HEIGHT;
   const itemThreshold = itemHeight / 2;
   let position = items.findIndex((item) => item.value === selectedValue);
   if (position === -1) position = 0;
@@ -177,13 +159,7 @@ function Picker({
   let isScrolling = false;
 
   const emptyViewHeight = (itemListHeight - itemHeight) / 2;
-
-  const close = (): void => {
-    setListOpen({
-      ...listOpen,
-      isOpen: false,
-    });
-  };
+  console.log(itemListHeight, itemHeight, emptyViewHeight);
 
   const scrollToOffset = ({ offset }): void => {
     if (flatListEl && flatListEl.current) {
@@ -199,10 +175,7 @@ function Picker({
   const renderItem = ({
     item: { value, label },
     index,
-  }: {
-    item: Item;
-    index: number;
-  }): React.ReactElement => {
+  }: ListRenderItemInfo<Item>): React.ReactElement => {
     const onPress = (): void => {
       if (value === selectedValue) close();
       else scrollToPosition(index);
@@ -261,7 +234,7 @@ function Picker({
   }, []);
 
   const getItemLayout = (data: Item[] | null, index: number): ItemLayout => ({
-    length: 0,
+    length: itemHeight,
     offset: itemHeight * index,
     index,
   });
@@ -271,49 +244,34 @@ function Picker({
     itemListStyle,
     listOpen,
     itemHeight,
+    openValue,
   });
 
   return (
-    <Modal
-      visible={listOpen.isOpen}
-      onShow={onShow}
-      onDismiss={onDismiss}
-      transparent
+    <ItemListWrapper
+      testID={`${testID}-${PICKER_TEST_ID.LIST_WRAPPER}`}
+      style={listStyle}
     >
-      <CloseTouchableOpacity
-        testID={`${testID}-${PICKER_TEST_ID.CLOSE}`}
-        onPress={close}
-        activeOpacity={1}
+      <ItemList
+        ref={flatListEl}
+        testID={`${testID}-${PICKER_TEST_ID.LIST}`}
+        showsVerticalScrollIndicator={showsVerticalScrollIndicator}
+        ListHeaderComponent={<EmptyView style={{ height: emptyViewHeight }} />}
+        ListFooterComponent={<EmptyView style={{ height: emptyViewHeight }} />}
+        keyExtractor={(item: Item): string => item.value || 'null'}
+        data={items}
+        renderItem={renderItem}
+        onScroll={onScroll}
+        onScrollBeginDrag={onScrollBeginDrag}
+        onScrollEndDrag={onScrollEndDrag}
+        onMomentumScrollBegin={onMomentumScrollBegin}
+        onMomentumScrollEnd={onMomentumScrollEnd}
+        initialScrollIndex={position}
+        getItemLayout={getItemLayout}
       />
-      <ItemListContainer
-        testID={`${testID}-${PICKER_TEST_ID.LIST_WRAPPER}`}
-        style={listStyle}
-      >
-        <ItemFlatList
-          ref={flatListEl}
-          testID={`${testID}-${PICKER_TEST_ID.LIST}`}
-          showsVerticalScrollIndicator={showsVerticalScrollIndicator}
-          ListHeaderComponent={
-            <EmptyView style={{ height: emptyViewHeight }} />
-          }
-          ListFooterComponent={
-            <EmptyView style={{ height: emptyViewHeight }} />
-          }
-          keyExtractor={({ value }: Item): string => value}
-          data={items}
-          renderItem={renderItem}
-          onScroll={onScroll}
-          onScrollBeginDrag={onScrollBeginDrag}
-          onScrollEndDrag={onScrollEndDrag}
-          onMomentumScrollBegin={onMomentumScrollBegin}
-          onMomentumScrollEnd={onMomentumScrollEnd}
-          initialScrollIndex={position}
-          getItemLayout={getItemLayout}
-        />
-        <Line style={{ top: emptyViewHeight }} />
-        <Line style={{ bottom: emptyViewHeight }} />
-      </ItemListContainer>
-    </Modal>
+      <Line style={{ top: emptyViewHeight }} />
+      <Line style={{ bottom: emptyViewHeight }} />
+    </ItemListWrapper>
   );
 }
 
