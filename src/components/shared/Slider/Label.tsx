@@ -1,4 +1,4 @@
-import { Animated, StyleProp, StyleSheet, TextStyle, ViewStyle } from 'react-native';
+import { Animated, StyleProp, TextStyle, ViewStyle } from 'react-native';
 
 import React from 'react';
 import styled from 'styled-components/native';
