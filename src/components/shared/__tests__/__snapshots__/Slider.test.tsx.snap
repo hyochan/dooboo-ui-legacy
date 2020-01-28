@@ -14,24 +14,25 @@ exports[`[Label] renders without crashing 1`] = `
     style={
       Object {
         "alignItems": "center",
-        "borderBottomRightRadius": NaN,
-        "borderTopLeftRadius": NaN,
-        "borderTopRightRadius": NaN,
+        "backgroundColor": "#4163f4",
+        "borderBottomRightRadius": 16,
+        "borderTopLeftRadius": 16,
+        "borderTopRightRadius": 16,
         "display": "flex",
-        "height": undefined,
+        "height": 32,
         "justifyContent": "center",
         "left": "0%",
         "position": "absolute",
-        "top": NaN,
+        "top": -64,
         "transform": Array [
           Object {
             "rotate": "-45deg",
           },
           Object {
-            "translateX": NaN,
+            "translateX": -22.627416997969522,
           },
         ],
-        "width": undefined,
+        "width": 32,
       }
     }
     testID="LabelTestID"
@@ -45,6 +46,9 @@ exports[`[Label] renders without crashing 1`] = `
                 "rotate": "45deg",
               },
             ],
+          },
+          Object {
+            "color": "white",
           },
         ]
       }
@@ -372,9 +376,6 @@ exports[`[Slider] render renders without crashing 1`] = `
             "height": 3,
             "width": "100%",
           },
-          Object {
-            "backgroundColor": "#bcdbfb",
-          },
         ]
       }
       testID="rail-test-id"
@@ -390,9 +391,6 @@ exports[`[Slider] render renders without crashing 1`] = `
             "top": 0,
             "width": "10%",
           },
-          Object {
-            "backgroundColor": "#0b21e8",
-          },
         ]
       }
       testID="track-test-id"
@@ -406,9 +404,7 @@ exports[`[Slider] render renders without crashing 1`] = `
             "justifyContent": "center",
             "position": "absolute",
           },
-          Object {
-            "backgroundColor": "#4163f4",
-          },
+          Object {},
         ]
       }
       testID="marks-test-id"
@@ -438,9 +434,7 @@ exports[`[Slider] render renders without crashing 1`] = `
                 "height": 3,
                 "width": 3,
               },
-              Object {
-                "backgroundColor": "#4163f4",
-              },
+              Object {},
             ]
           }
         />
@@ -470,9 +464,7 @@ exports[`[Slider] render renders without crashing 1`] = `
                 "height": 3,
                 "width": 3,
               },
-              Object {
-                "backgroundColor": "#4163f4",
-              },
+              Object {},
             ]
           }
         />
@@ -502,9 +494,7 @@ exports[`[Slider] render renders without crashing 1`] = `
                 "height": 3,
                 "width": 3,
               },
-              Object {
-                "backgroundColor": "#4163f4",
-              },
+              Object {},
             ]
           }
         />
@@ -534,9 +524,7 @@ exports[`[Slider] render renders without crashing 1`] = `
                 "height": 3,
                 "width": 3,
               },
-              Object {
-                "backgroundColor": "#4163f4",
-              },
+              Object {},
             ]
           }
         />
@@ -566,9 +554,7 @@ exports[`[Slider] render renders without crashing 1`] = `
                 "height": 3,
                 "width": 3,
               },
-              Object {
-                "backgroundColor": "#4163f4",
-              },
+              Object {},
             ]
           }
         />
@@ -598,9 +584,7 @@ exports[`[Slider] render renders without crashing 1`] = `
                 "height": 3,
                 "width": 3,
               },
-              Object {
-                "backgroundColor": "#4163f4",
-              },
+              Object {},
             ]
           }
         />
@@ -630,9 +614,7 @@ exports[`[Slider] render renders without crashing 1`] = `
                 "height": 3,
                 "width": 3,
               },
-              Object {
-                "backgroundColor": "#4163f4",
-              },
+              Object {},
             ]
           }
         />
@@ -662,9 +644,7 @@ exports[`[Slider] render renders without crashing 1`] = `
                 "height": 3,
                 "width": 3,
               },
-              Object {
-                "backgroundColor": "#4163f4",
-              },
+              Object {},
             ]
           }
         />
@@ -694,9 +674,7 @@ exports[`[Slider] render renders without crashing 1`] = `
                 "height": 3,
                 "width": 3,
               },
-              Object {
-                "backgroundColor": "#4163f4",
-              },
+              Object {},
             ]
           }
         />
@@ -726,9 +704,7 @@ exports[`[Slider] render renders without crashing 1`] = `
                 "height": 3,
                 "width": 3,
               },
-              Object {
-                "backgroundColor": "#4163f4",
-              },
+              Object {},
             ]
           }
         />
@@ -758,9 +734,7 @@ exports[`[Slider] render renders without crashing 1`] = `
                 "height": 3,
                 "width": 3,
               },
-              Object {
-                "backgroundColor": "#4163f4",
-              },
+              Object {},
             ]
           }
         />
@@ -782,9 +756,12 @@ exports[`[Slider] render renders without crashing 1`] = `
         style={
           Array [
             Object {
+              "alignItems": "center",
               "backgroundColor": "#0b21e8",
               "borderRadius": 6,
+              "display": "flex",
               "height": 12,
+              "justifyContent": "center",
               "transform": Array [
                 Object {
                   "translateY": 0,
@@ -795,9 +772,6 @@ exports[`[Slider] render renders without crashing 1`] = `
               ],
               "width": 12,
             },
-            Object {
-              "backgroundColor": "#0b21e8",
-            },
           ]
         }
         testID="thumb-test-id"
@@ -805,13 +779,10 @@ exports[`[Slider] render renders without crashing 1`] = `
         <View
           style={
             Object {
-              "backgroundColor": "black",
-              "borderRadius": 12,
+              "backgroundColor": "#0b21e8",
+              "borderRadius": 100,
               "height": 24,
-              "left": -6,
               "opacity": 0.12,
-              "position": "absolute",
-              "top": -6,
               "transform": Array [
                 Object {
                   "scale": 0.01,
@@ -838,45 +809,58 @@ exports[`[Track] [Thumb] renders without crashing 1`] = `
   }
 >
   <View
+    percent={50}
     style={
       Array [
         Object {
-          "backgroundColor": "#0b21e8",
-          "borderRadius": 6,
-          "height": 12,
-          "transform": Array [
-            Object {
-              "translateY": 0,
-            },
-            Object {
-              "translateX": -6,
-            },
-          ],
-          "width": 12,
+          "left": "50%",
+          "position": "absolute",
         },
       ]
     }
-    testID="ThumbTestID"
+    testID="thumb-positioner-test-id"
   >
     <View
       style={
-        Object {
-          "backgroundColor": "black",
-          "borderRadius": 12,
-          "height": 24,
-          "left": -6,
-          "opacity": 0.12,
-          "position": "absolute",
-          "top": -6,
-          "transform": Array [
-            Object {
-              "scale": 0.01,
-            },
-          ],
-          "width": 24,
-        }
+        Array [
+          Object {
+            "alignItems": "center",
+            "backgroundColor": "#0b21e8",
+            "borderRadius": 6,
+            "display": "flex",
+            "height": 12,
+            "justifyContent": "center",
+            "transform": Array [
+              Object {
+                "translateY": 0,
+              },
+              Object {
+                "translateX": -6,
+              },
+            ],
+            "width": 12,
+          },
+        ]
       }
-    />
+      testID="ThumbTestID"
+    >
+      <View
+        style={
+          Object {
+            "backgroundColor": "#0b21e8",
+            "borderRadius": 100,
+            "height": 20.8,
+            "opacity": 0.12,
+            "transform": Array [
+              Object {
+                "scale": 0.01,
+              },
+            ],
+            "width": 20.8,
+          }
+        }
+      />
+    </View>
   </View>
 </View>
 `;

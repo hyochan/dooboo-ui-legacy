@@ -14,20 +14,11 @@ import Thumb from './Thumb';
 import Track from './Track';
 import styled from 'styled-components/native';
 
-interface ThumbPositionerType {
-  percent: number;
-}
-
 const Container = styled.View`
   display: flex;
   justify-content: center;
   position: relative;
   width: 100%;
-`;
-
-const ThumbPositioner = styled.View<ThumbPositionerType>`
-  position: absolute;
-  left: ${({ percent }): string => `${percent}%`};
 `;
 
 interface Props {
@@ -38,13 +29,20 @@ interface Props {
   defaultValue?: number;
   minValue?: number;
   maxValue?: number;
-  onChange?: (value: number) => void;
+  thumb?: React.ReactElement;
+  thumbSize?: number;
+  mark?: React.ReactElement;
+  customMarkWidth?: number;
+  startMark?: boolean;
+  endMark?: boolean;
   markStyle?: StyleProp<ViewStyle>;
   railStyle?: StyleProp<ViewStyle>;
   trackStyle?: StyleProp<ViewStyle>;
+  thumbStyle?: StyleProp<ViewStyle>;
   labelSize?: number;
   labelStyle?: StyleProp<ViewStyle>;
   labelTextStyle?: StyleProp<TextStyle>;
+  onChange?: (value: number) => void;
 }
 
 const Slider: FC<Props> = ({
@@ -55,13 +53,20 @@ const Slider: FC<Props> = ({
   defaultValue = 0,
   minValue = 0,
   maxValue = 100,
-  onChange,
-  markStyle = { backgroundColor: '#4163f4' },
-  railStyle = { backgroundColor: '#bcdbfb' },
-  trackStyle = { backgroundColor: '#0b21e8' },
+  thumb,
+  thumbSize,
+  mark,
+  customMarkWidth,
+  startMark = true,
+  endMark = true,
+  markStyle,
+  railStyle,
+  trackStyle,
+  thumbStyle,
   labelSize = 32,
-  labelStyle = { backgroundColor: '#4163f4' },
-  labelTextStyle = { color: 'white', fontSize: 15 },
+  labelStyle,
+  labelTextStyle,
+  onChange,
 }) => {
   const sliderRef = useRef<any>();
   const [sliderWidth, setSliderWidth] = useState<number>(0);
@@ -174,23 +179,32 @@ const Slider: FC<Props> = ({
           minValue={minValue}
           maxValue={maxValue}
           step={step}
+          mark={mark}
+          customMarkWidth={customMarkWidth}
+          startMark={startMark}
+          endMark={endMark}
           style={markStyle}
         />
       )}
-      <ThumbPositioner testID="thumb-positioner-test-id" percent={percent}>
-        <Thumb
-          testID="thumb-test-id"
-          scaleValue={scaleValue}
-          opacityValue={opacityValue}
-          style={trackStyle}
+      <Thumb
+        testID="thumb-test-id"
+        scaleValue={scaleValue}
+        opacityValue={opacityValue}
+        size={thumbSize}
+        percent={percent}
+        customThumb={thumb}
+        style={thumbStyle}
+      />
+      {isVisibleLabel && (
+        <Label
+          testID="label-test-id"
+          percentValue={percentValue}
+          value={value}
+          size={labelSize}
+          style={labelStyle}
+          textStyle={labelTextStyle}
         />
-      </ThumbPositioner>
-      {isVisibleLabel && <Label
-        percentValue={percentValue}
-        value={value}
-        size={labelSize}
-        style={labelStyle}
-        textStyle={labelTextStyle}/>}
+      )}
     </Container>
   );
 };

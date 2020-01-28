@@ -1,13 +1,13 @@
-import { Animated, StyleProp, TextStyle, ViewStyle } from 'react-native';
+import { Animated, StyleProp, StyleSheet, TextStyle, ViewStyle } from 'react-native';
 
 import React from 'react';
 import styled from 'styled-components/native';
 
 interface Props {
+  testID?: string;
   percentValue: Animated.Value;
   value: number;
-  testID?: string;
-  size: number;
+  size?: number;
   style?: StyleProp<ViewStyle>;
   textStyle?: StyleProp<TextStyle>;
 }
@@ -16,34 +16,44 @@ const Value = styled.Text`
   transform: rotate(45deg);
 `;
 
-const Label: React.FC<Props> = (props) => {
+const Label: React.FC<Props> = ({
+  testID,
+  percentValue,
+  value,
+  size = 32,
+  style,
+  textStyle,
+}) => {
   return (
     <Animated.View
-      testID={props.testID}
+      testID={testID}
       style={[{
         position: 'absolute',
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
-        width: props.size,
-        height: props.size,
-        borderTopRightRadius: props.size / 2,
-        borderTopLeftRadius: props.size / 2,
-        borderBottomRightRadius: props.size / 2,
+        width: size,
+        height: size,
+        borderTopRightRadius: size / 2,
+        borderTopLeftRadius: size / 2,
+        borderBottomRightRadius: size / 2,
+        backgroundColor: '#4163f4',
         transform: [
           { rotate: '-45deg' },
-          { translateX: -((Math.sqrt(2) * props.size) / 2) },
+          { translateX: -((Math.sqrt(2) * size) / 2) },
         ],
-        top: -props.size * 2,
-        left: props.percentValue.interpolate({
+        top: -size * 2,
+        left: percentValue.interpolate({
           inputRange: [0, 100],
           outputRange: ['0%', '100%'],
         }),
-      },
-      props.style, // '#4163f4',
-      ]}
+        ...StyleSheet.flatten(style),
+      }]}
     >
-      <Value style={ props.textStyle }>{props.value}</Value>
+      <Value style={{
+        color: 'white',
+        ...StyleSheet.flatten(textStyle),
+      }}>{value}</Value>
     </Animated.View>
   );
 };
