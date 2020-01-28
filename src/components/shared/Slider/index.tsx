@@ -1,4 +1,4 @@
-import { Animated, Easing, PanResponder, Platform } from 'react-native';
+import { Animated, Easing, PanResponder, Platform, StyleProp, TextStyle, ViewStyle } from 'react-native';
 import React, { FC, useEffect, useMemo, useRef, useState } from 'react';
 import {
   getNearestPercentByValue,
@@ -39,6 +39,12 @@ interface Props {
   minValue?: number;
   maxValue?: number;
   onChange?: (value: number) => void;
+  markStyle?: StyleProp<ViewStyle>;
+  railStyle?: StyleProp<ViewStyle>;
+  trackStyle?: StyleProp<ViewStyle>;
+  labelSize?: number;
+  labelStyle?: StyleProp<ViewStyle>;
+  labelTextStyle?: StyleProp<TextStyle>;
 }
 
 const Slider: FC<Props> = ({
@@ -50,6 +56,12 @@ const Slider: FC<Props> = ({
   minValue = 0,
   maxValue = 100,
   onChange,
+  markStyle = { backgroundColor: '#4163f4' },
+  railStyle = { backgroundColor: '#bcdbfb' },
+  trackStyle = { backgroundColor: '#0b21e8' },
+  labelSize = 32,
+  labelStyle = { backgroundColor: '#4163f4' },
+  labelTextStyle = { color: 'white', fontSize: 15 },
 }) => {
   const sliderRef = useRef<any>();
   const [sliderWidth, setSliderWidth] = useState<number>(0);
@@ -153,8 +165,8 @@ const Slider: FC<Props> = ({
         }
       }}
     >
-      <Rail testID="rail-test-id" />
-      <Track testID="track-test-id" percent={percent} />
+      <Rail testID="rail-test-id" style={railStyle}/>
+      <Track testID="track-test-id" percent={percent} style={trackStyle}/>
       {!hideMark && (step > 0) && (
         <Marks
           testID="marks-test-id"
@@ -162,12 +174,23 @@ const Slider: FC<Props> = ({
           minValue={minValue}
           maxValue={maxValue}
           step={step}
+          style={markStyle}
         />
       )}
       <ThumbPositioner testID="thumb-positioner-test-id" percent={percent}>
-        <Thumb testID="thumb-test-id" scaleValue={scaleValue} opacityValue={opacityValue} />
+        <Thumb
+          testID="thumb-test-id"
+          scaleValue={scaleValue}
+          opacityValue={opacityValue}
+          style={trackStyle}
+        />
       </ThumbPositioner>
-      {isVisibleLabel && <Label percentValue={percentValue} value={value} />}
+      {isVisibleLabel && <Label
+        percentValue={percentValue}
+        value={value}
+        size={labelSize}
+        style={labelStyle}
+        textStyle={labelTextStyle}/>}
     </Container>
   );
 };
