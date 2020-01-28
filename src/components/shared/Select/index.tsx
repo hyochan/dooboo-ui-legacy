@@ -231,13 +231,18 @@ export interface Props {
   testID?: string;
   items: Item[];
   theme?: ThemeEnum;
-  title?: string;
-  selectedValue: string | null;
-  placeholder?: string;
-  titleStyle?: StyleProp<TextStyle>;
+  disabled?: boolean;
   style?: StyleProp<ViewStyle>;
   textStyle?: StyleProp<TextStyle>;
+  placeholder?: string;
+  selectedValue: string | null;
+  onSelect?: (item: NullableItem, index: number) => void;
+  onValueChange?: (item: NullableItem, index: number) => void;
+  title?: string;
+  titleStyle?: StyleProp<TextStyle>;
   mode?: Mode;
+  nullable?: boolean;
+  nullableLabel?: string;
   listStyle?: ItemListStyle;
   listTitleStyle?: TextStyle;
   itemViewStyle?: ItemViewStyle;
@@ -245,15 +250,10 @@ export interface Props {
   selectedItemViewStyle?: ItemViewStyle;
   selectedItemTextStyle?: TextStyle;
   showsVerticalScrollIndicator?: boolean;
-  disabled?: boolean;
-  nullable?: boolean;
-  nullableLabel?: string;
   onOpen?: () => void;
   onClose?: () => void;
   onItemPressIn?: () => void;
   onItemPressOut?: () => void;
-  onSelect?: (item: NullableItem, index: number) => void;
-  onValueChange?: (item: NullableItem, index: number) => void;
 }
 
 function Select(props: Props): React.ReactElement {
@@ -455,6 +455,7 @@ Select.defaultProps = {
   showsVerticalScrollIndicator: false,
   nullable: false,
   nullableLabel: '',
+  selectedValue: null,
 };
 
 export default Select;
