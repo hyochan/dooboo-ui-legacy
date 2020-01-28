@@ -31,19 +31,23 @@ const Result = styled.Text`
 `;
 
 function Default(): React.ReactElement {
-  const [value, setvalue] = React.useState(number('value', 3));
+  const [value, setValue] = React.useState(0);
   const disabled = boolean('disabled', false);
 
   const handleChange = (value: number): void => {
-    setvalue(value);
+    setValue(value);
   };
+
+  React.useEffect(() => {
+    setValue(number('value', 3) || 0);
+  }, [number('value', 3)]);
 
   return (
     <Container>
       <Rating
         total={number('total', 5)}
         value={value}
-        onChange={!disabled && handleChange}
+        onChange={handleChange}
         disabled={disabled}
       />
       <Result>Selected: {value} stars</Result>
