@@ -1,4 +1,4 @@
-import { Animated, Easing, PanResponder, Platform } from 'react-native';
+import { Animated, Easing, PanResponder, Platform, StyleProp, TextStyle } from 'react-native';
 import React, { FC, useEffect, useMemo, useRef, useState } from 'react';
 import {
   getNearestPercentByValue,
@@ -30,6 +30,18 @@ const ThumbPositioner = styled.View<ThumbPositionerType>`
   left: ${({ percent }): string => `${percent}%`};
 `;
 
+interface ColorProps {
+  markColor?: string;
+  railColor?: string;
+  trackColor?: string;
+}
+
+interface LabelStyle {
+  size: number;
+  backgroundColor: string;
+  fontStyle: StyleProp<TextStyle>;
+}
+
 interface Props {
   hideMark?: boolean;
   hideLabel?: boolean;
@@ -39,11 +51,8 @@ interface Props {
   minValue?: number;
   maxValue?: number;
   onChange?: (value: number) => void;
-  step?: number;
-  labelDisplay?: LabelDisplay;
-  markColor?: string;
-  railColor?: string;
-  trackColor?: string;
+  sliderColor?: ColorProps;
+  labelStyle: LabelStyle;
 }
 
 const Slider: FC<Props> = ({
@@ -55,11 +64,8 @@ const Slider: FC<Props> = ({
   minValue = 0,
   maxValue = 100,
   onChange,
-  step = 1,
-  labelDisplay = 'off',
-  markColor = '#4163f4',
-  railColor = '#bcdbfb',
-  trackColor = '#0b21e8',
+  sliderColor = { markColor: '#4163f4', railColor: '#bcdbfb', trackColor: '#0b21e8' },
+  labelStyle = { size: 32, backgroundColor: '#4163f4', fontStyle: { color: 'white', fontSize: 15 } },
 }) => {
   const sliderRef = useRef<any>();
   const [sliderWidth, setSliderWidth] = useState<number>(0);
@@ -163,16 +169,16 @@ const Slider: FC<Props> = ({
         }
       }}
     >
-      <Rail testID="rail-test-id" style={{ backgroundColor: railColor }}/>
-      <Track testID="track-test-id" percent={percent} style={{ backgroundColor: trackColor }}/>
-      {!hideMark && step && (
+      <Rail testID="rail-test-id" style={{ backgroundColor: sliderColor.railColor }}/>
+      <Track testID="track-test-id" percent={percent} style={{ backgroundColor: sliderColor.trackColor }}/>
+      {!hideMark && (step > 0) && (
         <Marks
           testID="marks-test-id"
           sliderWidth={sliderWidth}
           minValue={minValue}
           maxValue={maxValue}
           step={step}
-          style={{ backgroundColor: markColor }}
+          style={{ backgroundColor: sliderColor.markColor }}
         />
       )}
       <ThumbPositioner testID="thumb-positioner-test-id" percent={percent}>
@@ -180,10 +186,13 @@ const Slider: FC<Props> = ({
           testID="thumb-test-id"
           scaleValue={scaleValue}
           opacityValue={opacityValue}
-          style={{ backgroundColor: trackColor }}
+          style={{ backgroundColor: sliderColor.trackColor }}
         />
       </ThumbPositioner>
-      {isVisibleLabel && <Label percentValue={percentValue} value={value} />}
+      {isVisibleLabel && <Label
+        percentValue={percentValue}
+        value={value}
+        labelStyle={labelStyle}/>}
     </Container>
   );
 };

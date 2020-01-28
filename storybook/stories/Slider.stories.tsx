@@ -69,8 +69,7 @@ function Default(): React.ReactElement {
         onChange={(value): void => {
           setBigStep(value);
         }}
-        markColor={'yellow'}
-        trackColor={'green'}
+        sliderColor={{ markColor: 'yellow', trackColor: 'green', railColor: 'blue' }}
       />
       <Value>big step: {bigStep}</Value>
       <SubTitle>Display Label</SubTitle>
@@ -82,8 +81,7 @@ function Default(): React.ReactElement {
         onChange={(value): void => {
           setDisplayLabel(value);
         }}
-        railColor={'gray'}
-        trackColor={'black'}
+        sliderColor={{ railColor: 'gray', trackColor: 'black' }}
       />
       <Value>big step: {displayLabel}</Value>
       <SubTitle>Label Auto Display</SubTitle>
@@ -94,12 +92,12 @@ function Default(): React.ReactElement {
         hideLabel={false}
         autoLabel
         onChange={(value): void => {
-          setDisplayLabelAuto(displayLabelAuto);
+          setDisplayLabelAuto(value);
         }}
-        railColor={'gray'}
-        trackColor={'black'}
+        sliderColor={{ railColor: 'gray', trackColor: 'black' }}
+        labelStyle={{ size: 48, backgroundColor: 'red', fontStyle: { color: 'black', fontSize: 20 } }}
       />
-      <Value>big step: {bigStep}</Value>
+      <Value>big step: {displayLabelAuto}</Value>
     </Container>
   );
 }

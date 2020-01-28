@@ -1,46 +1,52 @@
-import { Animated } from 'react-native';
+import { Animated, StyleProp, TextStyle } from 'react-native';
+
 import React from 'react';
 import styled from 'styled-components/native';
+
+interface LabelStyle {
+  size: number;
+  backgroundColor: string;
+  fontStyle: StyleProp<TextStyle>;
+}
 
 interface Props {
   percentValue: Animated.Value;
   value: number;
-  size?: number;
   testID?: string;
+  labelStyle: LabelStyle;
 }
 
 const Value = styled.Text`
   transform: rotate(45deg);
-  color: white;
 `;
 
-const Label: React.FC<Props> = ({ percentValue, value, size = 32, testID }) => {
+const Label: React.FC<Props> = (props) => {
   return (
     <Animated.View
-      testID={testID}
+      testID={props.testID}
       style={{
         position: 'absolute',
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
-        width: size,
-        height: size,
-        borderTopRightRadius: size / 2,
-        borderTopLeftRadius: size / 2,
-        borderBottomRightRadius: size / 2,
-        backgroundColor: '#4163f4',
+        width: props.labelStyle?.size,
+        height: props.labelStyle?.size,
+        borderTopRightRadius: props.labelStyle?.size / 2,
+        borderTopLeftRadius: props.labelStyle?.size / 2,
+        borderBottomRightRadius: props.labelStyle?.size / 2,
+        backgroundColor: props.labelStyle.backgroundColor, // '#4163f4',
         transform: [
           { rotate: '-45deg' },
-          { translateX: -((Math.sqrt(2) * size) / 2) },
+          { translateX: -((Math.sqrt(2) * props.labelStyle?.size) / 2) },
         ],
-        top: -size * 2,
-        left: percentValue.interpolate({
+        top: -props.labelStyle?.size * 2,
+        left: props.percentValue.interpolate({
           inputRange: [0, 100],
           outputRange: ['0%', '100%'],
         }),
       }}
     >
-      <Value>{value}</Value>
+      <Value style={ props.labelStyle.fontStyle }>{props.value}</Value>
     </Animated.View>
   );
 };
