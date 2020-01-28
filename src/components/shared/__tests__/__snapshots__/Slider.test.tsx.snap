@@ -24,25 +24,24 @@ exports[`[Label] renders without crashing 1`] = `
     style={
       Object {
         "alignItems": "center",
-        "backgroundColor": "#4163f4",
-        "borderBottomRightRadius": 16,
-        "borderTopLeftRadius": 16,
-        "borderTopRightRadius": 16,
+        "borderBottomRightRadius": NaN,
+        "borderTopLeftRadius": NaN,
+        "borderTopRightRadius": NaN,
         "display": "flex",
-        "height": 32,
+        "height": undefined,
         "justifyContent": "center",
         "left": "0%",
         "position": "absolute",
-        "top": -64,
+        "top": NaN,
         "transform": Array [
           Object {
             "rotate": "-45deg",
           },
           Object {
-            "translateX": -22.627416997969522,
+            "translateX": NaN,
           },
         ],
-        "width": 32,
+        "width": undefined,
       }
     }
     testID="LabelTestID"
@@ -51,7 +50,6 @@ exports[`[Label] renders without crashing 1`] = `
       style={
         Array [
           Object {
-            "color": "white",
             "transform": Array [
               Object {
                 "rotate": "45deg",
@@ -85,6 +83,7 @@ exports[`[Marks] renders without crashing 1`] = `
           "justifyContent": "center",
           "position": "absolute",
         },
+        Object {},
       ]
     }
   >
@@ -383,6 +382,9 @@ exports[`[Slider] render renders without crashing 1`] = `
             "height": 3,
             "width": "100%",
           },
+          Object {
+            "backgroundColor": "#bcdbfb",
+          },
         ]
       }
       testID="rail-test-id"
@@ -398,6 +400,9 @@ exports[`[Slider] render renders without crashing 1`] = `
             "top": 0,
             "width": "10%",
           },
+          Object {
+            "backgroundColor": "#0b21e8",
+          },
         ]
       }
       testID="track-test-id"
@@ -410,6 +415,9 @@ exports[`[Slider] render renders without crashing 1`] = `
             "display": "flex",
             "justifyContent": "center",
             "position": "absolute",
+          },
+          Object {
+            "backgroundColor": "#4163f4",
           },
         ]
       }
@@ -440,7 +448,9 @@ exports[`[Slider] render renders without crashing 1`] = `
                 "height": 3,
                 "width": 3,
               },
-              Object {},
+              Object {
+                "backgroundColor": "#4163f4",
+              },
             ]
           }
         />
@@ -470,7 +480,9 @@ exports[`[Slider] render renders without crashing 1`] = `
                 "height": 3,
                 "width": 3,
               },
-              Object {},
+              Object {
+                "backgroundColor": "#4163f4",
+              },
             ]
           }
         />
@@ -500,7 +512,9 @@ exports[`[Slider] render renders without crashing 1`] = `
                 "height": 3,
                 "width": 3,
               },
-              Object {},
+              Object {
+                "backgroundColor": "#4163f4",
+              },
             ]
           }
         />
@@ -530,7 +544,9 @@ exports[`[Slider] render renders without crashing 1`] = `
                 "height": 3,
                 "width": 3,
               },
-              Object {},
+              Object {
+                "backgroundColor": "#4163f4",
+              },
             ]
           }
         />
@@ -560,7 +576,9 @@ exports[`[Slider] render renders without crashing 1`] = `
                 "height": 3,
                 "width": 3,
               },
-              Object {},
+              Object {
+                "backgroundColor": "#4163f4",
+              },
             ]
           }
         />
@@ -590,7 +608,9 @@ exports[`[Slider] render renders without crashing 1`] = `
                 "height": 3,
                 "width": 3,
               },
-              Object {},
+              Object {
+                "backgroundColor": "#4163f4",
+              },
             ]
           }
         />
@@ -620,7 +640,9 @@ exports[`[Slider] render renders without crashing 1`] = `
                 "height": 3,
                 "width": 3,
               },
-              Object {},
+              Object {
+                "backgroundColor": "#4163f4",
+              },
             ]
           }
         />
@@ -650,7 +672,9 @@ exports[`[Slider] render renders without crashing 1`] = `
                 "height": 3,
                 "width": 3,
               },
-              Object {},
+              Object {
+                "backgroundColor": "#4163f4",
+              },
             ]
           }
         />
@@ -680,7 +704,9 @@ exports[`[Slider] render renders without crashing 1`] = `
                 "height": 3,
                 "width": 3,
               },
-              Object {},
+              Object {
+                "backgroundColor": "#4163f4",
+              },
             ]
           }
         />
@@ -710,7 +736,9 @@ exports[`[Slider] render renders without crashing 1`] = `
                 "height": 3,
                 "width": 3,
               },
-              Object {},
+              Object {
+                "backgroundColor": "#4163f4",
+              },
             ]
           }
         />
@@ -740,7 +768,9 @@ exports[`[Slider] render renders without crashing 1`] = `
                 "height": 3,
                 "width": 3,
               },
-              Object {},
+              Object {
+                "backgroundColor": "#4163f4",
+              },
             ]
           }
         />
@@ -774,6 +804,9 @@ exports[`[Slider] render renders without crashing 1`] = `
                 },
               ],
               "width": 12,
+            },
+            Object {
+              "backgroundColor": "#0b21e8",
             },
           ]
         }
