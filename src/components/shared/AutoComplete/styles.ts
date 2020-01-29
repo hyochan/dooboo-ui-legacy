@@ -13,14 +13,12 @@ import styled from 'styled-components/native';
 export const inputMargin = 20;
 
 export const Wrapper = styled.View<InputWrapper>`
+  flex: 1;
   background-color: white;
   flex-direction: column;
   justify-content: center;
-  top: ${({ focused, inSets }): number => focused ? inSets.top : 0}px;
-  left: ${({ focused, inSets }): number => focused ? inSets.left : 0}px;
-  bottom: ${({ focused, inSets }): number => focused ? inSets.bottom : 0}px;
-  right: ${({ focused, inSets }): number => focused ? inSets.right : 0}px;
   width: ${({ focused, width }): string => focused ? `${width}px` : 'auto'};
+  height: ${({ focused, height }): string => focused ? `${height}px` : 'auto'};
   position: ${({ focused }): string => focused ? 'absolute' : 'relative'};
   z-index: ${({ focused }): number => focused ? 99 : 0};
 `;

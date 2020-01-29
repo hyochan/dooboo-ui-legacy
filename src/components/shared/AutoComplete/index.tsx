@@ -1,6 +1,6 @@
-import { AutoCompleteProps, Datum } from './types';
+import { AutoCompleteProps, Datum, ScreenSizeState } from './types';
 import { CaretContainer, InputContainer, StyledImage, Wrapper, inputMargin } from './styles';
-import { Dimensions, TextInput, TouchableWithoutFeedback } from 'react-native';
+import { Dimensions, ScaledSize, TextInput, TouchableWithoutFeedback } from 'react-native';
 import { IC_ARR_DOWN, IC_ARR_UP } from '../Icons';
 import React, {
   ReactElement,
@@ -10,10 +10,10 @@ import React, {
   useRef,
   useState,
 } from 'react';
+import { getBottomSpace, getStatusBarHeight } from 'react-native-iphone-x-helper';
 
 import Options from './renderOptions';
 import RenderInput from './renderInput';
-import { useSafeArea } from 'react-native-safe-area-context';
 
 const DEFAULT_WIDTH = 240;
 
@@ -35,6 +35,22 @@ function useDebounce(value: string, delay = 400): string {
   return debouncedValue;
 }
 
+function useScreenDimensions(): ScaledSize {
+  const [screenData, setScreenData] = useState(Dimensions.get('screen'));
+
+  useEffect(() => {
+    const onChange = ({ screen }: { screen: ScaledSize }): void => {
+      setScreenData(screen);
+    };
+
+    Dimensions.addEventListener('change', onChange);
+
+    return (): void => Dimensions.removeEventListener('change', onChange);
+  });
+
+  return screenData;
+};
+
 export default function AutoComplete({
   renderInputTestID = 'RenderInput_test',
   caretBtnTestID = 'CaretBtn_test',
@@ -45,17 +61,38 @@ export default function AutoComplete({
   debounceDelay,
   onDebounceOrOnReset,
   underlayColor,
+  storybook,
 }: AutoCompleteProps): ReactElement {
   const [innerValue, setInnerValue] = useState<string>(value);
   const [selectedData, setSelectedData] = useState<Datum | null>(null);
   const [isFocused, setIsFocused] = useState<boolean>(false);
+  const [{ screenWidth, screenHeight }, setScreenSize] = useState<ScreenSizeState>({
+    screenWidth: 0,
+    screenHeight: 0,
+  });
   const inputRef = useRef<TextInput>(null);
 
   const debouncedValue = useDebounce(innerValue, debounceDelay);
   const [fetchedData] = useState<Datum[]>(data);
 
-  const screenWidth = useMemo(() => Dimensions.get('screen').width, []);
-  const inSets = useSafeArea();
+  const { width: sWidth, height: sHeight } = { ...useScreenDimensions() };
+
+  useEffect(() => {
+    const statusBarHeight = getStatusBarHeight();
+    const bottomSpace = getBottomSpace();
+
+    if (sWidth > sHeight) {
+      setScreenSize({
+        screenWidth: sWidth - (statusBarHeight + bottomSpace),
+        screenHeight: sHeight - (2 * inputMargin + (storybook ? 38.5 : 0)),
+      });
+    } else {
+      setScreenSize({
+        screenWidth: sWidth,
+        screenHeight: sHeight - (statusBarHeight + bottomSpace + (2 * inputMargin + (storybook ? 38.5 : 0))),
+      });
+    }
+  }, [storybook, sWidth, sHeight]);
 
   useEffect(() => {
     if (onDebounceOrOnReset) {
@@ -121,7 +158,7 @@ export default function AutoComplete({
 
   return (
     <TouchableWithoutFeedback onPress={onPressCaret}>
-      <Wrapper focused={isFocused} width={screenWidth} inSets={inSets}>
+      <Wrapper focused={isFocused} width={screenWidth} height={screenHeight}>
         <InputContainer
           style={adjustedStyle}
           focus={isFocused}

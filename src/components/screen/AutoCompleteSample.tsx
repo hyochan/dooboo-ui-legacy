@@ -1,11 +1,10 @@
 import React, { ReactElement, useState } from 'react';
 
 import AutoComplete from '../shared/AutoComplete';
-import { SafeAreaView } from 'react-native-safe-area-context';
 import dummyData from '../shared/AutoComplete/dummyData';
 import styled from 'styled-components/native';
 
-const Wrapper = styled(SafeAreaView)`
+const Wrapper = styled.SafeAreaView`
   flex: 1;
   background-color: transparent;
   flex-direction: column;
