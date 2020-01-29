@@ -6,6 +6,7 @@ import EditText from './EditText';
 import GiftedChat from './GiftedChat';
 import LoadingIndicator from './LoadingIndicator';
 import SwitchToggle from './SwitchToggle';
+import TinderCard from './TinderCard';
 
 export {
   SwitchToggle,
@@ -16,4 +17,5 @@ export {
   EditText,
   GiftedChat,
   ButtonGroup,
+  TinderCard,
 };

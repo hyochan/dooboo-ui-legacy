@@ -2,10 +2,11 @@
   "name": "@dooboo-ui/native-gifted-chat",
   "main": "package/index.js",
   "types": "package/index.d.ts",
-  "version": "0.4.1",
+  "version": "0.4.2",
   "license": "MIT",
+  "postinstall": "tsc",
   "scripts": {
-    "build": "rm -rf ./package && tsc",
+    "build": "tsc",
     "watch": "tsc -w"
   },
   "repository": {
@@ -22,7 +23,7 @@
   },
   "devDependencies": {
     "styled-components": "^4.4.0",
-    "typescript": "^3.6.4"
+    "typescript": "^3.7.5"
   },
   "peerDependencies": {
     "react": ">=16.8",

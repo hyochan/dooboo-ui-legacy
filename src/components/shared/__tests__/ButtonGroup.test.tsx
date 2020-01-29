@@ -2,12 +2,13 @@ import 'react-native';
 
 import * as React from 'react';
 
-import { RenderResult, render } from '@testing-library/react-native';
+import { RenderResult, act, fireEvent, render } from '@testing-library/react-native';
 
 import ButtonGroup from '../ButtonGroup';
 // Note: test renderer must be required after react-native.
 import renderer from 'react-test-renderer';
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 let props: any;
 let component: React.ReactElement;
 let testingLib: RenderResult;
@@ -38,12 +39,11 @@ describe('[ButtonGroup] render', () => {
       testingLib = render(component);
     });
 
-    it('should simulate onClick', () => {
-      // const btn = testingLib.queryByTestId('btn');
-      // act(() => {
-      //   fireEvent.press(btn);
-      // });
-      // expect(cnt).toBe(3);
+    it('should simulate onPress', () => {
+      const btn1 = testingLib.queryByTestId('CHILD_1');
+      act(() => {
+        fireEvent.press(btn1);
+      });
     });
   });
 });

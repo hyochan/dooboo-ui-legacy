@@ -5,7 +5,7 @@
   "version": "0.1.5",
   "license": "MIT",
   "scripts": {
-    "build": "rm -rf ./package && tsc"
+    "build": "tsc"
   },
   "repository": {
     "type": "git",
@@ -20,7 +20,7 @@
     "dooboolab-welcome": "^1.1.1"
   },
   "devDependencies": {
-    "typescript": "^3.6.4",
+    "typescript": "^3.7.5",
     "styled-components": "^4.4.1"
   },
   "peerDependencies": {
