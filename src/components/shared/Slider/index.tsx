@@ -97,7 +97,6 @@ const Slider: FC<Props> = ({
       toValue: percent,
       duration: 255,
       easing: Easing.elastic(1),
-      useNativeDriver: Platform.OS === 'android',
     }).start();
   }, [percent]);
 
