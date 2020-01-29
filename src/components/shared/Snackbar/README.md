@@ -118,5 +118,5 @@ An object of this type is needed to show an Snackbar.
   }
 
   ```
-To show a `SnackBar` component, just provide `ref` props to the component and call the `show` function  (with a `Content` type parameter) of it.
+To show a `Snackbar` component, just provide `ref` props to the component and call the `show` function  (with a `Content` type parameter) of it.
 This component will appear at the bottom of the parent view, **not at the bottom of the screen**.
