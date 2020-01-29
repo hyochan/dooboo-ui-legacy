@@ -20,7 +20,7 @@ const Container = styled.SafeAreaView`
   display: flex;
   background-color: transparent;
   margin-top: 28px;
-  margin-bottom: 150px;
+  margin-bottom: 30px;
 `;
 
 const StyledScrollView = styled.ScrollView`
