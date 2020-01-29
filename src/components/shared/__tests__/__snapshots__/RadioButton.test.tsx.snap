@@ -3,7 +3,7 @@
 exports[`[RadioButton] render [RadioButton] Interaction should simulate props 1`] = `
 <View
   accessible={true}
-  clickable={true}
+  focusable={true}
   isTVSelectable={true}
   onClick={[Function]}
   onResponderGrant={[Function]}
@@ -26,11 +26,11 @@ exports[`[RadioButton] render [RadioButton] Interaction should simulate props 1`
   }
 >
   <Text
-    disabled={true}
+    disabled={false}
     style={
       Array [
         Object {
-          "color": "#969696",
+          "color": "#000000",
         },
       ]
     }
@@ -76,7 +76,7 @@ exports[`[RadioButton] render [RadioButton] Interaction should simulate props 1`
 exports[`[RadioButton] render [RadioButton] Interaction should simulate props 2`] = `
 <View
   accessible={true}
-  clickable={true}
+  focusable={true}
   isTVSelectable={true}
   onClick={[Function]}
   onResponderGrant={[Function]}
@@ -149,7 +149,7 @@ exports[`[RadioButton] render [RadioButton] Interaction should simulate props 2`
 exports[`[RadioButton] render [RadioButton] Interaction should simulate props 3`] = `
 <View
   accessible={true}
-  clickable={true}
+  focusable={true}
   isTVSelectable={true}
   onClick={[Function]}
   onResponderGrant={[Function]}
@@ -194,11 +194,11 @@ exports[`[RadioButton] render [RadioButton] Interaction should simulate props 3`
     }
   />
   <Text
-    disabled={true}
+    disabled={false}
     style={
       Array [
         Object {
-          "color": "#969696",
+          "color": "#000000",
         },
       ]
     }
@@ -211,7 +211,7 @@ exports[`[RadioButton] render [RadioButton] Interaction should simulate props 3`
 exports[`[RadioButton] render renders without crashing 1`] = `
 <View
   accessible={true}
-  clickable={true}
+  focusable={true}
   isTVSelectable={true}
   onClick={[Function]}
   onResponderGrant={[Function]}
@@ -267,11 +267,11 @@ exports[`[RadioButton] render renders without crashing 1`] = `
     />
   </View>
   <Text
-    disabled={true}
+    disabled={false}
     style={
       Array [
         Object {
-          "color": "#969696",
+          "color": "#000000",
         },
       ]
     }
