@@ -5,6 +5,7 @@ import CalendarCarousel from './CalendarCarousel';
 import EditText from './EditText';
 import GiftedChat from './GiftedChat';
 import LoadingIndicator from './LoadingIndicator';
+import Slider from './Slider';
 import Snackbar from './Snackbar';
 import SwitchToggle from './SwitchToggle';
 import TinderCard from './TinderCard';
@@ -20,4 +21,5 @@ export {
   Snackbar,
   ButtonGroup,
   TinderCard,
+  Slider,
 };
