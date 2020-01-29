@@ -1,5 +1,6 @@
 import React, { FC } from 'react';
 import { StyleProp, ViewStyle } from 'react-native';
+
 import styled from 'styled-components/native';
 
 interface Props {
@@ -12,7 +13,7 @@ const DEFAULT = {
   borderRadius: 1,
 };
 
-const StyledRail = styled.View`
+const StyledRail = styled.View<any>`
   width: 100%;
   height: ${`${DEFAULT.height}px`};
   border-radius: ${DEFAULT.borderRadius};

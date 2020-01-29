@@ -7,7 +7,7 @@ const DEFAULT = {
   height: 3,
 };
 
-const StyledTrack = styled.View<{ width: number }>`
+const StyledTrack = styled.View<any>`
   position: absolute;
   top: 0;
   left: 0;

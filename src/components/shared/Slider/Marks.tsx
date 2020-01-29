@@ -41,7 +41,7 @@ const DEFAULT = {
   height: 3,
 };
 
-const Container = styled.View`
+const Container = styled.View<any>`
   display: flex;
   justify-content: center;
   position: absolute;

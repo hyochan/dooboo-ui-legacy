@@ -83,7 +83,7 @@ exports[`[Marks] renders without crashing 1`] = `
   >
     <View
       accessible={true}
-      clickable={true}
+      focusable={true}
       position={-4.454545454545454}
       style={
         Array [
@@ -104,7 +104,7 @@ exports[`[Marks] renders without crashing 1`] = `
     </View>
     <View
       accessible={true}
-      clickable={true}
+      focusable={true}
       position={5.454545454545454}
       style={
         Array [
@@ -125,7 +125,7 @@ exports[`[Marks] renders without crashing 1`] = `
     </View>
     <View
       accessible={true}
-      clickable={true}
+      focusable={true}
       position={15.363636363636363}
       style={
         Array [
@@ -146,7 +146,7 @@ exports[`[Marks] renders without crashing 1`] = `
     </View>
     <View
       accessible={true}
-      clickable={true}
+      focusable={true}
       position={25.272727272727273}
       style={
         Array [
@@ -167,7 +167,7 @@ exports[`[Marks] renders without crashing 1`] = `
     </View>
     <View
       accessible={true}
-      clickable={true}
+      focusable={true}
       position={35.18181818181818}
       style={
         Array [
@@ -188,7 +188,7 @@ exports[`[Marks] renders without crashing 1`] = `
     </View>
     <View
       accessible={true}
-      clickable={true}
+      focusable={true}
       position={45.090909090909086}
       style={
         Array [
@@ -209,7 +209,7 @@ exports[`[Marks] renders without crashing 1`] = `
     </View>
     <View
       accessible={true}
-      clickable={true}
+      focusable={true}
       position={55}
       style={
         Array [
@@ -230,7 +230,7 @@ exports[`[Marks] renders without crashing 1`] = `
     </View>
     <View
       accessible={true}
-      clickable={true}
+      focusable={true}
       position={64.9090909090909}
       style={
         Array [
@@ -251,7 +251,7 @@ exports[`[Marks] renders without crashing 1`] = `
     </View>
     <View
       accessible={true}
-      clickable={true}
+      focusable={true}
       position={74.81818181818181}
       style={
         Array [
@@ -272,7 +272,7 @@ exports[`[Marks] renders without crashing 1`] = `
     </View>
     <View
       accessible={true}
-      clickable={true}
+      focusable={true}
       position={84.72727272727272}
       style={
         Array [
@@ -293,7 +293,7 @@ exports[`[Marks] renders without crashing 1`] = `
     </View>
     <View
       accessible={true}
-      clickable={true}
+      focusable={true}
       position={94.63636363636363}
       style={
         Array [
@@ -411,7 +411,7 @@ exports[`[Slider] render renders without crashing 1`] = `
     >
       <View
         accessible={true}
-        clickable={true}
+        focusable={true}
         position={1.6363636363636362}
         style={
           Array [
@@ -441,7 +441,7 @@ exports[`[Slider] render renders without crashing 1`] = `
       </View>
       <View
         accessible={true}
-        clickable={true}
+        focusable={true}
         position={1.3636363636363635}
         style={
           Array [
@@ -471,7 +471,7 @@ exports[`[Slider] render renders without crashing 1`] = `
       </View>
       <View
         accessible={true}
-        clickable={true}
+        focusable={true}
         position={1.0909090909090908}
         style={
           Array [
@@ -501,7 +501,7 @@ exports[`[Slider] render renders without crashing 1`] = `
       </View>
       <View
         accessible={true}
-        clickable={true}
+        focusable={true}
         position={0.8181818181818181}
         style={
           Array [
@@ -531,7 +531,7 @@ exports[`[Slider] render renders without crashing 1`] = `
       </View>
       <View
         accessible={true}
-        clickable={true}
+        focusable={true}
         position={0.5454545454545454}
         style={
           Array [
@@ -561,7 +561,7 @@ exports[`[Slider] render renders without crashing 1`] = `
       </View>
       <View
         accessible={true}
-        clickable={true}
+        focusable={true}
         position={0.2727272727272727}
         style={
           Array [
@@ -591,7 +591,7 @@ exports[`[Slider] render renders without crashing 1`] = `
       </View>
       <View
         accessible={true}
-        clickable={true}
+        focusable={true}
         position={0}
         style={
           Array [
@@ -621,7 +621,7 @@ exports[`[Slider] render renders without crashing 1`] = `
       </View>
       <View
         accessible={true}
-        clickable={true}
+        focusable={true}
         position={-0.2727272727272727}
         style={
           Array [
@@ -651,7 +651,7 @@ exports[`[Slider] render renders without crashing 1`] = `
       </View>
       <View
         accessible={true}
-        clickable={true}
+        focusable={true}
         position={-0.5454545454545454}
         style={
           Array [
@@ -681,7 +681,7 @@ exports[`[Slider] render renders without crashing 1`] = `
       </View>
       <View
         accessible={true}
-        clickable={true}
+        focusable={true}
         position={-0.8181818181818179}
         style={
           Array [
@@ -711,7 +711,7 @@ exports[`[Slider] render renders without crashing 1`] = `
       </View>
       <View
         accessible={true}
-        clickable={true}
+        focusable={true}
         position={-1.0909090909090908}
         style={
           Array [
