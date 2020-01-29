@@ -60,7 +60,7 @@ const SCOuterCircle = styled.View.attrs(
     borderRadius,
     borderWidth,
   }),
-) <ICircleProps>`
+)<ICircleProps>`
   width: ${({ size }): string => size.toString()};
   height: ${({ size }): string => size.toString()};
   border-color: ${({ color }): string => color};
