@@ -11,7 +11,7 @@ import renderer from 'react-test-renderer';
  */
 jest.useFakeTimers();
 
-let props: any;
+// let props: any;
 // let component: React.ReactElement;
 // let testingLib: RenderResult;
 
