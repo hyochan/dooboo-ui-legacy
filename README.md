@@ -12,6 +12,8 @@ We currently love [react-hooks](https://code.fb.com/open-source/react-hooks) and
 
 ## Contributing to `@dooboo-ui/native`
 
+![dooboo-ui](https://user-images.githubusercontent.com/27461460/73331047-ea876400-42a5-11ea-9c9c-1c997eb961be.png)
+
 - See also
   - dooboolab's [vision-and-mission](https://github.com/dooboolab/dooboolab.com/blob/master/vision-and-mission.md)
   - dooboolab's [code of conduct](https://github.com/dooboolab/dooboolab.com/blob/master/code-of-conduct.md)
