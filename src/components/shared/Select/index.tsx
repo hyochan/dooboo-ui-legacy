@@ -1,45 +1,33 @@
 import {
-  FlatList,
+  Animated,
   Image,
-  ListRenderItemInfo,
   Modal,
   StyleProp,
   TextStyle,
-  TouchableOpacity,
-  View,
+  TouchableWithoutFeedback,
   ViewStyle,
 } from 'react-native';
+import { BOX_SHADOW, COLOR, Mode, ThemeEnum } from './constants';
 import { IC_ARR_DOWN, IC_ARR_UP } from '../Icons';
-import React, { ReactElement, useCallback, useRef, useState } from 'react';
-import styled, { DefaultTheme, css } from 'styled-components/native';
+import React, { useCallback, useEffect, useRef, useState } from 'react';
+import styled, { DefaultTheme } from 'styled-components/native';
 
+import Dialog from './Dialog';
+import DropDown from './DropDown';
 import { FlattenSimpleInterpolation } from 'styled-components';
 import Picker from './Picker';
-
-export enum ThemeEnum {
-  disabled = 'disabled',
-  blank = 'blank',
-  none = 'none',
-  box = 'box',
-  underbar = 'underbar',
-}
 
 enum CompEnum {
   rootbox = 'rootbox',
   text = 'text',
   item = 'item',
 }
+
 enum StylePropEnum {
   bc = 'backgroundColor',
   fc = 'fontColor',
   bs = 'boxShadow',
   border = 'border',
-}
-
-export enum Mode {
-  dropdown = 'dropdown',
-  dialog = 'dialog',
-  picker = 'picker',
 }
 
 type ThemeStyle<K extends string, T> = {
@@ -50,9 +38,13 @@ interface ThemeType {
   theme: ThemeEnum;
 }
 
-export interface Item {
+interface Item {
   value: string;
   label?: string;
+}
+
+interface NullableItem extends Omit<Item, 'value'> {
+  value: string | null;
 }
 
 interface BorderStyle extends ViewStyle {
@@ -92,9 +84,6 @@ interface TextTheme extends DefaultTheme {
 interface ThemeType {
   theme: ThemeEnum;
 }
-interface Selected {
-  selected: boolean;
-}
 
 export interface ListOpen {
   isOpen: boolean;
@@ -110,39 +99,11 @@ export const TESTID = {
   ROOTSELECT: 'root-select',
   ROOTTEXT: 'root-text',
   ROOTARROW: 'root-arrow',
-  SELECTLISTVIEW: 'select-list-view',
-  LISTITEM: 'list-item',
-  MODALCLOSEVIEW: 'modal-close-view',
+  CLOSELIST: 'close-list',
+  DROPDOWN: 'dropdown',
+  DIALOG: 'dialog',
   PICKER: 'picker',
 };
-
-export const COLOR: {
-  [key: string]: string;
-} = {
-  WHITE: '#ffffff',
-  DODGERBLUE: '#5364ff',
-  VERYLIGHTGRAY: '#cccccc',
-  LIGHTGRAY: '#c8c8c8',
-  BLUE: '#0000ff',
-  STRONGBLUE: '#069ccd',
-  GRAY3: '#080808',
-  GRAY7: '#121212',
-  GRAY59: '#969696',
-  DARK: '#09071d',
-  LIGHTBLUE: '#bcdbfb',
-  BLACK: '#000000',
-};
-
-const bsCss = css`
-  elevation: 1;
-  shadow-color: ${COLOR.DODGERBLUE};
-  shadow-offset: {
-    width: 2;
-    height: 2;
-  }
-  shadow-opacity: 0.5;
-  shadow-radius: 3;
-`;
 
 export const themeStylePropCollection: ThemeStyle<
   ThemeEnum,
@@ -150,7 +111,7 @@ export const themeStylePropCollection: ThemeStyle<
 > = {
   disabled: {
     rootbox: {
-      backgroundColor: 'transparent',
+      backgroundColor: COLOR.TRANSPARENT,
       border: {
         borderBottomColor: COLOR.LIGHTGRAY,
         borderBottomWidth: 2,
@@ -162,7 +123,7 @@ export const themeStylePropCollection: ThemeStyle<
   },
   blank: {
     rootbox: {
-      backgroundColor: 'transparent',
+      backgroundColor: COLOR.TRANSPARENT,
     },
     text: {
       fontColor: COLOR.DARK,
@@ -171,7 +132,7 @@ export const themeStylePropCollection: ThemeStyle<
   none: {
     rootbox: {
       backgroundColor: COLOR.WHITE,
-      boxShadow: bsCss,
+      boxShadow: BOX_SHADOW,
     },
     text: {
       fontColor: COLOR.DARK,
@@ -182,7 +143,7 @@ export const themeStylePropCollection: ThemeStyle<
       backgroundColor: COLOR.WHITE,
       border: {
         borderColor: COLOR.GRAY59,
-        borderWidth: 2,
+        borderWidth: 1,
       },
     },
     text: {
@@ -191,7 +152,7 @@ export const themeStylePropCollection: ThemeStyle<
   },
   underbar: {
     rootbox: {
-      backgroundColor: COLOR.WHITE,
+      backgroundColor: COLOR.TRANSPARENT,
       border: {
         borderBottomColor: COLOR.GRAY59,
         borderBottomWidth: 2,
@@ -212,16 +173,13 @@ const getThemeProp = ({ theme, comp, prop }: ThemePropParams): string => {
   return themeStylePropCollection[theme][comp][prop];
 };
 
-const Title = styled.Text<ThemeType>`
-  font-size: 12px;
-  margin-bottom: 5px;
-  color: ${(props): string =>
-    getThemeProp({
-      theme: props.theme,
-      comp: CompEnum.text,
-      prop: StylePropEnum.fc,
-    })};
+const Title = styled(Animated.Text)`
+  position: absolute;
+  align-self: center;
+  font-size: 14px;
+  color: ${COLOR.GRAY75};
 `;
+
 const RootText = styled.Text<ThemeType>`
   font-size: 14px;
   color: ${(props): string =>
@@ -251,76 +209,51 @@ const RootSelect = styled.View<ThemeType>`
       comp: CompEnum.rootbox,
       prop: StylePropEnum.border,
     })}
-  width: 128px;
-  height: 48px;
+  width: 120px;
+  height: 40px;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  padding: 14px 6px;
+  padding: 0 6px 0 14px;
 `;
-const ModalBackground = styled.TouchableOpacity`
+
+const ModalBackground = styled.TouchableOpacity<ThemeType>`
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-`;
-const SelectListView = styled.View`
-  elevation: 8;
-  shadow-color: ${COLOR.DODGERBLUE};
-  shadow-offset: {
-    width: 0;
-    height: 5;
-  }
-  shadow-opacity: 0.2;
-`;
-const SelectList = styled(FlatList as new () => FlatList<Item>)`
-  background-color: ${COLOR.WHITE};
-  padding-top: 8px;
-`;
-
-const ItemView = styled.TouchableOpacity<Selected>`
-  background-color: ${({ selected }: { selected: boolean }): string =>
-    selected ? COLOR.LIGHTBLUE : COLOR.WHITE};
-  height: 32px;
-  padding: 6px;
+  align-items: center;
   justify-content: center;
 `;
-const ItemText = styled.Text<Selected>`
-  font-size: 14px;
-  color: ${COLOR.BLACK};
-`;
 
-export type Layout = {
-  ox: number;
-  oy: number;
-  width: number;
-  height: number;
-};
 export interface Props {
   testID?: string;
   items: Item[];
-  style?: StyleProp<ViewStyle>;
   theme?: ThemeEnum;
-  title?: string;
-  selectedValue: string;
-  placeholder?: string;
-  titleStyle?: StyleProp<TextStyle>;
-  activeOpacity: number;
-  rootViewStyle?: StyleProp<ViewStyle>;
-  rootTextStyle?: StyleProp<TextStyle>;
-  mode?: Mode;
-  itemListStyle?: ItemListStyle;
-  itemViewStyle?: ItemViewStyle;
-  itemTextStyle?: StyleProp<TextStyle>;
-  showsVerticalScrollIndicator?: boolean;
   disabled?: boolean;
-  itemStyle?: StyleProp<ViewStyle>;
-  selectedItemStyle?: StyleProp<ViewStyle>;
-  onSelect?: (Item) => void;
-  onShow?: () => void;
-  onDismiss?: () => void;
-  onValueChange?: (item: Item, index: number) => void;
+  style?: StyleProp<ViewStyle>;
+  textStyle?: StyleProp<TextStyle>;
+  placeholder?: string;
+  selectedValue: string | null;
+  onSelect?: (item: NullableItem, index: number) => void;
+  onValueChange?: (item: NullableItem, index: number) => void;
+  title?: string;
+  titleStyle?: StyleProp<TextStyle>;
+  mode?: Mode;
+  nullable?: boolean;
+  nullableLabel?: string;
+  listStyle?: ItemListStyle;
+  listTitleStyle?: TextStyle;
+  itemViewStyle?: ItemViewStyle;
+  itemTextStyle?: TextStyle;
+  selectedItemViewStyle?: ItemViewStyle;
+  selectedItemTextStyle?: TextStyle;
+  showsVerticalScrollIndicator?: boolean;
+  onOpen?: () => void;
+  onClose?: () => void;
+  onItemPressIn?: () => void;
+  onItemPressOut?: () => void;
 }
 
 function Select(props: Props): React.ReactElement {
@@ -329,23 +262,27 @@ function Select(props: Props): React.ReactElement {
     theme,
     title,
     titleStyle,
-    style,
-    activeOpacity,
     disabled,
     mode,
-    rootTextStyle,
-    rootViewStyle,
+    style,
+    textStyle,
     placeholder,
     selectedValue,
-    items,
-    itemStyle,
-    selectedItemStyle,
-    onSelect,
+    onOpen,
+    onClose,
+    nullable,
+    nullableLabel,
   } = props;
 
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const items = nullable
+    ? [{ value: null, label: nullableLabel || '' }, ...props.items]
+    : props.items;
+
+  const selectedItem = items.find((item) => item.value === selectedValue);
+
   const rootEl = useRef<any>();
 
+  const openValue = new Animated.Value(0);
   const [listOpen, setListOpen] = useState<ListOpen>({
     isOpen: false,
     x: 0,
@@ -354,13 +291,46 @@ function Select(props: Props): React.ReactElement {
     height: 0,
   });
 
+  const titleAnimatedValue = new Animated.Value(
+    placeholder || selectedValue ? 1 : 0,
+  );
+
+  const titleAnimatedStyle = {
+    transform: [
+      {
+        translateX: titleAnimatedValue.interpolate({
+          inputRange: [0, 1],
+          outputRange: [14, 6],
+        }),
+      },
+      {
+        translateY: titleAnimatedValue.interpolate({
+          inputRange: [0, 1],
+          outputRange: [0, -30],
+        }),
+      },
+    ],
+    fontSize: titleAnimatedValue.interpolate({
+      inputRange: [0, 1],
+      outputRange: [14, 12],
+    }),
+    color: titleAnimatedValue.interpolate({
+      inputRange: [0, 1],
+      outputRange: [
+        COLOR.GRAY75,
+        theme === ThemeEnum.none ? COLOR.DODGERBLUE : COLOR.GRAY59,
+      ],
+    }),
+  };
+
   const open = useCallback((): void => {
-    const nextState = {
-      ...listOpen,
-      isOpen: true,
-    };
     if (rootEl && rootEl.current) {
       rootEl.current.measureInWindow((x, y, width, height) => {
+        const nextState = {
+          ...listOpen,
+          isOpen: true,
+        };
+
         nextState.x = x;
         nextState.y = y;
         nextState.width = width;
@@ -375,130 +345,117 @@ function Select(props: Props): React.ReactElement {
     setListOpen({ ...listOpen, isOpen: false });
   }, []);
 
-  const defaultTheme = disabled
-    ? ThemeEnum.disabled
-    : !theme
-    ? ThemeEnum.none
-    : theme;
-  const rootViewTheme = disabled
-    ? ThemeEnum.disabled
-    : rootViewStyle && Object.keys(rootViewStyle).length > 0
-    ? ThemeEnum.blank
-    : defaultTheme;
-  const rootTextTheme = disabled
-    ? ThemeEnum.disabled
-    : rootTextStyle && Object.keys(rootTextStyle).length > 0
-    ? ThemeEnum.blank
-    : defaultTheme;
-  const titleTextTheme = disabled
-    ? ThemeEnum.disabled
-    : titleStyle && Object.keys(titleStyle).length > 0
-    ? ThemeEnum.blank
-    : defaultTheme;
-  const _rootViewStyle = disabled ? null : rootViewStyle;
-  const _rootTextStyle = disabled ? null : rootTextStyle;
+  useEffect(() => {
+    Animated.parallel([
+      Animated.timing(openValue, {
+        toValue: listOpen.isOpen ? 1 : 0,
+        duration: 200,
+      }),
+      Animated.timing(titleAnimatedValue, {
+        toValue: listOpen.isOpen || placeholder || selectedValue ? 1 : 0,
+        duration: 200,
+      }),
+    ]).start();
+  }, [listOpen.isOpen]);
 
-  const renderItem = ({ item }: ListRenderItemInfo<Item>): ReactElement => {
-    const style = selectedValue === item.value ? selectedItemStyle : itemStyle;
-    const onPress = (): void => {
-      if (onSelect) onSelect(item);
-    };
-    return (
-      <ItemView
-        style={style}
-        selected={selectedValue === item.value}
-        activeOpacity={1}
-        onPress={onPress}
-        testID={`${testID}-${TESTID.LISTITEM}-${item.value}`}
-      >
-        <ItemText selected={selectedValue === item.value} style={style}>
-          {item.label}
-        </ItemText>
-      </ItemView>
-    );
-  };
+  const rootViewTheme = style ? ThemeEnum.blank : theme;
+  const rootTextTheme = textStyle ? ThemeEnum.blank : theme;
   return (
-    <View style={style} testID={testID}>
-      {title && (
-        <Title
-          theme={titleTextTheme}
-          style={titleStyle}
-          testID={`${testID}-${TESTID.TITLETEXT}`}
-        >
-          {title}
-        </Title>
-      )}
-      <TouchableOpacity
+    <>
+      <TouchableWithoutFeedback
         testID={`${testID}-${TESTID.ROOTBUTTON}`}
-        activeOpacity={activeOpacity}
         onPress={open}
         disabled={disabled}
       >
         <RootSelect
           ref={rootEl}
-          theme={rootViewTheme}
-          style={_rootViewStyle}
-          testID={`${testID}-${TESTID.ROOTSELECT}`}
+          theme={disabled ? ThemeEnum.disabled : rootViewTheme}
+          style={style}
         >
           <RootText
-            theme={rootTextTheme}
-            style={_rootTextStyle}
+            theme={disabled ? ThemeEnum.disabled : rootTextTheme}
+            style={[
+              (!selectedItem || !selectedItem.value) && { color: COLOR.GRAY75 },
+              textStyle,
+            ]}
             testID={`${testID}-${TESTID.ROOTTEXT}`}
           >
-            {selectedValue || placeholder}
+            {selectedItem && selectedItem.value
+              ? selectedItem.label || selectedItem.value
+              : placeholder}
           </RootText>
-          <Image
-            source={!listOpen.isOpen ? IC_ARR_DOWN : IC_ARR_UP}
-            testID={`${testID}-${TESTID.ROOTARROW}`}
-          />
+          {mode === Mode.dropdown && (
+            <Image
+              source={!listOpen.isOpen ? IC_ARR_DOWN : IC_ARR_UP}
+              testID={`${testID}-${TESTID.ROOTARROW}`}
+            />
+          )}
+          {title && (
+            <Title
+              style={[titleAnimatedStyle, disabled ? null : titleStyle]}
+              testID={`${testID}-${TESTID.TITLETEXT}`}
+            >
+              {title}
+            </Title>
+          )}
         </RootSelect>
-      </TouchableOpacity>
-      <Modal visible={listOpen.isOpen} transparent={true}>
-        <ModalBackground onPress={close} />
-        <SelectListView
-          style={{
-            shadowOffset: { width: 0, height: 5 },
-            top: listOpen.y,
-            left: listOpen.x,
-            width: listOpen.width,
-            display: listOpen ? 'flex' : 'none',
-          }}
-          testID={`${testID}-${TESTID.SELECTLISTVIEW}`}
+      </TouchableWithoutFeedback>
+
+      <Modal
+        visible={listOpen.isOpen}
+        onShow={onOpen}
+        onDismiss={onClose}
+        transparent
+      >
+        <ModalBackground
+          testID={`${testID}-${TESTID.CLOSELIST}`}
+          activeOpacity={1}
+          onPress={close}
+          style={
+            mode === Mode.dialog && { backgroundColor: 'rgba(0, 0, 0, 0.3)' }
+          }
         >
-          <SelectList
-            style={itemStyle}
-            data={items}
-            renderItem={renderItem}
-            keyExtractor={(item: Item): string => item.value}
-          />
-        </SelectListView>
+          {mode === Mode.dropdown && (
+            <DropDown
+              {...props}
+              items={items}
+              listOpen={listOpen}
+              close={close}
+              openValue={openValue}
+            />
+          )}
+          {/* Todo dialog */}
+          {mode === Mode.dialog && (
+            <Dialog
+              {...props}
+              items={items}
+              close={close}
+              openValue={openValue}
+            />
+          )}
+          {mode === Mode.picker && (
+            <Picker
+              {...props}
+              items={items}
+              listOpen={listOpen}
+              close={close}
+              openValue={openValue}
+            />
+          )}
+        </ModalBackground>
       </Modal>
-      {/* Todo dropdown */}
-      {mode === Mode.dropdown && listOpen.isOpen && (
-        <View style={{ height: 50, width: 100, backgroundColor: 'white' }} />
-      )}
-      {/* Todo dialog */}
-      {mode === Mode.dialog && listOpen.isOpen && (
-        <View style={{ height: 50, width: 100, backgroundColor: 'white' }} />
-      )}
-      {mode === Mode.picker && (
-        <Picker
-          {...props}
-          testID={`${testID}-${TESTID.PICKER}`}
-          listOpen={listOpen}
-          setListOpen={setListOpen}
-        />
-      )}
-    </View>
+    </>
   );
 }
 
 Select.defaultProps = {
   theme: ThemeEnum.none,
   placeholder: '',
-  activeOpacity: 0.8,
-  mode: Mode.picker,
+  mode: Mode.dropdown,
   showsVerticalScrollIndicator: false,
+  nullable: false,
+  nullableLabel: '',
+  selectedValue: null,
 };
 
 export default Select;

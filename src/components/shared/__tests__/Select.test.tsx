@@ -1,24 +1,32 @@
 import * as React from 'react';
 
-import { ERR_MSG_ITEMS_REQUIRED, PICKER_TEST_ID } from '../Select/Picker';
+import { Mode, ThemeEnum } from '../Select/constants';
 import {
   RenderResult,
   fireEvent,
   render,
   wait,
 } from '@testing-library/react-native';
-import Select, { Mode, Props, TESTID, ThemeEnum } from '../Select';
+import Select, { Props, TESTID } from '../Select';
 import renderer, { act } from 'react-test-renderer';
 
+import { DIALOG_TEST_ID } from '../Select/Dialog';
+import { DROPDOWN_TEST_ID } from '../Select/DropDown';
+import { PICKER_TEST_ID } from '../Select/Picker';
 import { View } from 'react-native';
 
+jest.useFakeTimers();
+
 const ITEMS = [
-  { value: 'Category1', label: 'Category1' },
-  { value: 'Category2', label: 'Category2' },
-  { value: 'Category3', label: 'Category3' },
-  { value: 'Category4', label: 'Category4' },
-  { value: 'Category5', label: 'Category5' },
-  { value: 'Category6' },
+  { value: '10', label: 'Ten' },
+  { value: '20', label: 'Twenty' },
+  { value: '30', label: 'Thirty' },
+  { value: '40', label: 'Forty' },
+  { value: '50', label: 'Fifty' },
+  { value: '60', label: 'Sixty' },
+  { value: '70', label: 'Seventy' },
+  { value: '80', label: 'Eighty' },
+  { value: '90' },
 ];
 
 type selectProp<K extends string> = {
@@ -36,12 +44,12 @@ const mockProp: selectProp<
     titleStyle: {
       color: 'green',
     },
-    rootTextStyle: {
+    textStyle: {
       color: 'orange',
     },
     items: ITEMS,
-    activeOpacity: 0.5,
     onSelect,
+    selectedValue: null,
   },
   inputTheme: {
     testID: 'select',
@@ -49,284 +57,248 @@ const mockProp: selectProp<
     title: 'inputTheme',
     placeholder: 'select',
     items: ITEMS,
-    activeOpacity: 0.5,
     onSelect,
+    selectedValue: null,
   },
   themeAndRootView: {
     testID: 'select',
     theme: ThemeEnum.box,
     title: 'themeAndRootView',
-    rootViewStyle: {
+    style: {
       borderBottomColor: 'black',
       borderBottomWidth: 2,
       backgroundColor: 'orange',
     },
     placeholder: 'select',
     items: ITEMS,
-    activeOpacity: 0.5,
     onSelect,
+    selectedValue: null,
   },
   disabled: {
     testID: 'select',
     theme: ThemeEnum.box,
     title: 'disabled',
-    rootViewStyle: {
+    style: {
       borderBottomColor: 'black',
       borderBottomWidth: 2,
       backgroundColor: 'orange',
     },
-    rootTextStyle: {
+    textStyle: {
       color: 'orange',
     },
     placeholder: 'select',
     items: ITEMS,
     disabled: true,
-    activeOpacity: 0.5,
     onSelect,
+    selectedValue: null,
   },
 };
 
 interface ObjParam {
-  case?: number;
+  case?: string;
   prop?: object;
 }
-const createTestProps = (obj: ObjParam): object => ({
-  navigation: {
-    navigate: jest.fn(),
-  },
-  items: ITEMS,
-  ...mockProp[obj.case],
-  ...obj.prop,
-});
 
-describe('[Select] render', () => {
+const createTestProps = (props): Props => {
+  return {
+    testID: 'select',
+    navigation: {
+      navigate: jest.fn(),
+    },
+    items: ITEMS,
+    onOpen: jest.fn(),
+    onClose: jest.fn(),
+    onItemPressIn: jest.fn(),
+    onItemPressOut: jest.fn(),
+    ...props,
+  };
+};
+
+const TestComponent = (props): React.ReactElement => {
+  const [selectedValue, setSelectedValue] = React.useState(
+    props.selectedValue || null,
+  );
+  let onValueChange = null;
+  if (props.onValueChange !== null) {
+    onValueChange = jest.fn((item) => {
+      setSelectedValue(item.value);
+    });
+  }
+  let onSelect = null;
+  if (props.onSelect !== null) {
+    onSelect = jest.fn((item) => {
+      setSelectedValue(item.value);
+    });
+  }
+
+  return (
+    <View
+      style={{
+        position: 'absolute',
+        left: 0,
+        top: 0,
+        width: '100%',
+        height: '100%',
+        justifyContent: 'center',
+        alignItems: 'center',
+      }}
+    >
+      <Select
+        {...props}
+        selectedValue={selectedValue}
+        onValueChange={onValueChange}
+        onSelect={onSelect}
+      />
+    </View>
+  );
+};
+
+describe('[Select][ROOT] render', () => {
   let props: Props;
   let component: React.ReactElement;
-  beforeEach(() => {
-    props = createTestProps({});
-    component = <Select {...props} />;
-  });
+  let testLib: RenderResult;
 
   it('renders without crashing', () => {
+    props = createTestProps({});
+    component = <TestComponent {...props} />;
     const rendered: renderer.ReactTestRendererJSON | null = renderer
       .create(component)
       .toJSON();
     expect(rendered).toMatchSnapshot();
-    // expect(rendered).toBeTruthy();
   });
 
-  describe('[Select] render', () => {
-    let props: Props;
-    let component: React.ReactElement;
-    beforeEach(() => {
-      props = createTestProps({});
-      component = <Select {...props} />;
+  describe('style changes according to theme', () => {
+    it('[none] If no value is set for theme props, it looks like none', () => {
+      const propsWithoutTheme = createTestProps({});
+      const component1 = <TestComponent {...propsWithoutTheme} />;
+      const testLib1 = render(component1);
+      const props = createTestProps({ theme: ThemeEnum.none });
+      const component2 = <TestComponent {...props} />;
+      const testLib2 = render(component2);
+      expect(testLib1.asJSON()).toMatchSnapshot();
+      expect(testLib2.asJSON()).toMatchSnapshot();
+      expect(testLib1.asJSON()).toEqual(testLib2.asJSON());
     });
 
-    it('renders without crashing', () => {
-      const rendered: renderer.ReactTestRendererJSON | null = renderer
-        .create(component)
-        .toJSON();
-      expect(rendered).toMatchSnapshot();
-      expect(rendered).toBeTruthy();
+    it('[underbar] If underbar is selected', () => {
+      props = createTestProps({ theme: ThemeEnum.underbar });
+      component = <TestComponent {...props} />;
+      testLib = render(component);
+      expect(testLib.asJSON()).toMatchSnapshot();
     });
 
-    describe('interactions', () => {
-      it('check theme, title, rootTextStyle, titleTextStyle, and placeholder with case "notheme"', () => {
-        const theme = 'noTheme';
-        const props = createTestProps({ case: theme });
-        const component = <Select {...props} />;
-        const testingLib = render(component);
-        const view = testingLib.queryByTestId(props.testID);
-        const selectRoot = testingLib.queryByTestId(
-          `${props.testID}-${TESTID.ROOTSELECT}`,
-        );
-        const selectRootText = testingLib.queryByTestId(
-          `${props.testID}-${TESTID.ROOTTEXT}`,
-        );
-        const selectTitleText = testingLib.queryByTestId(
-          `${props.testID}-${TESTID.TITLETEXT}`,
-        );
-        const [inputtedRootTextStyle] =
-          selectRootText.props.style &&
-          selectRootText.props.style.filter((style) => {
-            return style === mockProp[theme].rootTextStyle;
-          });
-        const [inputtedTitleTextStyle] =
-          selectTitleText.props.style &&
-          selectTitleText.props.style.filter((style) => {
-            return style === mockProp[theme].titleStyle;
-          });
-        expect(view.props.style).toEqual(mockProp[theme].style);
-        expect(selectRoot.props.theme).toEqual(ThemeEnum.none);
-        expect(selectRootText.props.theme).toEqual(ThemeEnum.blank);
-        expect(selectTitleText.props.children).toEqual(mockProp[theme].title);
-        expect(selectRootText.props.children).toEqual(
-          mockProp[theme].placeholder,
-        );
-        expect(inputtedRootTextStyle).toEqual(mockProp[theme].rootTextStyle);
-        expect(inputtedTitleTextStyle).toEqual(mockProp[theme].titleStyle);
-      });
-
-      it('check theme, title, rootTextStyle, and placeholder with case "inputTheme"', () => {
-        const theme = 'inputTheme';
-        const props = createTestProps({ case: theme });
-        const component = <Select {...props} />;
-        const testingLib = render(component);
-        const view = testingLib.queryByTestId(props.testID);
-        const selectRoot = testingLib.queryByTestId(
-          `${props.testID}-${TESTID.ROOTSELECT}`,
-        );
-        const selectRootText = testingLib.queryByTestId(
-          `${props.testID}-${TESTID.ROOTTEXT}`,
-        );
-        const selectTitleText = testingLib.queryByTestId(
-          `${props.testID}-${TESTID.TITLETEXT}`,
-        );
-        const [inputtedRootTextStyle] =
-          selectRootText.props.style &&
-          selectRootText.props.style.filter((style) => {
-            return style === mockProp[theme].rootTextStyle;
-          });
-        expect(view.props.style).toEqual(mockProp[theme].style);
-        expect(selectRoot.props.theme).toEqual(ThemeEnum.box);
-        expect(selectRootText.props.theme).toEqual(ThemeEnum.box);
-        expect(selectTitleText.props.children).toEqual(mockProp[theme].title);
-        expect(selectRootText.props.children).toEqual(
-          mockProp[theme].placeholder,
-        );
-        expect(inputtedRootTextStyle).toEqual(mockProp[theme].rootTextStyle);
-      });
-
-      it('check theme, title, rootViewStyle, and placeholder with case "themeAndRootView"', () => {
-        const theme = 'themeAndRootView';
-        const props = createTestProps({ case: theme });
-        const component = <Select {...props} />;
-        const testingLib = render(component);
-        const view = testingLib.queryByTestId(props.testID);
-        const selectRoot = testingLib.queryByTestId(
-          `${props.testID}-${TESTID.ROOTSELECT}`,
-        );
-        const selectRootText = testingLib.queryByTestId(
-          `${props.testID}-${TESTID.ROOTTEXT}`,
-        );
-        const selectTitleText = testingLib.queryByTestId(
-          `${props.testID}-${TESTID.TITLETEXT}`,
-        );
-        const [inputtedRootViewStyle] =
-          selectRoot.props.style &&
-          selectRoot.props.style.filter((style) => {
-            return style === mockProp[theme].rootViewStyle;
-          });
-        expect(view.props.style).toEqual(mockProp[theme].style);
-        expect(selectRoot.props.theme).toEqual(ThemeEnum.blank);
-        expect(selectRootText.props.theme).toEqual(ThemeEnum.box);
-        expect(selectTitleText.props.children).toEqual(mockProp[theme].title);
-        expect(selectRootText.props.children).toEqual(
-          mockProp[theme].placeholder,
-        );
-        expect(inputtedRootViewStyle).toEqual(mockProp[theme].rootViewStyle);
-      });
-
-      it('check theme, title, rootViewStyle, rootTextTheme, and placeholder with case "disabled"', () => {
-        const theme = 'disabled';
-        const props = createTestProps({ case: theme });
-        const component = <Select {...props} />;
-        const testingLib = render(component);
-        const view = testingLib.queryByTestId(props.testID);
-        const selectRoot = testingLib.queryByTestId(
-          `${props.testID}-${TESTID.ROOTSELECT}`,
-        );
-        const selectRootText = testingLib.queryByTestId(
-          `${props.testID}-${TESTID.ROOTTEXT}`,
-        );
-        const selectTitleText = testingLib.queryByTestId(
-          `${props.testID}-${TESTID.TITLETEXT}`,
-        );
-        const [inputtedRootViewStyle] =
-          selectRoot.props.style &&
-          selectRoot.props.style.filter((style) => {
-            return style === mockProp[theme].rootViewStyle;
-          });
-        const [inputtedRootTextStyle] =
-          selectRootText.props.style &&
-          selectRootText.props.style.filter((style) => {
-            return style === mockProp[theme].rootTextStyle;
-          });
-        expect(view.props.style).toEqual(mockProp[theme].style);
-        expect(selectRoot.props.theme).toEqual(ThemeEnum.disabled);
-        expect(selectRootText.props.theme).toEqual(ThemeEnum.disabled);
-        expect(selectTitleText.props.children).toEqual(mockProp[theme].title);
-        expect(selectRootText.props.children).toEqual(
-          mockProp[theme].placeholder,
-        );
-        expect(inputtedRootViewStyle).toBeUndefined();
-        expect(inputtedRootTextStyle).toBeUndefined();
-      });
+    it('[box] If underbar is selected', () => {
+      props = createTestProps({ theme: ThemeEnum.box });
+      component = <TestComponent {...props} />;
+      testLib = render(component);
+      expect(testLib.asJSON()).toMatchSnapshot();
     });
+
+    it('[disabled] If disabled is true', () => {
+      props = createTestProps({ disabled: true });
+      component = <TestComponent {...props} />;
+      testLib = render(component);
+      expect(testLib.asJSON()).toMatchSnapshot();
+    });
+  });
+});
+
+describe('[Select] render', () => {
+  const createTestProps = (obj: ObjParam): Props => ({
+    testID: 'select',
+    navigation: {
+      navigate: jest.fn(),
+    },
+    items: ITEMS,
+    onOpen: jest.fn(),
+    onClose: jest.fn(),
+    ...mockProp[obj.case],
+    ...obj.prop,
   });
 
   describe('interactions', () => {
-    let testingLib: RenderResult;
-    it('check theme, title, rootTextStyle, titleStyle, and placeholder with case "notheme"', () => {
+    it('check theme, title, textStyle, titleTextStyle, and placeholder with case "notheme"', () => {
       const theme = 'noTheme';
       const props = createTestProps({ case: theme });
-      const component = <Select {...props} />;
-      testingLib = render(component);
-      const view = testingLib.queryByTestId(props.testID);
-      const selectRoot = testingLib.queryByTestId(
-        `${props.testID}-${TESTID.ROOTSELECT}`,
+      const component = <TestComponent {...props} />;
+      const testingLib = render(component);
+      expect(testingLib.asJSON()).toMatchSnapshot();
+      const rootButton = testingLib.queryByTestId(
+        `${props.testID}-${TESTID.ROOTBUTTON}`,
       );
+      const selectRootText = testingLib.queryByTestId(
+        `${props.testID}-${TESTID.ROOTTEXT}`,
+      );
+      const [inputtedRootTextStyle] =
+        selectRootText.props.style &&
+        selectRootText.props.style.filter((style) => {
+          return style === mockProp[theme].textStyle;
+        });
+      expect(rootButton.props.theme).toEqual(ThemeEnum.none);
+      expect(selectRootText.props.theme).toEqual(ThemeEnum.blank);
+      expect(selectRootText.props.children).toEqual(
+        mockProp[theme].placeholder,
+      );
+      expect(inputtedRootTextStyle).toEqual(mockProp[theme].textStyle);
+    });
 
+    it('check theme, title, textStyle, and placeholder with case "inputTheme"', () => {
+      const theme = 'inputTheme';
+      const props = createTestProps({ case: theme });
+      const component = <Select {...props} />;
+      const testingLib = render(component);
+      const rootButton = testingLib.queryByTestId(
+        `${props.testID}-${TESTID.ROOTBUTTON}`,
+      );
       const selectRootText = testingLib.queryByTestId(
         `${props.testID}-${TESTID.ROOTTEXT}`,
       );
       const selectTitleText = testingLib.queryByTestId(
         `${props.testID}-${TESTID.TITLETEXT}`,
       );
-
       const [inputtedRootTextStyle] =
         selectRootText.props.style &&
         selectRootText.props.style.filter((style) => {
-          return style === mockProp[theme].rootTextStyle;
+          return style === mockProp[theme].textStyle;
         });
-      const [inputtedTitleTextStyle] =
-        selectTitleText.props.style &&
-        selectTitleText.props.style.filter((style) => {
-          return style === mockProp[theme].titleStyle;
-        });
-      expect(view.props.style).toEqual(mockProp[theme].style);
-      expect(selectRoot.props.theme).toEqual(ThemeEnum.none);
-      expect(selectRootText.props.theme).toEqual(ThemeEnum.blank);
+      expect(rootButton.props.theme).toEqual(ThemeEnum.box);
+      expect(selectRootText.props.theme).toEqual(ThemeEnum.box);
       expect(selectTitleText.props.children).toEqual(mockProp[theme].title);
       expect(selectRootText.props.children).toEqual(
         mockProp[theme].placeholder,
       );
-      expect(inputtedRootTextStyle).toEqual(mockProp[theme].rootTextStyle);
-      expect(inputtedTitleTextStyle).toEqual(mockProp[theme].titleStyle);
+      expect(inputtedRootTextStyle).toEqual(mockProp[theme].textStyle);
     });
 
-    it('should hide list when click list item ', () => {
-      const theme = 'disabled';
-      const props = createTestProps({
-        case: theme,
-      });
+    it('check theme, title, style, and placeholder with case "themeAndRootView"', () => {
+      const theme = 'themeAndRootView';
+      const props = createTestProps({ case: theme });
       const component = <Select {...props} />;
-      testingLib = render(component);
+      const testingLib = render(component);
       const rootButton = testingLib.queryByTestId(
         `${props.testID}-${TESTID.ROOTBUTTON}`,
       );
-      const selectListView = testingLib.queryByTestId(
-        `${props.testID}-${TESTID.SELECTLISTVIEW}`,
+      const selectRootText = testingLib.queryByTestId(
+        `${props.testID}-${TESTID.ROOTTEXT}`,
       );
-      const firstListItem = testingLib.queryByTestId(
-        `${props.testID}-${TESTID.LISTITEM}-${ITEMS[0].value}`,
+      const selectTitleText = testingLib.queryByTestId(
+        `${props.testID}-${TESTID.TITLETEXT}`,
       );
-      act(() => rootButton.props.onClick());
-      expect(selectListView.props.style[1].display).toBe('flex');
+      const [inputtedRootViewStyle] =
+        rootButton.props.style &&
+        rootButton.props.style.filter((style) => {
+          return style === mockProp[theme].style;
+        });
+      expect(rootButton.props.theme).toEqual(ThemeEnum.blank);
+      expect(selectRootText.props.theme).toEqual(ThemeEnum.box);
+      expect(selectTitleText.props.children).toEqual(mockProp[theme].title);
+      expect(selectRootText.props.children).toEqual(
+        mockProp[theme].placeholder,
+      );
+      expect(inputtedRootViewStyle).toEqual(mockProp[theme].style);
     });
 
-    it('should hide list when click root close view', () => {
+    it('check theme, title, style, rootTextTheme, and placeholder with case "disabled"', () => {
       const theme = 'disabled';
       const props = createTestProps({ case: theme });
       const component = <Select {...props} />;
@@ -334,325 +306,849 @@ describe('[Select] render', () => {
       const rootButton = testingLib.queryByTestId(
         `${props.testID}-${TESTID.ROOTBUTTON}`,
       );
-      const selectListView = testingLib.queryByTestId(
-        `${props.testID}-${TESTID.SELECTLISTVIEW}`,
+      const selectRootText = testingLib.queryByTestId(
+        `${props.testID}-${TESTID.ROOTTEXT}`,
       );
-      act(() => rootButton.props.onClick());
-      expect(selectListView.props.style[1].display).toBe('flex');
+      const selectTitleText = testingLib.queryByTestId(
+        `${props.testID}-${TESTID.TITLETEXT}`,
+      );
+      expect(rootButton.props.theme).toEqual(ThemeEnum.disabled);
+      expect(selectRootText.props.theme).toEqual(ThemeEnum.disabled);
+      expect(selectTitleText.props.children).toEqual(mockProp[theme].title);
+      expect(selectRootText.props.children).toEqual(
+        mockProp[theme].placeholder,
+      );
     });
-    it('should change placeholder', () => {
-      const theme = 'disabled';
-      const props = createTestProps({
-        case: theme,
-        selectedValue: ITEMS[0].value,
-      });
-      const component = <Select {...props} />;
-      testingLib = render(component);
-      const rootButton = testingLib.queryByTestId(
-        `${props.testID}-${TESTID.ROOTBUTTON}`,
-      );
-      const selectListView = testingLib.queryByTestId(
-        `${props.testID}-${TESTID.SELECTLISTVIEW}`,
-      );
-      act(() => rootButton.props.onClick());
-      expect(selectListView.props.style[1].display).toBe('flex');
+  });
+});
 
+describe('[DROPDOWN] interactions', () => {
+  let props: Partial<Props>;
+  let component: React.ReactElement;
+
+  beforeEach(() => {
+    props = {
+      mode: Mode.dropdown,
+      style: {
+        position: 'absolute',
+        top: 100,
+        left: 100,
+      },
+    };
+  });
+
+  describe('Check the interaction of nullable', () => {
+    beforeEach(() => {
+      props.nullable = true;
+    });
+
+    it('If nullable, the list displays null values', () => {
+      const testProps = createTestProps(props);
+      component = <TestComponent {...testProps} />;
+      const { queryByTestId, asJSON } = render(component);
+      const rootButton = queryByTestId(
+        `${testProps.testID}-${TESTID.ROOTBUTTON}`,
+      );
+      act(() => {
+        fireEvent.press(rootButton);
+      });
+      expect(asJSON()).toMatchSnapshot();
+    });
+
+    it('You can set a nullable label by entering a nullableLabel value', () => {
+      props.nullableLabel = 'none';
+      const testProps = createTestProps(props);
+      component = <TestComponent {...testProps} />;
+      const { queryByTestId, asJSON } = render(component);
+      const rootButton = queryByTestId(
+        `${testProps.testID}-${TESTID.ROOTBUTTON}`,
+      );
+      act(() => {
+        fireEvent.press(rootButton);
+      });
+      expect(asJSON()).toMatchSnapshot();
+    });
+  });
+
+  describe('Check the interaction of the theme and style', () => {
+    beforeEach(() => {
+      delete props.theme;
+    });
+
+    it('Make sure that none is applied when the theme is undefined', () => {
+      const testProps = createTestProps(props);
+      component = <TestComponent {...testProps} />;
+      const { queryByTestId, asJSON } = render(component);
+      const rootButton = queryByTestId(
+        `${testProps.testID}-${TESTID.ROOTBUTTON}`,
+      );
+      act(() => {
+        fireEvent.press(rootButton);
+      });
+      expect(asJSON()).toMatchSnapshot();
+    });
+
+    it('Make sure that box is applied when the theme is "box"', () => {
+      props.theme = ThemeEnum.box;
+      const testProps = createTestProps(props);
+      component = <TestComponent {...testProps} />;
+      const { queryByTestId, asJSON } = render(component);
+      const rootButton = queryByTestId(
+        `${testProps.testID}-${TESTID.ROOTBUTTON}`,
+      );
+      act(() => {
+        fireEvent.press(rootButton);
+      });
+      expect(asJSON()).toMatchSnapshot();
+    });
+
+    it('Make sure that default is applied when the theme is "blank"', () => {
+      props.theme = ThemeEnum.blank;
+      const testProps = createTestProps(props);
+      component = <TestComponent {...testProps} />;
+      const { queryByTestId, asJSON } = render(component);
+      const rootButton = queryByTestId(
+        `${testProps.testID}-${TESTID.ROOTBUTTON}`,
+      );
+      act(() => {
+        fireEvent.press(rootButton);
+      });
+      expect(asJSON()).toMatchSnapshot();
+    });
+
+    it('Make sure that default is applied when the theme is "underbar"', () => {
+      props.theme = ThemeEnum.underbar;
+      const testProps = createTestProps(props);
+      component = <TestComponent {...testProps} />;
+      const { queryByTestId, asJSON } = render(component);
+      const rootButton = queryByTestId(
+        `${testProps.testID}-${TESTID.ROOTBUTTON}`,
+      );
+      act(() => {
+        fireEvent.press(rootButton);
+      });
+      expect(asJSON()).toMatchSnapshot();
+    });
+  });
+
+  describe('Check the interaction of the custom style', () => {
+    it(`Check that the top and left styles disappear
+    when you apply bottom and right styles to the listStyle`, () => {
+      props.listStyle = {
+        right: 0,
+        bottom: 0,
+      };
+      const testProps = createTestProps(props);
+      component = <TestComponent {...testProps} />;
+      const { queryByTestId, asJSON } = render(component);
+      const rootButton = queryByTestId(
+        `${testProps.testID}-${TESTID.ROOTBUTTON}`,
+      );
+      act(() => {
+        fireEvent.press(rootButton);
+      });
+      expect(asJSON()).toMatchSnapshot();
+    });
+
+    it(`Check that the top and left styles disappear
+    when you apply bottom and right styles to the itemStyle`, () => {
+      props.itemViewStyle = {};
+      let testProps = createTestProps(props);
+      component = <TestComponent {...testProps} />;
+      let testingLib = render(component);
+      let rootButton = testingLib.queryByTestId(
+        `${testProps.testID}-${TESTID.ROOTBUTTON}`,
+      );
+      act(() => {
+        fireEvent.press(rootButton);
+      });
+      expect(testingLib.asJSON()).toMatchSnapshot();
+      props.itemViewStyle = { height: 20 };
+      testProps = createTestProps(props);
+      component = <TestComponent {...testProps} />;
+      testingLib = render(component);
+      rootButton = testingLib.queryByTestId(
+        `${testProps.testID}-${TESTID.ROOTBUTTON}`,
+      );
+      act(() => {
+        fireEvent.press(rootButton);
+      });
+      expect(testingLib.asJSON()).toMatchSnapshot();
+    });
+
+    it('If bottom and right are not applied to listStyle, the default value is applied', () => {
+      props.listStyle = {};
+      const testProps = createTestProps(props);
+      component = <TestComponent {...testProps} />;
+      const { queryByTestId, asJSON } = render(component);
+      const rootButton = queryByTestId(
+        `${testProps.testID}-${TESTID.ROOTBUTTON}`,
+      );
+      act(() => {
+        fireEvent.press(rootButton);
+      });
+      expect(asJSON()).toMatchSnapshot();
+    });
+  });
+
+  describe('Check the interaction based on user behavior', () => {
+    let testingLib: RenderResult;
+    let rootButton;
+    let testProps;
+    beforeEach(() => {
+      testProps = createTestProps(props);
+      component = <TestComponent {...testProps} />;
+      testingLib = render(component);
+      rootButton = testingLib.queryByTestId(
+        `${testProps.testID}-${TESTID.ROOTBUTTON}`,
+      );
+      act(() => {
+        fireEvent.press(rootButton);
+      });
+    });
+
+    it('If you do not define onSelect, the item is not selected', () => {
+      testProps = createTestProps(props);
+      testProps.onSelect = null;
+      component = <TestComponent {...testProps} />;
+      testingLib = render(component);
+      rootButton = testingLib.queryByTestId(
+        `${testProps.testID}-${TESTID.ROOTBUTTON}`,
+      );
+      act(() => {
+        fireEvent.press(rootButton);
+      });
+      const item = testingLib.queryByTestId(
+        `${testProps.testID}-${DROPDOWN_TEST_ID.ITEM}-0`,
+      );
+      act(() => {
+        fireEvent.pressIn(item);
+        fireEvent.pressOut(item);
+        fireEvent.press(item);
+      });
+      expect(testingLib.asJSON()).toMatchSnapshot();
+    });
+
+    it('Enter onSelect and click the item to call the callback to change the selected value', () => {
+      testProps = createTestProps(props);
+      component = <TestComponent {...testProps} />;
+      testingLib = render(component);
+      rootButton = testingLib.queryByTestId(
+        `${testProps.testID}-${TESTID.ROOTBUTTON}`,
+      );
+      act(() => {
+        fireEvent.press(rootButton);
+      });
+      const item = testingLib.queryByTestId(
+        `${testProps.testID}-${DROPDOWN_TEST_ID.ITEM}-0`,
+      );
+      act(() => {
+        fireEvent.pressIn(item);
+        fireEvent.pressOut(item);
+        fireEvent.press(item);
+      });
       expect(testingLib.asJSON()).toMatchSnapshot();
     });
   });
 
-  describe('Interaction when mode is picker', () => {
-    let props: Partial<Props>;
-    let component: React.ReactElement;
-    const createTestProps = (props): Props => {
-      return {
-        testID: 'select',
-        navigation: {
-          navigate: jest.fn(),
-        },
-        items: ITEMS,
-        onShow: jest.fn(),
-        onDismiss: jest.fn(),
-
-        ...props,
-      };
-    };
-
-    const TestComponent = (props): React.ReactElement => {
-      const [selectedValue, setSelectedValue] = React.useState(ITEMS[0].value);
-      const onValueChange = jest.fn((item, index) => {
-        setSelectedValue(item.value);
-      });
-      return (
-        <View
-          style={{
-            justifyContent: 'center',
-            alignItems: 'center',
-            width: 300,
-            height: 400,
-          }}
-        >
-          <Select
-            {...props}
-            selectedValue={selectedValue}
-            onValueChange={onValueChange}
-          />
-        </View>
+  describe('Check the interaction other props', () => {
+    it('Given a selected value, the initial position of the list is determined', () => {
+      props.selectedValue = '90';
+      const testProps = createTestProps(props);
+      const component = <TestComponent {...testProps} />;
+      const testingLib = render(component);
+      const rootButton = testingLib.queryByTestId(
+        `${testProps.testID}-${TESTID.ROOTBUTTON}`,
       );
-    };
+      act(() => {
+        fireEvent.press(rootButton);
+      });
+      expect(testingLib.asJSON()).toMatchSnapshot();
+    });
+  });
+});
 
+describe('[DIALOG] interactions', () => {
+  let props: Partial<Props>;
+  let component: React.ReactElement;
+
+  beforeEach(() => {
+    props = {
+      mode: Mode.dialog,
+      style: {
+        position: 'absolute',
+        top: 100,
+        left: 100,
+      },
+    };
+  });
+
+  describe('Check the interaction of nullable', () => {
     beforeEach(() => {
-      props = {
-        mode: Mode.picker,
-        rootViewStyle: {
-          position: 'absolute',
-          top: 100,
-          left: 100,
-        },
+      props.nullable = true;
+    });
+
+    it('If nullable, the list displays null values', () => {
+      const testProps = createTestProps(props);
+      component = <TestComponent {...testProps} />;
+      const { queryByTestId, asJSON } = render(component);
+      const rootButton = queryByTestId(
+        `${testProps.testID}-${TESTID.ROOTBUTTON}`,
+      );
+      act(() => {
+        fireEvent.press(rootButton);
+      });
+      expect(asJSON()).toMatchSnapshot();
+    });
+
+    it('You can set a nullable label by entering a nullableLabel value', () => {
+      props.nullableLabel = 'none';
+      const testProps = createTestProps(props);
+      component = <TestComponent {...testProps} />;
+      const { queryByTestId, asJSON } = render(component);
+      const rootButton = queryByTestId(
+        `${testProps.testID}-${TESTID.ROOTBUTTON}`,
+      );
+      act(() => {
+        fireEvent.press(rootButton);
+      });
+      expect(asJSON()).toMatchSnapshot();
+    });
+  });
+
+  describe('Check the interaction of title', () => {
+    beforeEach(() => {
+      props.title = 'title';
+    });
+
+    it('If there is a title, it is displayed at the top', () => {
+      const testProps = createTestProps(props);
+      component = <TestComponent {...testProps} />;
+      const { queryByTestId, asJSON } = render(component);
+      const rootButton = queryByTestId(
+        `${testProps.testID}-${TESTID.ROOTBUTTON}`,
+      );
+      act(() => {
+        fireEvent.press(rootButton);
+      });
+      expect(asJSON()).toMatchSnapshot();
+    });
+
+    it('Entering listTitleStyle changes the style of the title', () => {
+      props.listTitleStyle = {
+        fontSize: 20,
+      };
+      const testProps = createTestProps(props);
+      component = <TestComponent {...testProps} />;
+      const { queryByTestId, asJSON } = render(component);
+      const rootButton = queryByTestId(
+        `${testProps.testID}-${TESTID.ROOTBUTTON}`,
+      );
+      act(() => {
+        fireEvent.press(rootButton);
+      });
+      expect(asJSON()).toMatchSnapshot();
+    });
+  });
+
+  describe('Check the interaction of the theme and style', () => {
+    beforeEach(() => {
+      delete props.theme;
+    });
+
+    it('Make sure that none is applied when the theme is undefined', () => {
+      const testProps = createTestProps(props);
+      component = <TestComponent {...testProps} />;
+      const { queryByTestId, asJSON } = render(component);
+      const rootButton = queryByTestId(
+        `${testProps.testID}-${TESTID.ROOTBUTTON}`,
+      );
+      act(() => {
+        fireEvent.press(rootButton);
+      });
+      expect(asJSON()).toMatchSnapshot();
+    });
+
+    it('Make sure that box is applied when the theme is "box"', () => {
+      props.theme = ThemeEnum.box;
+      const testProps = createTestProps(props);
+      component = <TestComponent {...testProps} />;
+      const { queryByTestId, asJSON } = render(component);
+      const rootButton = queryByTestId(
+        `${testProps.testID}-${TESTID.ROOTBUTTON}`,
+      );
+      act(() => {
+        fireEvent.press(rootButton);
+      });
+      expect(asJSON()).toMatchSnapshot();
+    });
+
+    it('Make sure that default is applied when the theme is "blank"', () => {
+      props.theme = ThemeEnum.blank;
+      const testProps = createTestProps(props);
+      component = <TestComponent {...testProps} />;
+      const { queryByTestId, asJSON } = render(component);
+      const rootButton = queryByTestId(
+        `${testProps.testID}-${TESTID.ROOTBUTTON}`,
+      );
+      act(() => {
+        fireEvent.press(rootButton);
+      });
+      expect(asJSON()).toMatchSnapshot();
+    });
+
+    it('Make sure that default is applied when the theme is "underbar"', () => {
+      props.theme = ThemeEnum.underbar;
+      const testProps = createTestProps(props);
+      component = <TestComponent {...testProps} />;
+      const { queryByTestId, asJSON } = render(component);
+      const rootButton = queryByTestId(
+        `${testProps.testID}-${TESTID.ROOTBUTTON}`,
+      );
+      act(() => {
+        fireEvent.press(rootButton);
+      });
+      expect(asJSON()).toMatchSnapshot();
+    });
+  });
+
+  describe('Check the interaction of the custom style', () => {
+    it(`Check that the top and left styles disappear
+    when you apply bottom and right styles to the listStyle`, () => {
+      props.listStyle = {
+        right: 0,
+        bottom: 0,
+      };
+      const testProps = createTestProps(props);
+      component = <TestComponent {...testProps} />;
+      const { queryByTestId, asJSON } = render(component);
+      const rootButton = queryByTestId(
+        `${testProps.testID}-${TESTID.ROOTBUTTON}`,
+      );
+      act(() => {
+        fireEvent.press(rootButton);
+      });
+      expect(asJSON()).toMatchSnapshot();
+    });
+
+    it(`Check that the top and left styles disappear
+    when you apply bottom and right styles to the itemStyle`, () => {
+      props.itemViewStyle = {};
+      let testProps = createTestProps(props);
+      component = <TestComponent {...testProps} />;
+      let testingLib = render(component);
+      let rootButton = testingLib.queryByTestId(
+        `${testProps.testID}-${TESTID.ROOTBUTTON}`,
+      );
+      act(() => {
+        fireEvent.press(rootButton);
+      });
+      expect(testingLib.asJSON()).toMatchSnapshot();
+      props.itemViewStyle = { height: 20 };
+      testProps = createTestProps(props);
+      component = <TestComponent {...testProps} />;
+      testingLib = render(component);
+      rootButton = testingLib.queryByTestId(
+        `${testProps.testID}-${TESTID.ROOTBUTTON}`,
+      );
+      act(() => {
+        fireEvent.press(rootButton);
+      });
+      expect(testingLib.asJSON()).toMatchSnapshot();
+    });
+
+    it('If bottom and right are not applied to listStyle, the default value is applied', () => {
+      props.listStyle = {};
+      const testProps = createTestProps(props);
+      component = <TestComponent {...testProps} />;
+      const { queryByTestId, asJSON } = render(component);
+      const rootButton = queryByTestId(
+        `${testProps.testID}-${TESTID.ROOTBUTTON}`,
+      );
+      act(() => {
+        fireEvent.press(rootButton);
+      });
+      expect(asJSON()).toMatchSnapshot();
+    });
+  });
+
+  describe('Check the interaction based on user behavior', () => {
+    let testingLib: RenderResult;
+    let rootButton;
+    let testProps;
+    beforeEach(() => {
+      testProps = createTestProps(props);
+      component = <TestComponent {...testProps} />;
+      testingLib = render(component);
+      rootButton = testingLib.queryByTestId(
+        `${testProps.testID}-${TESTID.ROOTBUTTON}`,
+      );
+      act(() => {
+        fireEvent.press(rootButton);
+      });
+    });
+
+    it('If you do not define onSelect, the item is not selected', () => {
+      testProps = createTestProps(props);
+      testProps.onSelect = null;
+      component = <TestComponent {...testProps} />;
+      testingLib = render(component);
+      rootButton = testingLib.queryByTestId(
+        `${testProps.testID}-${TESTID.ROOTBUTTON}`,
+      );
+      act(() => {
+        fireEvent.press(rootButton);
+      });
+      const item = testingLib.queryByTestId(
+        `${testProps.testID}-${DIALOG_TEST_ID.ITEM}-0`,
+      );
+      act(() => {
+        fireEvent.pressIn(item);
+        fireEvent.pressOut(item);
+        fireEvent.press(item);
+      });
+      expect(testingLib.asJSON()).toMatchSnapshot();
+    });
+
+    it('Enter onSelect and click the item to call the callback to change the selected value', () => {
+      testProps = createTestProps(props);
+      component = <TestComponent {...testProps} />;
+      testingLib = render(component);
+      rootButton = testingLib.queryByTestId(
+        `${testProps.testID}-${TESTID.ROOTBUTTON}`,
+      );
+      act(() => {
+        fireEvent.press(rootButton);
+      });
+      const item = testingLib.queryByTestId(
+        `${testProps.testID}-${DIALOG_TEST_ID.ITEM}-0`,
+      );
+      act(() => {
+        fireEvent.pressIn(item);
+        fireEvent.pressOut(item);
+        fireEvent.press(item);
+      });
+      expect(testingLib.asJSON()).toMatchSnapshot();
+    });
+  });
+
+  describe('Check the interaction other props', () => {
+    it('Given a selected value, the initial position of the list is determined', () => {
+      props.selectedValue = '30';
+      const testProps = createTestProps(props);
+      const component = <TestComponent {...testProps} />;
+      const testingLib = render(component);
+      const rootButton = testingLib.queryByTestId(
+        `${testProps.testID}-${TESTID.ROOTBUTTON}`,
+      );
+      act(() => {
+        fireEvent.press(rootButton);
+      });
+      expect(testingLib.asJSON()).toMatchSnapshot();
+    });
+  });
+});
+
+describe('[PICKER] interactions', () => {
+  let props: Partial<Props>;
+  let component: React.ReactElement;
+
+  beforeEach(() => {
+    props = {
+      mode: Mode.picker,
+      style: {
+        position: 'absolute',
+        top: 100,
+        left: 100,
+      },
+    };
+  });
+
+  describe('Check the interaction of nullable', () => {
+    beforeEach(() => {
+      props.nullable = true;
+    });
+
+    it('If nullable, the list displays null values', () => {
+      const testProps = createTestProps(props);
+      component = <TestComponent {...testProps} />;
+      const { queryByTestId, asJSON } = render(component);
+      const rootButton = queryByTestId(
+        `${testProps.testID}-${TESTID.ROOTBUTTON}`,
+      );
+      act(() => {
+        fireEvent.press(rootButton);
+      });
+      expect(asJSON()).toMatchSnapshot();
+    });
+
+    it('You can set a nullable label by entering a nullableLabel value', () => {
+      props.nullableLabel = 'none';
+      const testProps = createTestProps(props);
+      component = <TestComponent {...testProps} />;
+      const { queryByTestId, asJSON } = render(component);
+      const rootButton = queryByTestId(
+        `${testProps.testID}-${TESTID.ROOTBUTTON}`,
+      );
+      act(() => {
+        fireEvent.press(rootButton);
+      });
+      expect(asJSON()).toMatchSnapshot();
+    });
+  });
+
+  describe('Check the interaction of the theme and style', () => {
+    beforeEach(() => {
+      delete props.theme;
+    });
+
+    it('Make sure that none is applied when the theme is undefined', () => {
+      const testProps = createTestProps(props);
+      component = <TestComponent {...testProps} />;
+      const { queryByTestId, asJSON } = render(component);
+      const rootButton = queryByTestId(
+        `${testProps.testID}-${TESTID.ROOTBUTTON}`,
+      );
+      act(() => {
+        fireEvent.press(rootButton);
+      });
+      expect(asJSON()).toMatchSnapshot();
+    });
+
+    it('Make sure that box is applied when the theme is "box"', () => {
+      props.theme = ThemeEnum.box;
+      const testProps = createTestProps(props);
+      component = <TestComponent {...testProps} />;
+      const { queryByTestId, asJSON } = render(component);
+      const rootButton = queryByTestId(
+        `${testProps.testID}-${TESTID.ROOTBUTTON}`,
+      );
+      act(() => {
+        fireEvent.press(rootButton);
+      });
+      expect(asJSON()).toMatchSnapshot();
+    });
+
+    it('Make sure that default is applied when the theme is "blank"', () => {
+      props.theme = ThemeEnum.blank;
+      const testProps = createTestProps(props);
+      component = <TestComponent {...testProps} />;
+      const { queryByTestId, asJSON } = render(component);
+      const rootButton = queryByTestId(
+        `${testProps.testID}-${TESTID.ROOTBUTTON}`,
+      );
+      act(() => {
+        fireEvent.press(rootButton);
+      });
+      expect(asJSON()).toMatchSnapshot();
+    });
+
+    it('Make sure that default is applied when the theme is "underbar"', () => {
+      props.theme = ThemeEnum.underbar;
+      const testProps = createTestProps(props);
+      component = <TestComponent {...testProps} />;
+      const { queryByTestId, asJSON } = render(component);
+      const rootButton = queryByTestId(
+        `${testProps.testID}-${TESTID.ROOTBUTTON}`,
+      );
+      act(() => {
+        fireEvent.press(rootButton);
+      });
+      expect(asJSON()).toMatchSnapshot();
+    });
+  });
+
+  describe('Check the interaction of the custom style', () => {
+    it(`Check that the top and left styles disappear
+    when you apply bottom and right styles to the listStyle`, () => {
+      props.listStyle = {
+        right: 0,
+        bottom: 0,
+      };
+      const testProps = createTestProps(props);
+      component = <TestComponent {...testProps} />;
+      const { queryByTestId, asJSON } = render(component);
+      const rootButton = queryByTestId(
+        `${testProps.testID}-${TESTID.ROOTBUTTON}`,
+      );
+      act(() => {
+        fireEvent.press(rootButton);
+      });
+      expect(asJSON()).toMatchSnapshot();
+    });
+
+    it(`Check that the top and left styles disappear
+    when you apply bottom and right styles to the itemStyle`, () => {
+      props.itemViewStyle = {};
+      let testProps = createTestProps(props);
+      component = <TestComponent {...testProps} />;
+      let testingLib = render(component);
+      let rootButton = testingLib.queryByTestId(
+        `${testProps.testID}-${TESTID.ROOTBUTTON}`,
+      );
+      act(() => {
+        fireEvent.press(rootButton);
+      });
+      expect(testingLib.asJSON()).toMatchSnapshot();
+      props.itemViewStyle = { height: 20 };
+      testProps = createTestProps(props);
+      component = <TestComponent {...testProps} />;
+      testingLib = render(component);
+      rootButton = testingLib.queryByTestId(
+        `${testProps.testID}-${TESTID.ROOTBUTTON}`,
+      );
+      act(() => {
+        fireEvent.press(rootButton);
+      });
+      expect(testingLib.asJSON()).toMatchSnapshot();
+    });
+
+    it('If bottom and right are not applied to listStyle, the default value is applied', () => {
+      props.listStyle = {};
+      const testProps = createTestProps(props);
+      component = <TestComponent {...testProps} />;
+      const { queryByTestId, asJSON } = render(component);
+      const rootButton = queryByTestId(
+        `${testProps.testID}-${TESTID.ROOTBUTTON}`,
+      );
+      act(() => {
+        fireEvent.press(rootButton);
+      });
+      expect(asJSON()).toMatchSnapshot();
+    });
+  });
+
+  describe('Check the interaction based on user behavior', () => {
+    let testingLib: RenderResult;
+    let rootButton;
+    let testProps;
+    let nativeEvent;
+    beforeEach(() => {
+      testProps = createTestProps(props);
+      component = <TestComponent {...testProps} />;
+      testingLib = render(component);
+      rootButton = testingLib.queryByTestId(
+        `${testProps.testID}-${TESTID.ROOTBUTTON}`,
+      );
+      act(() => {
+        fireEvent.press(rootButton);
+      });
+      nativeEvent = {
+        contentOffset: { y: 0, x: 0 },
+        layoutMeasurement: { width: 128, height: 400 },
+        contentSize: { width: 128, height: 240 },
+        zoomScale: 1,
+        contentInset: { right: 0, top: 0, left: 0, bottom: 0 },
       };
     });
 
-    // it('If there are no items in props, an error is displayed', () => {
-    //   const testProps = createTestProps(props);
-    //   delete testProps.items;
-    //   component = createTestComponent(testProps);
-    //   try {
-    //     render(component);
-    //   } catch (error) {
-    //     expect(error).toEqual(new Error(ERR_MSG_ITEMS_REQUIRED));
-    //   }
-    // });
-
-    describe('Check the interaction of the theme and style', () => {
-      beforeEach(() => {
-        delete props.theme;
+    it('If onValueChange is not defined, no callback is executed', () => {
+      testProps.onValueChange = null;
+      component = <TestComponent {...testProps} />;
+      testingLib = render(component);
+      rootButton = testingLib.queryByTestId(
+        `${testProps.testID}-${TESTID.ROOTBUTTON}`,
+      );
+      act(() => {
+        fireEvent.press(rootButton);
       });
-
-      it('Make sure that none is applied when the theme is undefined', () => {
-        const testProps = createTestProps(props);
-        component = <TestComponent {...testProps} />;
-        const { queryByTestId, asJSON } = render(component);
-        const rootButton = queryByTestId(
-          `${testProps.testID}-${TESTID.ROOTBUTTON}`,
-        );
-        act(() => {
-          fireEvent.press(rootButton);
-        });
-        expect(asJSON()).toMatchSnapshot();
-      });
-
-      it('Make sure that box is applied when the theme is "box"', () => {
-        props.theme = ThemeEnum.box;
-        const testProps = createTestProps(props);
-        component = <TestComponent {...testProps} />;
-        const { queryByTestId, asJSON } = render(component);
-        const rootButton = queryByTestId(
-          `${testProps.testID}-${TESTID.ROOTBUTTON}`,
-        );
-        act(() => {
-          fireEvent.press(rootButton);
-        });
-        expect(asJSON()).toMatchSnapshot();
-      });
-
-      it('Make sure that default is applied when the theme is "blank"', () => {
-        props.theme = ThemeEnum.blank;
-        const testProps = createTestProps(props);
-        component = <TestComponent {...testProps} />;
-        const { queryByTestId, asJSON } = render(component);
-        const rootButton = queryByTestId(
-          `${testProps.testID}-${TESTID.ROOTBUTTON}`,
-        );
-        act(() => {
-          fireEvent.press(rootButton);
-        });
-        expect(asJSON()).toMatchSnapshot();
-      });
-
-      it('Make sure that default is applied when the theme is "underbar"', () => {
-        props.theme = ThemeEnum.underbar;
-        const testProps = createTestProps(props);
-        component = <TestComponent {...testProps} />;
-        const { queryByTestId, asJSON } = render(component);
-        const rootButton = queryByTestId(
-          `${testProps.testID}-${TESTID.ROOTBUTTON}`,
-        );
-        act(() => {
-          fireEvent.press(rootButton);
-        });
-        expect(asJSON()).toMatchSnapshot();
-      });
+      const list = testingLib.queryByTestId(
+        `${testProps.testID}-${PICKER_TEST_ID.LIST}`,
+      );
+      for (let i = -1; i < 40; i++) {
+        nativeEvent.contentOffset.y = i * 10;
+        list.props.onScroll({ nativeEvent });
+      }
     });
 
-    describe('Check the interaction of the custom style', () => {
-      it(`Check that the top and left styles disappear 
-      when you apply bottom and right styles to the itemListStyle`, () => {
-        props.itemListStyle = {
-          right: 0,
-          bottom: 0,
-        };
-        const testProps = createTestProps(props);
-        component = <TestComponent {...testProps} />;
-        const { queryByTestId, asJSON } = render(component);
-        const rootButton = queryByTestId(
-          `${testProps.testID}-${TESTID.ROOTBUTTON}`,
-        );
-        act(() => {
-          fireEvent.press(rootButton);
-        });
-        expect(asJSON()).toMatchSnapshot();
+    it('This list disappears when you press a part other than the list', () => {
+      const close = testingLib.queryByTestId(
+        `${testProps.testID}-${TESTID.CLOSELIST}`,
+      );
+      act(() => {
+        fireEvent.press(close);
       });
-
-      it(`Check that the top and left styles disappear 
-      when you apply bottom and right styles to the itemStyle`, () => {
-        props.itemViewStyle = {};
-        let testProps = createTestProps(props);
-        component = <TestComponent {...testProps} />;
-        let testingLib = render(component);
-        let rootButton = testingLib.queryByTestId(
-          `${testProps.testID}-${TESTID.ROOTBUTTON}`,
-        );
-        act(() => {
-          fireEvent.press(rootButton);
-        });
-        expect(testingLib.asJSON()).toMatchSnapshot();
-        props.itemViewStyle = { height: 20 };
-        testProps = createTestProps(props);
-        component = <TestComponent {...testProps} />;
-        testingLib = render(component);
-        rootButton = testingLib.queryByTestId(
-          `${testProps.testID}-${TESTID.ROOTBUTTON}`,
-        );
-        act(() => {
-          fireEvent.press(rootButton);
-        });
-        expect(testingLib.asJSON()).toMatchSnapshot();
-      });
-
-      it('If bottom and right are not applied to itemListStyle, the default value is applied', () => {
-        props.itemListStyle = {};
-        const testProps = createTestProps(props);
-        component = <TestComponent {...testProps} />;
-        const { queryByTestId, asJSON } = render(component);
-        const rootButton = queryByTestId(testProps.testID);
-        act(() => {
-          fireEvent.press(rootButton);
-        });
-        expect(asJSON()).toMatchSnapshot();
-      });
+      expect(testingLib.asJSON()).toMatchSnapshot();
     });
 
-    describe('Check the interaction based on user behavior', () => {
-      let testingLib: RenderResult;
-      let rootButton;
-      let testProps;
-      let nativeEvent;
-      beforeEach(() => {
-        testProps = createTestProps(props);
-        component = <TestComponent {...testProps} />;
-        testingLib = render(component);
-        rootButton = testingLib.queryByTestId(
-          `${testProps.testID}-${TESTID.ROOTBUTTON}`,
-        );
-        act(() => {
-          fireEvent.press(rootButton);
-        });
-        nativeEvent = {
-          contentOffset: { y: 0, x: 0 },
-          layoutMeasurement: { width: 128, height: 400 },
-          contentSize: { width: 128, height: 240 },
-          zoomScale: 1,
-          contentInset: { right: 0, top: 0, left: 0, bottom: 0 },
-        };
+    it('Pressing on an item that is not selected will move to scroll', () => {
+      const item = testingLib.queryByTestId(
+        `${testProps.testID}-${PICKER_TEST_ID.ITEM}-3`,
+      );
+      act(() => {
+        fireEvent.press(item);
       });
+      expect(testingLib.asJSON()).toMatchSnapshot();
+    });
 
-      it('If onValueChange is not defined, no callback is executed', () => {
-        delete testProps.onValueChange;
-        component = <TestComponent {...testProps} />;
-        testingLib = render(component);
-        rootButton = testingLib.queryByTestId(
-          `${testProps.testID}-${TESTID.ROOTBUTTON}`,
-        );
+    it('The list disappears when the selected item is pressed.', () => {
+      testProps.selectedValue = '10';
+      component = <TestComponent {...testProps} />;
+      testingLib = render(component);
+      rootButton = testingLib.queryByTestId(
+        `${testProps.testID}-${TESTID.ROOTBUTTON}`,
+      );
+      const item = testingLib.queryByTestId(
+        `${testProps.testID}-${PICKER_TEST_ID.ITEM}-0`,
+      );
+      act(() => {
+        fireEvent.press(item);
+      });
+      expect(testingLib.asJSON()).toMatchSnapshot();
+    });
+
+    it('called callback function when move to scroll', async () => {
+      const list = testingLib.queryByTestId(
+        `${testProps.testID}-${PICKER_TEST_ID.LIST}`,
+      );
+      list.props.getItemLayout();
+      list.props.onScrollBeginDrag();
+      for (let i = -1; i < 30; i++) {
         act(() => {
-          fireEvent.press(rootButton);
-        });
-        const list = testingLib.queryByTestId(
-          `${testProps.testID}-picker-${PICKER_TEST_ID.LIST}`,
-        );
-        for (let i = -1; i < 30; i++) {
           nativeEvent.contentOffset.y = i * 10;
           list.props.onScroll({ nativeEvent });
-        }
-      });
-
-      it('This list disappears when you press a part other than the list', () => {
-        const close = testingLib.queryByTestId(
-          `${testProps.testID}-picker-${PICKER_TEST_ID.CLOSE}`,
-        );
-        act(() => {
-          fireEvent.press(close);
         });
-        expect(testingLib.asJSON()).toMatchSnapshot();
-      });
+      }
 
-      it('Pressing on an item that is not selected will move to scroll', () => {
-        const item = testingLib.queryByTestId(
-          `${testProps.testID}-picker-${PICKER_TEST_ID.ITEM}-3`,
-        );
-        act(() => {
-          fireEvent.press(item);
-        });
-        expect(testingLib.asJSON()).toMatchSnapshot();
-      });
-
-      it('The list disappears when the selected item is pressed.', () => {
-        const item = testingLib.queryByTestId(
-          `${testProps.testID}-picker-${PICKER_TEST_ID.ITEM}-0`,
-        );
-        act(() => {
-          fireEvent.press(item);
-        });
-        expect(testingLib.asJSON()).toMatchSnapshot();
-      });
-
-      it('called callback function when move to scroll', async () => {
-        const list = testingLib.queryByTestId(
-          `${testProps.testID}-picker-${PICKER_TEST_ID.LIST}`,
-        );
-        list.props.getItemLayout();
-
-        list.props.onScrollBeginDrag();
-        for (let i = -1; i < 20; i++) {
-          nativeEvent.contentOffset.y = i * 10;
-          list.props.onScroll({ nativeEvent });
-        }
-        list.props.onScrollEndDrag({ nativeEvent });
+      list.props.onScrollEndDrag({ nativeEvent });
+      act(() => {
         fireEvent.scrollEndDrag(list);
-        await wait(() => {});
+      });
+      await wait(() => {});
 
-        list.props.onMomentumScrollBegin();
-        list.props.onMomentumScrollEnd();
+      list.props.onMomentumScrollBegin();
+      list.props.onMomentumScrollEnd();
+      act(() => {
         fireEvent.momentumScrollEnd(list);
-        await wait(() => {});
-
-        list.props.onMomentumScrollEnd();
       });
+      await wait(() => {});
+
+      list.props.onMomentumScrollEnd();
+      jest.runAllTimers();
+      list.props.onMomentumScrollEnd();
+      list.props.onScrollEndDrag({ nativeEvent });
+
+      list.props.onScrollBeginDrag();
+      jest.runAllTimers();
+      list.props.onScrollEndDrag({ nativeEvent });
+      list.props.onMomentumScrollEnd();
+      jest.runAllTimers();
     });
+  });
 
-    describe('Check the interaction other props', () => {
-      it('Given a selected value, the initial position of the list is determined', () => {
-        props.selectedValue = 'Category3';
-        const testProps = createTestProps(props);
-        const component = <TestComponent {...testProps} />;
-        const testingLib = render(component);
-        const rootButton = testingLib.queryByTestId(
-          `${testProps.testID}-${TESTID.ROOTBUTTON}`,
-        );
-        act(() => {
-          fireEvent.press(rootButton);
-        });
-        expect(testingLib.asJSON()).toMatchSnapshot();
+  describe('Check the interaction other props', () => {
+    it('Given a selected value, the initial position of the list is determined', () => {
+      props.selectedValue = 'Category3';
+      const testProps = createTestProps(props);
+      const component = <TestComponent {...testProps} />;
+      const testingLib = render(component);
+      const rootButton = testingLib.queryByTestId(
+        `${testProps.testID}-${TESTID.ROOTBUTTON}`,
+      );
+      act(() => {
+        fireEvent.press(rootButton);
       });
+      expect(testingLib.asJSON()).toMatchSnapshot();
     });
   });
 });
