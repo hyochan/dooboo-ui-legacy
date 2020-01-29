@@ -151,7 +151,7 @@ export default function AutoComplete({
   const adjustedStyle = useMemo(
     () => ({
       ...style,
-      width: isFocused ? screenWidth - (2 * inputMargin) : (style?.width ?? DEFAULT_WIDTH),
+      width: (isFocused && screenWidth) ? screenWidth - (2 * inputMargin) : (style?.width ?? DEFAULT_WIDTH),
     }),
     [style, isFocused],
   );
