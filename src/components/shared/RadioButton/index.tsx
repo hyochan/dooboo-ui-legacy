@@ -27,7 +27,7 @@ interface IRadioButtonProps {
   selected?: boolean;
   size?: number;
   label?: string;
-  labelPlacement?: string;
+  labelPlacement?: 'start' | 'top' | 'bottom' | 'end';
 }
 
 const DEFAULT_CIRCLE: {
@@ -121,7 +121,7 @@ function RadioButton(props: IRadioButtonProps): React.ReactElement {
     disabled,
     selected,
     label,
-    labelPlacement,
+    labelPlacement = 'end',
     color = DEFAULT_CIRCLE.COLOR,
     size = parseInt(DEFAULT_CIRCLE.OUTER_SIZE),
   } = props;
