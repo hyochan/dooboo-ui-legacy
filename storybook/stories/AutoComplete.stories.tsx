@@ -53,7 +53,6 @@ function Default(): React.ReactElement {
         debounceDelay={number('debounceDelay', 400, debounceOptions)}
         placeholderText={text('placeholder', 'Choose a country')}
         underlayColor={color('underlayColor', 'black')}
-        storybook
       />
     </InnerWrapper>
   );
@@ -86,7 +85,6 @@ function Multiple(): React.ReactElement {
           debounceDelay={number(`${orderLabel[index]} debounceDelay`, 400, debounceOptions, 'inputs')}
           placeholderText={text(`${orderLabel[index]} placeholder`, 'Choose a country', 'inputs')}
           underlayColor={color(`${orderLabel[index]} underlayColor`, 'black', 'inputs')}
-          storybook
         />
       ))}
     </InnerWrapper>

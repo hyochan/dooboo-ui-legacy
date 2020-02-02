@@ -1,5 +1,13 @@
 import { AutoCompleteProps, Datum, ScreenSizeState } from './types';
-import { CaretContainer, InputContainer, StyledImage, Wrapper, inputMargin } from './styles';
+import {
+  CaretContainer,
+  DEFAULT_WIDTH,
+  EXTRA_HEIGHT,
+  INPUT_MARGIN,
+  InputContainer,
+  StyledImage,
+  Wrapper,
+} from './styles';
 import { Dimensions, ScaledSize, TextInput, TouchableWithoutFeedback } from 'react-native';
 import { IC_ARR_DOWN, IC_ARR_UP } from '../Icons';
 import React, {
@@ -14,8 +22,6 @@ import { getBottomSpace, getStatusBarHeight } from 'react-native-iphone-x-helper
 
 import Options from './renderOptions';
 import RenderInput from './renderInput';
-
-const DEFAULT_WIDTH = 240;
 
 export const defaultPlaceholder = 'Choose a country';
 
@@ -61,7 +67,6 @@ export default function AutoComplete({
   debounceDelay,
   onDebounceOrOnReset,
   underlayColor,
-  storybook,
 }: AutoCompleteProps): ReactElement {
   const [innerValue, setInnerValue] = useState<string>(value);
   const [selectedData, setSelectedData] = useState<Datum | null>(null);
@@ -84,15 +89,15 @@ export default function AutoComplete({
     if (sWidth > sHeight) {
       setScreenSize({
         screenWidth: sWidth - (statusBarHeight + bottomSpace),
-        screenHeight: sHeight - (2 * inputMargin + (storybook ? 38.5 : 0)),
+        screenHeight: sHeight - (2 * INPUT_MARGIN + EXTRA_HEIGHT),
       });
     } else {
       setScreenSize({
         screenWidth: sWidth,
-        screenHeight: sHeight - (statusBarHeight + bottomSpace + (2 * inputMargin + (storybook ? 38.5 : 0))),
+        screenHeight: sHeight - (statusBarHeight + bottomSpace + (2 * INPUT_MARGIN + EXTRA_HEIGHT)),
       });
     }
-  }, [storybook, sWidth, sHeight]);
+  }, [sWidth, sHeight]);
 
   useEffect(() => {
     if (onDebounceOrOnReset) {
@@ -151,7 +156,7 @@ export default function AutoComplete({
   const adjustedStyle = useMemo(
     () => ({
       ...style,
-      width: (isFocused && screenWidth) ? screenWidth - (2 * inputMargin) : (style?.width ?? DEFAULT_WIDTH),
+      width: (isFocused && screenWidth) ? screenWidth - (2 * INPUT_MARGIN) : (style?.width ?? DEFAULT_WIDTH),
     }),
     [style, isFocused],
   );

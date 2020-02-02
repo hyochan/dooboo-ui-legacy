@@ -10,7 +10,11 @@ import { StyleSheet } from 'react-native';
 import chroma from 'chroma-js';
 import styled from 'styled-components/native';
 
-export const inputMargin = 20;
+export const INPUT_MARGIN = 20;
+
+export const EXTRA_HEIGHT = 20;
+
+export const DEFAULT_WIDTH = 240;
 
 export const Wrapper = styled.View<InputWrapper>`
   flex: 1;
@@ -25,7 +29,7 @@ export const Wrapper = styled.View<InputWrapper>`
 
 export const InputContainer = styled.View<InputContainerProps>`
   height: 60px;
-  margin: ${({ focus }): string => (focus ? `5px ${inputMargin}px` : `0 ${inputMargin}px`)};
+  margin: ${({ focus }): string => (focus ? `5px ${INPUT_MARGIN}px` : `0 ${INPUT_MARGIN}px`)};
   border-radius: 6px;
   flex-direction: row;
   border: ${({ focus }): string => (focus ? '2px solid' : '1px solid')};
@@ -99,7 +103,7 @@ export const styles = StyleSheet.create({
     borderWidth: 1,
     borderColor: '#ededed',
     borderRadius: 6,
-    marginHorizontal: inputMargin,
+    marginHorizontal: INPUT_MARGIN,
   },
 });
 

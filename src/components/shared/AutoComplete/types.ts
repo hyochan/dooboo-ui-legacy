@@ -11,7 +11,6 @@ export interface AutoCompleteProps {
   debounceDelay?: number;
   placeholderText?: string;
   underlayColor?: string;
-  storybook?: boolean;
 }
 
 export type ScreenSizeState = Partial<{
