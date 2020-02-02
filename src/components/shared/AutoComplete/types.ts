@@ -13,17 +13,17 @@ export interface AutoCompleteProps {
   underlayColor?: string;
 }
 
+export type ScreenSizeState = Partial<{
+  screenWidth: number;
+  screenHeight: number;
+}>;
+
 type OnPressOption = (data: Datum) => void;
 
 export type InputWrapper = {
   focused: boolean;
-  width: number;
-  inSets: {
-    top: number;
-    left: number;
-    bottom: number;
-    right: number;
-  };
+  width?: number;
+  height?: number;
 };
 
 export type RenderInputProps = TextInputProps & {
