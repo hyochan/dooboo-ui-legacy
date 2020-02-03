@@ -47,10 +47,10 @@ interface Props<T> {
   swipeLeftLabelElement?: () => ReactElement | null;
   swipeRightLabelStyle?: ViewStyle;
   swipeLeftLabelStyle?: ViewStyle;
-  shouldRotate?: boolean;
   containerStyle?: ViewStyle;
   frontCardStyle?: ViewStyle;
   backCardsStyle?: ViewStyle;
+  shouldRotate?: boolean;
 }
 
 const Container = styled.View`
@@ -78,23 +78,23 @@ function TinderCard<T>(
   ref: Ref<TinderCardRef>,
 ): ReactElement {
   const {
+    data,
+    renderCards,
+    renderNoMoreCards,
     onSwipeLeft,
     onSwipeRight,
-    data,
-    renderNoMoreCards,
-    shouldRotate = false,
-    containerStyle,
-    frontCardStyle,
-    backCardsStyle,
+    onCancel,
     swipeRightLabelElement,
     swipeLeftLabelElement,
     swipeRightLabelStyle,
     swipeLeftLabelStyle,
-    onCancel,
+    containerStyle,
+    frontCardStyle,
+    backCardsStyle,
+    shouldRotate,
   } = props;
 
   const [cardIndex, setCardIndex] = useState(0);
-  // const [type, setType] = useState(0);
   const position = useMemo(() => new Animated.ValueXY(), []);
 
   const swipeRightOpacity = position.x.interpolate({
@@ -108,7 +108,6 @@ function TinderCard<T>(
   });
 
   const resetPosition = (): void => {
-    // setType(0);
     Animated.spring(position, {
       toValue: { x: 0, y: 0 },
     }).start();
@@ -142,7 +141,6 @@ function TinderCard<T>(
       duration: SWIPE_OUT_DURATION,
     }).start(() => {
       onSwipeCompleted(direction);
-      // setType(0);
     });
   };
 
@@ -151,11 +149,6 @@ function TinderCard<T>(
       PanResponder.create({
         onStartShouldSetPanResponder: () => true,
         onPanResponderMove: (evt, gestureState) => {
-          // if (gestureState.dx > 0) {
-          //   setType(2);
-          // } else if (gestureState.dx < 0) {
-          //   setType(1);
-          // }
           position.setValue({ x: gestureState.dx, y: gestureState.dy });
         },
         onPanResponderRelease: (evt, gesture) => {
@@ -215,7 +208,7 @@ function TinderCard<T>(
               frontCardStyle,
             ]}
             {..._panResponder.panHandlers}>
-            {props.renderCards(item)}
+            {renderCards(item)}
             <SwipeLabelWrapper>
               <Animated.View
                 style={[
@@ -251,7 +244,7 @@ function TinderCard<T>(
             },
             backCardsStyle,
           ]}>
-          {props.renderCards(item)}
+          {renderCards(item)}
         </Animated.View>
       );
     });
