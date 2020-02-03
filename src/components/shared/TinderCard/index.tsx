@@ -44,7 +44,10 @@ interface Props<T> {
   onSwipeRight?: (item: T) => void;
   onSwipeLeft?: (item: T) => void;
   onCancel?: () => void;
-  renderCardLabel?: (type: number) => ReactElement;
+  swipeRightLabelElement?: () => ReactElement | null;
+  swipeLeftLabelElement?: () => ReactElement | null;
+  swipeRightLabelStyle?: ViewStyle;
+  swipeLeftLabelStyle?: ViewStyle;
   shouldRotate?: boolean;
   containerStyle?: ViewStyle;
   frontCardStyle?: ViewStyle;
@@ -56,12 +59,10 @@ const Container = styled.View`
   height: 100%;
 `;
 
-const TextArea = styled.View`
-  width: ${SCREEN_WIDTH};
-  height: 100%;
-  z-index: 99;
+const SwipeLabelWrapper = styled.View`
   position: absolute;
-  top: 20;
+  width: 100%;
+  height: 100%;
 `;
 
 const NoCard = styled.View`
@@ -91,12 +92,25 @@ function TinderCard<T>(
     containerStyle,
     frontCardStyle,
     backCardsStyle,
-    // stackSize = 3,
+    swipeRightLabelElement,
+    swipeLeftLabelElement,
+    swipeRightLabelStyle,
+    swipeLeftLabelStyle,
   } = props;
 
   const [cardIndex, setCardIndex] = useState(0);
   const [type, setType] = useState(0);
   const position = useMemo(() => new Animated.ValueXY(), []);
+
+  const swipeRightOpacity = position.x.interpolate({
+    inputRange: [-SCREEN_WIDTH / 2, 0, SCREEN_WIDTH / 2],
+    outputRange: [0, 0, 1],
+  });
+
+  const swipeLeftOpacity = position.x.interpolate({
+    inputRange: [-SCREEN_WIDTH / 2, 0, SCREEN_WIDTH / 2],
+    outputRange: [1, 0, 0],
+  });
 
   const resetPosition = (): void => {
     setType(0);
@@ -204,17 +218,27 @@ function TinderCard<T>(
             ]}
             {..._panResponder.panHandlers}>
             {props.renderCards(item, type)}
-            <TextArea>
-              {props.renderCardLabel && props.renderCardLabel(type)}
-            </TextArea>
+            <SwipeLabelWrapper>
+              <Animated.View
+                style={[
+                  { position: 'absolute', opacity: swipeRightOpacity },
+                  swipeRightLabelStyle,
+                ]}
+              >
+                {swipeRightLabelElement && swipeRightLabelElement()}
+              </Animated.View>
+              <Animated.View
+                style={[
+                  { position: 'absolute', opacity: swipeLeftOpacity },
+                  swipeLeftLabelStyle,
+                ]}
+              >
+                {swipeLeftLabelElement && swipeLeftLabelElement()}
+              </Animated.View>
+            </SwipeLabelWrapper>
           </Animated.View>
         );
       }
-
-      // const indexGap = idx - cardIndex;
-      // const stackSizes = stackSize || 3;
-      // const behindHeight =
-      //   indexGap <= stackSizes ? 10 * indexGap : 10 * stackSizes;
 
       return (
         <Animated.View
