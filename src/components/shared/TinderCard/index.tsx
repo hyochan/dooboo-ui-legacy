@@ -6,6 +6,7 @@ import {
   Text,
   UIManager,
   View,
+  ViewStyle,
 } from 'react-native';
 import React, {
   PropsWithChildren,
@@ -36,20 +37,23 @@ export interface TinderCardRef {
 
 interface Props<T> {
   testID?: string;
-  onSwipeRight?: (item: T) => void;
-  onSwipeLeft?: (item: T) => void;
-  onCancel?: () => void;
+  errorTestID?: string;
   data: T[];
   renderCards: (item: T, type?: number) => ReactElement;
   renderNoMoreCards: () => ReactElement;
+  onSwipeRight?: (item: T) => void;
+  onSwipeLeft?: (item: T) => void;
+  onCancel?: () => void;
   renderCardLabel?: (type: number) => ReactElement;
   shouldRotate?: boolean;
-  stackSize?: number;
+  containerStyle?: ViewStyle;
+  frontCardStyle?: ViewStyle;
+  backCardsStyle?: ViewStyle;
 }
 
 const Container = styled.View`
-  width: ${SCREEN_WIDTH};
-  align-items: center;
+  width: 100%;
+  height: 100%;
 `;
 
 const TextArea = styled.View`
@@ -84,7 +88,10 @@ function TinderCard<T>(
     data,
     renderNoMoreCards = _renderNoMoreCards,
     shouldRotate = false,
-    stackSize = 3,
+    containerStyle,
+    frontCardStyle,
+    backCardsStyle,
+    // stackSize = 3,
   } = props;
 
   const [cardIndex, setCardIndex] = useState(0);
@@ -189,9 +196,11 @@ function TinderCard<T>(
               {
                 position: 'absolute',
                 top: 0,
-                width: SCREEN_WIDTH,
                 zIndex: 99,
+                width: '100%',
+                height: '100%',
               },
+              frontCardStyle,
             ]}
             {..._panResponder.panHandlers}>
             {props.renderCards(item, type)}
@@ -202,10 +211,10 @@ function TinderCard<T>(
         );
       }
 
-      const indexGap = idx - cardIndex;
-      const stackSizes = stackSize || 3;
-      const behindHeight =
-        indexGap <= stackSizes ? 10 * indexGap : 10 * stackSizes;
+      // const indexGap = idx - cardIndex;
+      // const stackSizes = stackSize || 3;
+      // const behindHeight =
+      //   indexGap <= stackSizes ? 10 * indexGap : 10 * stackSizes;
 
       return (
         <Animated.View
@@ -213,10 +222,12 @@ function TinderCard<T>(
           style={[
             {
               position: 'absolute',
-              width: SCREEN_WIDTH - 10 * indexGap,
-              top: behindHeight,
+              top: 0,
               zIndex: 5,
+              width: '100%',
+              height: '100%',
             },
+            backCardsStyle,
           ]}>
           {props.renderCards(item)}
         </Animated.View>
@@ -238,7 +249,7 @@ function TinderCard<T>(
   }));
 
   return (
-    <Container>
+    <Container style={containerStyle}>
       {_renderCards()}
     </Container>
   );
