@@ -47,6 +47,7 @@ interface Props<T> {
   swipeLeftLabelElement?: () => ReactElement | null;
   swipeRightLabelStyle?: ViewStyle;
   swipeLeftLabelStyle?: ViewStyle;
+  swipeLabelAlignStyle?: ViewStyle;
   containerStyle?: ViewStyle;
   frontCardStyle?: ViewStyle;
   backCardsStyle?: ViewStyle;
@@ -88,6 +89,7 @@ function TinderCard<T>(
     swipeLeftLabelElement,
     swipeRightLabelStyle,
     swipeLeftLabelStyle,
+    swipeLabelAlignStyle,
     containerStyle,
     frontCardStyle,
     backCardsStyle,
@@ -209,7 +211,7 @@ function TinderCard<T>(
             ]}
             {..._panResponder.panHandlers}>
             {renderCards(item)}
-            <SwipeLabelWrapper>
+            <SwipeLabelWrapper style={swipeLabelAlignStyle}>
               <Animated.View
                 style={[
                   { position: 'absolute', opacity: swipeRightOpacity },
