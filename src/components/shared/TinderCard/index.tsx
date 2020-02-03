@@ -5,7 +5,6 @@ import {
   PanResponder,
   Text,
   UIManager,
-  View,
   ViewStyle,
 } from 'react-native';
 import React, {
@@ -38,9 +37,9 @@ export interface TinderCardRef {
 interface Props<T> {
   testID?: string;
   errorTestID?: string;
-  data: T[];
-  renderCards: (item: T, type?: number) => ReactElement;
-  renderNoMoreCards: () => ReactElement;
+  data?: T[];
+  renderCards?: (item: T) => ReactElement;
+  renderNoMoreCards?: () => ReactElement;
   onSwipeRight?: (item: T) => void;
   onSwipeLeft?: (item: T) => void;
   onCancel?: () => void;
@@ -65,19 +64,14 @@ const SwipeLabelWrapper = styled.View`
   height: 100%;
 `;
 
-const NoCard = styled.View`
-  width: 100%;
-  height: 200px;
+const NoCardWrapper = styled.View`
+  flex: 1;
   justify-content: center;
   align-items: center;
   padding: 10px;
+  border-color: black;
+  border-width: 1px;
 `;
-
-const _renderNoMoreCards = (): ReactElement => (
-  <NoCard>
-    <Text>No more cards</Text>
-  </NoCard>
-);
 
 function TinderCard<T>(
   props: PropsWithChildren<Props<T>>,
@@ -87,7 +81,7 @@ function TinderCard<T>(
     onSwipeLeft,
     onSwipeRight,
     data,
-    renderNoMoreCards = _renderNoMoreCards,
+    renderNoMoreCards,
     shouldRotate = false,
     containerStyle,
     frontCardStyle,
@@ -96,10 +90,11 @@ function TinderCard<T>(
     swipeLeftLabelElement,
     swipeRightLabelStyle,
     swipeLeftLabelStyle,
+    onCancel,
   } = props;
 
   const [cardIndex, setCardIndex] = useState(0);
-  const [type, setType] = useState(0);
+  // const [type, setType] = useState(0);
   const position = useMemo(() => new Animated.ValueXY(), []);
 
   const swipeRightOpacity = position.x.interpolate({
@@ -113,7 +108,7 @@ function TinderCard<T>(
   });
 
   const resetPosition = (): void => {
-    setType(0);
+    // setType(0);
     Animated.spring(position, {
       toValue: { x: 0, y: 0 },
     }).start();
@@ -147,7 +142,7 @@ function TinderCard<T>(
       duration: SWIPE_OUT_DURATION,
     }).start(() => {
       onSwipeCompleted(direction);
-      setType(0);
+      // setType(0);
     });
   };
 
@@ -156,11 +151,11 @@ function TinderCard<T>(
       PanResponder.create({
         onStartShouldSetPanResponder: () => true,
         onPanResponderMove: (evt, gestureState) => {
-          if (gestureState.dx > 0) {
-            setType(2);
-          } else if (gestureState.dx < 0) {
-            setType(1);
-          }
+          // if (gestureState.dx > 0) {
+          //   setType(2);
+          // } else if (gestureState.dx < 0) {
+          //   setType(1);
+          // }
           position.setValue({ x: gestureState.dx, y: gestureState.dy });
         },
         onPanResponderRelease: (evt, gesture) => {
@@ -191,15 +186,18 @@ function TinderCard<T>(
   };
 
   const _renderCards = (): ReactElement | (ReactElement | null)[] => {
-    if (!props.data || cardIndex >= props.data.length) {
+    if (!data || cardIndex >= data.length) {
       if (renderNoMoreCards) {
         return renderNoMoreCards();
-      } else {
-        return <View/>;
       }
+      return (
+        <NoCardWrapper>
+          <Text>No more cards</Text>
+        </NoCardWrapper>
+      );
     }
 
-    const dataSet = props.data.map((item, idx) => {
+    const dataSet = data.map((item, idx) => {
       if (idx < cardIndex) return null;
       if (idx === cardIndex) {
         return (
@@ -217,7 +215,7 @@ function TinderCard<T>(
               frontCardStyle,
             ]}
             {..._panResponder.panHandlers}>
-            {props.renderCards(item, type)}
+            {props.renderCards(item)}
             <SwipeLabelWrapper>
               <Animated.View
                 style={[
@@ -261,9 +259,9 @@ function TinderCard<T>(
   };
 
   const handleCancel = (): void => {
-    if (cardIndex > 0 && props.onCancel) {
+    if (cardIndex > 0 && onCancel) {
       setCardIndex((index) => index - 1);
-      props.onCancel();
+      onCancel();
     }
   };
 
