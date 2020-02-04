@@ -8,3 +8,4 @@ import './Snackbar.stories';
 import './SwitchToggle.stories';
 import './TinderCard.stories';
 import './Slider.stories';
+import './PinchZoomSliderModal.stories';

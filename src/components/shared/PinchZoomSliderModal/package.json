@@ -1,0 +1,44 @@
+{
+  "name": "@dooboo-ui/native-pinch-zoom-slider-modal",
+  "main": "package/index.js",
+  "types": "package/index.d.ts",
+  "version": "0.0.1",
+  "license": "MIT",
+  "postinstall": "tsc",
+  "scripts": {
+    "build": "tsc",
+    "watch": "tsc -w"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/dooboolab/dooboo-ui-native.git",
+    "directory": "src/components/shared/PinchZoomSliderModal"
+  },
+  "bugs": {
+    "url": "https://github.com/dooboolab/dooboo-ui-native/issues"
+  },
+  "homepage": "https://github.com/dooboolab/dooboo-ui-native#readme",
+  "dependencies": {
+    "dooboolab-welcome": "^1.1.1",
+    "react-native-image-pan-zoom": "^2.1.11"
+  },
+  "devDependencies": {
+    "styled-components": "^5.0.0",
+    "typescript": "^3.7.5"
+  },
+  "peerDependencies": {
+    "react": ">=16.8",
+    "react-native": ">=0.59",
+    "styled-components": ">=4.4.0"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "keywords": [
+    "search-input",
+    "react-hook",
+    "react-native",
+    "dooboo-ui/native",
+    "dooboolab"
+  ]
+}
