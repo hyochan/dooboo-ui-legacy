@@ -48,22 +48,22 @@ yarn add @dooboo-ui/native-button
 
 - Example
 
-```tsx
-  import {
-    Dimensions,
-    Image,
-    ImageSourcePropType,
-    ImageURISource,
-    Modal,
-    SafeAreaView,
-    ScrollView,
-    TouchableOpacity,
-    View,
-  } from 'react-native';
-  import React, { ReactElement, useCallback, useState } from 'react';
+  ```tsx
+  import React, { ReactElement, useState } from 'react';
+  import { Text, TouchableOpacity, View } from 'react-native';
 
-  import ImageZoom from 'react-native-image-pan-zoom';
+  import { ContainerDeco } from '../decorators';
+  import PinchZoomSliderModal from '../../src/components/shared/PinchZoomSliderModal';
+  import { storiesOf } from '@storybook/react-native';
   import styled from 'styled-components/native';
+
+  storiesOf('PinchZoomSliderModal', module)
+    .addDecorator(ContainerDeco)
+    .add('default', () => (
+      <>
+        <Default />
+      </>
+    ));
 
   const Container = styled.View`
     flex: 1;
@@ -73,100 +73,55 @@ yarn add @dooboo-ui/native-button
     justify-content: center;
   `;
 
-  interface Props {
-    visible?: boolean;
-    renderCloseElement: () => ReactElement;
-    renderIndicator: () => ReactElement;
-    onClose?: () => void;
-    onPageChanged?: (page: number) => void;
-    images?: ImageSourcePropType[];
-    defaultImageSource: ImageURISource;
-  }
+  const images = [
+    // IC_LOGO,
+    { uri: 'https://images.unsplash.com/photo-1519335337423-a3357c2cd12e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2168&q=80' },
+    { uri: 'https://www.housingwire.com/wp-content/uploads/2019/09/Purple-technology-data-internet-3.jpg' },
+    { uri: 'https://images.unsplash.com/photo-1543007354-0bc99b7d096b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80' },
+    { uri: 'https://p.bigstockphoto.com/eIdTXLbqQilMs9xbjvcs_bigstock-Aerial-View-Of-Sandy-Beach-Wit-256330393.jpg' },
+    { uri: 'https://avatars2.githubusercontent.com/u/7970947?v=3&s=460' },
+  ];
 
-  function PinchZoomModal(props: Props): ReactElement {
-    const {
-      visible = true,
-      images = [],
-      renderCloseElement = (): ReactElement => <View/>,
-      onClose,
-      defaultImageSource,
-      onPageChanged,
-      renderIndicator = (): ReactElement => null,
-    } = props;
-    const [dimensionWidth, setDimensionWidth] = useState<number>(Dimensions.get('window').width);
-    const [dimensionHeight, setDimensionHeight] = useState<number>(Dimensions.get('window').height);
+  function Default(): ReactElement {
+    const [visible, setVisible] = useState<boolean>(false);
+    const [pageNum, setPageNum] = useState<number>(0);
 
-    const renderImage = useCallback(() => (image: ImageSourcePropType, i: number): ReactElement => {
-      return <View
-        key={i}
-        style={{
-          width: dimensionWidth,
-          height: dimensionHeight,
-        }}
-      >
-        <View style={{ position: 'absolute' }}>
-          <ImageZoom
-            cropWidth={dimensionWidth}
-            cropHeight={dimensionHeight}
-            imageHeight={dimensionHeight}
-            imageWidth={dimensionWidth}
-          >
-            <Image
-              defaultSource={defaultImageSource}
-              style={{ width: dimensionWidth, height: dimensionHeight }}
-              source={image}
-              resizeMode={'contain'}
-            />
-          </ImageZoom>
-        </View>
-
-      </View>;
-    }, [images, dimensionWidth])();
-
-    return <Modal
-      onOrientationChange={(): void => {
-        setDimensionWidth(Dimensions.get('window').width);
-        setDimensionHeight(Dimensions.get('window').height);
-      }}
-      supportedOrientations={['portrait', 'landscape']}
-      visible={visible} transparent={true}
-    >
+    return (
       <Container>
-        <ScrollView
-          pagingEnabled
-          horizontal
-          scrollEventThrottle={16}
-          onScroll={(e): void => {
-            const contentOffset = e.nativeEvent.contentOffset;
-            const viewSize = e.nativeEvent.layoutMeasurement;
-
-            const newPage = Math.floor(contentOffset.x / viewSize.width);
-            if (onPageChanged) {
-              onPageChanged(newPage);
-            }
-          }}
+        <TouchableOpacity
+          onPress={(): void => setVisible(true)}
         >
-          {
-            images.map((image, i) => renderImage(image, i))
-          }
-        </ScrollView>
-        { renderIndicator() }
-        <SafeAreaView
-          style={{
-            position: 'absolute',
-            top: 48,
-            right: 24,
-          }}
-        >
-          <TouchableOpacity
-            onPress={(): void => {
-              if (onClose) onClose();
+          <Text
+            style={{
+              fontSize: 24,
+              color: 'blue',
             }}
-          >
-            {renderCloseElement()}
-          </TouchableOpacity>
-        </SafeAreaView>
+          >Open PinchZoomSliderModal!</Text>
+        </TouchableOpacity>
+        <PinchZoomSliderModal
+          renderCloseElement={
+            (): ReactElement =>
+              <Text
+                style={{
+                  fontSize: 24,
+                  color: 'blue',
+                }}
+              >Close</Text>
+          }
+          images={images}
+          visible={visible}
+          onClose={(): void => setVisible(false)}
+          onPageChanged={(page: number): void => setPageNum(page)}
+          renderIndicator={(): ReactElement => <View style={[
+            {
+              position: 'absolute',
+              bottom: 80,
+            },
+          ]}>
+            <Text>{pageNum + 1} / {images.length}</Text>
+          </View>}
+        />
       </Container>
-    </Modal>;
+    );
   }
   ```

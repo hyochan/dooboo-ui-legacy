@@ -60,10 +60,6 @@ function Default(): ReactElement {
         images={images}
         visible={visible}
         onClose={(): void => setVisible(false)}
-        imageLoadingElement={<Text style={{
-          fontSize: 30,
-          color: 'green',
-        }}>LOADING......</Text>}
         onPageChanged={(page: number): void => setPageNum(page)}
         renderIndicator={(): ReactElement => <View style={[
           {

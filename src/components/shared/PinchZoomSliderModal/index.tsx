@@ -25,12 +25,12 @@ const Container = styled.View`
 
 interface Props {
   visible?: boolean;
-  renderCloseElement: () => ReactElement;
-  renderIndicator: () => ReactElement;
+  renderCloseElement?: () => ReactElement;
+  renderIndicator?: () => ReactElement;
   onClose?: () => void;
   onPageChanged?: (page: number) => void;
   images?: ImageSourcePropType[];
-  defaultImageSource: ImageURISource;
+  defaultImageSource?: ImageURISource;
   containerStyle?: ViewStyle;
 }
 
