@@ -36,11 +36,11 @@ function PinchZoomModal(props: Props): ReactElement {
   const {
     visible = true,
     images = [],
-    renderCloseElement = (): ReactElement => <View/>,
+    renderCloseElement = (): ReactElement | null => null,
     onClose,
     defaultImageSource,
     onPageChanged,
-    renderIndicator = (): ReactElement => null,
+    renderIndicator = (): ReactElement | null => null,
   } = props;
   const [dimensionWidth, setDimensionWidth] = useState<number>(Dimensions.get('window').width);
   const [dimensionHeight, setDimensionHeight] = useState<number>(Dimensions.get('window').height);
