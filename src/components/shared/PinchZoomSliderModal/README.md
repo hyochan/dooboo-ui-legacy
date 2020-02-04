@@ -1,7 +1,7 @@
 # PinchZoomSliderModal
 
-- [![Npm Version](http://img.shields.io/npm/v/@dooboo-ui/native-pinch-zoom-slider-modal.svg?style=flat-square)](https://npmjs.org/package/@dooboo-ui/native-pinch-zoom-slider-modal)
-- [![Downloads](http://img.shields.io/npm/dm/@dooboo-ui/native-pinch-zoom-slider-modal.svg?style=flat-square)](https://npmjs.org/package/@dooboo-ui/native-pinch-zoom-slider-modal)
+[![Npm Version](http://img.shields.io/npm/v/@dooboo-ui/native-pinch-zoom-slider-modal.svg?style=flat-square)](https://npmjs.org/package/@dooboo-ui/native-pinch-zoom-slider-modal)
+[![Downloads](http://img.shields.io/npm/dm/@dooboo-ui/native-pinch-zoom-slider-modal.svg?style=flat-square)](https://npmjs.org/package/@dooboo-ui/native-pinch-zoom-slider-modal)
 
 
 > [PinchZoomSliderModal] is a image swiper with pinch zoom functionality.
