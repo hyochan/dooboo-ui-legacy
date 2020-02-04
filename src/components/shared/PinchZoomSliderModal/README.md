@@ -13,6 +13,7 @@
 
 |                | necessary | types                | default |
 | -------------- | --------- | -------------------- | ------- |
+| containerStyle |           | ViewStyle            |         |
 | visible        |           | boolean              | true    |
 | renderCloseElement      |  | () => ReactElement   | null    |
 | renderIndicator|           | () => ReactElement   | null    |

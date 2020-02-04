@@ -8,6 +8,7 @@ import {
   ScrollView,
   TouchableOpacity,
   View,
+  ViewStyle,
 } from 'react-native';
 import React, { ReactElement, useCallback, useState } from 'react';
 
@@ -30,6 +31,7 @@ interface Props {
   onPageChanged?: (page: number) => void;
   images?: ImageSourcePropType[];
   defaultImageSource: ImageURISource;
+  containerStyle?: ViewStyle;
 }
 
 function PinchZoomModal(props: Props): ReactElement {
@@ -41,6 +43,7 @@ function PinchZoomModal(props: Props): ReactElement {
     defaultImageSource,
     onPageChanged,
     renderIndicator = (): ReactElement | null => null,
+    containerStyle,
   } = props;
   const [dimensionWidth, setDimensionWidth] = useState<number>(Dimensions.get('window').width);
   const [dimensionHeight, setDimensionHeight] = useState<number>(Dimensions.get('window').height);
@@ -80,7 +83,9 @@ function PinchZoomModal(props: Props): ReactElement {
     supportedOrientations={['portrait', 'landscape']}
     visible={visible} transparent={true}
   >
-    <Container>
+    <Container
+      style={containerStyle}
+    >
       <ScrollView
         pagingEnabled
         horizontal
