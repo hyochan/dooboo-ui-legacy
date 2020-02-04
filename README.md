@@ -34,7 +34,7 @@ If you want to use only `SwitchToggle`, you can install it by running `yarn add 
 | react-native      | >=0.59  |
 | styled-components | >=4.4.0 |
 
-## List of widgets
+## List of elements
 
 - [Accordion](https://github.com/dooboolab/dooboo-ui-native/tree/master/src/components/shared/Accordion)
   - `@dooboo-ui/native-accordion`
@@ -42,8 +42,6 @@ If you want to use only `SwitchToggle`, you can install it by running `yarn add 
   - `@dooboo-ui/native-button`
 - [ButtonGroup](https://github.com/dooboolab/dooboo-ui-native/tree/master/src/components/shared/ButtonGroup)
   - `@dooboo-ui/native-button-group`
-- [CalendarCarousel](https://github.com/dooboolab/dooboo-ui-native/tree/master/src/components/shared/CalendarCarousel)
-  - WIP
 - [EditText](https://github.com/dooboolab/dooboo-ui-native/tree/master/src/components/shared/EditText)
   - `@dooboo-ui/native-edit-text`
 - [GiftedChat](https://github.com/dooboolab/dooboo-ui-native/tree/master/src/components/shared/GiftedChat)
@@ -56,3 +54,11 @@ If you want to use only `SwitchToggle`, you can install it by running `yarn add 
   - `@dooboo-ui/snackbar` (WIP)
 - [SwitchToggle](https://github.com/dooboolab/dooboo-ui-native/tree/master/src/components/shared/SwitchToggle)
   - `@dooboo-ui/native-switch-toggle`
+
+## List of independent elements
+> Below elements are not included in `@dooboo-ui/native` package since it depends on other packages that may overload its package.
+
+- [PinchZoomSliderModal](https://github.com/dooboolab/dooboo-ui-native/tree/master/src/components/shared/PinchZoomSliderModal)
+  - `@dooboo-ui/native-pinch-zoom-slider-modal`
+- [CalendarCarousel](https://github.com/dooboolab/dooboo-ui-native/tree/master/src/components/shared/CalendarCarousel)
+  - WIP
