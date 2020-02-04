@@ -86,24 +86,28 @@ function PinchZoomModal(props: Props): ReactElement {
     <Container
       style={containerStyle}
     >
-      <ScrollView
-        pagingEnabled
-        horizontal
-        scrollEventThrottle={16}
-        onScroll={(e): void => {
-          const contentOffset = e.nativeEvent.contentOffset;
-          const viewSize = e.nativeEvent.layoutMeasurement;
+      {
+        images.length < 2
+          ? renderImage(images[0], 1)
+          : <ScrollView
+            pagingEnabled
+            horizontal
+            scrollEventThrottle={16}
+            onScroll={(e): void => {
+              const contentOffset = e.nativeEvent.contentOffset;
+              const viewSize = e.nativeEvent.layoutMeasurement;
 
-          const newPage = Math.floor(contentOffset.x / viewSize.width);
-          if (onPageChanged) {
-            onPageChanged(newPage);
-          }
-        }}
-      >
-        {
-          images.map((image, i) => renderImage(image, i))
-        }
-      </ScrollView>
+              const newPage = Math.floor(contentOffset.x / viewSize.width);
+              if (onPageChanged) {
+                onPageChanged(newPage);
+              }
+            }}
+          >
+            {
+              images.map((image, i) => renderImage(image, i))
+            }
+          </ScrollView>
+      }
       { renderIndicator() }
       <SafeAreaView
         style={{
