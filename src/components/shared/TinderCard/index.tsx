@@ -130,9 +130,9 @@ function TinderCard<T>(
     });
 
     if (direction === TinderCardDirection.RIGHT) {
-      onSwipeRight && onSwipeRight(data[currentIndex]);
+      onSwipeRight && data && onSwipeRight(data[currentIndex]);
     } else {
-      onSwipeLeft && onSwipeLeft(data[currentIndex]);
+      onSwipeLeft && data && onSwipeLeft(data[currentIndex]);
     }
   }, []);
 
@@ -210,7 +210,7 @@ function TinderCard<T>(
               frontCardStyle,
             ]}
             {..._panResponder.panHandlers}>
-            {renderCards(item)}
+            {renderCards && renderCards(item)}
             <SwipeLabelWrapper style={swipeLabelAlignStyle}>
               <Animated.View
                 style={[
