@@ -2,12 +2,12 @@ import React, { createContext, useContext, useRef } from 'react';
 import Snackbar, { Content, SnackbarRef } from './Snackbar';
 import { View } from 'react-native';
 
-interface Context {
+interface SnackbarContext {
   show(content: Content): void;
 }
 
-const SnackbarContext = createContext<Context>(undefined);
-const useCtx = (): Context => {
+const SnackbarContext = createContext<SnackbarContext>(undefined);
+const useCtx = (): SnackbarContext => {
   const c = useContext(SnackbarContext);
   if (!c) throw new Error('useCtx must be inside a Provider with a value');
   return c;
