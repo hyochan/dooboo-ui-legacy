@@ -1,22 +1,8 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`[Button] should render without crashing 1`] = `
-<View
-  accessible={true}
-  focusable={false}
-  isTVSelectable={true}
-  onClick={[Function]}
-  onResponderGrant={[Function]}
-  onResponderMove={[Function]}
-  onResponderRelease={[Function]}
-  onResponderTerminate={[Function]}
-  onResponderTerminationRequest={[Function]}
-  onStartShouldSetResponder={[Function]}
-  style={
-    Object {
-      "opacity": 1,
-    }
-  }
+<TouchableOpacity
+  activeOpacity={0.2}
 >
   <View
     style={
@@ -43,5 +29,5 @@ exports[`[Button] should render without crashing 1`] = `
       }
     />
   </View>
-</View>
+</TouchableOpacity>
 `;
