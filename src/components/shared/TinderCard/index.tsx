@@ -26,7 +26,7 @@ const SWIPE_OUT_DURATION = 250;
 
 export enum TinderCardDirection {
   RIGHT = 'right',
-  LEFT = 'left'
+  LEFT = 'left',
 }
 
 export interface TinderCardRef {
@@ -97,6 +97,7 @@ function TinderCard<T>(
   } = props;
 
   const [cardIndex, setCardIndex] = useState(0);
+  const [timeBreak, setTimeBreak] = useState(false);
   const position = useMemo(() => new Animated.ValueXY(), []);
 
   const swipeRightOpacity = position.x.interpolate({
@@ -115,29 +116,35 @@ function TinderCard<T>(
     }).start();
   };
 
-  const onSwipeCompleted = useCallback((direction: TinderCardDirection): void => {
-    position.setValue({ x: 0, y: 0 });
+  const onSwipeCompleted = useCallback(
+    (direction: TinderCardDirection): void => {
+      position.setValue({ x: 0, y: 0 });
 
-    UIManager.setLayoutAnimationEnabledExperimental &&
-      UIManager.setLayoutAnimationEnabledExperimental(true);
-    LayoutAnimation.spring();
+      UIManager.setLayoutAnimationEnabledExperimental &&
+        UIManager.setLayoutAnimationEnabledExperimental(true);
+      LayoutAnimation.spring();
 
-    let currentIndex = 0;
+      let currentIndex = 0;
 
-    setCardIndex((idx) => {
-      currentIndex = idx;
-      return idx + 1;
-    });
+      setCardIndex((idx) => {
+        currentIndex = idx;
+        return idx + 1;
+      });
 
-    if (direction === TinderCardDirection.RIGHT) {
-      onSwipeRight && data && onSwipeRight(data[currentIndex]);
-    } else {
-      onSwipeLeft && data && onSwipeLeft(data[currentIndex]);
-    }
-  }, []);
+      if (direction === TinderCardDirection.RIGHT) {
+        onSwipeRight && data && onSwipeRight(data[currentIndex]);
+      } else {
+        onSwipeLeft && data && onSwipeLeft(data[currentIndex]);
+      }
+      setTimeBreak(false);
+    },
+    [],
+  );
 
   const forceSwipe = (direction: TinderCardDirection): void => {
-    const x = direction === TinderCardDirection.RIGHT ? SCREEN_WIDTH : -SCREEN_WIDTH;
+    setTimeBreak(true);
+    const x =
+      direction === TinderCardDirection.RIGHT ? SCREEN_WIDTH : -SCREEN_WIDTH;
     Animated.timing(position, {
       toValue: { x, y: 0 },
       duration: SWIPE_OUT_DURATION,
@@ -172,7 +179,9 @@ function TinderCard<T>(
       outputRange: ['-45deg', '0deg', '45deg'],
     });
 
-    const rotateStyle = shouldRotate ? { transform: [{ rotate: rotateValue }] } : {};
+    const rotateStyle = shouldRotate
+      ? { transform: [{ rotate: rotateValue }] }
+      : {};
 
     return {
       ...position.getLayout(),
@@ -193,7 +202,7 @@ function TinderCard<T>(
     }
 
     const dataSet = data.map((item, idx) => {
-      if (idx < cardIndex) return null;
+      if (!renderCards || idx < cardIndex) return null;
       if (idx === cardIndex) {
         return (
           <Animated.View
@@ -216,16 +225,14 @@ function TinderCard<T>(
                 style={[
                   { position: 'absolute', opacity: swipeRightOpacity },
                   swipeRightLabelStyle,
-                ]}
-              >
+                ]}>
                 {swipeRightLabelElement && swipeRightLabelElement()}
               </Animated.View>
               <Animated.View
                 style={[
                   { position: 'absolute', opacity: swipeLeftOpacity },
                   swipeLeftLabelStyle,
-                ]}
-              >
+                ]}>
                 {swipeLeftLabelElement && swipeLeftLabelElement()}
               </Animated.View>
             </SwipeLabelWrapper>
@@ -260,16 +267,17 @@ function TinderCard<T>(
     }
   };
 
+  const refForceSwipe = (direction: TinderCardDirection): void => {
+    if (timeBreak) return;
+    return forceSwipe(direction);
+  };
+
   useImperativeHandle(ref, () => ({
-    forceSwipe,
+    forceSwipe: refForceSwipe,
     handleCancel,
   }));
 
-  return (
-    <Container style={containerStyle}>
-      {_renderCards()}
-    </Container>
-  );
-};
+  return <Container style={containerStyle}>{_renderCards()}</Container>;
+}
 
 export default forwardRef(TinderCard);
