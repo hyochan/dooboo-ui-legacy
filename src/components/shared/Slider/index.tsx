@@ -69,9 +69,7 @@ const Slider: FC<Props> = ({
   onChange,
 }) => {
   const sliderRef = useRef<any>();
-  const [prevSliderWidth, setPrevSliderWidth] = useState<number>(0);
   const [sliderWidth, setSliderWidth] = useState<number>(0);
-  const [prevSliderPositionX, setPrevSliderPositionX] = useState(0);
   const [sliderPositionX, setSliderPositionX] = useState(0);
   const [percent, setPercent] = useState(
     getNearestPercentByValue({
@@ -166,10 +164,8 @@ const Slider: FC<Props> = ({
       onLayout={(): void => {
         if (sliderRef) {
           sliderRef.current.measure((x, y, width, height, pageX) => {
-            setSliderPositionX(prevSliderPositionX);
-            setSliderWidth(prevSliderWidth);
-            setPrevSliderPositionX(pageX);
-            setPrevSliderWidth(width);
+            setSliderPositionX(pageX);
+            setSliderWidth(width);
           });
         }
       }}
