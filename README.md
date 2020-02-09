@@ -54,6 +54,8 @@ If you want to use only `SwitchToggle`, you can install it by running `yarn add 
   - `@dooboo-ui/snackbar` (WIP)
 - [SwitchToggle](https://github.com/dooboolab/dooboo-ui-native/tree/master/src/components/shared/SwitchToggle)
   - `@dooboo-ui/native-switch-toggle`
+- [Slider](https://github.com/dooboolab/dooboo-ui-native/tree/master/src/components/shared/Slider)
+  - `@dooboo-ui/slider`
 
 ## List of independent elements
 > Below elements are not included in `@dooboo-ui/native` package since it depends on other packages that may overload its package.
