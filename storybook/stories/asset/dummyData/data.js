@@ -8,7 +8,7 @@ export const tinderCardDummyData = [
   {
     id: '1',
     title: 'Strawberry',
-    content: 'a widely grown hybrid species of the genus Fragaria, collectively known as the strawberries, which are cultivated worldwide for their fruit',
+    content: 'a widely grown hybrid species of the genus Fragaria, collectively known as the strawberries...',
     image: { uri: 'https://cdn.pixabay.com/photo/2017/11/18/17/09/strawberry-2960533_1280.jpg' },
   },
   {
@@ -26,7 +26,7 @@ export const tinderCardDummyData = [
   {
     id: '4',
     title: 'Peach',
-    content: 'a deciduous tree native to the region of Northwest China between the Tarim Basin and the north slopes of the Kunlun Mountains, where it was first domesticated and cultivated',
+    content: 'a deciduous tree native to the region of Northwest China between the Tarim Basin and the ...',
     image: { uri: 'https://cdn.pixabay.com/photo/2019/07/18/14/24/eat-4346598_1280.jpg' },
   },
 ];

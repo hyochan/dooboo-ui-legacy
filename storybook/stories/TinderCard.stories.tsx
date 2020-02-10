@@ -64,7 +64,6 @@ const ButtonWrapper = styled.TouchableOpacity`
   flex: 1;
   padding: 15px;
   background-color: #48454d;
-  /* border-radius: 10px; */
   justify-content: center;
   align-items: center;
 `;
@@ -95,6 +94,8 @@ const NoCard = styled.View`
   justify-content: center;
   align-items: center;
   padding: 10px;
+  border-radius: 10px;
+  background-color: black;
 `;
 
 interface Item {
@@ -113,7 +114,7 @@ function Default(): React.ReactElement {
   useInterval(() => {
     if (data.length > 20) return;
     setData([...data, ...tinderCardDummyData]);
-  }, 5000);
+  }, 500);
 
   const actionStack = useMemo(() => [], []);
 
