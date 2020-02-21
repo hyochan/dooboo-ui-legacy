@@ -1,4 +1,7 @@
 ## Changelogs
+- **[0.6.0]**
+  - Enhancement on `TinderCard` [#171](https://github.com/dooboolab/dooboo-ui-native/pull/171)
+  - New `Slider` component [#174](https://github.com/dooboolab/dooboo-ui-native/pull/174)
 - **[0.5.0]**
   - [0.5.1]
     - Added `TinderCard@0.0.1`.
