@@ -19,6 +19,7 @@
   },
   "homepage": "https://github.com/dooboolab/dooboo-ui-native#readme",
   "dependencies": {
+    "@react-native-community/viewpager": "^3.3.0",
     "dooboolab-welcome": "^1.1.1",
     "react-native-image-pan-zoom": "^2.1.11"
   },
