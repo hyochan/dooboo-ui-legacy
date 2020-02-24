@@ -107,13 +107,16 @@ function PinchZoomModal(props: Props): ReactElement {
     visible={visible} transparent={true}
   >
     <Container
-      style={containerStyle}
+      style={[
+        { flex: 1 },
+        containerStyle,
+      ]}
     >
       {
         images.length < 2
           ? renderPinchableImage(images[0], 1)
           : shouldPinch
-            ? <ViewPager>
+            ? <ViewPager style={{ flex: 1, width: '100%', height: '100%' }}>
               { images.map((image, i) => renderPinchableImage(image, i)) }
             </ViewPager>
             : <ScrollView
