@@ -23,7 +23,7 @@ function SnackbarProvider(props: Props): React.ReactElement {
     snackbar.current && snackbar.current.show(content);
   };
   return (
-    <View style={{ flex: 1 }}>
+    <View style={{ flex: 1, alignItems: 'center' }}>
       <SnackbarContext.Provider value={{ show }}>{props.children}</SnackbarContext.Provider>
       <Snackbar ref={snackbar} />
     </View>);
