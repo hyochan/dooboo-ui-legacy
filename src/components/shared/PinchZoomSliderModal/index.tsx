@@ -13,6 +13,7 @@ import {
 import React, { ReactElement, useCallback, useState } from 'react';
 
 import ImageZoom from 'react-native-image-pan-zoom';
+import ViewPager from '@react-native-community/viewpager';
 import styled from 'styled-components/native';
 
 const Container = styled.View`
@@ -32,6 +33,7 @@ interface Props {
   images?: ImageSourcePropType[];
   defaultImageSource?: ImageURISource;
   containerStyle?: ViewStyle;
+  shouldPinch?: boolean;
 }
 
 function PinchZoomModal(props: Props): ReactElement {
@@ -44,11 +46,12 @@ function PinchZoomModal(props: Props): ReactElement {
     onPageChanged,
     renderIndicator = (): ReactElement | null => null,
     containerStyle,
+    shouldPinch = true,
   } = props;
   const [dimensionWidth, setDimensionWidth] = useState<number>(Dimensions.get('window').width);
   const [dimensionHeight, setDimensionHeight] = useState<number>(Dimensions.get('window').height);
 
-  const renderImage = useCallback(() => (image: ImageSourcePropType, i: number): ReactElement => {
+  const renderPinchableImage = useCallback(() => (image: ImageSourcePropType, i: number): ReactElement => {
     return <View
       key={i}
       style={{
@@ -75,6 +78,26 @@ function PinchZoomModal(props: Props): ReactElement {
     </View>;
   }, [images, dimensionWidth])();
 
+  const renderImage = useCallback(() => (image: ImageSourcePropType, i: number): ReactElement => {
+    return <View
+      key={i}
+      style={{
+        width: dimensionWidth,
+        height: dimensionHeight,
+      }}
+    >
+      <View style={{ position: 'absolute' }}>
+        <Image
+          defaultSource={defaultImageSource}
+          style={{ width: dimensionWidth, height: dimensionHeight }}
+          source={image}
+          resizeMode={'contain'}
+        />
+      </View>
+
+    </View>;
+  }, [images, dimensionWidth])();
+
   return <Modal
     onOrientationChange={(): void => {
       setDimensionWidth(Dimensions.get('window').width);
@@ -84,29 +107,36 @@ function PinchZoomModal(props: Props): ReactElement {
     visible={visible} transparent={true}
   >
     <Container
-      style={containerStyle}
+      style={[
+        { flex: 1 },
+        containerStyle,
+      ]}
     >
       {
         images.length < 2
-          ? renderImage(images[0], 1)
-          : <ScrollView
-            pagingEnabled
-            horizontal
-            scrollEventThrottle={16}
-            onScroll={(e): void => {
-              const contentOffset = e.nativeEvent.contentOffset;
-              const viewSize = e.nativeEvent.layoutMeasurement;
+          ? renderPinchableImage(images[0], 1)
+          : shouldPinch
+            ? <ViewPager style={{ flex: 1, width: '100%', height: '100%' }}>
+              { images.map((image, i) => renderPinchableImage(image, i)) }
+            </ViewPager>
+            : <ScrollView
+              pagingEnabled
+              horizontal
+              scrollEventThrottle={16}
+              onScroll={(e): void => {
+                const contentOffset = e.nativeEvent.contentOffset;
+                const viewSize = e.nativeEvent.layoutMeasurement;
 
-              const newPage = Math.floor(contentOffset.x / viewSize.width);
-              if (onPageChanged) {
-                onPageChanged(newPage);
+                const newPage = Math.floor(contentOffset.x / viewSize.width);
+                if (onPageChanged) {
+                  onPageChanged(newPage);
+                }
+              }}
+            >
+              {
+                images.map((image, i) => renderImage(image, i))
               }
-            }}
-          >
-            {
-              images.map((image, i) => renderImage(image, i))
-            }
-          </ScrollView>
+            </ScrollView>
       }
       { renderIndicator() }
       <SafeAreaView

@@ -2,7 +2,7 @@
   "name": "@dooboo-ui/native-pinch-zoom-slider-modal",
   "main": "package/index.js",
   "types": "package/index.d.ts",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "license": "MIT",
   "postinstall": "tsc",
   "scripts": {
@@ -19,6 +19,7 @@
   },
   "homepage": "https://github.com/dooboolab/dooboo-ui-native#readme",
   "dependencies": {
+    "@react-native-community/viewpager": "^3.3.0",
     "dooboolab-welcome": "^1.1.1",
     "react-native-image-pan-zoom": "^2.1.11"
   },
