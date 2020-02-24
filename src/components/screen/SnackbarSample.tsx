@@ -1,5 +1,5 @@
+import { Alert, SafeAreaView, Text, TouchableOpacity, View } from 'react-native';
 import React, { useRef } from 'react';
-import { SafeAreaView, Text, TouchableOpacity, View } from 'react-native';
 import Snackbar, { SnackbarProvider, SnackbarRef, useSnackbarContext } from '../shared/Snackbar';
 
 function Container(): React.ReactElement {
@@ -7,6 +7,8 @@ function Container(): React.ReactElement {
   const onPress = (): void => {
     snackbar.show({
       text: 'Simple Snackbar is opened',
+      actionText: 'Some action',
+      onPressAction: () => Alert.alert('Some action occurs!!'),
     });
   };
   return (

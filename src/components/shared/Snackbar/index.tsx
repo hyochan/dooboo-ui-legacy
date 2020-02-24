@@ -1,6 +1,6 @@
 import React, { createContext, useContext, useRef } from 'react';
-import Snackbar, { Content, SnackbarRef } from './Snackbar';
 import { SafeAreaView, View } from 'react-native';
+import Snackbar, { Content, SnackbarRef } from './Snackbar';
 
 interface SnackbarContext {
   show(content: Content): void;

@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import { Animated, Dimensions, StyleSheet, Text, TextStyle, ViewStyle } from 'react-native';
+import { Animated, Dimensions, StyleSheet, TextStyle, ViewStyle } from 'react-native';
 
 import styled from 'styled-components/native';
 
@@ -25,6 +25,14 @@ const styles = StyleSheet.create({
     borderRadius: 10,
   },
 });
+
+const MessageText = styled.Text`
+  color: white;
+`;
+
+const ActionText = styled.Text`
+  color: green;
+`;
 
 const ActionContainer = styled.View`
   display: flex;
@@ -117,12 +125,12 @@ const Snackbar = (props: SnackbarProps, ref: React.Ref<SnackbarRef>): React.Reac
     <>
       {showingState.isVisible && (
         <Animated.View testID={testID} style={[styles.container, containerStyle, { opacity: fadeAnim }]}>
-          <Text style={messageStyle}>{text}</Text>
+          <MessageText style={messageStyle}>{text}</MessageText>
           {actionText && (
             <ActionContainer>
               <Touchable onPress={onPressAction}>
                 <ActionButton>
-                  <Text style={actionStyle}>{actionText}</Text>
+                  <ActionText style={actionStyle}>{actionText}</ActionText>
                 </ActionButton>
               </Touchable>
             </ActionContainer>
