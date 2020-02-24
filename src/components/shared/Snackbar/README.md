@@ -49,6 +49,7 @@ export interface Content {
   messageStyle?: TextStyle;
   onPressAction?: () => void;
 }
+
 ```
 
 - SnackbarProps
@@ -74,7 +75,7 @@ An object of this type is needed to show an Snackbar.
 
 # Getting started
 
-- Import
+## Import
 
   ```tsx
   import { Snackbar } from '@dooboo-ui/native';
@@ -82,41 +83,64 @@ An object of this type is needed to show an Snackbar.
   import Snackbar from '@dooboo-ui/native-snackbar';
   ```
 
-- Usage
+## Usage
+### Using Component
   ```tsx
 
   function Container(): React.ReactElement {
-    const snackbar = useRef<SnackbarRef>();
+    const snackbar = useRef<SnackbarRef>(null);
     const onPress = (): void => {
       snackbar.current && snackbar.current.show({
         text: 'Simple Snackbar is opened',
-        timer: Timer.LONG,
-        containerStyle: {
-          backgroundColor: '#ccccff',
-        },
-        messageStyle: {
-          color: '#ffffff',
-          fontSize: 17,
-        },
-      actionText: 'ACTION',
-      actionStyle: {
-        color: '#0066ff',
-        fontSize: 17,
-      },
-      onPressAction: () => Alert.alert('Action!!'),
       });
     };
-
     return (
-      <Container>
-        <Button onPress={onPress}>
-          <Text style={{ textAlign: 'center' }}>OPEN SNACKBAR</Text>
-        </Button>
-        <Snackbar ref={snackbar}/>
-      </Container>
+      <SafeAreaView style={{ flex: 1 }}>
+        <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+          <TouchableOpacity onPress={onPress} style={{ borderWidth: 1, padding: 10 }}>
+            <Text>Show Snackbar</Text>
+          </TouchableOpacity>
+          <Snackbar ref={snackbar}/>
+        </View>
+      </SafeAreaView>
     );
   }
 
   ```
+
 To show a `Snackbar` component, just provide `ref` props to the component and call the `show` function  (with a `Content` type parameter) of it.
 This component will appear at the bottom of the parent view, **not at the bottom of the screen**.
+
+
+### Using Provider
+You can also set SnackbarProvider to use Snackbar component. 
+``` tsx
+  function Container(): React.ReactElement {
+    const snackbar = useSnackbarContext();
+    const onPress = (): void => {
+      snackbar.show({
+        text: 'Simple Snackbar is opened',
+      });
+    };
+    return (
+      <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+        <TouchableOpacity onPress={onPress} style={{ borderWidth: 1, padding: 10 }}>
+          <Text>Show Snackbar</Text>
+        </TouchableOpacity>
+      </View>
+    );
+  }
+
+  function Provider(): React.ReactElement {
+    return (
+      <SnackbarProvider>
+        <Container/>
+      </SnackbarProvider>
+    );
+  }
+
+```
+The SnackbarProvider covers the children with SafeAreaView by default so if you want to use the whole screen in the child views then use useWholeScreen option.
+
+### More Complex Examples
+You can find more complex usages on this [storybook codes](storybook/stories/Snackbr.stories.tsx) or [sample codes](src/components/screen/SnackbarSample.tsx). 
