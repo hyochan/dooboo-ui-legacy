@@ -49,7 +49,7 @@ exports[`[Snackbar] should simulate showing snackbar 1`] = `
       style={
         Object {
           "alignItems": "center",
-          "backgroundColor": "#303235",
+          "backgroundColor": "#87b5ff",
           "borderRadius": 10,
           "bottom": 10,
           "display": "flex",
@@ -67,7 +67,15 @@ exports[`[Snackbar] should simulate showing snackbar 1`] = `
       }
       testID="snackbar"
     >
-      <Text>
+      <Text
+        style={
+          Array [
+            Object {
+              "color": "white",
+            },
+          ]
+        }
+      >
         snackbar content
       </Text>
       <View
@@ -103,7 +111,15 @@ exports[`[Snackbar] should simulate showing snackbar 1`] = `
               ]
             }
           >
-            <Text>
+            <Text
+              style={
+                Array [
+                  Object {
+                    "color": "green",
+                  },
+                ]
+              }
+            >
               some action
             </Text>
           </View>
@@ -115,9 +131,10 @@ exports[`[Snackbar] should simulate showing snackbar 1`] = `
 `;
 
 exports[`[Snackbar] using provider renders TestWrapper without crashing 1`] = `
-<View
+<SafeAreaView
   style={
     Object {
+      "alignItems": "center",
       "flex": 1,
     }
   }
@@ -139,7 +156,7 @@ exports[`[Snackbar] using provider renders TestWrapper without crashing 1`] = `
       </Text>
     </TouchableOpacity>
   </View>
-</View>
+</SafeAreaView>
 `;
 
 exports[`[Snackbar] using provider should simulate showing snackbar 1`] = `
@@ -152,9 +169,10 @@ exports[`[Snackbar] using provider should simulate showing snackbar 1`] = `
     }
   }
 >
-  <View
+  <SafeAreaView
     style={
       Object {
+        "alignItems": "center",
         "flex": 1,
       }
     }
@@ -179,7 +197,7 @@ exports[`[Snackbar] using provider should simulate showing snackbar 1`] = `
       style={
         Object {
           "alignItems": "center",
-          "backgroundColor": "#303235",
+          "backgroundColor": "#87b5ff",
           "borderRadius": 10,
           "bottom": 10,
           "display": "flex",
@@ -196,7 +214,15 @@ exports[`[Snackbar] using provider should simulate showing snackbar 1`] = `
         }
       }
     >
-      <Text>
+      <Text
+        style={
+          Array [
+            Object {
+              "color": "white",
+            },
+          ]
+        }
+      >
         snackbar content
       </Text>
       <View
@@ -232,13 +258,21 @@ exports[`[Snackbar] using provider should simulate showing snackbar 1`] = `
               ]
             }
           >
-            <Text>
+            <Text
+              style={
+                Array [
+                  Object {
+                    "color": "green",
+                  },
+                ]
+              }
+            >
               some action
             </Text>
           </View>
         </TouchableOpacity>
       </View>
     </View>
-  </View>
+  </SafeAreaView>
 </View>
 `;
