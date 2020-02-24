@@ -29,8 +29,8 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "2D02E47A1E0B4A5D006451C7"
-               BuildableName = "doobooWidgets-tvOS.app"
-               BlueprintName = "doobooWidgets-tvOS"
+               BuildableName = "dooboo-ui-tvOS.app"
+               BlueprintName = "dooboo-ui-tvOS"
                ReferencedContainer = "container:doobooWidgets.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -43,8 +43,8 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "2D02E48F1E0B4A5D006451C7"
-               BuildableName = "doobooWidgets-tvOSTests.xctest"
-               BlueprintName = "doobooWidgets-tvOSTests"
+               BuildableName = "dooboo-ui-tvOSTests.xctest"
+               BlueprintName = "dooboo-ui-tvOSTests"
                ReferencedContainer = "container:doobooWidgets.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -55,29 +55,27 @@
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       shouldUseLaunchSchemeArgsEnv = "YES">
+      <MacroExpansion>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "2D02E47A1E0B4A5D006451C7"
+            BuildableName = "dooboo-ui-tvOS.app"
+            BlueprintName = "dooboo-ui-tvOS"
+            ReferencedContainer = "container:doobooWidgets.xcodeproj">
+         </BuildableReference>
+      </MacroExpansion>
       <Testables>
          <TestableReference
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "2D02E48F1E0B4A5D006451C7"
-               BuildableName = "doobooWidgets-tvOSTests.xctest"
-               BlueprintName = "doobooWidgets-tvOSTests"
+               BuildableName = "dooboo-ui-tvOSTests.xctest"
+               BlueprintName = "dooboo-ui-tvOSTests"
                ReferencedContainer = "container:doobooWidgets.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
-      <MacroExpansion>
-         <BuildableReference
-            BuildableIdentifier = "primary"
-            BlueprintIdentifier = "2D02E47A1E0B4A5D006451C7"
-            BuildableName = "doobooWidgets-tvOS.app"
-            BlueprintName = "doobooWidgets-tvOS"
-            ReferencedContainer = "container:doobooWidgets.xcodeproj">
-         </BuildableReference>
-      </MacroExpansion>
-      <AdditionalOptions>
-      </AdditionalOptions>
    </TestAction>
    <LaunchAction
       buildConfiguration = "Debug"
@@ -94,13 +92,11 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "2D02E47A1E0B4A5D006451C7"
-            BuildableName = "doobooWidgets-tvOS.app"
-            BlueprintName = "doobooWidgets-tvOS"
+            BuildableName = "dooboo-ui-tvOS.app"
+            BlueprintName = "dooboo-ui-tvOS"
             ReferencedContainer = "container:doobooWidgets.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
-      <AdditionalOptions>
-      </AdditionalOptions>
    </LaunchAction>
    <ProfileAction
       buildConfiguration = "Release"
@@ -113,8 +109,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "2D02E47A1E0B4A5D006451C7"
-            BuildableName = "doobooWidgets-tvOS.app"
-            BlueprintName = "doobooWidgets-tvOS"
+            BuildableName = "dooboo-ui-tvOS.app"
+            BlueprintName = "dooboo-ui-tvOS"
             ReferencedContainer = "container:doobooWidgets.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>

@@ -41,19 +41,19 @@
 
 /* Begin PBXFileReference section */
 		008F07F21AC5B25A0029DE68 /* main.jsbundle */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = main.jsbundle; sourceTree = "<group>"; };
-		00E356EE1AD99517003FC87E /* doobooWidgetsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = doobooWidgetsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		00E356EE1AD99517003FC87E /* dooboo-uiTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "dooboo-uiTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		00E356F11AD99517003FC87E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		00E356F21AD99517003FC87E /* doobooWidgetsTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = doobooWidgetsTests.m; sourceTree = "<group>"; };
 		113E0B7293F32547D664B6A3 /* Pods-doobooWidgets.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-doobooWidgets.debug.xcconfig"; path = "Target Support Files/Pods-doobooWidgets/Pods-doobooWidgets.debug.xcconfig"; sourceTree = "<group>"; };
-		13B07F961A680F5B00A75B9A /* doobooWidgets.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = doobooWidgets.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		13B07F961A680F5B00A75B9A /* dooboo-ui.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "dooboo-ui.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		13B07FAF1A68108700A75B9A /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = doobooWidgets/AppDelegate.h; sourceTree = "<group>"; };
 		13B07FB01A68108700A75B9A /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = doobooWidgets/AppDelegate.m; sourceTree = "<group>"; };
 		13B07FB21A68108700A75B9A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		13B07FB51A68108700A75B9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = doobooWidgets/Images.xcassets; sourceTree = "<group>"; };
 		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = doobooWidgets/Info.plist; sourceTree = "<group>"; };
 		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = doobooWidgets/main.m; sourceTree = "<group>"; };
-		2D02E47B1E0B4A5D006451C7 /* doobooWidgets-tvOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "doobooWidgets-tvOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		2D02E4901E0B4A5D006451C7 /* doobooWidgets-tvOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "doobooWidgets-tvOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		2D02E47B1E0B4A5D006451C7 /* dooboo-ui-tvOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "dooboo-ui-tvOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		2D02E4901E0B4A5D006451C7 /* dooboo-ui-tvOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "dooboo-ui-tvOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		328CE4544C058491FD80B29D /* libPods-doobooWidgetsTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-doobooWidgetsTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4D789098E31DC5AFA7F960F9 /* Pods-doobooWidgets-tvOSTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-doobooWidgets-tvOSTests.debug.xcconfig"; path = "Target Support Files/Pods-doobooWidgets-tvOSTests/Pods-doobooWidgets-tvOSTests.debug.xcconfig"; sourceTree = "<group>"; };
 		7800594884537294C0BE566C /* Pods-doobooWidgetsTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-doobooWidgetsTests.release.xcconfig"; path = "Target Support Files/Pods-doobooWidgetsTests/Pods-doobooWidgetsTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -174,10 +174,10 @@
 		83CBBA001A601CBA00E9B192 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				13B07F961A680F5B00A75B9A /* doobooWidgets.app */,
-				00E356EE1AD99517003FC87E /* doobooWidgetsTests.xctest */,
-				2D02E47B1E0B4A5D006451C7 /* doobooWidgets-tvOS.app */,
-				2D02E4901E0B4A5D006451C7 /* doobooWidgets-tvOSTests.xctest */,
+				13B07F961A680F5B00A75B9A /* dooboo-ui.app */,
+				00E356EE1AD99517003FC87E /* dooboo-uiTests.xctest */,
+				2D02E47B1E0B4A5D006451C7 /* dooboo-ui-tvOS.app */,
+				2D02E4901E0B4A5D006451C7 /* dooboo-ui-tvOSTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -194,16 +194,15 @@
 				D31A7F6A84A6FA8B8E4CCCD7 /* Pods-doobooWidgetsTests.debug.xcconfig */,
 				7800594884537294C0BE566C /* Pods-doobooWidgetsTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		00E356ED1AD99517003FC87E /* doobooWidgetsTests */ = {
+		00E356ED1AD99517003FC87E /* dooboo-uiTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 00E357021AD99517003FC87E /* Build configuration list for PBXNativeTarget "doobooWidgetsTests" */;
+			buildConfigurationList = 00E357021AD99517003FC87E /* Build configuration list for PBXNativeTarget "dooboo-uiTests" */;
 			buildPhases = (
 				7A35E45AB50A2C6B560BD838 /* [CP] Check Pods Manifest.lock */,
 				00E356EA1AD99517003FC87E /* Sources */,
@@ -215,14 +214,14 @@
 			dependencies = (
 				00E356F51AD99517003FC87E /* PBXTargetDependency */,
 			);
-			name = doobooWidgetsTests;
+			name = "dooboo-uiTests";
 			productName = doobooWidgetsTests;
-			productReference = 00E356EE1AD99517003FC87E /* doobooWidgetsTests.xctest */;
+			productReference = 00E356EE1AD99517003FC87E /* dooboo-uiTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		13B07F861A680F5B00A75B9A /* doobooWidgets */ = {
+		13B07F861A680F5B00A75B9A /* dooboo-ui */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "doobooWidgets" */;
+			buildConfigurationList = 13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "dooboo-ui" */;
 			buildPhases = (
 				773B1B2F4871F2EFDC4F4601 /* [CP] Check Pods Manifest.lock */,
 				FD10A7F022414F080027D42C /* Start Packager */,
@@ -235,14 +234,14 @@
 			);
 			dependencies = (
 			);
-			name = doobooWidgets;
+			name = "dooboo-ui";
 			productName = doobooWidgets;
-			productReference = 13B07F961A680F5B00A75B9A /* doobooWidgets.app */;
+			productReference = 13B07F961A680F5B00A75B9A /* dooboo-ui.app */;
 			productType = "com.apple.product-type.application";
 		};
-		2D02E47A1E0B4A5D006451C7 /* doobooWidgets-tvOS */ = {
+		2D02E47A1E0B4A5D006451C7 /* dooboo-ui-tvOS */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 2D02E4BA1E0B4A5E006451C7 /* Build configuration list for PBXNativeTarget "doobooWidgets-tvOS" */;
+			buildConfigurationList = 2D02E4BA1E0B4A5E006451C7 /* Build configuration list for PBXNativeTarget "dooboo-ui-tvOS" */;
 			buildPhases = (
 				A9B9C0C63038C3DF0899030B /* [CP] Check Pods Manifest.lock */,
 				FD10A7F122414F3F0027D42C /* Start Packager */,
@@ -255,14 +254,14 @@
 			);
 			dependencies = (
 			);
-			name = "doobooWidgets-tvOS";
+			name = "dooboo-ui-tvOS";
 			productName = "doobooWidgets-tvOS";
-			productReference = 2D02E47B1E0B4A5D006451C7 /* doobooWidgets-tvOS.app */;
+			productReference = 2D02E47B1E0B4A5D006451C7 /* dooboo-ui-tvOS.app */;
 			productType = "com.apple.product-type.application";
 		};
-		2D02E48F1E0B4A5D006451C7 /* doobooWidgets-tvOSTests */ = {
+		2D02E48F1E0B4A5D006451C7 /* dooboo-ui-tvOSTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 2D02E4BB1E0B4A5E006451C7 /* Build configuration list for PBXNativeTarget "doobooWidgets-tvOSTests" */;
+			buildConfigurationList = 2D02E4BB1E0B4A5E006451C7 /* Build configuration list for PBXNativeTarget "dooboo-ui-tvOSTests" */;
 			buildPhases = (
 				5B15C949331B570403C550F5 /* [CP] Check Pods Manifest.lock */,
 				2D02E48C1E0B4A5D006451C7 /* Sources */,
@@ -274,9 +273,9 @@
 			dependencies = (
 				2D02E4921E0B4A5D006451C7 /* PBXTargetDependency */,
 			);
-			name = "doobooWidgets-tvOSTests";
+			name = "dooboo-ui-tvOSTests";
 			productName = "doobooWidgets-tvOSTests";
-			productReference = 2D02E4901E0B4A5D006451C7 /* doobooWidgets-tvOSTests.xctest */;
+			productReference = 2D02E4901E0B4A5D006451C7 /* dooboo-ui-tvOSTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -308,6 +307,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 				Base,
 			);
@@ -316,10 +316,10 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				13B07F861A680F5B00A75B9A /* doobooWidgets */,
-				00E356ED1AD99517003FC87E /* doobooWidgetsTests */,
-				2D02E47A1E0B4A5D006451C7 /* doobooWidgets-tvOS */,
-				2D02E48F1E0B4A5D006451C7 /* doobooWidgets-tvOSTests */,
+				13B07F861A680F5B00A75B9A /* dooboo-ui */,
+				00E356ED1AD99517003FC87E /* dooboo-uiTests */,
+				2D02E47A1E0B4A5D006451C7 /* dooboo-ui-tvOS */,
+				2D02E48F1E0B4A5D006451C7 /* dooboo-ui-tvOSTests */,
 			);
 		};
 /* End PBXProject section */
@@ -555,12 +555,12 @@
 /* Begin PBXTargetDependency section */
 		00E356F51AD99517003FC87E /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 13B07F861A680F5B00A75B9A /* doobooWidgets */;
+			target = 13B07F861A680F5B00A75B9A /* dooboo-ui */;
 			targetProxy = 00E356F41AD99517003FC87E /* PBXContainerItemProxy */;
 		};
 		2D02E4921E0B4A5D006451C7 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 2D02E47A1E0B4A5D006451C7 /* doobooWidgets-tvOS */;
+			target = 2D02E47A1E0B4A5D006451C7 /* dooboo-ui-tvOS */;
 			targetProxy = 2D02E4911E0B4A5D006451C7 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -635,8 +635,8 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
-				PRODUCT_NAME = doobooWidgets;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.dooboolab.dooboo-ui";
+				PRODUCT_NAME = "dooboo-ui";
 				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Debug;
@@ -654,8 +654,8 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
-				PRODUCT_NAME = doobooWidgets;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.dooboolab.dooboo-ui";
+				PRODUCT_NAME = "dooboo-ui";
 				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Release;
@@ -872,7 +872,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		00E357021AD99517003FC87E /* Build configuration list for PBXNativeTarget "doobooWidgetsTests" */ = {
+		00E357021AD99517003FC87E /* Build configuration list for PBXNativeTarget "dooboo-uiTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				00E356F61AD99517003FC87E /* Debug */,
@@ -881,7 +881,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "doobooWidgets" */ = {
+		13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "dooboo-ui" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				13B07F941A680F5B00A75B9A /* Debug */,
@@ -890,7 +890,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		2D02E4BA1E0B4A5E006451C7 /* Build configuration list for PBXNativeTarget "doobooWidgets-tvOS" */ = {
+		2D02E4BA1E0B4A5E006451C7 /* Build configuration list for PBXNativeTarget "dooboo-ui-tvOS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				2D02E4971E0B4A5E006451C7 /* Debug */,
@@ -899,7 +899,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		2D02E4BB1E0B4A5E006451C7 /* Build configuration list for PBXNativeTarget "doobooWidgets-tvOSTests" */ = {
+		2D02E4BB1E0B4A5E006451C7 /* Build configuration list for PBXNativeTarget "dooboo-ui-tvOSTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				2D02E4991E0B4A5E006451C7 /* Debug */,
