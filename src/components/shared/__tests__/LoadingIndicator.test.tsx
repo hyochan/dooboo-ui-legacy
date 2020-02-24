@@ -1,8 +1,7 @@
-import 'react-native';
-
 import * as React from 'react';
 
 import LoadingIndicator from '../LoadingIndicator';
+import { View } from 'react-native';
 import renderer from 'react-test-renderer';
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -22,7 +21,7 @@ describe('[LoadingIndicator] render', () => {
     component = <LoadingIndicator {...props} />;
   });
 
-  it('renders without crashing', () => {
+  it('should render without crashing', () => {
     const rendered: renderer.ReactTestRendererJSON = renderer
       .create(component)
       .toJSON();
@@ -30,7 +29,20 @@ describe('[LoadingIndicator] render', () => {
     expect(rendered).toBeTruthy();
   });
 
-  it('renders with [imgSource]', () => {
+  it('should render [customElement]', () => {
+    props = createTestProps({
+      // eslint-disable-next-line
+      customElement: (): React.ReactElement => <View/>,
+    });
+    component = <LoadingIndicator {...props} />;
+    const rendered: renderer.ReactTestRendererJSON = renderer
+      .create(component)
+      .toJSON();
+    expect(rendered).toMatchSnapshot();
+    expect(rendered).toBeTruthy();
+  });
+
+  it('should render with [imgSource]', () => {
     props = createTestProps({
       imgSource: 'http',
     });
@@ -42,7 +54,7 @@ describe('[LoadingIndicator] render', () => {
     expect(rendered).toBeTruthy();
   });
 
-  it('renders with size=small', () => {
+  it('should render with size=small', () => {
     props = createTestProps({
       imgSource: 'http',
       size: 'small',
@@ -55,7 +67,7 @@ describe('[LoadingIndicator] render', () => {
     expect(rendered).toBeTruthy();
   });
 
-  it('renders with size=undefined', () => {
+  it('should render with size=undefined', () => {
     props = createTestProps({
       imgSource: 'http',
       size: undefined,
@@ -68,7 +80,7 @@ describe('[LoadingIndicator] render', () => {
     expect(rendered).toBeTruthy();
   });
 
-  it('renders with !size with none string imgSource', () => {
+  it('should render with !size with none string imgSource', () => {
     props = createTestProps({
       imgSource: 10,
       size: null,
@@ -94,7 +106,7 @@ describe('[LoadingIndicator] render', () => {
     expect(rendered).toBeTruthy();
   });
 
-  it('renders with size=test', () => {
+  it('should render with size=test', () => {
     props = createTestProps({
       imgSource: 10,
       size: 'test',
