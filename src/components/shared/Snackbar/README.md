@@ -18,10 +18,8 @@ or
 ```sh
 yarn add @dooboo-ui/native-snackbar
 ```
-
 ## Usage
-
-# Types
+### Types
 
 ```ts
 export enum Timer {
@@ -71,9 +69,9 @@ An object of this type is needed to show an Snackbar.
 | actionStyle    |           | TextStyle        | undefined          | Action text style  |
 | onPressAction  |           | function         | undefined          |                    |
 
-# Getting started
+### Getting started
 
-## Import
+- Import
 
   ```tsx
   import { Snackbar } from '@dooboo-ui/native';
@@ -81,8 +79,7 @@ An object of this type is needed to show an Snackbar.
   import Snackbar from '@dooboo-ui/native-snackbar';
   ```
 
-## Usage
-### Using Component
+- Using Component
   ```tsx
 
   function Container(): React.ReactElement {
@@ -111,7 +108,8 @@ This component will appear at the bottom of the parent view, **not at the bottom
 
 ![Feb-25-2020 00-12-07](https://user-images.githubusercontent.com/17980230/75164088-961bbb00-5763-11ea-8e89-096b15a3e787.gif)
 
-### Using Provider
+- Using Provider
+
 You can also set SnackbarProvider to use Snackbar component. 
 ``` tsx
   function Container(): React.ReactElement {
@@ -141,7 +139,7 @@ You can also set SnackbarProvider to use Snackbar component.
 ```
 The SnackbarProvider covers the children with SafeAreaView by default so if you want to use the whole screen in the child views then use useWholeScreen option.
 
-### Use Action
+- Using some Action
 
 To add some action to the Snackbar, just add options about the action to the show function.
 
@@ -155,5 +153,6 @@ To add some action to the Snackbar, just add options about the action to the sho
 
 ![Feb-25-2020 00-16-47](https://user-images.githubusercontent.com/17980230/75164429-265a0000-5764-11ea-9c6f-12bf362dc32b.gif)
 
-### More Complex Examples
-You can find more complex usages on this [storybook codes](storybook/stories/Snackbr.stories.tsx) or [sample codes](src/components/screen/SnackbarSample.tsx). 
+- More Complex Examples
+
+You can find more complex usages on this [storybook codes](storybook/stories/Snackbr.stories.tsx). 
