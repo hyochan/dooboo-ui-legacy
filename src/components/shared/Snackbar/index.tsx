@@ -6,9 +6,9 @@ interface SnackbarContext {
   show(content: Content): void;
 }
 
-const SnackbarContext = createContext<SnackbarContext>(undefined);
-const useCtx = (): SnackbarContext => {
-  const c = useContext(SnackbarContext);
+const SnackbarContext = createContext<SnackbarContext | undefined>(undefined);
+const useCtx = (): SnackbarContext | undefined => {
+  const c = useContext<SnackbarContext | undefined>(SnackbarContext);
   if (!c) {
     throw new Error('useCtx must be inside a Provider with a value');
   }
