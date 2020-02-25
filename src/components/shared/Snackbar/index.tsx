@@ -6,10 +6,12 @@ interface SnackbarContext {
   show(content: Content): void;
 }
 
-const SnackbarContext = createContext<SnackbarContext>({ show: () => null });
+const SnackbarContext = createContext<SnackbarContext>(undefined);
 const useCtx = (): SnackbarContext => {
   const c = useContext(SnackbarContext);
-  if (!c) throw new Error('useCtx must be inside a Provider with a value');
+  if (!c) {
+    throw new Error('useCtx must be inside a Provider with a value');
+  }
   return c;
 };
 

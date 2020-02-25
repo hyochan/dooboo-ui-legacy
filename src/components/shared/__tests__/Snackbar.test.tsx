@@ -35,7 +35,7 @@ function TestWrapper(): React.ReactElement {
   );
 }
 
-function TestSnackbarProvider(): React.ReactElement {
+function ContentInnerProvider(): React.ReactElement {
   const snackbar = useSnackbarContext();
   return (
     <View style={{ flex: 1 }}>
@@ -100,12 +100,17 @@ describe('[Snackbar]', () => {
 describe('[Snackbar] using provider', () => {
   const TestElement = (
     <SnackbarProvider>
-      <TestSnackbarProvider/>
+      <ContentInnerProvider/>
     </SnackbarProvider>
   );
+
   it('renders TestWrapper without crashing', () => {
     const rendered = renderer.create(TestElement);
     expect(rendered.toJSON()).toMatchSnapshot();
+  });
+
+  it('occurs error when use snackbar context outside of the SnackbarProvider', async () => {
+    expect(() => renderer.create(<ContentInnerProvider/>)).toThrowError();
   });
 
   it('should simulate showing snackbar', async () => {
