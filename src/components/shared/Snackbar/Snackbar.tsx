@@ -88,7 +88,7 @@ const Snackbar = (props: SnackbarProps, ref: React.Ref<SnackbarRef>): React.Reac
   const show = (content: Content): void => {
     setContent(content);
     timeout && clearTimeout(timeout);
-    setShowingState((prevState) => ({ ...prevState, isShowing: true }));
+    setShowingState((prevState) => Object.assign(Object.assign({}, prevState), { isShowing: true }));
   };
   const hide = (duration = 200): void => {
     Animated.timing(
@@ -97,7 +97,7 @@ const Snackbar = (props: SnackbarProps, ref: React.Ref<SnackbarRef>): React.Reac
         toValue: 0,
         duration: duration,
       },
-    ).start(() => setShowingState((prevState) => ({ ...prevState, isVisible: false })));
+    ).start(() => setShowingState((prevState) => Object.assign(Object.assign({}, prevState), { isVisible: false })));
   };
   React.useEffect(() => {
     if (isShowing) {

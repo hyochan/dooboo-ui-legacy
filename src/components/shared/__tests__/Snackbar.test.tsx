@@ -98,14 +98,19 @@ describe('[Snackbar]', () => {
 });
 
 describe('[Snackbar] using provider', () => {
-  const TestElement = (
-    <SnackbarProvider>
+  const TestElement = (useWholeScreen = false): React.ReactElement => (
+    <SnackbarProvider useWholeScreen={useWholeScreen}>
       <ContentInnerProvider/>
     </SnackbarProvider>
   );
 
-  it('renders TestWrapper without crashing', () => {
-    const rendered = renderer.create(TestElement);
+  it('renders TestElement without crashing', () => {
+    const rendered = renderer.create(TestElement());
+    expect(rendered.toJSON()).toMatchSnapshot();
+  });
+
+  it('renders TestElement using whole screen view without crashing', () => {
+    const rendered = renderer.create(TestElement(true));
     expect(rendered.toJSON()).toMatchSnapshot();
   });
 
@@ -114,7 +119,7 @@ describe('[Snackbar] using provider', () => {
   });
 
   it('should simulate showing snackbar', async () => {
-    const renderResult = render(TestElement);
+    const renderResult = render(TestElement());
     const btn = renderResult.getByTestId('Button');
     act(() => {
       fireEvent.press(btn);

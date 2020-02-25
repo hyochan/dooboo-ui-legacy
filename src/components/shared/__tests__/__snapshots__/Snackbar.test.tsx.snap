@@ -130,7 +130,36 @@ exports[`[Snackbar] should simulate showing snackbar 1`] = `
 </View>
 `;
 
-exports[`[Snackbar] using provider renders TestWrapper without crashing 1`] = `
+exports[`[Snackbar] using provider renders TestElement using whole screen view without crashing 1`] = `
+<View
+  style={
+    Object {
+      "alignItems": "center",
+      "flex": 1,
+    }
+  }
+>
+  <View
+    style={
+      Object {
+        "flex": 1,
+      }
+    }
+  >
+    <TouchableOpacity
+      activeOpacity={0.2}
+      onPress={[Function]}
+      testID="Button"
+    >
+      <Text>
+        show snack bar
+      </Text>
+    </TouchableOpacity>
+  </View>
+</View>
+`;
+
+exports[`[Snackbar] using provider renders TestElement without crashing 1`] = `
 <SafeAreaView
   style={
     Object {
