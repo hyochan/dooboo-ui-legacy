@@ -1,136 +1,39 @@
-import * as React from 'react';
+import React, { createContext, useContext, useRef } from 'react';
+import { SafeAreaView, View } from 'react-native';
+import Snackbar, { Content, SnackbarRef } from './Snackbar';
 
-import { Animated, Dimensions, StyleSheet, Text, TextStyle, ViewStyle } from 'react-native';
-
-import styled from 'styled-components/native';
-
-const { width } = Dimensions.get('screen');
-const maxWidth = width - 32;
-
-const styles = StyleSheet.create({
-  container: {
-    display: 'flex',
-    flexDirection: 'row',
-    flexWrap: 'wrap',
-    minWidth: 150,
-    maxWidth,
-    textAlign: 'left',
-    alignItems: 'center',
-    position: 'absolute',
-    fontSize: 16,
-    paddingHorizontal: 16,
-    paddingVertical: 10,
-    bottom: 10,
-    backgroundColor: '#303235',
-    borderRadius: 10,
-  },
-});
-
-const ActionContainer = styled.View`
-  display: flex;
-  align-items: center;
-  margin-left: auto;
-  margin-right: -5px;
-  padding-left: 16px;
-`;
-
-const Touchable = styled.TouchableOpacity``;
-
-const ActionButton = styled.View`
-  padding: 4px 4px 2px 2px;
-`;
-
-export interface SnackbarProps {
-  testID?: string;
-  ref: React.MutableRefObject<SnackbarRef>;
-}
-
-export interface Content {
-  text: string;
-  actionText?: string;
-  timer?: Timer;
-  actionStyle?: TextStyle;
-  containerStyle?: ViewStyle;
-  messageStyle?: TextStyle;
-  onPressAction?: () => void;
-}
-
-interface ShowingState {
-  isVisible?: boolean;
-  isShowing?: boolean;
-  timeout?: NodeJS.Timeout;
-}
-
-export interface SnackbarRef {
+interface SnackbarContext {
   show(content: Content): void;
 }
 
-export enum Timer {
-  SHORT = 1500,
-  LONG = 3000,
-}
-
-const Snackbar = (props: SnackbarProps, ref: React.Ref<SnackbarRef>): React.ReactElement => {
-  const { testID } = props;
-  const [showingState, setShowingState] = React.useState<ShowingState>({ isVisible: false, isShowing: false });
-  const [content, setContent] = React.useState<Content>({ text: '', timer: Timer.SHORT });
-  const { text, actionText, messageStyle, actionStyle, containerStyle, timer = Timer.SHORT, onPressAction } = content;
-  const { isShowing, isVisible, timeout } = showingState;
-  const [fadeAnim] = React.useState(new Animated.Value(0));
-  const show = (content: Content): void => {
-    setContent(content);
-    timeout && clearTimeout(timeout);
-    setShowingState((prevState) => ({ ...prevState, isShowing: true }));
-  };
-  const hide = (duration = 200): void => {
-    Animated.timing(
-      fadeAnim,
-      {
-        toValue: 0,
-        duration: duration,
-      },
-    ).start(() => setShowingState((prevState) => ({ ...prevState, isVisible: false })));
-  };
-  React.useEffect(() => {
-    if (isShowing) {
-      if (isVisible) {
-        hide(50);
-      } else {
-        const timeout = setTimeout(() => {
-          hide();
-        }, timer + 200);
-        setShowingState({ isShowing: false, isVisible: true, timeout });
-        Animated.timing(
-          fadeAnim,
-          {
-            toValue: 1,
-            duration: 200,
-          },
-        ).start();
-      }
-    }
-  }, [showingState]);
-  React.useImperativeHandle(ref, () => ({
-    show,
-  }));
-  return (
-    <>
-      {showingState.isVisible && (
-        <Animated.View testID={testID} style={[styles.container, containerStyle, { opacity: fadeAnim }]}>
-          <Text style={messageStyle}>{text}</Text>
-          {actionText && (
-            <ActionContainer>
-              <Touchable onPress={onPressAction}>
-                <ActionButton>
-                  <Text style={actionStyle}>{actionText}</Text>
-                </ActionButton>
-              </Touchable>
-            </ActionContainer>
-          )}
-        </Animated.View>
-      )}
-    </>
-  );
+const SnackbarContext = createContext<SnackbarContext | undefined>(undefined);
+const useCtx = (): SnackbarContext | undefined => {
+  const c = useContext<SnackbarContext | undefined>(SnackbarContext);
+  if (!c) {
+    throw new Error('useCtx must be inside a Provider with a value');
+  }
+  return c;
 };
 
-export default React.forwardRef<SnackbarRef, SnackbarProps>(Snackbar);
+export interface SnackbarProviderProps {
+  children?: React.ReactElement;
+  useWholeScreen?: boolean;
+}
+
+function SnackbarProvider(props: SnackbarProviderProps): React.ReactElement {
+  const { children, useWholeScreen } = props;
+  const snackbar = useRef<SnackbarRef>() as React.MutableRefObject<SnackbarRef>;
+  const show = (content: Content): void => {
+    snackbar.current && snackbar.current.show(content);
+  };
+  const Container = useWholeScreen ? View : SafeAreaView;
+  return (
+    <Container style={{ flex: 1, alignItems: 'center' }}>
+      <SnackbarContext.Provider value={{ show }}>{children}</SnackbarContext.Provider>
+      <Snackbar ref={snackbar} />
+    </Container>);
+}
+
+export { useCtx as useSnackbarContext, SnackbarProvider };
+export * from './Snackbar';
+export default Snackbar;

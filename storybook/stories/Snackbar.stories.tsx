@@ -1,6 +1,11 @@
 import { Alert, Text } from 'react-native';
 import React, { useCallback, useRef, useState } from 'react';
-import Snackbar, { SnackbarRef, Timer } from '../../src/components/shared/Snackbar';
+import Snackbar, {
+  SnackbarProvider,
+  SnackbarRef,
+  Timer,
+  useSnackbarContext,
+} from '../../src/components/shared/Snackbar';
 import { color, text } from '@storybook/addon-knobs';
 
 import { ContainerDeco } from '../decorators';
@@ -11,9 +16,9 @@ import styled from 'styled-components/native';
 storiesOf('Snackbar', module)
   .addDecorator(ContainerDeco)
   .add('default', () => (
-    <>
+    <SnackbarProvider>
       <Default />
-    </>
+    </SnackbarProvider>
   ))
   .add('└with action', () => <WithAction />);
 
@@ -42,7 +47,7 @@ const Button = styled.TouchableOpacity`
 `;
 
 function Default(): React.ReactElement {
-  const snackbar = useRef<SnackbarRef>();
+  const snackbar = useSnackbarContext();
   const [shortOrLong, setShortOrLong] = useState<boolean>(false);
   const [longText, setLongText] = useState<boolean>(false);
   const snackbarText = text('Snackbar Text', 'Simple Snackbar is opened');
@@ -53,7 +58,7 @@ function Default(): React.ReactElement {
   const containerColor = color('container color', '#1976D1');
   const messageColor = color('message color', '#ffffff');
   const onPress = useCallback((): void => {
-    snackbar.current && snackbar.current.show({
+    snackbar.show({
       text: longText ? snackbarLongText : snackbarText,
       timer: shortOrLong ? Timer.LONG : Timer.SHORT,
       containerStyle: {
@@ -87,7 +92,6 @@ function Default(): React.ReactElement {
       <Button onPress={onPress}>
         <Text style={{ textAlign: 'center' }}>OPEN SNACKBAR(Default)</Text>
       </Button>
-      <Snackbar ref={snackbar}/>
     </Container>
   );
 }

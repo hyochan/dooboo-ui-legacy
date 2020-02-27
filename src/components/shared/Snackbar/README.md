@@ -5,8 +5,6 @@
 
 > Simple snackbar for react-native.
 
-![Jan-28-2020 15-59-38](https://user-images.githubusercontent.com/17980230/73242107-548d0400-41e7-11ea-946b-630ba7053584.gif)
-
 ## Installation
 
 At this point, this component has not yet been published, and after it has been published, it may be installed with the command below.
@@ -20,10 +18,8 @@ or
 ```sh
 yarn add @dooboo-ui/native-snackbar
 ```
-
 ## Usage
-
-# Types
+### Types
 
 ```ts
 export enum Timer {
@@ -49,6 +45,7 @@ export interface Content {
   messageStyle?: TextStyle;
   onPressAction?: () => void;
 }
+
 ```
 
 - SnackbarProps
@@ -72,7 +69,7 @@ An object of this type is needed to show an Snackbar.
 | actionStyle    |           | TextStyle        | undefined          | Action text style  |
 | onPressAction  |           | function         | undefined          |                    |
 
-# Getting started
+### Getting started
 
 - Import
 
@@ -82,41 +79,80 @@ An object of this type is needed to show an Snackbar.
   import Snackbar from '@dooboo-ui/native-snackbar';
   ```
 
-- Usage
+- Using Component
   ```tsx
 
   function Container(): React.ReactElement {
-    const snackbar = useRef<SnackbarRef>();
+    const snackbar = useRef<SnackbarRef>(null);
     const onPress = (): void => {
       snackbar.current && snackbar.current.show({
         text: 'Simple Snackbar is opened',
-        timer: Timer.LONG,
-        containerStyle: {
-          backgroundColor: '#ccccff',
-        },
-        messageStyle: {
-          color: '#ffffff',
-          fontSize: 17,
-        },
-      actionText: 'ACTION',
-      actionStyle: {
-        color: '#0066ff',
-        fontSize: 17,
-      },
-      onPressAction: () => Alert.alert('Action!!'),
       });
     };
-
     return (
-      <Container>
-        <Button onPress={onPress}>
-          <Text style={{ textAlign: 'center' }}>OPEN SNACKBAR</Text>
-        </Button>
-        <Snackbar ref={snackbar}/>
-      </Container>
+      <SafeAreaView style={{ flex: 1 }}>
+        <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+          <TouchableOpacity onPress={onPress} style={{ borderWidth: 1, padding: 10 }}>
+            <Text>Show Snackbar</Text>
+          </TouchableOpacity>
+          <Snackbar ref={snackbar}/>
+        </View>
+      </SafeAreaView>
     );
   }
 
   ```
+
 To show a `Snackbar` component, just provide `ref` props to the component and call the `show` function  (with a `Content` type parameter) of it.
 This component will appear at the bottom of the parent view, **not at the bottom of the screen**.
+
+![Feb-25-2020 00-12-07](https://user-images.githubusercontent.com/17980230/75164088-961bbb00-5763-11ea-8e89-096b15a3e787.gif)
+
+- Using Provider
+
+You can also set SnackbarProvider to use Snackbar component. 
+``` tsx
+  function Container(): React.ReactElement {
+    const snackbar = useSnackbarContext();
+    const onPress = (): void => {
+      snackbar.show({
+        text: 'Simple Snackbar is opened',
+      });
+    };
+    return (
+      <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+        <TouchableOpacity onPress={onPress} style={{ borderWidth: 1, padding: 10 }}>
+          <Text>Show Snackbar</Text>
+        </TouchableOpacity>
+      </View>
+    );
+  }
+
+  function Provider(): React.ReactElement {
+    return (
+      <SnackbarProvider>
+        <Container/>
+      </SnackbarProvider>
+    );
+  }
+
+```
+The SnackbarProvider covers the children with SafeAreaView by default so if you want to use the whole screen in the child views then use useWholeScreen option.
+
+- Using some Action
+
+To add some action to the Snackbar, just add options about the action to the show function.
+
+``` tsx
+    snackbar.show({
+      text: 'Simple Snackbar is opened',
+      actionText: 'Some action',
+      onPressAction: () => Alert.alert('Some action occurs!!'),
+    });
+```
+
+![Feb-25-2020 00-16-47](https://user-images.githubusercontent.com/17980230/75164429-265a0000-5764-11ea-9c6f-12bf362dc32b.gif)
+
+- More Complex Examples
+
+You can find more complex usages on this [storybook codes](storybook/stories/Snackbr.stories.tsx). 
