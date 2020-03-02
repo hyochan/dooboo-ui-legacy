@@ -234,6 +234,7 @@ function EditText(props: Props): ReactElement {
                 onChangeText={onChangeText}
                 secureTextEntry={secureTextEntry}
                 onSubmitEditing={onSubmitEditing}
+                keyboardType={keyboardType}
               />
             </StyledLine>
           </StyledContent>
@@ -383,6 +384,7 @@ function EditText(props: Props): ReactElement {
                 onChangeText={onChangeText}
                 secureTextEntry={secureTextEntry}
                 onSubmitEditing={onSubmitEditing}
+                keyboardType={keyboardType}
               />
               {
                 rightElement
