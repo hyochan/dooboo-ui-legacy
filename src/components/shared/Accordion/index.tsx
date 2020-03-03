@@ -8,7 +8,7 @@ import {
   View,
   ViewStyle,
 } from 'react-native';
-import React, { ReactElement, useState } from 'react';
+import React, { ReactElement, useEffect, useState } from 'react';
 
 const styles = StyleSheet.create({
   container: {
@@ -68,7 +68,7 @@ function Accordion(props: Props): React.ReactElement {
   const [animatedValue, setAnimatedValue] = useState<Animated.Value | null>(
     null,
   );
-  const [isMounted, setMounted] = useState<boolean>(false);
+  const [isMounted, setMounted] = useState<{header: boolean; content: boolean}>({ header: false, content: false });
   const [isContentVisible, setContentVisible] = useState<boolean>(
     !!props.contentVisibleOnLoad,
   );
@@ -76,14 +76,16 @@ function Accordion(props: Props): React.ReactElement {
   const [contentHeight, setContentHeight] = useState(0);
 
   const runAnimation = (): void => {
+    setContentVisible(!isContentVisible);
+  };
+
+  useEffect(() => {
     const initialValue = isContentVisible
-      ? headerHeight + contentHeight
-      : headerHeight;
-    const finalValue = isContentVisible
       ? headerHeight
       : contentHeight + headerHeight;
-
-    setContentVisible(!isContentVisible);
+    const finalValue = isContentVisible
+      ? headerHeight + contentHeight
+      : headerHeight;
 
     if (animatedValue) {
       animatedValue.setValue(initialValue);
@@ -91,33 +93,34 @@ function Accordion(props: Props): React.ReactElement {
         toValue: finalValue,
       }).start();
     }
-  };
+  }, [isContentVisible]);
 
   const onAnimLayout = (evt: LayoutChangeEvent): void => {
     const headerHeight = evt.nativeEvent.layout.height;
-    if (!isMounted && !props.contentVisibleOnLoad) {
+    if (!isMounted.header && !props.contentVisibleOnLoad) {
       setAnimatedValue(new Animated.Value(headerHeight));
-      setMounted(true);
+      setMounted({ ...isMounted, header: true });
       setHeaderHeight(headerHeight);
       return;
-    } else if (!isMounted) {
+    } else if (!isMounted.header) {
       InteractionManager.runAfterInteractions(() => {
         setAnimatedValue(new Animated.Value(headerHeight + contentHeight));
       });
     }
-    setMounted(true);
+    setMounted({ ...isMounted, header: true });
     setHeaderHeight(headerHeight);
   };
 
   const onLayout = (evt: LayoutChangeEvent): void => {
+    if (!isContentVisible && isMounted.content) return;
     const contentHeight = evt.nativeEvent.layout.height;
     setContentHeight(contentHeight);
+    setMounted({ ...isMounted, content: true });
   };
 
   const onPress = (): void => {
     runAnimation();
   };
-
   return (
     <Animated.View
       style={[
