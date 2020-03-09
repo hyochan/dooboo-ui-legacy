@@ -1,4 +1,6 @@
 ## Changelogs
+- **[0.6.2]**
+  - Add initial index to ButtonGroup.
 - **[0.6.0]**
   - Enhancement on `TinderCard` [#171](https://github.com/dooboolab/dooboo-ui-native/pull/171)
   - New `Slider` component [#174](https://github.com/dooboolab/dooboo-ui-native/pull/174)

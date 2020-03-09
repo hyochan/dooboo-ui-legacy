@@ -19,14 +19,27 @@ interface Props {
   selectedTextStyle?: StyleProp<TextStyle>;
   data: string[];
   onPress?: (i: number) => void;
+  initialIndex?: number;
 }
 
 function Shared(props: Props): React.ReactElement {
-  const [selectedOption, setSelectedOption] = useState(0);
+  const {
+    initialIndex = 0,
+    testID,
+    containerStyle,
+    style,
+    selectedViewStyle,
+    viewStyle,
+    selectedTextStyle,
+    textStyle,
+    data,
+    onPress,
+  } = props;
+  const [selectedOption, setSelectedOption] = useState(initialIndex);
 
   return (
-    <View testID={props.testID} style={StyleSheet.flatten([props.containerStyle, props.style])}>
-      {props.data.map((text, i) => {
+    <View testID={testID} style={StyleSheet.flatten([containerStyle, style])}>
+      {data.map((text, i) => {
         return (
           <TouchableOpacity
             key={i}
@@ -34,18 +47,17 @@ function Shared(props: Props): React.ReactElement {
             style={{ flex: 1 }}
             onPress={(): void => {
               setSelectedOption(i);
-              if (props.onPress) {
-                props.onPress(i);
+              if (onPress) {
+                onPress(i);
               }
             }}
           >
             <View
-              // prettier-ignore
               style={StyleSheet.flatten([
                 selectedOption === i
-                  ? props.selectedViewStyle
-                  : props.viewStyle,
-                i !== props.data.length - 1
+                  ? selectedViewStyle
+                  : viewStyle,
+                i !== data.length - 1
                   ? {
                     borderRightWidth: 1,
                   }
@@ -55,8 +67,8 @@ function Shared(props: Props): React.ReactElement {
               <Text
                 style={
                   selectedOption === i
-                    ? props.selectedTextStyle
-                    : props.textStyle
+                    ? selectedTextStyle
+                    : textStyle
                 }
               >
                 {text}
