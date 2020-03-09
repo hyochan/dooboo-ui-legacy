@@ -64,38 +64,54 @@ interface Props {
   children: React.ReactElement;
 }
 
+interface ContentVisibleState {
+  isContentVisible: boolean;
+  isRunningAnimation: boolean;
+}
+
 function Accordion(props: Props): React.ReactElement {
   const [animatedValue, setAnimatedValue] = useState<Animated.Value | null>(
     null,
   );
   const [isMounted, setMounted] = useState<{header: boolean; content: boolean}>({ header: false, content: false });
-  const [isContentVisible, setContentVisible] = useState<boolean>(
-    !!props.contentVisibleOnLoad,
+  const [contentVisibleState, setContentVisibleState] = useState<ContentVisibleState>(
+    {
+      isContentVisible: !!props.contentVisibleOnLoad,
+      isRunningAnimation: false,
+    },
   );
+  const { isContentVisible, isRunningAnimation } = contentVisibleState;
   const [headerHeight, setHeaderHeight] = useState(0);
   const [contentHeight, setContentHeight] = useState(0);
 
   const runAnimation = (): void => {
-    setContentVisible(!isContentVisible);
+    setContentVisibleState({
+      isContentVisible: isContentVisible,
+      isRunningAnimation: true,
+    });
   };
 
   useEffect(() => {
+    if (!isRunningAnimation) return;
     const initialValue = isContentVisible
-      ? headerHeight
-      : contentHeight + headerHeight;
-    const finalValue = isContentVisible
       ? headerHeight + contentHeight
       : headerHeight;
-
+    const finalValue = isContentVisible
+      ? headerHeight
+      : contentHeight + headerHeight;
     if (animatedValue) {
       animatedValue.setValue(initialValue);
       Animated.spring(animatedValue, {
         toValue: finalValue,
-      }).start();
+      }).start(() => setContentVisibleState({
+        isContentVisible: !isContentVisible,
+        isRunningAnimation: false,
+      }));
     }
-  }, [isContentVisible]);
+  }, [contentVisibleState]);
 
   const onAnimLayout = (evt: LayoutChangeEvent): void => {
+    if (isRunningAnimation) return;
     const headerHeight = evt.nativeEvent.layout.height;
     if (!isMounted.header && !props.contentVisibleOnLoad) {
       setAnimatedValue(new Animated.Value(headerHeight));
@@ -113,6 +129,7 @@ function Accordion(props: Props): React.ReactElement {
 
   const onLayout = (evt: LayoutChangeEvent): void => {
     if (!isContentVisible && isMounted.content) return;
+    if (isRunningAnimation) return;
     const contentHeight = evt.nativeEvent.layout.height;
     setContentHeight(contentHeight);
     setMounted({ ...isMounted, content: true });
