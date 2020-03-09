@@ -75,6 +75,8 @@ enum AnimationType {
   null = 'null',
 }
 
+let lastContentVisibleState: ContentVisibleState;
+
 function Accordion(props: Props): React.ReactElement {
   const [animatedValue, setAnimatedValue] = useState<Animated.Value | null>(
     null,
@@ -98,11 +100,11 @@ function Accordion(props: Props): React.ReactElement {
       : (currentAnimation === AnimationType.hideContent
         ? AnimationType.showContent
         : AnimationType.hideContent);
-    this.lastContentVisibleState = {
+    lastContentVisibleState = {
       isContentVisible: isContentVisible,
       currentAnimation: targetAnimation,
     };
-    setContentVisibleState(this.lastContentVisibleState);
+    setContentVisibleState(lastContentVisibleState);
   };
 
   useEffect(() => {
@@ -120,7 +122,7 @@ function Accordion(props: Props): React.ReactElement {
       Animated.spring(animatedValue, {
         toValue: finalValue,
       }).start(() => {
-        if (this.lastContentVisibleState === contentVisibleState) {
+        if (lastContentVisibleState === contentVisibleState) {
           setContentVisibleState({
             isContentVisible: !isCollapsing,
             currentAnimation: AnimationType.null,
