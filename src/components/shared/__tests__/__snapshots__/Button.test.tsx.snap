@@ -3,6 +3,7 @@
 exports[`[Button] should render without crashing 1`] = `
 <TouchableOpacity
   activeOpacity={0.2}
+  delayPressIn={30}
 >
   <View
     style={

@@ -1,4 +1,6 @@
 ## Changelogs
+- **[0.6.3]**
+  - [Button] Add `touchableInputProps` for more customization.
 - **[0.6.2]**
   - Add initial index to ButtonGroup.
 - **[0.6.0]**
