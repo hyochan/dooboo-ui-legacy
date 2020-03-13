@@ -2,7 +2,7 @@
   "name": "@dooboo-ui/native-calendar-carousel",
   "main": "package/index.js",
   "types": "package/index.d.ts",
-  "version": "0.3.3",
+  "version": "0.3.4",
   "license": "MIT",
   "postinstall": "tsc",
   "scripts": {
