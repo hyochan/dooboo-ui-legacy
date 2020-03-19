@@ -28,7 +28,7 @@ function SnackbarProvider(props: SnackbarProviderProps): React.ReactElement {
   };
   const Container = useWholeScreen ? View : SafeAreaView;
   return (
-    <Container style={{ flex: 1, alignItems: 'center' }}>
+    <Container style={{ flex: 1 }}>
       <SnackbarContext.Provider value={{ show }}>{children}</SnackbarContext.Provider>
       <Snackbar ref={snackbar} />
     </Container>);
