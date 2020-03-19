@@ -160,7 +160,7 @@ exports[`[Snackbar] using provider renders TestElement using whole screen view w
 `;
 
 exports[`[Snackbar] using provider renders TestElement without crashing 1`] = `
-<SafeAreaView
+<View
   style={
     Object {
       "flex": 1,
@@ -184,7 +184,7 @@ exports[`[Snackbar] using provider renders TestElement without crashing 1`] = `
       </Text>
     </TouchableOpacity>
   </View>
-</SafeAreaView>
+</View>
 `;
 
 exports[`[Snackbar] using provider should simulate showing snackbar 1`] = `
@@ -197,7 +197,7 @@ exports[`[Snackbar] using provider should simulate showing snackbar 1`] = `
     }
   }
 >
-  <SafeAreaView
+  <View
     style={
       Object {
         "flex": 1,
@@ -301,6 +301,6 @@ exports[`[Snackbar] using provider should simulate showing snackbar 1`] = `
         </TouchableOpacity>
       </View>
     </View>
-  </SafeAreaView>
+  </View>
 </View>
 `;

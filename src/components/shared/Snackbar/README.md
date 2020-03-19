@@ -137,7 +137,19 @@ You can also set SnackbarProvider to use Snackbar component.
   }
 
 ```
-The SnackbarProvider covers the children with SafeAreaView by default so if you want to use the whole screen in the child views then use useWholeScreen option.
+For versions after iPhone x, Snackbar will overlap with the gesture bar. Previously, Snackbar was put in SafeAreaView, but this could be a problem and changed to use View. We recommend that using 'defaultContent' like below.
+
+```typescript
+  function Provider(): React.ReactElement {
+    return (
+      <SnackbarProvider
+        defaultContent={{ containerStyle: { bottom: safeAreaBottom + 10 }}}
+      >
+        <Container/>
+      </SnackbarProvider>
+    );
+  }
+```
 
 - Using some Action
 
