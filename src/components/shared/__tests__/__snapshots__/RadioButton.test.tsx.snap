@@ -1,28 +1,23 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`[RadioButton] render [RadioButton] Interaction should simulate props 1`] = `
-<View
-  accessible={true}
-  focusable={true}
-  isTVSelectable={true}
-  onClick={[Function]}
-  onResponderGrant={[Function]}
-  onResponderMove={[Function]}
-  onResponderRelease={[Function]}
-  onResponderTerminate={[Function]}
-  onResponderTerminationRequest={[Function]}
-  onStartShouldSetResponder={[Function]}
+<TouchableOpacity
+  activeOpacity={1}
+  disabled={false}
+  isLabelColumn={true}
+  onPress={[Function]}
   style={
-    Object {
-      "alignItems": "center",
-      "flexDirection": "column",
-      "justifyContent": "center",
-      "opacity": 1,
-      "paddingBottom": 8,
-      "paddingLeft": 0,
-      "paddingRight": 0,
-      "paddingTop": 8,
-    }
+    Array [
+      Object {
+        "alignItems": "center",
+        "flexDirection": "column",
+        "justifyContent": "center",
+        "paddingBottom": 8,
+        "paddingLeft": 0,
+        "paddingRight": 0,
+        "paddingTop": 8,
+      },
+    ]
   }
 >
   <Text
@@ -70,32 +65,27 @@ exports[`[RadioButton] render [RadioButton] Interaction should simulate props 1`
       }
     />
   </View>
-</View>
+</TouchableOpacity>
 `;
 
 exports[`[RadioButton] render [RadioButton] Interaction should simulate props 2`] = `
-<View
-  accessible={true}
-  focusable={true}
-  isTVSelectable={true}
-  onClick={[Function]}
-  onResponderGrant={[Function]}
-  onResponderMove={[Function]}
-  onResponderRelease={[Function]}
-  onResponderTerminate={[Function]}
-  onResponderTerminationRequest={[Function]}
-  onStartShouldSetResponder={[Function]}
+<TouchableOpacity
+  activeOpacity={1}
+  disabled={true}
+  isLabelColumn={false}
+  onPress={[Function]}
   style={
-    Object {
-      "alignItems": "center",
-      "flexDirection": "row",
-      "justifyContent": "flex-start",
-      "opacity": 1,
-      "paddingBottom": 8,
-      "paddingLeft": 0,
-      "paddingRight": 0,
-      "paddingTop": 8,
-    }
+    Array [
+      Object {
+        "alignItems": "center",
+        "flexDirection": "row",
+        "justifyContent": "flex-start",
+        "paddingBottom": 8,
+        "paddingLeft": 0,
+        "paddingRight": 0,
+        "paddingTop": 8,
+      },
+    ]
   }
 >
   <View
@@ -143,32 +133,27 @@ exports[`[RadioButton] render [RadioButton] Interaction should simulate props 2`
   >
     
   </Text>
-</View>
+</TouchableOpacity>
 `;
 
 exports[`[RadioButton] render [RadioButton] Interaction should simulate props 3`] = `
-<View
-  accessible={true}
-  focusable={true}
-  isTVSelectable={true}
-  onClick={[Function]}
-  onResponderGrant={[Function]}
-  onResponderMove={[Function]}
-  onResponderRelease={[Function]}
-  onResponderTerminate={[Function]}
-  onResponderTerminationRequest={[Function]}
-  onStartShouldSetResponder={[Function]}
+<TouchableOpacity
+  activeOpacity={1}
+  disabled={false}
+  isLabelColumn={false}
+  onPress={[Function]}
   style={
-    Object {
-      "alignItems": "center",
-      "flexDirection": "row",
-      "justifyContent": "flex-start",
-      "opacity": 1,
-      "paddingBottom": 8,
-      "paddingLeft": 0,
-      "paddingRight": 0,
-      "paddingTop": 8,
-    }
+    Array [
+      Object {
+        "alignItems": "center",
+        "flexDirection": "row",
+        "justifyContent": "flex-start",
+        "paddingBottom": 8,
+        "paddingLeft": 0,
+        "paddingRight": 0,
+        "paddingTop": 8,
+      },
+    ]
   }
 >
   <View
@@ -205,32 +190,27 @@ exports[`[RadioButton] render [RadioButton] Interaction should simulate props 3`
   >
     
   </Text>
-</View>
+</TouchableOpacity>
 `;
 
 exports[`[RadioButton] render renders without crashing 1`] = `
-<View
-  accessible={true}
-  focusable={true}
-  isTVSelectable={true}
-  onClick={[Function]}
-  onResponderGrant={[Function]}
-  onResponderMove={[Function]}
-  onResponderRelease={[Function]}
-  onResponderTerminate={[Function]}
-  onResponderTerminationRequest={[Function]}
-  onStartShouldSetResponder={[Function]}
+<TouchableOpacity
+  activeOpacity={1}
+  disabled={false}
+  isLabelColumn={false}
+  onPress={[Function]}
   style={
-    Object {
-      "alignItems": "center",
-      "flexDirection": "row",
-      "justifyContent": "flex-start",
-      "opacity": 1,
-      "paddingBottom": 8,
-      "paddingLeft": 0,
-      "paddingRight": 0,
-      "paddingTop": 8,
-    }
+    Array [
+      Object {
+        "alignItems": "center",
+        "flexDirection": "row",
+        "justifyContent": "flex-start",
+        "paddingBottom": 8,
+        "paddingLeft": 0,
+        "paddingRight": 0,
+        "paddingTop": 8,
+      },
+    ]
   }
 >
   <View
@@ -278,5 +258,5 @@ exports[`[RadioButton] render renders without crashing 1`] = `
   >
     
   </Text>
-</View>
+</TouchableOpacity>
 `;

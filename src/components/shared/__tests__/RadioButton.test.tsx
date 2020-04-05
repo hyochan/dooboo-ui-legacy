@@ -11,7 +11,8 @@ import renderer from 'react-test-renderer';
  */
 jest.useFakeTimers();
 
-// let props: any;
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+let props: any;
 // let component: React.ReactElement;
 // let testingLib: RenderResult;
 
@@ -29,7 +30,6 @@ const component = (props?): React.ReactElement => {
 describe('[RadioButton] render', () => {
   beforeEach(() => {
     props = createTestProps({});
-    // component = <RadioButton {...props} />;
   });
 
   it('renders without crashing', () => {
