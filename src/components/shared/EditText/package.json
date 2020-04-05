@@ -2,7 +2,7 @@
   "name": "@dooboo-ui/native-edit-text",
   "main": "package/index.js",
   "types": "package/index.d.ts",
-  "version": "0.4.5",
+  "version": "0.4.6",
   "license": "MIT",
   "postinstall": "tsc",
   "scripts": {
@@ -23,7 +23,7 @@
   },
   "devDependencies": {
     "styled-components": "^4.4.0",
-    "typescript": "^3.6.4"
+    "typescript": "^3.7.5"
   },
   "peerDependencies": {
     "react": ">=16.8",

@@ -28,9 +28,10 @@ interface Props {
   textRightStyle?: StyleProp<TextStyle>;
   textLeftStyle?: StyleProp<TextStyle>;
   buttonStyle?: StyleProp<ViewStyle>;
-  buttonContainerStyle?: StyleProp<ViewStyle>;
-  rightContainerStyle?: StyleProp<ViewStyle>;
-  leftContainerStyle?: StyleProp<ViewStyle>;
+  // limitation: https://github.com/DefinitelyTyped/DefinitelyTyped/issues/12202
+  buttonContainerStyle?: StyleProp<ViewStyle> | any;
+  rightContainerStyle?: StyleProp<ViewStyle> | any;
+  leftContainerStyle?: StyleProp<ViewStyle> | any;
 }
 
 const styles = StyleSheet.create({

@@ -11,25 +11,25 @@ const Container = styled.SafeAreaView`
 `;
 
 const Value = styled.Text`
-  padding-top: 5;
+  padding-top: 5px;
   align-self: center;
 `;
 
 const MagContainer = styled.View`
-  height: 24;
-  width: 24;
-  margin-left: 8;
-  margin-right: 2;
-  margin-top: 9;
-  margin-bottom: 9;
+  height: 24px;
+  width: 24px;
+  margin-left: 8px;
+  margin-right: 2px;
+  margin-top: 9px;
+  margin-bottom: 9px;
   justify-content: center;
   align-items: center;
 `;
 
 const Magnifier = styled.Image`
-  width: 16;
-  height: 16;
-  margin-bottom: 2;
+  width: 16px;
+  height: 16px;
+  margin-bottom: 2px;
 `;
 
 const CustomIcon: React.FC = () => (

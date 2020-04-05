@@ -29,8 +29,7 @@ const StyledRowLabel = styled.Text`
   color: #b9b9c4;
 `;
 
-const StyledRowInput = Platform.select({
-  ios: styled.TextInput`
+const StyledRowInput = styled.TextInput`
   padding-top: 16px;
   padding-bottom: 16px;
   font-size: 14px;
@@ -38,17 +37,7 @@ const StyledRowInput = Platform.select({
   flex: 1;
   height: 100%;
   color: #2c374e;
-`,
-  android: styled.TextInput`
-  padding-top: 10px;
-  padding-bottom: 10px;
-  font-size: 14px;
-  font-weight: bold;
-  flex: 1;
-  height: 100%;
-  color: #2c374e;
-`,
-});
+`;
 
 const Container = styled.View`
   flex-direction: column;
@@ -79,26 +68,15 @@ const StyledIcon = styled.View`
   justify-content: center;
 `;
 
-const StyledTextInput = Platform.select({
-  ios: styled.TextInput`
-    padding-top: 15px;
-    padding-bottom: 15px;
-    font-size: 15px;
-    font-weight: 500;
-    flex: 1;
-    height: 100%;
-    color: #2c374e;
-  `,
-  android: styled.TextInput`
-    padding-top: 10px;
-    padding-bottom: 10px;
-    font-size: 15px;
-    font-weight: 500;
-    flex: 1;
-    height: 100%;
-    color: #2c374e;
-  `,
-});
+const StyledTextInput = styled.TextInput`
+  padding-top: 15px;
+  padding-bottom: 15px;
+  font-size: 15px;
+  font-weight: 500;
+  flex: 1;
+  height: 100%;
+  color: #2c374e;
+`;
 
 const StyledInvalidText = styled.Text`
   margin: 0px 2px;
@@ -173,7 +151,14 @@ function EditText(props: Props): ReactElement {
     borderStyle,
     borderWidth = 0.6,
     borderColor = '#eaeaf9',
-    textStyle,
+    textStyle = Platform.select({
+      ios: {
+        paddingVertical: 16,
+      },
+      android: {
+        paddingVertical: 10,
+      },
+    }),
     placeholder,
     placeholderTextColor,
     secureTextEntry,
@@ -230,8 +215,18 @@ function EditText(props: Props): ReactElement {
                 {...textInputProps}
                 testID={testID}
                 autoCapitalize={autoCapitalize}
-                onFocus={(): void => setFocus(true)}
-                onBlur={(): void => setFocus(false)}
+                onFocus={(): void => {
+                  setFocus(true);
+                  if (onFocus) {
+                    onFocus();
+                  }
+                }}
+                onBlur={(): void => {
+                  setFocus(false);
+                  if (onBlur) {
+                    onBlur();
+                  }
+                }}
                 placeholder={placeholder}
                 placeholderTextColor={placeholderTextColor}
                 value={value}
@@ -369,8 +364,18 @@ function EditText(props: Props): ReactElement {
                 {...textInputProps}
                 testID={testID}
                 autoCapitalize={autoCapitalize}
-                onFocus={(): void => setFocus(true)}
-                onBlur={(): void => setFocus(false)}
+                onFocus={(): void => {
+                  setFocus(true);
+                  if (onFocus) {
+                    onFocus();
+                  }
+                }}
+                onBlur={(): void => {
+                  setFocus(false);
+                  if (onBlur) {
+                    onBlur();
+                  }
+                }}
                 placeholder={placeholder}
                 placeholderTextColor={placeholderTextColor}
                 value={value}

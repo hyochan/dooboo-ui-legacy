@@ -1,4 +1,4 @@
-import { EmitterSubscription, FlatList, Keyboard, ListRenderItem, View } from 'react-native';
+import { EmitterSubscription, FlatList, Keyboard, ListRenderItem, TextInput, View } from 'react-native';
 import React, { useEffect, useRef, useState } from 'react';
 
 import styled from 'styled-components/native';
@@ -15,9 +15,9 @@ const StyledViewChat = styled.View`
   width: 100%;
   border-top-width: 0.5px;
   min-height: 52px;
-  max-height: 52;
-  padding-right: 8;
-  padding-left: 8;
+  max-height: 52px;
+  padding-right: 8px;
+  padding-left: 8px;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
@@ -76,9 +76,9 @@ interface Props {
 function Shared(props: Props): React.ReactElement {
   let keyboardShowListener: EmitterSubscription;
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const input1 = useRef<any>();
+  const input1 = useRef<TextInput>();
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const input2 = useRef<any>();
+  const input2 = useRef<TextInput>();
 
   const {
     inputTestID,
@@ -159,6 +159,7 @@ function Shared(props: Props): React.ReactElement {
                 color: fontColor,
                 backgroundColor: backgroundColor,
               }}
+              // @ts-ignore
               ref={input1}
               onFocus={(): void => setShowMenu(false)}
               multiline={true}
@@ -195,6 +196,7 @@ function Shared(props: Props): React.ReactElement {
           >
             <StyledInputChat
               testID={inputTestID}
+              // @ts-ignore
               ref={input2}
               onFocus={(): void => setShowMenu(false)}
               style={{

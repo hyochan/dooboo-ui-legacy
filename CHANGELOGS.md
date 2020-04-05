@@ -1,5 +1,21 @@
 ## Changelogs
-
+- **[0.6.3]**
+  - [Button] Add `touchableInputProps` for more customization.
+- **[0.6.2]**
+  - Add initial index to ButtonGroup.
+- **[0.6.0]**
+  - Enhancement on `TinderCard` [#171](https://github.com/dooboolab/dooboo-ui-native/pull/171)
+  - New `Slider` component [#174](https://github.com/dooboolab/dooboo-ui-native/pull/174)
+- **[0.5.0]**
+  - [0.5.1]
+    - Added `TinderCard@0.0.1`.
+  - [0.5.3]
+    - Properly include the `TinderCard` in multi repo `@dooboo-ui/native`.
+  - [0.5.5]
+    - [TinderCard]
+      - Remove `defaultProps` for `forwardingRef` since react warns it.
+      - Rename `rotate` props to `shouldRotate`.
+    - Put `px` after value since this is more safe to use `styled-component`.
 - **[0.4.12]**
   - Revert [Button] to how it was originally used [#123](https://github.com/dooboolab/
   dooboo-ui-native/pull/123).
