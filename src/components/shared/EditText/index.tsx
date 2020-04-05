@@ -215,8 +215,18 @@ function EditText(props: Props): ReactElement {
                 {...textInputProps}
                 testID={testID}
                 autoCapitalize={autoCapitalize}
-                onFocus={(): void => setFocus(true)}
-                onBlur={(): void => setFocus(false)}
+                onFocus={(): void => {
+                  setFocus(true);
+                  if (onFocus) {
+                    onFocus();
+                  }
+                }}
+                onBlur={(): void => {
+                  setFocus(false);
+                  if (onBlur) {
+                    onBlur();
+                  }
+                }}
                 placeholder={placeholder}
                 placeholderTextColor={placeholderTextColor}
                 value={value}
@@ -354,8 +364,18 @@ function EditText(props: Props): ReactElement {
                 {...textInputProps}
                 testID={testID}
                 autoCapitalize={autoCapitalize}
-                onFocus={(): void => setFocus(true)}
-                onBlur={(): void => setFocus(false)}
+                onFocus={(): void => {
+                  setFocus(true);
+                  if (onFocus) {
+                    onFocus();
+                  }
+                }}
+                onBlur={(): void => {
+                  setFocus(false);
+                  if (onBlur) {
+                    onBlur();
+                  }
+                }}
                 placeholder={placeholder}
                 placeholderTextColor={placeholderTextColor}
                 value={value}

@@ -17,13 +17,13 @@
 |                      | necessary | types                  | default              |
 | -------------------- | --------- | ---------------------- | -------------------- |
 | testID               |           | string                 |                      |
+| type                 |           | string                 |     `underlined`     |
 | errorTestID          |           | string                 |                      |
 | isRow                |           | boolean                |        `false`       |
 | style                |           | `ViewStyle`            |                      |
 | label                |           | string                 |                      |
 | labelTextStyle       |           | `TextStyle`            |                      |
 | value                |           | `TextInputProps`       |                      |
-| inputContainerType   |           | string                 |     `underlined`     |
 | inputContainerRadius |           | string                 |          `3`         |
 | borderStyle          |           | `ViewStyle`            |                      |
 | borderWidth          |           | number                 |         `0.6`        |

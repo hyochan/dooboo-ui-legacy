@@ -2,6 +2,7 @@ import {
   ActivityIndicator,
   TextStyle,
   TouchableOpacity,
+  TouchableOpacityProps,
   ViewStyle,
 } from 'react-native';
 
@@ -47,6 +48,7 @@ interface Props {
   indicatorColor?: string;
   activeOpacity?: number;
   text?: string;
+  touchableOpacityProps?: TouchableOpacityProps;
 }
 
 function Button(props: Props): React.ReactElement {
@@ -65,6 +67,7 @@ function Button(props: Props): React.ReactElement {
     rightElement,
     activeOpacity,
     onPress,
+    touchableOpacityProps,
   } = props;
 
   if (isDisabled) {
@@ -101,6 +104,8 @@ function Button(props: Props): React.ReactElement {
       activeOpacity={activeOpacity}
       onPress={onPress}
       style={containerStyle}
+      delayPressIn={30}
+      {...touchableOpacityProps}
     >
       <StyledButton style={style}>
         {leftElement || null}

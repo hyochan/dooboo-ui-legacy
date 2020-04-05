@@ -1,8 +1,8 @@
 platform :ios, '9.0'
 require_relative '../node_modules/@react-native-community/cli-platform-ios/native_modules'
 
-target 'doobooWidgets' do
-  # Pods for doobooWidgets
+target 'dooboo-ui' do
+  # Pods for dooboo-ui
   pod 'FBLazyVector', :path => "../node_modules/react-native/Libraries/FBLazyVector"
   pod 'FBReactNativeSpec', :path => "../node_modules/react-native/Libraries/FBReactNativeSpec"
   pod 'RCTRequired', :path => "../node_modules/react-native/Libraries/RCTRequired"
@@ -34,7 +34,7 @@ target 'doobooWidgets' do
   pod 'glog', :podspec => '../node_modules/react-native/third-party-podspecs/glog.podspec'
   pod 'Folly', :podspec => '../node_modules/react-native/third-party-podspecs/Folly.podspec'
 
-  target 'doobooWidgetsTests' do
+  target 'dooboo-uiTests' do
     inherit! :search_paths
     # Pods for testing
   end
@@ -42,10 +42,10 @@ target 'doobooWidgets' do
   use_native_modules!
 end
 
-target 'doobooWidgets-tvOS' do
-  # Pods for doobooWidgets-tvOS
+target 'dooboo-ui-tvOS' do
+  # Pods for dooboo-ui-tvOS
 
-  target 'doobooWidgets-tvOSTests' do
+  target 'dooboo-ui-tvOSTests' do
     inherit! :search_paths
     # Pods for testing
   end
