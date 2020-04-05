@@ -34,7 +34,7 @@ describe('[RadioButton] render', () => {
 
   it('renders without crashing', () => {
     const rendered: renderer.ReactTestRendererJSON | null = renderer
-      .create(component())
+      .create(component(props))
       .toJSON();
     expect(rendered).toMatchSnapshot();
     expect(rendered).toBeTruthy();
