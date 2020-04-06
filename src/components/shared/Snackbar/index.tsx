@@ -1,6 +1,6 @@
 import React, { createContext, useContext, useRef } from 'react';
-import { SafeAreaView, View } from 'react-native';
 import Snackbar, { Content, SnackbarRef } from './Snackbar';
+import { View } from 'react-native';
 
 interface SnackbarContext {
   show(content: Content): void;
@@ -17,21 +17,20 @@ const useCtx = (): SnackbarContext | undefined => {
 
 export interface SnackbarProviderProps {
   children?: React.ReactElement;
-  useWholeScreen?: boolean;
+  defaultContent?: Partial<Content>;
 }
 
 function SnackbarProvider(props: SnackbarProviderProps): React.ReactElement {
-  const { children, useWholeScreen } = props;
+  const { children, defaultContent = {} } = props;
   const snackbar = useRef<SnackbarRef>() as React.MutableRefObject<SnackbarRef>;
   const show = (content: Content): void => {
-    snackbar.current && snackbar.current.show(content);
+    snackbar.current && snackbar.current.show({ ...defaultContent, ...content });
   };
-  const Container = useWholeScreen ? View : SafeAreaView;
   return (
-    <Container style={{ flex: 1, alignItems: 'center' }}>
+    <View style={{ flex: 1 }}>
       <SnackbarContext.Provider value={{ show }}>{children}</SnackbarContext.Provider>
       <Snackbar ref={snackbar} />
-    </Container>);
+    </View>);
 }
 
 export { useCtx as useSnackbarContext, SnackbarProvider };
