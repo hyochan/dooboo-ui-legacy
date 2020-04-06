@@ -3,6 +3,7 @@ import './Button.stories';
 import './ButtonGroup.stories';
 import './EditText.stories';
 import './LoadingIndicator.stories';
+import './RadioButton.stories';
 import './SearchInput.stories';
 import './Snackbar.stories';
 import './SwitchToggle.stories';
