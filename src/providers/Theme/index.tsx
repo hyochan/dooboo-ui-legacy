@@ -8,7 +8,7 @@ import {
 } from './theme';
 import React, { useState } from 'react';
 
-import { DefaultTheme } from 'styled-components';
+import { DefaultTheme } from 'styled-components/native';
 import { ThemeProvider as OriginalThemeProvider } from 'styled-components/native';
 import createCtx from './createCtx';
 
