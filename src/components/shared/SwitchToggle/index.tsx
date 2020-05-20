@@ -59,6 +59,7 @@ function SwitchToggle(props: Props): React.ReactElement {
       fromValue: props.switchOn ? 0 : 1,
       toValue: props.switchOn ? 1 : 0,
       duration: props.duration,
+      useNativeDriver: false,
     };
     Animated.timing(animXValue, animValue).start();
   };
