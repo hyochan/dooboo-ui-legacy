@@ -8,7 +8,7 @@ import {
   View,
   ViewStyle,
 } from 'react-native';
-import React, { ReactElement, useState } from 'react';
+import React, { ReactElement, useEffect, useState } from 'react';
 
 const styles = StyleSheet.create({
   container: {
@@ -64,58 +64,98 @@ interface Props {
   children: React.ReactElement;
 }
 
+interface ContentVisibleState {
+  isContentVisible: boolean;
+  currentAnimation: AnimationType;
+}
+
+enum AnimationType {
+  showContent = 'showContent',
+  hideContent = 'hideContent',
+  null = 'null',
+}
+
+let lastContentVisibleState: ContentVisibleState;
+
 function Accordion(props: Props): React.ReactElement {
   const [animatedValue, setAnimatedValue] = useState<Animated.Value | null>(
     null,
   );
-  const [isMounted, setMounted] = useState<boolean>(false);
-  const [isContentVisible, setContentVisible] = useState<boolean>(
-    !!props.contentVisibleOnLoad,
+  const [isMounted, setMounted] = useState<{header: boolean; content: boolean}>({ header: false, content: false });
+  const [contentVisibleState, setContentVisibleState] = useState<ContentVisibleState>(
+    {
+      isContentVisible: !!props.contentVisibleOnLoad,
+      currentAnimation: AnimationType.null,
+    },
   );
+  const { isContentVisible, currentAnimation } = contentVisibleState;
   const [headerHeight, setHeaderHeight] = useState(0);
   const [contentHeight, setContentHeight] = useState(0);
 
   const runAnimation = (): void => {
-    const initialValue = isContentVisible
+    const targetAnimation = currentAnimation === AnimationType.null
+      ? (isContentVisible
+        ? AnimationType.hideContent
+        : AnimationType.showContent)
+      : (currentAnimation === AnimationType.hideContent
+        ? AnimationType.showContent
+        : AnimationType.hideContent);
+    lastContentVisibleState = {
+      isContentVisible: isContentVisible,
+      currentAnimation: targetAnimation,
+    };
+    setContentVisibleState(lastContentVisibleState);
+  };
+
+  useEffect(() => {
+    if (currentAnimation === AnimationType.null) return;
+    const isCollapsing = currentAnimation === AnimationType.hideContent;
+    const initialValue = isCollapsing
       ? headerHeight + contentHeight
       : headerHeight;
-    const finalValue = isContentVisible
+    const finalValue = isCollapsing
       ? headerHeight
       : contentHeight + headerHeight;
-
-    setContentVisible(!isContentVisible);
 
     if (animatedValue) {
       animatedValue.setValue(initialValue);
       Animated.spring(animatedValue, {
         toValue: finalValue,
-      }).start();
+      }).start(() => {
+        if (lastContentVisibleState === contentVisibleState) {
+          setContentVisibleState({
+            isContentVisible: !isCollapsing,
+            currentAnimation: AnimationType.null,
+          });
+        }
+      });
     }
-  };
+  }, [contentVisibleState]);
 
   const onAnimLayout = (evt: LayoutChangeEvent): void => {
+    if (isMounted.header && currentAnimation !== AnimationType.null) return;
     const headerHeight = evt.nativeEvent.layout.height;
-    if (!isMounted && !props.contentVisibleOnLoad) {
+    if (!isMounted.header && !props.contentVisibleOnLoad) {
       setAnimatedValue(new Animated.Value(headerHeight));
-      setMounted(true);
+      setMounted({ ...isMounted, header: true });
       setHeaderHeight(headerHeight);
       return;
-    } else if (!isMounted) {
+    } else if (!isMounted.header) {
       InteractionManager.runAfterInteractions(() => {
         setAnimatedValue(new Animated.Value(headerHeight + contentHeight));
       });
     }
-    setMounted(true);
+    setMounted({ ...isMounted, header: true });
     setHeaderHeight(headerHeight);
   };
 
   const onLayout = (evt: LayoutChangeEvent): void => {
+    if (isMounted.content && (
+      !isContentVisible || currentAnimation !== AnimationType.null
+    )) return;
     const contentHeight = evt.nativeEvent.layout.height;
     setContentHeight(contentHeight);
-  };
-
-  const onPress = (): void => {
-    runAnimation();
+    setMounted({ ...isMounted, content: true });
   };
 
   return (
@@ -129,7 +169,7 @@ function Accordion(props: Props): React.ReactElement {
         props.style,
       ]}
     >
-      <TouchableOpacity activeOpacity={0.5} onPress={onPress}>
+      <TouchableOpacity activeOpacity={0.5} onPress={runAnimation}>
         <View onLayout={onAnimLayout}>
           {props.header}
           {isContentVisible ? props.visibleElement : props.invisibleElement}

@@ -1,0 +1,262 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`[RadioButton] render [RadioButton] Interaction should simulate props 1`] = `
+<TouchableOpacity
+  activeOpacity={1}
+  disabled={false}
+  isLabelColumn={true}
+  onPress={[Function]}
+  style={
+    Array [
+      Object {
+        "alignItems": "center",
+        "flexDirection": "column",
+        "justifyContent": "center",
+        "paddingBottom": 8,
+        "paddingLeft": 0,
+        "paddingRight": 0,
+        "paddingTop": 8,
+      },
+    ]
+  }
+>
+  <Text
+    disabled={false}
+    style={
+      Array [
+        Object {
+          "color": "#000000",
+        },
+      ]
+    }
+  >
+    
+  </Text>
+  <View
+    borderRadius={12}
+    borderWidth={2}
+    color="rgba(0, 0, 0, 0.54)"
+    innerSize={12}
+    size={23}
+    style={
+      Array [
+        Object {
+          "alignItems": "center",
+          "borderColor": "rgba(0, 0, 0, 0.54)",
+          "height": 23,
+          "justifyContent": "center",
+          "marginBottom": 7,
+          "marginLeft": 7,
+          "marginRight": 7,
+          "marginTop": 7,
+          "width": 23,
+        },
+      ]
+    }
+  >
+    <View
+      style={
+        Object {
+          "backgroundColor": "rgba(0, 0, 0, 0.54)",
+          "borderRadius": 12,
+          "height": 0,
+          "width": 0,
+        }
+      }
+    />
+  </View>
+</TouchableOpacity>
+`;
+
+exports[`[RadioButton] render [RadioButton] Interaction should simulate props 2`] = `
+<TouchableOpacity
+  activeOpacity={1}
+  disabled={true}
+  isLabelColumn={false}
+  onPress={[Function]}
+  style={
+    Array [
+      Object {
+        "alignItems": "center",
+        "flexDirection": "row",
+        "justifyContent": "flex-start",
+        "paddingBottom": 8,
+        "paddingLeft": 0,
+        "paddingRight": 0,
+        "paddingTop": 8,
+      },
+    ]
+  }
+>
+  <View
+    borderRadius={12}
+    borderWidth={2}
+    color="#c8c8c8"
+    innerSize={12}
+    size={23}
+    style={
+      Array [
+        Object {
+          "alignItems": "center",
+          "borderColor": "#c8c8c8",
+          "height": 23,
+          "justifyContent": "center",
+          "marginBottom": 7,
+          "marginLeft": 7,
+          "marginRight": 7,
+          "marginTop": 7,
+          "width": 23,
+        },
+      ]
+    }
+  >
+    <View
+      style={
+        Object {
+          "backgroundColor": "#c8c8c8",
+          "borderRadius": 12,
+          "height": 0,
+          "width": 0,
+        }
+      }
+    />
+  </View>
+  <Text
+    disabled={true}
+    style={
+      Array [
+        Object {
+          "color": "#969696",
+        },
+      ]
+    }
+  >
+    
+  </Text>
+</TouchableOpacity>
+`;
+
+exports[`[RadioButton] render [RadioButton] Interaction should simulate props 3`] = `
+<TouchableOpacity
+  activeOpacity={1}
+  disabled={false}
+  isLabelColumn={false}
+  onPress={[Function]}
+  style={
+    Array [
+      Object {
+        "alignItems": "center",
+        "flexDirection": "row",
+        "justifyContent": "flex-start",
+        "paddingBottom": 8,
+        "paddingLeft": 0,
+        "paddingRight": 0,
+        "paddingTop": 8,
+      },
+    ]
+  }
+>
+  <View
+    borderRadius={12}
+    borderWidth={2}
+    color="rgba(0, 0, 0, 0.54)"
+    innerSize={12}
+    size={23}
+    style={
+      Array [
+        Object {
+          "alignItems": "center",
+          "borderColor": "rgba(0, 0, 0, 0.54)",
+          "height": 23,
+          "justifyContent": "center",
+          "marginBottom": 7,
+          "marginLeft": 7,
+          "marginRight": 7,
+          "marginTop": 7,
+          "width": 23,
+        },
+      ]
+    }
+  />
+  <Text
+    disabled={false}
+    style={
+      Array [
+        Object {
+          "color": "#000000",
+        },
+      ]
+    }
+  >
+    
+  </Text>
+</TouchableOpacity>
+`;
+
+exports[`[RadioButton] render renders without crashing 1`] = `
+<TouchableOpacity
+  activeOpacity={1}
+  disabled={false}
+  isLabelColumn={false}
+  onPress={[Function]}
+  style={
+    Array [
+      Object {
+        "alignItems": "center",
+        "flexDirection": "row",
+        "justifyContent": "flex-start",
+        "paddingBottom": 8,
+        "paddingLeft": 0,
+        "paddingRight": 0,
+        "paddingTop": 8,
+      },
+    ]
+  }
+>
+  <View
+    borderRadius={12}
+    borderWidth={2}
+    color="rgba(0, 0, 0, 0.54)"
+    innerSize={12}
+    size={23}
+    style={
+      Array [
+        Object {
+          "alignItems": "center",
+          "borderColor": "rgba(0, 0, 0, 0.54)",
+          "height": 23,
+          "justifyContent": "center",
+          "marginBottom": 7,
+          "marginLeft": 7,
+          "marginRight": 7,
+          "marginTop": 7,
+          "width": 23,
+        },
+      ]
+    }
+  >
+    <View
+      style={
+        Object {
+          "backgroundColor": "rgba(0, 0, 0, 0.54)",
+          "borderRadius": 12,
+          "height": 0,
+          "width": 0,
+        }
+      }
+    />
+  </View>
+  <Text
+    disabled={false}
+    style={
+      Array [
+        Object {
+          "color": "#000000",
+        },
+      ]
+    }
+  >
+    
+  </Text>
+</TouchableOpacity>
+`;

@@ -1,7 +1,7 @@
 # Button
 
-- [![Npm Version](http://img.shields.io/npm/v/@dooboo-ui/native-button.svg?style=flat-square)](https://npmjs.org/package/@dooboo-ui/native-button)
-- [![Downloads](http://img.shields.io/npm/dm/@dooboo-ui/native-button.svg?style=flat-square)](https://npmjs.org/package/@dooboo-ui/native-button)
+[![Npm Version](http://img.shields.io/npm/v/@dooboo-ui/native-button.svg?style=flat-square)](https://npmjs.org/package/@dooboo-ui/native-button)
+[![Downloads](http://img.shields.io/npm/dm/@dooboo-ui/native-button.svg?style=flat-square)](https://npmjs.org/package/@dooboo-ui/native-button)
 
 
 > [Button] component that can be used inside product. Has basic features like `loading` state, `disabled` state and also has ability to put `img` to left-hand which is used very often.
@@ -11,22 +11,23 @@
 
 ## Props
 
-|                | necessary | types                | default |
-| -------------- | --------- | -------------------- | ------- |
-| testID         |           | string               |         |
-| containerStyle |           | ViewStyle            |         |
-| style          |           | ViewStyle            |         |
-| disabledStyle  |           | ViewStyle            |         |
-| textStyle      |           | TextStyle            |         |
-| didsabledTextStyle |       | TextStyle            |         |
-| isLoading      |           | boolean              |         |
-| isDisabled     |           | boolean              |         |
-| leftElement    |           | ReactElement         |         |
-| rightElement   |           | ReactElement         |         |
-| indicatorColor |           | string               |'#ffffff'|
-| activeOpacity  |           | number               |   0.5   |
-| text           |           | string               |         |
-| onPress        |           | func                 |         |
+|                | necessary | types                 | default |
+| -------------- | --------- | --------------------- | ------- |
+| testID         |           | string                |         |
+| containerStyle |           | ViewStyle             |         |
+| style          |           | ViewStyle             |         |
+| disabledStyle  |           | ViewStyle             |         |
+| textStyle      |           | TextStyle             |         |
+| didsabledTextStyle |       | TextStyle             |         |
+| isLoading      |           | boolean               |         |
+| isDisabled     |           | boolean               |         |
+| leftElement    |           | ReactElement          |         |
+| rightElement   |           | ReactElement          |         |
+| indicatorColor |           | string                |'#ffffff'|
+| activeOpacity  |           | number                |   0.5   |
+| text           |           | string                |         |
+| onPress        |           | func                  |         |
+| touchableOpacityProps      | TouchableOpacityProps |         |
 
 ## Installation
 

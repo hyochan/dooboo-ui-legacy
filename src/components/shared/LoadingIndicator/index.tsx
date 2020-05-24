@@ -8,8 +8,7 @@ import {
   View,
   ViewStyle,
 } from 'react-native';
-
-import React from 'react';
+import React, { ReactElement } from 'react';
 
 const styles = StyleSheet.create({
   container: {
@@ -31,10 +30,11 @@ interface Props {
   color?: string;
   size?: number | 'small' | 'large';
   imgSource?: string | ImageSourcePropType;
+  renderCustomElement?: () => ReactElement;
 }
 
-function LoadingIndicator(props: Props): React.ReactElement {
-  const { containerStyle, style, size, color, imgSource } = props;
+function LoadingIndicator(props: Props): ReactElement {
+  const { containerStyle, renderCustomElement, style, size, color, imgSource } = props;
 
   const handleImgSize = (size: number | string | undefined): ImageStyle => {
     if (size === 'large') {
@@ -71,15 +71,17 @@ function LoadingIndicator(props: Props): React.ReactElement {
 
   return (
     <View style={StyleSheet.flatten([styles.container, containerStyle])}>
-      {!imgSource ? (
-        <ActivityIndicator
-          style={style}
-          size={size}
-          color={color}
-        />
-      ) : (
-        <Image source={handleImgSourceType(imgSource)} style={handleImgSize(size)} />
-      )}
+      {
+        renderCustomElement
+          ? renderCustomElement()
+          : !imgSource
+            ? <ActivityIndicator
+              style={style}
+              size={size}
+              color={color}
+            />
+            : <Image source={handleImgSourceType(imgSource)} style={handleImgSize(size)} />
+      }
     </View>
   );
 }

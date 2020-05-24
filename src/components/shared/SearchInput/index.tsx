@@ -6,10 +6,10 @@ import styled from 'styled-components/native';
 
 const Container = styled.View`
   background-color: #f3f5f7;
-  height: 42;
-  margin-left: 20;
-  margin-right: 20;
-  border-radius: 8;
+  height: 42px;
+  margin-left: 20px;
+  margin-right: 20px;
+  border-radius: 8px;
 
   flex-direction: row;
 `;
@@ -17,25 +17,25 @@ const Container = styled.View`
 const Input = styled.TextInput`
   flex-grow: 1;
   align-self: center;
-  font-size: 16;
+  font-size: 16px;
 `;
 
 const ResetContainer = styled.View`
-  height: 24;
-  width: 24;
-  margin-left: 2;
-  margin-right: 11;
-  margin-top: 9;
-  margin-bottom: 9;
+  height: 24px;
+  width: 24px;
+  margin-left: 2px;
+  margin-right: 11px;
+  margin-top: 9px;
+  margin-bottom: 9px;
   justify-content: center;
   align-items: center;
 `;
 
 const Reset = styled.TouchableOpacity`
   background-color: #c6ccd1;
-  border-radius: 20;
-  width: 20;
-  height: 20;
+  border-radius: 20px;
+  width: 20px;
+  height: 20px;
   justify-content: center;
   align-items: center;
 `;
