@@ -1,3 +1,4 @@
+import { DefaultTheme, ThemeProvider as OriginalThemeProvider } from 'styled-components/native';
 import {
   Theme as DoobooTheme,
   ThemeParam,
@@ -7,9 +8,6 @@ import {
   light as lightTheme,
 } from './theme';
 import React, { useState } from 'react';
-
-import { DefaultTheme } from 'styled-components/native';
-import { ThemeProvider as OriginalThemeProvider } from 'styled-components/native';
 import createCtx from './createCtx';
 
 interface Context {
