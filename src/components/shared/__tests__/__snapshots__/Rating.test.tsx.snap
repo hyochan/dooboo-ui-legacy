@@ -15,30 +15,23 @@ exports[`[Rating] render [Rating] Interaction should simulate props 1`] = `
     ]
   }
 >
-  <View
-    accessible={true}
-    focusable={true}
-    isTVSelectable={true}
-    onClick={[Function]}
-    onResponderGrant={[Function]}
-    onResponderMove={[Function]}
-    onResponderRelease={[Function]}
-    onResponderTerminate={[Function]}
-    onResponderTerminationRequest={[Function]}
-    onStartShouldSetResponder={[Function]}
+  <TouchableOpacity
+    activeOpacity={1}
+    onPress={[Function]}
     style={
-      Object {
-        "height": "100%",
-        "opacity": 1,
-        "width": 30,
-      }
+      Array [
+        Object {
+          "height": "100%",
+          "width": 30,
+        },
+      ]
     }
   >
     <Image
       resizeMode="contain"
       source={
         Object {
-          "testUri": "../../../src/components/shared/Rating/images/Star.png",
+          "testUri": "../../../src/components/shared/Rating/package/images/Star.png",
         }
       }
       style={
@@ -50,7 +43,7 @@ exports[`[Rating] render [Rating] Interaction should simulate props 1`] = `
         ]
       }
     />
-  </View>
+  </TouchableOpacity>
 </View>
 `;
 
@@ -70,30 +63,23 @@ exports[`[Rating] render [Rating] Interaction should simulate props 2`] = `
     ]
   }
 >
-  <View
-    accessible={true}
-    focusable={true}
-    isTVSelectable={true}
-    onClick={[Function]}
-    onResponderGrant={[Function]}
-    onResponderMove={[Function]}
-    onResponderRelease={[Function]}
-    onResponderTerminate={[Function]}
-    onResponderTerminationRequest={[Function]}
-    onStartShouldSetResponder={[Function]}
+  <TouchableOpacity
+    activeOpacity={1}
+    onPress={[Function]}
     style={
-      Object {
-        "height": "100%",
-        "opacity": 1,
-        "width": 30,
-      }
+      Array [
+        Object {
+          "height": "100%",
+          "width": 30,
+        },
+      ]
     }
   >
     <Image
       resizeMode="contain"
       source={
         Object {
-          "testUri": "../../../src/components/shared/Rating/images/UnStar.png",
+          "testUri": "../../../src/components/shared/Rating/package/images/UnStar.png",
         }
       }
       style={
@@ -105,7 +91,7 @@ exports[`[Rating] render [Rating] Interaction should simulate props 2`] = `
         ]
       }
     />
-  </View>
+  </TouchableOpacity>
 </View>
 `;
 
@@ -124,30 +110,23 @@ exports[`[Rating] render renders without crashing 1`] = `
     ]
   }
 >
-  <View
-    accessible={true}
-    focusable={true}
-    isTVSelectable={true}
-    onClick={[Function]}
-    onResponderGrant={[Function]}
-    onResponderMove={[Function]}
-    onResponderRelease={[Function]}
-    onResponderTerminate={[Function]}
-    onResponderTerminationRequest={[Function]}
-    onStartShouldSetResponder={[Function]}
+  <TouchableOpacity
+    activeOpacity={1}
+    onPress={[Function]}
     style={
-      Object {
-        "height": "100%",
-        "opacity": 1,
-        "width": 30,
-      }
+      Array [
+        Object {
+          "height": "100%",
+          "width": 30,
+        },
+      ]
     }
   >
     <Image
       resizeMode="contain"
       source={
         Object {
-          "testUri": "../../../src/components/shared/Rating/images/UnStar.png",
+          "testUri": "../../../src/components/shared/Rating/package/images/UnStar.png",
         }
       }
       style={
@@ -159,6 +138,6 @@ exports[`[Rating] render renders without crashing 1`] = `
         ]
       }
     />
-  </View>
+  </TouchableOpacity>
 </View>
 `;
