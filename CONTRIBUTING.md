@@ -15,7 +15,7 @@
 1. Fork our project to yours.
    - Recommended to have `forked` master branch to be updated to upstream.
    - Configure [Syncing a fork](https://help.github.com/articles/configuring-a-remote-for-a-fork/).
-     - `git remote add upstream https://github.com/dooboolab/dooboo-ui-native`
+     - `git remote add upstream https://github.com/dooboolab/dooboo-ui`
      - Check it with `git remote -v`
    - Fetch the branches from upstream repository by `git fetch upstream`
    - When you want to give `PR`, make new branch `git checkout -b [feature_name]`
@@ -23,7 +23,7 @@
      - Check your status by `git log --decorate --oneline --all --graph` or `yarn git:log`
 2. Git clone your forked repository.
    ```
-   git clone https://github.com/<your-id>/dooboo-ui-native.git
+   git clone https://github.com/<your-id>/dooboo-ui.git
    ```
 3. Install your packages
    ```

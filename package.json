@@ -1,6 +1,6 @@
 {
-  "name": "@dooboo-ui/native",
-  "version": "0.6.3",
+  "name": "dooboo-ui",
+  "version": "0.0.1",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
   "scripts": {
@@ -28,9 +28,9 @@
   "author": "dooboolab",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/dooboolab/dooboo-ui-native/issues"
+    "url": "https://github.com/dooboolab/dooboo-ui/issues"
   },
-  "homepage": "https://github.com/dooboolab/dooboo-ui-native#readme",
+  "homepage": "https://github.com/dooboolab/dooboo-ui#readme",
   "dependencies": {
     "dooboolab-welcome": "^1.1.1"
   },
@@ -44,7 +44,6 @@
     "@babel/preset-typescript": "^7.8.3",
     "@babel/runtime": "^7.8.4",
     "@bam.tech/react-native-make": "^1.0.3",
-    "@dooboo-ui/native-theme": "^0.1.5",
     "@dooboo/eslint-config": "^0.3.6",
     "@react-native-community/async-storage": "^1.7.1",
     "@react-native-community/masked-view": "^0.1.6",

@@ -63,4 +63,5 @@ coverage/
 lib/
 
 package
+!/package
 report.*

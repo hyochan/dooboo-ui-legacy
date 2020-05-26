@@ -2,13 +2,50 @@
 
 > React Native UI components built by `dooboolab`
 
-[![Npm Version](http://img.shields.io/npm/v/@dooboo-ui/native.svg?style=flat-square)](https://npmjs.org/package/@dooboo-ui/native)
-[![Downloads](http://img.shields.io/npm/dm/@dooboo-ui/native.svg?style=flat-square)](https://npmjs.org/package/@dooboo-ui/native)
-[![CircleCI](https://circleci.com/gh/dooboolab/dooboo-ui-native.svg?style=shield)](https://circleci.com/gh/dooboolab/dooboo-ui-native)
-[![codecov](https://codecov.io/gh/dooboolab/dooboo-ui-native/branch/master/graph/badge.svg)](https://codecov.io/gh/dooboolab/dooboo-ui-native)
-![License](http://img.shields.io/npm/l/@dooboo-ui/native.svg?style=flat-square)
+[![CircleCI](https://circleci.com/gh/dooboolab/dooboo-ui/core.svg?style=shield)](https://circleci.com/gh/dooboolab/dooboo-ui)
+[![codecov](https://codecov.io/gh/dooboolab/dooboo-ui/branch/master/graph/badge.svg)](https://codecov.io/gh/dooboolab/dooboo-ui)
+![License](http://img.shields.io/npm/l/@dooboo-ui/core.svg?style=flat-square)
 
-We currently love [react-hooks](https://code.fb.com/open-source/react-hooks) and willing to share our [react-native](https://facebook.github.io/react-native) widgets built in [Functional Component](https://logrocket.com/blog/pure-functional-components) using hooks.
+## Package
+
+* Core
+
+  [![Npm Version](http://img.shields.io/npm/v/@dooboo-ui/core.svg?style=flat-square)](https://npmjs.org/package/@dooboo-ui/core)
+  [![Downloads](http://img.shields.io/npm/dm/@dooboo-ui/core.svg?style=flat-square)](https://npmjs.org/package/@dooboo-ui/core)
+
+  - Accordion
+  - Button
+  - ButtonGroup
+  - EditText
+  - LoadingIndicator
+  - RadioButton
+  - Rating
+  - SearchInput
+  - Slider
+  - SwitchToggle
+
+* Plugins
+
+  - [@dooboo-ui/gifted-chat]()
+    * WIP
+  - [@dooboo-ui/tinder-card]()
+    * WIP
+  - [@dooboo-ui/pinch-zoom-slider-modal]()
+    * WIP
+  - [@dooboo-ui/snack-bar]()
+    * WIP
+  - [@dooboo-ui/calendar-carousel]()
+    * WIP
+
+* Theme
+
+  [![Npm Version](http://img.shields.io/npm/v/@dooboo-ui/theme.svg?style=flat-square)](https://npmjs.org/package/@dooboo-ui/theme)
+  [![Downloads](http://img.shields.io/npm/dm/@dooboo-ui/theme.svg?style=flat-square)](https://npmjs.org/package/@dooboo-ui/theme)
+
+#### Plugins
+
+We love [react-hooks](https://code.fb.com/open-source/react-hooks) and willing to share our [react-native](https://facebook.github.io/react-native) widgets built in [Functional Component](https://logrocket.com/blog/pure-functional-components) using hooks.
+
 
 ## Contributing to `@dooboo-ui`
 
@@ -23,44 +60,16 @@ We currently love [react-hooks](https://code.fb.com/open-source/react-hooks) and
 
 ## Usage
 
-You can use all components in `@dooboo-ui/native` by importing it. However, we also support individual imports using seperate installation.
+Our libraries are distinguised into three concepts.
+First, `@dooboo-ui/core` contains all the light weight ui components listed [above](#Package).
+Secondly, the list of plugins are individual packages that is not a light weight.
+Finally, we have `@dooboo-ui/theme` package that controls theming more easily.
 
-If you want to use only `SwitchToggle`, you can install it by running `yarn add @dooboo-ui/native-switch-toggle` or `npm install`.
 
 ## Compatability
 | package           | version |
 |-------------------|---------|
 | react             | >=16.9  |
-| react-native      | >=0.59  |
+| react-native      | >=0.58  |
 | styled-components | >=4.4.0 |
 
-## List of elements
-
-- [Accordion](https://github.com/dooboolab/dooboo-ui-native/tree/master/src/components/shared/Accordion)
-  - `@dooboo-ui/native-accordion`
-- [Button](https://github.com/dooboolab/dooboo-ui-native/tree/master/src/components/shared/Button)
-  - `@dooboo-ui/native-button`
-- [ButtonGroup](https://github.com/dooboolab/dooboo-ui-native/tree/master/src/components/shared/ButtonGroup)
-  - `@dooboo-ui/native-button-group`
-- [EditText](https://github.com/dooboolab/dooboo-ui-native/tree/master/src/components/shared/EditText)
-  - `@dooboo-ui/native-edit-text`
-- [GiftedChat](https://github.com/dooboolab/dooboo-ui-native/tree/master/src/components/shared/GiftedChat)
-  - `@dooboo-ui/native-gifted-chat`
-- [LoadingIndicator](https://github.com/dooboolab/dooboo-ui-native/tree/master/src/components/shared/LoadingIndicator)
-  - `@dooboo-ui/native-loading-indicator`
-- [SearchInput](https://github.com/dooboolab/dooboo-ui-native/tree/master/src/components/shared/SearchInput)
-  - `@dooboo-ui/native-search-input`
-- [Snackbar](src/components/shared/Snackbar)
-  - `@dooboo-ui/snackbar`
-- [SwitchToggle](https://github.com/dooboolab/dooboo-ui-native/tree/master/src/components/shared/SwitchToggle)
-  - `@dooboo-ui/native-switch-toggle`
-- [Slider](https://github.com/dooboolab/dooboo-ui-native/tree/master/src/components/shared/Slider)
-  - `@dooboo-ui/slider`
-
-## List of independent elements
-> Below elements are not included in `@dooboo-ui/native` package since it depends on other packages that may overload its package.
-
-- [PinchZoomSliderModal](https://github.com/dooboolab/dooboo-ui-native/tree/master/src/components/shared/PinchZoomSliderModal)
-  - `@dooboo-ui/native-pinch-zoom-slider-modal`
-- [CalendarCarousel](https://github.com/dooboolab/dooboo-ui-native/tree/master/src/components/shared/CalendarCarousel)
-  - WIP
