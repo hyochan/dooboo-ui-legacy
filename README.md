@@ -1,4 +1,4 @@
-# dooboo-ui-native
+# dooboo-ui
 
 > React Native UI components built by `dooboolab`
 
@@ -10,7 +10,7 @@
 
 We currently love [react-hooks](https://code.fb.com/open-source/react-hooks) and willing to share our [react-native](https://facebook.github.io/react-native) widgets built in [Functional Component](https://logrocket.com/blog/pure-functional-components) using hooks.
 
-## Contributing to `@dooboo-ui/native`
+## Contributing to `@dooboo-ui`
 
 ![dooboo-ui](https://user-images.githubusercontent.com/27461460/73331047-ea876400-42a5-11ea-9c9c-1c997eb961be.png)
 
