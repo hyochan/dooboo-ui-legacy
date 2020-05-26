@@ -2,7 +2,7 @@
   "name": "@dooboo-ui/native-tinder-card",
   "main": "package/index.js",
   "types": "package/index.d.ts",
-  "version": "0.0.2",
+  "version": "0.7.0",
   "license": "MIT",
   "postinstall": "tsc",
   "scripts": {
