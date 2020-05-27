@@ -1,5 +1,5 @@
 import EditText, { EditTextInputType } from '../../src/components/shared/EditText';
-import { IC_CHECK, IC_EDIT } from '../../src/components/shared/Icons';
+import { IC_CHECK, IC_EDIT } from '../../src/Icons';
 import {
   Image,
   SafeAreaView,
@@ -14,6 +14,8 @@ import React, { useState } from 'react';
 import Button from '../../src/components/shared/Button';
 import { ContainerDeco } from '../decorators';
 import { storiesOf } from '@storybook/react-native';
+
+;
 
 storiesOf('EditText', module)
   .addDecorator(ContainerDeco)

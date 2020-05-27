@@ -5,7 +5,7 @@ import React, {
   useRef,
   useState,
 } from 'react';
-import TinderCard, { TinderCardDirection, TinderCardRef } from '../../src/components/shared/TinderCard';
+import TinderCard, { TinderCardDirection, TinderCardRef } from '../../package/TinderCard';
 
 import { ContainerDeco } from '../decorators';
 import { storiesOf } from '@storybook/react-native';

@@ -5,7 +5,7 @@ import Snackbar, {
   SnackbarRef,
   Timer,
   useSnackbarContext,
-} from '../../src/components/shared/Snackbar';
+} from '../../package/Snackbar';
 import { color, text } from '@storybook/addon-knobs';
 
 import { ContainerDeco } from '../decorators';

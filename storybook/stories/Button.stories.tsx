@@ -1,4 +1,4 @@
-import { IC_FACEBOOK, IC_GOOGLE } from '../../src/components/shared/Icons';
+import { IC_FACEBOOK, IC_GOOGLE } from '../../src/Icons';
 import { Image, View } from 'react-native';
 import React, { useState } from 'react';
 
@@ -8,6 +8,8 @@ import { action } from '@storybook/addon-actions';
 import { storiesOf } from '@storybook/react-native';
 import styled from 'styled-components/native';
 import { text } from '@storybook/addon-knobs';
+
+;
 
 storiesOf('Button', module)
   .addDecorator(ContainerDeco)

@@ -1,5 +1,6 @@
 import { Alert, SafeAreaView, Text, TouchableOpacity, View } from 'react-native';
-import { SnackbarProvider, useSnackbarContext } from '../shared/Snackbar';
+import { SnackbarProvider, useSnackbarContext } from '../../../package/Snackbar';
+
 import React from 'react';
 
 function Container(): React.ReactElement {

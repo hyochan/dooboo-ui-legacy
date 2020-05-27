@@ -1,4 +1,4 @@
-import { IC_ARR_DOWN, IC_ARR_UP } from '../../src/components/shared/Icons';
+import { IC_ARR_DOWN, IC_ARR_UP } from '../../src/Icons';
 import { ScrollView, Text, View } from 'react-native';
 
 import Accordion from '../../src/components/shared/Accordion';

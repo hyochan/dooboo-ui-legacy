@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { number, text } from '@storybook/addon-knobs';
 
-import { IC_MAGNIFIER } from '../../src/components/shared/Icons';
+import { IC_MAGNIFIER } from '../../src/Icons';
 import SearchInput from '../../src/components/shared/SearchInput';
 import { storiesOf } from '@storybook/react-native';
 import styled from 'styled-components/native';
