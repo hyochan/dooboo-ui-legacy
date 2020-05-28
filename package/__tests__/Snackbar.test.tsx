@@ -1,3 +1,5 @@
+import 'react-native';
+
 import * as React from 'react';
 
 import { Animated, Text, TouchableOpacity, View } from 'react-native';
@@ -99,8 +101,8 @@ describe('[Snackbar]', () => {
 });
 
 describe('[Snackbar] using provider', () => {
-  const TestElement = (useWholeScreen = false): React.ReactElement => (
-    <SnackbarProvider useWholeScreen={useWholeScreen}>
+  const TestElement = (): React.ReactElement => (
+    <SnackbarProvider>
       <ContentInnerProvider/>
     </SnackbarProvider>
   );

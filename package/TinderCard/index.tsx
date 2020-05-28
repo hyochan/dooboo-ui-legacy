@@ -7,7 +7,7 @@ import {
   UIManager,
   ViewStyle,
 } from 'react-native';
-import {
+import React, {
   PropsWithChildren,
   ReactElement,
   Ref,
