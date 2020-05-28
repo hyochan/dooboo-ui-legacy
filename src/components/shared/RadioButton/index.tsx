@@ -1,5 +1,6 @@
 import { Animated, Easing } from 'react-native';
 import React, { useState } from 'react';
+
 import styled from 'styled-components/native';
 
 interface ICircleProps {
@@ -98,6 +99,7 @@ const InnerCircleAnim = ({
       },
       easing: Easing.ease,
       duration: 80,
+      useNativeDriver: true,
     }).start();
   }, []);
 

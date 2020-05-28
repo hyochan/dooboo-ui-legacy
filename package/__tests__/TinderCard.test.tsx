@@ -11,7 +11,7 @@ let props: any;
 let component: React.ReactElement;
 // let testingLib: RenderResult;
 
-const createTestProps = (obj: object): object => ({
+const createTestProps = (obj: Record<string, unknown>): Record<string, unknown> => ({
   navigation: {
     navigate: jest.fn(),
   },

@@ -15,8 +15,6 @@ import Button from '../../src/components/shared/Button';
 import { ContainerDeco } from '../decorators';
 import { storiesOf } from '@storybook/react-native';
 
-;
-
 storiesOf('EditText', module)
   .addDecorator(ContainerDeco)
   .add('default', () => <Default />, {

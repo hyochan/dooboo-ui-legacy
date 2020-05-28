@@ -113,6 +113,7 @@ function TinderCard<T>(
   const resetPosition = (): void => {
     Animated.spring(position, {
       toValue: { x: 0, y: 0 },
+      useNativeDriver: true,
     }).start();
   };
 
@@ -148,6 +149,7 @@ function TinderCard<T>(
     Animated.timing(position, {
       toValue: { x, y: 0 },
       duration: SWIPE_OUT_DURATION,
+      useNativeDriver: true,
     }).start(() => {
       onSwipeCompleted(direction);
     });

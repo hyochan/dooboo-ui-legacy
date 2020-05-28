@@ -13,7 +13,7 @@ const component = (props?): React.ReactElement => {
   return <Rating {...props} />;
 };
 
-const createTestProps = (obj: object): object => ({
+const createTestProps = (obj: Record<string, unknown>): Record<string, unknown> => ({
   navigation: {
     navigate: jest.fn(),
   },

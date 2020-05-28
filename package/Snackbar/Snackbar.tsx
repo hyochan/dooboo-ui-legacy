@@ -1,7 +1,11 @@
 import * as React from 'react';
 
 import {
-  Animated, Dimensions, StyleSheet, TextStyle, ViewStyle,
+  Animated,
+  Dimensions,
+  StyleSheet,
+  TextStyle,
+  ViewStyle,
 } from 'react-native';
 
 import styled from 'styled-components/native';
@@ -103,6 +107,7 @@ const Snackbar = (props: SnackbarProps, ref: React.Ref<SnackbarRef>): React.Reac
       {
         toValue: 0,
         duration,
+        useNativeDriver: true,
       },
     ).start(() => setShowingState(
       (prevState) => Object.assign(Object.assign({}, prevState), { isVisible: false }),
@@ -122,6 +127,7 @@ const Snackbar = (props: SnackbarProps, ref: React.Ref<SnackbarRef>): React.Reac
           {
             toValue: 1,
             duration: 200,
+            useNativeDriver: true,
           },
         ).start();
       }

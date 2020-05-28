@@ -121,6 +121,7 @@ function Accordion(props: Props): React.ReactElement {
       animatedValue.setValue(initialValue);
       Animated.spring(animatedValue, {
         toValue: finalValue,
+        useNativeDriver: true,
       }).start(() => {
         if (lastContentVisibleState === contentVisibleState) {
           setContentVisibleState({

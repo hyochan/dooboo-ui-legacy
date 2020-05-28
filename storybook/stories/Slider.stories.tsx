@@ -352,4 +352,4 @@ function DesignBlue(): React.ReactElement {
       <Value>design blue: {designBlue}</Value>
     </Container>
   );
-};
+}

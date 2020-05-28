@@ -9,8 +9,6 @@ import { storiesOf } from '@storybook/react-native';
 import styled from 'styled-components/native';
 import { text } from '@storybook/addon-knobs';
 
-;
-
 storiesOf('Button', module)
   .addDecorator(ContainerDeco)
   .add('default', () => (

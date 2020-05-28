@@ -8,7 +8,7 @@ import renderer from 'react-test-renderer';
 let props: any;
 let component: React.ReactElement;
 
-const createTestProps = (obj?: object): object => ({
+const createTestProps = (obj?: Record<string, unknown>): Record<string, unknown> => ({
   navigation: {
     navigate: jest.fn(),
   },
