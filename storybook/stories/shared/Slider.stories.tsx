@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
-import { ContainerDeco } from '../decorators';
-import Slider from '../../src/components/shared/Slider';
+import { ContainerDeco } from '../../decorators';
+import Slider from '../../../src/components/shared/Slider';
 import { Text } from 'react-native';
 import { storiesOf } from '@storybook/react-native';
 import styled from 'styled-components/native';

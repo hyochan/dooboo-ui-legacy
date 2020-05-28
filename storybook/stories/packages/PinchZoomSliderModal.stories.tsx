@@ -1,8 +1,8 @@
 import React, { ReactElement, useState } from 'react';
 import { Text, TouchableOpacity, View } from 'react-native';
 
-import { ContainerDeco } from '../decorators';
-import PinchZoomSliderModal from '../../package/PinchZoomSliderModal';
+import { ContainerDeco } from '../../decorators';
+import PinchZoomSliderModal from '../../../package/PinchZoomSliderModal';
 import { storiesOf } from '@storybook/react-native';
 import styled from 'styled-components/native';
 

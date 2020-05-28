@@ -5,11 +5,11 @@ import Snackbar, {
   SnackbarRef,
   Timer,
   useSnackbarContext,
-} from '../../package/Snackbar';
+} from '../../../package/Snackbar';
 import { color, text } from '@storybook/addon-knobs';
 
-import { ContainerDeco } from '../decorators';
-import SwitchToggle from '../../src/components/shared/SwitchToggle';
+import { ContainerDeco } from '../../decorators';
+import SwitchToggle from '../../../src/components/shared/SwitchToggle';
 import { storiesOf } from '@storybook/react-native';
 import styled from 'styled-components/native';
 

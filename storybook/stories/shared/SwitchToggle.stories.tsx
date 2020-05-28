@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
-import { ContainerDeco } from '../decorators';
-import SwitchToggle from '../../src/components/shared/SwitchToggle';
+import { ContainerDeco } from '../../decorators';
+import SwitchToggle from '../../../src/components/shared/SwitchToggle';
 import { storiesOf } from '@storybook/react-native';
 
 storiesOf('SwitchToggle', module)

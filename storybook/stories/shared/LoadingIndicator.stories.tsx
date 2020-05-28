@@ -1,5 +1,5 @@
-import { ContainerDeco } from '../decorators';
-import LoadingIndicator from '../../src/components/shared/LoadingIndicator';
+import { ContainerDeco } from '../../decorators';
+import LoadingIndicator from '../../../src/components/shared/LoadingIndicator';
 import React from 'react';
 import { storiesOf } from '@storybook/react-native';
 import styled from 'styled-components/native';

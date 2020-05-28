@@ -5,12 +5,12 @@ import React, {
   useRef,
   useState,
 } from 'react';
-import TinderCard, { TinderCardDirection, TinderCardRef } from '../../package/TinderCard';
+import TinderCard, { TinderCardDirection, TinderCardRef } from '../../../package/TinderCard';
 
-import { ContainerDeco } from '../decorators';
+import { ContainerDeco } from '../../decorators';
 import { storiesOf } from '@storybook/react-native';
 import styled from 'styled-components/native';
-import { tinderCardDummyData } from './asset/dummyData/data';
+import { tinderCardDummyData } from '../asset/dummyData/data';
 import useInterval from 'react-useinterval';
 
 storiesOf('TinderCard', module)

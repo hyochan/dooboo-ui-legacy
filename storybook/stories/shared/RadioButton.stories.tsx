@@ -1,6 +1,7 @@
 import { ScrollView, View } from 'react-native';
 import { boolean, color, number, select, text } from '@storybook/addon-knobs';
-import RadioButton from '../../src/components/shared/RadioButton';
+
+import RadioButton from '../../../src/components/shared/RadioButton';
 import React from 'react';
 import { storiesOf } from '@storybook/react-native';
 import styled from 'styled-components/native';

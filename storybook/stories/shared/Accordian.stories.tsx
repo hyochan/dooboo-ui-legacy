@@ -1,8 +1,8 @@
-import { IC_ARR_DOWN, IC_ARR_UP } from '../../src/Icons';
+import { IC_ARR_DOWN, IC_ARR_UP } from '../../../src/Icons';
 import { ScrollView, Text, View } from 'react-native';
 
-import Accordion from '../../src/components/shared/Accordion';
-import { ContainerDeco } from '../decorators';
+import Accordion from '../../../src/components/shared/Accordion';
+import { ContainerDeco } from '../../decorators';
 import React from 'react';
 import { storiesOf } from '@storybook/react-native';
 import styled from 'styled-components/native';

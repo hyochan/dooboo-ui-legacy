@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { Text, View } from 'react-native';
 
-import ButtonGroup from '../../src/components/shared/ButtonGroup';
-import { ContainerDeco } from '../decorators';
+import ButtonGroup from '../../../src/components/shared/ButtonGroup';
+import { ContainerDeco } from '../../decorators';
 import { storiesOf } from '@storybook/react-native';
 import styled from 'styled-components/native';
 
