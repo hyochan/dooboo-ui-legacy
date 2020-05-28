@@ -1,5 +1,3 @@
-import 'react-native';
-
 import * as React from 'react';
 
 import TinderCard from '../TinderCard';
