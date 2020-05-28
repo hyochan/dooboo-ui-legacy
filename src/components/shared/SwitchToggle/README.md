@@ -1,8 +1,5 @@
 # SwitchToggle
 
-[![Npm Version](http://img.shields.io/npm/v/@dooboo-ui/native-switch-toggle.svg?style=flat-square)](https://npmjs.org/package/@dooboo-ui/native-switch-toggle)
-[![Downloads](http://img.shields.io/npm/dm/@dooboo-ui/native-switch-toggle.svg?style=flat-square)](https://npmjs.org/package/@dooboo-ui/native-switch-toggle)
-
 > Simple switch toggle component for react-native. This component supports horizontal switch toggle with animation with several options like start/end background colors, start/end circle colors, and duration for animation.
 
 <img src="https://firebasestorage.googleapis.com/v0/b/bookoo-89f6c.appspot.com/o/switch-toggle.gif?alt=media&token=a9dc36e0-3c25-45dc-bbb7-8b095a716dc8"/>
@@ -35,13 +32,7 @@
 ## Installation
 
 ```sh
-yarn add @dooboo-ui/native
-```
-
-or
-
-```sh
-yarn add @dooboo-ui/native-switch-toggle
+yarn add @dooboo-ui/core
 ```
 
 ## Usage
@@ -49,9 +40,7 @@ yarn add @dooboo-ui/native-switch-toggle
 ```javascript
 import React, { ReactElement, useState } from 'react';
 
-import { SwitchToggle } from '@dooboo-ui/native';
-// or
-import SwitchToggle from '@dooboo-ui/native-switch-toggle';
+import { SwitchToggle } from '@dooboo-ui/core';
 import styled from 'styled-components/native';
 
 const Container = styled.View`

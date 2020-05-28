@@ -1,8 +1,5 @@
 # Slider
 
-[![Npm Version](http://img.shields.io/npm/v/@dooboo-ui/native-slider.svg?style=flat-square)](https://npmjs.org/package/@dooboo-ui/native-slider)
-[![Downloads](http://img.shields.io/npm/dm/@dooboo-ui/native-slider.svg?style=flat-square)](https://npmjs.org/package/@dooboo-ui/native-slider)
-
 <img src="https://user-images.githubusercontent.com/11019960/73301465-2d215000-4256-11ea-974f-e45be574a4a4.png" width="400" />
 <img src="https://user-images.githubusercontent.com/11019960/73301499-3c080280-4256-11ea-9095-80c40703191f.png" width="400" />
 
@@ -35,13 +32,7 @@
 ## Installation
 
 ```sh
-yarn add @dooboo-ui/native
-```
-
-or
-
-```sh
-yarn add @dooboo-ui/native-slider
+yarn add @dooboo-ui/core
 ```
 
 ## Usage
@@ -49,9 +40,7 @@ yarn add @dooboo-ui/native-slider
 ```javascript
 import React, { ReactElement } from 'react';
 
-import { Slider } from '@dooboo-ui/native';
-// or
-import Slider from '@dooboo-ui/native-slider';
+import { Slider } from '@dooboo-ui/core';
 import styled from 'styled-components/native';
 
 function Page(): ReactElement {

@@ -1,9 +1,5 @@
 # Button
 
-[![Npm Version](http://img.shields.io/npm/v/@dooboo-ui/native-button.svg?style=flat-square)](https://npmjs.org/package/@dooboo-ui/native-button)
-[![Downloads](http://img.shields.io/npm/dm/@dooboo-ui/native-button.svg?style=flat-square)](https://npmjs.org/package/@dooboo-ui/native-button)
-
-
 > [Button] component that can be used inside product. Has basic features like `loading` state, `disabled` state and also has ability to put `img` to left-hand which is used very often.
 
 ![image](https://user-images.githubusercontent.com/27461460/62291727-9be84100-b49f-11e9-8ce5-ceaa1dc3153e.png)
@@ -32,13 +28,7 @@
 ## Installation
 
 ```sh
-yarn add @dooboo-ui/native
-```
-
-or
-
-```sh
-yarn add @dooboo-ui/native-button
+yarn add @dooboo-ui/core
 ```
 
 ## Getting started
@@ -46,7 +36,7 @@ yarn add @dooboo-ui/native-button
 - Import
 
   ```javascript
-  import { Button } from '@dooboo-ui/native';
+  import { Button } from '@dooboo-ui/core';
   ```
 
 - Usage

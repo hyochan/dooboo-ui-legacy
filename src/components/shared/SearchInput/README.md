@@ -1,20 +1,11 @@
 # Search Input
 
-[![Npm Version](http://img.shields.io/npm/v/@dooboo-ui/native-search-input.svg?style=flat-square)](https://npmjs.org/package/@dooboo-ui/native-search-input)
-[![Downloads](http://img.shields.io/npm/dm/@dooboo-ui/native-search-input.svg?style=flat-square)](https://npmjs.org/package/@dooboo-ui/native-search-input)
-
 > Simple search input for react-native.
 
 ## Installation
 
 ```sh
-yarn add @dooboo-ui/native
-```
-
-or
-
-```sh
-yarn add @dooboo-ui/native-search-input
+yarn add @dooboo-ui/core
 ```
 
 ## Usage
@@ -52,9 +43,7 @@ export interface SearchInputProps {
 - Import
 
   ```tsx
-  import { SearchInput } from '@dooboo-ui/native';
-  // or
-  import SearchInput from '@dooboo-ui/native-search-input';
+  import { SearchInput } from '@dooboo-ui/core';
   ```
 
 - Usage

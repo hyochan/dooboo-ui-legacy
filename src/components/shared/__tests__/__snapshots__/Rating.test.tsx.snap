@@ -31,7 +31,7 @@ exports[`[Rating] render [Rating] Interaction should simulate props 1`] = `
       resizeMode="contain"
       source={
         Object {
-          "testUri": "../../../src/components/shared/Rating/package/images/Star.png",
+          "testUri": "../../../src/components/shared/Rating/images/Star.png",
         }
       }
       style={
@@ -79,7 +79,7 @@ exports[`[Rating] render [Rating] Interaction should simulate props 2`] = `
       resizeMode="contain"
       source={
         Object {
-          "testUri": "../../../src/components/shared/Rating/package/images/UnStar.png",
+          "testUri": "../../../src/components/shared/Rating/images/UnStar.png",
         }
       }
       style={
@@ -126,7 +126,7 @@ exports[`[Rating] render renders without crashing 1`] = `
       resizeMode="contain"
       source={
         Object {
-          "testUri": "../../../src/components/shared/Rating/package/images/UnStar.png",
+          "testUri": "../../../src/components/shared/Rating/images/UnStar.png",
         }
       }
       style={

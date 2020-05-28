@@ -1,8 +1,5 @@
 # EditText
 
-[![Npm Version](http://img.shields.io/npm/v/@dooboo-ui/native-edit-text.svg?style=flat-square)](https://npmjs.org/package/@dooboo-ui/native-edit-text)
-[![Downloads](http://img.shields.io/npm/dm/@dooboo-ui/native-edit-text.svg?style=flat-square)](https://npmjs.org/package/@dooboo-ui/native-edit-text)
-
 > [EditText] component is an enhanced version on pure react-native [TextInput] component.
 
 ## Preview
@@ -50,13 +47,7 @@
 ## Installation
 
 ```sh
-yarn add @dooboo-ui/native
-```
-
-or
-
-```sh
-yarn add @dooboo-ui/native-edit-text
+yarn add @dooboo-ui/core
 ```
 
 ## Getting started
@@ -64,9 +55,7 @@ yarn add @dooboo-ui/native-edit-text
 - Import
 
   ```javascript
-  import { EditText } from '@dooboo-ui/native';
-  // or
-  import EditText from '@dooboo-ui/native-edit-text';
+  import { EditText } from '@dooboo-ui/core';
   ```
 
 - Usage

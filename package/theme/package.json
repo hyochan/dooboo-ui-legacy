@@ -1,0 +1,41 @@
+{
+  "name": "@dooboo-ui/theme",
+  "main": "package/index.js",
+  "types": "package/index.d.ts",
+  "version": "0.0.1",
+  "license": "MIT",
+  "scripts": {
+    "build": "rm -rf ./package && tsc"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/dooboolab/dooboo-ui.git",
+    "directory": "src/providers/Theme"
+  },
+  "bugs": {
+    "url": "https://github.com/dooboolab/dooboo-ui/issues"
+  },
+  "homepage": "https://github.com/dooboolab/dooboo-ui#readme",
+  "dependencies": {
+    "dooboolab-welcome": "^1.2.0"
+  },
+  "devDependencies": {
+    "typescript": "^3.8.3",
+    "styled-components": "^4.4.1"
+  },
+  "peerDependencies": {
+    "react": ">=16.8",
+    "react-native": ">=0.59",
+    "styled-components": ">=4.4.0"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "keywords": [
+    "theme",
+    "react-hook",
+    "react-native",
+    "dooboo-ui/native",
+    "dooboolab"
+  ]
+}

@@ -1,6 +1,6 @@
 {
   "packages": [
-    "src/components/shared/*"
+    "package"
   ],
   "version": "independent",
   "npmClient": "yarn"

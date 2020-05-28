@@ -1,8 +1,5 @@
 # ButtonGroup
 
-[![Npm Version](http://img.shields.io/npm/v/@dooboo-ui/native-button-group.svg?style=flat-square)](https://npmjs.org/package/@dooboo-ui/native-button-group)
-[![Downloads](http://img.shields.io/npm/dm/@dooboo-ui/native-button-group.svg?style=flat-square)](https://npmjs.org/package/@dooboo-ui/native-button-group)
-
 > [ButtonGroup] is an `ios` section like component. You can have as may selectors as you want.
 
 ![ButtonGroup](https://user-images.githubusercontent.com/27461460/62305265-8c2a2600-b4ba-11e9-83df-af0ac2f4a3f6.gif)
@@ -24,13 +21,7 @@
 ## Installation
 
 ```sh
-yarn add @dooboo-ui/native
-```
-
-or
-
-```sh
-yarn add @dooboo-ui/native-button-group
+yarn add @dooboo-ui/core
 ```
 
 ## Getting started
@@ -38,9 +29,7 @@ yarn add @dooboo-ui/native-button-group
 - Import
 
   ```javascript
-  import { ButtonGroup } from '@dooboo-ui/native';
-  // or
-  import ButtonGroup from '@dooboo-ui/native-button-group';
+  import { ButtonGroup } from '@dooboo-ui/core';
   ```
 
 - Usage

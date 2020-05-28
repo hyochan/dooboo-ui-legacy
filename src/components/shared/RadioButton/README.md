@@ -1,21 +1,12 @@
 # Radio Button
 
-<!-- [![Npm Version](http://img.shields.io/npm/v/@dooboo-ui/native-search-input.svg?style=flat-square)](https://npmjs.org/package/@dooboo-ui/native-search-input)
-[![Downloads](http://img.shields.io/npm/dm/@dooboo-ui/native-search-input.svg?style=flat-square)](https://npmjs.org/package/@dooboo-ui/native-search-input) -->
-
 > Simple radio button for react-native.  
 > Refer : <https://material-ui.com/components/radio-buttons>
 
 ## Installation
 
 ```sh
-yarn add @dooboo-ui/native
-```
-
-or
-
-```sh
-yarn add @dooboo-ui/radio-button
+yarn add @dooboo-ui/core
 ```
 
 ## Props
@@ -53,9 +44,7 @@ interface IRadioButtonProps {
 ### Import
 
 ```tsx
-import { RadioButton } from '@dooboo-ui/native';
-// or
-import RadioButton from '@dooboo-ui/radio-button';
+import { RadioButton } from '@dooboo-ui/core';
 ```
 
 ### Usage
