@@ -2,7 +2,6 @@ import * as React from 'react';
 
 import { Animated, Text, TouchableOpacity, View } from 'react-native';
 import Snackbar, { SnackbarProvider, SnackbarRef, useSnackbarContext } from '../Snackbar';
-
 import { fireEvent, render, wait } from '@testing-library/react-native';
 import renderer, { act } from 'react-test-renderer';
 
@@ -42,10 +41,12 @@ function ContentInnerProvider(): React.ReactElement {
       <TouchableOpacity
         testID="Button"
         onPress={(): void => {
-          snackbar.show({
-            text: message,
-            actionText: 'some action',
-          });
+          if (snackbar) {
+            snackbar.show({
+              text: message,
+              actionText: 'some action',
+            });
+          }
         }}>
         <Text>
           {buttonText}

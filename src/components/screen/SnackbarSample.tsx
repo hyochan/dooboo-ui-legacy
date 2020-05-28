@@ -6,11 +6,13 @@ import React from 'react';
 function Container(): React.ReactElement {
   const snackbar = useSnackbarContext();
   const onPress = (): void => {
-    snackbar.show({
-      text: 'Simple Snackbar is opened',
-      actionText: 'Some action',
-      onPressAction: () => Alert.alert('Some action occurs!!'),
-    });
+    if (snackbar) {
+      snackbar.show({
+        text: 'Simple Snackbar is opened',
+        actionText: 'Some action',
+        onPressAction: () => Alert.alert('Some action occurs!!'),
+      });
+    }
   };
   return (
     <SafeAreaView style={{ flex: 1 }}>
