@@ -7,7 +7,15 @@ module.exports = ({ config, mode }) => {
     use: {
       loader: 'url-loader',
       options: { name: '[name].[ext]' }
-    }
+    },
+  });
+
+  config.module.rules.push({
+    test: /\.(png|jpe?g|gif|jp2|webp)$/,
+    loader: 'file-loader',
+    options: {
+      name: 'images/[name].[ext]'
+    },
   });
 
   config.module.rules.push({
