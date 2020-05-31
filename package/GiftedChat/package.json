@@ -1,12 +1,12 @@
 {
   "name": "@dooboo-ui/gifted-chat",
-  "main": "package/index.js",
-  "types": "package/index.d.ts",
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
   "version": "0.0.1",
   "license": "MIT",
   "postinstall": "tsc",
   "scripts": {
-    "build": "tsc",
+    "build": "rm -rf ./lib && tsc",
     "watch": "tsc -w"
   },
   "repository": {

@@ -9,12 +9,9 @@
     "moduleResolution": "node",
     "target": "es5",
     "incremental": true,
-    "outDir": "./lib",
+    "outDir": "../stories-build",
     "skipLibCheck": true,
     "allowSyntheticDefaultImports": true,
     "declaration": true
-  },
-  "exclude": ["node_modules", "lib", "**/**/*/__tests__", "dist"],
-  "include": ["./main"],
-  "files": ["environment.d.ts"]
+  }
 }

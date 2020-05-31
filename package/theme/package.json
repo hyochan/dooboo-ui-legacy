@@ -1,11 +1,11 @@
 {
   "name": "@dooboo-ui/theme",
-  "main": "package/index.js",
-  "types": "package/index.d.ts",
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
   "version": "0.0.1",
   "license": "MIT",
   "scripts": {
-    "build": "rm -rf ./package && tsc"
+    "build": "rm -rf ./lib && tsc"
   },
   "repository": {
     "type": "git",

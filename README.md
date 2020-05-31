@@ -1,75 +1,125 @@
-# dooboo-ui
+# Storybook Example
 
-> React Native UI components built by `dooboolab`
+<p>
+  <!-- iOS -->
+  <img alt="Supports Expo iOS" longdesc="Supports Expo iOS" src="https://img.shields.io/badge/iOS-4630EB.svg?style=flat-square&logo=APPLE&labelColor=999999&logoColor=fff" />
+  <!-- Android -->
+  <img alt="Supports Expo Android" longdesc="Supports Expo Android" src="https://img.shields.io/badge/Android-4630EB.svg?style=flat-square&logo=ANDROID&labelColor=A4C639&logoColor=fff" />
+  <!-- Web -->
+  <img alt="Supports Expo Web" longdesc="Supports Expo Web" src="https://img.shields.io/badge/web-4630EB.svg?style=flat-square&logo=GOOGLE-CHROME&labelColor=4285F4&logoColor=fff" />
+</p>
 
-[![CircleCI](https://circleci.com/gh/dooboolab/dooboo-ui/core.svg?style=shield)](https://circleci.com/gh/dooboolab/dooboo-ui)
-[![codecov](https://codecov.io/gh/dooboolab/dooboo-ui/branch/master/graph/badge.svg)](https://codecov.io/gh/dooboolab/dooboo-ui)
-![License](http://img.shields.io/npm/l/@dooboo-ui/core.svg?style=flat-square)
+<img alt="expo examples" src=".gh-assets/all-platforms.png">
 
-## Package
+You can use Storybook to test and share your component library quickly and easily! This example shows how to use Expo modules with Storybook CLI and Expo CLI.
 
-* Core
+## Running with Storybook CLI
 
-  [![Npm Version](http://img.shields.io/npm/v/@dooboo-ui/core.svg?style=flat-square)](https://npmjs.org/package/@dooboo-ui/core)
-  [![Downloads](http://img.shields.io/npm/dm/@dooboo-ui/core.svg?style=flat-square)](https://npmjs.org/package/@dooboo-ui/core)
+![expo web with storybook-cli](.gh-assets/expo-with-storybook-cli.png "expo web with storybook-cli")
 
-  - Accordion
-  - Button
-  - ButtonGroup
-  - EditText
-  - LoadingIndicator
-  - RadioButton
-  - Rating
-  - SearchInput
-  - Slider
-  - SwitchToggle
+> web only
 
-* Plugins
+This method runs your Expo components in a Storybook-React environment. This is different to Expo web, but may prove helpful as the Storybook-React community is more robust than the Storybook-React Native community.
 
-  - [@dooboo-ui/gifted-chat]()
-    * WIP
-  - [@dooboo-ui/tinder-card]()
-    * WIP
-  - [@dooboo-ui/pinch-zoom-slider-modal]()
-    * WIP
-  - [@dooboo-ui/snack-bar]()
-    * WIP
-  - [@dooboo-ui/calendar-carousel]()
-    * WIP
+- Create Expo project `expo init my-project`
+  - You can use any template, we'll use the managed blank TypeScript project for this example.
+- `cd` into the project and run `npx -p @storybook/cli sb init --type react` to bootstrap a new React project
+- Install the expo webpack config so we can add unimodules support `yarn add -D @expo/webpack-config`
+- Create a [custom webpack config](./.storybook/webpack.config.js) `touch .storybook/webpack.config.js`
 
-* Theme
+  ```js
+  const { resolve } = require("path");
+  const { withUnimodules } = require("@expo/webpack-config/addons");
 
-  [![Npm Version](http://img.shields.io/npm/v/@dooboo-ui/theme.svg?style=flat-square)](https://npmjs.org/package/@dooboo-ui/theme)
-  [![Downloads](http://img.shields.io/npm/dm/@dooboo-ui/theme.svg?style=flat-square)](https://npmjs.org/package/@dooboo-ui/theme)
+  module.exports = ({ config }) => {
+    return withUnimodules(config, { projectRoot: resolve(__dirname, "../") });
+  };
+  ```
 
-#### Plugins
+- Run `yarn web` to try it out!
+  - The example should open to `http://localhost:6006/`
+- You may also want to add `storybook-static` to your `.gitignore`
 
-We love [react-hooks](https://code.fb.com/open-source/react-hooks) and willing to share our [react-native](https://facebook.github.io/react-native) widgets built in [Functional Component](https://logrocket.com/blog/pure-functional-components) using hooks.
+### 📁 File Structure
 
+```
+Expo with Storybook CLI
+├── stories
+│ └── Example.stories.js ➡️ A Storybook page to render
+├── .storybook
+│ ├── config.js ➡️ The entry point / config for a typical Storybook project.
+│ └── webpack.config.js ➡️ The custom Webpack config used to add Expo support to Storybook CLI.
+├── assets ➡️ All static assets for your project
+├── storybook-static ➡️ Generated Storybook files (should be ignored)
+└── babel.config.js ➡️ Babel config (should be using `babel-preset-expo`)
+```
 
-## Contributing to `@dooboo-ui`
+## Running with Expo CLI
 
-![dooboo-ui](https://user-images.githubusercontent.com/27461460/73331047-ea876400-42a5-11ea-9c9c-1c997eb961be.png)
+<img alt="storybook with expo-cli" src=".gh-assets/storybook-with-expo-cli.png">
 
-- See also
-  - dooboolab's [vision-and-mission](https://github.com/dooboolab/dooboolab.com/blob/master/vision-and-mission.md)
-  - dooboolab's [code of conduct](https://github.com/dooboolab/dooboolab.com/blob/master/code-of-conduct.md)
-- [Contributing](CONTRIBUTING.md)
-  - Try to make good `shared` component and test it in `storybook` or in `sample` screen. Then it's all good to go for `pull request`. Give it a try :blossom:.
-- While implementing [Shared] component you should run `yarn watch` in order to build typescript file dynamically while developing. This is currently the best solution to sync with your typescript code using `package.json`. If you find something more efficient, please give a pull request.
+> This method is universal :]
 
-## Usage
+This project can be used for iOS, Android, and web! You may find that it's better to use it for native only, and to use the "Running with Storybook" method for web. Unlike the Expo + Next.js flow, you can use both web methods at the same time!
 
-Our libraries are distinguised into three concepts.
-First, `@dooboo-ui/core` contains all the light weight ui components listed [above](#Package).
-Secondly, the list of plugins are individual packages that is not a light weight.
-Finally, we have `@dooboo-ui/theme` package that controls theming more easily.
+- Create Expo project `expo init my-project`
+  - You can use any template, we'll use the managed blank TypeScript project for this example.
+- `cd` into the project and run `npx -p @storybook/cli sb init --type react` to bootstrap a new React project.
+- Install the Storybook React Native package:
+  - `yarn add -D @storybook/react-native`
+- In your `App.tsx` or `App.js`
 
+```ts
+import { configure, getStorybookUI } from "@storybook/react-native";
 
-## Compatability
-| package           | version |
-|-------------------|---------|
-| react             | >=16.9  |
-| react-native      | >=0.58  |
-| styled-components | >=4.4.0 |
+configure(() => {
+  // Since require.context doesn't exist in metro bundler world, we have to
+  // manually import files ending in *.stories.js
+  require("./stories");
+}, module);
 
+export default getStorybookUI();
+```
+
+- Create a file for importing all of the stories ([`stories/index.js`](./stories/index.js)):
+
+  - `touch stories/index.js`
+  - Import all of your stories in this file. Ex:
+
+  ```js
+  // stories/index.js
+  import "./1-Button.stories";
+  ```
+
+- Register your stories for React Native:
+
+```diff
+// Example.stories.js
++ import { storiesOf } from '@storybook/react-native';
+
+export const text = () => ( /_ Example JSX _/ );
+
+// Register your story with the `module`, name, and React functional component.
+
++ storiesOf('Button', module).add('Text', text);
+
+```
+
+- Now run `expo start` to see it in action!
+
+### 📁 File Structure
+
+```
+Storybook with Expo CLI
+├── stories
+│   ├── index.js ➡️ Native story imports
+│   └── Example.stories.js ➡️ A Storybook page to render
+├── assets ➡️ All static assets for your project
+├── App.tsx ➡️ Entry Point for universal Expo apps
+├── app.config.js ➡️ Expo config file
+└── babel.config.js ➡️ Babel config (should be using `babel-preset-expo`)
+```
+
+## 📝 Notes
+
+- [Storybook React Native](https://storybook.js.org/docs/guides/guide-react-native/)

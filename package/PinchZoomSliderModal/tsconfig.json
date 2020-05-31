@@ -1,7 +1,7 @@
 {
-  "extends": "../../../../tsconfigPackage.json",
+  "extends": "../../tsconfigPackage.json",
   "compilerOptions": {
-    "outDir": "./package"
+    "outDir": "./lib"
   },
-  "exclude": ["package", "node_modules"]
+  "exclude": ["lib", "node_modules"]
 }
