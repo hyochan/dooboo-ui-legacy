@@ -3,7 +3,16 @@
   "version": "0.0.1",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
+  "author": "dooboolab",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/dooboolab/dooboo-ui/issues"
+  },
+  "homepage": "https://github.com/dooboolab/dooboo-ui#readme",
   "scripts": {
+    "postinstall": "dooboolab-welcome postinstall",
+    "lint": "eslint main packages stories --ext .ts,.tsx,.js,.jsx",
+    "tsc": "tsc",
     "start": "expo start",
     "android": "expo start --android",
     "ios": "expo start --ios",
@@ -13,18 +22,16 @@
     "build-storybook": "build-storybook",
     "build-packages": "lerna exec -- yarn build"
   },
+  "peerDependencies": {
+    "react": ">=16.9",
+    "react-native": ">=0.58",
+    "styled-components": ">=4.4.0"
+  },
   "dependencies": {
-    "expo": "^37.0.7",
-    "expo-constants": "~8.0.0",
-    "expo-font": "~8.0.0",
-    "expo-linear-gradient": "~8.0.0",
-    "react": "16.9.0",
-    "react-dom": "16.9.0",
-    "react-native": "https://github.com/expo/react-native/archive/sdk-37.0.1.tar.gz",
-    "react-native-web": "^0.11.7",
-    "styled-components": "^5.1.1"
+    "dooboolab-welcome": "^1.2.0"
   },
   "devDependencies": {
+    "@dooboo/eslint-config": "^0.4.2",
     "@babel/core": "^7.9.0",
     "@babel/plugin-syntax-dynamic-import": "^7.8.3",
     "@babel/plugin-transform-modules-commonjs": "^7.10.1",
@@ -44,8 +51,18 @@
     "babel-loader": "^8.0.6",
     "babel-preset-expo": "^8.0.0",
     "babel-preset-react-app": "^9.1.2",
+    "eslint": "^7.1.0",
+    "expo": "^37.0.7",
+    "expo-constants": "~8.0.0",
+    "expo-font": "~8.0.0",
+    "expo-linear-gradient": "~8.0.0",
+    "react": "16.9.0",
     "react-docgen-typescript-loader": "^3.7.2",
+    "react-dom": "16.9.0",
+    "react-native": "https://github.com/expo/react-native/archive/sdk-37.0.1.tar.gz",
+    "react-native-web": "^0.11.7",
     "react-useinterval": "^1.0.1",
+    "styled-components": "^5.1.1",
     "typescript": "^3.7.2"
   },
   "private": true

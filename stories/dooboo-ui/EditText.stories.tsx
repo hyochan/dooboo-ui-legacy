@@ -9,26 +9,11 @@ import {
   TouchableOpacity,
   View,
 } from 'react-native';
-import React, { useState } from 'react';
+import React, { ReactElement, useState } from 'react';
 
 import Button from '../../main/Button';
 import { ContainerDeco } from '../../.storybook/decorators';
 import { storiesOf } from '@storybook/react-native';
-
-storiesOf('EditText', module)
-  .addDecorator(ContainerDeco)
-  .add('default', () => <Default />, {
-    notes: 'Simple explanation',
-  })
-  .add('row', () => <RowEditText />, {
-    notes: 'EditText in row',
-  })
-  .add('boxType', () => <BoxEditText />, {
-    notes: 'Box shape EditText',
-  })
-  .add('boxRowType', () => <BoxRowEditText />, {
-    notes: 'Box shape EditText in row',
-  });
 
 const Default = (): React.ReactElement => {
   const validateEmail = (email: string): boolean => {
@@ -583,13 +568,33 @@ const BoxRowEditText = (): React.ReactElement => {
   );
 };
 
-
+/**
+ * Below are stories for web
+ */
 export default {
   title: 'EditText',
 };
 
-export const toStorybook = () => <Default />;
+export const toStorybook = (): ReactElement => <Default />;
 
 toStorybook.story = {
-  name: 'to Storybook',
+  name: 'default',
 };
+
+/**
+ * Below are stories for app
+ */
+storiesOf('EditText', module)
+  .addDecorator(ContainerDeco)
+  .add('default', () => <Default />, {
+    notes: 'Simple explanation',
+  })
+  .add('row', () => <RowEditText />, {
+    notes: 'EditText in row',
+  })
+  .add('boxType', () => <BoxEditText />, {
+    notes: 'Box shape EditText',
+  })
+  .add('boxRowType', () => <BoxRowEditText />, {
+    notes: 'Box shape EditText in row',
+  });

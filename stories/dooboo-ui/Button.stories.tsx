@@ -1,6 +1,6 @@
 import { IC_FACEBOOK, IC_GOOGLE } from '../Icon';
 import { Image, View } from 'react-native';
-import React, { useState } from 'react';
+import React, { ReactElement, useState } from 'react';
 
 import Button from '../../main/Button';
 import { ContainerDeco } from '../../.storybook/decorators';
@@ -8,14 +8,6 @@ import { action } from '@storybook/addon-actions';
 import { storiesOf } from '@storybook/react-native';
 import styled from 'styled-components/native';
 import { text } from '@storybook/addon-knobs';
-
-storiesOf('Button', module)
-  .addDecorator(ContainerDeco)
-  .add('default', () => (
-    <>
-      <Default />
-    </>
-  ));
 
 const Container = styled.View`
   background-color: transparent;
@@ -98,12 +90,26 @@ function Default(): React.ReactElement {
   );
 }
 
+/**
+ * Below are stories for web
+ */
 export default {
   title: 'Button',
 };
 
-export const toStorybook = () => <Default />;
+export const toStorybook = (): ReactElement => <Default />;
 
 toStorybook.story = {
-  name: 'to Storybook',
+  name: 'default',
 };
+
+/**
+ * Below are stories for app
+ */
+storiesOf('Button', module)
+  .addDecorator(ContainerDeco)
+  .add('default', () => (
+    <>
+      <Default />
+    </>
+  ));

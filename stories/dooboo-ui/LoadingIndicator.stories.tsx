@@ -1,20 +1,9 @@
+import React, { ReactElement } from 'react';
+
 import { ContainerDeco } from '../../.storybook/decorators';
 import LoadingIndicator from '../../main/LoadingIndicator';
-import React from 'react';
 import { storiesOf } from '@storybook/react-native';
 import styled from 'styled-components/native';
-
-storiesOf('LoadingIndicator', module)
-  .addDecorator(ContainerDeco)
-  .add('default', () => (
-    <>
-      <Default />
-    </>
-  )).add('imgVersion', () => (
-    <>
-      <ImgVersion />
-    </>
-  ));
 
 const Container = styled.View`
   flex: 1;
@@ -46,3 +35,31 @@ function ImgVersion(): React.ReactElement {
     </Container>
   );
 }
+
+/**
+ * Below are stories for web
+ */
+export default {
+  title: 'EditText',
+};
+
+export const toStorybook = (): ReactElement => <Default />;
+
+toStorybook.story = {
+  name: 'default',
+};
+
+/**
+ * Below are stories for app
+ */
+storiesOf('LoadingIndicator', module)
+  .addDecorator(ContainerDeco)
+  .add('default', () => (
+    <>
+      <Default />
+    </>
+  )).add('imgVersion', () => (
+    <>
+      <ImgVersion />
+    </>
+  ));

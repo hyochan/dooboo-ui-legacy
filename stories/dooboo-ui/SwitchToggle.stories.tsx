@@ -1,23 +1,8 @@
-import React, { useState } from 'react';
+import React, { ReactElement, useState } from 'react';
 
 import { ContainerDeco } from '../../.storybook/decorators';
 import SwitchToggle from '../../main/SwitchToggle';
 import { storiesOf } from '@storybook/react-native';
-
-storiesOf('SwitchToggle', module)
-  .addDecorator(ContainerDeco)
-  .add('default', () => (
-    <>
-      <Small />
-      <Medium />
-      <Large />
-      <WithText />
-    </>
-  ))
-  .add('└small', () => <Small />)
-  .add('└medium', () => <Medium />)
-  .add('└large', () => <Large />)
-  .add('└with text', () => <WithText />);
 
 const Small = (): React.ReactElement => {
   const [switchOn1, setSwitchOn1] = useState(false);
@@ -132,3 +117,42 @@ const Large = (): React.ReactElement => {
     />
   );
 };
+
+/**
+ * Below are stories for web
+ */
+
+export default {
+  title: 'SwitchToggle',
+};
+
+export const toStorybook1 = (): ReactElement => <Small />;
+toStorybook1.story = { name: 'small' };
+
+export const toStorybook2 = (): ReactElement => <Medium />;
+toStorybook2.story = { name: 'medium' };
+
+export const toStorybook3 = (): ReactElement => <Large />;
+toStorybook3.story = { name: 'large' };
+
+export const toStorybook4 = (): ReactElement => <WithText />;
+toStorybook4.story = { name: 'WithText' };
+
+/**
+ * Below are stories for app
+ */
+
+storiesOf('SwitchToggle', module)
+  .addDecorator(ContainerDeco)
+  .add('default', () => (
+    <>
+      <Small />
+      <Medium />
+      <Large />
+      <WithText />
+    </>
+  ))
+  .add('└small', () => <Small />)
+  .add('└medium', () => <Medium />)
+  .add('└large', () => <Large />)
+  .add('└with text', () => <WithText />);

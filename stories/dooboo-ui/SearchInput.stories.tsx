@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { ReactElement, useState } from 'react';
 import { number, text } from '@storybook/addon-knobs';
 
 import { IC_MAGNIFIER } from '../Icon';
@@ -58,7 +58,25 @@ const SearchInputWithState: React.FC<{ customIcon?: React.ReactNode }> = ({
   );
 };
 
-const ContainerDeco = (storyFn): React.ReactElement => (
+/**
+ * Below are stories for web
+ */
+
+export default {
+  title: 'SearchInput',
+};
+
+export const toStorybook = (): ReactElement => <SearchInputWithState />;
+
+toStorybook.story = {
+  name: 'default',
+};
+
+/**
+ * Below are stories for app
+ */
+
+const ContainerDeco = (storyFn: any): React.ReactElement => (
   <Container>{storyFn()}</Container>
 );
 

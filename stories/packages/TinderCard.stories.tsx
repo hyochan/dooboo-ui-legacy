@@ -5,11 +5,12 @@ import React, {
   useRef,
   useState,
 } from 'react';
-import TinderCard, { TinderCardDirection, TinderCardRef } from '../../package/TinderCard';
+import TinderCard, { TinderCardDirection, TinderCardRef } from '../../packages/TinderCard/lib';
 
 import { ContainerDeco } from '../../.storybook/decorators';
 import { storiesOf } from '@storybook/react-native';
 import styled from 'styled-components/native';
+// @ts-ignore
 import useInterval from 'react-useinterval';
 
 const tinderCardDummyData = [
@@ -44,14 +45,6 @@ const tinderCardDummyData = [
     image: { uri: 'https://cdn.pixabay.com/photo/2019/07/18/14/24/eat-4346598_1280.jpg' },
   },
 ];
-
-storiesOf('TinderCard', module)
-  .addDecorator(ContainerDeco)
-  .add('default', () => (
-    <>
-      <Default />
-    </>
-  ));
 
 const Container = styled.SafeAreaView`
   flex: 1;
@@ -215,7 +208,9 @@ function Default(): React.ReactElement {
         <ButtonWrapper
           style={{ backgroundColor: '#ff7676' }}
           onPress={(): void => {
-            tinderCard.current?.forceSwipe(TinderCardDirection.LEFT);
+            if (tinderCard.current) {
+              tinderCard.current.forceSwipe(TinderCardDirection.LEFT);
+            }
           }}
         >
           <StyledText style={{ fontSize: 15 }}>UNLIKE</StyledText>
@@ -223,7 +218,9 @@ function Default(): React.ReactElement {
 
         <ButtonWrapper
           onPress={(): void => {
-            tinderCard.current?.handleCancel();
+            if (tinderCard.current) {
+              tinderCard.current.handleCancel();
+            }
           }}
         >
           <StyledText style={{ fontSize: 15 }}>UNDO</StyledText>
@@ -232,7 +229,9 @@ function Default(): React.ReactElement {
         <ButtonWrapper
           style={{ backgroundColor: '#44d1a6' }}
           onPress={(): void => {
-            tinderCard.current?.forceSwipe(TinderCardDirection.RIGHT);
+            if (tinderCard.current) {
+              tinderCard.current.forceSwipe(TinderCardDirection.RIGHT);
+            }
           }}
         >
           <StyledText style={{ fontSize: 15 }}>LIKE</StyledText>
@@ -241,3 +240,30 @@ function Default(): React.ReactElement {
     </Container>
   );
 }
+
+/**
+ * Below are stories for web
+ */
+export default {
+  title: 'TinderCard',
+};
+
+export const toStorybook = (): ReactElement => <>
+  <Default />
+</>;
+
+toStorybook.story = {
+  name: 'default',
+};
+
+/**
+ * Below are stories for app
+ */
+
+storiesOf('TinderCard', module)
+  .addDecorator(ContainerDeco)
+  .add('default', () => (
+    <>
+      <Default />
+    </>
+  ));

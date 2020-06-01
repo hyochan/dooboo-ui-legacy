@@ -1,18 +1,10 @@
-import React, { useState } from 'react';
+import React, { ReactElement, useState } from 'react';
 import { Text, View } from 'react-native';
 
 import ButtonGroup from '../../main/ButtonGroup';
 import { ContainerDeco } from '../../.storybook/decorators';
 import { storiesOf } from '@storybook/react-native';
 import styled from 'styled-components/native';
-
-storiesOf('ButtonGroup', module)
-  .addDecorator(ContainerDeco)
-  .add('default', () => (
-    <>
-      <Default />
-    </>
-  ));
 
 const Default = (): React.ReactElement => {
   const data = ['Option 1', 'Option 2', 'Option 3', 'Option 4'];
@@ -67,12 +59,26 @@ const Container = styled.SafeAreaView`
   margin: 0 24px;
 `;
 
+/**
+ * Below are stories for web
+ */
 export default {
   title: 'ButtonGroup',
 };
 
-export const toStorybook = () => <Default />;
+export const toStorybook = (): ReactElement => <Default />;
 
 toStorybook.story = {
-  name: 'to Storybook',
+  name: 'default',
 };
+
+/**
+ * Below are stories for app
+ */
+storiesOf('ButtonGroup', module)
+  .addDecorator(ContainerDeco)
+  .add('default', () => (
+    <>
+      <Default />
+    </>
+  ));

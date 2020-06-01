@@ -1,9 +1,9 @@
+import React, { ReactElement } from 'react';
 import { ScrollView, View } from 'react-native';
 import { boolean, color, number, select, text } from '@storybook/addon-knobs';
 
 import { ContainerDeco } from '../../.storybook/decorators';
 import RadioButton from '../../main/RadioButton';
-import React from 'react';
 import { storiesOf } from '@storybook/react-native';
 import styled from 'styled-components/native';
 
@@ -191,3 +191,31 @@ function Default(): React.ReactElement {
     </Container>
   );
 }
+
+/**
+ * Below are stories for web
+ */
+export default {
+  title: 'EditText',
+};
+
+export const toStorybook = (): ReactElement => <Default />;
+
+toStorybook.story = {
+  name: 'default',
+};
+
+/**
+ * Below are stories for app
+ */
+storiesOf('LoadingIndicator', module)
+  .addDecorator(ContainerDeco)
+  .add('default', () => (
+    <>
+      <Default />
+    </>
+  )).add('imgVersion', () => (
+    <>
+      <Default />
+    </>
+  ));

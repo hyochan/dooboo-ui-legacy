@@ -19,8 +19,8 @@ interface IInputRowProps {
   isLabelColumn: boolean;
 }
 
-interface IRadioButtonProps {
-  onPress: (value: string) => void;
+interface RadioButtonProps {
+  onPress?: (value: string) => void;
   value: string;
   selectedValue: string;
   color?: string;
@@ -115,7 +115,7 @@ const InnerCircleAnim = ({
   );
 };
 
-function RadioButton(props: IRadioButtonProps): React.ReactElement {
+function RadioButton(props: RadioButtonProps): React.ReactElement {
   const {
     onPress,
     value,

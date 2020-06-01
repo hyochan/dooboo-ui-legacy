@@ -1,17 +1,11 @@
 import { IC_ARR_DOWN, IC_ARR_UP } from '../Icon';
-import { Image, ScrollView, Text, View } from 'react-native';
+import React, { ReactElement } from 'react';
+import { ScrollView, Text, View } from 'react-native';
 
 import Accordion from '../../main/Accordion';
 import { ContainerDeco } from '../../.storybook/decorators';
-import React from 'react';
 import { storiesOf } from '@storybook/react-native';
 import styled from 'styled-components/native';
-
-storiesOf('Accordion', module)
-  .addDecorator(ContainerDeco)
-  .add('default', () => <Default />, {
-    notes: 'Simple explanation',
-  });
 
 const Container = styled.SafeAreaView`
   flex: 1;
@@ -89,12 +83,24 @@ const Default = (): React.ReactElement => {
   );
 };
 
+/**
+ * Below are stories for web
+ */
 export default {
   title: 'Accordion',
 };
 
-export const toStorybook = () => <Default />;
+export const toStorybook = (): ReactElement => <Default />;
 
 toStorybook.story = {
-  name: 'to Storybook',
+  name: 'default',
 };
+
+/**
+ * Below are stories for app
+ */
+storiesOf('Accordion', module)
+  .addDecorator(ContainerDeco)
+  .add('default', () => <Default />, {
+    notes: 'Simple explanation',
+  });

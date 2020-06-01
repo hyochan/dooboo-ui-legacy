@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { ReactElement, useState } from 'react';
 
 import { ContainerDeco } from '../../.storybook/decorators';
 import Slider from '../../main/Slider';
@@ -10,34 +10,6 @@ const StyledScrollView = styled.ScrollView`
   width: 100%;
   padding: 30px;
 `;
-
-storiesOf('Slider', module)
-  .addDecorator(ContainerDeco)
-  .add('default', () => (
-    <>
-      <StyledScrollView>
-        <Default />
-        <NoMark />
-        <SmallStep />
-        <BigStep />
-        <DisplayLabel />
-        <DisplayLabelAuto />
-        <BigLabel />
-        <Colored />
-        <CustomMarks />
-        <CustomThumb />
-      </StyledScrollView>
-    </>
-  ))
-  .add('design', () => (
-    <>
-      <StyledScrollView>
-        <DesignBlack />
-        <DesignLightBlue />
-        <DesignBlue />
-      </StyledScrollView>
-    </>
-  ));
 
 const Container = styled.SafeAreaView`
   flex: 1;
@@ -353,3 +325,49 @@ function DesignBlue(): React.ReactElement {
     </Container>
   );
 }
+
+/**
+ * Below are stories for web
+ */
+
+export default {
+  title: 'Slider',
+};
+
+export const toStorybook = (): ReactElement => <Default />;
+
+toStorybook.story = {
+  name: 'default',
+};
+
+/**
+ * Below are stories for app
+ */
+
+storiesOf('Slider', module)
+  .addDecorator(ContainerDeco)
+  .add('default', () => (
+    <>
+      <StyledScrollView>
+        <Default />
+        <NoMark />
+        <SmallStep />
+        <BigStep />
+        <DisplayLabel />
+        <DisplayLabelAuto />
+        <BigLabel />
+        <Colored />
+        <CustomMarks />
+        <CustomThumb />
+      </StyledScrollView>
+    </>
+  ))
+  .add('design', () => (
+    <>
+      <StyledScrollView>
+        <DesignBlack />
+        <DesignLightBlue />
+        <DesignBlue />
+      </StyledScrollView>
+    </>
+  ));

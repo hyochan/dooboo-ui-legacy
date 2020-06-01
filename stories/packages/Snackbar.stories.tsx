@@ -1,26 +1,17 @@
 import { Alert, Text } from 'react-native';
-import React, { useCallback, useRef, useState } from 'react';
+import React, { ReactElement, useCallback, useRef, useState } from 'react';
 import Snackbar, {
   SnackbarProvider,
   SnackbarRef,
   Timer,
   useSnackbarContext,
-} from '../../package/Snackbar';
+} from '../../packages/Snackbar';
 import { color, text } from '@storybook/addon-knobs';
 
 import { ContainerDeco } from '../../.storybook/decorators';
 import SwitchToggle from '../../main/SwitchToggle';
 import { storiesOf } from '@storybook/react-native';
 import styled from 'styled-components/native';
-
-storiesOf('Snackbar', module)
-  .addDecorator(ContainerDeco)
-  .add('default', () => (
-    <SnackbarProvider>
-      <Default />
-    </SnackbarProvider>
-  ))
-  .add('└with action', () => <WithAction />);
 
 const Container = styled.View`
   background-color: transparent;
@@ -63,6 +54,8 @@ function Default(): React.ReactElement {
       timer: shortOrLong ? Timer.LONG : Timer.SHORT,
       containerStyle: {
         backgroundColor: containerColor,
+        top: 200,
+        height: 40,
       },
       messageStyle: {
         color: messageColor,
@@ -160,3 +153,33 @@ function WithAction(): React.ReactElement {
     </Container>
   );
 }
+
+/**
+ * Below are stories for web
+ */
+export default {
+  title: 'SnackBar',
+};
+
+export const toStorybook = (): ReactElement => <>
+  <SnackbarProvider>
+    <Default />
+  </SnackbarProvider>
+</>;
+
+toStorybook.story = {
+  name: 'default',
+};
+
+/**
+ * Below are stories for app
+ */
+
+storiesOf('Snackbar', module)
+  .addDecorator(ContainerDeco)
+  .add('default', () => (
+    <SnackbarProvider>
+      <Default />
+    </SnackbarProvider>
+  ))
+  .add('└with action', () => <WithAction />);
