@@ -13,3 +13,5 @@ web-build/
 
 # Storybook build
 lib
+
+.jest

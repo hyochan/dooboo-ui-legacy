@@ -12,14 +12,14 @@ const ThumbPositioner = styled.View<ThumbPositionerType>`
   left: ${({ percent }): string => `${percent}%`};
 `;
 
-const StyledThumb = styled.View<any>`
+const StyledThumb = styled.View`
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 12;
-  height: 12;
+  width: 12px;
+  height: 12px;
   background-color: #0b21e8;
-  border-radius: 6;
+  border-radius: 6px;
   transform: translate(-6px);
 `;
 

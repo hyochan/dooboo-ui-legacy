@@ -62,8 +62,8 @@ const SCOuterCircle = styled.View.attrs(
     borderWidth,
   }),
 )<ICircleProps>`
-  width: ${({ size }): string => size.toString()};
-  height: ${({ size }): string => size.toString()};
+  width: ${({ size }): string => size.toString()}px;
+  height: ${({ size }): string => size.toString()}px;
   border-color: ${({ color }): string => color};
   align-items: center;
   justify-content: center;
@@ -142,7 +142,7 @@ function RadioButton(props: RadioButtonProps): React.ReactElement {
       activeOpacity={1}
       disabled={disabled}
       isLabelColumn={isLabelColumn}
-      onPress={(): void => onPress(value)}
+      onPress={(): void => onPress?.(value)}
     >
       {isLabelFront && <SCLabelText disabled={disabled}>{label}</SCLabelText>}
       <SCOuterCircle {...circleStyles}>

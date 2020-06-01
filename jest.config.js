@@ -1,3 +1,4 @@
+// eslint-disable-next-line
 const { defaults: tsJestConfig } = require('ts-jest/presets');
 
 module.exports = {

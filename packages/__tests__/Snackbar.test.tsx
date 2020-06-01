@@ -1,10 +1,10 @@
-import { Animated, Text, TouchableOpacity, View } from 'react-native';
-
 import * as React from 'react';
 
+import { Animated, Text, TouchableOpacity, View } from 'react-native';
 import Snackbar, { SnackbarProvider, SnackbarRef, useSnackbarContext } from '../Snackbar';
-import { fireEvent, render, wait } from '@testing-library/react-native';
-import renderer, { act } from 'react-test-renderer';
+import { act, fireEvent, render, wait } from '@testing-library/react-native';
+
+import renderer from 'react-test-renderer';
 
 // Note: test renderer must be required after react-native.
 let snackbarRef: React.MutableRefObject<SnackbarRef>;
@@ -112,7 +112,7 @@ describe('[Snackbar] using provider', () => {
   });
 
   it('renders TestElement using whole screen view without crashing', () => {
-    const rendered = renderer.create(TestElement(true));
+    const rendered = renderer.create(TestElement());
     expect(rendered.toJSON()).toMatchSnapshot();
   });
 

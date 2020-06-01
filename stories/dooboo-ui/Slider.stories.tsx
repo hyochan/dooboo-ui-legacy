@@ -22,14 +22,14 @@ const Container = styled.SafeAreaView`
 `;
 
 const SubTitle = styled.Text`
-  font-size: 16;
+  font-size: 16px;
   font-weight: bold;
   margin-top: 18px;
   margin-bottom: 18px;
 `;
 
 const Value = styled.Text`
-  margin-top: 16;
+  margin-top: 16px;
 `;
 
 function Default(): React.ReactElement {

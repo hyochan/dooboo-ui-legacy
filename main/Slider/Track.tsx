@@ -7,12 +7,12 @@ const DEFAULT = {
   height: 3,
 };
 
-const StyledTrack = styled.View<any>`
+const StyledTrack = styled.View<{ width: number }>`
   position: absolute;
-  top: 0;
-  left: 0;
+  top: 0px;
+  left: 0px;
   width: ${({ width }): string => `${width}%`};
-  height: ${DEFAULT.height};
+  height: ${DEFAULT.height}px;
   background-color: #0B21E8;
 `;
 

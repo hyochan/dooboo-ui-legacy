@@ -34,7 +34,7 @@ const StyledInputChat = styled.TextInput`
 
 const StyledTouchMenu = styled.TouchableOpacity`
   position: absolute;
-  left: 10;
+  left: 10px;
   height: 100%;
   min-width: 20px;
   justify-content: center;
@@ -42,14 +42,14 @@ const StyledTouchMenu = styled.TouchableOpacity`
 
 const StyledViewBottom = styled.View`
   position: absolute;
-  bottom: 0;
+  bottom: 0px;
   width: 100%;
 `;
 
 const StyledViewMenu = styled.View<{ height: number }>`
   flex-direction: row;
   flex-wrap: wrap;
-  height: ${({ height }): number => height};
+  height: ${({ height }): number => height}px;
 `;
 
 interface Props {

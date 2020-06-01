@@ -13,10 +13,10 @@ const DEFAULT = {
   borderRadius: 1,
 };
 
-const StyledRail = styled.View<any>`
+const StyledRail = styled.View`
   width: 100%;
   height: ${`${DEFAULT.height}px`};
-  border-radius: ${DEFAULT.borderRadius};
+  border-radius: ${DEFAULT.borderRadius}px;
   background-color: #bcdbfb;
 `;
 

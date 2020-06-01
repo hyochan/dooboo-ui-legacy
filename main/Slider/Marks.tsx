@@ -41,7 +41,7 @@ const DEFAULT = {
   height: 3,
 };
 
-const Container = styled.View<any>`
+const Container = styled.View`
   display: flex;
   justify-content: center;
   position: absolute;
@@ -51,13 +51,13 @@ const MarkPositioner = styled.View<MarkPositionerType>`
   position: absolute;
   display: flex;
   align-items: center;
-  width: ${({ width }): number => width};
-  left: ${({ position }): number => position};
+  width: ${({ width }): number => width}px;
+  left: ${({ position }): number => position}px;
 `;
 
 const Mark = styled.View`
-  width: ${DEFAULT.width};
-  height: ${DEFAULT.height};
+  width: ${DEFAULT.width}px;
+  height: ${DEFAULT.height}px;
   background-color: #4163f4;
 `;
 

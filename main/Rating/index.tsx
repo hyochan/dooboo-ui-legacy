@@ -23,7 +23,7 @@ interface StarProps {
 
 const ContainerWrapper = styled.View<ContainerWrapperProps>`
   width: ${({ total }): number => total * 30};
-  height: 30;
+  height: 30px;
   flex-direction: row;
   justify-content: center;
   align-items: center;
@@ -31,7 +31,7 @@ const ContainerWrapper = styled.View<ContainerWrapperProps>`
 `;
 
 const StarWrapper = styled.TouchableOpacity`
-  width: 30;
+  width: 30px;
   height: 100%;
 `;
 
