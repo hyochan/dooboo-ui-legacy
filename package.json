@@ -1,14 +1,4 @@
 {
-  "name": "dooboo-ui",
-  "version": "0.0.1",
-  "main": "lib/index.js",
-  "types": "lib/index.d.ts",
-  "author": "dooboolab",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/dooboolab/dooboo-ui/issues"
-  },
-  "homepage": "https://github.com/dooboolab/dooboo-ui#readme",
   "scripts": {
     "pre": "lerna clean --yes && lerna bootstrap && lerna run build",
     "postinstall": "dooboolab-welcome postinstall",
@@ -23,11 +13,6 @@
     "build": "tsc --project tsconfigBuild.json",
     "build-storybook": "build-storybook",
     "build-packages": "lerna exec -- yarn build"
-  },
-  "peerDependencies": {
-    "react": ">=16.9",
-    "react-native": ">=0.58",
-    "styled-components": ">=4.4.0"
   },
   "dependencies": {
     "dooboolab-welcome": "^1.2.0"
@@ -77,8 +62,5 @@
   },
   "jest": {
     "preset": "react-native"
-  },
-  "publishConfig": {
-    "access": "public"
   }
 }

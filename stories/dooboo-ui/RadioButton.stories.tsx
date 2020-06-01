@@ -2,7 +2,7 @@ import React, { ReactElement } from 'react';
 import { ScrollView, View } from 'react-native';
 import { boolean, color, number, select, text } from '@storybook/addon-knobs';
 
-import { ContainerDeco } from '../../.storybook/decorators';
+import { ContainerDeco } from '../../storybook/decorators';
 import RadioButton from '../../main/RadioButton';
 import { storiesOf } from '@storybook/react-native';
 import styled from 'styled-components/native';

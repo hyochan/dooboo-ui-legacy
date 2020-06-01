@@ -1,6 +1,6 @@
 import React, { ReactElement } from 'react';
 
-import { ContainerDeco } from '../../.storybook/decorators';
+import { ContainerDeco } from '../../storybook/decorators';
 import LoadingIndicator from '../../main/LoadingIndicator';
 import { storiesOf } from '@storybook/react-native';
 import styled from 'styled-components/native';

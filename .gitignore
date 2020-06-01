@@ -12,6 +12,9 @@ yarn-error.log
 web-build/
 
 # Storybook build
-lib
+packages/*/lib
+/lib/*
+!/lib/package.json
 
+# Jest
 .jest

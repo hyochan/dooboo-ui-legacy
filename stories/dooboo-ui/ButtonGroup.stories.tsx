@@ -2,7 +2,7 @@ import React, { ReactElement, useState } from 'react';
 import { Text, View } from 'react-native';
 
 import ButtonGroup from '../../main/ButtonGroup';
-import { ContainerDeco } from '../../.storybook/decorators';
+import { ContainerDeco } from '../../storybook/decorators';
 import { storiesOf } from '@storybook/react-native';
 import styled from 'styled-components/native';
 

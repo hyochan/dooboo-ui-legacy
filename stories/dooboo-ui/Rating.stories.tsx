@@ -2,7 +2,7 @@ import React, { ReactElement } from 'react';
 // eslint-disable-next-line sort-imports
 import { boolean, number } from '@storybook/addon-knobs';
 
-import { ContainerDeco } from '../../.storybook/decorators';
+import { ContainerDeco } from '../../storybook/decorators';
 import Rating from '../../main/Rating';
 import { storiesOf } from '@storybook/react-native';
 import styled from 'styled-components/native';

@@ -1,6 +1,6 @@
 import React, { ReactElement, useState } from 'react';
 
-import { ContainerDeco } from '../../.storybook/decorators';
+import { ContainerDeco } from '../../storybook/decorators';
 import Slider from '../../main/Slider';
 import { Text } from 'react-native';
 import { storiesOf } from '@storybook/react-native';

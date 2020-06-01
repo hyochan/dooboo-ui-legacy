@@ -1,6 +1,6 @@
 import React, { ReactElement, useState } from 'react';
 
-import { ContainerDeco } from '../../.storybook/decorators';
+import { ContainerDeco } from '../../storybook/decorators';
 import SwitchToggle from '../../main/SwitchToggle';
 import { storiesOf } from '@storybook/react-native';
 

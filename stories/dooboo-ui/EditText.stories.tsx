@@ -12,7 +12,7 @@ import {
 import React, { ReactElement, useState } from 'react';
 
 import Button from '../../main/Button';
-import { ContainerDeco } from '../../.storybook/decorators';
+import { ContainerDeco } from '../../storybook/decorators';
 import { storiesOf } from '@storybook/react-native';
 
 const Default = (): React.ReactElement => {

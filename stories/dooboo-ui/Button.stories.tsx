@@ -3,7 +3,7 @@ import { Image, View } from 'react-native';
 import React, { ReactElement, useState } from 'react';
 
 import Button from '../../main/Button';
-import { ContainerDeco } from '../../.storybook/decorators';
+import { ContainerDeco } from '../../storybook/decorators';
 import { action } from '@storybook/addon-actions';
 import { storiesOf } from '@storybook/react-native';
 import styled from 'styled-components/native';

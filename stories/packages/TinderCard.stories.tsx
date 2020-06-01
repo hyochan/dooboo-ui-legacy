@@ -7,7 +7,7 @@ import React, {
 } from 'react';
 import TinderCard, { TinderCardDirection, TinderCardRef } from '../../packages/TinderCard/lib';
 
-import { ContainerDeco } from '../../.storybook/decorators';
+import { ContainerDeco } from '../../storybook/decorators';
 import { storiesOf } from '@storybook/react-native';
 import styled from 'styled-components/native';
 // @ts-ignore
