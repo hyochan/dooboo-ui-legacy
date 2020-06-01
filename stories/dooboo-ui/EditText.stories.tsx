@@ -575,10 +575,29 @@ export default {
   title: 'EditText',
 };
 
-export const toStorybook = (): ReactElement => <Default />;
+export const toStorybook1 = (): ReactElement => <Default />;
+export const toStorybook2 = (): ReactElement => <RowEditText />;
+export const toStorybook3 = (): ReactElement => <BoxEditText />;
+export const toStorybook4 = (): ReactElement => <BoxRowEditText />;
 
-toStorybook.story = {
+toStorybook1.story = {
   name: 'default',
+  notes: 'Simple explanation',
+};
+
+toStorybook2.story = {
+  name: 'row',
+  notes: 'EditText in row',
+};
+
+toStorybook3.story = {
+  name: 'boxType',
+  notes: 'Box shape EditText',
+};
+
+toStorybook4.story = {
+  name: 'boxRowType',
+  notes: 'Box shape EditText in row',
 };
 
 /**

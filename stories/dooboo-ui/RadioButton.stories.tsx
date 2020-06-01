@@ -196,7 +196,7 @@ function Default(): React.ReactElement {
  * Below are stories for web
  */
 export default {
-  title: 'EditText',
+  title: 'RadioButton',
 };
 
 export const toStorybook = (): ReactElement => <Default />;
