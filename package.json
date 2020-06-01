@@ -1,7 +1,7 @@
 {
   "scripts": {
     "pre": "lerna clean --yes && lerna bootstrap && lerna run build",
-    "postinstall": "dooboolab-welcome postinstall",
+    "postinstall": "dooboolab-welcome postinstall && cp -r .storybook storybook",
     "lint": "eslint main packages stories --ext .ts,.tsx,.js,.jsx",
     "tsc": "tsc",
     "start": "expo start",
