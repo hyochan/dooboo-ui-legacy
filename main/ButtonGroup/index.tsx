@@ -11,6 +11,7 @@ import {
 
 interface Props {
   testID?: string;
+  borderRadius?: number;
   containerStyle?: StyleProp<ViewStyle>;
   style?: StyleProp<ViewStyle>;
   viewStyle?: StyleProp<ViewStyle>;
@@ -24,6 +25,7 @@ interface Props {
 
 function Shared(props: Props): React.ReactElement {
   const {
+    borderRadius = 0,
     initialIndex = 0,
     testID,
     containerStyle,
@@ -53,16 +55,21 @@ function Shared(props: Props): React.ReactElement {
             }}
           >
             <View
-              style={StyleSheet.flatten([
-                selectedOption === i
-                  ? selectedViewStyle
-                  : viewStyle,
-                i !== data.length - 1
-                  ? {
-                    borderRightWidth: 1,
-                  }
-                  : null,
-              ])}
+              style={
+                StyleSheet.flatten([
+                  selectedOption === i
+                    ? selectedViewStyle
+                    : viewStyle,
+                  i === 0 ? {
+                    borderTopLeftRadius: borderRadius,
+                    borderBottomLeftRadius: borderRadius,
+                  } : {},
+                  i === data.length - 1 ? {
+                    borderBottomRightRadius: borderRadius,
+                    borderTopRightRadius: borderRadius,
+                  } : {},
+                ])
+              }
             >
               <Text
                 style={
@@ -90,13 +97,13 @@ Shared.defaultProps = {
     borderWidth: 1,
     borderColor: 'rgb(62,126,255)',
     alignSelf: 'stretch',
-    height: 32,
+    minHeight: 40,
     marginTop: 24,
   },
   viewStyle: {
     backgroundColor: 'white',
     alignSelf: 'stretch',
-    height: 30,
+    minHeight: 40,
     borderColor: 'rgb(62,126,255)',
 
     justifyContent: 'center',
@@ -105,7 +112,7 @@ Shared.defaultProps = {
   selectedViewStyle: {
     backgroundColor: 'rgb(62,126,255)',
     alignSelf: 'stretch',
-    height: 30,
+    minHeight: 40,
     borderColor: 'rgb(62,126,255)',
 
     justifyContent: 'center',

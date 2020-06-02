@@ -10,9 +10,9 @@ exports[`[ButtonGroup] render renders without crashing 1`] = `
       "borderColor": "rgb(62,126,255)",
       "borderWidth": 1,
       "flexDirection": "row",
-      "height": 32,
       "justifyContent": "center",
       "marginTop": 24,
+      "minHeight": 40,
     }
   }
 >
@@ -32,10 +32,11 @@ exports[`[ButtonGroup] render renders without crashing 1`] = `
           "alignItems": "center",
           "alignSelf": "stretch",
           "backgroundColor": "rgb(62,126,255)",
+          "borderBottomLeftRadius": 0,
           "borderColor": "rgb(62,126,255)",
-          "borderRightWidth": 1,
-          "height": 30,
+          "borderTopLeftRadius": 0,
           "justifyContent": "center",
+          "minHeight": 40,
         }
       }
     >
@@ -69,9 +70,11 @@ exports[`[ButtonGroup] render renders without crashing 1`] = `
           "alignItems": "center",
           "alignSelf": "stretch",
           "backgroundColor": "white",
+          "borderBottomRightRadius": 0,
           "borderColor": "rgb(62,126,255)",
-          "height": 30,
+          "borderTopRightRadius": 0,
           "justifyContent": "center",
+          "minHeight": 40,
         }
       }
     >
