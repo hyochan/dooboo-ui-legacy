@@ -11,6 +11,7 @@
     "eject": "expo eject",
     "test": "lerna run build && yarn lint && yarn tsc && jest",
     "build": "tsc --project tsconfigBuild.json",
+    "postbuild": "cp -r main/__assets__ lib/__assets__",
     "build-storybook": "build-storybook",
     "build-packages": "lerna exec -- yarn build"
   },
