@@ -15,6 +15,6 @@
     "declaration": true
   },
   "exclude": ["node_modules", "lib", "**/**/*/__tests__", "dist"],
-  "include": ["./src/components/shared"],
+  "include": ["./main"],
   "files": ["environment.d.ts"]
 }

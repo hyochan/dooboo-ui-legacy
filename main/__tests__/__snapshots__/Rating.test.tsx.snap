@@ -1,0 +1,143 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`[Rating] render [Rating] Interaction should simulate props 1`] = `
+<View
+  style={
+    Array [
+      Object {
+        "alignItems": "center",
+        "flexDirection": "row",
+        "height": 30,
+        "justifyContent": "center",
+        "opacity": 1,
+        "width": "NaN",
+      },
+    ]
+  }
+>
+  <TouchableOpacity
+    activeOpacity={1}
+    onPress={[Function]}
+    style={
+      Array [
+        Object {
+          "height": "100%",
+          "width": 30,
+        },
+      ]
+    }
+  >
+    <Image
+      resizeMode="contain"
+      source={
+        Object {
+          "testUri": "../../../main/__assets__/star_s.png",
+        }
+      }
+      style={
+        Array [
+          Object {
+            "height": "100%",
+            "width": "100%",
+          },
+        ]
+      }
+    />
+  </TouchableOpacity>
+</View>
+`;
+
+exports[`[Rating] render [Rating] Interaction should simulate props 2`] = `
+<View
+  disabled={true}
+  style={
+    Array [
+      Object {
+        "alignItems": "center",
+        "flexDirection": "row",
+        "height": 30,
+        "justifyContent": "center",
+        "opacity": 0.5,
+        "width": "NaN",
+      },
+    ]
+  }
+>
+  <TouchableOpacity
+    activeOpacity={1}
+    onPress={[Function]}
+    style={
+      Array [
+        Object {
+          "height": "100%",
+          "width": 30,
+        },
+      ]
+    }
+  >
+    <Image
+      resizeMode="contain"
+      source={
+        Object {
+          "testUri": "../../../main/__assets__/star_d.png",
+        }
+      }
+      style={
+        Array [
+          Object {
+            "height": "100%",
+            "width": "100%",
+          },
+        ]
+      }
+    />
+  </TouchableOpacity>
+</View>
+`;
+
+exports[`[Rating] render renders without crashing 1`] = `
+<View
+  style={
+    Array [
+      Object {
+        "alignItems": "center",
+        "flexDirection": "row",
+        "height": 30,
+        "justifyContent": "center",
+        "opacity": 1,
+        "width": "NaN",
+      },
+    ]
+  }
+>
+  <TouchableOpacity
+    activeOpacity={1}
+    onPress={[Function]}
+    style={
+      Array [
+        Object {
+          "height": "100%",
+          "width": 30,
+        },
+      ]
+    }
+  >
+    <Image
+      resizeMode="contain"
+      source={
+        Object {
+          "testUri": "../../../main/__assets__/star_d.png",
+        }
+      }
+      style={
+        Array [
+          Object {
+            "height": "100%",
+            "width": "100%",
+          },
+        ]
+      }
+    />
+  </TouchableOpacity>
+</View>
+`;

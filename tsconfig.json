@@ -1,34 +1,31 @@
 {
   "compilerOptions": {
-    "outDir": "./dist",
-    "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
+    "jsx": "react-native",
+    "lib": ["dom", "esnext"],
+    "moduleResolution": "node",
+    "noEmit": true,
+    "skipLibCheck": true,
+    "resolveJsonModule": true,
+    "outDir": "build/lib",
+    "module": "commonjs",
+    "target": "es5",
+    "sourceMap": true,
+    "allowJs": false,
+    "rootDirs": ["src", "stories"],
+    "baseUrl": "src",
+    "forceConsistentCasingInFileNames": true,
+    "noImplicitReturns": true,
+    "noImplicitThis": true,
+    "strictNullChecks": true,
+    "suppressImplicitAnyIndexErrors": true,
+    "declaration": true,
     "experimentalDecorators": true,
     "emitDecoratorMetadata": true,
-    "jsx": "react-native",
-    "lib": ["es2017"],
-    "module": "es2015",
-    "moduleResolution": "node",
-    "resolveJsonModule": true,
-    "noEmit": true,
-    "noImplicitAny": false,
-    "noUnusedLocals": true,
-    "skipLibCheck": true,
-    "sourceMap": true,
-    "strict": true,
-    "target": "es2017",
-    "baseUrl": "src"
+    "esModuleInterop": true
   },
-  "include": ["src/**/*.ts", "src/**/*.tsx"],
+  "include": ["src/**/*.ts", "src/**/*.tsx", "stories/**/*.ts", "stories/**/*.tsx"],
   "exclude": ["node_modules", "**/*.test.tsx", "**/*.spec.ts"],
+  "files": ["environment.d.ts"],
   "types": ["typePatches"],
-  "jest": {
-    "globals": {
-      "ts-jest": {
-        "skipBabel": true
-        // "tsConfigFile": "my-tsconfig.json"
-      }
-    }
-  },
-  "files": ["environment.d.ts"]
 }
