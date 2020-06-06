@@ -28,6 +28,8 @@ We currently love [react-hooks](https://code.fb.com/open-source/react-hooks) and
   - dooboolab's [vision-and-mission](https://github.com/dooboolab/dooboolab.com/blob/master/vision-and-mission.md)
   - dooboolab's [code of conduct](https://github.com/dooboolab/dooboolab.com/blob/master/code-of-conduct.md)
 - [Contributing](CONTRIBUTING.md)
+  - Please run `yarn pre` so that the packages are prepared.
+    - If you are having trouble try to run `yarn install-packages`.
   - Try to make good `shared` component and test it in `storybook` or in `sample` screen. Then it's all good to go for `pull request`. Give it a try :blossom:.
 - While implementing [Shared] component you should run `yarn watch` in order to build typescript file dynamically while developing. This is currently the best solution to sync with your typescript code using `package.json`. If you find something more efficient, please give a pull request.
 
