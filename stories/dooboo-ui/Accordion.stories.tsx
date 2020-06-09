@@ -9,16 +9,34 @@ import styled from 'styled-components/native';
 
 const Container = styled.SafeAreaView`
   flex: 1;
-  background-color: transparent;
-  flex-direction: row;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
+`;
+
+const AccordionContainer = styled.ScrollView`
+  width: 280px;
+  background-color: transparent;
+  flex-direction: column;
+  margin: 0 20px;
+  border-radius: 3px;
+`;
+
+const CustomHeaderContainer = styled.View`
+  padding: 10px;
+  background-color: darkgrey;
+`;
+
+const CustomBodyContainer = styled.View`
+  padding: 10px;
+  background-color: #ddd;
 `;
 
 const StyledImage = styled.Image`
   width: 20px;
   height: 20px;
   position: absolute;
+  top: 8px;
   right: 16px;
 `;
 
@@ -29,28 +47,32 @@ const Default = (): React.ReactElement => {
       body: 'Hi. I love this component. What do you think?',
     },
     {
-      title: 'See this one too',
-      body: 'Yes. You can have more items.',
+      title: 'Title 2',
+      body: 'Hi. I love this component. What do you think?',
     },
     {
-      title: 'Thrid thing',
-      body: `What about very long text? What about very long text?
-        What about very long text? What about very long text?
-        What about very long text? What about very long text?
-        What about very long text? What about very long text?
-        What about very long text? What about very long text?
-        What about very long text? What about very long text?`,
+      title: 'Title 3',
+      body:
+        'Hi. I love this component. What do you think? Hi. I love this component. What do you think?',
+    },
+    {
+      title: 'Title 4',
+      body: 'Hi. I love this component. What do you think?',
+    },
+    {
+      title: 'Title 5',
+      body: 'Hi. I love this component. What do you think?',
     },
   ];
 
   return (
     <Container>
-      <ScrollView style={{ alignSelf: 'stretch', paddingHorizontal: 20 }}>
+      <AccordionContainer>
         {contents.map((param, i) => {
           return (
             <Accordion
               key={i}
-              contentVisible={false}
+              contentVisible={true}
               visibleElement={
                 <StyledImage
                   source={IC_ARR_UP}
@@ -62,23 +84,24 @@ const Default = (): React.ReactElement => {
                 />
               }
               header={
-                <View style={{ height: 28 }}>
+                <CustomHeaderContainer>
                   <Text
                     style={{
                       fontSize: 16,
-                      color: 'blue',
-                    }}
-                  >
+                      fontWeight: '600',
+                      color: '#fff',
+                    }}>
                     {param.title}
                   </Text>
-                </View>
-              }
-            >
-              <Text style={{ fontSize: 20 }}>{param.body}</Text>
+                </CustomHeaderContainer>
+              }>
+              <CustomBodyContainer>
+                <Text>{param.body}</Text>
+              </CustomBodyContainer>
             </Accordion>
           );
         })}
-      </ScrollView>
+      </AccordionContainer>
     </Container>
   );
 };
