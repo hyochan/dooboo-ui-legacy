@@ -25,6 +25,8 @@ const AccordionContainer = styled.ScrollView`
 const CustomHeaderContainer = styled.View`
   padding: 10px;
   background-color: darkgrey;
+  border-width: 1px;
+  border-color: #000;
 `;
 
 const CustomBodyContainer = styled.View`
@@ -72,6 +74,7 @@ const Default = (): React.ReactElement => {
           return (
             <Accordion
               key={i}
+              isAnimated
               contentVisible={true}
               visibleElement={
                 <StyledImage

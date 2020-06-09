@@ -17,6 +17,7 @@ interface Props {
   children: ReactElement;
   visibleElement?: ReactElement;
   invisibleElement?: ReactElement;
+  isAnimated?: boolean;
 }
 
 type EVProps = {
@@ -62,17 +63,24 @@ const Accordion: FC<Props> = (props) => {
   }, [header.mounted, content.mounted]);
 
   useEffect(() => {
-    Animated.spring(animValue, {
-      toValue: !visible ? header.value : header.value + content.value,
-    }).start();
+    const targetValue = !visible ? header.value : header.value + content.value;
+
+    if (props.isAnimated) {
+      Animated.spring(animValue, {
+        toValue: targetValue,
+      }).start();
+    } else {
+      animValue.setValue(targetValue);
+    }
   }, [visible]);
 
   return (
-    <Animated.View style={{ height: animValue, backgroundColor: 'transparent' }}>
+    <Animated.View
+      style={{ height: animValue, backgroundColor: 'transparent' }}>
       <HeaderContainer onLayout={handleHeaderLayout} onPress={handlePress}>
         <View>
           {props.header}
-          {visible ? props.visibleElement : props.invisibleElement}
+          {/* {visible ? props.visibleElement : props.invisibleElement} */}
         </View>
       </HeaderContainer>
       <ContentContainer onLayout={handleContentLayout} onPress={handlePress}>
