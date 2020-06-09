@@ -95,7 +95,7 @@ const Accordion: FC<Props> = (props) => {
       >
         <View>
           {props.header}
-          {visible ? props.visibleElement : props.invisibleElement}
+          {/* {visible ? props.visibleElement : props.invisibleElement} */}
         </View>
       </HeaderContainer>
       <ContentContainer
