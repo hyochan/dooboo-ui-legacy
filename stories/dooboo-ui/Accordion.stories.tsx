@@ -51,7 +51,8 @@ const Default = (): React.ReactElement => {
     },
     {
       title: 'Title 3',
-      body: 'Hi. I love this component. What do you think?',
+      body:
+      'Hi. I love this component. What do you think?',
     },
     {
       title: 'Title 4',
@@ -59,13 +60,7 @@ const Default = (): React.ReactElement => {
     },
     {
       title: 'Title 5',
-      body: `Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-        Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
-        when an unknown printer took a galley of type and scrambled it to make a type specimen book.
-        It has survived not only five centuries, but also the leap into electronic typesetting,
-        remaining essentially unchanged.
-        It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages,
-        and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.`,
+      body: 'Hi. I love this component. What do you think?',
     },
   ];
 
@@ -78,9 +73,16 @@ const Default = (): React.ReactElement => {
               key={i}
               isAnimated={true}
               contentVisible={false}
-              duration={300}
-              visibleElement={<StyledImage source={IC_ARR_UP} />}
-              invisibleElement={<StyledImage source={IC_ARR_DOWN} />}
+              visibleElement={
+                <StyledImage
+                  source={IC_ARR_UP}
+                />
+              }
+              invisibleElement={
+                <StyledImage
+                  source={IC_ARR_DOWN}
+                />
+              }
               header={
                 <CustomHeaderContainer>
                   <Text
