@@ -1,9 +1,9 @@
 import { IC_ARR_DOWN, IC_ARR_UP } from '../Icon';
 import React, { ReactElement } from 'react';
-import { ScrollView, Text, View } from 'react-native';
-
 import Accordion from '../../main/Accordion';
 import { ContainerDeco } from '../../storybook/decorators';
+import { Text } from 'react-native';
+
 import { storiesOf } from '@storybook/react-native';
 import styled from 'styled-components/native';
 
@@ -14,19 +14,16 @@ const Container = styled.SafeAreaView`
   justify-content: center;
 `;
 
-const AccordionContainer = styled.ScrollView`
-  width: 280px;
+const AccordionContainer = styled.View`
   background-color: transparent;
   flex-direction: column;
   margin: 0 20px;
-  border-radius: 3px;
+  width: 280px;
 `;
 
 const CustomHeaderContainer = styled.View`
   padding: 10px;
   background-color: darkgrey;
-  border-width: 1px;
-  border-color: #000;
 `;
 
 const CustomBodyContainer = styled.View`
@@ -55,7 +52,7 @@ const Default = (): React.ReactElement => {
     {
       title: 'Title 3',
       body:
-        'Hi. I love this component. What do you think? Hi. I love this component. What do you think?',
+      'Hi. I love this component. What do you think?',
     },
     {
       title: 'Title 4',
@@ -74,8 +71,8 @@ const Default = (): React.ReactElement => {
           return (
             <Accordion
               key={i}
-              isAnimated
-              contentVisible={true}
+              isAnimated={true}
+              contentVisible={false}
               visibleElement={
                 <StyledImage
                   source={IC_ARR_UP}

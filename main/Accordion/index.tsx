@@ -58,16 +58,17 @@ const Accordion: FC<Props> = (props) => {
 
   useEffect(() => {
     if (header.mounted && content.mounted) {
-      animValue.setValue(header.value + content.value);
+      animValue.setValue(visible ? header.value + content.value : header.value);
     }
   }, [header.mounted, content.mounted]);
 
   useEffect(() => {
-    const targetValue = !visible ? header.value : header.value + content.value;
+    const targetValue = visible ? header.value + content.value : header.value;
 
     if (props.isAnimated) {
       Animated.spring(animValue, {
         toValue: targetValue,
+        tension: 0,
       }).start();
     } else {
       animValue.setValue(targetValue);
@@ -76,14 +77,18 @@ const Accordion: FC<Props> = (props) => {
 
   return (
     <Animated.View
-      style={{ height: animValue, backgroundColor: 'transparent' }}>
+      style={{
+        height: animValue,
+        backgroundColor: 'transparent',
+        overflow: 'hidden',
+      }}>
       <HeaderContainer onLayout={handleHeaderLayout} onPress={handlePress}>
         <View>
           {props.header}
-          {/* {visible ? props.visibleElement : props.invisibleElement} */}
+          {visible ? props.visibleElement : props.invisibleElement}
         </View>
       </HeaderContainer>
-      <ContentContainer onLayout={handleContentLayout} onPress={handlePress}>
+      <ContentContainer onLayout={handleContentLayout}>
         {props.children}
       </ContentContainer>
     </Animated.View>
