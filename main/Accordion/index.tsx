@@ -18,6 +18,7 @@ interface Props {
   visibleElement?: ReactElement;
   invisibleElement?: ReactElement;
   isAnimated?: boolean;
+  duration?: number;
 }
 
 type EVProps = {
@@ -66,9 +67,9 @@ const Accordion: FC<Props> = (props) => {
     const targetValue = visible ? header.value + content.value : header.value;
 
     if (props.isAnimated) {
-      Animated.spring(animValue, {
+      Animated.timing(animValue, {
         toValue: targetValue,
-        tension: 0,
+        duration: props.duration || 300,
       }).start();
     } else {
       animValue.setValue(targetValue);

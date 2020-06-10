@@ -73,6 +73,7 @@ const Default = (): React.ReactElement => {
               key={i}
               isAnimated={true}
               contentVisible={false}
+              duration={300}
               visibleElement={
                 <StyledImage
                   source={IC_ARR_UP}
