@@ -1,6 +1,5 @@
-import { Animated, LayoutChangeEvent, Platform, View } from 'react-native';
+import { Animated, LayoutChangeEvent, View } from 'react-native';
 import React, { FC, ReactElement, useEffect, useRef, useState } from 'react';
-
 import styled from 'styled-components/native';
 
 const Container = styled.TouchableWithoutFeedback`
@@ -20,10 +19,9 @@ interface Props {
   invisibleElement?: ReactElement;
   isAnimated?: boolean;
   duration?: number;
-  onPress?: () => void;
 }
 
-type LayoutProps = {
+type EVProps = {
   value: number;
   mounted: boolean;
 };
@@ -35,11 +33,11 @@ const Accordion: FC<Props> = (props) => {
     props.contentVisible,
   );
 
-  const [header, setHeader] = useState<LayoutProps>({
+  const [header, setHeader] = useState<EVProps>({
     value: 0,
     mounted: false,
   });
-  const [content, setContent] = useState<LayoutProps>({
+  const [content, setContent] = useState<EVProps>({
     value: 0,
     mounted: false,
   });
@@ -57,29 +55,25 @@ const Accordion: FC<Props> = (props) => {
 
   const handlePress = (): void => {
     setVisible(!visible);
-    if (props.onPress) props.onPress();
   };
 
-  useEffect((): void => {
+  useEffect(() => {
     if (header.mounted && content.mounted) {
       animValue.setValue(visible ? header.value + content.value : header.value);
     }
   }, [header.mounted, content.mounted]);
 
-  useEffect((): void => {
+  useEffect(() => {
     const targetValue = visible ? header.value + content.value : header.value;
 
     if (props.isAnimated) {
       Animated.timing(animValue, {
         toValue: targetValue,
         duration: props.duration || 300,
-        useNativeDriver: Platform.OS === 'android',
       }).start();
-
-      return;
+    } else {
+      animValue.setValue(targetValue);
     }
-
-    animValue.setValue(targetValue);
   }, [visible]);
 
   return (
@@ -89,19 +83,13 @@ const Accordion: FC<Props> = (props) => {
         backgroundColor: 'transparent',
         overflow: 'hidden',
       }}>
-      <HeaderContainer
-        testID="header"
-        onLayout={handleHeaderLayout} onPress={handlePress}
-      >
+      <HeaderContainer onLayout={handleHeaderLayout} onPress={handlePress}>
         <View>
           {props.header}
-          {/* {visible ? props.visibleElement : props.invisibleElement} */}
+          {visible ? props.visibleElement : props.invisibleElement}
         </View>
       </HeaderContainer>
-      <ContentContainer
-        testID="content"
-        onLayout={handleContentLayout}
-      >
+      <ContentContainer onLayout={handleContentLayout}>
         {props.children}
       </ContentContainer>
     </Animated.View>
