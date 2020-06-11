@@ -21,7 +21,7 @@ interface Props {
   duration?: number;
 }
 
-type EVProps = {
+type LayoutProps = {
   value: number;
   mounted: boolean;
 };
@@ -33,11 +33,11 @@ const Accordion: FC<Props> = (props) => {
     props.contentVisible,
   );
 
-  const [header, setHeader] = useState<EVProps>({
+  const [header, setHeader] = useState<LayoutProps>({
     value: 0,
     mounted: false,
   });
-  const [content, setContent] = useState<EVProps>({
+  const [content, setContent] = useState<LayoutProps>({
     value: 0,
     mounted: false,
   });
@@ -67,13 +67,12 @@ const Accordion: FC<Props> = (props) => {
     const targetValue = visible ? header.value + content.value : header.value;
 
     if (props.isAnimated) {
-      Animated.timing(animValue, {
+      return Animated.timing(animValue, {
         toValue: targetValue,
         duration: props.duration || 300,
       }).start();
-    } else {
-      animValue.setValue(targetValue);
     }
+    return animValue.setValue(targetValue);
   }, [visible]);
 
   return (
