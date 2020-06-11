@@ -56,12 +56,9 @@ const SCInputRow = styled.TouchableOpacity<IInputRowProps>`
   padding: 8px 0;
 `;
 
-const SCOuterCircle = styled.View.attrs(
-  ({ borderRadius, borderWidth }: ICircleProps) => ({
-    borderRadius,
-    borderWidth,
-  }),
-)<ICircleProps>`
+const SCOuterCircle = styled.View<ICircleProps>`
+  border-radius: ${({ borderRadius }): number => borderRadius};
+  border-width: ${({ borderWidth }): number => borderWidth};
   width: ${({ size }): string => size.toString()}px;
   height: ${({ size }): string => size.toString()}px;
   border-color: ${({ color }): string => color};
@@ -99,7 +96,7 @@ const InnerCircleAnim = ({
       },
       easing: Easing.ease,
       duration: 80,
-      useNativeDriver: true,
+      // useNativeDriver: true,
     }).start();
   }, []);
 
@@ -142,8 +139,7 @@ function RadioButton(props: RadioButtonProps): React.ReactElement {
       activeOpacity={1}
       disabled={disabled}
       isLabelColumn={isLabelColumn}
-      onPress={(): void => onPress?.(value)}
-    >
+      onPress={(): void => onPress?.(value)}>
       {isLabelFront && <SCLabelText disabled={disabled}>{label}</SCLabelText>}
       <SCOuterCircle {...circleStyles}>
         {isSelected && <InnerCircleAnim {...circleStyles} />}
