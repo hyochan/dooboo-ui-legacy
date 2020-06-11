@@ -57,22 +57,25 @@ const Accordion: FC<Props> = (props) => {
     setVisible(!visible);
   };
 
-  useEffect(() => {
+  useEffect((): void => {
     if (header.mounted && content.mounted) {
       animValue.setValue(visible ? header.value + content.value : header.value);
     }
   }, [header.mounted, content.mounted]);
 
-  useEffect(() => {
+  useEffect((): void => {
     const targetValue = visible ? header.value + content.value : header.value;
 
     if (props.isAnimated) {
-      return Animated.timing(animValue, {
+      Animated.timing(animValue, {
         toValue: targetValue,
         duration: props.duration || 300,
       }).start();
+
+      return;
     }
-    return animValue.setValue(targetValue);
+
+    animValue.setValue(targetValue);
   }, [visible]);
 
   return (
