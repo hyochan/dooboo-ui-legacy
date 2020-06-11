@@ -42,11 +42,22 @@ function Default(): React.ReactElement {
         text={text('button text', 'this is disabled')}
       />
       <Button
-        leftElement={<Image width={12} height={12} source={IC_GOOGLE} />}
+        leftElement={
+          <View
+            style={{
+              position: 'absolute',
+              left: 16,
+            }}>
+            <Image style={{ width: 20, height: 20 }} source={IC_GOOGLE} />
+          </View>
+        }
         isLoading={googleLoading}
         indicatorColor="#023059"
         containerStyle={{
           marginTop: 32,
+        }}
+        style={{
+          backgroundColor: '#ccc',
         }}
         onPress={(): void => {
           setGoogleLoading(true);
@@ -60,11 +71,12 @@ function Default(): React.ReactElement {
       <Button
         testID="btnFacebook"
         leftElement={
-          <View style={{
-            position: 'absolute',
-            left: 16,
-          }}>
-            <Image width={12} height={12} source={IC_FACEBOOK} />
+          <View
+            style={{
+              position: 'absolute',
+              left: 16,
+            }}>
+            <Image style={{ width: 15, height: 28 }} source={IC_FACEBOOK} />
           </View>
         }
         indicatorColor="#023059"
