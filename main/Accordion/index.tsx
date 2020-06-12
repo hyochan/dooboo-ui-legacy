@@ -1,5 +1,6 @@
 import { Animated, LayoutChangeEvent, View } from 'react-native';
 import React, { FC, ReactElement, useEffect, useRef, useState } from 'react';
+
 import styled from 'styled-components/native';
 
 const Container = styled.TouchableWithoutFeedback`
@@ -19,6 +20,7 @@ interface Props {
   invisibleElement?: ReactElement;
   isAnimated?: boolean;
   duration?: number;
+  onPress?: () => void;
 }
 
 type LayoutProps = {
@@ -55,6 +57,7 @@ const Accordion: FC<Props> = (props) => {
 
   const handlePress = (): void => {
     setVisible(!visible);
+    if (props.onPress) props.onPress();
   };
 
   useEffect((): void => {
@@ -85,13 +88,19 @@ const Accordion: FC<Props> = (props) => {
         backgroundColor: 'transparent',
         overflow: 'hidden',
       }}>
-      <HeaderContainer onLayout={handleHeaderLayout} onPress={handlePress}>
+      <HeaderContainer
+        testID="header"
+        onLayout={handleHeaderLayout} onPress={handlePress}
+      >
         <View>
           {props.header}
           {visible ? props.visibleElement : props.invisibleElement}
         </View>
       </HeaderContainer>
-      <ContentContainer onLayout={handleContentLayout}>
+      <ContentContainer
+        testID="content"
+        onLayout={handleContentLayout}
+      >
         {props.children}
       </ContentContainer>
     </Animated.View>

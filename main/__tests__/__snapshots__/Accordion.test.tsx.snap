@@ -1,0 +1,57 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`[Accordion] renders should render when custom props given 1`] = `
+<View
+  pointerEvents="box-none"
+  style={
+    Object {
+      "flex": 1,
+    }
+  }
+>
+  <View
+    collapsable={true}
+    pointerEvents="box-none"
+    style={
+      Object {
+        "flex": 1,
+      }
+    }
+  >
+    <View
+      style={
+        Object {
+          "backgroundColor": "transparent",
+          "height": 1000,
+          "overflow": "hidden",
+        }
+      }
+    >
+      <TouchableWithoutFeedback
+        style={
+          Array [
+            Object {
+              "flexDirection": "row",
+              "justifyContent": "space-between",
+              "width": "100%",
+            },
+          ]
+        }
+        testID="header"
+      >
+        <View />
+      </TouchableWithoutFeedback>
+      <TouchableWithoutFeedback
+        style={
+          Array [
+            Object {
+              "width": "100%",
+            },
+          ]
+        }
+        testID="content"
+      />
+    </View>
+  </View>
+</View>
+`;

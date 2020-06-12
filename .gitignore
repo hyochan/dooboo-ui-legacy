@@ -21,3 +21,6 @@ packages/*/lib
 
 # Below storybook dir is cp from .storybook which is necessary in app
 storybook
+
+# Coverage
+coverage
