@@ -6,6 +6,7 @@ exports[`[EditText] Type: [box] renders without crashing 1`] = `
     Array [
       Object {
         "alignSelf": "stretch",
+        "display": "flex",
         "flexDirection": "column",
       },
     ]
@@ -56,7 +57,6 @@ exports[`[EditText] Type: [box] renders without crashing 1`] = `
         Object {
           "alignItems": "center",
           "flexDirection": "row",
-          "justifyContent": "space-between",
           "width": "100%",
         },
         Object {
@@ -84,6 +84,7 @@ exports[`[EditText] Type: [default] renders without crashing 1`] = `
     Array [
       Object {
         "alignSelf": "stretch",
+        "display": "flex",
         "flexDirection": "column",
       },
     ]
@@ -134,7 +135,6 @@ exports[`[EditText] Type: [default] renders without crashing 1`] = `
         Object {
           "alignItems": "center",
           "flexDirection": "row",
-          "justifyContent": "space-between",
           "width": "100%",
         },
         undefined,
@@ -202,7 +202,7 @@ exports[`[EditText] Type: [row] renders without crashing 1`] = `
             "paddingVertical": 16,
           },
           Object {
-            "textAlign": "right",
+            "textAlign": "left",
           },
         ]
       }
