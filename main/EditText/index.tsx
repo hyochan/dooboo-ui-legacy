@@ -198,15 +198,11 @@ function EditText(props: Props): ReactElement {
             autoCapitalize={autoCapitalize}
             onFocus={(): void => {
               setFocus(true);
-              if (onFocus) {
-                onFocus();
-              }
+              onFocus && onFocus();
             }}
             onBlur={(): void => {
               setFocus(false);
-              if (onBlur) {
-                onBlur();
-              }
+              onBlur && onBlur();
             }}
             placeholder={placeholder}
             placeholderTextColor={placeholderTextColor}

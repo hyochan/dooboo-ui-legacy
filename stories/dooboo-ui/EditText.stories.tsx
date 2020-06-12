@@ -55,7 +55,7 @@ const Default = (): React.ReactElement => {
         }}>
         <View
           style={{
-            flex: 1,
+            display: 'flex',
             flexDirection: 'column',
             padding: 20,
             paddingTop: 10,
@@ -75,7 +75,7 @@ const Default = (): React.ReactElement => {
               color: '#495057',
             }}
             label="Email"
-            placeholder="Write email address"
+            placeholder="Email address"
             placeholderTextColor="#ADB5BD"
             value={email}
             onChangeText={(text: string): void => onTextChanged('EMAIL', text)}
@@ -90,7 +90,7 @@ const Default = (): React.ReactElement => {
             }}
             secureTextEntry={true}
             label="Password"
-            placeholder="Please write your password"
+            placeholder="Your password"
             placeholderTextColor="#ADB5BD"
             value={password}
             onChangeText={(text: string): void =>
