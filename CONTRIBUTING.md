@@ -31,8 +31,11 @@
    ```
    - Note that we recommend using yarn because all of our team members do.
    - Also node that `yarn.lock` and `package-lock.json` sometimes make collision. Try to delete one of them.
-4. Run pod install
+4. Run pod install if you clone list of independent components in `@dooboo-ui/*`
+
    - `cd ios && pod install`
+     > Note that @dooboo-ui/native(or @dooboo-ui/core) don't need this step.
+
 5. Run your project
 
    1. **Run metro bundler**
@@ -54,6 +57,7 @@
    > ‼️ if you have error `We ran "xcodebuild" command but it exited with error code 65` while running project for the first time, you might have to follow this [guide](https://github.com/facebook/react-native/issues/24450#issuecomment-516760157) of installing `cocoapads`
 
 6. Configure linting in [vscode](https://code.visualstudio.com) correctly.
+
    - Example vscode [setting.json](https://gist.github.com/hyochan/815e9040593180c4725d7694d863e5a1)
 
 7. While implementing [Shared] component you should run `yarn watch` in order to build typescript file dynamically while developing. This is currently the best solution to sync with your typescript code using `package.json`. If you find something more efficient, please give a pull request.
