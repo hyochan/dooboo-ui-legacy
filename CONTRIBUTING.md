@@ -20,7 +20,7 @@
    - Fetch the branches from upstream repository by `git fetch upstream`
    - When you want to give `PR`, make new branch `git checkout -b [feature_name]`
      - Before pushing `PR`, do `git fetch upstream` from master branch then try the rebase by `git rebase master`
-     - Check your status by `git log --decorate --oneline --all --graph` or `yarn git:log`
+     - Check your status by `git log --decorate --oneline --all --graph`
 2. Git clone your forked repository.
    ```
    git clone https://github.com/<your-id>/dooboo-ui.git
