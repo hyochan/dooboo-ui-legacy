@@ -187,8 +187,8 @@ function EditText(props: Props): ReactElement {
               errorText
                 ? { color: errorColor }
                 : focused
-                ? [{ color: focusColor }, focusedLabelStyle]
-                : null,
+                  ? [{ color: focusColor }, focusedLabelStyle]
+                  : null,
             ]}>
             {label}
           </StyledLabel>
@@ -226,11 +226,11 @@ function EditText(props: Props): ReactElement {
                 errorText
                   ? { borderColor: errorColor }
                   : focused
-                  ? [
+                    ? [
                       { borderColor: focusColor },
                       { borderBottomWidth: focusedBorderWidth },
                     ]
-                  : null,
+                    : null,
               ]}
             />
           ) : null}
@@ -252,15 +252,15 @@ function EditText(props: Props): ReactElement {
               borderStyle,
               errorText
                 ? {
-                    borderColor: errorColor,
-                    borderBottomWidth: focusedBorderWidth,
-                  }
+                  borderColor: errorColor,
+                  borderBottomWidth: focusedBorderWidth,
+                }
                 : focused
-                ? {
+                  ? {
                     borderColor: focusColor,
                     borderBottomWidth: focusedBorderWidth,
                   }
-                : null,
+                  : null,
             ]}>
             {label ? (
               <StyledRowLabel
@@ -269,8 +269,8 @@ function EditText(props: Props): ReactElement {
                   errorText
                     ? [{ color: errorColor }, focusedLabelStyle]
                     : focused
-                    ? [{ color: focusColor }, focusedLabelStyle]
-                    : null,
+                      ? [{ color: focusColor }, focusedLabelStyle]
+                      : null,
                   { width: labelWidth },
                 ]}>
                 {label}
@@ -321,8 +321,8 @@ function EditText(props: Props): ReactElement {
               errorText
                 ? { color: errorColor }
                 : focused
-                ? [{ color: focusColor }, focusedLabelStyle]
-                : null,
+                  ? [{ color: focusColor }, focusedLabelStyle]
+                  : null,
             ]}>
             {label}
           </StyledLabel>
@@ -373,11 +373,11 @@ function EditText(props: Props): ReactElement {
                 errorText
                   ? { borderColor: errorColor }
                   : focused
-                  ? [
+                    ? [
                       { borderColor: focusColor },
                       { borderWidth: focusedBorderWidth },
                     ]
-                  : null,
+                    : null,
                 !leftElement ? { paddingLeft: 15 } : null,
                 !rightElement ? { paddingRight: 15 } : null,
               ]}
@@ -412,8 +412,8 @@ function EditText(props: Props): ReactElement {
               errorText
                 ? { borderColor: errorColor, borderWidth: focusedBorderWidth }
                 : focused
-                ? { borderColor: focusColor, borderWidth: focusedBorderWidth }
-                : null,
+                  ? { borderColor: focusColor, borderWidth: focusedBorderWidth }
+                  : null,
             ]}>
             {label ? (
               <StyledRowLabel
@@ -422,8 +422,8 @@ function EditText(props: Props): ReactElement {
                   errorText
                     ? [{ color: errorColor }, focusedLabelStyle]
                     : focused
-                    ? [{ color: focusColor }, focusedLabelStyle]
-                    : null,
+                      ? [{ color: focusColor }, focusedLabelStyle]
+                      : null,
                   { marginLeft: 15, width: labelWidth },
                 ]}>
                 {label}
