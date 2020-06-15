@@ -208,13 +208,9 @@ toStorybook.story = {
 /**
  * Below are stories for app
  */
-storiesOf('LoadingIndicator', module)
+storiesOf('RadioButton', module)
   .addDecorator(ContainerDeco)
   .add('default', () => (
-    <>
-      <Default />
-    </>
-  )).add('imgVersion', () => (
     <>
       <Default />
     </>
