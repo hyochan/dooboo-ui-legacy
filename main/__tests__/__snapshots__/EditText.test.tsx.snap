@@ -34,6 +34,7 @@ exports[`[EditText] Type: [box] renders without crashing 1`] = `
         Object {
           "alignItems": "center",
           "flexDirection": "row",
+          "justifyContent": "space-between",
           "width": "100%",
         },
         Object {
