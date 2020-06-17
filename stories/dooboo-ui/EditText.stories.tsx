@@ -55,7 +55,7 @@ const Default = (): React.ReactElement => {
         }}>
         <View
           style={{
-            flex: 1,
+            display: 'flex',
             flexDirection: 'column',
             padding: 20,
             paddingTop: 10,
@@ -75,7 +75,7 @@ const Default = (): React.ReactElement => {
               color: '#495057',
             }}
             label="Email"
-            placeholder="Write email address"
+            placeholder="Email address"
             placeholderTextColor="#ADB5BD"
             value={email}
             onChangeText={(text: string): void => onTextChanged('EMAIL', text)}
@@ -90,7 +90,7 @@ const Default = (): React.ReactElement => {
             }}
             secureTextEntry={true}
             label="Password"
-            placeholder="Please write your password"
+            placeholder="Your password"
             placeholderTextColor="#ADB5BD"
             value={password}
             onChangeText={(text: string): void =>
@@ -338,14 +338,16 @@ const BoxEditText = (): React.ReactElement => {
             flexDirection: 'column',
             padding: 20,
             paddingTop: 10,
-          }}>
+          }}
+        >
           <Text
             style={{
               fontWeight: 'bold',
               fontSize: 24,
               lineHeight: 35,
               color: '#495057',
-            }}>
+            }}
+          >
             Sign in with Email
           </Text>
           <EditText
@@ -355,7 +357,7 @@ const BoxEditText = (): React.ReactElement => {
               color: '#495057',
             }}
             label="Email"
-            placeholder="Write email address"
+            placeholder="Email address"
             placeholderTextColor="#ADB5BD"
             value={email}
             onChangeText={(text: string): void => onTextChanged('EMAIL', text)}
@@ -378,7 +380,7 @@ const BoxEditText = (): React.ReactElement => {
             }}
             secureTextEntry={true}
             label="Password"
-            placeholder="Please write your password"
+            placeholder="Write your password"
             placeholderTextColor="#ADB5BD"
             value={password}
             onChangeText={(text: string): void =>
@@ -497,7 +499,7 @@ const BoxRowEditText = (): React.ReactElement => {
               color: '#495057',
             }}
             label="Email"
-            placeholder="Write email address"
+            placeholder="Eail address"
             placeholderTextColor="#ADB5BD"
             value={email}
             onChangeText={(text: string): void => onTextChanged('EMAIL', text)}
@@ -515,7 +517,7 @@ const BoxRowEditText = (): React.ReactElement => {
             }}
             secureTextEntry={true}
             label="Password"
-            placeholder="Please write your password"
+            placeholder="Write your password"
             placeholderTextColor="#ADB5BD"
             value={password}
             onChangeText={(text: string): void =>
