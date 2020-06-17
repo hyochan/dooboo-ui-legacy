@@ -57,10 +57,10 @@ const SCInputRow = styled.TouchableOpacity<IInputRowProps>`
 `;
 
 const SCOuterCircle = styled.View<ICircleProps>`
-  border-radius: ${({ borderRadius }): number => borderRadius};
-  border-width: ${({ borderWidth }): number => borderWidth};
-  width: ${({ size }): string => size.toString()}px;
-  height: ${({ size }): string => size.toString()}px;
+  border-radius: ${({ borderRadius }): number => borderRadius}px;
+  border-width: ${({ borderWidth }): number => borderWidth}px;
+  width: ${({ size }): number => size}px;
+  height: ${({ size }): number => size}px;
   border-color: ${({ color }): string => color};
   align-items: center;
   justify-content: center;
@@ -75,9 +75,9 @@ const getCircleStyles = (size: number, color: string): ICircleProps => {
   return {
     color,
     size,
-    innerSize: Math.round(size / 2),
-    borderRadius: Math.round(size / 2),
-    borderWidth: Math.round(size / 10),
+    innerSize: size / 2,
+    borderRadius: size / 2,
+    borderWidth: size / 2 - 10,
   };
 };
 

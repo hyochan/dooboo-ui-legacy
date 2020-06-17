@@ -33,18 +33,18 @@ exports[`[RadioButton] render [RadioButton] Interaction should simulate props 1`
     
   </Text>
   <View
-    borderRadius={12}
-    borderWidth={2}
+    borderRadius={11.5}
+    borderWidth={1.5}
     color="rgba(0, 0, 0, 0.54)"
-    innerSize={12}
+    innerSize={11.5}
     size={23}
     style={
       Array [
         Object {
           "alignItems": "center",
           "borderColor": "rgba(0, 0, 0, 0.54)",
-          "borderRadius": 12,
-          "borderWidth": 2,
+          "borderRadius": 11.5,
+          "borderWidth": 1.5,
           "height": 23,
           "justifyContent": "center",
           "marginBottom": 7,
@@ -60,7 +60,7 @@ exports[`[RadioButton] render [RadioButton] Interaction should simulate props 1`
       style={
         Object {
           "backgroundColor": "rgba(0, 0, 0, 0.54)",
-          "borderRadius": 12,
+          "borderRadius": 11.5,
           "height": 0,
           "width": 0,
         }
@@ -91,18 +91,18 @@ exports[`[RadioButton] render [RadioButton] Interaction should simulate props 2`
   }
 >
   <View
-    borderRadius={12}
-    borderWidth={2}
+    borderRadius={11.5}
+    borderWidth={1.5}
     color="#c8c8c8"
-    innerSize={12}
+    innerSize={11.5}
     size={23}
     style={
       Array [
         Object {
           "alignItems": "center",
           "borderColor": "#c8c8c8",
-          "borderRadius": 12,
-          "borderWidth": 2,
+          "borderRadius": 11.5,
+          "borderWidth": 1.5,
           "height": 23,
           "justifyContent": "center",
           "marginBottom": 7,
@@ -118,7 +118,7 @@ exports[`[RadioButton] render [RadioButton] Interaction should simulate props 2`
       style={
         Object {
           "backgroundColor": "#c8c8c8",
-          "borderRadius": 12,
+          "borderRadius": 11.5,
           "height": 0,
           "width": 0,
         }
@@ -161,18 +161,18 @@ exports[`[RadioButton] render [RadioButton] Interaction should simulate props 3`
   }
 >
   <View
-    borderRadius={12}
-    borderWidth={2}
+    borderRadius={11.5}
+    borderWidth={1.5}
     color="rgba(0, 0, 0, 0.54)"
-    innerSize={12}
+    innerSize={11.5}
     size={23}
     style={
       Array [
         Object {
           "alignItems": "center",
           "borderColor": "rgba(0, 0, 0, 0.54)",
-          "borderRadius": 12,
-          "borderWidth": 2,
+          "borderRadius": 11.5,
+          "borderWidth": 1.5,
           "height": 23,
           "justifyContent": "center",
           "marginBottom": 7,
@@ -220,18 +220,18 @@ exports[`[RadioButton] render renders without crashing 1`] = `
   }
 >
   <View
-    borderRadius={12}
-    borderWidth={2}
+    borderRadius={11.5}
+    borderWidth={1.5}
     color="rgba(0, 0, 0, 0.54)"
-    innerSize={12}
+    innerSize={11.5}
     size={23}
     style={
       Array [
         Object {
           "alignItems": "center",
           "borderColor": "rgba(0, 0, 0, 0.54)",
-          "borderRadius": 12,
-          "borderWidth": 2,
+          "borderRadius": 11.5,
+          "borderWidth": 1.5,
           "height": 23,
           "justifyContent": "center",
           "marginBottom": 7,
@@ -247,7 +247,7 @@ exports[`[RadioButton] render renders without crashing 1`] = `
       style={
         Object {
           "backgroundColor": "rgba(0, 0, 0, 0.54)",
-          "borderRadius": 12,
+          "borderRadius": 11.5,
           "height": 0,
           "width": 0,
         }
