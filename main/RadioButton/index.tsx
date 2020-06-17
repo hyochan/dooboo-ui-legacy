@@ -75,9 +75,9 @@ const getCircleStyles = (size: number, color: string): ICircleProps => {
   return {
     color,
     size,
-    innerSize: size / 2,
+    innerSize: size / 2 - size / 8,
     borderRadius: size / 2,
-    borderWidth: size / 2 - 10,
+    borderWidth: size / 6,
   };
 };
 
