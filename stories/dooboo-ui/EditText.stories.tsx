@@ -28,13 +28,11 @@ const Default = (): React.ReactElement => {
 
   const [email, setEmail] = useState<string>('');
   const [password, setPassword] = useState<string>('');
-  const [errorEmail, setErrorEmail] = useState<string>('email error');
+  const [errorEmail, setErrorEmail] = useState<string>('');
 
   const onSignIn = (): void => {
     if (!validateEmail(email)) {
       setErrorEmail('Not a valid email address');
-    } else {
-      setErrorEmail('');
     }
   };
 
@@ -217,7 +215,7 @@ const RowEditText = (): React.ReactElement => {
               setEmailErrorText('');
               setEmail(text);
             }}
-            placeholder="Please write email address."
+            placeholder="Write email address."
             keyboardType="email-address"
             onSubmitEditing={onSignIn}
             errorText={emailErrorText}
@@ -241,7 +239,7 @@ const RowEditText = (): React.ReactElement => {
               setPasswordErrorText('');
               setPassword(text);
             }}
-            placeholder="Please write password."
+            placeholder="Write password."
             secureTextEntry={true}
             onSubmitEditing={onSignIn}
             errorText={passwordErrorText}
@@ -307,7 +305,7 @@ const BoxEditText = (): React.ReactElement => {
 
   const [email, setEmail] = useState<string>('');
   const [password, setPassword] = useState<string>('');
-  const [errorEmail, setErrorEmail] = useState<string>('email error');
+  const [errorEmail, setErrorEmail] = useState<string>('');
 
   const onSignIn = (): void => {
     if (!validateEmail(email)) {
@@ -367,7 +365,9 @@ const BoxEditText = (): React.ReactElement => {
             borderStyle={{ height: 60 }}
             borderWidth={1}
             leftElement={<Image source={IC_EDIT} />}
-            rightElement={<Image source={IC_CHECK} style={{ width: 16, height: 16 }}/>}
+            rightElement={
+              <Image source={IC_CHECK} style={{ width: 16, height: 16 }} />
+            }
           />
           <EditText
             testID="PASSWORD_INPUT"
@@ -447,7 +447,7 @@ const BoxRowEditText = (): React.ReactElement => {
 
   const [email, setEmail] = useState<string>('');
   const [password, setPassword] = useState<string>('');
-  const [errorEmail, setErrorEmail] = useState<string>('email error');
+  const [errorEmail, setErrorEmail] = useState<string>('');
 
   const onSignIn = (): void => {
     if (!validateEmail(email)) {

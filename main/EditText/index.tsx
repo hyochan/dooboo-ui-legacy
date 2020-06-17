@@ -40,6 +40,7 @@ const StyledRowInput = styled.TextInput`
 `;
 
 const ColumnContainer = styled.View`
+  display: flex;
   flex-direction: column;
   align-self: stretch;
 `;
@@ -47,7 +48,6 @@ const ColumnContainer = styled.View`
 const StyledLine = styled.View`
   flex-direction: row;
   align-items: center;
-  justify-content: space-between;
   width: 100%;
 `;
 
@@ -125,7 +125,7 @@ export enum EditTextInputType {
   DEFAULT = 'default',
   ROW = 'row',
   BOX = 'box',
-  ROW_BOX = 'rowBox'
+  ROW_BOX = 'rowBox',
 }
 
 function EditText(props: Props): ReactElement {
@@ -218,33 +218,29 @@ function EditText(props: Props): ReactElement {
             onSubmitEditing={onSubmitEditing}
             multiline={multiline}
           />
-          {
-            borderWidth
-              ? <StyledLine
-                style={[
-                  borderStyle,
-                  { borderBottomWidth: borderWidth, borderColor: borderColor },
-                  errorText
-                    ? { borderColor: errorColor }
-                    : focused
-                      ? [{ borderColor: focusColor }, { borderBottomWidth: focusedBorderWidth }]
-                      : null,
-                ]}
-              />
-              : null
-          }
-          {
-            errorText
-              ? <StyledInvalidText
-                testID={errorTestID}
-                style={[
-                  { color: errorColor },
-                  errorTextStyle,
-                ]}>
-                {`${errorText}`}
-              </StyledInvalidText>
-              : null
-          }
+          {borderWidth ? (
+            <StyledLine
+              style={[
+                borderStyle,
+                { borderBottomWidth: borderWidth, borderColor: borderColor },
+                errorText
+                  ? { borderColor: errorColor }
+                  : focused
+                    ? [
+                      { borderColor: focusColor },
+                      { borderBottomWidth: focusedBorderWidth },
+                    ]
+                    : null,
+              ]}
+            />
+          ) : null}
+          {errorText ? (
+            <StyledInvalidText
+              testID={errorTestID}
+              style={[{ color: errorColor }, errorTextStyle]}>
+              {`${errorText}`}
+            </StyledInvalidText>
+          ) : null}
         </ColumnContainer>
       );
     case EditTextInputType.ROW:
@@ -255,35 +251,35 @@ function EditText(props: Props): ReactElement {
               { borderColor: borderColor, borderBottomWidth: borderWidth },
               borderStyle,
               errorText
-                ? { borderColor: errorColor, borderBottomWidth: focusedBorderWidth }
+                ? {
+                  borderColor: errorColor,
+                  borderBottomWidth: focusedBorderWidth,
+                }
                 : focused
-                  ? { borderColor: focusColor, borderBottomWidth: focusedBorderWidth }
+                  ? {
+                    borderColor: focusColor,
+                    borderBottomWidth: focusedBorderWidth,
+                  }
                   : null,
-            ]}
-          >
-            {
-              label
-                ? <StyledRowLabel
-                  style={[
-                    labelTextStyle,
-                    errorText
-                      ? [{ color: errorColor }, focusedLabelStyle]
-                      : focused
-                        ? [{ color: focusColor }, focusedLabelStyle]
-                        : null,
-                    { width: labelWidth },
-                  ]}>
-                  {label}
-                </StyledRowLabel>
-                : null
-            }
+            ]}>
+            {label ? (
+              <StyledRowLabel
+                style={[
+                  labelTextStyle,
+                  errorText
+                    ? [{ color: errorColor }, focusedLabelStyle]
+                    : focused
+                      ? [{ color: focusColor }, focusedLabelStyle]
+                      : null,
+                  { width: labelWidth },
+                ]}>
+                {label}
+              </StyledRowLabel>
+            ) : null}
             <StyledRowInput
               {...textInputProps}
               testID={testID}
-              style={[
-                textStyle,
-                { textAlign: 'right' },
-              ]}
+              style={[textStyle, { textAlign: 'left' }]}
               autoCapitalize={autoCapitalize}
               onFocus={(): void => {
                 setFocus(true);
@@ -330,14 +326,11 @@ function EditText(props: Props): ReactElement {
             ]}>
             {label}
           </StyledLabel>
-          {
-            leftElement
-              ? (
-                <StyledIcon style={[{ width: 40 }, leftElementStyle]}>
-                  {leftElement}
-                </StyledIcon>
-              ) : null
-          }
+          {leftElement ? (
+            <StyledIcon style={[{ width: 40 }, leftElementStyle]}>
+              {leftElement}
+            </StyledIcon>
+          ) : null}
           <StyledTextInput
             {...textInputProps}
             testID={testID}
@@ -363,36 +356,34 @@ function EditText(props: Props): ReactElement {
             onSubmitEditing={onSubmitEditing}
             multiline={multiline}
           />
-          {
-            rightElement
-              ? (
-                <StyledIcon style={[{ width: 40 }, rightElementStyle]}>
-                  {rightElement}
-                </StyledIcon>
-              ) : null
-          }
-          {
-            borderWidth
-              ? <StyledLine
-                style={[
-                  { borderWidth: borderWidth, borderRadius: inputContainerRadius, borderColor: borderColor },
-                  borderStyle,
-                  errorText
-                    ? { borderColor: errorColor }
-                    : focused
-                      ? [{ borderColor: focusColor }, { borderWidth: focusedBorderWidth }]
-                      : null,
-                  !leftElement
-                    ? { paddingLeft: 15 }
+          {rightElement ? (
+            <StyledIcon style={[{ width: 40 }, rightElementStyle]}>
+              {rightElement}
+            </StyledIcon>
+          ) : null}
+          {borderWidth ? (
+            <StyledLine
+              style={[
+                {
+                  borderWidth: borderWidth,
+                  borderRadius: inputContainerRadius,
+                  borderColor: borderColor,
+                },
+                borderStyle,
+                errorText
+                  ? { borderColor: errorColor }
+                  : focused
+                    ? [
+                      { borderColor: focusColor },
+                      { borderWidth: focusedBorderWidth },
+                    ]
                     : null,
-                  !rightElement
-                    ? { paddingRight: 15 }
-                    : null,
-                ]}
-              />
-              : null
-          }
-          { errorText ? (
+                !leftElement ? { paddingLeft: 15 } : null,
+                !rightElement ? { paddingRight: 15 } : null,
+              ]}
+            />
+          ) : null}
+          {errorText ? (
             <StyledInvalidText
               testID={errorTestID}
               style={[
@@ -403,7 +394,7 @@ function EditText(props: Props): ReactElement {
               ]}>
               {`${errorText}`}
             </StyledInvalidText>
-          ) : null }
+          ) : null}
         </ColumnContainer>
       );
 
@@ -412,38 +403,36 @@ function EditText(props: Props): ReactElement {
         <RowContainer style={style}>
           <StyledRowContent
             style={[
-              { borderWidth: borderWidth, borderRadius: inputContainerRadius, borderColor: borderColor },
+              {
+                borderWidth: borderWidth,
+                borderRadius: inputContainerRadius,
+                borderColor: borderColor,
+              },
               borderStyle,
               errorText
                 ? { borderColor: errorColor, borderWidth: focusedBorderWidth }
                 : focused
                   ? { borderColor: focusColor, borderWidth: focusedBorderWidth }
                   : null,
-            ]}
-          >
-            {
-              label
-                ? <StyledRowLabel
-                  style={[
-                    labelTextStyle,
-                    errorText
-                      ? [{ color: errorColor }, focusedLabelStyle]
-                      : focused
-                        ? [{ color: focusColor }, focusedLabelStyle]
-                        : null,
-                    { marginLeft: 15, width: labelWidth },
-                  ]}>
-                  {label}
-                </StyledRowLabel>
-                : null
-            }
+            ]}>
+            {label ? (
+              <StyledRowLabel
+                style={[
+                  labelTextStyle,
+                  errorText
+                    ? [{ color: errorColor }, focusedLabelStyle]
+                    : focused
+                      ? [{ color: focusColor }, focusedLabelStyle]
+                      : null,
+                  { marginLeft: 15, width: labelWidth },
+                ]}>
+                {label}
+              </StyledRowLabel>
+            ) : null}
             <StyledRowInput
               {...textInputProps}
               testID={testID}
-              style={[
-                { paddingRight: 15 },
-                textStyle,
-              ]}
+              style={[{ paddingRight: 15 }, textStyle]}
               autoCapitalize={autoCapitalize}
               onFocus={(): void => {
                 setFocus(true);
@@ -468,13 +457,11 @@ function EditText(props: Props): ReactElement {
               multiline={multiline}
             />
           </StyledRowContent>
-          {
-            errorText
-              ? <StyledInvalidText testID={errorTestID} style={errorTextStyle}>
-                {errorText}
-              </StyledInvalidText>
-              : null
-          }
+          {errorText ? (
+            <StyledInvalidText testID={errorTestID} style={errorTextStyle}>
+              {errorText}
+            </StyledInvalidText>
+          ) : null}
         </RowContainer>
       );
   }
