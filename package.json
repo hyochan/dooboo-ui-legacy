@@ -2,6 +2,8 @@
   "scripts": {
     "pre": "lerna clean --yes && lerna bootstrap && lerna run build",
     "postinstall": "dooboolab-welcome postinstall && cp -R .storybook storybook",
+    "publish": "yarn build && cd lib && npm publish && cd ..",
+    "publish:packages": "yarn pre && yarn build-packages && lerna exec -- npm publish",
     "lint": "eslint main packages stories --ext .ts,.tsx,.js,.jsx",
     "tsc": "tsc",
     "start": "expo start",
