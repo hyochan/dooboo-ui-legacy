@@ -5,6 +5,7 @@ import EditText from './EditText';
 import LoadingIndicator from './LoadingIndicator';
 import Slider from './Slider';
 import SwitchToggle from './SwitchToggle';
+import Table from './Table';
 
 /**
  * Below are the list of elements included in `dooboo-ui`
@@ -18,4 +19,5 @@ export {
   LoadingIndicator,
   SwitchToggle,
   Slider,
+  Table,
 };
