@@ -1,33 +1,33 @@
 import { Animated, LayoutChangeEvent, Text } from 'react-native';
 import React, { FC, useEffect, useRef, useState } from 'react';
+import Arrow from './Arrow';
 import styled from 'styled-components/native';
 
 const TitleContainer = styled.TouchableOpacity`
-  display: flex;
   flex-direction: row;
-  justify-content: space-between;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
   background-color: #141414;
+  padding-left: 40px;
+  padding-right: 20px;
   width: 388px;
   height: 50px;
+  border-bottom-width: 1px;
+  border-bottom-color: white;
 `;
 
-const BodiesContainer = styled.View`
-  display: flex;
-  flex-direction: colomn;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
+const BodyContainer = styled.View`
+  color: #000;
 `;
 
 const StyledItem = styled.View`
-  display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: center;
-  width: 100%;
-  padding: 15px;
+  justify-content: flex-start;
+  width : 100%;
+  padding-left: 40px;
+  padding-top: 20px;
+  padding-bottom: 20px;
   border-bottom-width: 1px;
   border-bottom-color: lightgray;
 `;
@@ -78,6 +78,8 @@ const AccordionItem: FC<Props> = (props) => {
     mounted: false,
   });
 
+  const [arrowPosition, setArrowPosition] = useState('down');
+
   const handleTitleLayout = (e: LayoutChangeEvent): void => {
     if (itemTitleHeight.mounted) return;
     const { height } = e.nativeEvent.layout;
@@ -113,6 +115,12 @@ const AccordionItem: FC<Props> = (props) => {
   }, [itemTitleHeight.mounted, itemBodyHeight.mounted]);
 
   useEffect((): void => {
+    if (itemVisibleState.value) {
+      setArrowPosition('up');
+    } else setArrowPosition('down');
+  }, [itemVisibleState.value]);
+
+  useEffect((): void => {
     const targetValue = itemVisibleState.value
       ? itemTitleHeight.value + itemBodyHeight.value
       : itemTitleHeight.value;
@@ -137,23 +145,24 @@ const AccordionItem: FC<Props> = (props) => {
       <TitleContainer
         onLayout={handleTitleLayout}
         onPress={handleVisibleState}
-        activeOpacity={activeOpacity}
-      >
+        activeOpacity={activeOpacity}>
         <Text style={{ fontWeight: 'bold', color: '#FFFFFF' }}>
           {itemData.itemTitle}
         </Text>
+        <Arrow arrowPosition={arrowPosition}/>
       </TitleContainer>
 
-      <BodiesContainer onLayout={handleBodyLayout}>
+      <BodyContainer onLayout={handleBodyLayout}>
         {itemData.itemBodies.map((itemBody, itemBodyKey) => {
           return (
             <StyledItem key={itemBodyKey}>
               <Text style={{ fontWeight: 'bold', color: '#141414' }}>
                 {itemBody}
               </Text>
-            </StyledItem>);
+            </StyledItem>
+          );
         })}
-      </BodiesContainer>
+      </BodyContainer>
     </Animated.View>
   );
 };
