@@ -1,4 +1,4 @@
-import { Animated, Easing } from 'react-native';
+import { Animated, Easing, Platform } from 'react-native';
 import React, { useState } from 'react';
 
 import styled from 'styled-components/native';
@@ -96,7 +96,7 @@ const InnerCircleAnim = ({
       },
       easing: Easing.ease,
       duration: 80,
-      useNativeDriver: false,
+      useNativeDriver: Platform.OS === 'android',
     }).start();
   }, []);
 

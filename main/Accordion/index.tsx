@@ -1,4 +1,4 @@
-import { Animated, LayoutChangeEvent, View } from 'react-native';
+import { Animated, LayoutChangeEvent, Platform, View } from 'react-native';
 import React, { FC, ReactElement, useEffect, useRef, useState } from 'react';
 
 import styled from 'styled-components/native';
@@ -73,7 +73,7 @@ const Accordion: FC<Props> = (props) => {
       Animated.timing(animValue, {
         toValue: targetValue,
         duration: props.duration || 300,
-        useNativeDriver: false,
+        useNativeDriver: Platform.OS === 'android',
       }).start();
 
       return;
