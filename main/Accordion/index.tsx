@@ -73,7 +73,7 @@ const Accordion: FC<Props> = (props) => {
       Animated.timing(animValue, {
         toValue: targetValue,
         duration: props.duration || 300,
-        useNativeDriver: true,
+        useNativeDriver: false,
       }).start();
 
       return;
