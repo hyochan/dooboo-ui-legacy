@@ -2,8 +2,7 @@ import React, { FC } from 'react';
 import AccrordionItem from './AccordionItem';
 import styled from 'styled-components/native';
 
-const Container = styled.ScrollView`
-  display: flex;
+const Container = styled.View`
   flex-direction: column;
   align-items: center;
   justify-content: center;
