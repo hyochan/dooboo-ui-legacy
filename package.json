@@ -12,7 +12,7 @@
     "web": "start-storybook -p 6006",
     "eject": "expo eject",
     "test": "lerna run build && yarn lint && yarn tsc && jest",
-    "build": "tsc --project tsconfigBuild.json",
+    "build": "cp README.md ./lib/README.md && tsc --project tsconfigBuild.json",
     "postbuild": "cp -r main/__assets__ lib/__assets__",
     "build-storybook": "build-storybook",
     "build-packages": "lerna exec -- yarn build",
