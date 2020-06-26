@@ -49,19 +49,21 @@ function Default(): React.ReactElement {
   const containerColor = color('container color', '#1976D1');
   const messageColor = color('message color', '#ffffff');
   const onPress = useCallback((): void => {
-    snackbar.show({
-      text: longText ? snackbarLongText : snackbarText,
-      timer: shortOrLong ? Timer.LONG : Timer.SHORT,
-      containerStyle: {
-        backgroundColor: containerColor,
-        top: 200,
-        height: 40,
-      },
-      messageStyle: {
-        color: messageColor,
-        fontSize: 17,
-      },
-    });
+    if (snackbar) {
+      snackbar.show({
+        text: longText ? snackbarLongText : snackbarText,
+        timer: shortOrLong ? Timer.LONG : Timer.SHORT,
+        containerStyle: {
+          backgroundColor: containerColor,
+          top: 200,
+          height: 40,
+        },
+        messageStyle: {
+          color: messageColor,
+          fontSize: 17,
+        },
+      });
+    }
   }, [shortOrLong, longText, containerColor, messageColor]);
 
   return (

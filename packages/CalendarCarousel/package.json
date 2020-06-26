@@ -19,15 +19,15 @@
   },
   "homepage": "https://github.com/dooboolab/dooboo-ui#readme",
   "dependencies": {
-    "dooboolab-welcome": "^1.1.1"
+    "dooboolab-welcome": "^1.2.0"
   },
   "devDependencies": {
     "styled-components": "^4.4.0",
-    "typescript": "^3.7.5"
+    "typescript": "^3.9.5"
   },
   "peerDependencies": {
-    "react": ">=16.8",
-    "react-native": ">=0.59",
+    "react": ">=16.9",
+    "react-native": ">=0.58",
     "styled-components": ">=4.4.0"
   },
   "publishConfig": {

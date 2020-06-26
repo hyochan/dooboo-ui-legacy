@@ -1,110 +1,66 @@
-import { Animated, LayoutChangeEvent, Platform, View } from 'react-native';
-import React, { FC, ReactElement, useEffect, useRef, useState } from 'react';
+import React, { FC } from 'react';
 
+import AccrordionItem from './AccordionItem';
+import { ViewStyle } from 'react-native';
 import styled from 'styled-components/native';
 
-const Container = styled.TouchableWithoutFeedback`
-  width: 100%;
+const Container = styled.View`
+  flex-direction: column;
+  align-items: center;
 `;
-const HeaderContainer = styled(Container)`
-  flex-direction: row;
-  justify-content: space-between;
-`;
-const ContentContainer = styled(Container)``;
 
-interface Props {
-  contentVisible?: boolean;
-  header: ReactElement;
-  children: ReactElement;
-  visibleElement?: ReactElement;
-  invisibleElement?: ReactElement;
-  isAnimated?: boolean;
-  duration?: number;
-  onPress?: () => void;
+type ItemType = {
+  itemTitle: string;
+  itemBodies: Array<string>;
 }
 
-type LayoutProps = {
-  value: number;
-  mounted: boolean;
-};
+interface Props {
+  data: Array<ItemType>;
+  isAnimated?: boolean;
+  collapsedWhenRendered: boolean;
+  animDuration?: number;
+  activeOpacity?: number;
+  customTitleStyle?: ViewStyle;
+  customItemStyle?: ViewStyle;
+  titleElementLeft?: React.ReactElement;
+  itemBodyElementLeft?: React.ReactElement;
+}
 
 const Accordion: FC<Props> = (props) => {
-  const animValue = useRef(new Animated.Value(1000)).current;
-
-  const [visible, setVisible] = useState<boolean | undefined>(
-    props.contentVisible,
-  );
-
-  const [header, setHeader] = useState<LayoutProps>({
-    value: 0,
-    mounted: false,
-  });
-  const [content, setContent] = useState<LayoutProps>({
-    value: 0,
-    mounted: false,
-  });
-
-  const handleHeaderLayout = (e: LayoutChangeEvent): void => {
-    if (header.mounted) return;
-    const { height } = e.nativeEvent.layout;
-    setHeader({ value: height, mounted: true });
-  };
-  const handleContentLayout = (e: LayoutChangeEvent): void => {
-    if (content.mounted) return;
-    const { height } = e.nativeEvent.layout;
-    setContent({ value: height, mounted: true });
-  };
-
-  const handlePress = (): void => {
-    setVisible(!visible);
-    if (props.onPress) props.onPress();
-  };
-
-  useEffect((): void => {
-    if (header.mounted && content.mounted) {
-      animValue.setValue(visible ? header.value + content.value : header.value);
-    }
-  }, [header.mounted, content.mounted]);
-
-  useEffect((): void => {
-    const targetValue = visible ? header.value + content.value : header.value;
-
-    if (props.isAnimated) {
-      Animated.timing(animValue, {
-        toValue: targetValue,
-        duration: props.duration || 300,
-        useNativeDriver: Platform.OS === 'android',
-      }).start();
-
-      return;
-    }
-
-    animValue.setValue(targetValue);
-  }, [visible]);
+  const {
+    data,
+    isAnimated,
+    collapsedWhenRendered,
+    animDuration,
+    activeOpacity,
+    customTitleStyle,
+    customItemStyle,
+    titleElementLeft,
+    itemBodyElementLeft,
+  } = props;
 
   return (
-    <Animated.View
-      style={{
-        height: animValue,
-        backgroundColor: 'transparent',
-        overflow: 'hidden',
-      }}>
-      <HeaderContainer
-        testID="header"
-        onLayout={handleHeaderLayout} onPress={handlePress}
-      >
-        <View>
-          {props.header}
-          {visible ? props.visibleElement : props.invisibleElement}
-        </View>
-      </HeaderContainer>
-      <ContentContainer
-        testID="content"
-        onLayout={handleContentLayout}
-      >
-        {props.children}
-      </ContentContainer>
-    </Animated.View>
+    <Container>
+      {
+        data.map((itemData, idx) => {
+          return (
+            <AccrordionItem
+              testID={`${idx}`}
+              key={idx}
+              itemData={itemData}
+              isAnimated={isAnimated}
+              collapsedWhenRendered={collapsedWhenRendered}
+              animDuration={animDuration}
+              activeOpacity={activeOpacity}
+              customTitleStyle={customTitleStyle}
+              customItemStyle={customItemStyle}
+              titleElementLeft={titleElementLeft}
+              itemBodyElementLeft={itemBodyElementLeft}
+            />
+          );
+        })
+      }
+    </Container>
   );
 };
 export default Accordion;

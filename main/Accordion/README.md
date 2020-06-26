@@ -8,16 +8,11 @@
 
 |                      | necessary | types                  | default       |
 | -------------------- | --------- | ---------------------- | ------------- |
-| contentVisibleOnLoad |           | boolean                | `false`       |
-| header               | ✓         | any                    | `<View/>`     |
-| backgroundColor      |           | string                 | `transparent` |
-| titleBackground      |           | string                 | `transparent` |
-| contentBackground    |           | string                 | `transparent` |
-| underlineColor       |           | string                 | `transparent` |
-| visibleElement       |           | ReactElement           | `null`        |
-| invisibleElement     |           | ReactElement           | `null`        |
-| style                |           | `StyleProp<ViewStyle>` | `undefined`   |
-| children             | ✓         | ReactElement           | `undefined`   |
+| data                 | ✓         | array                  | `Default Data`|
+| isAnimated           |           | boolean                | `true`        |
+| collapsedWhenRedered |           | boolean                | `false`       |
+| animDuration         |           | number                 | `300`         |
+| activeOpacity        |           | number                 | `1`           |
 
 ## Installation
 
@@ -37,70 +32,44 @@ yarn add @dooboo-ui/core
 
   ```javascript
   state = {
-    contents: [
+    Data = [
       {
-        title: 'Title 1',
-        body: 'Hi. I love this component. What do you think?',
+        itemTitle: '커스텀 패널',
+        itemBodies: [
+          '패널 커스텀',
+          '패널 커스텀',
+          '패널 커스텀',
+        ],
       },
       {
-        title: 'See this one too',
-        body: 'Yes. You can have more items.',
+        itemTitle: '판매 관리',
+        itemBodies: [
+          '판매처 관리',
+          '공급처 관리',
+          '상품 관리',
+          '재고 관리',
+        ],
       },
       {
-        title: 'Thrid thing',
-        body:
-          'What about very long text? What about very long text? What about very long text? What about very long text? What about very long text? What about very long text? What about very long text? What about very long text? What about very long text? What about very long text? What about very long text? What about very long text?',
+        itemTitle: '주문 배송 관리',
+        itemBodies: [
+          '주문 보기',
+          '주문 보기',
+          '주문 보기',
+          '주문 보기',
+        ],
       },
-    ],
+    ];
   };
   ```
 
 - Usage
   ```tsx
-  <View style={styles.container}>
-    <ScrollView style={{ alignSelf: 'stretch' }}>
-      {
-        this.state.contents
-          ? this.state.contents.map((param, i) => {
-            return (
-              <Accordion
-                key={i}
-                style={styles.Accordion}
-                contentVisible={false}
-                visibleElement={
-                  <StyledImage
-                    source={IC_ARR_UP}
-                  />
-                }
-                invisibleElement={
-                  <StyledImage
-                    source={IC_ARR_DOWN}
-                  />
-                }
-                header={
-                  <View>
-                    <Text style={{
-                      fontSize: 16,
-                      color: 'blue',
-                    }}>{param.title}</Text>
-                  </View>
-                }
-              >
-                <Text style={[
-                  styles.txt,
-                  {
-                    fontSize: 20,
-                  }
-                ]}>
-                  {param.body}
-                </Text>
-              </Accordion>
-            );
-          })
-          : null
-      }
-      <View style={{ height: 96 }}/>
-    </ScrollView>
-  </View>
-  });
+  <Accordion
+    data={accordionData}
+    isAnimated={true}
+    collapsedWhenRedered={false}
+    animDuration={300}
+    activeOpacity={1}
+  />
   ```

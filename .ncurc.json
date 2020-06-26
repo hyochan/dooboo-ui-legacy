@@ -1,0 +1,7 @@
+{
+  "reject": [
+    "react",
+    "react-native",
+    "styled-components"
+  ]
+}
