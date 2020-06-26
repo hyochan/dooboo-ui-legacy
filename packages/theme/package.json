@@ -20,13 +20,13 @@
     "dooboolab-welcome": "^1.2.0"
   },
   "devDependencies": {
-    "typescript": "^3.8.3",
+    "typescript": "^3.9.5",
     "styled-components": "^4.4.1"
   },
   "peerDependencies": {
-    "react": ">=16.8",
-    "react-native": ">=0.59",
-    "styled-components": ">=4.4.0"
+    "react": ">=16.13",
+    "react-native": ">=0.62",
+    "styled-components": ">=5.1.1"
   },
   "publishConfig": {
     "access": "public"
