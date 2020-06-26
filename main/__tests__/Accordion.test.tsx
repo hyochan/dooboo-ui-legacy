@@ -1,3 +1,4 @@
+import React, { ReactElement } from 'react';
 import {
   RenderResult,
   act,
@@ -6,184 +7,74 @@ import {
 } from '@testing-library/react-native';
 
 import Accordion from '../Accordion';
-import React from 'react';
 
-// eslint-disable-next-line
 let props: any;
-let component: React.ReactElement;
+let component: ReactElement;
 let testingLib: RenderResult;
+const data = [
+  {
+    itemTitle: 'test data1',
+    itemBodies: ['test data', 'test data', 'test data'],
+  },
+  {
+    itemTitle: 'test data2',
+    itemBodies: ['test data', 'test data', 'test data', 'test data'],
+  },
+];
 
 const createTestProps = (obj?: Record<string, unknown>): Record<string, unknown> => ({
   ...obj,
 });
 
-describe('[Accordion] renders', () => {
-  it('should render without crashing', () => {
-    props = createTestProps();
-    component = <Accordion {...props} />;
+describe('[Accordion] render test', () => {
+  it('should render without crasing', () => {
+    props = createTestProps({ data: data });
+    component = <Accordion {...props}/>;
     testingLib = render(component);
-    expect(testingLib.baseElement).toBeTruthy();
+
+    expect(testingLib.baseElement).toMatchSnapshot();
   });
 
-  it('should render when custom props given', () => {
-    jest.useFakeTimers();
+  it('should render collapsed when collapsedWhenRendered props is false', () => {
+    props = createTestProps({
+      collapsedWhenRendered: false,
+      data: data,
+    });
+    component = <Accordion {...props}/>;
+    testingLib = render(component);
 
+    expect(testingLib.baseElement).toMatchSnapshot();
+  });
+
+  it('should operate animation when isAnimated is true', () => {
+    jest.useFakeTimers();
     props = createTestProps({
       isAnimated: true,
-      visible: true,
+      data: data,
     });
-    component = <Accordion {...props} />;
-
+    component = <Accordion {...props}/>;
     testingLib = render(component);
+    jest.runAllTimers();
+
     expect(testingLib.baseElement).toMatchSnapshot();
   });
 });
 
-describe('[Accordion] events', () => {
+describe('[Accordion] event test', () => {
   beforeEach(() => {
-    props = createTestProps();
-    component = <Accordion {...props} />;
-    testingLib = render(component);
-  });
-
-  it('should trigger onLayout when header height changes', () => {
-    const { getByTestId } = testingLib;
-    const header = getByTestId('header');
-
-    act(() => {
-      fireEvent.layout(header, {
-        nativeEvent: {
-          layout: {
-            height: 300,
-          },
-        },
-      });
-    });
-
-    act(() => {
-      fireEvent.layout(header, {
-        nativeEvent: {
-          layout: {
-            height: 0,
-          },
-        },
-      });
-    });
-  });
-
-  it('should trigger onLayout when content height changes', () => {
-    const { getByTestId } = testingLib;
-    const content = getByTestId('content');
-
-    act(() => {
-      fireEvent.layout(content, {
-        nativeEvent: {
-          layout: {
-            height: 300,
-          },
-        },
-      });
-    });
-
-    act(() => {
-      fireEvent.layout(content, {
-        nativeEvent: {
-          layout: {
-            height: 300,
-          },
-        },
-      });
-    });
-  });
-
-  it('should set [animValue] when header and content is mounted', () => {
-    const { getByTestId } = testingLib;
-    const header = getByTestId('header');
-    const content = getByTestId('content');
-
-    act(() => {
-      fireEvent.layout(header, {
-        nativeEvent: {
-          layout: {
-            height: 300,
-          },
-        },
-      });
-    });
-
-    act(() => {
-      fireEvent.layout(header, {
-        nativeEvent: {
-          layout: {
-            height: 300,
-          },
-        },
-      });
-    });
-
-    act(() => {
-      fireEvent.layout(content, {
-        nativeEvent: {
-          layout: {
-            height: 300,
-          },
-        },
-      });
-    });
-
-    act(() => {
-      fireEvent.layout(content, {
-        nativeEvent: {
-          layout: {
-            height: 300,
-          },
-        },
-      });
-    });
-  });
-
-  it('should trigger press event when clicking header', () => {
-    act(() => {
-      fireEvent.press(testingLib.getByTestId('header'));
-    });
-
-    expect(props.onPress).toBeFalsy();
-
     props = createTestProps({
-      onPress: jest.fn(),
+      data: data,
     });
-    component = <Accordion {...props} />;
+    component = <Accordion {...props}/>;
     testingLib = render(component);
-
-    const { getByTestId } = testingLib;
-    const header = getByTestId('header');
-
-    act(() => {
-      fireEvent.press(header);
-    });
-
-    expect(props.onPress).toHaveBeenCalled();
   });
 
-  it('should trigger after custom props given', () => {
-    jest.useFakeTimers();
-
-    props = createTestProps({
-      isAnimated: true,
-      contentVisible: true,
-    });
-    component = <Accordion {...props} />;
-
-    testingLib = render(component);
-
-    jest.runAllTimers();
-
+  it('should trigger onLayout event when itemTitle rendered', () => {
     const { getByTestId } = testingLib;
-    const header = getByTestId('header');
-    const content = getByTestId('content');
+    const itemTitle = getByTestId('itemTitle_0');
 
     act(() => {
-      fireEvent.layout(header, {
+      fireEvent.layout(itemTitle, {
         nativeEvent: {
           layout: {
             height: 300,
@@ -191,15 +82,26 @@ describe('[Accordion] events', () => {
         },
       });
     });
+  });
+
+  it('should trigger onLayout event when itemBody rendered', () => {
+    const { getByTestId } = testingLib;
+    const itemBody = getByTestId('itemBody_0');
 
     act(() => {
-      fireEvent.layout(content, {
+      fireEvent.layout(itemBody, {
         nativeEvent: {
           layout: {
             height: 300,
           },
         },
       });
+    });
+  });
+
+  it('should trigger press event when clicking title', () => {
+    act(() => {
+      fireEvent.press(testingLib.getByTestId('itemTitle_0'));
     });
   });
 });

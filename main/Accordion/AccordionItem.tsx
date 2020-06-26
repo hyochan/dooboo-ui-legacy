@@ -1,4 +1,11 @@
-import { Animated, LayoutChangeEvent, Text } from 'react-native';
+import {
+  Animated,
+  LayoutChangeEvent,
+  Platform,
+  Text,
+  View,
+  ViewStyle,
+} from 'react-native';
 import React, { FC, useEffect, useRef, useState } from 'react';
 import Arrow from './Arrow';
 import styled from 'styled-components/native';
@@ -16,18 +23,12 @@ const TitleContainer = styled.TouchableOpacity`
   border-bottom-color: white;
 `;
 
-const BodyContainer = styled.View`
-  color: #000;
-`;
-
 const StyledItem = styled.View`
   flex-direction: row;
   align-items: center;
   justify-content: flex-start;
-  width : 100%;
-  padding-left: 40px;
-  padding-top: 20px;
-  padding-bottom: 20px;
+  width: 100%;
+  padding: 20px 40px;
   border-bottom-width: 1px;
   border-bottom-color: lightgray;
 `;
@@ -46,26 +47,36 @@ type ItemVisibleState = {
   value: boolean;
 };
 interface Props {
+  testID: string;
   itemData: ItemType;
   isAnimated?: boolean;
-  collapsedWhenRedered: boolean;
+  collapsedWhenRendered: boolean;
   animDuration?: number;
   activeOpacity?: number;
+  customTitleStyle?: ViewStyle;
+  customItemStyle?: ViewStyle;
+  titleElementLeft?: React.ReactElement;
+  itemBodyElementLeft?: React.ReactElement;
 }
 
 const AccordionItem: FC<Props> = (props) => {
   const {
+    testID,
     itemData,
     isAnimated,
-    collapsedWhenRedered,
+    collapsedWhenRendered,
     animDuration,
     activeOpacity,
+    customTitleStyle,
+    customItemStyle,
+    titleElementLeft,
+    itemBodyElementLeft,
   } = props;
 
   const animValue = useRef(new Animated.Value(1000)).current;
 
   const [itemVisibleState, setItemVisibleState] = useState<ItemVisibleState>({
-    value: collapsedWhenRedered,
+    value: collapsedWhenRendered,
   });
 
   const [itemTitleHeight, setItemTitleHeight] = useState<LayoutProps>({
@@ -78,10 +89,10 @@ const AccordionItem: FC<Props> = (props) => {
     mounted: false,
   });
 
-  const [arrowPosition, setArrowPosition] = useState('down');
+  const [arrowDirection, setarrowDirection] = useState('down');
 
   const handleTitleLayout = (e: LayoutChangeEvent): void => {
-    if (itemTitleHeight.mounted) return;
+    if (itemTitleHeight.mounted && Platform.OS === 'ios') return;
     const { height } = e.nativeEvent.layout;
     setItemTitleHeight({
       value: height,
@@ -90,7 +101,7 @@ const AccordionItem: FC<Props> = (props) => {
   };
 
   const handleBodyLayout = (e: LayoutChangeEvent): void => {
-    if (itemBodyHeight.mounted) return;
+    if (itemBodyHeight.mounted && Platform.OS === 'ios') return;
     const { height } = e.nativeEvent.layout;
     setItemBodyHeight({
       value: height,
@@ -116,8 +127,8 @@ const AccordionItem: FC<Props> = (props) => {
 
   useEffect((): void => {
     if (itemVisibleState.value) {
-      setArrowPosition('up');
-    } else setArrowPosition('down');
+      setarrowDirection('up');
+    } else setarrowDirection('down');
   }, [itemVisibleState.value]);
 
   useEffect((): void => {
@@ -135,6 +146,8 @@ const AccordionItem: FC<Props> = (props) => {
     animValue.setValue(targetValue);
   }, [itemVisibleState.value]);
 
+  useEffect(() => {}, [itemBodyElementLeft]);
+
   return (
     <Animated.View
       style={{
@@ -143,26 +156,30 @@ const AccordionItem: FC<Props> = (props) => {
         overflow: 'hidden',
       }}>
       <TitleContainer
+        testID={`itemTitle_${testID}`}
         onLayout={handleTitleLayout}
         onPress={handleVisibleState}
-        activeOpacity={activeOpacity}>
+        activeOpacity={activeOpacity}
+        style={customTitleStyle}>
+        <View>{titleElementLeft}</View>
         <Text style={{ fontWeight: 'bold', color: '#FFFFFF' }}>
           {itemData.itemTitle}
         </Text>
-        <Arrow arrowPosition={arrowPosition}/>
+        <Arrow arrowDirection={arrowDirection} />
       </TitleContainer>
 
-      <BodyContainer onLayout={handleBodyLayout}>
+      <View testID={`itemBody_${testID}`} onLayout={handleBodyLayout}>
         {itemData.itemBodies.map((itemBody, itemBodyKey) => {
           return (
-            <StyledItem key={itemBodyKey}>
+            <StyledItem key={itemBodyKey} style={customItemStyle}>
+              <View>{itemBodyElementLeft}</View>
               <Text style={{ fontWeight: 'bold', color: '#141414' }}>
                 {itemBody}
               </Text>
             </StyledItem>
           );
         })}
-      </BodyContainer>
+      </View>
     </Animated.View>
   );
 };
