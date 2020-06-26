@@ -26,9 +26,9 @@
     "typescript": "^3.9.5"
   },
   "peerDependencies": {
-    "react": ">=16.13",
-    "react-native": ">=0.62",
-    "styled-components": ">=5.1.1"
+    "react": ">=16.9",
+    "react-native": ">=0.58",
+    "styled-components": ">=4.4.0"
   },
   "publishConfig": {
     "access": "public"
