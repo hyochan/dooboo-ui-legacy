@@ -7,6 +7,7 @@ import {
   ViewStyle,
 } from 'react-native';
 import React, { FC, useEffect, useRef, useState } from 'react';
+
 import Arrow from './Arrow';
 import styled from 'styled-components/native';
 
@@ -140,6 +141,7 @@ const AccordionItem: FC<Props> = (props) => {
       Animated.timing(animValue, {
         toValue: targetValue,
         duration: animDuration || 300,
+        useNativeDriver: true,
       }).start();
       return;
     }
