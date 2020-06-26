@@ -1,4 +1,5 @@
 import React, { FC } from 'react';
+
 import AccrordionItem from './AccordionItem';
 import { ViewStyle } from 'react-native';
 import styled from 'styled-components/native';
@@ -62,5 +63,4 @@ const Accordion: FC<Props> = (props) => {
     </Container>
   );
 };
-
 export default Accordion;

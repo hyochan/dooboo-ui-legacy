@@ -28,13 +28,11 @@ const Default = (): React.ReactElement => {
 
   const [email, setEmail] = useState<string>('');
   const [password, setPassword] = useState<string>('');
-  const [errorEmail, setErrorEmail] = useState<string>('email error');
+  const [errorEmail, setErrorEmail] = useState<string>('');
 
   const onSignIn = (): void => {
     if (!validateEmail(email)) {
       setErrorEmail('Not a valid email address');
-    } else {
-      setErrorEmail('');
     }
   };
 
@@ -57,7 +55,7 @@ const Default = (): React.ReactElement => {
         }}>
         <View
           style={{
-            flex: 1,
+            display: 'flex',
             flexDirection: 'column',
             padding: 20,
             paddingTop: 10,
@@ -77,7 +75,7 @@ const Default = (): React.ReactElement => {
               color: '#495057',
             }}
             label="Email"
-            placeholder="Write email address"
+            placeholder="Email address"
             placeholderTextColor="#ADB5BD"
             value={email}
             onChangeText={(text: string): void => onTextChanged('EMAIL', text)}
@@ -92,7 +90,7 @@ const Default = (): React.ReactElement => {
             }}
             secureTextEntry={true}
             label="Password"
-            placeholder="Please write your password"
+            placeholder="Your password"
             placeholderTextColor="#ADB5BD"
             value={password}
             onChangeText={(text: string): void =>
@@ -217,7 +215,7 @@ const RowEditText = (): React.ReactElement => {
               setEmailErrorText('');
               setEmail(text);
             }}
-            placeholder="Please write email address."
+            placeholder="Write email address."
             keyboardType="email-address"
             onSubmitEditing={onSignIn}
             errorText={emailErrorText}
@@ -241,7 +239,7 @@ const RowEditText = (): React.ReactElement => {
               setPasswordErrorText('');
               setPassword(text);
             }}
-            placeholder="Please write password."
+            placeholder="Write password."
             secureTextEntry={true}
             onSubmitEditing={onSignIn}
             errorText={passwordErrorText}
@@ -307,7 +305,7 @@ const BoxEditText = (): React.ReactElement => {
 
   const [email, setEmail] = useState<string>('');
   const [password, setPassword] = useState<string>('');
-  const [errorEmail, setErrorEmail] = useState<string>('email error');
+  const [errorEmail, setErrorEmail] = useState<string>('');
 
   const onSignIn = (): void => {
     if (!validateEmail(email)) {
@@ -340,14 +338,16 @@ const BoxEditText = (): React.ReactElement => {
             flexDirection: 'column',
             padding: 20,
             paddingTop: 10,
-          }}>
+          }}
+        >
           <Text
             style={{
               fontWeight: 'bold',
               fontSize: 24,
               lineHeight: 35,
               color: '#495057',
-            }}>
+            }}
+          >
             Sign in with Email
           </Text>
           <EditText
@@ -357,7 +357,7 @@ const BoxEditText = (): React.ReactElement => {
               color: '#495057',
             }}
             label="Email"
-            placeholder="Write email address"
+            placeholder="Email address"
             placeholderTextColor="#ADB5BD"
             value={email}
             onChangeText={(text: string): void => onTextChanged('EMAIL', text)}
@@ -367,7 +367,9 @@ const BoxEditText = (): React.ReactElement => {
             borderStyle={{ height: 60 }}
             borderWidth={1}
             leftElement={<Image source={IC_EDIT} />}
-            rightElement={<Image source={IC_CHECK} style={{ width: 16, height: 16 }}/>}
+            rightElement={
+              <Image source={IC_CHECK} style={{ width: 16, height: 16 }} />
+            }
           />
           <EditText
             testID="PASSWORD_INPUT"
@@ -378,7 +380,7 @@ const BoxEditText = (): React.ReactElement => {
             }}
             secureTextEntry={true}
             label="Password"
-            placeholder="Please write your password"
+            placeholder="Write your password"
             placeholderTextColor="#ADB5BD"
             value={password}
             onChangeText={(text: string): void =>
@@ -447,7 +449,7 @@ const BoxRowEditText = (): React.ReactElement => {
 
   const [email, setEmail] = useState<string>('');
   const [password, setPassword] = useState<string>('');
-  const [errorEmail, setErrorEmail] = useState<string>('email error');
+  const [errorEmail, setErrorEmail] = useState<string>('');
 
   const onSignIn = (): void => {
     if (!validateEmail(email)) {
@@ -497,7 +499,7 @@ const BoxRowEditText = (): React.ReactElement => {
               color: '#495057',
             }}
             label="Email"
-            placeholder="Write email address"
+            placeholder="Eail address"
             placeholderTextColor="#ADB5BD"
             value={email}
             onChangeText={(text: string): void => onTextChanged('EMAIL', text)}
@@ -515,7 +517,7 @@ const BoxRowEditText = (): React.ReactElement => {
             }}
             secureTextEntry={true}
             label="Password"
-            placeholder="Please write your password"
+            placeholder="Write your password"
             placeholderTextColor="#ADB5BD"
             value={password}
             onChangeText={(text: string): void =>
