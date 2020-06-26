@@ -1,7 +1,7 @@
 {
   "scripts": {
     "pre": "lerna clean --yes && lerna bootstrap && lerna run build",
-    "postinstall": "dooboolab-welcome postinstall && cp -R .storybook storybook",
+    "postinstall": "dooboolab-welcome postinstall && rm -rf storybook && cp -R .storybook storybook",
     "publish": "yarn build && cd lib && npm publish && cd ..",
     "publish:packages": "yarn pre && yarn build-packages && lerna exec -- npm publish",
     "lint": "eslint main packages stories --ext .ts,.tsx,.js,.jsx",
@@ -12,7 +12,7 @@
     "web": "start-storybook -p 6006",
     "eject": "expo eject",
     "test": "lerna run build && yarn lint && yarn tsc && jest",
-    "build": "tsc --project tsconfigBuild.json",
+    "build": "cp README.md ./lib/README.md && tsc --project tsconfigBuild.json",
     "postbuild": "cp -r main/__assets__ lib/__assets__",
     "build-storybook": "build-storybook",
     "build-packages": "lerna exec -- yarn build",
