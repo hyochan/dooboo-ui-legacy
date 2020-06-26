@@ -11,7 +11,7 @@ import styled from 'styled-components/native';
 
 const StyledButton = styled.View`
   align-self: center;
-  /* width: 320px; */
+  width: 320px;
   height: 52px;
   border-color: blue;
   align-items: center;
@@ -21,7 +21,7 @@ const StyledButton = styled.View`
 
 const StyledDisabled = styled(StyledButton)`
   background-color: #cccccc;
-  border-color: rgb(200,200,200);
+  border-color: rgb(200, 200, 200);
 `;
 
 const StyledText = styled.Text`
@@ -72,29 +72,17 @@ function Button(props: Props): React.ReactElement {
 
   if (isDisabled) {
     return (
-      <StyledDisabled
-        testID={testID}
-        style={[
-          containerStyle,
-          disabledStyle,
-        ]}
-      >
-        <StyledDisabledText
-          style={[textStyle, disabledTextStyle]}
-        >{text}</StyledDisabledText>
+      <StyledDisabled testID={testID} style={[containerStyle, disabledStyle]}>
+        <StyledDisabledText style={[textStyle, disabledTextStyle]}>
+          {text}
+        </StyledDisabledText>
       </StyledDisabled>
     );
   }
   if (isLoading) {
     return (
-      <StyledButton testID={testID} style={[
-        containerStyle,
-        style,
-      ]}>
-        <ActivityIndicator
-          size="small"
-          color={indicatorColor}
-        />
+      <StyledButton testID={testID} style={[containerStyle, style]}>
+        <ActivityIndicator size="small" color={indicatorColor} />
       </StyledButton>
     );
   }
@@ -105,8 +93,7 @@ function Button(props: Props): React.ReactElement {
       onPress={onPress}
       style={containerStyle}
       delayPressIn={30}
-      {...touchableOpacityProps}
-    >
+      {...touchableOpacityProps}>
       <StyledButton style={style}>
         {leftElement || null}
         <StyledText style={textStyle}>{text}</StyledText>

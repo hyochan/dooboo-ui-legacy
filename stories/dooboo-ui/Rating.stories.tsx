@@ -70,8 +70,4 @@ storiesOf('Rating', module)
     <>
       <Default />
     </>
-  )).add('imgVersion', () => (
-    <>
-      <Default />
-    </>
   ));

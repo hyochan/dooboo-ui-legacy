@@ -57,7 +57,12 @@ function Default(): React.ReactElement {
             selectedValue={controllable}
             onPress={setControllable}
             color={color('color1', 'red', groupId)}
-            labelPlacement={select('labelPlacement1', ['start', 'top', 'bottom', 'end'], 'start', groupId)}
+            labelPlacement={select(
+              'labelPlacement1',
+              ['start', 'top', 'bottom', 'end'],
+              'start',
+              groupId,
+            )}
             size={number('size', 20, { min: 0 }, groupId)}
             disabled={boolean('disabled', false, groupId)}
             selected={boolean('selected', false, groupId)}
@@ -208,13 +213,9 @@ toStorybook.story = {
 /**
  * Below are stories for app
  */
-storiesOf('LoadingIndicator', module)
+storiesOf('RadioButton', module)
   .addDecorator(ContainerDeco)
   .add('default', () => (
-    <>
-      <Default />
-    </>
-  )).add('imgVersion', () => (
     <>
       <Default />
     </>

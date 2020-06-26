@@ -18,7 +18,7 @@
 [![codecov](https://codecov.io/gh/dooboolab/dooboo-ui/branch/master/graph/badge.svg)](https://codecov.io/gh/dooboolab/dooboo-ui)
 ![License](http://img.shields.io/npm/l/dooboo-ui.svg?style=flat-square)
 
-We currently love [react-hooks](https://code.fb.com/open-source/react-hooks) and willing to share our [react-native](https://facebook.github.io/react-native) widgets built in [Functional Component](https://logrocket.com/blog/pure-functional-components) using hooks.
+We love [react-hooks](https://code.fb.com/open-source/react-hooks) and willing to share our [react-native](https://facebook.github.io/react-native) ui components built in [functional components](https://logrocket.com/blog/pure-functional-components) using hooks. Also the `dooboo-ui` is built on top of our favorite stacks like [styled-components], [typescript], [jest](https://jestjs.io), [react-testing-library](https://testing-library.com/docs/react-testing-library/intro), [expo](https://expo.io), [storybook](https://storybook.js.org), and so on.
 
 ## Contributing to `dooboo-ui`
 
@@ -29,21 +29,20 @@ We currently love [react-hooks](https://code.fb.com/open-source/react-hooks) and
   - dooboolab's [code of conduct](https://github.com/dooboolab/dooboolab.com/blob/master/code-of-conduct.md)
 - [Contributing](CONTRIBUTING.md)
   - Please run `yarn pre` so that the packages are prepared.
-    - If you are having trouble try to run `yarn install-packages`.
-  - Try to make good `shared` component and test it in `storybook` or in `sample` screen. Then it's all good to go for `pull request`. Give it a try :blossom:.
-- While implementing [Shared] component you should run `yarn watch` in order to build typescript file dynamically while developing. This is currently the best solution to sync with your typescript code using `package.json`. If you find something more efficient, please give a pull request.
+    - If you are having trouble, try to run `yarn install-packages`.
+  - Try to make awesome UI components and test them in `storybook`. Ensure to test in platforms we provide which are `iOS`, `android` and `web`. Then it's all good to go for `pull request`. Give it a try :blossom:.
+- While implementing UI components you should run `yarn watch` in order to build typescript files dynamically while implementing. This is currently the best solution to sync with your typescript code using `package.json`. If you find something more efficient, please give a pull request.
 
 ## Usage
 
-You can use all components in `dooboo-ui` by importing it. However, we also support individual imports using seperate installation.
-
-If you want to use only `SwitchToggle`, you can install it by running `yarn add dooboo-ui-switch-toggle` or `npm install`.
+We aim to support `react-native` ui components in all platforms and we are currently targeting `iOS`, `android` and `web`. If you read [issue on plan for unifying dooboo-ui](https://github.com/dooboolab/dooboo-ui/issues/194), you can see in more detail how we want to drive this project.
 
 ## Compatability
+
 | package           | version |
 |-------------------|---------|
 | react             | >=16.9  |
-| react-native      | >=0.59  |
+| react-native      | >=0.58  |
 | styled-components | >=4.4.0 |
 
 ## List of components in `dooboo-ui`
@@ -58,6 +57,8 @@ If you want to use only `SwitchToggle`, you can install it by running `yarn add 
 - [SearchInput](https://github.com/dooboolab/dooboo-ui/tree/master/main/SearchInput)
 - [Slider](https://github.com/dooboolab/dooboo-ui/tree/master/main/Slider)
 - [SwitchToggle](https://github.com/dooboolab/dooboo-ui/tree/master/main/SwitchToggle)
+
+> You can use most light weight components in `dooboo-ui` by importing it which are listed above. However, we also support individual imports using seperate installation which are more UI heavy. Those packages start with `@dooboo-ui/*` like `@dooboo-ui/gifted-chat` and is listed below.
 
 ## List of independent components in `@dooboo-ui/*`
 

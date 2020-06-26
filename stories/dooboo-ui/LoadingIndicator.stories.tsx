@@ -30,7 +30,9 @@ function Default(): React.ReactElement {
 function ImgVersion(): React.ReactElement {
   return (
     <Container>
-      <LoadingIndicator imgSource="https://user-images.githubusercontent.com/31176502/71331734-ca61d800-2576-11ea-8934-6a260a1d714e.gif" containerStyle={{ backgroundColor: 'white' }} />
+      <LoadingIndicator
+        imgSource="https://user-images.githubusercontent.com/31176502/71331734-ca61d800-2576-11ea-8934-6a260a1d714e.gif"
+        containerStyle={{ backgroundColor: 'white' }} />
       <StyledText>Loading ... </StyledText>
     </Container>
   );
@@ -40,7 +42,7 @@ function ImgVersion(): React.ReactElement {
  * Below are stories for web
  */
 export default {
-  title: 'EditText',
+  title: 'LoadingIndicator',
 };
 
 export const toStorybook = (): ReactElement => <Default />;

@@ -1,4 +1,4 @@
-import { Animated, Easing } from 'react-native';
+import { Animated, Easing, Platform } from 'react-native';
 import React, { useState } from 'react';
 
 import styled from 'styled-components/native';
@@ -56,14 +56,11 @@ const SCInputRow = styled.TouchableOpacity<IInputRowProps>`
   padding: 8px 0;
 `;
 
-const SCOuterCircle = styled.View.attrs(
-  ({ borderRadius, borderWidth }: ICircleProps) => ({
-    borderRadius,
-    borderWidth,
-  }),
-)<ICircleProps>`
-  width: ${({ size }): string => size.toString()}px;
-  height: ${({ size }): string => size.toString()}px;
+const SCOuterCircle = styled.View<ICircleProps>`
+  border-radius: ${({ borderRadius }): number => borderRadius}px;
+  border-width: ${({ borderWidth }): number => borderWidth}px;
+  width: ${({ size }): number => size}px;
+  height: ${({ size }): number => size}px;
   border-color: ${({ color }): string => color};
   align-items: center;
   justify-content: center;
@@ -78,9 +75,9 @@ const getCircleStyles = (size: number, color: string): ICircleProps => {
   return {
     color,
     size,
-    innerSize: Math.round(size / 2),
-    borderRadius: Math.round(size / 2),
-    borderWidth: Math.round(size / 10),
+    innerSize: size / 2 - size / 8,
+    borderRadius: size / 2,
+    borderWidth: size / 6,
   };
 };
 
@@ -99,7 +96,7 @@ const InnerCircleAnim = ({
       },
       easing: Easing.ease,
       duration: 80,
-      useNativeDriver: true,
+      useNativeDriver: Platform.OS === 'android',
     }).start();
   }, []);
 
@@ -142,8 +139,7 @@ function RadioButton(props: RadioButtonProps): React.ReactElement {
       activeOpacity={1}
       disabled={disabled}
       isLabelColumn={isLabelColumn}
-      onPress={(): void => onPress?.(value)}
-    >
+      onPress={(): void => onPress?.(value)}>
       {isLabelFront && <SCLabelText disabled={disabled}>{label}</SCLabelText>}
       <SCOuterCircle {...circleStyles}>
         {isSelected && <InnerCircleAnim {...circleStyles} />}
