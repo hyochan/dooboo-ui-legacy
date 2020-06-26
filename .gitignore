@@ -23,4 +23,4 @@ packages/*/lib
 storybook
 
 #Coverage
-Coverage
+coverage
