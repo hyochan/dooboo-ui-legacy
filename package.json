@@ -14,7 +14,8 @@
     "postbuild": "cp -r main/__assets__ lib/__assets__",
     "build-storybook": "build-storybook",
     "build-packages": "lerna exec -- yarn build",
-    "install-packages": "lerna exec -- yarn"
+    "install-packages": "lerna exec -- yarn",
+    "upgrade-packages": "lerna exec -- ncu -u && yarn install-packages"
   },
   "dependencies": {
     "dooboolab-welcome": "^1.2.0",
