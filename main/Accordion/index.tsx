@@ -1,11 +1,11 @@
 import React, { FC } from 'react';
 import AccrordionItem from './AccordionItem';
+import { ViewStyle } from 'react-native';
 import styled from 'styled-components/native';
 
 const Container = styled.View`
   flex-direction: column;
   align-items: center;
-  justify-content: center;
 `;
 
 type ItemType = {
@@ -16,18 +16,26 @@ type ItemType = {
 interface Props {
   data: Array<ItemType>;
   isAnimated?: boolean;
-  collapsedWhenRedered: boolean;
+  collapsedWhenRendered: boolean;
   animDuration?: number;
   activeOpacity?: number;
+  customTitleStyle?: ViewStyle;
+  customItemStyle?: ViewStyle;
+  titleElementLeft?: React.ReactElement;
+  itemBodyElementLeft?: React.ReactElement;
 }
 
 const Accordion: FC<Props> = (props) => {
   const {
     data,
     isAnimated,
-    collapsedWhenRedered,
+    collapsedWhenRendered,
     animDuration,
     activeOpacity,
+    customTitleStyle,
+    customItemStyle,
+    titleElementLeft,
+    itemBodyElementLeft,
   } = props;
 
   return (
@@ -36,12 +44,17 @@ const Accordion: FC<Props> = (props) => {
         data.map((itemData, idx) => {
           return (
             <AccrordionItem
+              testID={`${idx}`}
               key={idx}
               itemData={itemData}
               isAnimated={isAnimated}
-              collapsedWhenRedered={collapsedWhenRedered}
+              collapsedWhenRendered={collapsedWhenRendered}
               animDuration={animDuration}
               activeOpacity={activeOpacity}
+              customTitleStyle={customTitleStyle}
+              customItemStyle={customItemStyle}
+              titleElementLeft={titleElementLeft}
+              itemBodyElementLeft={itemBodyElementLeft}
             />
           );
         })

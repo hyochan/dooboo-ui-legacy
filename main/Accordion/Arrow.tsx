@@ -3,14 +3,14 @@ import React from 'react';
 import { View } from 'react-native';
 
 interface Props {
-  arrowPosition: string;
+  arrowDirection: string;
 }
 
 export default function Arrow(props: Props): React.ReactElement {
   return (
     <View
       style={
-        props.arrowPosition === 'up' && { transform: [{ rotate: '180deg' }] }
+        props.arrowDirection === 'up' && { transform: [{ rotate: '180deg' }] }
       }>
       <Svg height="20" width="20" viewBox="0 0 20 20">
         <Line
