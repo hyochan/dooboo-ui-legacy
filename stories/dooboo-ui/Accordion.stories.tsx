@@ -2,7 +2,6 @@ import React, { ReactElement } from 'react';
 
 import Accordion from '../../main/Accordion';
 import { ContainerDeco } from '../../storybook/decorators';
-import { Text } from 'react-native';
 import { storiesOf } from '@storybook/react-native';
 import styled from 'styled-components/native';
 
@@ -40,7 +39,7 @@ const Default = (): React.ReactElement => {
       <Accordion
         data={accordionData}
         isAnimated={true}
-        collapsedWhenRendered={false}
+        collapseOnStart={false}
         animDuration={300}
         activeOpacity={1}
       />
@@ -69,21 +68,21 @@ const CanAddElement = (): React.ReactElement => {
       <Accordion
         data={accordionData}
         isAnimated={true}
-        collapsedWhenRendered={false}
+        collapseOnStart={false}
         animDuration={300}
         activeOpacity={1}
-        customTitleStyle={{
+        titleStyle={{
           backgroundColor: 'black',
         }}
-        customItemStyle={{
+        itemStyle={{
           backgroundColor: 'white',
         }}
-        titleElementLeft={
+        itemTitleLeft={
           <StlyedImage
             source={require('../assets/images/dummy_image_1.jpg')}
           />
         }
-        itemBodyElementLeft={
+        itemBodyLeft={
           <StlyedImage
             source={require('../assets/images/dummy_image_1.jpg')}
           />
