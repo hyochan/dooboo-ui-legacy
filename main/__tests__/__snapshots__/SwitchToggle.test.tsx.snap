@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`[SwitchToggle] should render without crashing 1`] = `
-<TouchableOpacity
+<
   activeOpacity={0.5}
   onPress={[Function]}
 >
@@ -44,5 +44,5 @@ exports[`[SwitchToggle] should render without crashing 1`] = `
       <Text />
     </View>
   </View>
-</TouchableOpacity>
+</>
 `;

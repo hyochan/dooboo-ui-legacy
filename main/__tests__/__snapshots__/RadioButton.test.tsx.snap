@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`[RadioButton] render [RadioButton] Interaction should simulate props 1`] = `
-<TouchableOpacity
+<
   activeOpacity={1}
   disabled={false}
   isLabelColumn={true}
@@ -67,11 +67,11 @@ exports[`[RadioButton] render [RadioButton] Interaction should simulate props 1`
       }
     />
   </View>
-</TouchableOpacity>
+</>
 `;
 
 exports[`[RadioButton] render [RadioButton] Interaction should simulate props 2`] = `
-<TouchableOpacity
+<
   activeOpacity={1}
   disabled={true}
   isLabelColumn={false}
@@ -137,11 +137,11 @@ exports[`[RadioButton] render [RadioButton] Interaction should simulate props 2`
   >
     
   </Text>
-</TouchableOpacity>
+</>
 `;
 
 exports[`[RadioButton] render [RadioButton] Interaction should simulate props 3`] = `
-<TouchableOpacity
+<
   activeOpacity={1}
   disabled={false}
   isLabelColumn={false}
@@ -196,11 +196,11 @@ exports[`[RadioButton] render [RadioButton] Interaction should simulate props 3`
   >
     
   </Text>
-</TouchableOpacity>
+</>
 `;
 
 exports[`[RadioButton] render renders without crashing 1`] = `
-<TouchableOpacity
+<
   activeOpacity={1}
   disabled={false}
   isLabelColumn={false}
@@ -266,5 +266,5 @@ exports[`[RadioButton] render renders without crashing 1`] = `
   >
     
   </Text>
-</TouchableOpacity>
+</>
 `;

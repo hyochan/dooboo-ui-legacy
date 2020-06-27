@@ -15,7 +15,7 @@ exports[`[Rating] render [Rating] Interaction should simulate props 1`] = `
     ]
   }
 >
-  <TouchableOpacity
+  <
     activeOpacity={1}
     onPress={[Function]}
     style={
@@ -43,7 +43,7 @@ exports[`[Rating] render [Rating] Interaction should simulate props 1`] = `
         ]
       }
     />
-  </TouchableOpacity>
+  </>
 </View>
 `;
 
@@ -63,7 +63,7 @@ exports[`[Rating] render [Rating] Interaction should simulate props 2`] = `
     ]
   }
 >
-  <TouchableOpacity
+  <
     activeOpacity={1}
     onPress={[Function]}
     style={
@@ -91,7 +91,7 @@ exports[`[Rating] render [Rating] Interaction should simulate props 2`] = `
         ]
       }
     />
-  </TouchableOpacity>
+  </>
 </View>
 `;
 
@@ -110,7 +110,7 @@ exports[`[Rating] render renders without crashing 1`] = `
     ]
   }
 >
-  <TouchableOpacity
+  <
     activeOpacity={1}
     onPress={[Function]}
     style={
@@ -138,6 +138,6 @@ exports[`[Rating] render renders without crashing 1`] = `
         ]
       }
     />
-  </TouchableOpacity>
+  </>
 </View>
 `;

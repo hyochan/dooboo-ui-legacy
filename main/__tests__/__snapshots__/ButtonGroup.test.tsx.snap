@@ -16,8 +16,7 @@ exports[`[ButtonGroup] render renders without crashing 1`] = `
     }
   }
 >
-  <TouchableOpacity
-    activeOpacity={0.2}
+  <
     onPress={[Function]}
     style={
       Object {
@@ -53,9 +52,8 @@ exports[`[ButtonGroup] render renders without crashing 1`] = `
         option 1
       </Text>
     </View>
-  </TouchableOpacity>
-  <TouchableOpacity
-    activeOpacity={0.2}
+  </>
+  <
     onPress={[Function]}
     style={
       Object {
@@ -91,6 +89,6 @@ exports[`[ButtonGroup] render renders without crashing 1`] = `
         option 2
       </Text>
     </View>
-  </TouchableOpacity>
+  </>
 </View>
 `;
