@@ -17,26 +17,26 @@ type ItemType = {
 interface Props {
   data: Array<ItemType>;
   isAnimated?: boolean;
-  collapsedWhenRendered: boolean;
+  collapseOnStart: boolean;
   animDuration?: number;
   activeOpacity?: number;
-  customTitleStyle?: ViewStyle;
-  customItemStyle?: ViewStyle;
-  titleElementLeft?: React.ReactElement;
-  itemBodyElementLeft?: React.ReactElement;
+  titleStyle?: ViewStyle;
+  itemStyle?: ViewStyle;
+  itemTitleLeft?: React.ReactElement;
+  itemBodyLeft?: React.ReactElement;
 }
 
 const Accordion: FC<Props> = (props) => {
   const {
     data,
-    isAnimated,
-    collapsedWhenRendered,
+    isAnimated: shouldAnimate,
+    collapseOnStart,
     animDuration,
     activeOpacity,
-    customTitleStyle,
-    customItemStyle,
-    titleElementLeft,
-    itemBodyElementLeft,
+    titleStyle,
+    itemStyle,
+    itemTitleLeft,
+    itemBodyLeft,
   } = props;
 
   return (
@@ -48,14 +48,14 @@ const Accordion: FC<Props> = (props) => {
               testID={`${idx}`}
               key={idx}
               itemData={itemData}
-              isAnimated={isAnimated}
-              collapsedWhenRendered={collapsedWhenRendered}
+              shouldAnimate={shouldAnimate}
+              collapseOnStart={collapseOnStart}
               animDuration={animDuration}
               activeOpacity={activeOpacity}
-              customTitleStyle={customTitleStyle}
-              customItemStyle={customItemStyle}
-              titleElementLeft={titleElementLeft}
-              itemBodyElementLeft={itemBodyElementLeft}
+              titleStyle={titleStyle}
+              itemStyle={itemStyle}
+              itemTitleLeft={itemTitleLeft}
+              itemBodyLeft={itemBodyLeft}
             />
           );
         })

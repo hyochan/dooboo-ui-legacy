@@ -9,8 +9,8 @@
 |                      | necessary | types                  | default       |
 | -------------------- | --------- | ---------------------- | ------------- |
 | data                 | ✓         | array                  | `Default Data`|
-| isAnimated           |           | boolean                | `true`        |
-| collapsedWhenRedered |           | boolean                | `false`       |
+| shouldAnimate        |           | boolean                | `true`        |
+| collapseOnStart      |           | boolean                | `false`       |
 | animDuration         |           | number                 | `300`         |
 | activeOpacity        |           | number                 | `1`           |
 
@@ -34,11 +34,11 @@ yarn add @dooboo-ui/core
   state = {
     Data = [
       {
-        itemTitle: '커스텀 패널',
+        itemTitle: 'Custom Panel',
         itemBodies: [
-          '패널 커스텀',
-          '패널 커스텀',
-          '패널 커스텀',
+          'Custom Panel',
+          'Custom Panel',
+          'Custom Panel',
         ],
       },
       {
@@ -67,8 +67,8 @@ yarn add @dooboo-ui/core
   ```tsx
   <Accordion
     data={accordionData}
-    isAnimated={true}
-    collapsedWhenRedered={false}
+    shouldAnimate={true}
+    collapseWhenReders={false}
     animDuration={300}
     activeOpacity={1}
   />

@@ -11,6 +11,12 @@ import React, { FC, useEffect, useRef, useState } from 'react';
 import Arrow from './Arrow';
 import styled from 'styled-components/native';
 
+const Container = styled.View`
+  background-color: transparent;
+  overflow: hidden;
+  width: 300px;
+`;
+
 const TitleContainer = styled.TouchableOpacity`
   flex-direction: row;
   align-items: center;
@@ -18,10 +24,10 @@ const TitleContainer = styled.TouchableOpacity`
   background-color: #141414;
   padding-left: 40px;
   padding-right: 20px;
-  width: 388px;
   height: 50px;
   border-bottom-width: 1px;
   border-bottom-color: white;
+  z-index: 10;
 `;
 
 const StyledItem = styled.View`
@@ -39,153 +45,135 @@ type ItemType = {
   itemBodies: Array<string>;
 };
 
-type LayoutProps = {
-  value: number;
-  mounted: boolean;
-};
-
-type ItemVisibleState = {
-  value: boolean;
-};
-
 interface Props {
   testID: string;
   itemData: ItemType;
-  isAnimated?: boolean;
-  collapsedWhenRendered: boolean;
+  shouldAnimate?: boolean;
+  collapseOnStart: boolean;
   animDuration?: number;
   activeOpacity?: number;
-  customTitleStyle?: ViewStyle;
-  customItemStyle?: ViewStyle;
-  titleElementLeft?: React.ReactElement;
-  itemBodyElementLeft?: React.ReactElement;
+  titleStyle?: ViewStyle;
+  itemStyle?: ViewStyle;
+  itemTitleLeft?: React.ReactElement;
+  itemBodyLeft?: React.ReactElement;
 }
 
 const AccordionItem: FC<Props> = (props) => {
   const {
     testID,
     itemData,
-    isAnimated,
-    collapsedWhenRendered,
+    shouldAnimate,
+    collapseOnStart,
     animDuration,
     activeOpacity,
-    customTitleStyle,
-    customItemStyle,
-    titleElementLeft,
-    itemBodyElementLeft,
+    titleStyle,
+    itemStyle,
+    itemTitleLeft,
+    itemBodyLeft,
   } = props;
 
   const animValue = useRef(new Animated.Value(1000)).current;
 
-  const [itemVisibleState, setItemVisibleState] = useState<ItemVisibleState>({
-    value: collapsedWhenRendered,
-  });
+  const [isItemVisible, setItemVisible] = useState<boolean>(collapseOnStart);
+  const [isBodyMounted, setBodyMounted] = useState<boolean>(false);
 
-  const [itemTitleHeight, setItemTitleHeight] = useState<LayoutProps>({
-    value: 0,
-    mounted: false,
-  });
-
-  const [itemBodyHeight, setItemBodyHeight] = useState<LayoutProps>({
-    value: 0,
-    mounted: false,
-  });
+  const [bodyHeight, setBodyHeight] = useState<number>(0);
 
   const [arrowDirection, setarrowDirection] = useState('down');
 
-  const handleTitleLayout = (e: LayoutChangeEvent): void => {
-    if (itemTitleHeight.mounted && Platform.OS === 'ios') return;
-    const { height } = e.nativeEvent.layout;
-    setItemTitleHeight({
-      value: height,
-      mounted: true,
-    });
-  };
-
   const handleBodyLayout = (e: LayoutChangeEvent): void => {
-    if (itemBodyHeight.mounted && Platform.OS === 'ios') return;
+    if (isBodyMounted && Platform.OS === 'ios') return;
     const { height } = e.nativeEvent.layout;
-    setItemBodyHeight({
-      value: height,
-      mounted: true,
-    });
+
+    setBodyMounted(true);
+    setBodyHeight(height);
   };
 
   const handleVisibleState = (): void => {
-    setItemVisibleState({
-      value: !itemVisibleState.value,
-    });
+    setItemVisible(!isItemVisible);
   };
 
   useEffect((): void => {
-    if (itemTitleHeight.mounted && itemBodyHeight.mounted) {
+    if (isBodyMounted) {
       animValue.setValue(
-        itemVisibleState.value
-          ? itemTitleHeight.value + itemBodyHeight.value
-          : itemTitleHeight.value,
+        isItemVisible
+          ? bodyHeight
+          : 0,
       );
     }
-  }, [itemTitleHeight.mounted, itemBodyHeight.mounted]);
+  }, [isBodyMounted]);
 
   useEffect((): void => {
-    if (itemVisibleState.value) {
+    if (isItemVisible) {
       setarrowDirection('up');
     } else setarrowDirection('down');
-  }, [itemVisibleState.value]);
+  }, [isItemVisible]);
 
   useEffect((): void => {
-    const targetValue = itemVisibleState.value
-      ? itemTitleHeight.value + itemBodyHeight.value
-      : itemTitleHeight.value;
-
-    if (isAnimated) {
+    const targetValue = isItemVisible
+      ? 1
+      : 0;
+    if (shouldAnimate) {
       Animated.timing(animValue, {
+        useNativeDriver: true,
         toValue: targetValue,
         duration: animDuration || 300,
-        useNativeDriver: true,
       }).start();
       return;
     }
     animValue.setValue(targetValue);
-  }, [itemVisibleState.value]);
+  }, [isItemVisible]);
 
-  useEffect(() => {}, [itemBodyElementLeft]);
+  useEffect(() => {}, [itemBodyLeft]);
 
   return (
-    <Animated.View
-      style={{
-        transform: [{
-          translateY: animValue,
-        }],
-        backgroundColor: 'transparent',
-        overflow: 'hidden',
-      }}>
+    <Container>
       <TitleContainer
         testID={`itemTitle_${testID}`}
-        onLayout={handleTitleLayout}
         onPress={handleVisibleState}
         activeOpacity={activeOpacity}
-        style={customTitleStyle}>
-        <View>{titleElementLeft}</View>
+        style={titleStyle}
+      >
+        <View>{itemTitleLeft}</View>
         <Text style={{ fontWeight: 'bold', color: '#FFFFFF' }}>
           {itemData.itemTitle}
         </Text>
         <Arrow arrowDirection={arrowDirection} />
       </TitleContainer>
-
-      <View testID={`itemBody_${testID}`} onLayout={handleBodyLayout}>
-        {itemData.itemBodies.map((itemBody, itemBodyKey) => {
-          return (
-            <StyledItem key={itemBodyKey} style={customItemStyle}>
-              <View>{itemBodyElementLeft}</View>
-              <Text style={{ fontWeight: 'bold', color: '#141414' }}>
-                {itemBody}
-              </Text>
-            </StyledItem>
-          );
-        })}
+      <View
+        style={{
+          height: !isBodyMounted
+            ? undefined
+            : !isItemVisible
+              ? bodyHeight
+              : 0,
+        }}
+        onLayout={handleBodyLayout}
+      >
+        <Animated.View
+          testID={`itemBody_${testID}`}
+          style={{
+            transform: [{
+              translateY: animValue.interpolate({
+                inputRange: [0, 1],
+                outputRange: [0, -bodyHeight],
+              }),
+            }],
+          }}
+        >
+          {itemData.itemBodies.map((itemBody, itemBodyKey) => {
+            return (
+              <StyledItem key={itemBodyKey} style={itemStyle}>
+                <View>{itemBodyLeft}</View>
+                <Text style={{ fontWeight: 'bold', color: '#141414' }}>
+                  {itemBody}
+                </Text>
+              </StyledItem>
+            );
+          })}
+        </Animated.View>
       </View>
-    </Animated.View>
+    </Container>
   );
 };
 
