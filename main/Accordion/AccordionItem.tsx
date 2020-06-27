@@ -1,7 +1,6 @@
 import {
   Animated,
   LayoutChangeEvent,
-  Platform,
   Text,
   View,
   ViewStyle,
@@ -22,7 +21,7 @@ const TitleContainer = styled.TouchableOpacity`
   align-items: center;
   justify-content: space-between;
   background-color: #141414;
-  padding-left: 40px;
+  padding-left: 20px;
   padding-right: 20px;
   height: 50px;
   border-bottom-width: 1px;
@@ -82,7 +81,7 @@ const AccordionItem: FC<Props> = (props) => {
   const [arrowDirection, setarrowDirection] = useState('down');
 
   const handleBodyLayout = (e: LayoutChangeEvent): void => {
-    if (isBodyMounted && Platform.OS === 'ios') return;
+    if (isBodyMounted) return;
     const { height } = e.nativeEvent.layout;
 
     setBodyMounted(true);
