@@ -22,7 +22,7 @@
     "dooboolab-welcome": "^1.2.0"
   },
   "devDependencies": {
-    "styled-components": "^4.4.0",
+    "styled-components": "^5.1.1",
     "typescript": "^3.9.5"
   },
   "peerDependencies": {

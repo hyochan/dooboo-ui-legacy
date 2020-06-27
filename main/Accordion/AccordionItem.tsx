@@ -47,6 +47,7 @@ type LayoutProps = {
 type ItemVisibleState = {
   value: boolean;
 };
+
 interface Props {
   testID: string;
   itemData: ItemType;
@@ -153,7 +154,9 @@ const AccordionItem: FC<Props> = (props) => {
   return (
     <Animated.View
       style={{
-        height: animValue,
+        transform: [{
+          translateY: animValue,
+        }],
         backgroundColor: 'transparent',
         overflow: 'hidden',
       }}>

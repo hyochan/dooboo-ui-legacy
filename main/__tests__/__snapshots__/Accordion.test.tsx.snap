@@ -32,8 +32,12 @@ exports[`[Accordion] render test should operate animation when isAnimated is tru
         style={
           Object {
             "backgroundColor": "transparent",
-            "height": 0,
             "overflow": "hidden",
+            "transform": Array [
+              Object {
+                "translateY": 0,
+              },
+            ],
           }
         }
       >
@@ -233,8 +237,12 @@ exports[`[Accordion] render test should operate animation when isAnimated is tru
         style={
           Object {
             "backgroundColor": "transparent",
-            "height": 0,
             "overflow": "hidden",
+            "transform": Array [
+              Object {
+                "translateY": 0,
+              },
+            ],
           }
         }
       >
@@ -497,8 +505,12 @@ exports[`[Accordion] render test should render collapsed when collapsedWhenRende
         style={
           Object {
             "backgroundColor": "transparent",
-            "height": 0,
             "overflow": "hidden",
+            "transform": Array [
+              Object {
+                "translateY": 0,
+              },
+            ],
           }
         }
       >
@@ -698,8 +710,12 @@ exports[`[Accordion] render test should render collapsed when collapsedWhenRende
         style={
           Object {
             "backgroundColor": "transparent",
-            "height": 0,
             "overflow": "hidden",
+            "transform": Array [
+              Object {
+                "translateY": 0,
+              },
+            ],
           }
         }
       >
@@ -962,8 +978,12 @@ exports[`[Accordion] render test should render without crasing 1`] = `
         style={
           Object {
             "backgroundColor": "transparent",
-            "height": 0,
             "overflow": "hidden",
+            "transform": Array [
+              Object {
+                "translateY": 0,
+              },
+            ],
           }
         }
       >
@@ -1163,8 +1183,12 @@ exports[`[Accordion] render test should render without crasing 1`] = `
         style={
           Object {
             "backgroundColor": "transparent",
-            "height": 0,
             "overflow": "hidden",
+            "transform": Array [
+              Object {
+                "translateY": 0,
+              },
+            ],
           }
         }
       >
