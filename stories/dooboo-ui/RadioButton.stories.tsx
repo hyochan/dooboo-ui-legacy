@@ -202,26 +202,26 @@ function LabelPlacement(): React.ReactElement {
   );
 }
 
+/**
+ * Below are stories for web
+ */
+export default {
+  title: 'RadioButton',
+};
 export const toStorybook = (): ReactElement => <Normal />;
+export const toStorybook2 = (): ReactElement => <StandAlone />;
+export const toStorybook3 = (): ReactElement => <LabelPlacement />;
+export const toStorybook4 = (): ReactElement => <Controllable />;
 
 toStorybook.story = {
   name: 'Normal',
 };
-
-export const toStorybook2 = (): ReactElement => <StandAlone />;
-
 toStorybook2.story = {
   name: 'StandAlone',
 };
-
-export const toStorybook3 = (): ReactElement => <LabelPlacement />;
-
 toStorybook3.story = {
   name: 'LabelPlacement',
 };
-
-export const toStorybook4 = (): ReactElement => <Controllable />;
-
 toStorybook4.story = {
   name: 'Controllable',
 };
