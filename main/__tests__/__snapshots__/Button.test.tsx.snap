@@ -1,8 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`[Button] should render without crashing 1`] = `
-<TouchableOpacity
-  activeOpacity={0.2}
+<
   delayPressIn={30}
 >
   <View
@@ -31,5 +30,5 @@ exports[`[Button] should render without crashing 1`] = `
       }
     />
   </View>
-</TouchableOpacity>
+</>
 `;
