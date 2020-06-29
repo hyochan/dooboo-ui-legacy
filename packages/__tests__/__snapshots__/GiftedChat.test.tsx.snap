@@ -69,7 +69,6 @@ exports[`[GiftedChatInput] render renders without crashing 1`] = `
     initialNumToRender={10}
     keyExtractor={[Function]}
     maxToRenderPerBatch={10}
-    numColumns={1}
     onContentSizeChange={[Function]}
     onEndReachedThreshold={2}
     onLayout={[Function]}
@@ -160,8 +159,7 @@ exports[`[GiftedChatInput] render renders without crashing 1`] = `
       underlineColorAndroid="transparent"
       value=""
     />
-    <TouchableOpacity
-      activeOpacity={0.2}
+    <
       onPress={[Function]}
       style={
         Array [
@@ -177,7 +175,7 @@ exports[`[GiftedChatInput] render renders without crashing 1`] = `
       testID="touch_menu"
     >
       <View />
-    </TouchableOpacity>
+    </>
     <View
       style={
         Object {
