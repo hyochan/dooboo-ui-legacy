@@ -11,6 +11,7 @@ const groupId = 'RadioButton';
 
 const Container = styled.SafeAreaView`
   flex: 1;
+  min-width: 300;
 `;
 
 const Title = styled.Text`
@@ -30,12 +31,6 @@ const Divider = styled.View`
   margin: 10px;
   border: 0.5px solid lightgray;
 `;
-
-storiesOf('RadioButton', module).add('default', () => (
-  <>
-    <Default />
-  </>
-));
 
 function Default(): React.ReactElement {
   const [selectedGender, setSelectedGender] = React.useState('female');
