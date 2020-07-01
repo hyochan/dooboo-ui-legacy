@@ -235,7 +235,7 @@ const CustomStyle = (): React.ReactElement => {
         animDuration={300}
         activeOpacity={1}
         accordionItemStyle={{
-          width: 400,
+          width: 350,
         }}
         titleStyle={{
           backgroundColor: 'gray',
