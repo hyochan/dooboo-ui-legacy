@@ -1,14 +1,13 @@
 import {
   Animated,
   LayoutChangeEvent,
-  View,
   ViewStyle,
 } from 'react-native';
 import React, { FC, useCallback, useEffect, useRef, useState } from 'react';
 import styled from 'styled-components/native';
 
 const Container = styled.View`
-  background-color: transparent;
+  background-color: transparent; 
   overflow: hidden;
   width: 300px;
 `;
