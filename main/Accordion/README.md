@@ -6,13 +6,18 @@
 
 ## Props
 
-|                      | necessary | types                  | default       |
-| -------------------- | --------- | ---------------------- | ------------- |
-| data                 | ✓         | array                  | `Default Data`|
-| shouldAnimate        |           | boolean                | `true`        |
-| collapseOnStart      |           | boolean                | `false`       |
-| animDuration         |           | number                 | `300`         |
-| activeOpacity        |           | number                 | `1`           |
+|                      | necessary | types                  | default               |
+| -------------------- | --------- | ---------------------- | ----------------------|
+| data                 | ✓         | array                  | `Default Data`        |
+| isAnimated           |           | boolean                | `true`                |
+| collapseOnStart      |           | boolean                | `false`               |
+| animDuration         |           | number                 | `300`                 |
+| activeOpacity        |           | number                 | `1`                   |
+| toggleElement        |           | React.ReactElement     | `default arrow image` |
+| accordionItemStyle   |           | ViewStyle              | ``                    |
+| titleStyle           |           | ViewStyle              | ``                    |
+| titleStyle           |           | ViewStyle              | ``                    |
+
 
 ## Installation
 
@@ -32,43 +37,43 @@ yarn add @dooboo-ui/core
 
   ```javascript
   state = {
-    Data = [
-      {
-        itemTitle: 'Custom Panel',
-        itemBodies: [
-          'Custom Panel',
-          'Custom Panel',
-          'Custom Panel',
-        ],
+const data = [
+    {
+      title: {
+        name: <StyledTitle>Defualt-title-01</StyledTitle>,
       },
-      {
-        itemTitle: '판매 관리',
-        itemBodies: [
-          '판매처 관리',
-          '공급처 관리',
-          '상품 관리',
-          '재고 관리',
-        ],
+      bodies: [
+        {
+          name: <StyledItem>Default body01</StyledItem>,
+        },
+        {
+          name: <StyledItem>Default body02</StyledItem>,
+        },
+      ],
+    },
+    {
+      title: {
+        name: <StyledTitle>Defualt-title-02</StyledTitle>,
       },
-      {
-        itemTitle: '주문 배송 관리',
-        itemBodies: [
-          '주문 보기',
-          '주문 보기',
-          '주문 보기',
-          '주문 보기',
-        ],
-      },
-    ];
-  };
-  ```
+      bodies: [
+        {
+          name: <StyledItem>Default body01</StyledItem>,
+        },
+        {
+          name: <StyledItem>Default body02</StyledItem>,
+        },
+      ],
+    },
+  ];
+}
+```
 
 - Usage
   ```tsx
   <Accordion
     data={accordionData}
-    shouldAnimate={true}
-    collapseWhenReders={false}
+    isAnimate={true}
+    collapseOnStart={false}
     animDuration={300}
     activeOpacity={1}
   />

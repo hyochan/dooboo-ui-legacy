@@ -1,5 +1,4 @@
 import React, { FC } from 'react';
-
 import AccrordionItem from './AccordionItem';
 import { ViewStyle } from 'react-native';
 import styled from 'styled-components/native';
@@ -9,21 +8,33 @@ const Container = styled.View`
   align-items: center;
 `;
 
-type ItemType = {
-  itemTitle: string;
-  itemBodies: Array<string>;
-}
+type titleType = {
+  leftElement?: React.ReactElement;
+  name: React.ReactElement;
+  rightElement?: React.ReactElement;
+};
+
+type bodyType = {
+  leftElement?: React.ReactElement;
+  name: React.ReactElement;
+  rightElement?: React.ReactElement;
+};
+
+type datumType = {
+  title: titleType;
+  bodies: Array<bodyType>;
+};
 
 interface Props {
-  data: Array<ItemType>;
+  data: Array<datumType>;
   isAnimated?: boolean;
   collapseOnStart: boolean;
   animDuration?: number;
   activeOpacity?: number;
+  toggleElement?: React.ReactElement;
+  accordionItemStyle?: ViewStyle;
   titleStyle?: ViewStyle;
-  itemStyle?: ViewStyle;
-  itemTitleLeft?: React.ReactElement;
-  itemBodyLeft?: React.ReactElement;
+  bodyStyle?: ViewStyle;
 }
 
 const Accordion: FC<Props> = (props) => {
@@ -33,33 +44,31 @@ const Accordion: FC<Props> = (props) => {
     collapseOnStart,
     animDuration,
     activeOpacity,
+    toggleElement,
+    accordionItemStyle,
     titleStyle,
-    itemStyle,
-    itemTitleLeft,
-    itemBodyLeft,
+    bodyStyle,
   } = props;
 
   return (
     <Container>
-      {
-        data.map((itemData, idx) => {
-          return (
-            <AccrordionItem
-              testID={`${idx}`}
-              key={idx}
-              itemData={itemData}
-              shouldAnimate={shouldAnimate}
-              collapseOnStart={collapseOnStart}
-              animDuration={animDuration}
-              activeOpacity={activeOpacity}
-              titleStyle={titleStyle}
-              itemStyle={itemStyle}
-              itemTitleLeft={itemTitleLeft}
-              itemBodyLeft={itemBodyLeft}
-            />
-          );
-        })
-      }
+      {data.map((datum, titleKey) => {
+        return (
+          <AccrordionItem
+            testID={`${titleKey}`}
+            key={titleKey}
+            datum={datum}
+            shouldAnimate={shouldAnimate}
+            collapseOnStart={collapseOnStart}
+            animDuration={animDuration}
+            activeOpacity={activeOpacity}
+            toggleElement={toggleElement}
+            accordionItemStyle={accordionItemStyle}
+            titleStyle={titleStyle}
+            bodyStyle={bodyStyle}
+          />
+        );
+      })}
     </Container>
   );
 };

@@ -5,20 +5,38 @@ import {
   fireEvent,
   render,
 } from '@testing-library/react-native';
-
 import Accordion from '../Accordion';
+import { Text } from 'react-native';
 
 let props: any;
 let component: ReactElement;
 let testingLib: RenderResult;
 const data = [
   {
-    itemTitle: 'test data1',
-    itemBodies: ['test data', 'test data', 'test data'],
+    title: {
+      name: <Text>Defualt-title-01</Text>,
+    },
+    bodies: [
+      {
+        name: <Text>Default body01</Text>,
+      },
+      {
+        name: <Text>Default body02</Text>,
+      },
+    ],
   },
   {
-    itemTitle: 'test data2',
-    itemBodies: ['test data', 'test data', 'test data', 'test data'],
+    title: {
+      name: <Text>Defualt-title-02</Text>,
+    },
+    bodies: [
+      {
+        name: <Text>Default body01</Text>,
+      },
+      {
+        name: <Text>Default body02</Text>,
+      },
+    ],
   },
 ];
 
@@ -35,9 +53,9 @@ describe('[Accordion] render test', () => {
     expect(testingLib.baseElement).toMatchSnapshot();
   });
 
-  it('should render collapsed when collapsedWhenRendered props is false', () => {
+  it('should render collapsed when collapseOnStart props is true', () => {
     props = createTestProps({
-      collapsedWhenRendered: false,
+      collapseOnStart: true,
       data: data,
     });
     component = <Accordion {...props}/>;
@@ -46,7 +64,7 @@ describe('[Accordion] render test', () => {
     expect(testingLib.baseElement).toMatchSnapshot();
   });
 
-  it('should operate animation when isAnimated is true', () => {
+  it('should operate animation when isAnimated props is true', () => {
     jest.useFakeTimers();
     props = createTestProps({
       isAnimated: true,
@@ -55,6 +73,17 @@ describe('[Accordion] render test', () => {
     component = <Accordion {...props}/>;
     testingLib = render(component);
     jest.runAllTimers();
+
+    expect(testingLib.baseElement).toMatchSnapshot();
+  });
+
+  it('should adjust duration of animation depends on animDuration props value', () => {
+    props = createTestProps({
+      animDuration: 500,
+      data: data,
+    });
+    component = <Accordion {...props}/>;
+    testingLib = render(component);
 
     expect(testingLib.baseElement).toMatchSnapshot();
   });
@@ -69,9 +98,9 @@ describe('[Accordion] event test', () => {
     testingLib = render(component);
   });
 
-  it('should trigger onLayout event when itemTitle rendered', () => {
+  it('should trigger onLayout event when itemBody rendered', () => {
     const { getByTestId } = testingLib;
-    const itemTitle = getByTestId('itemTitle_0');
+    const itemTitle = getByTestId('body_0');
 
     act(() => {
       fireEvent.layout(itemTitle, {
@@ -84,24 +113,9 @@ describe('[Accordion] event test', () => {
     });
   });
 
-  it('should trigger onLayout event when itemBody rendered', () => {
-    const { getByTestId } = testingLib;
-    const itemBody = getByTestId('itemBody_0');
-
-    act(() => {
-      fireEvent.layout(itemBody, {
-        nativeEvent: {
-          layout: {
-            height: 300,
-          },
-        },
-      });
-    });
-  });
-
   it('should trigger press event when clicking title', () => {
     act(() => {
-      fireEvent.press(testingLib.getByTestId('itemTitle_0'));
+      fireEvent.press(testingLib.getByTestId('title_0'));
     });
   });
 });
