@@ -9,10 +9,6 @@ import styled from 'styled-components/native';
 
 const groupId = 'RadioButton';
 
-const Container = styled.SafeAreaView`
-  flex: 1;
-`;
-
 const Title = styled.Text`
   padding: 10px;
   font-size: 18px;
@@ -31,19 +27,138 @@ const Divider = styled.View`
   border: 0.5px solid lightgray;
 `;
 
-storiesOf('RadioButton', module).add('default', () => (
-  <>
-    <Default />
-  </>
-));
+const Normal = (): React.ReactElement => {
+  const [selectedGender, setSelectedGender] = React.useState<string>('');
 
-function Default(): React.ReactElement {
-  const [selectedGender, setSelectedGender] = React.useState('female');
-  const [selectedStandAlone, setSelectedStandAlone] = React.useState('1');
+  return (
+    <View>
+      <Title>Gender</Title>
+      <View>
+        <Selected>Selected: {selectedGender}</Selected>
+        <RadioButton
+          value={'female'}
+          label={'Female'}
+          color={'orange'}
+          selectedValue={selectedGender}
+          onPress={(value: string): void => setSelectedGender(value)}
+        />
+        <RadioButton
+          value={'male'}
+          label={'Male'}
+          color={'orange'}
+          selectedValue={selectedGender}
+          onPress={(value: string): void => setSelectedGender(value)}
+        />
+        <RadioButton
+          value={'other'}
+          label={'Other'}
+          color={'orange'}
+          selectedValue={selectedGender}
+          onPress={(value: string): void => setSelectedGender(value)}
+        />
+        <RadioButton
+          value={''}
+          label={'(Disabled Value)'}
+          color={'#0000ff'}
+          selectedValue={selectedGender}
+          onPress={(value: string): void => setSelectedGender(value)}
+          disabled={true}
+        />
+        <RadioButton
+          value={''}
+          label={'(Selected Disabled Value)'}
+          color={'#0000ff'}
+          selectedValue={selectedGender}
+          onPress={(value: string): void => setSelectedGender(value)}
+          disabled={true}
+          selected={true}
+        />
+      </View>
+    </View>
+  );
+};
+
+const StandAlone = (): React.ReactElement => {
+  const [selectedStandAlone, setSelectedStandAlone] = React.useState<string>('');
+
+  return (
+    <View>
+      <Title>StandAlone</Title>
+      <Selected>Selected: {selectedStandAlone}</Selected>
+      <View style={{ flexDirection: 'row', justifyContent: 'space-around' }}>
+        <RadioButton
+          value={'1'}
+          selectedValue={selectedStandAlone}
+          onPress={(value: string): void => setSelectedStandAlone(value)}
+          color={'orchid'}
+          size={18}
+        />
+        <RadioButton
+          value={'2'}
+          selectedValue={selectedStandAlone}
+          onPress={(value: string): void => setSelectedStandAlone(value)}
+          color={'mediumorchid'}
+          size={23}
+        />
+        <RadioButton
+          value={'3'}
+          selectedValue={selectedStandAlone}
+          onPress={(value: string): void => setSelectedStandAlone(value)}
+          color={'darkorchid'}
+          size={28}
+        />
+        <RadioButton
+          value={'4'}
+          selectedValue={selectedStandAlone}
+          onPress={(value: string): void => setSelectedStandAlone(value)}
+          color={'darkmagenta'}
+          size={33}
+        />
+        <RadioButton
+          value={'5'}
+          selectedValue={selectedStandAlone}
+          onPress={(value: string): void => setSelectedStandAlone(value)}
+          color={'indigo'}
+          size={38}
+        />
+      </View>
+    </View>
+  );
+};
+
+const Controllable = (): React.ReactElement => {
+  const [controllable, setControllable] = React.useState<string>('');
+
+  return (
+    <View>
+      <Title>Controllable Example(Use knobs)</Title>
+      <Selected>Selected: {controllable}</Selected>
+      <View style={{ alignItems: 'center' }}>
+        <RadioButton
+          value={text('value1', 'value1', groupId)}
+          label={text('label1', 'value1', groupId)}
+          selectedValue={controllable}
+          onPress={setControllable}
+          color={color('color1', 'red', groupId)}
+          labelPlacement={select(
+            'labelPlacement1',
+            ['start', 'top', 'bottom', 'end'],
+            'start',
+            groupId,
+          )}
+          size={number('size', 20, { min: 0 }, groupId)}
+          disabled={boolean('disabled', false, groupId)}
+          selected={boolean('selected', false, groupId)}
+        />
+      </View>
+    </View>
+  );
+};
+
+function LabelPlacement(): React.ReactElement {
   const [selectedLabelPlacement, setSelectedLabelPlacement] = React.useState(
     'top',
   );
-  const [controllable, setControllable] = React.useState<string>('');
 
   return (
     <Container>
@@ -203,11 +318,22 @@ function Default(): React.ReactElement {
 export default {
   title: 'RadioButton',
 };
-
-export const toStorybook = (): ReactElement => <Default />;
+export const toStorybook = (): ReactElement => <Normal />;
+export const toStorybook2 = (): ReactElement => <StandAlone />;
+export const toStorybook3 = (): ReactElement => <LabelPlacement />;
+export const toStorybook4 = (): ReactElement => <Controllable />;
 
 toStorybook.story = {
-  name: 'default',
+  name: 'Normal',
+};
+toStorybook2.story = {
+  name: 'StandAlone',
+};
+toStorybook3.story = {
+  name: 'LabelPlacement',
+};
+toStorybook4.story = {
+  name: 'Controllable',
 };
 
 /**
