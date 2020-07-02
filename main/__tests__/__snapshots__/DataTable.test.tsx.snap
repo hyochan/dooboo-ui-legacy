@@ -1,0 +1,4512 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`[DataTable] render test should render checkbox when isCheckAble is true 1`] = `
+<View
+  pointerEvents="box-none"
+  style={
+    Object {
+      "flex": 1,
+    }
+  }
+>
+  <View
+    collapsable={true}
+    pointerEvents="box-none"
+    style={
+      Object {
+        "flex": 1,
+      }
+    }
+  >
+    <View
+      style={
+        Array [
+          Object {
+            "borderTopLeftRadius": 4,
+            "borderTopRightRadius": 4,
+            "width": "100%",
+          },
+          Object {
+            "height": "100%",
+            "width": "100%",
+          },
+          undefined,
+        ]
+      }
+    >
+      <View
+        style={
+          Array [
+            Object {
+              "borderBottomColor": "lightgray",
+              "borderBottomWidth": 1,
+              "flexDirection": "row",
+              "height": 48,
+            },
+            Object {
+              "backgroundColor": "#f9f9f9",
+            },
+          ]
+        }
+        testID="table-header-test-id"
+      >
+        <TouchableWithoutFeedback
+          disabled={true}
+          testID="table-title-test-id"
+        >
+          <View
+            style={
+              Array [
+                Object {
+                  "alignContent": "center",
+                  "flex": 1,
+                  "flexDirection": "row",
+                  "paddingVertical": 12,
+                  "width": "100%",
+                },
+                undefined,
+                Array [
+                  false,
+                ],
+              ]
+            }
+          >
+            <Text
+              style={
+                Array [
+                  Object {
+                    "alignItems": "center",
+                    "fontSize": 12,
+                    "height": 24,
+                    "lineHeight": 24,
+                  },
+                  null,
+                ]
+              }
+            />
+          </View>
+        </TouchableWithoutFeedback>
+        <TouchableWithoutFeedback
+          disabled={false}
+          testID="table-title-test-id"
+        >
+          <View
+            style={
+              Array [
+                Object {
+                  "alignContent": "center",
+                  "flex": 1,
+                  "flexDirection": "row",
+                  "paddingVertical": 12,
+                  "width": "100%",
+                },
+                undefined,
+                Array [
+                  Object {
+                    "justifyContent": "center",
+                  },
+                  Object {
+                    "flex": 0.3,
+                  },
+                ],
+              ]
+            }
+          >
+            <Text
+              numberOfLines={1}
+              style={
+                Array [
+                  Object {
+                    "alignItems": "center",
+                    "fontSize": 12,
+                    "height": 24,
+                    "lineHeight": 24,
+                  },
+                  Object {},
+                ]
+              }
+            >
+              id
+            </Text>
+          </View>
+        </TouchableWithoutFeedback>
+        <TouchableWithoutFeedback
+          disabled={false}
+          testID="table-title-test-id"
+        >
+          <View
+            style={
+              Array [
+                Object {
+                  "alignContent": "center",
+                  "flex": 1,
+                  "flexDirection": "row",
+                  "paddingVertical": 12,
+                  "width": "100%",
+                },
+                undefined,
+                Array [
+                  Object {
+                    "justifyContent": "center",
+                  },
+                  null,
+                ],
+              ]
+            }
+          >
+            <Text
+              numberOfLines={1}
+              style={
+                Array [
+                  Object {
+                    "alignItems": "center",
+                    "fontSize": 12,
+                    "height": 24,
+                    "lineHeight": 24,
+                  },
+                  Object {},
+                ]
+              }
+            >
+              name
+            </Text>
+          </View>
+        </TouchableWithoutFeedback>
+        <TouchableWithoutFeedback
+          disabled={false}
+          testID="table-title-test-id"
+        >
+          <View
+            style={
+              Array [
+                Object {
+                  "alignContent": "center",
+                  "flex": 1,
+                  "flexDirection": "row",
+                  "paddingVertical": 12,
+                  "width": "100%",
+                },
+                undefined,
+                Array [
+                  Object {
+                    "justifyContent": "center",
+                  },
+                  null,
+                ],
+              ]
+            }
+          >
+            <Text
+              numberOfLines={1}
+              style={
+                Array [
+                  Object {
+                    "alignItems": "center",
+                    "fontSize": 12,
+                    "height": 24,
+                    "lineHeight": 24,
+                  },
+                  Object {},
+                ]
+              }
+            >
+              phoneNumber
+            </Text>
+          </View>
+        </TouchableWithoutFeedback>
+        <TouchableWithoutFeedback
+          disabled={false}
+          testID="table-title-test-id"
+        >
+          <View
+            style={
+              Array [
+                Object {
+                  "alignContent": "center",
+                  "flex": 1,
+                  "flexDirection": "row",
+                  "paddingVertical": 12,
+                  "width": "100%",
+                },
+                undefined,
+                Array [
+                  Object {
+                    "justifyContent": "center",
+                  },
+                  null,
+                ],
+              ]
+            }
+          >
+            <Text
+              numberOfLines={1}
+              style={
+                Array [
+                  Object {
+                    "alignItems": "center",
+                    "fontSize": 12,
+                    "height": 24,
+                    "lineHeight": 24,
+                  },
+                  Object {},
+                ]
+              }
+            >
+              email
+            </Text>
+          </View>
+        </TouchableWithoutFeedback>
+        <TouchableWithoutFeedback
+          disabled={false}
+          testID="table-title-test-id"
+        >
+          <View
+            style={
+              Array [
+                Object {
+                  "alignContent": "center",
+                  "flex": 1,
+                  "flexDirection": "row",
+                  "paddingVertical": 12,
+                  "width": "100%",
+                },
+                undefined,
+                Array [
+                  Object {
+                    "justifyContent": "center",
+                  },
+                  null,
+                ],
+              ]
+            }
+          >
+            <Text
+              numberOfLines={1}
+              style={
+                Array [
+                  Object {
+                    "alignItems": "center",
+                    "fontSize": 12,
+                    "height": 24,
+                    "lineHeight": 24,
+                  },
+                  Object {},
+                ]
+              }
+            >
+              nickname
+            </Text>
+          </View>
+        </TouchableWithoutFeedback>
+      </View>
+      <View
+        style={
+          Array [
+            Object {
+              "borderStyle": "solid",
+              "flex": 1,
+              "minHeight": 48,
+              "width": "100%",
+            },
+            undefined,
+            false,
+          ]
+        }
+        testID="table-row-test-id"
+      >
+        <View
+          style={
+            Object {
+              "borderBottomColor": "lightgray",
+              "borderBottomWidth": 1,
+              "flex": 1,
+              "flexDirection": "row",
+            }
+          }
+        >
+          <View
+            style={
+              Array [
+                Object {
+                  "alignItems": "center",
+                  "flex": 1,
+                  "flexDirection": "row",
+                },
+                undefined,
+                false,
+                Array [
+                  Object {
+                    "justifyContent": "center",
+                  },
+                ],
+              ]
+            }
+            testID="table-cell-test-id"
+          >
+            <Text
+              numberOfLines={1}
+            >
+              <
+                testID="checkbox-test-id"
+              >
+                <View
+                  style={
+                    Object {
+                      "flexDirection": "row",
+                    }
+                  }
+                >
+                  <View
+                    style={
+                      Array [
+                        Object {
+                          "alignItems": "center",
+                          "borderColor": "#d5d5d5",
+                          "borderRadius": 2,
+                          "borderWidth": 2,
+                          "height": 20,
+                          "justifyContent": "center",
+                          "width": 20,
+                        },
+                      ]
+                    }
+                  />
+                </View>
+              </>
+            </Text>
+          </View>
+          <View
+            style={
+              Array [
+                Object {
+                  "alignItems": "center",
+                  "flex": 1,
+                  "flexDirection": "row",
+                },
+                undefined,
+                false,
+                Array [
+                  Object {
+                    "justifyContent": "center",
+                  },
+                  Object {
+                    "flex": 0.3,
+                  },
+                ],
+              ]
+            }
+            testID="table-cell-test-id"
+          >
+            <Text
+              numberOfLines={1}
+            >
+              1
+            </Text>
+          </View>
+          <View
+            style={
+              Array [
+                Object {
+                  "alignItems": "center",
+                  "flex": 1,
+                  "flexDirection": "row",
+                },
+                undefined,
+                false,
+                Array [
+                  Object {
+                    "justifyContent": "center",
+                  },
+                  null,
+                ],
+              ]
+            }
+            testID="table-cell-test-id"
+          >
+            <Text
+              numberOfLines={1}
+            >
+              song
+            </Text>
+          </View>
+          <View
+            style={
+              Array [
+                Object {
+                  "alignItems": "center",
+                  "flex": 1,
+                  "flexDirection": "row",
+                },
+                undefined,
+                false,
+                Array [
+                  Object {
+                    "justifyContent": "center",
+                  },
+                  null,
+                ],
+              ]
+            }
+            testID="table-cell-test-id"
+          >
+            <Text
+              numberOfLines={1}
+            >
+              010-1234-1234
+            </Text>
+          </View>
+          <View
+            style={
+              Array [
+                Object {
+                  "alignItems": "center",
+                  "flex": 1,
+                  "flexDirection": "row",
+                },
+                undefined,
+                false,
+                Array [
+                  Object {
+                    "justifyContent": "center",
+                  },
+                  null,
+                ],
+              ]
+            }
+            testID="table-cell-test-id"
+          >
+            <Text
+              numberOfLines={1}
+            >
+              song@email.com
+            </Text>
+          </View>
+          <View
+            style={
+              Array [
+                Object {
+                  "alignItems": "center",
+                  "flex": 1,
+                  "flexDirection": "row",
+                },
+                undefined,
+                false,
+                Array [
+                  Object {
+                    "justifyContent": "center",
+                  },
+                  null,
+                ],
+              ]
+            }
+            testID="table-cell-test-id"
+          >
+            <Text
+              numberOfLines={1}
+            >
+              song
+            </Text>
+          </View>
+        </View>
+      </View>
+      <View
+        style={
+          Array [
+            Object {
+              "borderStyle": "solid",
+              "flex": 1,
+              "minHeight": 48,
+              "width": "100%",
+            },
+            undefined,
+            false,
+          ]
+        }
+        testID="table-row-test-id"
+      >
+        <View
+          style={
+            Object {
+              "borderBottomColor": "lightgray",
+              "borderBottomWidth": 1,
+              "flex": 1,
+              "flexDirection": "row",
+            }
+          }
+        >
+          <View
+            style={
+              Array [
+                Object {
+                  "alignItems": "center",
+                  "flex": 1,
+                  "flexDirection": "row",
+                },
+                undefined,
+                false,
+                Array [
+                  Object {
+                    "justifyContent": "center",
+                  },
+                ],
+              ]
+            }
+            testID="table-cell-test-id"
+          >
+            <Text
+              numberOfLines={1}
+            >
+              <
+                testID="checkbox-test-id"
+              >
+                <View
+                  style={
+                    Object {
+                      "flexDirection": "row",
+                    }
+                  }
+                >
+                  <View
+                    style={
+                      Array [
+                        Object {
+                          "alignItems": "center",
+                          "borderColor": "#d5d5d5",
+                          "borderRadius": 2,
+                          "borderWidth": 2,
+                          "height": 20,
+                          "justifyContent": "center",
+                          "width": 20,
+                        },
+                      ]
+                    }
+                  />
+                </View>
+              </>
+            </Text>
+          </View>
+          <View
+            style={
+              Array [
+                Object {
+                  "alignItems": "center",
+                  "flex": 1,
+                  "flexDirection": "row",
+                },
+                undefined,
+                false,
+                Array [
+                  Object {
+                    "justifyContent": "center",
+                  },
+                  Object {
+                    "flex": 0.3,
+                  },
+                ],
+              ]
+            }
+            testID="table-cell-test-id"
+          >
+            <Text
+              numberOfLines={1}
+            >
+              2
+            </Text>
+          </View>
+          <View
+            style={
+              Array [
+                Object {
+                  "alignItems": "center",
+                  "flex": 1,
+                  "flexDirection": "row",
+                },
+                undefined,
+                false,
+                Array [
+                  Object {
+                    "justifyContent": "center",
+                  },
+                  null,
+                ],
+              ]
+            }
+            testID="table-cell-test-id"
+          >
+            <Text
+              numberOfLines={1}
+            >
+              james
+            </Text>
+          </View>
+          <View
+            style={
+              Array [
+                Object {
+                  "alignItems": "center",
+                  "flex": 1,
+                  "flexDirection": "row",
+                },
+                undefined,
+                false,
+                Array [
+                  Object {
+                    "justifyContent": "center",
+                  },
+                  null,
+                ],
+              ]
+            }
+            testID="table-cell-test-id"
+          >
+            <Text
+              numberOfLines={1}
+            >
+              010-1234-1234
+            </Text>
+          </View>
+          <View
+            style={
+              Array [
+                Object {
+                  "alignItems": "center",
+                  "flex": 1,
+                  "flexDirection": "row",
+                },
+                undefined,
+                false,
+                Array [
+                  Object {
+                    "justifyContent": "center",
+                  },
+                  null,
+                ],
+              ]
+            }
+            testID="table-cell-test-id"
+          >
+            <Text
+              numberOfLines={1}
+            >
+              james@email.com
+            </Text>
+          </View>
+          <View
+            style={
+              Array [
+                Object {
+                  "alignItems": "center",
+                  "flex": 1,
+                  "flexDirection": "row",
+                },
+                undefined,
+                false,
+                Array [
+                  Object {
+                    "justifyContent": "center",
+                  },
+                  null,
+                ],
+              ]
+            }
+            testID="table-cell-test-id"
+          >
+            <Text
+              numberOfLines={1}
+            >
+              james
+            </Text>
+          </View>
+        </View>
+      </View>
+      <View
+        style={
+          Array [
+            Object {
+              "borderStyle": "solid",
+              "flex": 1,
+              "minHeight": 48,
+              "width": "100%",
+            },
+            undefined,
+            false,
+          ]
+        }
+        testID="table-row-test-id"
+      >
+        <View
+          style={
+            Object {
+              "borderBottomColor": "lightgray",
+              "borderBottomWidth": 1,
+              "flex": 1,
+              "flexDirection": "row",
+            }
+          }
+        >
+          <View
+            style={
+              Array [
+                Object {
+                  "alignItems": "center",
+                  "flex": 1,
+                  "flexDirection": "row",
+                },
+                undefined,
+                false,
+                Array [
+                  Object {
+                    "justifyContent": "center",
+                  },
+                ],
+              ]
+            }
+            testID="table-cell-test-id"
+          >
+            <Text
+              numberOfLines={1}
+            >
+              <
+                testID="checkbox-test-id"
+              >
+                <View
+                  style={
+                    Object {
+                      "flexDirection": "row",
+                    }
+                  }
+                >
+                  <View
+                    style={
+                      Array [
+                        Object {
+                          "alignItems": "center",
+                          "borderColor": "#d5d5d5",
+                          "borderRadius": 2,
+                          "borderWidth": 2,
+                          "height": 20,
+                          "justifyContent": "center",
+                          "width": 20,
+                        },
+                      ]
+                    }
+                  />
+                </View>
+              </>
+            </Text>
+          </View>
+          <View
+            style={
+              Array [
+                Object {
+                  "alignItems": "center",
+                  "flex": 1,
+                  "flexDirection": "row",
+                },
+                undefined,
+                false,
+                Array [
+                  Object {
+                    "justifyContent": "center",
+                  },
+                  Object {
+                    "flex": 0.3,
+                  },
+                ],
+              ]
+            }
+            testID="table-cell-test-id"
+          >
+            <Text
+              numberOfLines={1}
+            >
+              3
+            </Text>
+          </View>
+          <View
+            style={
+              Array [
+                Object {
+                  "alignItems": "center",
+                  "flex": 1,
+                  "flexDirection": "row",
+                },
+                undefined,
+                false,
+                Array [
+                  Object {
+                    "justifyContent": "center",
+                  },
+                  null,
+                ],
+              ]
+            }
+            testID="table-cell-test-id"
+          >
+            <Text
+              numberOfLines={1}
+            >
+              jerry
+            </Text>
+          </View>
+          <View
+            style={
+              Array [
+                Object {
+                  "alignItems": "center",
+                  "flex": 1,
+                  "flexDirection": "row",
+                },
+                undefined,
+                false,
+                Array [
+                  Object {
+                    "justifyContent": "center",
+                  },
+                  null,
+                ],
+              ]
+            }
+            testID="table-cell-test-id"
+          >
+            <Text
+              numberOfLines={1}
+            >
+              010-1234-1234
+            </Text>
+          </View>
+          <View
+            style={
+              Array [
+                Object {
+                  "alignItems": "center",
+                  "flex": 1,
+                  "flexDirection": "row",
+                },
+                undefined,
+                false,
+                Array [
+                  Object {
+                    "justifyContent": "center",
+                  },
+                  null,
+                ],
+              ]
+            }
+            testID="table-cell-test-id"
+          >
+            <Text
+              numberOfLines={1}
+            >
+              jerry@email.com
+            </Text>
+          </View>
+          <View
+            style={
+              Array [
+                Object {
+                  "alignItems": "center",
+                  "flex": 1,
+                  "flexDirection": "row",
+                },
+                undefined,
+                false,
+                Array [
+                  Object {
+                    "justifyContent": "center",
+                  },
+                  null,
+                ],
+              ]
+            }
+            testID="table-cell-test-id"
+          >
+            <Text
+              numberOfLines={1}
+            >
+              jerry
+            </Text>
+          </View>
+        </View>
+      </View>
+      <View
+        style={
+          Array [
+            Object {
+              "borderStyle": "solid",
+              "flex": 1,
+              "minHeight": 48,
+              "width": "100%",
+            },
+            undefined,
+            false,
+          ]
+        }
+        testID="table-row-test-id"
+      >
+        <View
+          style={
+            Object {
+              "borderBottomColor": "lightgray",
+              "borderBottomWidth": 1,
+              "flex": 1,
+              "flexDirection": "row",
+            }
+          }
+        >
+          <View
+            style={
+              Array [
+                Object {
+                  "alignItems": "center",
+                  "flex": 1,
+                  "flexDirection": "row",
+                },
+                undefined,
+                false,
+                Array [
+                  Object {
+                    "justifyContent": "center",
+                  },
+                ],
+              ]
+            }
+            testID="table-cell-test-id"
+          >
+            <Text
+              numberOfLines={1}
+            >
+              <
+                testID="checkbox-test-id"
+              >
+                <View
+                  style={
+                    Object {
+                      "flexDirection": "row",
+                    }
+                  }
+                >
+                  <View
+                    style={
+                      Array [
+                        Object {
+                          "alignItems": "center",
+                          "borderColor": "#d5d5d5",
+                          "borderRadius": 2,
+                          "borderWidth": 2,
+                          "height": 20,
+                          "justifyContent": "center",
+                          "width": 20,
+                        },
+                      ]
+                    }
+                  />
+                </View>
+              </>
+            </Text>
+          </View>
+          <View
+            style={
+              Array [
+                Object {
+                  "alignItems": "center",
+                  "flex": 1,
+                  "flexDirection": "row",
+                },
+                undefined,
+                false,
+                Array [
+                  Object {
+                    "justifyContent": "center",
+                  },
+                  Object {
+                    "flex": 0.3,
+                  },
+                ],
+              ]
+            }
+            testID="table-cell-test-id"
+          >
+            <Text
+              numberOfLines={1}
+            >
+              4
+            </Text>
+          </View>
+          <View
+            style={
+              Array [
+                Object {
+                  "alignItems": "center",
+                  "flex": 1,
+                  "flexDirection": "row",
+                },
+                undefined,
+                false,
+                Array [
+                  Object {
+                    "justifyContent": "center",
+                  },
+                  null,
+                ],
+              ]
+            }
+            testID="table-cell-test-id"
+          >
+            <Text
+              numberOfLines={1}
+            >
+              ethan
+            </Text>
+          </View>
+          <View
+            style={
+              Array [
+                Object {
+                  "alignItems": "center",
+                  "flex": 1,
+                  "flexDirection": "row",
+                },
+                undefined,
+                false,
+                Array [
+                  Object {
+                    "justifyContent": "center",
+                  },
+                  null,
+                ],
+              ]
+            }
+            testID="table-cell-test-id"
+          >
+            <Text
+              numberOfLines={1}
+            >
+              010-1234-1234
+            </Text>
+          </View>
+          <View
+            style={
+              Array [
+                Object {
+                  "alignItems": "center",
+                  "flex": 1,
+                  "flexDirection": "row",
+                },
+                undefined,
+                false,
+                Array [
+                  Object {
+                    "justifyContent": "center",
+                  },
+                  null,
+                ],
+              ]
+            }
+            testID="table-cell-test-id"
+          >
+            <Text
+              numberOfLines={1}
+            >
+              ethan@email.com
+            </Text>
+          </View>
+          <View
+            style={
+              Array [
+                Object {
+                  "alignItems": "center",
+                  "flex": 1,
+                  "flexDirection": "row",
+                },
+                undefined,
+                false,
+                Array [
+                  Object {
+                    "justifyContent": "center",
+                  },
+                  null,
+                ],
+              ]
+            }
+            testID="table-cell-test-id"
+          >
+            <Text
+              numberOfLines={1}
+            >
+              ethan
+            </Text>
+          </View>
+        </View>
+      </View>
+      <View
+        style={
+          Array [
+            Object {
+              "borderStyle": "solid",
+              "flex": 1,
+              "minHeight": 48,
+              "width": "100%",
+            },
+            undefined,
+            false,
+          ]
+        }
+        testID="table-row-test-id"
+      >
+        <View
+          style={
+            Object {
+              "borderBottomColor": "lightgray",
+              "borderBottomWidth": 1,
+              "flex": 1,
+              "flexDirection": "row",
+            }
+          }
+        >
+          <View
+            style={
+              Array [
+                Object {
+                  "alignItems": "center",
+                  "flex": 1,
+                  "flexDirection": "row",
+                },
+                undefined,
+                false,
+                Array [
+                  Object {
+                    "justifyContent": "center",
+                  },
+                ],
+              ]
+            }
+            testID="table-cell-test-id"
+          >
+            <Text
+              numberOfLines={1}
+            >
+              <
+                testID="checkbox-test-id"
+              >
+                <View
+                  style={
+                    Object {
+                      "flexDirection": "row",
+                    }
+                  }
+                >
+                  <View
+                    style={
+                      Array [
+                        Object {
+                          "alignItems": "center",
+                          "borderColor": "#d5d5d5",
+                          "borderRadius": 2,
+                          "borderWidth": 2,
+                          "height": 20,
+                          "justifyContent": "center",
+                          "width": 20,
+                        },
+                      ]
+                    }
+                  />
+                </View>
+              </>
+            </Text>
+          </View>
+          <View
+            style={
+              Array [
+                Object {
+                  "alignItems": "center",
+                  "flex": 1,
+                  "flexDirection": "row",
+                },
+                undefined,
+                false,
+                Array [
+                  Object {
+                    "justifyContent": "center",
+                  },
+                  Object {
+                    "flex": 0.3,
+                  },
+                ],
+              ]
+            }
+            testID="table-cell-test-id"
+          >
+            <Text
+              numberOfLines={1}
+            >
+              5
+            </Text>
+          </View>
+          <View
+            style={
+              Array [
+                Object {
+                  "alignItems": "center",
+                  "flex": 1,
+                  "flexDirection": "row",
+                },
+                undefined,
+                false,
+                Array [
+                  Object {
+                    "justifyContent": "center",
+                  },
+                  null,
+                ],
+              ]
+            }
+            testID="table-cell-test-id"
+          >
+            <Text
+              numberOfLines={1}
+            >
+              rim
+            </Text>
+          </View>
+          <View
+            style={
+              Array [
+                Object {
+                  "alignItems": "center",
+                  "flex": 1,
+                  "flexDirection": "row",
+                },
+                undefined,
+                false,
+                Array [
+                  Object {
+                    "justifyContent": "center",
+                  },
+                  null,
+                ],
+              ]
+            }
+            testID="table-cell-test-id"
+          >
+            <Text
+              numberOfLines={1}
+            >
+              010-1234-1234
+            </Text>
+          </View>
+          <View
+            style={
+              Array [
+                Object {
+                  "alignItems": "center",
+                  "flex": 1,
+                  "flexDirection": "row",
+                },
+                undefined,
+                false,
+                Array [
+                  Object {
+                    "justifyContent": "center",
+                  },
+                  null,
+                ],
+              ]
+            }
+            testID="table-cell-test-id"
+          >
+            <Text
+              numberOfLines={1}
+            >
+              rim@email.com
+            </Text>
+          </View>
+          <View
+            style={
+              Array [
+                Object {
+                  "alignItems": "center",
+                  "flex": 1,
+                  "flexDirection": "row",
+                },
+                undefined,
+                false,
+                Array [
+                  Object {
+                    "justifyContent": "center",
+                  },
+                  null,
+                ],
+              ]
+            }
+            testID="table-cell-test-id"
+          >
+            <Text
+              numberOfLines={1}
+            >
+              rim
+            </Text>
+          </View>
+        </View>
+      </View>
+      <View
+        style={
+          Array [
+            Object {
+              "borderStyle": "solid",
+              "flex": 1,
+              "minHeight": 48,
+              "width": "100%",
+            },
+            undefined,
+            false,
+          ]
+        }
+        testID="table-row-test-id"
+      >
+        <View
+          style={
+            Object {
+              "borderBottomColor": "lightgray",
+              "borderBottomWidth": 1,
+              "flex": 1,
+              "flexDirection": "row",
+            }
+          }
+        >
+          <View
+            style={
+              Array [
+                Object {
+                  "alignItems": "center",
+                  "flex": 1,
+                  "flexDirection": "row",
+                },
+                undefined,
+                false,
+                Array [
+                  Object {
+                    "justifyContent": "center",
+                  },
+                ],
+              ]
+            }
+            testID="table-cell-test-id"
+          >
+            <Text
+              numberOfLines={1}
+            >
+              <
+                testID="checkbox-test-id"
+              >
+                <View
+                  style={
+                    Object {
+                      "flexDirection": "row",
+                    }
+                  }
+                >
+                  <View
+                    style={
+                      Array [
+                        Object {
+                          "alignItems": "center",
+                          "borderColor": "#d5d5d5",
+                          "borderRadius": 2,
+                          "borderWidth": 2,
+                          "height": 20,
+                          "justifyContent": "center",
+                          "width": 20,
+                        },
+                      ]
+                    }
+                  />
+                </View>
+              </>
+            </Text>
+          </View>
+          <View
+            style={
+              Array [
+                Object {
+                  "alignItems": "center",
+                  "flex": 1,
+                  "flexDirection": "row",
+                },
+                undefined,
+                false,
+                Array [
+                  Object {
+                    "justifyContent": "center",
+                  },
+                  Object {
+                    "flex": 0.3,
+                  },
+                ],
+              ]
+            }
+            testID="table-cell-test-id"
+          >
+            <Text
+              numberOfLines={1}
+            >
+              6
+            </Text>
+          </View>
+          <View
+            style={
+              Array [
+                Object {
+                  "alignItems": "center",
+                  "flex": 1,
+                  "flexDirection": "row",
+                },
+                undefined,
+                false,
+                Array [
+                  Object {
+                    "justifyContent": "center",
+                  },
+                  null,
+                ],
+              ]
+            }
+            testID="table-cell-test-id"
+          >
+            <Text
+              numberOfLines={1}
+            >
+              zong
+            </Text>
+          </View>
+          <View
+            style={
+              Array [
+                Object {
+                  "alignItems": "center",
+                  "flex": 1,
+                  "flexDirection": "row",
+                },
+                undefined,
+                false,
+                Array [
+                  Object {
+                    "justifyContent": "center",
+                  },
+                  null,
+                ],
+              ]
+            }
+            testID="table-cell-test-id"
+          >
+            <Text
+              numberOfLines={1}
+            >
+              010-1234-1234
+            </Text>
+          </View>
+          <View
+            style={
+              Array [
+                Object {
+                  "alignItems": "center",
+                  "flex": 1,
+                  "flexDirection": "row",
+                },
+                undefined,
+                false,
+                Array [
+                  Object {
+                    "justifyContent": "center",
+                  },
+                  null,
+                ],
+              ]
+            }
+            testID="table-cell-test-id"
+          >
+            <Text
+              numberOfLines={1}
+            >
+              zong@email.com
+            </Text>
+          </View>
+          <View
+            style={
+              Array [
+                Object {
+                  "alignItems": "center",
+                  "flex": 1,
+                  "flexDirection": "row",
+                },
+                undefined,
+                false,
+                Array [
+                  Object {
+                    "justifyContent": "center",
+                  },
+                  null,
+                ],
+              ]
+            }
+            testID="table-cell-test-id"
+          >
+            <Text
+              numberOfLines={1}
+            >
+              zong
+            </Text>
+          </View>
+        </View>
+      </View>
+      <View
+        style={
+          Array [
+            Object {
+              "borderStyle": "solid",
+              "flex": 1,
+              "minHeight": 48,
+              "width": "100%",
+            },
+            undefined,
+            false,
+          ]
+        }
+        testID="table-row-test-id"
+      >
+        <View
+          style={
+            Object {
+              "borderBottomColor": "lightgray",
+              "borderBottomWidth": 1,
+              "flex": 1,
+              "flexDirection": "row",
+            }
+          }
+        >
+          <View
+            style={
+              Array [
+                Object {
+                  "alignItems": "center",
+                  "flex": 1,
+                  "flexDirection": "row",
+                },
+                undefined,
+                false,
+                Array [
+                  Object {
+                    "justifyContent": "center",
+                  },
+                ],
+              ]
+            }
+            testID="table-cell-test-id"
+          >
+            <Text
+              numberOfLines={1}
+            >
+              <
+                testID="checkbox-test-id"
+              >
+                <View
+                  style={
+                    Object {
+                      "flexDirection": "row",
+                    }
+                  }
+                >
+                  <View
+                    style={
+                      Array [
+                        Object {
+                          "alignItems": "center",
+                          "borderColor": "#d5d5d5",
+                          "borderRadius": 2,
+                          "borderWidth": 2,
+                          "height": 20,
+                          "justifyContent": "center",
+                          "width": 20,
+                        },
+                      ]
+                    }
+                  />
+                </View>
+              </>
+            </Text>
+          </View>
+          <View
+            style={
+              Array [
+                Object {
+                  "alignItems": "center",
+                  "flex": 1,
+                  "flexDirection": "row",
+                },
+                undefined,
+                false,
+                Array [
+                  Object {
+                    "justifyContent": "center",
+                  },
+                  Object {
+                    "flex": 0.3,
+                  },
+                ],
+              ]
+            }
+            testID="table-cell-test-id"
+          >
+            <Text
+              numberOfLines={1}
+            >
+              7
+            </Text>
+          </View>
+          <View
+            style={
+              Array [
+                Object {
+                  "alignItems": "center",
+                  "flex": 1,
+                  "flexDirection": "row",
+                },
+                undefined,
+                false,
+                Array [
+                  Object {
+                    "justifyContent": "center",
+                  },
+                  null,
+                ],
+              ]
+            }
+            testID="table-cell-test-id"
+          >
+            <Text
+              numberOfLines={1}
+            >
+              kong
+            </Text>
+          </View>
+          <View
+            style={
+              Array [
+                Object {
+                  "alignItems": "center",
+                  "flex": 1,
+                  "flexDirection": "row",
+                },
+                undefined,
+                false,
+                Array [
+                  Object {
+                    "justifyContent": "center",
+                  },
+                  null,
+                ],
+              ]
+            }
+            testID="table-cell-test-id"
+          >
+            <Text
+              numberOfLines={1}
+            >
+              010-1234-1234
+            </Text>
+          </View>
+          <View
+            style={
+              Array [
+                Object {
+                  "alignItems": "center",
+                  "flex": 1,
+                  "flexDirection": "row",
+                },
+                undefined,
+                false,
+                Array [
+                  Object {
+                    "justifyContent": "center",
+                  },
+                  null,
+                ],
+              ]
+            }
+            testID="table-cell-test-id"
+          >
+            <Text
+              numberOfLines={1}
+            >
+              kong@email.com
+            </Text>
+          </View>
+          <View
+            style={
+              Array [
+                Object {
+                  "alignItems": "center",
+                  "flex": 1,
+                  "flexDirection": "row",
+                },
+                undefined,
+                false,
+                Array [
+                  Object {
+                    "justifyContent": "center",
+                  },
+                  null,
+                ],
+              ]
+            }
+            testID="table-cell-test-id"
+          >
+            <Text
+              numberOfLines={1}
+            >
+              kong
+            </Text>
+          </View>
+        </View>
+      </View>
+      <View
+        style={
+          Array [
+            Object {
+              "borderStyle": "solid",
+              "flex": 1,
+              "minHeight": 48,
+              "width": "100%",
+            },
+            undefined,
+            false,
+          ]
+        }
+        testID="table-row-test-id"
+      >
+        <View
+          style={
+            Object {
+              "borderBottomColor": "lightgray",
+              "borderBottomWidth": 1,
+              "flex": 1,
+              "flexDirection": "row",
+            }
+          }
+        >
+          <View
+            style={
+              Array [
+                Object {
+                  "alignItems": "center",
+                  "flex": 1,
+                  "flexDirection": "row",
+                },
+                undefined,
+                false,
+                Array [
+                  Object {
+                    "justifyContent": "center",
+                  },
+                ],
+              ]
+            }
+            testID="table-cell-test-id"
+          >
+            <Text
+              numberOfLines={1}
+            >
+              <
+                testID="checkbox-test-id"
+              >
+                <View
+                  style={
+                    Object {
+                      "flexDirection": "row",
+                    }
+                  }
+                >
+                  <View
+                    style={
+                      Array [
+                        Object {
+                          "alignItems": "center",
+                          "borderColor": "#d5d5d5",
+                          "borderRadius": 2,
+                          "borderWidth": 2,
+                          "height": 20,
+                          "justifyContent": "center",
+                          "width": 20,
+                        },
+                      ]
+                    }
+                  />
+                </View>
+              </>
+            </Text>
+          </View>
+          <View
+            style={
+              Array [
+                Object {
+                  "alignItems": "center",
+                  "flex": 1,
+                  "flexDirection": "row",
+                },
+                undefined,
+                false,
+                Array [
+                  Object {
+                    "justifyContent": "center",
+                  },
+                  Object {
+                    "flex": 0.3,
+                  },
+                ],
+              ]
+            }
+            testID="table-cell-test-id"
+          >
+            <Text
+              numberOfLines={1}
+            >
+              8
+            </Text>
+          </View>
+          <View
+            style={
+              Array [
+                Object {
+                  "alignItems": "center",
+                  "flex": 1,
+                  "flexDirection": "row",
+                },
+                undefined,
+                false,
+                Array [
+                  Object {
+                    "justifyContent": "center",
+                  },
+                  null,
+                ],
+              ]
+            }
+            testID="table-cell-test-id"
+          >
+            <Text
+              numberOfLines={1}
+            >
+              cong
+            </Text>
+          </View>
+          <View
+            style={
+              Array [
+                Object {
+                  "alignItems": "center",
+                  "flex": 1,
+                  "flexDirection": "row",
+                },
+                undefined,
+                false,
+                Array [
+                  Object {
+                    "justifyContent": "center",
+                  },
+                  null,
+                ],
+              ]
+            }
+            testID="table-cell-test-id"
+          >
+            <Text
+              numberOfLines={1}
+            >
+              010-1234-1234
+            </Text>
+          </View>
+          <View
+            style={
+              Array [
+                Object {
+                  "alignItems": "center",
+                  "flex": 1,
+                  "flexDirection": "row",
+                },
+                undefined,
+                false,
+                Array [
+                  Object {
+                    "justifyContent": "center",
+                  },
+                  null,
+                ],
+              ]
+            }
+            testID="table-cell-test-id"
+          >
+            <Text
+              numberOfLines={1}
+            >
+              cong@email.com
+            </Text>
+          </View>
+          <View
+            style={
+              Array [
+                Object {
+                  "alignItems": "center",
+                  "flex": 1,
+                  "flexDirection": "row",
+                },
+                undefined,
+                false,
+                Array [
+                  Object {
+                    "justifyContent": "center",
+                  },
+                  null,
+                ],
+              ]
+            }
+            testID="table-cell-test-id"
+          >
+            <Text
+              numberOfLines={1}
+            >
+              cong
+            </Text>
+          </View>
+        </View>
+      </View>
+      <View
+        style={
+          Array [
+            Object {
+              "borderStyle": "solid",
+              "flex": 1,
+              "minHeight": 48,
+              "width": "100%",
+            },
+            undefined,
+            false,
+          ]
+        }
+        testID="table-row-test-id"
+      >
+        <View
+          style={
+            Object {
+              "borderBottomColor": "lightgray",
+              "borderBottomWidth": 1,
+              "flex": 1,
+              "flexDirection": "row",
+            }
+          }
+        >
+          <View
+            style={
+              Array [
+                Object {
+                  "alignItems": "center",
+                  "flex": 1,
+                  "flexDirection": "row",
+                },
+                undefined,
+                false,
+                Array [
+                  Object {
+                    "justifyContent": "center",
+                  },
+                ],
+              ]
+            }
+            testID="table-cell-test-id"
+          >
+            <Text
+              numberOfLines={1}
+            >
+              <
+                testID="checkbox-test-id"
+              >
+                <View
+                  style={
+                    Object {
+                      "flexDirection": "row",
+                    }
+                  }
+                >
+                  <View
+                    style={
+                      Array [
+                        Object {
+                          "alignItems": "center",
+                          "borderColor": "#d5d5d5",
+                          "borderRadius": 2,
+                          "borderWidth": 2,
+                          "height": 20,
+                          "justifyContent": "center",
+                          "width": 20,
+                        },
+                      ]
+                    }
+                  />
+                </View>
+              </>
+            </Text>
+          </View>
+          <View
+            style={
+              Array [
+                Object {
+                  "alignItems": "center",
+                  "flex": 1,
+                  "flexDirection": "row",
+                },
+                undefined,
+                false,
+                Array [
+                  Object {
+                    "justifyContent": "center",
+                  },
+                  Object {
+                    "flex": 0.3,
+                  },
+                ],
+              ]
+            }
+            testID="table-cell-test-id"
+          >
+            <Text
+              numberOfLines={1}
+            >
+              9
+            </Text>
+          </View>
+          <View
+            style={
+              Array [
+                Object {
+                  "alignItems": "center",
+                  "flex": 1,
+                  "flexDirection": "row",
+                },
+                undefined,
+                false,
+                Array [
+                  Object {
+                    "justifyContent": "center",
+                  },
+                  null,
+                ],
+              ]
+            }
+            testID="table-cell-test-id"
+          >
+            <Text
+              numberOfLines={1}
+            >
+              king
+            </Text>
+          </View>
+          <View
+            style={
+              Array [
+                Object {
+                  "alignItems": "center",
+                  "flex": 1,
+                  "flexDirection": "row",
+                },
+                undefined,
+                false,
+                Array [
+                  Object {
+                    "justifyContent": "center",
+                  },
+                  null,
+                ],
+              ]
+            }
+            testID="table-cell-test-id"
+          >
+            <Text
+              numberOfLines={1}
+            >
+              010-1234-1234
+            </Text>
+          </View>
+          <View
+            style={
+              Array [
+                Object {
+                  "alignItems": "center",
+                  "flex": 1,
+                  "flexDirection": "row",
+                },
+                undefined,
+                false,
+                Array [
+                  Object {
+                    "justifyContent": "center",
+                  },
+                  null,
+                ],
+              ]
+            }
+            testID="table-cell-test-id"
+          >
+            <Text
+              numberOfLines={1}
+            >
+              king@email.com
+            </Text>
+          </View>
+          <View
+            style={
+              Array [
+                Object {
+                  "alignItems": "center",
+                  "flex": 1,
+                  "flexDirection": "row",
+                },
+                undefined,
+                false,
+                Array [
+                  Object {
+                    "justifyContent": "center",
+                  },
+                  null,
+                ],
+              ]
+            }
+            testID="table-cell-test-id"
+          >
+            <Text
+              numberOfLines={1}
+            >
+              king
+            </Text>
+          </View>
+        </View>
+      </View>
+      <View
+        style={
+          Array [
+            Object {
+              "borderStyle": "solid",
+              "flex": 1,
+              "minHeight": 48,
+              "width": "100%",
+            },
+            undefined,
+            false,
+          ]
+        }
+        testID="table-row-test-id"
+      >
+        <View
+          style={
+            Object {
+              "borderBottomColor": "lightgray",
+              "borderBottomWidth": 1,
+              "flex": 1,
+              "flexDirection": "row",
+            }
+          }
+        >
+          <View
+            style={
+              Array [
+                Object {
+                  "alignItems": "center",
+                  "flex": 1,
+                  "flexDirection": "row",
+                },
+                undefined,
+                false,
+                Array [
+                  Object {
+                    "justifyContent": "center",
+                  },
+                ],
+              ]
+            }
+            testID="table-cell-test-id"
+          >
+            <Text
+              numberOfLines={1}
+            >
+              <
+                testID="checkbox-test-id"
+              >
+                <View
+                  style={
+                    Object {
+                      "flexDirection": "row",
+                    }
+                  }
+                >
+                  <View
+                    style={
+                      Array [
+                        Object {
+                          "alignItems": "center",
+                          "borderColor": "#d5d5d5",
+                          "borderRadius": 2,
+                          "borderWidth": 2,
+                          "height": 20,
+                          "justifyContent": "center",
+                          "width": 20,
+                        },
+                      ]
+                    }
+                  />
+                </View>
+              </>
+            </Text>
+          </View>
+          <View
+            style={
+              Array [
+                Object {
+                  "alignItems": "center",
+                  "flex": 1,
+                  "flexDirection": "row",
+                },
+                undefined,
+                false,
+                Array [
+                  Object {
+                    "justifyContent": "center",
+                  },
+                  Object {
+                    "flex": 0.3,
+                  },
+                ],
+              ]
+            }
+            testID="table-cell-test-id"
+          >
+            <Text
+              numberOfLines={1}
+            >
+              10
+            </Text>
+          </View>
+          <View
+            style={
+              Array [
+                Object {
+                  "alignItems": "center",
+                  "flex": 1,
+                  "flexDirection": "row",
+                },
+                undefined,
+                false,
+                Array [
+                  Object {
+                    "justifyContent": "center",
+                  },
+                  null,
+                ],
+              ]
+            }
+            testID="table-cell-test-id"
+          >
+            <Text
+              numberOfLines={1}
+            >
+              kim
+            </Text>
+          </View>
+          <View
+            style={
+              Array [
+                Object {
+                  "alignItems": "center",
+                  "flex": 1,
+                  "flexDirection": "row",
+                },
+                undefined,
+                false,
+                Array [
+                  Object {
+                    "justifyContent": "center",
+                  },
+                  null,
+                ],
+              ]
+            }
+            testID="table-cell-test-id"
+          >
+            <Text
+              numberOfLines={1}
+            >
+              010-1234-1234
+            </Text>
+          </View>
+          <View
+            style={
+              Array [
+                Object {
+                  "alignItems": "center",
+                  "flex": 1,
+                  "flexDirection": "row",
+                },
+                undefined,
+                false,
+                Array [
+                  Object {
+                    "justifyContent": "center",
+                  },
+                  null,
+                ],
+              ]
+            }
+            testID="table-cell-test-id"
+          >
+            <Text
+              numberOfLines={1}
+            >
+              kim@email.com
+            </Text>
+          </View>
+          <View
+            style={
+              Array [
+                Object {
+                  "alignItems": "center",
+                  "flex": 1,
+                  "flexDirection": "row",
+                },
+                undefined,
+                false,
+                Array [
+                  Object {
+                    "justifyContent": "center",
+                  },
+                  null,
+                ],
+              ]
+            }
+            testID="table-cell-test-id"
+          >
+            <Text
+              numberOfLines={1}
+            >
+              kim
+            </Text>
+          </View>
+        </View>
+      </View>
+    </View>
+  </View>
+</View>
+`;
+
+exports[`[DataTable] render test should render collapsed when collapsedWhenRendered props is false 1`] = `
+<View
+  pointerEvents="box-none"
+  style={
+    Object {
+      "flex": 1,
+    }
+  }
+>
+  <View
+    collapsable={true}
+    pointerEvents="box-none"
+    style={
+      Object {
+        "flex": 1,
+      }
+    }
+  >
+    <View
+      collapsedWhenRendered={false}
+      style={
+        Array [
+          Object {
+            "borderTopLeftRadius": 4,
+            "borderTopRightRadius": 4,
+            "width": "100%",
+          },
+          Object {
+            "height": "100%",
+            "width": "100%",
+          },
+          undefined,
+        ]
+      }
+    >
+      <View
+        style={
+          Array [
+            Object {
+              "borderBottomColor": "lightgray",
+              "borderBottomWidth": 1,
+              "flexDirection": "row",
+              "height": 48,
+            },
+            Object {
+              "backgroundColor": "#f9f9f9",
+            },
+          ]
+        }
+        testID="table-header-test-id"
+      >
+        <TouchableWithoutFeedback
+          disabled={true}
+          testID="table-title-test-id"
+        >
+          <View
+            style={
+              Array [
+                Object {
+                  "alignContent": "center",
+                  "flex": 1,
+                  "flexDirection": "row",
+                  "paddingVertical": 12,
+                  "width": "100%",
+                },
+                undefined,
+                Array [
+                  Object {
+                    "flex": 0.3,
+                  },
+                ],
+              ]
+            }
+          >
+            <Text
+              style={
+                Array [
+                  Object {
+                    "alignItems": "center",
+                    "fontSize": 12,
+                    "height": 24,
+                    "lineHeight": 24,
+                  },
+                  null,
+                ]
+              }
+            />
+          </View>
+        </TouchableWithoutFeedback>
+        <TouchableWithoutFeedback
+          disabled={false}
+          testID="table-title-test-id"
+        >
+          <View
+            style={
+              Array [
+                Object {
+                  "alignContent": "center",
+                  "flex": 1,
+                  "flexDirection": "row",
+                  "paddingVertical": 12,
+                  "width": "100%",
+                },
+                undefined,
+                Array [
+                  Object {
+                    "justifyContent": "center",
+                  },
+                  Object {
+                    "flex": 0.3,
+                  },
+                ],
+              ]
+            }
+          >
+            <Text
+              numberOfLines={1}
+              style={
+                Array [
+                  Object {
+                    "alignItems": "center",
+                    "fontSize": 12,
+                    "height": 24,
+                    "lineHeight": 24,
+                  },
+                  Object {},
+                ]
+              }
+            >
+              id
+            </Text>
+          </View>
+        </TouchableWithoutFeedback>
+        <TouchableWithoutFeedback
+          disabled={false}
+          testID="table-title-test-id"
+        >
+          <View
+            style={
+              Array [
+                Object {
+                  "alignContent": "center",
+                  "flex": 1,
+                  "flexDirection": "row",
+                  "paddingVertical": 12,
+                  "width": "100%",
+                },
+                undefined,
+                Array [
+                  Object {
+                    "justifyContent": "center",
+                  },
+                  null,
+                ],
+              ]
+            }
+          >
+            <Text
+              numberOfLines={1}
+              style={
+                Array [
+                  Object {
+                    "alignItems": "center",
+                    "fontSize": 12,
+                    "height": 24,
+                    "lineHeight": 24,
+                  },
+                  Object {},
+                ]
+              }
+            >
+              name
+            </Text>
+          </View>
+        </TouchableWithoutFeedback>
+        <TouchableWithoutFeedback
+          disabled={false}
+          testID="table-title-test-id"
+        >
+          <View
+            style={
+              Array [
+                Object {
+                  "alignContent": "center",
+                  "flex": 1,
+                  "flexDirection": "row",
+                  "paddingVertical": 12,
+                  "width": "100%",
+                },
+                undefined,
+                Array [
+                  Object {
+                    "justifyContent": "center",
+                  },
+                  null,
+                ],
+              ]
+            }
+          >
+            <Text
+              numberOfLines={1}
+              style={
+                Array [
+                  Object {
+                    "alignItems": "center",
+                    "fontSize": 12,
+                    "height": 24,
+                    "lineHeight": 24,
+                  },
+                  Object {},
+                ]
+              }
+            >
+              phoneNumber
+            </Text>
+          </View>
+        </TouchableWithoutFeedback>
+        <TouchableWithoutFeedback
+          disabled={false}
+          testID="table-title-test-id"
+        >
+          <View
+            style={
+              Array [
+                Object {
+                  "alignContent": "center",
+                  "flex": 1,
+                  "flexDirection": "row",
+                  "paddingVertical": 12,
+                  "width": "100%",
+                },
+                undefined,
+                Array [
+                  Object {
+                    "justifyContent": "center",
+                  },
+                  null,
+                ],
+              ]
+            }
+          >
+            <Text
+              numberOfLines={1}
+              style={
+                Array [
+                  Object {
+                    "alignItems": "center",
+                    "fontSize": 12,
+                    "height": 24,
+                    "lineHeight": 24,
+                  },
+                  Object {},
+                ]
+              }
+            >
+              email
+            </Text>
+          </View>
+        </TouchableWithoutFeedback>
+        <TouchableWithoutFeedback
+          disabled={false}
+          testID="table-title-test-id"
+        >
+          <View
+            style={
+              Array [
+                Object {
+                  "alignContent": "center",
+                  "flex": 1,
+                  "flexDirection": "row",
+                  "paddingVertical": 12,
+                  "width": "100%",
+                },
+                undefined,
+                Array [
+                  Object {
+                    "justifyContent": "center",
+                  },
+                  null,
+                ],
+              ]
+            }
+          >
+            <Text
+              numberOfLines={1}
+              style={
+                Array [
+                  Object {
+                    "alignItems": "center",
+                    "fontSize": 12,
+                    "height": 24,
+                    "lineHeight": 24,
+                  },
+                  Object {},
+                ]
+              }
+            >
+              nickname
+            </Text>
+          </View>
+        </TouchableWithoutFeedback>
+      </View>
+      <View
+        style={
+          Array [
+            Object {
+              "borderStyle": "solid",
+              "flex": 1,
+              "minHeight": 48,
+              "width": "100%",
+            },
+            undefined,
+            false,
+          ]
+        }
+        testID="table-row-test-id"
+      >
+        <View
+          style={
+            Object {
+              "borderBottomColor": "lightgray",
+              "borderBottomWidth": 1,
+              "flex": 1,
+              "flexDirection": "row",
+            }
+          }
+        >
+          <View
+            style={
+              Array [
+                Object {
+                  "alignItems": "center",
+                  "flex": 1,
+                  "flexDirection": "row",
+                },
+                undefined,
+                Object {
+                  "flex": 0.3,
+                },
+                undefined,
+              ]
+            }
+            testID="table-cell-test-id"
+          >
+            <Text
+              numberOfLines={1}
+            />
+          </View>
+          <View
+            style={
+              Array [
+                Object {
+                  "alignItems": "center",
+                  "flex": 1,
+                  "flexDirection": "row",
+                },
+                undefined,
+                false,
+                Array [
+                  Object {
+                    "justifyContent": "center",
+                  },
+                  Object {
+                    "flex": 0.3,
+                  },
+                ],
+              ]
+            }
+            testID="table-cell-test-id"
+          >
+            <Text
+              numberOfLines={1}
+            >
+              1
+            </Text>
+          </View>
+          <View
+            style={
+              Array [
+                Object {
+                  "alignItems": "center",
+                  "flex": 1,
+                  "flexDirection": "row",
+                },
+                undefined,
+                false,
+                Array [
+                  Object {
+                    "justifyContent": "center",
+                  },
+                  null,
+                ],
+              ]
+            }
+            testID="table-cell-test-id"
+          >
+            <Text
+              numberOfLines={1}
+            >
+              song
+            </Text>
+          </View>
+          <View
+            style={
+              Array [
+                Object {
+                  "alignItems": "center",
+                  "flex": 1,
+                  "flexDirection": "row",
+                },
+                undefined,
+                false,
+                Array [
+                  Object {
+                    "justifyContent": "center",
+                  },
+                  null,
+                ],
+              ]
+            }
+            testID="table-cell-test-id"
+          >
+            <Text
+              numberOfLines={1}
+            >
+              010-1234-1234
+            </Text>
+          </View>
+          <View
+            style={
+              Array [
+                Object {
+                  "alignItems": "center",
+                  "flex": 1,
+                  "flexDirection": "row",
+                },
+                undefined,
+                false,
+                Array [
+                  Object {
+                    "justifyContent": "center",
+                  },
+                  null,
+                ],
+              ]
+            }
+            testID="table-cell-test-id"
+          >
+            <Text
+              numberOfLines={1}
+            >
+              song@email.com
+            </Text>
+          </View>
+          <View
+            style={
+              Array [
+                Object {
+                  "alignItems": "center",
+                  "flex": 1,
+                  "flexDirection": "row",
+                },
+                undefined,
+                false,
+                Array [
+                  Object {
+                    "justifyContent": "center",
+                  },
+                  null,
+                ],
+              ]
+            }
+            testID="table-cell-test-id"
+          >
+            <Text
+              numberOfLines={1}
+            >
+              song
+            </Text>
+          </View>
+        </View>
+      </View>
+      <View
+        style={
+          Array [
+            Object {
+              "borderStyle": "solid",
+              "flex": 1,
+              "minHeight": 48,
+              "width": "100%",
+            },
+            undefined,
+            false,
+          ]
+        }
+        testID="table-row-test-id"
+      >
+        <View
+          style={
+            Object {
+              "borderBottomColor": "lightgray",
+              "borderBottomWidth": 1,
+              "flex": 1,
+              "flexDirection": "row",
+            }
+          }
+        >
+          <View
+            style={
+              Array [
+                Object {
+                  "alignItems": "center",
+                  "flex": 1,
+                  "flexDirection": "row",
+                },
+                undefined,
+                Object {
+                  "flex": 0.3,
+                },
+                undefined,
+              ]
+            }
+            testID="table-cell-test-id"
+          >
+            <Text
+              numberOfLines={1}
+            />
+          </View>
+          <View
+            style={
+              Array [
+                Object {
+                  "alignItems": "center",
+                  "flex": 1,
+                  "flexDirection": "row",
+                },
+                undefined,
+                false,
+                Array [
+                  Object {
+                    "justifyContent": "center",
+                  },
+                  Object {
+                    "flex": 0.3,
+                  },
+                ],
+              ]
+            }
+            testID="table-cell-test-id"
+          >
+            <Text
+              numberOfLines={1}
+            >
+              2
+            </Text>
+          </View>
+          <View
+            style={
+              Array [
+                Object {
+                  "alignItems": "center",
+                  "flex": 1,
+                  "flexDirection": "row",
+                },
+                undefined,
+                false,
+                Array [
+                  Object {
+                    "justifyContent": "center",
+                  },
+                  null,
+                ],
+              ]
+            }
+            testID="table-cell-test-id"
+          >
+            <Text
+              numberOfLines={1}
+            >
+              james
+            </Text>
+          </View>
+          <View
+            style={
+              Array [
+                Object {
+                  "alignItems": "center",
+                  "flex": 1,
+                  "flexDirection": "row",
+                },
+                undefined,
+                false,
+                Array [
+                  Object {
+                    "justifyContent": "center",
+                  },
+                  null,
+                ],
+              ]
+            }
+            testID="table-cell-test-id"
+          >
+            <Text
+              numberOfLines={1}
+            >
+              010-1234-1234
+            </Text>
+          </View>
+          <View
+            style={
+              Array [
+                Object {
+                  "alignItems": "center",
+                  "flex": 1,
+                  "flexDirection": "row",
+                },
+                undefined,
+                false,
+                Array [
+                  Object {
+                    "justifyContent": "center",
+                  },
+                  null,
+                ],
+              ]
+            }
+            testID="table-cell-test-id"
+          >
+            <Text
+              numberOfLines={1}
+            >
+              james@email.com
+            </Text>
+          </View>
+          <View
+            style={
+              Array [
+                Object {
+                  "alignItems": "center",
+                  "flex": 1,
+                  "flexDirection": "row",
+                },
+                undefined,
+                false,
+                Array [
+                  Object {
+                    "justifyContent": "center",
+                  },
+                  null,
+                ],
+              ]
+            }
+            testID="table-cell-test-id"
+          >
+            <Text
+              numberOfLines={1}
+            >
+              james
+            </Text>
+          </View>
+        </View>
+      </View>
+      <View
+        style={
+          Array [
+            Object {
+              "borderStyle": "solid",
+              "flex": 1,
+              "minHeight": 48,
+              "width": "100%",
+            },
+            undefined,
+            false,
+          ]
+        }
+        testID="table-row-test-id"
+      >
+        <View
+          style={
+            Object {
+              "borderBottomColor": "lightgray",
+              "borderBottomWidth": 1,
+              "flex": 1,
+              "flexDirection": "row",
+            }
+          }
+        >
+          <View
+            style={
+              Array [
+                Object {
+                  "alignItems": "center",
+                  "flex": 1,
+                  "flexDirection": "row",
+                },
+                undefined,
+                Object {
+                  "flex": 0.3,
+                },
+                undefined,
+              ]
+            }
+            testID="table-cell-test-id"
+          >
+            <Text
+              numberOfLines={1}
+            />
+          </View>
+          <View
+            style={
+              Array [
+                Object {
+                  "alignItems": "center",
+                  "flex": 1,
+                  "flexDirection": "row",
+                },
+                undefined,
+                false,
+                Array [
+                  Object {
+                    "justifyContent": "center",
+                  },
+                  Object {
+                    "flex": 0.3,
+                  },
+                ],
+              ]
+            }
+            testID="table-cell-test-id"
+          >
+            <Text
+              numberOfLines={1}
+            >
+              3
+            </Text>
+          </View>
+          <View
+            style={
+              Array [
+                Object {
+                  "alignItems": "center",
+                  "flex": 1,
+                  "flexDirection": "row",
+                },
+                undefined,
+                false,
+                Array [
+                  Object {
+                    "justifyContent": "center",
+                  },
+                  null,
+                ],
+              ]
+            }
+            testID="table-cell-test-id"
+          >
+            <Text
+              numberOfLines={1}
+            >
+              jerry
+            </Text>
+          </View>
+          <View
+            style={
+              Array [
+                Object {
+                  "alignItems": "center",
+                  "flex": 1,
+                  "flexDirection": "row",
+                },
+                undefined,
+                false,
+                Array [
+                  Object {
+                    "justifyContent": "center",
+                  },
+                  null,
+                ],
+              ]
+            }
+            testID="table-cell-test-id"
+          >
+            <Text
+              numberOfLines={1}
+            >
+              010-1234-1234
+            </Text>
+          </View>
+          <View
+            style={
+              Array [
+                Object {
+                  "alignItems": "center",
+                  "flex": 1,
+                  "flexDirection": "row",
+                },
+                undefined,
+                false,
+                Array [
+                  Object {
+                    "justifyContent": "center",
+                  },
+                  null,
+                ],
+              ]
+            }
+            testID="table-cell-test-id"
+          >
+            <Text
+              numberOfLines={1}
+            >
+              jerry@email.com
+            </Text>
+          </View>
+          <View
+            style={
+              Array [
+                Object {
+                  "alignItems": "center",
+                  "flex": 1,
+                  "flexDirection": "row",
+                },
+                undefined,
+                false,
+                Array [
+                  Object {
+                    "justifyContent": "center",
+                  },
+                  null,
+                ],
+              ]
+            }
+            testID="table-cell-test-id"
+          >
+            <Text
+              numberOfLines={1}
+            >
+              jerry
+            </Text>
+          </View>
+        </View>
+      </View>
+      <View
+        style={
+          Array [
+            Object {
+              "borderStyle": "solid",
+              "flex": 1,
+              "minHeight": 48,
+              "width": "100%",
+            },
+            undefined,
+            false,
+          ]
+        }
+        testID="table-row-test-id"
+      >
+        <View
+          style={
+            Object {
+              "borderBottomColor": "lightgray",
+              "borderBottomWidth": 1,
+              "flex": 1,
+              "flexDirection": "row",
+            }
+          }
+        >
+          <View
+            style={
+              Array [
+                Object {
+                  "alignItems": "center",
+                  "flex": 1,
+                  "flexDirection": "row",
+                },
+                undefined,
+                Object {
+                  "flex": 0.3,
+                },
+                undefined,
+              ]
+            }
+            testID="table-cell-test-id"
+          >
+            <Text
+              numberOfLines={1}
+            />
+          </View>
+          <View
+            style={
+              Array [
+                Object {
+                  "alignItems": "center",
+                  "flex": 1,
+                  "flexDirection": "row",
+                },
+                undefined,
+                false,
+                Array [
+                  Object {
+                    "justifyContent": "center",
+                  },
+                  Object {
+                    "flex": 0.3,
+                  },
+                ],
+              ]
+            }
+            testID="table-cell-test-id"
+          >
+            <Text
+              numberOfLines={1}
+            >
+              4
+            </Text>
+          </View>
+          <View
+            style={
+              Array [
+                Object {
+                  "alignItems": "center",
+                  "flex": 1,
+                  "flexDirection": "row",
+                },
+                undefined,
+                false,
+                Array [
+                  Object {
+                    "justifyContent": "center",
+                  },
+                  null,
+                ],
+              ]
+            }
+            testID="table-cell-test-id"
+          >
+            <Text
+              numberOfLines={1}
+            >
+              ethan
+            </Text>
+          </View>
+          <View
+            style={
+              Array [
+                Object {
+                  "alignItems": "center",
+                  "flex": 1,
+                  "flexDirection": "row",
+                },
+                undefined,
+                false,
+                Array [
+                  Object {
+                    "justifyContent": "center",
+                  },
+                  null,
+                ],
+              ]
+            }
+            testID="table-cell-test-id"
+          >
+            <Text
+              numberOfLines={1}
+            >
+              010-1234-1234
+            </Text>
+          </View>
+          <View
+            style={
+              Array [
+                Object {
+                  "alignItems": "center",
+                  "flex": 1,
+                  "flexDirection": "row",
+                },
+                undefined,
+                false,
+                Array [
+                  Object {
+                    "justifyContent": "center",
+                  },
+                  null,
+                ],
+              ]
+            }
+            testID="table-cell-test-id"
+          >
+            <Text
+              numberOfLines={1}
+            >
+              ethan@email.com
+            </Text>
+          </View>
+          <View
+            style={
+              Array [
+                Object {
+                  "alignItems": "center",
+                  "flex": 1,
+                  "flexDirection": "row",
+                },
+                undefined,
+                false,
+                Array [
+                  Object {
+                    "justifyContent": "center",
+                  },
+                  null,
+                ],
+              ]
+            }
+            testID="table-cell-test-id"
+          >
+            <Text
+              numberOfLines={1}
+            >
+              ethan
+            </Text>
+          </View>
+        </View>
+      </View>
+      <View
+        style={
+          Array [
+            Object {
+              "borderStyle": "solid",
+              "flex": 1,
+              "minHeight": 48,
+              "width": "100%",
+            },
+            undefined,
+            false,
+          ]
+        }
+        testID="table-row-test-id"
+      >
+        <View
+          style={
+            Object {
+              "borderBottomColor": "lightgray",
+              "borderBottomWidth": 1,
+              "flex": 1,
+              "flexDirection": "row",
+            }
+          }
+        >
+          <View
+            style={
+              Array [
+                Object {
+                  "alignItems": "center",
+                  "flex": 1,
+                  "flexDirection": "row",
+                },
+                undefined,
+                Object {
+                  "flex": 0.3,
+                },
+                undefined,
+              ]
+            }
+            testID="table-cell-test-id"
+          >
+            <Text
+              numberOfLines={1}
+            />
+          </View>
+          <View
+            style={
+              Array [
+                Object {
+                  "alignItems": "center",
+                  "flex": 1,
+                  "flexDirection": "row",
+                },
+                undefined,
+                false,
+                Array [
+                  Object {
+                    "justifyContent": "center",
+                  },
+                  Object {
+                    "flex": 0.3,
+                  },
+                ],
+              ]
+            }
+            testID="table-cell-test-id"
+          >
+            <Text
+              numberOfLines={1}
+            >
+              5
+            </Text>
+          </View>
+          <View
+            style={
+              Array [
+                Object {
+                  "alignItems": "center",
+                  "flex": 1,
+                  "flexDirection": "row",
+                },
+                undefined,
+                false,
+                Array [
+                  Object {
+                    "justifyContent": "center",
+                  },
+                  null,
+                ],
+              ]
+            }
+            testID="table-cell-test-id"
+          >
+            <Text
+              numberOfLines={1}
+            >
+              rim
+            </Text>
+          </View>
+          <View
+            style={
+              Array [
+                Object {
+                  "alignItems": "center",
+                  "flex": 1,
+                  "flexDirection": "row",
+                },
+                undefined,
+                false,
+                Array [
+                  Object {
+                    "justifyContent": "center",
+                  },
+                  null,
+                ],
+              ]
+            }
+            testID="table-cell-test-id"
+          >
+            <Text
+              numberOfLines={1}
+            >
+              010-1234-1234
+            </Text>
+          </View>
+          <View
+            style={
+              Array [
+                Object {
+                  "alignItems": "center",
+                  "flex": 1,
+                  "flexDirection": "row",
+                },
+                undefined,
+                false,
+                Array [
+                  Object {
+                    "justifyContent": "center",
+                  },
+                  null,
+                ],
+              ]
+            }
+            testID="table-cell-test-id"
+          >
+            <Text
+              numberOfLines={1}
+            >
+              rim@email.com
+            </Text>
+          </View>
+          <View
+            style={
+              Array [
+                Object {
+                  "alignItems": "center",
+                  "flex": 1,
+                  "flexDirection": "row",
+                },
+                undefined,
+                false,
+                Array [
+                  Object {
+                    "justifyContent": "center",
+                  },
+                  null,
+                ],
+              ]
+            }
+            testID="table-cell-test-id"
+          >
+            <Text
+              numberOfLines={1}
+            >
+              rim
+            </Text>
+          </View>
+        </View>
+      </View>
+      <View
+        style={
+          Array [
+            Object {
+              "borderStyle": "solid",
+              "flex": 1,
+              "minHeight": 48,
+              "width": "100%",
+            },
+            undefined,
+            false,
+          ]
+        }
+        testID="table-row-test-id"
+      >
+        <View
+          style={
+            Object {
+              "borderBottomColor": "lightgray",
+              "borderBottomWidth": 1,
+              "flex": 1,
+              "flexDirection": "row",
+            }
+          }
+        >
+          <View
+            style={
+              Array [
+                Object {
+                  "alignItems": "center",
+                  "flex": 1,
+                  "flexDirection": "row",
+                },
+                undefined,
+                Object {
+                  "flex": 0.3,
+                },
+                undefined,
+              ]
+            }
+            testID="table-cell-test-id"
+          >
+            <Text
+              numberOfLines={1}
+            />
+          </View>
+          <View
+            style={
+              Array [
+                Object {
+                  "alignItems": "center",
+                  "flex": 1,
+                  "flexDirection": "row",
+                },
+                undefined,
+                false,
+                Array [
+                  Object {
+                    "justifyContent": "center",
+                  },
+                  Object {
+                    "flex": 0.3,
+                  },
+                ],
+              ]
+            }
+            testID="table-cell-test-id"
+          >
+            <Text
+              numberOfLines={1}
+            >
+              6
+            </Text>
+          </View>
+          <View
+            style={
+              Array [
+                Object {
+                  "alignItems": "center",
+                  "flex": 1,
+                  "flexDirection": "row",
+                },
+                undefined,
+                false,
+                Array [
+                  Object {
+                    "justifyContent": "center",
+                  },
+                  null,
+                ],
+              ]
+            }
+            testID="table-cell-test-id"
+          >
+            <Text
+              numberOfLines={1}
+            >
+              zong
+            </Text>
+          </View>
+          <View
+            style={
+              Array [
+                Object {
+                  "alignItems": "center",
+                  "flex": 1,
+                  "flexDirection": "row",
+                },
+                undefined,
+                false,
+                Array [
+                  Object {
+                    "justifyContent": "center",
+                  },
+                  null,
+                ],
+              ]
+            }
+            testID="table-cell-test-id"
+          >
+            <Text
+              numberOfLines={1}
+            >
+              010-1234-1234
+            </Text>
+          </View>
+          <View
+            style={
+              Array [
+                Object {
+                  "alignItems": "center",
+                  "flex": 1,
+                  "flexDirection": "row",
+                },
+                undefined,
+                false,
+                Array [
+                  Object {
+                    "justifyContent": "center",
+                  },
+                  null,
+                ],
+              ]
+            }
+            testID="table-cell-test-id"
+          >
+            <Text
+              numberOfLines={1}
+            >
+              zong@email.com
+            </Text>
+          </View>
+          <View
+            style={
+              Array [
+                Object {
+                  "alignItems": "center",
+                  "flex": 1,
+                  "flexDirection": "row",
+                },
+                undefined,
+                false,
+                Array [
+                  Object {
+                    "justifyContent": "center",
+                  },
+                  null,
+                ],
+              ]
+            }
+            testID="table-cell-test-id"
+          >
+            <Text
+              numberOfLines={1}
+            >
+              zong
+            </Text>
+          </View>
+        </View>
+      </View>
+      <View
+        style={
+          Array [
+            Object {
+              "borderStyle": "solid",
+              "flex": 1,
+              "minHeight": 48,
+              "width": "100%",
+            },
+            undefined,
+            false,
+          ]
+        }
+        testID="table-row-test-id"
+      >
+        <View
+          style={
+            Object {
+              "borderBottomColor": "lightgray",
+              "borderBottomWidth": 1,
+              "flex": 1,
+              "flexDirection": "row",
+            }
+          }
+        >
+          <View
+            style={
+              Array [
+                Object {
+                  "alignItems": "center",
+                  "flex": 1,
+                  "flexDirection": "row",
+                },
+                undefined,
+                Object {
+                  "flex": 0.3,
+                },
+                undefined,
+              ]
+            }
+            testID="table-cell-test-id"
+          >
+            <Text
+              numberOfLines={1}
+            />
+          </View>
+          <View
+            style={
+              Array [
+                Object {
+                  "alignItems": "center",
+                  "flex": 1,
+                  "flexDirection": "row",
+                },
+                undefined,
+                false,
+                Array [
+                  Object {
+                    "justifyContent": "center",
+                  },
+                  Object {
+                    "flex": 0.3,
+                  },
+                ],
+              ]
+            }
+            testID="table-cell-test-id"
+          >
+            <Text
+              numberOfLines={1}
+            >
+              7
+            </Text>
+          </View>
+          <View
+            style={
+              Array [
+                Object {
+                  "alignItems": "center",
+                  "flex": 1,
+                  "flexDirection": "row",
+                },
+                undefined,
+                false,
+                Array [
+                  Object {
+                    "justifyContent": "center",
+                  },
+                  null,
+                ],
+              ]
+            }
+            testID="table-cell-test-id"
+          >
+            <Text
+              numberOfLines={1}
+            >
+              kong
+            </Text>
+          </View>
+          <View
+            style={
+              Array [
+                Object {
+                  "alignItems": "center",
+                  "flex": 1,
+                  "flexDirection": "row",
+                },
+                undefined,
+                false,
+                Array [
+                  Object {
+                    "justifyContent": "center",
+                  },
+                  null,
+                ],
+              ]
+            }
+            testID="table-cell-test-id"
+          >
+            <Text
+              numberOfLines={1}
+            >
+              010-1234-1234
+            </Text>
+          </View>
+          <View
+            style={
+              Array [
+                Object {
+                  "alignItems": "center",
+                  "flex": 1,
+                  "flexDirection": "row",
+                },
+                undefined,
+                false,
+                Array [
+                  Object {
+                    "justifyContent": "center",
+                  },
+                  null,
+                ],
+              ]
+            }
+            testID="table-cell-test-id"
+          >
+            <Text
+              numberOfLines={1}
+            >
+              kong@email.com
+            </Text>
+          </View>
+          <View
+            style={
+              Array [
+                Object {
+                  "alignItems": "center",
+                  "flex": 1,
+                  "flexDirection": "row",
+                },
+                undefined,
+                false,
+                Array [
+                  Object {
+                    "justifyContent": "center",
+                  },
+                  null,
+                ],
+              ]
+            }
+            testID="table-cell-test-id"
+          >
+            <Text
+              numberOfLines={1}
+            >
+              kong
+            </Text>
+          </View>
+        </View>
+      </View>
+      <View
+        style={
+          Array [
+            Object {
+              "borderStyle": "solid",
+              "flex": 1,
+              "minHeight": 48,
+              "width": "100%",
+            },
+            undefined,
+            false,
+          ]
+        }
+        testID="table-row-test-id"
+      >
+        <View
+          style={
+            Object {
+              "borderBottomColor": "lightgray",
+              "borderBottomWidth": 1,
+              "flex": 1,
+              "flexDirection": "row",
+            }
+          }
+        >
+          <View
+            style={
+              Array [
+                Object {
+                  "alignItems": "center",
+                  "flex": 1,
+                  "flexDirection": "row",
+                },
+                undefined,
+                Object {
+                  "flex": 0.3,
+                },
+                undefined,
+              ]
+            }
+            testID="table-cell-test-id"
+          >
+            <Text
+              numberOfLines={1}
+            />
+          </View>
+          <View
+            style={
+              Array [
+                Object {
+                  "alignItems": "center",
+                  "flex": 1,
+                  "flexDirection": "row",
+                },
+                undefined,
+                false,
+                Array [
+                  Object {
+                    "justifyContent": "center",
+                  },
+                  Object {
+                    "flex": 0.3,
+                  },
+                ],
+              ]
+            }
+            testID="table-cell-test-id"
+          >
+            <Text
+              numberOfLines={1}
+            >
+              8
+            </Text>
+          </View>
+          <View
+            style={
+              Array [
+                Object {
+                  "alignItems": "center",
+                  "flex": 1,
+                  "flexDirection": "row",
+                },
+                undefined,
+                false,
+                Array [
+                  Object {
+                    "justifyContent": "center",
+                  },
+                  null,
+                ],
+              ]
+            }
+            testID="table-cell-test-id"
+          >
+            <Text
+              numberOfLines={1}
+            >
+              cong
+            </Text>
+          </View>
+          <View
+            style={
+              Array [
+                Object {
+                  "alignItems": "center",
+                  "flex": 1,
+                  "flexDirection": "row",
+                },
+                undefined,
+                false,
+                Array [
+                  Object {
+                    "justifyContent": "center",
+                  },
+                  null,
+                ],
+              ]
+            }
+            testID="table-cell-test-id"
+          >
+            <Text
+              numberOfLines={1}
+            >
+              010-1234-1234
+            </Text>
+          </View>
+          <View
+            style={
+              Array [
+                Object {
+                  "alignItems": "center",
+                  "flex": 1,
+                  "flexDirection": "row",
+                },
+                undefined,
+                false,
+                Array [
+                  Object {
+                    "justifyContent": "center",
+                  },
+                  null,
+                ],
+              ]
+            }
+            testID="table-cell-test-id"
+          >
+            <Text
+              numberOfLines={1}
+            >
+              cong@email.com
+            </Text>
+          </View>
+          <View
+            style={
+              Array [
+                Object {
+                  "alignItems": "center",
+                  "flex": 1,
+                  "flexDirection": "row",
+                },
+                undefined,
+                false,
+                Array [
+                  Object {
+                    "justifyContent": "center",
+                  },
+                  null,
+                ],
+              ]
+            }
+            testID="table-cell-test-id"
+          >
+            <Text
+              numberOfLines={1}
+            >
+              cong
+            </Text>
+          </View>
+        </View>
+      </View>
+      <View
+        style={
+          Array [
+            Object {
+              "borderStyle": "solid",
+              "flex": 1,
+              "minHeight": 48,
+              "width": "100%",
+            },
+            undefined,
+            false,
+          ]
+        }
+        testID="table-row-test-id"
+      >
+        <View
+          style={
+            Object {
+              "borderBottomColor": "lightgray",
+              "borderBottomWidth": 1,
+              "flex": 1,
+              "flexDirection": "row",
+            }
+          }
+        >
+          <View
+            style={
+              Array [
+                Object {
+                  "alignItems": "center",
+                  "flex": 1,
+                  "flexDirection": "row",
+                },
+                undefined,
+                Object {
+                  "flex": 0.3,
+                },
+                undefined,
+              ]
+            }
+            testID="table-cell-test-id"
+          >
+            <Text
+              numberOfLines={1}
+            />
+          </View>
+          <View
+            style={
+              Array [
+                Object {
+                  "alignItems": "center",
+                  "flex": 1,
+                  "flexDirection": "row",
+                },
+                undefined,
+                false,
+                Array [
+                  Object {
+                    "justifyContent": "center",
+                  },
+                  Object {
+                    "flex": 0.3,
+                  },
+                ],
+              ]
+            }
+            testID="table-cell-test-id"
+          >
+            <Text
+              numberOfLines={1}
+            >
+              9
+            </Text>
+          </View>
+          <View
+            style={
+              Array [
+                Object {
+                  "alignItems": "center",
+                  "flex": 1,
+                  "flexDirection": "row",
+                },
+                undefined,
+                false,
+                Array [
+                  Object {
+                    "justifyContent": "center",
+                  },
+                  null,
+                ],
+              ]
+            }
+            testID="table-cell-test-id"
+          >
+            <Text
+              numberOfLines={1}
+            >
+              king
+            </Text>
+          </View>
+          <View
+            style={
+              Array [
+                Object {
+                  "alignItems": "center",
+                  "flex": 1,
+                  "flexDirection": "row",
+                },
+                undefined,
+                false,
+                Array [
+                  Object {
+                    "justifyContent": "center",
+                  },
+                  null,
+                ],
+              ]
+            }
+            testID="table-cell-test-id"
+          >
+            <Text
+              numberOfLines={1}
+            >
+              010-1234-1234
+            </Text>
+          </View>
+          <View
+            style={
+              Array [
+                Object {
+                  "alignItems": "center",
+                  "flex": 1,
+                  "flexDirection": "row",
+                },
+                undefined,
+                false,
+                Array [
+                  Object {
+                    "justifyContent": "center",
+                  },
+                  null,
+                ],
+              ]
+            }
+            testID="table-cell-test-id"
+          >
+            <Text
+              numberOfLines={1}
+            >
+              king@email.com
+            </Text>
+          </View>
+          <View
+            style={
+              Array [
+                Object {
+                  "alignItems": "center",
+                  "flex": 1,
+                  "flexDirection": "row",
+                },
+                undefined,
+                false,
+                Array [
+                  Object {
+                    "justifyContent": "center",
+                  },
+                  null,
+                ],
+              ]
+            }
+            testID="table-cell-test-id"
+          >
+            <Text
+              numberOfLines={1}
+            >
+              king
+            </Text>
+          </View>
+        </View>
+      </View>
+      <View
+        style={
+          Array [
+            Object {
+              "borderStyle": "solid",
+              "flex": 1,
+              "minHeight": 48,
+              "width": "100%",
+            },
+            undefined,
+            false,
+          ]
+        }
+        testID="table-row-test-id"
+      >
+        <View
+          style={
+            Object {
+              "borderBottomColor": "lightgray",
+              "borderBottomWidth": 1,
+              "flex": 1,
+              "flexDirection": "row",
+            }
+          }
+        >
+          <View
+            style={
+              Array [
+                Object {
+                  "alignItems": "center",
+                  "flex": 1,
+                  "flexDirection": "row",
+                },
+                undefined,
+                Object {
+                  "flex": 0.3,
+                },
+                undefined,
+              ]
+            }
+            testID="table-cell-test-id"
+          >
+            <Text
+              numberOfLines={1}
+            />
+          </View>
+          <View
+            style={
+              Array [
+                Object {
+                  "alignItems": "center",
+                  "flex": 1,
+                  "flexDirection": "row",
+                },
+                undefined,
+                false,
+                Array [
+                  Object {
+                    "justifyContent": "center",
+                  },
+                  Object {
+                    "flex": 0.3,
+                  },
+                ],
+              ]
+            }
+            testID="table-cell-test-id"
+          >
+            <Text
+              numberOfLines={1}
+            >
+              10
+            </Text>
+          </View>
+          <View
+            style={
+              Array [
+                Object {
+                  "alignItems": "center",
+                  "flex": 1,
+                  "flexDirection": "row",
+                },
+                undefined,
+                false,
+                Array [
+                  Object {
+                    "justifyContent": "center",
+                  },
+                  null,
+                ],
+              ]
+            }
+            testID="table-cell-test-id"
+          >
+            <Text
+              numberOfLines={1}
+            >
+              kim
+            </Text>
+          </View>
+          <View
+            style={
+              Array [
+                Object {
+                  "alignItems": "center",
+                  "flex": 1,
+                  "flexDirection": "row",
+                },
+                undefined,
+                false,
+                Array [
+                  Object {
+                    "justifyContent": "center",
+                  },
+                  null,
+                ],
+              ]
+            }
+            testID="table-cell-test-id"
+          >
+            <Text
+              numberOfLines={1}
+            >
+              010-1234-1234
+            </Text>
+          </View>
+          <View
+            style={
+              Array [
+                Object {
+                  "alignItems": "center",
+                  "flex": 1,
+                  "flexDirection": "row",
+                },
+                undefined,
+                false,
+                Array [
+                  Object {
+                    "justifyContent": "center",
+                  },
+                  null,
+                ],
+              ]
+            }
+            testID="table-cell-test-id"
+          >
+            <Text
+              numberOfLines={1}
+            >
+              kim@email.com
+            </Text>
+          </View>
+          <View
+            style={
+              Array [
+                Object {
+                  "alignItems": "center",
+                  "flex": 1,
+                  "flexDirection": "row",
+                },
+                undefined,
+                false,
+                Array [
+                  Object {
+                    "justifyContent": "center",
+                  },
+                  null,
+                ],
+              ]
+            }
+            testID="table-cell-test-id"
+          >
+            <Text
+              numberOfLines={1}
+            >
+              kim
+            </Text>
+          </View>
+        </View>
+      </View>
+    </View>
+  </View>
+</View>
+`;
