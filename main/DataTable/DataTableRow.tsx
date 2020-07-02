@@ -1,24 +1,20 @@
 import React, { ReactElement, ReactNode } from 'react';
-import { StyleSheet, StyleProp, View, ViewStyle, TouchableOpacity } from 'react-native';
+import { StyleProp, StyleSheet, View, ViewStyle } from 'react-native';
 
 interface Props {
   children: React.ReactNode;
   isChecked?: boolean;
   style?: StyleProp<ViewStyle>;
-};
-
+}
 
 function DataTableRow(props: Props): ReactElement {
-
   const { isChecked, style, ...rest } = props;
   return (
-    <View testID='table-row-test-id'
+    <View
+      testID="table-row-test-id"
       {...rest}
-      style={[styles.container, style, isChecked && styles.isChecked]}
-    >
-      <View style={styles.content}>
-        {props.children}
-      </View>
+      style={[styles.container, style, isChecked && styles.isChecked]}>
+      <View style={styles.content}>{props.children}</View>
     </View>
   );
 }
@@ -33,11 +29,11 @@ const styles = StyleSheet.create({
     height: 48,
     flexDirection: 'row',
     borderBottomWidth: 1,
-    borderBottomColor: 'lightgray'
+    borderBottomColor: 'lightgray',
   },
   isChecked: {
-    backgroundColor: '#f2f9ff'
-  }
+    backgroundColor: '#f2f9ff',
+  },
 });
 
 export default DataTableRow;

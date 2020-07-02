@@ -1,6 +1,6 @@
+import { Image, TouchableOpacity, View } from 'react-native';
 import React, { ReactElement } from 'react';
 import styled from 'styled-components/native';
-import { TouchableOpacity, Image, View } from 'react-native';
 
 const CheckView = styled.View`
   height: 20px;
@@ -13,29 +13,29 @@ const CheckView = styled.View`
 `;
 
 interface Props {
-    checked?: boolean;
-    onClick?: () => void;
+  checked?: boolean;
+  onClick?: () => void;
 }
 
 function CheckBox(props: Props): ReactElement {
-    const { checked, onClick } = props;
-    return (
-        <TouchableOpacity testID='checkbox-test-id' onPress={onClick}>
-            <View style={{ flexDirection: 'row' }}>
-                <CheckView>
-                    {checked ? (
-                        <Image
-                            source={require('../__assets__/check.png')}
-                            style={{
-                                width: 14,
-                                height: 14,
-                            }}
-                        />
-                    ) : null}
-                </CheckView>
-            </View>
-        </TouchableOpacity>
-    );
+  const { checked, onClick } = props;
+  return (
+    <TouchableOpacity testID="checkbox-test-id" onPress={onClick}>
+      <View style={{ flexDirection: 'row' }}>
+        <CheckView>
+          {checked ? (
+            <Image
+              source={require('../__assets__/check.png')}
+              style={{
+                width: 14,
+                height: 14,
+              }}
+            />
+          ) : null}
+        </CheckView>
+      </View>
+    </TouchableOpacity>
+  );
 }
 
 export default CheckBox;

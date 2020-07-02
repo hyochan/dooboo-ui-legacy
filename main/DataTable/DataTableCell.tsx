@@ -1,5 +1,5 @@
 import React, { ReactElement } from 'react';
-import { StyleSheet, StyleProp, ViewStyle, TouchableOpacity, Text, View } from 'react-native';
+import { StyleProp, StyleSheet, Text, TouchableOpacity, View, ViewStyle } from 'react-native';
 import styled from 'styled-components/native';
 
 interface Props {
@@ -8,7 +8,7 @@ interface Props {
   onPress?: () => void;
   style?: StyleProp<ViewStyle>;
   isShort?: boolean;
-};
+}
 
 const StyledText = styled.Text`
     width: 100%;
@@ -18,18 +18,18 @@ const StyledText = styled.Text`
     align-items: center;
     text-align:center;
 
-`
+`;
 function DataTableCell(props: Props): ReactElement {
   const { children, style, numeric, isShort, ...rest } = props;
   return (
     <View
-      testID='table-cell-test-id'
+      testID="table-cell-test-id"
       {...rest}
       style={[styles.container,
-      numeric && styles.right,
+        numeric && styles.right,
         style]}
     >
-      <StyledText numberOfLines={2}  >{children}</StyledText>
+      <StyledText numberOfLines={2} >{children}</StyledText>
     </View>
   );
 }
