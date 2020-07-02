@@ -2,6 +2,7 @@ import Accordion from './Accordion';
 import Button from './Button';
 import ButtonGroup from './ButtonGroup';
 import EditText from './EditText';
+import LineChart from './LineChart';
 import LoadingIndicator from './LoadingIndicator';
 import Slider from './Slider';
 import SwitchToggle from './SwitchToggle';
@@ -15,6 +16,7 @@ export {
   Button,
   ButtonGroup,
   EditText,
+  LineChart,
   LoadingIndicator,
   SwitchToggle,
   Slider,
