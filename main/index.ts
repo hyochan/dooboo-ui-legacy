@@ -1,7 +1,6 @@
 import Accordion from './Accordion';
 import Button from './Button';
 import ButtonGroup from './ButtonGroup';
-import DataTable from './DataTable';
 import EditText from './EditText';
 import LoadingIndicator from './LoadingIndicator';
 import Slider from './Slider';
@@ -18,5 +17,4 @@ export {
   LoadingIndicator,
   SwitchToggle,
   Slider,
-  DataTable,
 };
