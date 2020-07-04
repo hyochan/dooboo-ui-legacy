@@ -311,7 +311,7 @@ exports[`[Accordion] render test should operate animation when isAnimated props 
                 Object {
                   "transform": Array [
                     Object {
-                      "rotate": "0deg",
+                      "rotate": "180deg",
                     },
                   ],
                 },
@@ -416,7 +416,7 @@ exports[`[Accordion] render test should operate animation when isAnimated props 
                 Object {
                   "transform": Array [
                     Object {
-                      "rotate": "0deg",
+                      "rotate": "180deg",
                     },
                   ],
                 },

@@ -72,6 +72,8 @@ interface Props {
   bodyStyle?: ViewStyle;
 }
 
+let layoutHeight = 0;
+
 const AccordionItem: FC<Props> = (props) => {
   const {
     testID,
@@ -88,48 +90,73 @@ const AccordionItem: FC<Props> = (props) => {
 
   const animValue = useRef(new Animated.Value(0)).current;
 
-  const [isItemVisible, setItemVisible] = useState<boolean>(collapseOnStart);
-  const [isBodyMounted, setBodyMounted] = useState<boolean>(false);
+  const [opened, setItemVisible] = useState<boolean>(collapseOnStart);
+  const [bodyMounted, setBodyMounted] = useState<boolean>(false);
 
   const [bodyHeight, setBodyHeight] = useState<number>(1);
 
   const [directionIndicator, setDirectionIndicator] = useState(DirectionIndicator.DOWN);
 
   const handleBodyLayout = (e: LayoutChangeEvent): void => {
-    if (isBodyMounted) return;
+    if (bodyMounted) return;
     const { height } = e.nativeEvent.layout;
+    layoutHeight = height;
     setBodyMounted(true);
     setBodyHeight(height);
   };
 
   const handleVisibleState = (): void => {
-    setItemVisible(!isItemVisible);
+    setItemVisible(!opened);
   };
 
   useEffect((): void => {
-    if (isBodyMounted) {
-      animValue.setValue(isItemVisible ? bodyHeight : 0);
+    if (bodyMounted) {
+      animValue.setValue(opened ? layoutHeight : 0);
     }
-  }, [isBodyMounted]);
+  }, [bodyMounted]);
 
   useEffect((): void => {
-    if (isItemVisible) {
-      setDirectionIndicator(DirectionIndicator.UP);
-    } else setDirectionIndicator(DirectionIndicator.DOWN);
-  }, [isItemVisible]);
-
-  useEffect((): void => {
-    const targetValue = isItemVisible ? 1 : 0;
-    if (shouldAnimate) {
+    if (bodyHeight === layoutHeight) {
       Animated.timing(animValue, {
-        toValue: targetValue,
+        toValue: 0,
         duration: animDuration || 300,
         useNativeDriver: true,
+        delay: 10,
       }).start();
-      return;
+
+      setDirectionIndicator(DirectionIndicator.UP);
     }
-    animValue.setValue(targetValue);
-  }, [isItemVisible]);
+  }, [bodyHeight]);
+
+  useEffect((): void => {
+    if (shouldAnimate) {
+      if (!opened) {
+        setBodyHeight(layoutHeight);
+        return;
+      }
+
+      // setBodyHeight(0);
+      Animated.timing(animValue, {
+        toValue: 1,
+        duration: animDuration || 300,
+        useNativeDriver: true,
+      }).start(() => {
+        setBodyHeight(0);
+      });
+
+      setDirectionIndicator(DirectionIndicator.DOWN);
+    } else {
+      const targetValue = opened ? 1 : 0;
+      animValue.setValue(targetValue);
+
+      if (opened) {
+        setDirectionIndicator(DirectionIndicator.UP);
+        return;
+      }
+
+      setDirectionIndicator(DirectionIndicator.DOWN);
+    }
+  }, [opened]);
 
   return (
     <Container
@@ -161,11 +188,9 @@ const AccordionItem: FC<Props> = (props) => {
       <Animated.View
         testID={`body_${testID}`}
         style={{
-          height: !isBodyMounted
+          height: !bodyMounted
             ? undefined
-            : !isItemVisible
-              ? bodyHeight
-              : 0,
+            : bodyHeight,
           transform: [
             {
               translateY: animValue.interpolate({
