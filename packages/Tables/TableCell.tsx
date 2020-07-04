@@ -1,15 +1,20 @@
 import React, { ReactElement } from 'react';
-import { StyleProp, StyleSheet, View, ViewStyle } from 'react-native';
+import { StyleProp, ViewStyle } from 'react-native';
 
 import styled from 'styled-components/native';
 
 interface Props {
   children?: React.ReactNode;
   onPress?: () => void;
-  style?: StyleProp<ViewStyle>;
+  cellStyle?: StyleProp<ViewStyle>;
   isShort?: boolean;
 }
 
+const Container = styled.View<{ isShort: boolean }>`
+  width: ${({ isShort }): string => (isShort ? '50px' : '100px')};
+  flex-direction: row;
+  align-items: center;
+`;
 const StyledText = styled.Text`
   width: 100%;
   height: 24px;
@@ -19,28 +24,15 @@ const StyledText = styled.Text`
   text-align: center;
 `;
 function TableCell(props: Props): ReactElement {
-  const { children, style, isShort, ...rest } = props;
+  const { children, cellStyle, isShort } = props;
   return (
-    <View
+    <Container
       testID="table-cell-test-id"
-      {...rest}
-      style={[styles.container, style]}>
+      isShort={isShort}
+      style={[{ paddingVertical: 12 }, cellStyle]}>
       <StyledText numberOfLines={2}>{children}</StyledText>
-    </View>
+    </Container>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    width: 100,
-    flexDirection: 'row',
-    alignItems: 'center',
-    paddingVertical: 12,
-  },
-
-  right: {
-    justifyContent: 'flex-start',
-  },
-});
 
 export default TableCell;

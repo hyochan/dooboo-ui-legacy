@@ -5,7 +5,7 @@ import styled from 'styled-components/native';
 
 type Props = React.ComponentPropsWithRef<typeof View> & {
   children: React.ReactNode;
-  style?: ViewStyle;
+  headerStyle?: ViewStyle;
 };
 
 const HeaderContainer = styled.View`
@@ -16,10 +16,10 @@ const HeaderContainer = styled.View`
 `;
 
 function TableHeader(props: Props): ReactElement {
-  const { children, style, ...rest } = props;
+  const { children, headerStyle } = props;
 
   return (
-    <HeaderContainer {...rest} style={[style]} testID="table-header-test-id">
+    <HeaderContainer style={[headerStyle]} testID="table-header-test-id">
       {children}
     </HeaderContainer>
   );

@@ -1,39 +1,32 @@
 import React, { ReactElement, ReactNode } from 'react';
-import { StyleProp, StyleSheet, View, ViewStyle } from 'react-native';
+import { StyleProp, ViewStyle } from 'react-native';
+
+import styled from 'styled-components/native';
 
 interface Props {
-  children: React.ReactNode;
+  children: ReactNode;
   isChecked?: boolean;
-  style?: StyleProp<ViewStyle>;
+  rowStyle?: StyleProp<ViewStyle>;
 }
 
+const Container = styled.View`
+  width: 100%;
+  height: 48px;
+`;
+const Content = styled.View<{ isChecked: boolean }>`
+  height: 48px;
+  border-bottom-width: 1px;
+  border-bottom-color: lightgray;
+  flex-direction: row;
+  background: ${({ isChecked }): string => (isChecked ? '#f2f9ff' : 'white')};
+`;
 function TableRow(props: Props): ReactElement {
-  const { isChecked, style, ...rest } = props;
+  const { isChecked, rowStyle } = props;
   return (
-    <View
-      testID="table-row-test-id"
-      {...rest}
-      style={[styles.container, style]}>
-      <View style={styles.content}>{props.children}</View>
-    </View>
+    <Container testID="table-row-test-id" style={[rowStyle]}>
+      <Content isChecked={isChecked}>{props.children}</Content>
+    </Container>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    width: '100%',
-    height: 48,
-    borderStyle: 'solid',
-  },
-  content: {
-    height: 48,
-    flexDirection: 'row',
-    borderBottomWidth: 1,
-    borderBottomColor: 'lightgray',
-  },
-  isChecked: {
-    backgroundColor: '#f2f9ff',
-  },
-});
 
 export default TableRow;

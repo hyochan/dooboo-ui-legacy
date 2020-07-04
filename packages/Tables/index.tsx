@@ -1,13 +1,6 @@
 import * as React from 'react';
 
-import {
-  ScrollView,
-  StyleProp,
-  StyleSheet,
-  Text,
-  View,
-  ViewStyle,
-} from 'react-native';
+import { ScrollView, StyleProp, Text, ViewStyle } from 'react-native';
 
 import CheckBox from './CheckBox';
 import TableCell from './TableCell';
@@ -41,7 +34,6 @@ const Table: React.FC<Props> & TableNamespace = ({
   isCheckAble,
   customGroup,
   style,
-  ...rest
 }) => {
   /** default Data key */
   const group = data.reduce((acc, current) => {
@@ -77,14 +69,12 @@ const Table: React.FC<Props> & TableNamespace = ({
         height: '100%',
       }}>
       <ScrollView horizontal>
-        <Container {...rest} style={[style]}>
-          <View>
-            <Text>
-              {selected.length > 0 ? `${selected.length} item selected` : null}{' '}
-            </Text>
-          </View>
-          <Table.Header style={{ backgroundColor: '#f9f9f9' }}>
-            <Table.Title style={[!isCheckAble && styles.short]} />
+        <Container>
+          <Text>
+            {selected.length > 0 ? `${selected.length} item selected` : null}{' '}
+          </Text>
+          <Table.Header headerStyle={{ backgroundColor: '#f9f9f9' }}>
+            <Table.Title isCheckAble={!isCheckAble} />
 
             {/** have a customGroup or undefined  */}
             {(customGroup || group)?.map((field: any, index: number) => {
@@ -92,7 +82,7 @@ const Table: React.FC<Props> & TableNamespace = ({
                 <Table.Title
                   numberOfLines={1}
                   key={`${field}-${index}`}
-                  style={[styles.center, index === 0 ? styles.short : null]}>
+                  isCheckAble={index === 0}>
                   {field}
                 </Table.Title>
               );
@@ -104,27 +94,24 @@ const Table: React.FC<Props> & TableNamespace = ({
               <Table.Row
                 key={`row-${item}-${i}`}
                 isChecked={!!isItemSelected}
-                style={[styles.default, isItemSelected && styles.isChecked]}>
+                rowStyle={{ backgroundColor: 'white' }}>
                 {/* If CheckAble is true */}
                 {isCheckAble ? (
-                  <Table.Cell style={[{ justifyContent: 'center' }]}>
+                  <Table.Cell cellStyle={[{ justifyContent: 'center' }]}>
                     <CheckBox
                       onClick={(): void => handleClick(item[group[0]])}
-                      checked={!!isItemSelected}
+                      value={!!isItemSelected}
                     />
                   </Table.Cell>
                 ) : (
-                  <Table.Cell style={[!isCheckAble && styles.short]} />
+                  <Table.Cell isShort={!isCheckAble} />
                 )}
                 {/** Body */}
                 {group?.map((param: any, index: number) => {
                   return (
                     <Table.Cell
                       key={`cell-${param}-${index}`}
-                      style={[
-                        styles.center,
-                        index === 0 ? styles.short : null,
-                      ]}>
+                      isShort={index === 0}>
                       {item[param]}
                     </Table.Cell>
                   );
@@ -142,20 +129,5 @@ Table.Title = TableTitle;
 Table.Header = TableHeader;
 Table.Row = TableRow;
 Table.Cell = TableCell;
-
-const styles = StyleSheet.create({
-  short: {
-    width: 50,
-  },
-  center: {
-    justifyContent: 'center',
-  },
-  default: {
-    backgroundColor: 'white',
-  },
-  isChecked: {
-    backgroundColor: '#f2f9ff',
-  },
-});
 
 export default Table;
