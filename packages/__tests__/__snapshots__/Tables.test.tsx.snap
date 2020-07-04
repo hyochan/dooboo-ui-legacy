@@ -39,15 +39,12 @@ exports[`[Tables] render test should render checkbox when isCheckAble is true 1`
                 "flexGrow": 1,
                 "flexShrink": 1,
               },
-              undefined,
             ]
           }
         >
-          <View>
-            <Text>
-               
-            </Text>
-          </View>
+          <Text>
+             
+          </Text>
           <View
             style={
               Array [
@@ -69,17 +66,18 @@ exports[`[Tables] render test should render checkbox when isCheckAble is true 1`
               testID="table-title-test-id"
             >
               <View
+                isCheckAble={false}
                 style={
                   Array [
                     Object {
                       "alignContent": "center",
                       "flexDirection": "row",
-                      "paddingVertical": 12,
                       "width": 100,
                     },
-                    Array [
-                      false,
-                    ],
+                    Object {
+                      "paddingVertical": 12,
+                    },
+                    undefined,
                   ]
                 }
               >
@@ -104,22 +102,18 @@ exports[`[Tables] render test should render checkbox when isCheckAble is true 1`
               testID="table-title-test-id"
             >
               <View
+                isCheckAble={true}
                 style={
                   Array [
                     Object {
                       "alignContent": "center",
                       "flexDirection": "row",
-                      "paddingVertical": 12,
-                      "width": 100,
+                      "width": 50,
                     },
-                    Array [
-                      Object {
-                        "justifyContent": "center",
-                      },
-                      Object {
-                        "width": 50,
-                      },
-                    ],
+                    Object {
+                      "paddingVertical": 12,
+                    },
+                    undefined,
                   ]
                 }
               >
@@ -147,20 +141,18 @@ exports[`[Tables] render test should render checkbox when isCheckAble is true 1`
               testID="table-title-test-id"
             >
               <View
+                isCheckAble={false}
                 style={
                   Array [
                     Object {
                       "alignContent": "center",
                       "flexDirection": "row",
-                      "paddingVertical": 12,
                       "width": 100,
                     },
-                    Array [
-                      Object {
-                        "justifyContent": "center",
-                      },
-                      null,
-                    ],
+                    Object {
+                      "paddingVertical": 12,
+                    },
+                    undefined,
                   ]
                 }
               >
@@ -188,20 +180,18 @@ exports[`[Tables] render test should render checkbox when isCheckAble is true 1`
               testID="table-title-test-id"
             >
               <View
+                isCheckAble={false}
                 style={
                   Array [
                     Object {
                       "alignContent": "center",
                       "flexDirection": "row",
-                      "paddingVertical": 12,
                       "width": 100,
                     },
-                    Array [
-                      Object {
-                        "justifyContent": "center",
-                      },
-                      null,
-                    ],
+                    Object {
+                      "paddingVertical": 12,
+                    },
+                    undefined,
                   ]
                 }
               >
@@ -229,20 +219,18 @@ exports[`[Tables] render test should render checkbox when isCheckAble is true 1`
               testID="table-title-test-id"
             >
               <View
+                isCheckAble={false}
                 style={
                   Array [
                     Object {
                       "alignContent": "center",
                       "flexDirection": "row",
-                      "paddingVertical": 12,
                       "width": 100,
                     },
-                    Array [
-                      Object {
-                        "justifyContent": "center",
-                      },
-                      null,
-                    ],
+                    Object {
+                      "paddingVertical": 12,
+                    },
+                    undefined,
                   ]
                 }
               >
@@ -270,20 +258,18 @@ exports[`[Tables] render test should render checkbox when isCheckAble is true 1`
               testID="table-title-test-id"
             >
               <View
+                isCheckAble={false}
                 style={
                   Array [
                     Object {
                       "alignContent": "center",
                       "flexDirection": "row",
-                      "paddingVertical": 12,
                       "width": 100,
                     },
-                    Array [
-                      Object {
-                        "justifyContent": "center",
-                      },
-                      null,
-                    ],
+                    Object {
+                      "paddingVertical": 12,
+                    },
+                    undefined,
                   ]
                 }
               >
@@ -311,28 +297,28 @@ exports[`[Tables] render test should render checkbox when isCheckAble is true 1`
             style={
               Array [
                 Object {
-                  "borderStyle": "solid",
                   "height": 48,
                   "width": "100%",
                 },
-                Array [
-                  Object {
-                    "backgroundColor": "white",
-                  },
-                  false,
-                ],
+                Object {
+                  "backgroundColor": "white",
+                },
               ]
             }
             testID="table-row-test-id"
           >
             <View
+              isChecked={false}
               style={
-                Object {
-                  "borderBottomColor": "lightgray",
-                  "borderBottomWidth": 1,
-                  "flexDirection": "row",
-                  "height": 48,
-                }
+                Array [
+                  Object {
+                    "backgroundColor": "white",
+                    "borderBottomColor": "lightgray",
+                    "borderBottomWidth": 1,
+                    "flexDirection": "row",
+                    "height": 48,
+                  },
+                ]
               }
             >
               <View
@@ -341,8 +327,10 @@ exports[`[Tables] render test should render checkbox when isCheckAble is true 1`
                     Object {
                       "alignItems": "center",
                       "flexDirection": "row",
-                      "paddingVertical": 12,
                       "width": 100,
+                    },
+                    Object {
+                      "paddingVertical": 12,
                     },
                     Array [
                       Object {
@@ -372,23 +360,33 @@ exports[`[Tables] render test should render checkbox when isCheckAble is true 1`
                     testID="checkbox-test-id"
                   >
                     <View
+                      checked={false}
                       style={
-                        Object {
-                          "flexDirection": "row",
-                        }
+                        Array [
+                          Object {
+                            "alignItems": "center",
+                            "backgroundColor": "#ffffff",
+                            "borderColor": "#d5d5d5",
+                            "borderRadius": 2,
+                            "borderWidth": 2,
+                            "height": 20,
+                            "justifyContent": "center",
+                            "width": 20,
+                          },
+                        ]
                       }
                     >
-                      <View
+                      <Image
+                        source={
+                          Object {
+                            "testUri": "../../../packages/Tables/__assets__/mark.png",
+                          }
+                        }
                         style={
                           Array [
                             Object {
-                              "alignItems": "center",
-                              "borderColor": "#d5d5d5",
-                              "borderRadius": 2,
-                              "borderWidth": 2,
-                              "height": 20,
-                              "justifyContent": "center",
-                              "width": 20,
+                              "height": 14,
+                              "width": 14,
                             },
                           ]
                         }
@@ -398,22 +396,18 @@ exports[`[Tables] render test should render checkbox when isCheckAble is true 1`
                 </Text>
               </View>
               <View
+                isShort={true}
                 style={
                   Array [
                     Object {
                       "alignItems": "center",
                       "flexDirection": "row",
-                      "paddingVertical": 12,
-                      "width": 100,
+                      "width": 50,
                     },
-                    Array [
-                      Object {
-                        "justifyContent": "center",
-                      },
-                      Object {
-                        "width": 50,
-                      },
-                    ],
+                    Object {
+                      "paddingVertical": 12,
+                    },
+                    undefined,
                   ]
                 }
                 testID="table-cell-test-id"
@@ -437,20 +431,18 @@ exports[`[Tables] render test should render checkbox when isCheckAble is true 1`
                 </Text>
               </View>
               <View
+                isShort={false}
                 style={
                   Array [
                     Object {
                       "alignItems": "center",
                       "flexDirection": "row",
-                      "paddingVertical": 12,
                       "width": 100,
                     },
-                    Array [
-                      Object {
-                        "justifyContent": "center",
-                      },
-                      null,
-                    ],
+                    Object {
+                      "paddingVertical": 12,
+                    },
+                    undefined,
                   ]
                 }
                 testID="table-cell-test-id"
@@ -474,20 +466,18 @@ exports[`[Tables] render test should render checkbox when isCheckAble is true 1`
                 </Text>
               </View>
               <View
+                isShort={false}
                 style={
                   Array [
                     Object {
                       "alignItems": "center",
                       "flexDirection": "row",
-                      "paddingVertical": 12,
                       "width": 100,
                     },
-                    Array [
-                      Object {
-                        "justifyContent": "center",
-                      },
-                      null,
-                    ],
+                    Object {
+                      "paddingVertical": 12,
+                    },
+                    undefined,
                   ]
                 }
                 testID="table-cell-test-id"
@@ -511,20 +501,18 @@ exports[`[Tables] render test should render checkbox when isCheckAble is true 1`
                 </Text>
               </View>
               <View
+                isShort={false}
                 style={
                   Array [
                     Object {
                       "alignItems": "center",
                       "flexDirection": "row",
-                      "paddingVertical": 12,
                       "width": 100,
                     },
-                    Array [
-                      Object {
-                        "justifyContent": "center",
-                      },
-                      null,
-                    ],
+                    Object {
+                      "paddingVertical": 12,
+                    },
+                    undefined,
                   ]
                 }
                 testID="table-cell-test-id"
@@ -548,20 +536,18 @@ exports[`[Tables] render test should render checkbox when isCheckAble is true 1`
                 </Text>
               </View>
               <View
+                isShort={false}
                 style={
                   Array [
                     Object {
                       "alignItems": "center",
                       "flexDirection": "row",
-                      "paddingVertical": 12,
                       "width": 100,
                     },
-                    Array [
-                      Object {
-                        "justifyContent": "center",
-                      },
-                      null,
-                    ],
+                    Object {
+                      "paddingVertical": 12,
+                    },
+                    undefined,
                   ]
                 }
                 testID="table-cell-test-id"
@@ -590,28 +576,28 @@ exports[`[Tables] render test should render checkbox when isCheckAble is true 1`
             style={
               Array [
                 Object {
-                  "borderStyle": "solid",
                   "height": 48,
                   "width": "100%",
                 },
-                Array [
-                  Object {
-                    "backgroundColor": "white",
-                  },
-                  false,
-                ],
+                Object {
+                  "backgroundColor": "white",
+                },
               ]
             }
             testID="table-row-test-id"
           >
             <View
+              isChecked={false}
               style={
-                Object {
-                  "borderBottomColor": "lightgray",
-                  "borderBottomWidth": 1,
-                  "flexDirection": "row",
-                  "height": 48,
-                }
+                Array [
+                  Object {
+                    "backgroundColor": "white",
+                    "borderBottomColor": "lightgray",
+                    "borderBottomWidth": 1,
+                    "flexDirection": "row",
+                    "height": 48,
+                  },
+                ]
               }
             >
               <View
@@ -620,8 +606,10 @@ exports[`[Tables] render test should render checkbox when isCheckAble is true 1`
                     Object {
                       "alignItems": "center",
                       "flexDirection": "row",
-                      "paddingVertical": 12,
                       "width": 100,
+                    },
+                    Object {
+                      "paddingVertical": 12,
                     },
                     Array [
                       Object {
@@ -651,23 +639,33 @@ exports[`[Tables] render test should render checkbox when isCheckAble is true 1`
                     testID="checkbox-test-id"
                   >
                     <View
+                      checked={false}
                       style={
-                        Object {
-                          "flexDirection": "row",
-                        }
+                        Array [
+                          Object {
+                            "alignItems": "center",
+                            "backgroundColor": "#ffffff",
+                            "borderColor": "#d5d5d5",
+                            "borderRadius": 2,
+                            "borderWidth": 2,
+                            "height": 20,
+                            "justifyContent": "center",
+                            "width": 20,
+                          },
+                        ]
                       }
                     >
-                      <View
+                      <Image
+                        source={
+                          Object {
+                            "testUri": "../../../packages/Tables/__assets__/mark.png",
+                          }
+                        }
                         style={
                           Array [
                             Object {
-                              "alignItems": "center",
-                              "borderColor": "#d5d5d5",
-                              "borderRadius": 2,
-                              "borderWidth": 2,
-                              "height": 20,
-                              "justifyContent": "center",
-                              "width": 20,
+                              "height": 14,
+                              "width": 14,
                             },
                           ]
                         }
@@ -677,22 +675,18 @@ exports[`[Tables] render test should render checkbox when isCheckAble is true 1`
                 </Text>
               </View>
               <View
+                isShort={true}
                 style={
                   Array [
                     Object {
                       "alignItems": "center",
                       "flexDirection": "row",
-                      "paddingVertical": 12,
-                      "width": 100,
+                      "width": 50,
                     },
-                    Array [
-                      Object {
-                        "justifyContent": "center",
-                      },
-                      Object {
-                        "width": 50,
-                      },
-                    ],
+                    Object {
+                      "paddingVertical": 12,
+                    },
+                    undefined,
                   ]
                 }
                 testID="table-cell-test-id"
@@ -716,20 +710,18 @@ exports[`[Tables] render test should render checkbox when isCheckAble is true 1`
                 </Text>
               </View>
               <View
+                isShort={false}
                 style={
                   Array [
                     Object {
                       "alignItems": "center",
                       "flexDirection": "row",
-                      "paddingVertical": 12,
                       "width": 100,
                     },
-                    Array [
-                      Object {
-                        "justifyContent": "center",
-                      },
-                      null,
-                    ],
+                    Object {
+                      "paddingVertical": 12,
+                    },
+                    undefined,
                   ]
                 }
                 testID="table-cell-test-id"
@@ -753,20 +745,18 @@ exports[`[Tables] render test should render checkbox when isCheckAble is true 1`
                 </Text>
               </View>
               <View
+                isShort={false}
                 style={
                   Array [
                     Object {
                       "alignItems": "center",
                       "flexDirection": "row",
-                      "paddingVertical": 12,
                       "width": 100,
                     },
-                    Array [
-                      Object {
-                        "justifyContent": "center",
-                      },
-                      null,
-                    ],
+                    Object {
+                      "paddingVertical": 12,
+                    },
+                    undefined,
                   ]
                 }
                 testID="table-cell-test-id"
@@ -790,20 +780,18 @@ exports[`[Tables] render test should render checkbox when isCheckAble is true 1`
                 </Text>
               </View>
               <View
+                isShort={false}
                 style={
                   Array [
                     Object {
                       "alignItems": "center",
                       "flexDirection": "row",
-                      "paddingVertical": 12,
                       "width": 100,
                     },
-                    Array [
-                      Object {
-                        "justifyContent": "center",
-                      },
-                      null,
-                    ],
+                    Object {
+                      "paddingVertical": 12,
+                    },
+                    undefined,
                   ]
                 }
                 testID="table-cell-test-id"
@@ -827,20 +815,18 @@ exports[`[Tables] render test should render checkbox when isCheckAble is true 1`
                 </Text>
               </View>
               <View
+                isShort={false}
                 style={
                   Array [
                     Object {
                       "alignItems": "center",
                       "flexDirection": "row",
-                      "paddingVertical": 12,
                       "width": 100,
                     },
-                    Array [
-                      Object {
-                        "justifyContent": "center",
-                      },
-                      null,
-                    ],
+                    Object {
+                      "paddingVertical": 12,
+                    },
+                    undefined,
                   ]
                 }
                 testID="table-cell-test-id"
@@ -869,28 +855,28 @@ exports[`[Tables] render test should render checkbox when isCheckAble is true 1`
             style={
               Array [
                 Object {
-                  "borderStyle": "solid",
                   "height": 48,
                   "width": "100%",
                 },
-                Array [
-                  Object {
-                    "backgroundColor": "white",
-                  },
-                  false,
-                ],
+                Object {
+                  "backgroundColor": "white",
+                },
               ]
             }
             testID="table-row-test-id"
           >
             <View
+              isChecked={false}
               style={
-                Object {
-                  "borderBottomColor": "lightgray",
-                  "borderBottomWidth": 1,
-                  "flexDirection": "row",
-                  "height": 48,
-                }
+                Array [
+                  Object {
+                    "backgroundColor": "white",
+                    "borderBottomColor": "lightgray",
+                    "borderBottomWidth": 1,
+                    "flexDirection": "row",
+                    "height": 48,
+                  },
+                ]
               }
             >
               <View
@@ -899,8 +885,10 @@ exports[`[Tables] render test should render checkbox when isCheckAble is true 1`
                     Object {
                       "alignItems": "center",
                       "flexDirection": "row",
-                      "paddingVertical": 12,
                       "width": 100,
+                    },
+                    Object {
+                      "paddingVertical": 12,
                     },
                     Array [
                       Object {
@@ -930,23 +918,33 @@ exports[`[Tables] render test should render checkbox when isCheckAble is true 1`
                     testID="checkbox-test-id"
                   >
                     <View
+                      checked={false}
                       style={
-                        Object {
-                          "flexDirection": "row",
-                        }
+                        Array [
+                          Object {
+                            "alignItems": "center",
+                            "backgroundColor": "#ffffff",
+                            "borderColor": "#d5d5d5",
+                            "borderRadius": 2,
+                            "borderWidth": 2,
+                            "height": 20,
+                            "justifyContent": "center",
+                            "width": 20,
+                          },
+                        ]
                       }
                     >
-                      <View
+                      <Image
+                        source={
+                          Object {
+                            "testUri": "../../../packages/Tables/__assets__/mark.png",
+                          }
+                        }
                         style={
                           Array [
                             Object {
-                              "alignItems": "center",
-                              "borderColor": "#d5d5d5",
-                              "borderRadius": 2,
-                              "borderWidth": 2,
-                              "height": 20,
-                              "justifyContent": "center",
-                              "width": 20,
+                              "height": 14,
+                              "width": 14,
                             },
                           ]
                         }
@@ -956,22 +954,18 @@ exports[`[Tables] render test should render checkbox when isCheckAble is true 1`
                 </Text>
               </View>
               <View
+                isShort={true}
                 style={
                   Array [
                     Object {
                       "alignItems": "center",
                       "flexDirection": "row",
-                      "paddingVertical": 12,
-                      "width": 100,
+                      "width": 50,
                     },
-                    Array [
-                      Object {
-                        "justifyContent": "center",
-                      },
-                      Object {
-                        "width": 50,
-                      },
-                    ],
+                    Object {
+                      "paddingVertical": 12,
+                    },
+                    undefined,
                   ]
                 }
                 testID="table-cell-test-id"
@@ -995,20 +989,18 @@ exports[`[Tables] render test should render checkbox when isCheckAble is true 1`
                 </Text>
               </View>
               <View
+                isShort={false}
                 style={
                   Array [
                     Object {
                       "alignItems": "center",
                       "flexDirection": "row",
-                      "paddingVertical": 12,
                       "width": 100,
                     },
-                    Array [
-                      Object {
-                        "justifyContent": "center",
-                      },
-                      null,
-                    ],
+                    Object {
+                      "paddingVertical": 12,
+                    },
+                    undefined,
                   ]
                 }
                 testID="table-cell-test-id"
@@ -1032,20 +1024,18 @@ exports[`[Tables] render test should render checkbox when isCheckAble is true 1`
                 </Text>
               </View>
               <View
+                isShort={false}
                 style={
                   Array [
                     Object {
                       "alignItems": "center",
                       "flexDirection": "row",
-                      "paddingVertical": 12,
                       "width": 100,
                     },
-                    Array [
-                      Object {
-                        "justifyContent": "center",
-                      },
-                      null,
-                    ],
+                    Object {
+                      "paddingVertical": 12,
+                    },
+                    undefined,
                   ]
                 }
                 testID="table-cell-test-id"
@@ -1069,20 +1059,18 @@ exports[`[Tables] render test should render checkbox when isCheckAble is true 1`
                 </Text>
               </View>
               <View
+                isShort={false}
                 style={
                   Array [
                     Object {
                       "alignItems": "center",
                       "flexDirection": "row",
-                      "paddingVertical": 12,
                       "width": 100,
                     },
-                    Array [
-                      Object {
-                        "justifyContent": "center",
-                      },
-                      null,
-                    ],
+                    Object {
+                      "paddingVertical": 12,
+                    },
+                    undefined,
                   ]
                 }
                 testID="table-cell-test-id"
@@ -1106,20 +1094,18 @@ exports[`[Tables] render test should render checkbox when isCheckAble is true 1`
                 </Text>
               </View>
               <View
+                isShort={false}
                 style={
                   Array [
                     Object {
                       "alignItems": "center",
                       "flexDirection": "row",
-                      "paddingVertical": 12,
                       "width": 100,
                     },
-                    Array [
-                      Object {
-                        "justifyContent": "center",
-                      },
-                      null,
-                    ],
+                    Object {
+                      "paddingVertical": 12,
+                    },
+                    undefined,
                   ]
                 }
                 testID="table-cell-test-id"
@@ -1148,28 +1134,28 @@ exports[`[Tables] render test should render checkbox when isCheckAble is true 1`
             style={
               Array [
                 Object {
-                  "borderStyle": "solid",
                   "height": 48,
                   "width": "100%",
                 },
-                Array [
-                  Object {
-                    "backgroundColor": "white",
-                  },
-                  false,
-                ],
+                Object {
+                  "backgroundColor": "white",
+                },
               ]
             }
             testID="table-row-test-id"
           >
             <View
+              isChecked={false}
               style={
-                Object {
-                  "borderBottomColor": "lightgray",
-                  "borderBottomWidth": 1,
-                  "flexDirection": "row",
-                  "height": 48,
-                }
+                Array [
+                  Object {
+                    "backgroundColor": "white",
+                    "borderBottomColor": "lightgray",
+                    "borderBottomWidth": 1,
+                    "flexDirection": "row",
+                    "height": 48,
+                  },
+                ]
               }
             >
               <View
@@ -1178,8 +1164,10 @@ exports[`[Tables] render test should render checkbox when isCheckAble is true 1`
                     Object {
                       "alignItems": "center",
                       "flexDirection": "row",
-                      "paddingVertical": 12,
                       "width": 100,
+                    },
+                    Object {
+                      "paddingVertical": 12,
                     },
                     Array [
                       Object {
@@ -1209,23 +1197,33 @@ exports[`[Tables] render test should render checkbox when isCheckAble is true 1`
                     testID="checkbox-test-id"
                   >
                     <View
+                      checked={false}
                       style={
-                        Object {
-                          "flexDirection": "row",
-                        }
+                        Array [
+                          Object {
+                            "alignItems": "center",
+                            "backgroundColor": "#ffffff",
+                            "borderColor": "#d5d5d5",
+                            "borderRadius": 2,
+                            "borderWidth": 2,
+                            "height": 20,
+                            "justifyContent": "center",
+                            "width": 20,
+                          },
+                        ]
                       }
                     >
-                      <View
+                      <Image
+                        source={
+                          Object {
+                            "testUri": "../../../packages/Tables/__assets__/mark.png",
+                          }
+                        }
                         style={
                           Array [
                             Object {
-                              "alignItems": "center",
-                              "borderColor": "#d5d5d5",
-                              "borderRadius": 2,
-                              "borderWidth": 2,
-                              "height": 20,
-                              "justifyContent": "center",
-                              "width": 20,
+                              "height": 14,
+                              "width": 14,
                             },
                           ]
                         }
@@ -1235,22 +1233,18 @@ exports[`[Tables] render test should render checkbox when isCheckAble is true 1`
                 </Text>
               </View>
               <View
+                isShort={true}
                 style={
                   Array [
                     Object {
                       "alignItems": "center",
                       "flexDirection": "row",
-                      "paddingVertical": 12,
-                      "width": 100,
+                      "width": 50,
                     },
-                    Array [
-                      Object {
-                        "justifyContent": "center",
-                      },
-                      Object {
-                        "width": 50,
-                      },
-                    ],
+                    Object {
+                      "paddingVertical": 12,
+                    },
+                    undefined,
                   ]
                 }
                 testID="table-cell-test-id"
@@ -1274,20 +1268,18 @@ exports[`[Tables] render test should render checkbox when isCheckAble is true 1`
                 </Text>
               </View>
               <View
+                isShort={false}
                 style={
                   Array [
                     Object {
                       "alignItems": "center",
                       "flexDirection": "row",
-                      "paddingVertical": 12,
                       "width": 100,
                     },
-                    Array [
-                      Object {
-                        "justifyContent": "center",
-                      },
-                      null,
-                    ],
+                    Object {
+                      "paddingVertical": 12,
+                    },
+                    undefined,
                   ]
                 }
                 testID="table-cell-test-id"
@@ -1311,20 +1303,18 @@ exports[`[Tables] render test should render checkbox when isCheckAble is true 1`
                 </Text>
               </View>
               <View
+                isShort={false}
                 style={
                   Array [
                     Object {
                       "alignItems": "center",
                       "flexDirection": "row",
-                      "paddingVertical": 12,
                       "width": 100,
                     },
-                    Array [
-                      Object {
-                        "justifyContent": "center",
-                      },
-                      null,
-                    ],
+                    Object {
+                      "paddingVertical": 12,
+                    },
+                    undefined,
                   ]
                 }
                 testID="table-cell-test-id"
@@ -1348,20 +1338,18 @@ exports[`[Tables] render test should render checkbox when isCheckAble is true 1`
                 </Text>
               </View>
               <View
+                isShort={false}
                 style={
                   Array [
                     Object {
                       "alignItems": "center",
                       "flexDirection": "row",
-                      "paddingVertical": 12,
                       "width": 100,
                     },
-                    Array [
-                      Object {
-                        "justifyContent": "center",
-                      },
-                      null,
-                    ],
+                    Object {
+                      "paddingVertical": 12,
+                    },
+                    undefined,
                   ]
                 }
                 testID="table-cell-test-id"
@@ -1385,20 +1373,18 @@ exports[`[Tables] render test should render checkbox when isCheckAble is true 1`
                 </Text>
               </View>
               <View
+                isShort={false}
                 style={
                   Array [
                     Object {
                       "alignItems": "center",
                       "flexDirection": "row",
-                      "paddingVertical": 12,
                       "width": 100,
                     },
-                    Array [
-                      Object {
-                        "justifyContent": "center",
-                      },
-                      null,
-                    ],
+                    Object {
+                      "paddingVertical": 12,
+                    },
+                    undefined,
                   ]
                 }
                 testID="table-cell-test-id"
@@ -1427,28 +1413,28 @@ exports[`[Tables] render test should render checkbox when isCheckAble is true 1`
             style={
               Array [
                 Object {
-                  "borderStyle": "solid",
                   "height": 48,
                   "width": "100%",
                 },
-                Array [
-                  Object {
-                    "backgroundColor": "white",
-                  },
-                  false,
-                ],
+                Object {
+                  "backgroundColor": "white",
+                },
               ]
             }
             testID="table-row-test-id"
           >
             <View
+              isChecked={false}
               style={
-                Object {
-                  "borderBottomColor": "lightgray",
-                  "borderBottomWidth": 1,
-                  "flexDirection": "row",
-                  "height": 48,
-                }
+                Array [
+                  Object {
+                    "backgroundColor": "white",
+                    "borderBottomColor": "lightgray",
+                    "borderBottomWidth": 1,
+                    "flexDirection": "row",
+                    "height": 48,
+                  },
+                ]
               }
             >
               <View
@@ -1457,8 +1443,10 @@ exports[`[Tables] render test should render checkbox when isCheckAble is true 1`
                     Object {
                       "alignItems": "center",
                       "flexDirection": "row",
-                      "paddingVertical": 12,
                       "width": 100,
+                    },
+                    Object {
+                      "paddingVertical": 12,
                     },
                     Array [
                       Object {
@@ -1488,23 +1476,33 @@ exports[`[Tables] render test should render checkbox when isCheckAble is true 1`
                     testID="checkbox-test-id"
                   >
                     <View
+                      checked={false}
                       style={
-                        Object {
-                          "flexDirection": "row",
-                        }
+                        Array [
+                          Object {
+                            "alignItems": "center",
+                            "backgroundColor": "#ffffff",
+                            "borderColor": "#d5d5d5",
+                            "borderRadius": 2,
+                            "borderWidth": 2,
+                            "height": 20,
+                            "justifyContent": "center",
+                            "width": 20,
+                          },
+                        ]
                       }
                     >
-                      <View
+                      <Image
+                        source={
+                          Object {
+                            "testUri": "../../../packages/Tables/__assets__/mark.png",
+                          }
+                        }
                         style={
                           Array [
                             Object {
-                              "alignItems": "center",
-                              "borderColor": "#d5d5d5",
-                              "borderRadius": 2,
-                              "borderWidth": 2,
-                              "height": 20,
-                              "justifyContent": "center",
-                              "width": 20,
+                              "height": 14,
+                              "width": 14,
                             },
                           ]
                         }
@@ -1514,22 +1512,18 @@ exports[`[Tables] render test should render checkbox when isCheckAble is true 1`
                 </Text>
               </View>
               <View
+                isShort={true}
                 style={
                   Array [
                     Object {
                       "alignItems": "center",
                       "flexDirection": "row",
-                      "paddingVertical": 12,
-                      "width": 100,
+                      "width": 50,
                     },
-                    Array [
-                      Object {
-                        "justifyContent": "center",
-                      },
-                      Object {
-                        "width": 50,
-                      },
-                    ],
+                    Object {
+                      "paddingVertical": 12,
+                    },
+                    undefined,
                   ]
                 }
                 testID="table-cell-test-id"
@@ -1553,20 +1547,18 @@ exports[`[Tables] render test should render checkbox when isCheckAble is true 1`
                 </Text>
               </View>
               <View
+                isShort={false}
                 style={
                   Array [
                     Object {
                       "alignItems": "center",
                       "flexDirection": "row",
-                      "paddingVertical": 12,
                       "width": 100,
                     },
-                    Array [
-                      Object {
-                        "justifyContent": "center",
-                      },
-                      null,
-                    ],
+                    Object {
+                      "paddingVertical": 12,
+                    },
+                    undefined,
                   ]
                 }
                 testID="table-cell-test-id"
@@ -1590,20 +1582,18 @@ exports[`[Tables] render test should render checkbox when isCheckAble is true 1`
                 </Text>
               </View>
               <View
+                isShort={false}
                 style={
                   Array [
                     Object {
                       "alignItems": "center",
                       "flexDirection": "row",
-                      "paddingVertical": 12,
                       "width": 100,
                     },
-                    Array [
-                      Object {
-                        "justifyContent": "center",
-                      },
-                      null,
-                    ],
+                    Object {
+                      "paddingVertical": 12,
+                    },
+                    undefined,
                   ]
                 }
                 testID="table-cell-test-id"
@@ -1627,20 +1617,18 @@ exports[`[Tables] render test should render checkbox when isCheckAble is true 1`
                 </Text>
               </View>
               <View
+                isShort={false}
                 style={
                   Array [
                     Object {
                       "alignItems": "center",
                       "flexDirection": "row",
-                      "paddingVertical": 12,
                       "width": 100,
                     },
-                    Array [
-                      Object {
-                        "justifyContent": "center",
-                      },
-                      null,
-                    ],
+                    Object {
+                      "paddingVertical": 12,
+                    },
+                    undefined,
                   ]
                 }
                 testID="table-cell-test-id"
@@ -1664,20 +1652,18 @@ exports[`[Tables] render test should render checkbox when isCheckAble is true 1`
                 </Text>
               </View>
               <View
+                isShort={false}
                 style={
                   Array [
                     Object {
                       "alignItems": "center",
                       "flexDirection": "row",
-                      "paddingVertical": 12,
                       "width": 100,
                     },
-                    Array [
-                      Object {
-                        "justifyContent": "center",
-                      },
-                      null,
-                    ],
+                    Object {
+                      "paddingVertical": 12,
+                    },
+                    undefined,
                   ]
                 }
                 testID="table-cell-test-id"
@@ -1706,28 +1692,28 @@ exports[`[Tables] render test should render checkbox when isCheckAble is true 1`
             style={
               Array [
                 Object {
-                  "borderStyle": "solid",
                   "height": 48,
                   "width": "100%",
                 },
-                Array [
-                  Object {
-                    "backgroundColor": "white",
-                  },
-                  false,
-                ],
+                Object {
+                  "backgroundColor": "white",
+                },
               ]
             }
             testID="table-row-test-id"
           >
             <View
+              isChecked={false}
               style={
-                Object {
-                  "borderBottomColor": "lightgray",
-                  "borderBottomWidth": 1,
-                  "flexDirection": "row",
-                  "height": 48,
-                }
+                Array [
+                  Object {
+                    "backgroundColor": "white",
+                    "borderBottomColor": "lightgray",
+                    "borderBottomWidth": 1,
+                    "flexDirection": "row",
+                    "height": 48,
+                  },
+                ]
               }
             >
               <View
@@ -1736,8 +1722,10 @@ exports[`[Tables] render test should render checkbox when isCheckAble is true 1`
                     Object {
                       "alignItems": "center",
                       "flexDirection": "row",
-                      "paddingVertical": 12,
                       "width": 100,
+                    },
+                    Object {
+                      "paddingVertical": 12,
                     },
                     Array [
                       Object {
@@ -1767,23 +1755,33 @@ exports[`[Tables] render test should render checkbox when isCheckAble is true 1`
                     testID="checkbox-test-id"
                   >
                     <View
+                      checked={false}
                       style={
-                        Object {
-                          "flexDirection": "row",
-                        }
+                        Array [
+                          Object {
+                            "alignItems": "center",
+                            "backgroundColor": "#ffffff",
+                            "borderColor": "#d5d5d5",
+                            "borderRadius": 2,
+                            "borderWidth": 2,
+                            "height": 20,
+                            "justifyContent": "center",
+                            "width": 20,
+                          },
+                        ]
                       }
                     >
-                      <View
+                      <Image
+                        source={
+                          Object {
+                            "testUri": "../../../packages/Tables/__assets__/mark.png",
+                          }
+                        }
                         style={
                           Array [
                             Object {
-                              "alignItems": "center",
-                              "borderColor": "#d5d5d5",
-                              "borderRadius": 2,
-                              "borderWidth": 2,
-                              "height": 20,
-                              "justifyContent": "center",
-                              "width": 20,
+                              "height": 14,
+                              "width": 14,
                             },
                           ]
                         }
@@ -1793,22 +1791,18 @@ exports[`[Tables] render test should render checkbox when isCheckAble is true 1`
                 </Text>
               </View>
               <View
+                isShort={true}
                 style={
                   Array [
                     Object {
                       "alignItems": "center",
                       "flexDirection": "row",
-                      "paddingVertical": 12,
-                      "width": 100,
+                      "width": 50,
                     },
-                    Array [
-                      Object {
-                        "justifyContent": "center",
-                      },
-                      Object {
-                        "width": 50,
-                      },
-                    ],
+                    Object {
+                      "paddingVertical": 12,
+                    },
+                    undefined,
                   ]
                 }
                 testID="table-cell-test-id"
@@ -1832,20 +1826,18 @@ exports[`[Tables] render test should render checkbox when isCheckAble is true 1`
                 </Text>
               </View>
               <View
+                isShort={false}
                 style={
                   Array [
                     Object {
                       "alignItems": "center",
                       "flexDirection": "row",
-                      "paddingVertical": 12,
                       "width": 100,
                     },
-                    Array [
-                      Object {
-                        "justifyContent": "center",
-                      },
-                      null,
-                    ],
+                    Object {
+                      "paddingVertical": 12,
+                    },
+                    undefined,
                   ]
                 }
                 testID="table-cell-test-id"
@@ -1869,20 +1861,18 @@ exports[`[Tables] render test should render checkbox when isCheckAble is true 1`
                 </Text>
               </View>
               <View
+                isShort={false}
                 style={
                   Array [
                     Object {
                       "alignItems": "center",
                       "flexDirection": "row",
-                      "paddingVertical": 12,
                       "width": 100,
                     },
-                    Array [
-                      Object {
-                        "justifyContent": "center",
-                      },
-                      null,
-                    ],
+                    Object {
+                      "paddingVertical": 12,
+                    },
+                    undefined,
                   ]
                 }
                 testID="table-cell-test-id"
@@ -1906,20 +1896,18 @@ exports[`[Tables] render test should render checkbox when isCheckAble is true 1`
                 </Text>
               </View>
               <View
+                isShort={false}
                 style={
                   Array [
                     Object {
                       "alignItems": "center",
                       "flexDirection": "row",
-                      "paddingVertical": 12,
                       "width": 100,
                     },
-                    Array [
-                      Object {
-                        "justifyContent": "center",
-                      },
-                      null,
-                    ],
+                    Object {
+                      "paddingVertical": 12,
+                    },
+                    undefined,
                   ]
                 }
                 testID="table-cell-test-id"
@@ -1943,20 +1931,18 @@ exports[`[Tables] render test should render checkbox when isCheckAble is true 1`
                 </Text>
               </View>
               <View
+                isShort={false}
                 style={
                   Array [
                     Object {
                       "alignItems": "center",
                       "flexDirection": "row",
-                      "paddingVertical": 12,
                       "width": 100,
                     },
-                    Array [
-                      Object {
-                        "justifyContent": "center",
-                      },
-                      null,
-                    ],
+                    Object {
+                      "paddingVertical": 12,
+                    },
+                    undefined,
                   ]
                 }
                 testID="table-cell-test-id"
@@ -1985,28 +1971,28 @@ exports[`[Tables] render test should render checkbox when isCheckAble is true 1`
             style={
               Array [
                 Object {
-                  "borderStyle": "solid",
                   "height": 48,
                   "width": "100%",
                 },
-                Array [
-                  Object {
-                    "backgroundColor": "white",
-                  },
-                  false,
-                ],
+                Object {
+                  "backgroundColor": "white",
+                },
               ]
             }
             testID="table-row-test-id"
           >
             <View
+              isChecked={false}
               style={
-                Object {
-                  "borderBottomColor": "lightgray",
-                  "borderBottomWidth": 1,
-                  "flexDirection": "row",
-                  "height": 48,
-                }
+                Array [
+                  Object {
+                    "backgroundColor": "white",
+                    "borderBottomColor": "lightgray",
+                    "borderBottomWidth": 1,
+                    "flexDirection": "row",
+                    "height": 48,
+                  },
+                ]
               }
             >
               <View
@@ -2015,8 +2001,10 @@ exports[`[Tables] render test should render checkbox when isCheckAble is true 1`
                     Object {
                       "alignItems": "center",
                       "flexDirection": "row",
-                      "paddingVertical": 12,
                       "width": 100,
+                    },
+                    Object {
+                      "paddingVertical": 12,
                     },
                     Array [
                       Object {
@@ -2046,23 +2034,33 @@ exports[`[Tables] render test should render checkbox when isCheckAble is true 1`
                     testID="checkbox-test-id"
                   >
                     <View
+                      checked={false}
                       style={
-                        Object {
-                          "flexDirection": "row",
-                        }
+                        Array [
+                          Object {
+                            "alignItems": "center",
+                            "backgroundColor": "#ffffff",
+                            "borderColor": "#d5d5d5",
+                            "borderRadius": 2,
+                            "borderWidth": 2,
+                            "height": 20,
+                            "justifyContent": "center",
+                            "width": 20,
+                          },
+                        ]
                       }
                     >
-                      <View
+                      <Image
+                        source={
+                          Object {
+                            "testUri": "../../../packages/Tables/__assets__/mark.png",
+                          }
+                        }
                         style={
                           Array [
                             Object {
-                              "alignItems": "center",
-                              "borderColor": "#d5d5d5",
-                              "borderRadius": 2,
-                              "borderWidth": 2,
-                              "height": 20,
-                              "justifyContent": "center",
-                              "width": 20,
+                              "height": 14,
+                              "width": 14,
                             },
                           ]
                         }
@@ -2072,22 +2070,18 @@ exports[`[Tables] render test should render checkbox when isCheckAble is true 1`
                 </Text>
               </View>
               <View
+                isShort={true}
                 style={
                   Array [
                     Object {
                       "alignItems": "center",
                       "flexDirection": "row",
-                      "paddingVertical": 12,
-                      "width": 100,
+                      "width": 50,
                     },
-                    Array [
-                      Object {
-                        "justifyContent": "center",
-                      },
-                      Object {
-                        "width": 50,
-                      },
-                    ],
+                    Object {
+                      "paddingVertical": 12,
+                    },
+                    undefined,
                   ]
                 }
                 testID="table-cell-test-id"
@@ -2111,20 +2105,18 @@ exports[`[Tables] render test should render checkbox when isCheckAble is true 1`
                 </Text>
               </View>
               <View
+                isShort={false}
                 style={
                   Array [
                     Object {
                       "alignItems": "center",
                       "flexDirection": "row",
-                      "paddingVertical": 12,
                       "width": 100,
                     },
-                    Array [
-                      Object {
-                        "justifyContent": "center",
-                      },
-                      null,
-                    ],
+                    Object {
+                      "paddingVertical": 12,
+                    },
+                    undefined,
                   ]
                 }
                 testID="table-cell-test-id"
@@ -2148,20 +2140,18 @@ exports[`[Tables] render test should render checkbox when isCheckAble is true 1`
                 </Text>
               </View>
               <View
+                isShort={false}
                 style={
                   Array [
                     Object {
                       "alignItems": "center",
                       "flexDirection": "row",
-                      "paddingVertical": 12,
                       "width": 100,
                     },
-                    Array [
-                      Object {
-                        "justifyContent": "center",
-                      },
-                      null,
-                    ],
+                    Object {
+                      "paddingVertical": 12,
+                    },
+                    undefined,
                   ]
                 }
                 testID="table-cell-test-id"
@@ -2185,20 +2175,18 @@ exports[`[Tables] render test should render checkbox when isCheckAble is true 1`
                 </Text>
               </View>
               <View
+                isShort={false}
                 style={
                   Array [
                     Object {
                       "alignItems": "center",
                       "flexDirection": "row",
-                      "paddingVertical": 12,
                       "width": 100,
                     },
-                    Array [
-                      Object {
-                        "justifyContent": "center",
-                      },
-                      null,
-                    ],
+                    Object {
+                      "paddingVertical": 12,
+                    },
+                    undefined,
                   ]
                 }
                 testID="table-cell-test-id"
@@ -2222,20 +2210,18 @@ exports[`[Tables] render test should render checkbox when isCheckAble is true 1`
                 </Text>
               </View>
               <View
+                isShort={false}
                 style={
                   Array [
                     Object {
                       "alignItems": "center",
                       "flexDirection": "row",
-                      "paddingVertical": 12,
                       "width": 100,
                     },
-                    Array [
-                      Object {
-                        "justifyContent": "center",
-                      },
-                      null,
-                    ],
+                    Object {
+                      "paddingVertical": 12,
+                    },
+                    undefined,
                   ]
                 }
                 testID="table-cell-test-id"
@@ -2264,28 +2250,28 @@ exports[`[Tables] render test should render checkbox when isCheckAble is true 1`
             style={
               Array [
                 Object {
-                  "borderStyle": "solid",
                   "height": 48,
                   "width": "100%",
                 },
-                Array [
-                  Object {
-                    "backgroundColor": "white",
-                  },
-                  false,
-                ],
+                Object {
+                  "backgroundColor": "white",
+                },
               ]
             }
             testID="table-row-test-id"
           >
             <View
+              isChecked={false}
               style={
-                Object {
-                  "borderBottomColor": "lightgray",
-                  "borderBottomWidth": 1,
-                  "flexDirection": "row",
-                  "height": 48,
-                }
+                Array [
+                  Object {
+                    "backgroundColor": "white",
+                    "borderBottomColor": "lightgray",
+                    "borderBottomWidth": 1,
+                    "flexDirection": "row",
+                    "height": 48,
+                  },
+                ]
               }
             >
               <View
@@ -2294,8 +2280,10 @@ exports[`[Tables] render test should render checkbox when isCheckAble is true 1`
                     Object {
                       "alignItems": "center",
                       "flexDirection": "row",
-                      "paddingVertical": 12,
                       "width": 100,
+                    },
+                    Object {
+                      "paddingVertical": 12,
                     },
                     Array [
                       Object {
@@ -2325,23 +2313,33 @@ exports[`[Tables] render test should render checkbox when isCheckAble is true 1`
                     testID="checkbox-test-id"
                   >
                     <View
+                      checked={false}
                       style={
-                        Object {
-                          "flexDirection": "row",
-                        }
+                        Array [
+                          Object {
+                            "alignItems": "center",
+                            "backgroundColor": "#ffffff",
+                            "borderColor": "#d5d5d5",
+                            "borderRadius": 2,
+                            "borderWidth": 2,
+                            "height": 20,
+                            "justifyContent": "center",
+                            "width": 20,
+                          },
+                        ]
                       }
                     >
-                      <View
+                      <Image
+                        source={
+                          Object {
+                            "testUri": "../../../packages/Tables/__assets__/mark.png",
+                          }
+                        }
                         style={
                           Array [
                             Object {
-                              "alignItems": "center",
-                              "borderColor": "#d5d5d5",
-                              "borderRadius": 2,
-                              "borderWidth": 2,
-                              "height": 20,
-                              "justifyContent": "center",
-                              "width": 20,
+                              "height": 14,
+                              "width": 14,
                             },
                           ]
                         }
@@ -2351,22 +2349,18 @@ exports[`[Tables] render test should render checkbox when isCheckAble is true 1`
                 </Text>
               </View>
               <View
+                isShort={true}
                 style={
                   Array [
                     Object {
                       "alignItems": "center",
                       "flexDirection": "row",
-                      "paddingVertical": 12,
-                      "width": 100,
+                      "width": 50,
                     },
-                    Array [
-                      Object {
-                        "justifyContent": "center",
-                      },
-                      Object {
-                        "width": 50,
-                      },
-                    ],
+                    Object {
+                      "paddingVertical": 12,
+                    },
+                    undefined,
                   ]
                 }
                 testID="table-cell-test-id"
@@ -2390,20 +2384,18 @@ exports[`[Tables] render test should render checkbox when isCheckAble is true 1`
                 </Text>
               </View>
               <View
+                isShort={false}
                 style={
                   Array [
                     Object {
                       "alignItems": "center",
                       "flexDirection": "row",
-                      "paddingVertical": 12,
                       "width": 100,
                     },
-                    Array [
-                      Object {
-                        "justifyContent": "center",
-                      },
-                      null,
-                    ],
+                    Object {
+                      "paddingVertical": 12,
+                    },
+                    undefined,
                   ]
                 }
                 testID="table-cell-test-id"
@@ -2427,20 +2419,18 @@ exports[`[Tables] render test should render checkbox when isCheckAble is true 1`
                 </Text>
               </View>
               <View
+                isShort={false}
                 style={
                   Array [
                     Object {
                       "alignItems": "center",
                       "flexDirection": "row",
-                      "paddingVertical": 12,
                       "width": 100,
                     },
-                    Array [
-                      Object {
-                        "justifyContent": "center",
-                      },
-                      null,
-                    ],
+                    Object {
+                      "paddingVertical": 12,
+                    },
+                    undefined,
                   ]
                 }
                 testID="table-cell-test-id"
@@ -2464,20 +2454,18 @@ exports[`[Tables] render test should render checkbox when isCheckAble is true 1`
                 </Text>
               </View>
               <View
+                isShort={false}
                 style={
                   Array [
                     Object {
                       "alignItems": "center",
                       "flexDirection": "row",
-                      "paddingVertical": 12,
                       "width": 100,
                     },
-                    Array [
-                      Object {
-                        "justifyContent": "center",
-                      },
-                      null,
-                    ],
+                    Object {
+                      "paddingVertical": 12,
+                    },
+                    undefined,
                   ]
                 }
                 testID="table-cell-test-id"
@@ -2501,20 +2489,18 @@ exports[`[Tables] render test should render checkbox when isCheckAble is true 1`
                 </Text>
               </View>
               <View
+                isShort={false}
                 style={
                   Array [
                     Object {
                       "alignItems": "center",
                       "flexDirection": "row",
-                      "paddingVertical": 12,
                       "width": 100,
                     },
-                    Array [
-                      Object {
-                        "justifyContent": "center",
-                      },
-                      null,
-                    ],
+                    Object {
+                      "paddingVertical": 12,
+                    },
+                    undefined,
                   ]
                 }
                 testID="table-cell-test-id"
@@ -2543,28 +2529,28 @@ exports[`[Tables] render test should render checkbox when isCheckAble is true 1`
             style={
               Array [
                 Object {
-                  "borderStyle": "solid",
                   "height": 48,
                   "width": "100%",
                 },
-                Array [
-                  Object {
-                    "backgroundColor": "white",
-                  },
-                  false,
-                ],
+                Object {
+                  "backgroundColor": "white",
+                },
               ]
             }
             testID="table-row-test-id"
           >
             <View
+              isChecked={false}
               style={
-                Object {
-                  "borderBottomColor": "lightgray",
-                  "borderBottomWidth": 1,
-                  "flexDirection": "row",
-                  "height": 48,
-                }
+                Array [
+                  Object {
+                    "backgroundColor": "white",
+                    "borderBottomColor": "lightgray",
+                    "borderBottomWidth": 1,
+                    "flexDirection": "row",
+                    "height": 48,
+                  },
+                ]
               }
             >
               <View
@@ -2573,8 +2559,10 @@ exports[`[Tables] render test should render checkbox when isCheckAble is true 1`
                     Object {
                       "alignItems": "center",
                       "flexDirection": "row",
-                      "paddingVertical": 12,
                       "width": 100,
+                    },
+                    Object {
+                      "paddingVertical": 12,
                     },
                     Array [
                       Object {
@@ -2604,23 +2592,33 @@ exports[`[Tables] render test should render checkbox when isCheckAble is true 1`
                     testID="checkbox-test-id"
                   >
                     <View
+                      checked={false}
                       style={
-                        Object {
-                          "flexDirection": "row",
-                        }
+                        Array [
+                          Object {
+                            "alignItems": "center",
+                            "backgroundColor": "#ffffff",
+                            "borderColor": "#d5d5d5",
+                            "borderRadius": 2,
+                            "borderWidth": 2,
+                            "height": 20,
+                            "justifyContent": "center",
+                            "width": 20,
+                          },
+                        ]
                       }
                     >
-                      <View
+                      <Image
+                        source={
+                          Object {
+                            "testUri": "../../../packages/Tables/__assets__/mark.png",
+                          }
+                        }
                         style={
                           Array [
                             Object {
-                              "alignItems": "center",
-                              "borderColor": "#d5d5d5",
-                              "borderRadius": 2,
-                              "borderWidth": 2,
-                              "height": 20,
-                              "justifyContent": "center",
-                              "width": 20,
+                              "height": 14,
+                              "width": 14,
                             },
                           ]
                         }
@@ -2630,22 +2628,18 @@ exports[`[Tables] render test should render checkbox when isCheckAble is true 1`
                 </Text>
               </View>
               <View
+                isShort={true}
                 style={
                   Array [
                     Object {
                       "alignItems": "center",
                       "flexDirection": "row",
-                      "paddingVertical": 12,
-                      "width": 100,
+                      "width": 50,
                     },
-                    Array [
-                      Object {
-                        "justifyContent": "center",
-                      },
-                      Object {
-                        "width": 50,
-                      },
-                    ],
+                    Object {
+                      "paddingVertical": 12,
+                    },
+                    undefined,
                   ]
                 }
                 testID="table-cell-test-id"
@@ -2669,20 +2663,18 @@ exports[`[Tables] render test should render checkbox when isCheckAble is true 1`
                 </Text>
               </View>
               <View
+                isShort={false}
                 style={
                   Array [
                     Object {
                       "alignItems": "center",
                       "flexDirection": "row",
-                      "paddingVertical": 12,
                       "width": 100,
                     },
-                    Array [
-                      Object {
-                        "justifyContent": "center",
-                      },
-                      null,
-                    ],
+                    Object {
+                      "paddingVertical": 12,
+                    },
+                    undefined,
                   ]
                 }
                 testID="table-cell-test-id"
@@ -2706,20 +2698,18 @@ exports[`[Tables] render test should render checkbox when isCheckAble is true 1`
                 </Text>
               </View>
               <View
+                isShort={false}
                 style={
                   Array [
                     Object {
                       "alignItems": "center",
                       "flexDirection": "row",
-                      "paddingVertical": 12,
                       "width": 100,
                     },
-                    Array [
-                      Object {
-                        "justifyContent": "center",
-                      },
-                      null,
-                    ],
+                    Object {
+                      "paddingVertical": 12,
+                    },
+                    undefined,
                   ]
                 }
                 testID="table-cell-test-id"
@@ -2743,20 +2733,18 @@ exports[`[Tables] render test should render checkbox when isCheckAble is true 1`
                 </Text>
               </View>
               <View
+                isShort={false}
                 style={
                   Array [
                     Object {
                       "alignItems": "center",
                       "flexDirection": "row",
-                      "paddingVertical": 12,
                       "width": 100,
                     },
-                    Array [
-                      Object {
-                        "justifyContent": "center",
-                      },
-                      null,
-                    ],
+                    Object {
+                      "paddingVertical": 12,
+                    },
+                    undefined,
                   ]
                 }
                 testID="table-cell-test-id"
@@ -2780,20 +2768,18 @@ exports[`[Tables] render test should render checkbox when isCheckAble is true 1`
                 </Text>
               </View>
               <View
+                isShort={false}
                 style={
                   Array [
                     Object {
                       "alignItems": "center",
                       "flexDirection": "row",
-                      "paddingVertical": 12,
                       "width": 100,
                     },
-                    Array [
-                      Object {
-                        "justifyContent": "center",
-                      },
-                      null,
-                    ],
+                    Object {
+                      "paddingVertical": 12,
+                    },
+                    undefined,
                   ]
                 }
                 testID="table-cell-test-id"
@@ -2822,28 +2808,28 @@ exports[`[Tables] render test should render checkbox when isCheckAble is true 1`
             style={
               Array [
                 Object {
-                  "borderStyle": "solid",
                   "height": 48,
                   "width": "100%",
                 },
-                Array [
-                  Object {
-                    "backgroundColor": "white",
-                  },
-                  false,
-                ],
+                Object {
+                  "backgroundColor": "white",
+                },
               ]
             }
             testID="table-row-test-id"
           >
             <View
+              isChecked={false}
               style={
-                Object {
-                  "borderBottomColor": "lightgray",
-                  "borderBottomWidth": 1,
-                  "flexDirection": "row",
-                  "height": 48,
-                }
+                Array [
+                  Object {
+                    "backgroundColor": "white",
+                    "borderBottomColor": "lightgray",
+                    "borderBottomWidth": 1,
+                    "flexDirection": "row",
+                    "height": 48,
+                  },
+                ]
               }
             >
               <View
@@ -2852,8 +2838,10 @@ exports[`[Tables] render test should render checkbox when isCheckAble is true 1`
                     Object {
                       "alignItems": "center",
                       "flexDirection": "row",
-                      "paddingVertical": 12,
                       "width": 100,
+                    },
+                    Object {
+                      "paddingVertical": 12,
                     },
                     Array [
                       Object {
@@ -2883,23 +2871,33 @@ exports[`[Tables] render test should render checkbox when isCheckAble is true 1`
                     testID="checkbox-test-id"
                   >
                     <View
+                      checked={false}
                       style={
-                        Object {
-                          "flexDirection": "row",
-                        }
+                        Array [
+                          Object {
+                            "alignItems": "center",
+                            "backgroundColor": "#ffffff",
+                            "borderColor": "#d5d5d5",
+                            "borderRadius": 2,
+                            "borderWidth": 2,
+                            "height": 20,
+                            "justifyContent": "center",
+                            "width": 20,
+                          },
+                        ]
                       }
                     >
-                      <View
+                      <Image
+                        source={
+                          Object {
+                            "testUri": "../../../packages/Tables/__assets__/mark.png",
+                          }
+                        }
                         style={
                           Array [
                             Object {
-                              "alignItems": "center",
-                              "borderColor": "#d5d5d5",
-                              "borderRadius": 2,
-                              "borderWidth": 2,
-                              "height": 20,
-                              "justifyContent": "center",
-                              "width": 20,
+                              "height": 14,
+                              "width": 14,
                             },
                           ]
                         }
@@ -2909,22 +2907,18 @@ exports[`[Tables] render test should render checkbox when isCheckAble is true 1`
                 </Text>
               </View>
               <View
+                isShort={true}
                 style={
                   Array [
                     Object {
                       "alignItems": "center",
                       "flexDirection": "row",
-                      "paddingVertical": 12,
-                      "width": 100,
+                      "width": 50,
                     },
-                    Array [
-                      Object {
-                        "justifyContent": "center",
-                      },
-                      Object {
-                        "width": 50,
-                      },
-                    ],
+                    Object {
+                      "paddingVertical": 12,
+                    },
+                    undefined,
                   ]
                 }
                 testID="table-cell-test-id"
@@ -2948,20 +2942,18 @@ exports[`[Tables] render test should render checkbox when isCheckAble is true 1`
                 </Text>
               </View>
               <View
+                isShort={false}
                 style={
                   Array [
                     Object {
                       "alignItems": "center",
                       "flexDirection": "row",
-                      "paddingVertical": 12,
                       "width": 100,
                     },
-                    Array [
-                      Object {
-                        "justifyContent": "center",
-                      },
-                      null,
-                    ],
+                    Object {
+                      "paddingVertical": 12,
+                    },
+                    undefined,
                   ]
                 }
                 testID="table-cell-test-id"
@@ -2985,20 +2977,18 @@ exports[`[Tables] render test should render checkbox when isCheckAble is true 1`
                 </Text>
               </View>
               <View
+                isShort={false}
                 style={
                   Array [
                     Object {
                       "alignItems": "center",
                       "flexDirection": "row",
-                      "paddingVertical": 12,
                       "width": 100,
                     },
-                    Array [
-                      Object {
-                        "justifyContent": "center",
-                      },
-                      null,
-                    ],
+                    Object {
+                      "paddingVertical": 12,
+                    },
+                    undefined,
                   ]
                 }
                 testID="table-cell-test-id"
@@ -3022,20 +3012,18 @@ exports[`[Tables] render test should render checkbox when isCheckAble is true 1`
                 </Text>
               </View>
               <View
+                isShort={false}
                 style={
                   Array [
                     Object {
                       "alignItems": "center",
                       "flexDirection": "row",
-                      "paddingVertical": 12,
                       "width": 100,
                     },
-                    Array [
-                      Object {
-                        "justifyContent": "center",
-                      },
-                      null,
-                    ],
+                    Object {
+                      "paddingVertical": 12,
+                    },
+                    undefined,
                   ]
                 }
                 testID="table-cell-test-id"
@@ -3059,20 +3047,18 @@ exports[`[Tables] render test should render checkbox when isCheckAble is true 1`
                 </Text>
               </View>
               <View
+                isShort={false}
                 style={
                   Array [
                     Object {
                       "alignItems": "center",
                       "flexDirection": "row",
-                      "paddingVertical": 12,
                       "width": 100,
                     },
-                    Array [
-                      Object {
-                        "justifyContent": "center",
-                      },
-                      null,
-                    ],
+                    Object {
+                      "paddingVertical": 12,
+                    },
+                    undefined,
                   ]
                 }
                 testID="table-cell-test-id"
@@ -3134,7 +3120,6 @@ exports[`[Tables] render test should render collapsed when collapsedWhenRendered
         horizontal={true}
       >
         <View
-          collapsedWhenRendered={false}
           style={
             Array [
               Object {
@@ -3144,15 +3129,12 @@ exports[`[Tables] render test should render collapsed when collapsedWhenRendered
                 "flexGrow": 1,
                 "flexShrink": 1,
               },
-              undefined,
             ]
           }
         >
-          <View>
-            <Text>
-               
-            </Text>
-          </View>
+          <Text>
+             
+          </Text>
           <View
             style={
               Array [
@@ -3174,19 +3156,18 @@ exports[`[Tables] render test should render collapsed when collapsedWhenRendered
               testID="table-title-test-id"
             >
               <View
+                isCheckAble={true}
                 style={
                   Array [
                     Object {
                       "alignContent": "center",
                       "flexDirection": "row",
-                      "paddingVertical": 12,
-                      "width": 100,
+                      "width": 50,
                     },
-                    Array [
-                      Object {
-                        "width": 50,
-                      },
-                    ],
+                    Object {
+                      "paddingVertical": 12,
+                    },
+                    undefined,
                   ]
                 }
               >
@@ -3211,22 +3192,18 @@ exports[`[Tables] render test should render collapsed when collapsedWhenRendered
               testID="table-title-test-id"
             >
               <View
+                isCheckAble={true}
                 style={
                   Array [
                     Object {
                       "alignContent": "center",
                       "flexDirection": "row",
-                      "paddingVertical": 12,
-                      "width": 100,
+                      "width": 50,
                     },
-                    Array [
-                      Object {
-                        "justifyContent": "center",
-                      },
-                      Object {
-                        "width": 50,
-                      },
-                    ],
+                    Object {
+                      "paddingVertical": 12,
+                    },
+                    undefined,
                   ]
                 }
               >
@@ -3254,20 +3231,18 @@ exports[`[Tables] render test should render collapsed when collapsedWhenRendered
               testID="table-title-test-id"
             >
               <View
+                isCheckAble={false}
                 style={
                   Array [
                     Object {
                       "alignContent": "center",
                       "flexDirection": "row",
-                      "paddingVertical": 12,
                       "width": 100,
                     },
-                    Array [
-                      Object {
-                        "justifyContent": "center",
-                      },
-                      null,
-                    ],
+                    Object {
+                      "paddingVertical": 12,
+                    },
+                    undefined,
                   ]
                 }
               >
@@ -3295,20 +3270,18 @@ exports[`[Tables] render test should render collapsed when collapsedWhenRendered
               testID="table-title-test-id"
             >
               <View
+                isCheckAble={false}
                 style={
                   Array [
                     Object {
                       "alignContent": "center",
                       "flexDirection": "row",
-                      "paddingVertical": 12,
                       "width": 100,
                     },
-                    Array [
-                      Object {
-                        "justifyContent": "center",
-                      },
-                      null,
-                    ],
+                    Object {
+                      "paddingVertical": 12,
+                    },
+                    undefined,
                   ]
                 }
               >
@@ -3336,20 +3309,18 @@ exports[`[Tables] render test should render collapsed when collapsedWhenRendered
               testID="table-title-test-id"
             >
               <View
+                isCheckAble={false}
                 style={
                   Array [
                     Object {
                       "alignContent": "center",
                       "flexDirection": "row",
-                      "paddingVertical": 12,
                       "width": 100,
                     },
-                    Array [
-                      Object {
-                        "justifyContent": "center",
-                      },
-                      null,
-                    ],
+                    Object {
+                      "paddingVertical": 12,
+                    },
+                    undefined,
                   ]
                 }
               >
@@ -3377,20 +3348,18 @@ exports[`[Tables] render test should render collapsed when collapsedWhenRendered
               testID="table-title-test-id"
             >
               <View
+                isCheckAble={false}
                 style={
                   Array [
                     Object {
                       "alignContent": "center",
                       "flexDirection": "row",
-                      "paddingVertical": 12,
                       "width": 100,
                     },
-                    Array [
-                      Object {
-                        "justifyContent": "center",
-                      },
-                      null,
-                    ],
+                    Object {
+                      "paddingVertical": 12,
+                    },
+                    undefined,
                   ]
                 }
               >
@@ -3418,44 +3387,43 @@ exports[`[Tables] render test should render collapsed when collapsedWhenRendered
             style={
               Array [
                 Object {
-                  "borderStyle": "solid",
                   "height": 48,
                   "width": "100%",
                 },
-                Array [
-                  Object {
-                    "backgroundColor": "white",
-                  },
-                  false,
-                ],
+                Object {
+                  "backgroundColor": "white",
+                },
               ]
             }
             testID="table-row-test-id"
           >
             <View
+              isChecked={false}
               style={
-                Object {
-                  "borderBottomColor": "lightgray",
-                  "borderBottomWidth": 1,
-                  "flexDirection": "row",
-                  "height": 48,
-                }
+                Array [
+                  Object {
+                    "backgroundColor": "white",
+                    "borderBottomColor": "lightgray",
+                    "borderBottomWidth": 1,
+                    "flexDirection": "row",
+                    "height": 48,
+                  },
+                ]
               }
             >
               <View
+                isShort={true}
                 style={
                   Array [
                     Object {
                       "alignItems": "center",
                       "flexDirection": "row",
-                      "paddingVertical": 12,
-                      "width": 100,
+                      "width": 50,
                     },
-                    Array [
-                      Object {
-                        "width": 50,
-                      },
-                    ],
+                    Object {
+                      "paddingVertical": 12,
+                    },
+                    undefined,
                   ]
                 }
                 testID="table-cell-test-id"
@@ -3477,22 +3445,18 @@ exports[`[Tables] render test should render collapsed when collapsedWhenRendered
                 />
               </View>
               <View
+                isShort={true}
                 style={
                   Array [
                     Object {
                       "alignItems": "center",
                       "flexDirection": "row",
-                      "paddingVertical": 12,
-                      "width": 100,
+                      "width": 50,
                     },
-                    Array [
-                      Object {
-                        "justifyContent": "center",
-                      },
-                      Object {
-                        "width": 50,
-                      },
-                    ],
+                    Object {
+                      "paddingVertical": 12,
+                    },
+                    undefined,
                   ]
                 }
                 testID="table-cell-test-id"
@@ -3516,20 +3480,18 @@ exports[`[Tables] render test should render collapsed when collapsedWhenRendered
                 </Text>
               </View>
               <View
+                isShort={false}
                 style={
                   Array [
                     Object {
                       "alignItems": "center",
                       "flexDirection": "row",
-                      "paddingVertical": 12,
                       "width": 100,
                     },
-                    Array [
-                      Object {
-                        "justifyContent": "center",
-                      },
-                      null,
-                    ],
+                    Object {
+                      "paddingVertical": 12,
+                    },
+                    undefined,
                   ]
                 }
                 testID="table-cell-test-id"
@@ -3553,20 +3515,18 @@ exports[`[Tables] render test should render collapsed when collapsedWhenRendered
                 </Text>
               </View>
               <View
+                isShort={false}
                 style={
                   Array [
                     Object {
                       "alignItems": "center",
                       "flexDirection": "row",
-                      "paddingVertical": 12,
                       "width": 100,
                     },
-                    Array [
-                      Object {
-                        "justifyContent": "center",
-                      },
-                      null,
-                    ],
+                    Object {
+                      "paddingVertical": 12,
+                    },
+                    undefined,
                   ]
                 }
                 testID="table-cell-test-id"
@@ -3590,20 +3550,18 @@ exports[`[Tables] render test should render collapsed when collapsedWhenRendered
                 </Text>
               </View>
               <View
+                isShort={false}
                 style={
                   Array [
                     Object {
                       "alignItems": "center",
                       "flexDirection": "row",
-                      "paddingVertical": 12,
                       "width": 100,
                     },
-                    Array [
-                      Object {
-                        "justifyContent": "center",
-                      },
-                      null,
-                    ],
+                    Object {
+                      "paddingVertical": 12,
+                    },
+                    undefined,
                   ]
                 }
                 testID="table-cell-test-id"
@@ -3627,20 +3585,18 @@ exports[`[Tables] render test should render collapsed when collapsedWhenRendered
                 </Text>
               </View>
               <View
+                isShort={false}
                 style={
                   Array [
                     Object {
                       "alignItems": "center",
                       "flexDirection": "row",
-                      "paddingVertical": 12,
                       "width": 100,
                     },
-                    Array [
-                      Object {
-                        "justifyContent": "center",
-                      },
-                      null,
-                    ],
+                    Object {
+                      "paddingVertical": 12,
+                    },
+                    undefined,
                   ]
                 }
                 testID="table-cell-test-id"
@@ -3669,44 +3625,43 @@ exports[`[Tables] render test should render collapsed when collapsedWhenRendered
             style={
               Array [
                 Object {
-                  "borderStyle": "solid",
                   "height": 48,
                   "width": "100%",
                 },
-                Array [
-                  Object {
-                    "backgroundColor": "white",
-                  },
-                  false,
-                ],
+                Object {
+                  "backgroundColor": "white",
+                },
               ]
             }
             testID="table-row-test-id"
           >
             <View
+              isChecked={false}
               style={
-                Object {
-                  "borderBottomColor": "lightgray",
-                  "borderBottomWidth": 1,
-                  "flexDirection": "row",
-                  "height": 48,
-                }
+                Array [
+                  Object {
+                    "backgroundColor": "white",
+                    "borderBottomColor": "lightgray",
+                    "borderBottomWidth": 1,
+                    "flexDirection": "row",
+                    "height": 48,
+                  },
+                ]
               }
             >
               <View
+                isShort={true}
                 style={
                   Array [
                     Object {
                       "alignItems": "center",
                       "flexDirection": "row",
-                      "paddingVertical": 12,
-                      "width": 100,
+                      "width": 50,
                     },
-                    Array [
-                      Object {
-                        "width": 50,
-                      },
-                    ],
+                    Object {
+                      "paddingVertical": 12,
+                    },
+                    undefined,
                   ]
                 }
                 testID="table-cell-test-id"
@@ -3728,22 +3683,18 @@ exports[`[Tables] render test should render collapsed when collapsedWhenRendered
                 />
               </View>
               <View
+                isShort={true}
                 style={
                   Array [
                     Object {
                       "alignItems": "center",
                       "flexDirection": "row",
-                      "paddingVertical": 12,
-                      "width": 100,
+                      "width": 50,
                     },
-                    Array [
-                      Object {
-                        "justifyContent": "center",
-                      },
-                      Object {
-                        "width": 50,
-                      },
-                    ],
+                    Object {
+                      "paddingVertical": 12,
+                    },
+                    undefined,
                   ]
                 }
                 testID="table-cell-test-id"
@@ -3767,20 +3718,18 @@ exports[`[Tables] render test should render collapsed when collapsedWhenRendered
                 </Text>
               </View>
               <View
+                isShort={false}
                 style={
                   Array [
                     Object {
                       "alignItems": "center",
                       "flexDirection": "row",
-                      "paddingVertical": 12,
                       "width": 100,
                     },
-                    Array [
-                      Object {
-                        "justifyContent": "center",
-                      },
-                      null,
-                    ],
+                    Object {
+                      "paddingVertical": 12,
+                    },
+                    undefined,
                   ]
                 }
                 testID="table-cell-test-id"
@@ -3804,20 +3753,18 @@ exports[`[Tables] render test should render collapsed when collapsedWhenRendered
                 </Text>
               </View>
               <View
+                isShort={false}
                 style={
                   Array [
                     Object {
                       "alignItems": "center",
                       "flexDirection": "row",
-                      "paddingVertical": 12,
                       "width": 100,
                     },
-                    Array [
-                      Object {
-                        "justifyContent": "center",
-                      },
-                      null,
-                    ],
+                    Object {
+                      "paddingVertical": 12,
+                    },
+                    undefined,
                   ]
                 }
                 testID="table-cell-test-id"
@@ -3841,20 +3788,18 @@ exports[`[Tables] render test should render collapsed when collapsedWhenRendered
                 </Text>
               </View>
               <View
+                isShort={false}
                 style={
                   Array [
                     Object {
                       "alignItems": "center",
                       "flexDirection": "row",
-                      "paddingVertical": 12,
                       "width": 100,
                     },
-                    Array [
-                      Object {
-                        "justifyContent": "center",
-                      },
-                      null,
-                    ],
+                    Object {
+                      "paddingVertical": 12,
+                    },
+                    undefined,
                   ]
                 }
                 testID="table-cell-test-id"
@@ -3878,20 +3823,18 @@ exports[`[Tables] render test should render collapsed when collapsedWhenRendered
                 </Text>
               </View>
               <View
+                isShort={false}
                 style={
                   Array [
                     Object {
                       "alignItems": "center",
                       "flexDirection": "row",
-                      "paddingVertical": 12,
                       "width": 100,
                     },
-                    Array [
-                      Object {
-                        "justifyContent": "center",
-                      },
-                      null,
-                    ],
+                    Object {
+                      "paddingVertical": 12,
+                    },
+                    undefined,
                   ]
                 }
                 testID="table-cell-test-id"
@@ -3920,44 +3863,43 @@ exports[`[Tables] render test should render collapsed when collapsedWhenRendered
             style={
               Array [
                 Object {
-                  "borderStyle": "solid",
                   "height": 48,
                   "width": "100%",
                 },
-                Array [
-                  Object {
-                    "backgroundColor": "white",
-                  },
-                  false,
-                ],
+                Object {
+                  "backgroundColor": "white",
+                },
               ]
             }
             testID="table-row-test-id"
           >
             <View
+              isChecked={false}
               style={
-                Object {
-                  "borderBottomColor": "lightgray",
-                  "borderBottomWidth": 1,
-                  "flexDirection": "row",
-                  "height": 48,
-                }
+                Array [
+                  Object {
+                    "backgroundColor": "white",
+                    "borderBottomColor": "lightgray",
+                    "borderBottomWidth": 1,
+                    "flexDirection": "row",
+                    "height": 48,
+                  },
+                ]
               }
             >
               <View
+                isShort={true}
                 style={
                   Array [
                     Object {
                       "alignItems": "center",
                       "flexDirection": "row",
-                      "paddingVertical": 12,
-                      "width": 100,
+                      "width": 50,
                     },
-                    Array [
-                      Object {
-                        "width": 50,
-                      },
-                    ],
+                    Object {
+                      "paddingVertical": 12,
+                    },
+                    undefined,
                   ]
                 }
                 testID="table-cell-test-id"
@@ -3979,22 +3921,18 @@ exports[`[Tables] render test should render collapsed when collapsedWhenRendered
                 />
               </View>
               <View
+                isShort={true}
                 style={
                   Array [
                     Object {
                       "alignItems": "center",
                       "flexDirection": "row",
-                      "paddingVertical": 12,
-                      "width": 100,
+                      "width": 50,
                     },
-                    Array [
-                      Object {
-                        "justifyContent": "center",
-                      },
-                      Object {
-                        "width": 50,
-                      },
-                    ],
+                    Object {
+                      "paddingVertical": 12,
+                    },
+                    undefined,
                   ]
                 }
                 testID="table-cell-test-id"
@@ -4018,20 +3956,18 @@ exports[`[Tables] render test should render collapsed when collapsedWhenRendered
                 </Text>
               </View>
               <View
+                isShort={false}
                 style={
                   Array [
                     Object {
                       "alignItems": "center",
                       "flexDirection": "row",
-                      "paddingVertical": 12,
                       "width": 100,
                     },
-                    Array [
-                      Object {
-                        "justifyContent": "center",
-                      },
-                      null,
-                    ],
+                    Object {
+                      "paddingVertical": 12,
+                    },
+                    undefined,
                   ]
                 }
                 testID="table-cell-test-id"
@@ -4055,20 +3991,18 @@ exports[`[Tables] render test should render collapsed when collapsedWhenRendered
                 </Text>
               </View>
               <View
+                isShort={false}
                 style={
                   Array [
                     Object {
                       "alignItems": "center",
                       "flexDirection": "row",
-                      "paddingVertical": 12,
                       "width": 100,
                     },
-                    Array [
-                      Object {
-                        "justifyContent": "center",
-                      },
-                      null,
-                    ],
+                    Object {
+                      "paddingVertical": 12,
+                    },
+                    undefined,
                   ]
                 }
                 testID="table-cell-test-id"
@@ -4092,20 +4026,18 @@ exports[`[Tables] render test should render collapsed when collapsedWhenRendered
                 </Text>
               </View>
               <View
+                isShort={false}
                 style={
                   Array [
                     Object {
                       "alignItems": "center",
                       "flexDirection": "row",
-                      "paddingVertical": 12,
                       "width": 100,
                     },
-                    Array [
-                      Object {
-                        "justifyContent": "center",
-                      },
-                      null,
-                    ],
+                    Object {
+                      "paddingVertical": 12,
+                    },
+                    undefined,
                   ]
                 }
                 testID="table-cell-test-id"
@@ -4129,20 +4061,18 @@ exports[`[Tables] render test should render collapsed when collapsedWhenRendered
                 </Text>
               </View>
               <View
+                isShort={false}
                 style={
                   Array [
                     Object {
                       "alignItems": "center",
                       "flexDirection": "row",
-                      "paddingVertical": 12,
                       "width": 100,
                     },
-                    Array [
-                      Object {
-                        "justifyContent": "center",
-                      },
-                      null,
-                    ],
+                    Object {
+                      "paddingVertical": 12,
+                    },
+                    undefined,
                   ]
                 }
                 testID="table-cell-test-id"
@@ -4171,44 +4101,43 @@ exports[`[Tables] render test should render collapsed when collapsedWhenRendered
             style={
               Array [
                 Object {
-                  "borderStyle": "solid",
                   "height": 48,
                   "width": "100%",
                 },
-                Array [
-                  Object {
-                    "backgroundColor": "white",
-                  },
-                  false,
-                ],
+                Object {
+                  "backgroundColor": "white",
+                },
               ]
             }
             testID="table-row-test-id"
           >
             <View
+              isChecked={false}
               style={
-                Object {
-                  "borderBottomColor": "lightgray",
-                  "borderBottomWidth": 1,
-                  "flexDirection": "row",
-                  "height": 48,
-                }
+                Array [
+                  Object {
+                    "backgroundColor": "white",
+                    "borderBottomColor": "lightgray",
+                    "borderBottomWidth": 1,
+                    "flexDirection": "row",
+                    "height": 48,
+                  },
+                ]
               }
             >
               <View
+                isShort={true}
                 style={
                   Array [
                     Object {
                       "alignItems": "center",
                       "flexDirection": "row",
-                      "paddingVertical": 12,
-                      "width": 100,
+                      "width": 50,
                     },
-                    Array [
-                      Object {
-                        "width": 50,
-                      },
-                    ],
+                    Object {
+                      "paddingVertical": 12,
+                    },
+                    undefined,
                   ]
                 }
                 testID="table-cell-test-id"
@@ -4230,22 +4159,18 @@ exports[`[Tables] render test should render collapsed when collapsedWhenRendered
                 />
               </View>
               <View
+                isShort={true}
                 style={
                   Array [
                     Object {
                       "alignItems": "center",
                       "flexDirection": "row",
-                      "paddingVertical": 12,
-                      "width": 100,
+                      "width": 50,
                     },
-                    Array [
-                      Object {
-                        "justifyContent": "center",
-                      },
-                      Object {
-                        "width": 50,
-                      },
-                    ],
+                    Object {
+                      "paddingVertical": 12,
+                    },
+                    undefined,
                   ]
                 }
                 testID="table-cell-test-id"
@@ -4269,20 +4194,18 @@ exports[`[Tables] render test should render collapsed when collapsedWhenRendered
                 </Text>
               </View>
               <View
+                isShort={false}
                 style={
                   Array [
                     Object {
                       "alignItems": "center",
                       "flexDirection": "row",
-                      "paddingVertical": 12,
                       "width": 100,
                     },
-                    Array [
-                      Object {
-                        "justifyContent": "center",
-                      },
-                      null,
-                    ],
+                    Object {
+                      "paddingVertical": 12,
+                    },
+                    undefined,
                   ]
                 }
                 testID="table-cell-test-id"
@@ -4306,20 +4229,18 @@ exports[`[Tables] render test should render collapsed when collapsedWhenRendered
                 </Text>
               </View>
               <View
+                isShort={false}
                 style={
                   Array [
                     Object {
                       "alignItems": "center",
                       "flexDirection": "row",
-                      "paddingVertical": 12,
                       "width": 100,
                     },
-                    Array [
-                      Object {
-                        "justifyContent": "center",
-                      },
-                      null,
-                    ],
+                    Object {
+                      "paddingVertical": 12,
+                    },
+                    undefined,
                   ]
                 }
                 testID="table-cell-test-id"
@@ -4343,20 +4264,18 @@ exports[`[Tables] render test should render collapsed when collapsedWhenRendered
                 </Text>
               </View>
               <View
+                isShort={false}
                 style={
                   Array [
                     Object {
                       "alignItems": "center",
                       "flexDirection": "row",
-                      "paddingVertical": 12,
                       "width": 100,
                     },
-                    Array [
-                      Object {
-                        "justifyContent": "center",
-                      },
-                      null,
-                    ],
+                    Object {
+                      "paddingVertical": 12,
+                    },
+                    undefined,
                   ]
                 }
                 testID="table-cell-test-id"
@@ -4380,20 +4299,18 @@ exports[`[Tables] render test should render collapsed when collapsedWhenRendered
                 </Text>
               </View>
               <View
+                isShort={false}
                 style={
                   Array [
                     Object {
                       "alignItems": "center",
                       "flexDirection": "row",
-                      "paddingVertical": 12,
                       "width": 100,
                     },
-                    Array [
-                      Object {
-                        "justifyContent": "center",
-                      },
-                      null,
-                    ],
+                    Object {
+                      "paddingVertical": 12,
+                    },
+                    undefined,
                   ]
                 }
                 testID="table-cell-test-id"
@@ -4422,44 +4339,43 @@ exports[`[Tables] render test should render collapsed when collapsedWhenRendered
             style={
               Array [
                 Object {
-                  "borderStyle": "solid",
                   "height": 48,
                   "width": "100%",
                 },
-                Array [
-                  Object {
-                    "backgroundColor": "white",
-                  },
-                  false,
-                ],
+                Object {
+                  "backgroundColor": "white",
+                },
               ]
             }
             testID="table-row-test-id"
           >
             <View
+              isChecked={false}
               style={
-                Object {
-                  "borderBottomColor": "lightgray",
-                  "borderBottomWidth": 1,
-                  "flexDirection": "row",
-                  "height": 48,
-                }
+                Array [
+                  Object {
+                    "backgroundColor": "white",
+                    "borderBottomColor": "lightgray",
+                    "borderBottomWidth": 1,
+                    "flexDirection": "row",
+                    "height": 48,
+                  },
+                ]
               }
             >
               <View
+                isShort={true}
                 style={
                   Array [
                     Object {
                       "alignItems": "center",
                       "flexDirection": "row",
-                      "paddingVertical": 12,
-                      "width": 100,
+                      "width": 50,
                     },
-                    Array [
-                      Object {
-                        "width": 50,
-                      },
-                    ],
+                    Object {
+                      "paddingVertical": 12,
+                    },
+                    undefined,
                   ]
                 }
                 testID="table-cell-test-id"
@@ -4481,22 +4397,18 @@ exports[`[Tables] render test should render collapsed when collapsedWhenRendered
                 />
               </View>
               <View
+                isShort={true}
                 style={
                   Array [
                     Object {
                       "alignItems": "center",
                       "flexDirection": "row",
-                      "paddingVertical": 12,
-                      "width": 100,
+                      "width": 50,
                     },
-                    Array [
-                      Object {
-                        "justifyContent": "center",
-                      },
-                      Object {
-                        "width": 50,
-                      },
-                    ],
+                    Object {
+                      "paddingVertical": 12,
+                    },
+                    undefined,
                   ]
                 }
                 testID="table-cell-test-id"
@@ -4520,20 +4432,18 @@ exports[`[Tables] render test should render collapsed when collapsedWhenRendered
                 </Text>
               </View>
               <View
+                isShort={false}
                 style={
                   Array [
                     Object {
                       "alignItems": "center",
                       "flexDirection": "row",
-                      "paddingVertical": 12,
                       "width": 100,
                     },
-                    Array [
-                      Object {
-                        "justifyContent": "center",
-                      },
-                      null,
-                    ],
+                    Object {
+                      "paddingVertical": 12,
+                    },
+                    undefined,
                   ]
                 }
                 testID="table-cell-test-id"
@@ -4557,20 +4467,18 @@ exports[`[Tables] render test should render collapsed when collapsedWhenRendered
                 </Text>
               </View>
               <View
+                isShort={false}
                 style={
                   Array [
                     Object {
                       "alignItems": "center",
                       "flexDirection": "row",
-                      "paddingVertical": 12,
                       "width": 100,
                     },
-                    Array [
-                      Object {
-                        "justifyContent": "center",
-                      },
-                      null,
-                    ],
+                    Object {
+                      "paddingVertical": 12,
+                    },
+                    undefined,
                   ]
                 }
                 testID="table-cell-test-id"
@@ -4594,20 +4502,18 @@ exports[`[Tables] render test should render collapsed when collapsedWhenRendered
                 </Text>
               </View>
               <View
+                isShort={false}
                 style={
                   Array [
                     Object {
                       "alignItems": "center",
                       "flexDirection": "row",
-                      "paddingVertical": 12,
                       "width": 100,
                     },
-                    Array [
-                      Object {
-                        "justifyContent": "center",
-                      },
-                      null,
-                    ],
+                    Object {
+                      "paddingVertical": 12,
+                    },
+                    undefined,
                   ]
                 }
                 testID="table-cell-test-id"
@@ -4631,20 +4537,18 @@ exports[`[Tables] render test should render collapsed when collapsedWhenRendered
                 </Text>
               </View>
               <View
+                isShort={false}
                 style={
                   Array [
                     Object {
                       "alignItems": "center",
                       "flexDirection": "row",
-                      "paddingVertical": 12,
                       "width": 100,
                     },
-                    Array [
-                      Object {
-                        "justifyContent": "center",
-                      },
-                      null,
-                    ],
+                    Object {
+                      "paddingVertical": 12,
+                    },
+                    undefined,
                   ]
                 }
                 testID="table-cell-test-id"
@@ -4673,44 +4577,43 @@ exports[`[Tables] render test should render collapsed when collapsedWhenRendered
             style={
               Array [
                 Object {
-                  "borderStyle": "solid",
                   "height": 48,
                   "width": "100%",
                 },
-                Array [
-                  Object {
-                    "backgroundColor": "white",
-                  },
-                  false,
-                ],
+                Object {
+                  "backgroundColor": "white",
+                },
               ]
             }
             testID="table-row-test-id"
           >
             <View
+              isChecked={false}
               style={
-                Object {
-                  "borderBottomColor": "lightgray",
-                  "borderBottomWidth": 1,
-                  "flexDirection": "row",
-                  "height": 48,
-                }
+                Array [
+                  Object {
+                    "backgroundColor": "white",
+                    "borderBottomColor": "lightgray",
+                    "borderBottomWidth": 1,
+                    "flexDirection": "row",
+                    "height": 48,
+                  },
+                ]
               }
             >
               <View
+                isShort={true}
                 style={
                   Array [
                     Object {
                       "alignItems": "center",
                       "flexDirection": "row",
-                      "paddingVertical": 12,
-                      "width": 100,
+                      "width": 50,
                     },
-                    Array [
-                      Object {
-                        "width": 50,
-                      },
-                    ],
+                    Object {
+                      "paddingVertical": 12,
+                    },
+                    undefined,
                   ]
                 }
                 testID="table-cell-test-id"
@@ -4732,22 +4635,18 @@ exports[`[Tables] render test should render collapsed when collapsedWhenRendered
                 />
               </View>
               <View
+                isShort={true}
                 style={
                   Array [
                     Object {
                       "alignItems": "center",
                       "flexDirection": "row",
-                      "paddingVertical": 12,
-                      "width": 100,
+                      "width": 50,
                     },
-                    Array [
-                      Object {
-                        "justifyContent": "center",
-                      },
-                      Object {
-                        "width": 50,
-                      },
-                    ],
+                    Object {
+                      "paddingVertical": 12,
+                    },
+                    undefined,
                   ]
                 }
                 testID="table-cell-test-id"
@@ -4771,20 +4670,18 @@ exports[`[Tables] render test should render collapsed when collapsedWhenRendered
                 </Text>
               </View>
               <View
+                isShort={false}
                 style={
                   Array [
                     Object {
                       "alignItems": "center",
                       "flexDirection": "row",
-                      "paddingVertical": 12,
                       "width": 100,
                     },
-                    Array [
-                      Object {
-                        "justifyContent": "center",
-                      },
-                      null,
-                    ],
+                    Object {
+                      "paddingVertical": 12,
+                    },
+                    undefined,
                   ]
                 }
                 testID="table-cell-test-id"
@@ -4808,20 +4705,18 @@ exports[`[Tables] render test should render collapsed when collapsedWhenRendered
                 </Text>
               </View>
               <View
+                isShort={false}
                 style={
                   Array [
                     Object {
                       "alignItems": "center",
                       "flexDirection": "row",
-                      "paddingVertical": 12,
                       "width": 100,
                     },
-                    Array [
-                      Object {
-                        "justifyContent": "center",
-                      },
-                      null,
-                    ],
+                    Object {
+                      "paddingVertical": 12,
+                    },
+                    undefined,
                   ]
                 }
                 testID="table-cell-test-id"
@@ -4845,20 +4740,18 @@ exports[`[Tables] render test should render collapsed when collapsedWhenRendered
                 </Text>
               </View>
               <View
+                isShort={false}
                 style={
                   Array [
                     Object {
                       "alignItems": "center",
                       "flexDirection": "row",
-                      "paddingVertical": 12,
                       "width": 100,
                     },
-                    Array [
-                      Object {
-                        "justifyContent": "center",
-                      },
-                      null,
-                    ],
+                    Object {
+                      "paddingVertical": 12,
+                    },
+                    undefined,
                   ]
                 }
                 testID="table-cell-test-id"
@@ -4882,20 +4775,18 @@ exports[`[Tables] render test should render collapsed when collapsedWhenRendered
                 </Text>
               </View>
               <View
+                isShort={false}
                 style={
                   Array [
                     Object {
                       "alignItems": "center",
                       "flexDirection": "row",
-                      "paddingVertical": 12,
                       "width": 100,
                     },
-                    Array [
-                      Object {
-                        "justifyContent": "center",
-                      },
-                      null,
-                    ],
+                    Object {
+                      "paddingVertical": 12,
+                    },
+                    undefined,
                   ]
                 }
                 testID="table-cell-test-id"
@@ -4924,44 +4815,43 @@ exports[`[Tables] render test should render collapsed when collapsedWhenRendered
             style={
               Array [
                 Object {
-                  "borderStyle": "solid",
                   "height": 48,
                   "width": "100%",
                 },
-                Array [
-                  Object {
-                    "backgroundColor": "white",
-                  },
-                  false,
-                ],
+                Object {
+                  "backgroundColor": "white",
+                },
               ]
             }
             testID="table-row-test-id"
           >
             <View
+              isChecked={false}
               style={
-                Object {
-                  "borderBottomColor": "lightgray",
-                  "borderBottomWidth": 1,
-                  "flexDirection": "row",
-                  "height": 48,
-                }
+                Array [
+                  Object {
+                    "backgroundColor": "white",
+                    "borderBottomColor": "lightgray",
+                    "borderBottomWidth": 1,
+                    "flexDirection": "row",
+                    "height": 48,
+                  },
+                ]
               }
             >
               <View
+                isShort={true}
                 style={
                   Array [
                     Object {
                       "alignItems": "center",
                       "flexDirection": "row",
-                      "paddingVertical": 12,
-                      "width": 100,
+                      "width": 50,
                     },
-                    Array [
-                      Object {
-                        "width": 50,
-                      },
-                    ],
+                    Object {
+                      "paddingVertical": 12,
+                    },
+                    undefined,
                   ]
                 }
                 testID="table-cell-test-id"
@@ -4983,22 +4873,18 @@ exports[`[Tables] render test should render collapsed when collapsedWhenRendered
                 />
               </View>
               <View
+                isShort={true}
                 style={
                   Array [
                     Object {
                       "alignItems": "center",
                       "flexDirection": "row",
-                      "paddingVertical": 12,
-                      "width": 100,
+                      "width": 50,
                     },
-                    Array [
-                      Object {
-                        "justifyContent": "center",
-                      },
-                      Object {
-                        "width": 50,
-                      },
-                    ],
+                    Object {
+                      "paddingVertical": 12,
+                    },
+                    undefined,
                   ]
                 }
                 testID="table-cell-test-id"
@@ -5022,20 +4908,18 @@ exports[`[Tables] render test should render collapsed when collapsedWhenRendered
                 </Text>
               </View>
               <View
+                isShort={false}
                 style={
                   Array [
                     Object {
                       "alignItems": "center",
                       "flexDirection": "row",
-                      "paddingVertical": 12,
                       "width": 100,
                     },
-                    Array [
-                      Object {
-                        "justifyContent": "center",
-                      },
-                      null,
-                    ],
+                    Object {
+                      "paddingVertical": 12,
+                    },
+                    undefined,
                   ]
                 }
                 testID="table-cell-test-id"
@@ -5059,20 +4943,18 @@ exports[`[Tables] render test should render collapsed when collapsedWhenRendered
                 </Text>
               </View>
               <View
+                isShort={false}
                 style={
                   Array [
                     Object {
                       "alignItems": "center",
                       "flexDirection": "row",
-                      "paddingVertical": 12,
                       "width": 100,
                     },
-                    Array [
-                      Object {
-                        "justifyContent": "center",
-                      },
-                      null,
-                    ],
+                    Object {
+                      "paddingVertical": 12,
+                    },
+                    undefined,
                   ]
                 }
                 testID="table-cell-test-id"
@@ -5096,20 +4978,18 @@ exports[`[Tables] render test should render collapsed when collapsedWhenRendered
                 </Text>
               </View>
               <View
+                isShort={false}
                 style={
                   Array [
                     Object {
                       "alignItems": "center",
                       "flexDirection": "row",
-                      "paddingVertical": 12,
                       "width": 100,
                     },
-                    Array [
-                      Object {
-                        "justifyContent": "center",
-                      },
-                      null,
-                    ],
+                    Object {
+                      "paddingVertical": 12,
+                    },
+                    undefined,
                   ]
                 }
                 testID="table-cell-test-id"
@@ -5133,20 +5013,18 @@ exports[`[Tables] render test should render collapsed when collapsedWhenRendered
                 </Text>
               </View>
               <View
+                isShort={false}
                 style={
                   Array [
                     Object {
                       "alignItems": "center",
                       "flexDirection": "row",
-                      "paddingVertical": 12,
                       "width": 100,
                     },
-                    Array [
-                      Object {
-                        "justifyContent": "center",
-                      },
-                      null,
-                    ],
+                    Object {
+                      "paddingVertical": 12,
+                    },
+                    undefined,
                   ]
                 }
                 testID="table-cell-test-id"
@@ -5175,44 +5053,43 @@ exports[`[Tables] render test should render collapsed when collapsedWhenRendered
             style={
               Array [
                 Object {
-                  "borderStyle": "solid",
                   "height": 48,
                   "width": "100%",
                 },
-                Array [
-                  Object {
-                    "backgroundColor": "white",
-                  },
-                  false,
-                ],
+                Object {
+                  "backgroundColor": "white",
+                },
               ]
             }
             testID="table-row-test-id"
           >
             <View
+              isChecked={false}
               style={
-                Object {
-                  "borderBottomColor": "lightgray",
-                  "borderBottomWidth": 1,
-                  "flexDirection": "row",
-                  "height": 48,
-                }
+                Array [
+                  Object {
+                    "backgroundColor": "white",
+                    "borderBottomColor": "lightgray",
+                    "borderBottomWidth": 1,
+                    "flexDirection": "row",
+                    "height": 48,
+                  },
+                ]
               }
             >
               <View
+                isShort={true}
                 style={
                   Array [
                     Object {
                       "alignItems": "center",
                       "flexDirection": "row",
-                      "paddingVertical": 12,
-                      "width": 100,
+                      "width": 50,
                     },
-                    Array [
-                      Object {
-                        "width": 50,
-                      },
-                    ],
+                    Object {
+                      "paddingVertical": 12,
+                    },
+                    undefined,
                   ]
                 }
                 testID="table-cell-test-id"
@@ -5234,22 +5111,18 @@ exports[`[Tables] render test should render collapsed when collapsedWhenRendered
                 />
               </View>
               <View
+                isShort={true}
                 style={
                   Array [
                     Object {
                       "alignItems": "center",
                       "flexDirection": "row",
-                      "paddingVertical": 12,
-                      "width": 100,
+                      "width": 50,
                     },
-                    Array [
-                      Object {
-                        "justifyContent": "center",
-                      },
-                      Object {
-                        "width": 50,
-                      },
-                    ],
+                    Object {
+                      "paddingVertical": 12,
+                    },
+                    undefined,
                   ]
                 }
                 testID="table-cell-test-id"
@@ -5273,20 +5146,18 @@ exports[`[Tables] render test should render collapsed when collapsedWhenRendered
                 </Text>
               </View>
               <View
+                isShort={false}
                 style={
                   Array [
                     Object {
                       "alignItems": "center",
                       "flexDirection": "row",
-                      "paddingVertical": 12,
                       "width": 100,
                     },
-                    Array [
-                      Object {
-                        "justifyContent": "center",
-                      },
-                      null,
-                    ],
+                    Object {
+                      "paddingVertical": 12,
+                    },
+                    undefined,
                   ]
                 }
                 testID="table-cell-test-id"
@@ -5310,20 +5181,18 @@ exports[`[Tables] render test should render collapsed when collapsedWhenRendered
                 </Text>
               </View>
               <View
+                isShort={false}
                 style={
                   Array [
                     Object {
                       "alignItems": "center",
                       "flexDirection": "row",
-                      "paddingVertical": 12,
                       "width": 100,
                     },
-                    Array [
-                      Object {
-                        "justifyContent": "center",
-                      },
-                      null,
-                    ],
+                    Object {
+                      "paddingVertical": 12,
+                    },
+                    undefined,
                   ]
                 }
                 testID="table-cell-test-id"
@@ -5347,20 +5216,18 @@ exports[`[Tables] render test should render collapsed when collapsedWhenRendered
                 </Text>
               </View>
               <View
+                isShort={false}
                 style={
                   Array [
                     Object {
                       "alignItems": "center",
                       "flexDirection": "row",
-                      "paddingVertical": 12,
                       "width": 100,
                     },
-                    Array [
-                      Object {
-                        "justifyContent": "center",
-                      },
-                      null,
-                    ],
+                    Object {
+                      "paddingVertical": 12,
+                    },
+                    undefined,
                   ]
                 }
                 testID="table-cell-test-id"
@@ -5384,20 +5251,18 @@ exports[`[Tables] render test should render collapsed when collapsedWhenRendered
                 </Text>
               </View>
               <View
+                isShort={false}
                 style={
                   Array [
                     Object {
                       "alignItems": "center",
                       "flexDirection": "row",
-                      "paddingVertical": 12,
                       "width": 100,
                     },
-                    Array [
-                      Object {
-                        "justifyContent": "center",
-                      },
-                      null,
-                    ],
+                    Object {
+                      "paddingVertical": 12,
+                    },
+                    undefined,
                   ]
                 }
                 testID="table-cell-test-id"
@@ -5426,44 +5291,43 @@ exports[`[Tables] render test should render collapsed when collapsedWhenRendered
             style={
               Array [
                 Object {
-                  "borderStyle": "solid",
                   "height": 48,
                   "width": "100%",
                 },
-                Array [
-                  Object {
-                    "backgroundColor": "white",
-                  },
-                  false,
-                ],
+                Object {
+                  "backgroundColor": "white",
+                },
               ]
             }
             testID="table-row-test-id"
           >
             <View
+              isChecked={false}
               style={
-                Object {
-                  "borderBottomColor": "lightgray",
-                  "borderBottomWidth": 1,
-                  "flexDirection": "row",
-                  "height": 48,
-                }
+                Array [
+                  Object {
+                    "backgroundColor": "white",
+                    "borderBottomColor": "lightgray",
+                    "borderBottomWidth": 1,
+                    "flexDirection": "row",
+                    "height": 48,
+                  },
+                ]
               }
             >
               <View
+                isShort={true}
                 style={
                   Array [
                     Object {
                       "alignItems": "center",
                       "flexDirection": "row",
-                      "paddingVertical": 12,
-                      "width": 100,
+                      "width": 50,
                     },
-                    Array [
-                      Object {
-                        "width": 50,
-                      },
-                    ],
+                    Object {
+                      "paddingVertical": 12,
+                    },
+                    undefined,
                   ]
                 }
                 testID="table-cell-test-id"
@@ -5485,22 +5349,18 @@ exports[`[Tables] render test should render collapsed when collapsedWhenRendered
                 />
               </View>
               <View
+                isShort={true}
                 style={
                   Array [
                     Object {
                       "alignItems": "center",
                       "flexDirection": "row",
-                      "paddingVertical": 12,
-                      "width": 100,
+                      "width": 50,
                     },
-                    Array [
-                      Object {
-                        "justifyContent": "center",
-                      },
-                      Object {
-                        "width": 50,
-                      },
-                    ],
+                    Object {
+                      "paddingVertical": 12,
+                    },
+                    undefined,
                   ]
                 }
                 testID="table-cell-test-id"
@@ -5524,20 +5384,18 @@ exports[`[Tables] render test should render collapsed when collapsedWhenRendered
                 </Text>
               </View>
               <View
+                isShort={false}
                 style={
                   Array [
                     Object {
                       "alignItems": "center",
                       "flexDirection": "row",
-                      "paddingVertical": 12,
                       "width": 100,
                     },
-                    Array [
-                      Object {
-                        "justifyContent": "center",
-                      },
-                      null,
-                    ],
+                    Object {
+                      "paddingVertical": 12,
+                    },
+                    undefined,
                   ]
                 }
                 testID="table-cell-test-id"
@@ -5561,20 +5419,18 @@ exports[`[Tables] render test should render collapsed when collapsedWhenRendered
                 </Text>
               </View>
               <View
+                isShort={false}
                 style={
                   Array [
                     Object {
                       "alignItems": "center",
                       "flexDirection": "row",
-                      "paddingVertical": 12,
                       "width": 100,
                     },
-                    Array [
-                      Object {
-                        "justifyContent": "center",
-                      },
-                      null,
-                    ],
+                    Object {
+                      "paddingVertical": 12,
+                    },
+                    undefined,
                   ]
                 }
                 testID="table-cell-test-id"
@@ -5598,20 +5454,18 @@ exports[`[Tables] render test should render collapsed when collapsedWhenRendered
                 </Text>
               </View>
               <View
+                isShort={false}
                 style={
                   Array [
                     Object {
                       "alignItems": "center",
                       "flexDirection": "row",
-                      "paddingVertical": 12,
                       "width": 100,
                     },
-                    Array [
-                      Object {
-                        "justifyContent": "center",
-                      },
-                      null,
-                    ],
+                    Object {
+                      "paddingVertical": 12,
+                    },
+                    undefined,
                   ]
                 }
                 testID="table-cell-test-id"
@@ -5635,20 +5489,18 @@ exports[`[Tables] render test should render collapsed when collapsedWhenRendered
                 </Text>
               </View>
               <View
+                isShort={false}
                 style={
                   Array [
                     Object {
                       "alignItems": "center",
                       "flexDirection": "row",
-                      "paddingVertical": 12,
                       "width": 100,
                     },
-                    Array [
-                      Object {
-                        "justifyContent": "center",
-                      },
-                      null,
-                    ],
+                    Object {
+                      "paddingVertical": 12,
+                    },
+                    undefined,
                   ]
                 }
                 testID="table-cell-test-id"
@@ -5677,44 +5529,43 @@ exports[`[Tables] render test should render collapsed when collapsedWhenRendered
             style={
               Array [
                 Object {
-                  "borderStyle": "solid",
                   "height": 48,
                   "width": "100%",
                 },
-                Array [
-                  Object {
-                    "backgroundColor": "white",
-                  },
-                  false,
-                ],
+                Object {
+                  "backgroundColor": "white",
+                },
               ]
             }
             testID="table-row-test-id"
           >
             <View
+              isChecked={false}
               style={
-                Object {
-                  "borderBottomColor": "lightgray",
-                  "borderBottomWidth": 1,
-                  "flexDirection": "row",
-                  "height": 48,
-                }
+                Array [
+                  Object {
+                    "backgroundColor": "white",
+                    "borderBottomColor": "lightgray",
+                    "borderBottomWidth": 1,
+                    "flexDirection": "row",
+                    "height": 48,
+                  },
+                ]
               }
             >
               <View
+                isShort={true}
                 style={
                   Array [
                     Object {
                       "alignItems": "center",
                       "flexDirection": "row",
-                      "paddingVertical": 12,
-                      "width": 100,
+                      "width": 50,
                     },
-                    Array [
-                      Object {
-                        "width": 50,
-                      },
-                    ],
+                    Object {
+                      "paddingVertical": 12,
+                    },
+                    undefined,
                   ]
                 }
                 testID="table-cell-test-id"
@@ -5736,22 +5587,18 @@ exports[`[Tables] render test should render collapsed when collapsedWhenRendered
                 />
               </View>
               <View
+                isShort={true}
                 style={
                   Array [
                     Object {
                       "alignItems": "center",
                       "flexDirection": "row",
-                      "paddingVertical": 12,
-                      "width": 100,
+                      "width": 50,
                     },
-                    Array [
-                      Object {
-                        "justifyContent": "center",
-                      },
-                      Object {
-                        "width": 50,
-                      },
-                    ],
+                    Object {
+                      "paddingVertical": 12,
+                    },
+                    undefined,
                   ]
                 }
                 testID="table-cell-test-id"
@@ -5775,20 +5622,18 @@ exports[`[Tables] render test should render collapsed when collapsedWhenRendered
                 </Text>
               </View>
               <View
+                isShort={false}
                 style={
                   Array [
                     Object {
                       "alignItems": "center",
                       "flexDirection": "row",
-                      "paddingVertical": 12,
                       "width": 100,
                     },
-                    Array [
-                      Object {
-                        "justifyContent": "center",
-                      },
-                      null,
-                    ],
+                    Object {
+                      "paddingVertical": 12,
+                    },
+                    undefined,
                   ]
                 }
                 testID="table-cell-test-id"
@@ -5812,20 +5657,18 @@ exports[`[Tables] render test should render collapsed when collapsedWhenRendered
                 </Text>
               </View>
               <View
+                isShort={false}
                 style={
                   Array [
                     Object {
                       "alignItems": "center",
                       "flexDirection": "row",
-                      "paddingVertical": 12,
                       "width": 100,
                     },
-                    Array [
-                      Object {
-                        "justifyContent": "center",
-                      },
-                      null,
-                    ],
+                    Object {
+                      "paddingVertical": 12,
+                    },
+                    undefined,
                   ]
                 }
                 testID="table-cell-test-id"
@@ -5849,20 +5692,18 @@ exports[`[Tables] render test should render collapsed when collapsedWhenRendered
                 </Text>
               </View>
               <View
+                isShort={false}
                 style={
                   Array [
                     Object {
                       "alignItems": "center",
                       "flexDirection": "row",
-                      "paddingVertical": 12,
                       "width": 100,
                     },
-                    Array [
-                      Object {
-                        "justifyContent": "center",
-                      },
-                      null,
-                    ],
+                    Object {
+                      "paddingVertical": 12,
+                    },
+                    undefined,
                   ]
                 }
                 testID="table-cell-test-id"
@@ -5886,20 +5727,18 @@ exports[`[Tables] render test should render collapsed when collapsedWhenRendered
                 </Text>
               </View>
               <View
+                isShort={false}
                 style={
                   Array [
                     Object {
                       "alignItems": "center",
                       "flexDirection": "row",
-                      "paddingVertical": 12,
                       "width": 100,
                     },
-                    Array [
-                      Object {
-                        "justifyContent": "center",
-                      },
-                      null,
-                    ],
+                    Object {
+                      "paddingVertical": 12,
+                    },
+                    undefined,
                   ]
                 }
                 testID="table-cell-test-id"

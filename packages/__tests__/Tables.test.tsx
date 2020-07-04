@@ -2,7 +2,8 @@ import 'react-native';
 
 import React, { ReactElement } from 'react';
 import { RenderResult, render } from '@testing-library/react-native';
-import Table, { Props } from '../Tables';
+
+import Table from '../Tables';
 
 const TEST_ID = {
   CELL: 'table-cell-test-id',
@@ -94,80 +95,98 @@ const createTestProps = (
 ): Record<string, unknown> => ({
   ...obj,
 });
-const initialProps: Props = {
-  data: data,
-};
 
 describe('[Tables] render test', (): void => {
   it('should render without crashing', () => {
-    props = createTestProps();
-    component = <Table {...props} {...initialProps} />;
+    props = createTestProps({
+      data,
+    });
+    component = <Table {...props} />;
     testingLib = render(component);
 
     expect(testingLib.baseElement).toBeTruthy();
   });
+
   it('should render collapsed when collapsedWhenRendered props is false', () => {
     props = createTestProps({
       collapsedWhenRendered: false,
-      data: data,
+      data,
     });
     component = <Table {...props} />;
     testingLib = render(component);
 
     expect(testingLib.baseElement).toMatchSnapshot();
   });
+
   describe('required components', () => {
     it('should have a [TITLE].', () => {
-      props = createTestProps();
-      const { getAllByTestId } = render(<Table {...initialProps} {...props} />);
-
+      props = createTestProps({
+        data,
+      });
+      const { getAllByTestId } = render(<Table {...props} />);
       const title = getAllByTestId(TEST_ID.TITLE);
+
       expect(title).not.toBeNull();
     });
 
     it('should have a [HEADER].', () => {
-      props = createTestProps();
-      const { getAllByTestId } = render(<Table {...initialProps} {...props} />);
-
+      props = createTestProps({
+        data,
+      });
+      const { getAllByTestId } = render(<Table {...props} />);
       const header = getAllByTestId(TEST_ID.HEADER);
+
       expect(header).not.toBeNull();
     });
 
     it('should have a [ROW].', () => {
-      props = createTestProps();
-      const { getAllByTestId } = render(<Table {...props} {...initialProps} />);
-
+      props = createTestProps({
+        data,
+      });
+      const { getAllByTestId } = render(<Table {...props} />);
       const row = getAllByTestId(TEST_ID.ROW);
+
       expect(row).not.toBeNull();
     });
 
     it('should have a [CELL].', () => {
-      props = createTestProps();
-      const { getAllByTestId } = render(<Table {...props} {...initialProps} />);
+      props = createTestProps({
+        data,
+      });
+
+      const { getAllByTestId } = render(<Table {...props} />);
       const cell = getAllByTestId(TEST_ID.CELL);
       expect(cell).not.toBeNull();
     });
   });
+
   it('should hide [Checkbox] when isCheckAble is (false or undefined.)', () => {
-    const { queryByTestId } = render(
-      <Table {...props} {...initialProps} isCheckAble={false} />,
-    );
+    props = createTestProps({
+      data,
+    });
+
+    const { queryByTestId } = render(<Table {...props} isCheckAble={false} />);
     const checkbox = queryByTestId(TEST_ID.CHECKBOX);
 
     expect(checkbox).toBeNull();
   });
+
   it('should show [Checkbox] when isCheckAble is (true.)', () => {
-    const { getAllByTestId } = render(
-      <Table {...props} {...initialProps} isCheckAble={true} />,
-    );
+    props = createTestProps({
+      isCheckAble: true,
+      data: data,
+    });
+
+    const { getAllByTestId } = render(<Table {...props} />);
     const checkbox = getAllByTestId(TEST_ID.CHECKBOX);
     expect(checkbox).not.toBeNull();
   });
+
   it('should render checkbox when isCheckAble is true', () => {
     jest.useFakeTimers();
     props = createTestProps({
       isCheckAble: true,
-      data: data,
+      data,
     });
     component = <Table {...props} />;
     testingLib = render(component);
