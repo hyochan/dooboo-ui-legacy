@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`[Accordion] render test should operate animation when isAnimated is true 1`] = `
+exports[`[Accordion] render test should adjust duration of animation depends on animDuration props value 1`] = `
 <View
   pointerEvents="box-none"
   style={
@@ -49,201 +49,87 @@ exports[`[Accordion] render test should operate animation when isAnimated is tru
                 "borderBottomWidth": 1,
                 "flexDirection": "row",
                 "height": 50,
-                "justifyContent": "space-between",
-                "paddingLeft": 20,
-                "paddingRight": 20,
                 "zIndex": 10,
               },
             ]
           }
-          testID="itemTitle_0"
+          testID="title_0"
         >
-          <View />
-          <Text
-            style={
-              Object {
-                "color": "#FFFFFF",
-                "fontWeight": "bold",
-              }
-            }
-          >
-            test data1
+          <Text>
+            Defualt-title-01
           </Text>
           <View
-            style={false}
-          >
-            <RNSVGSvgView
-              align="xMidYMid"
-              bbHeight="20"
-              bbWidth="20"
-              focusable={false}
-              height="20"
-              meetOrSlice={0}
-              minX={0}
-              minY={0}
-              style={
-                Array [
-                  Object {
-                    "backgroundColor": "transparent",
-                    "borderWidth": 0,
-                  },
-                  Object {
-                    "flex": 0,
-                    "height": 20,
-                    "width": 20,
-                  },
-                ]
-              }
-              vbHeight={20}
-              vbWidth={20}
-              width="20"
-            >
-              <RNSVGGroup>
-                <RNSVGLine
-                  propList={
-                    Array [
-                      "stroke",
-                      "strokeWidth",
-                      "strokeLinecap",
-                    ]
-                  }
-                  stroke={4294967295}
-                  strokeLinecap={1}
-                  strokeWidth="1.5"
-                  x1={5}
-                  x2={10}
-                  y1={7}
-                  y2={12}
-                />
-                <RNSVGLine
-                  propList={
-                    Array [
-                      "stroke",
-                      "strokeWidth",
-                      "strokeLinecap",
-                    ]
-                  }
-                  stroke={4294967295}
-                  strokeLinecap={1}
-                  strokeWidth="1.5"
-                  x1={10}
-                  x2={15}
-                  y1={12}
-                  y2={7}
-                />
-              </RNSVGGroup>
-            </RNSVGSvgView>
-          </View>
+            style={
+              Array [
+                Object {
+                  "position": "absolute",
+                  "right": 20,
+                },
+                Object {
+                  "transform": Array [
+                    Object {
+                      "rotate": "0deg",
+                    },
+                  ],
+                },
+              ]
+            }
+          />
         </>
         <View
           style={
             Object {
               "height": undefined,
+              "transform": Array [
+                Object {
+                  "translateY": 0,
+                },
+              ],
             }
           }
+          testID="body_0"
         >
           <View
             style={
-              Object {
-                "transform": Array [
-                  Object {
-                    "translateY": 0,
-                  },
-                ],
-              }
+              Array [
+                Object {
+                  "alignItems": "center",
+                  "borderBottomColor": "lightgray",
+                  "borderBottomWidth": 1,
+                  "flexDirection": "row",
+                  "paddingBottom": 20,
+                  "paddingLeft": 40,
+                  "paddingRight": 40,
+                  "paddingTop": 20,
+                  "width": "100%",
+                },
+              ]
             }
-            testID="itemBody_0"
           >
-            <View
-              style={
-                Array [
-                  Object {
-                    "alignItems": "center",
-                    "borderBottomColor": "lightgray",
-                    "borderBottomWidth": 1,
-                    "flexDirection": "row",
-                    "justifyContent": "flex-start",
-                    "paddingBottom": 20,
-                    "paddingLeft": 40,
-                    "paddingRight": 40,
-                    "paddingTop": 20,
-                    "width": "100%",
-                  },
-                ]
-              }
-            >
-              <View />
-              <Text
-                style={
-                  Object {
-                    "color": "#141414",
-                    "fontWeight": "bold",
-                  }
-                }
-              >
-                test data
-              </Text>
-            </View>
-            <View
-              style={
-                Array [
-                  Object {
-                    "alignItems": "center",
-                    "borderBottomColor": "lightgray",
-                    "borderBottomWidth": 1,
-                    "flexDirection": "row",
-                    "justifyContent": "flex-start",
-                    "paddingBottom": 20,
-                    "paddingLeft": 40,
-                    "paddingRight": 40,
-                    "paddingTop": 20,
-                    "width": "100%",
-                  },
-                ]
-              }
-            >
-              <View />
-              <Text
-                style={
-                  Object {
-                    "color": "#141414",
-                    "fontWeight": "bold",
-                  }
-                }
-              >
-                test data
-              </Text>
-            </View>
-            <View
-              style={
-                Array [
-                  Object {
-                    "alignItems": "center",
-                    "borderBottomColor": "lightgray",
-                    "borderBottomWidth": 1,
-                    "flexDirection": "row",
-                    "justifyContent": "flex-start",
-                    "paddingBottom": 20,
-                    "paddingLeft": 40,
-                    "paddingRight": 40,
-                    "paddingTop": 20,
-                    "width": "100%",
-                  },
-                ]
-              }
-            >
-              <View />
-              <Text
-                style={
-                  Object {
-                    "color": "#141414",
-                    "fontWeight": "bold",
-                  }
-                }
-              >
-                test data
-              </Text>
-            </View>
+            <Text>
+              Default body01
+            </Text>
+          </View>
+          <View
+            style={
+              Array [
+                Object {
+                  "alignItems": "center",
+                  "borderBottomColor": "lightgray",
+                  "borderBottomWidth": 1,
+                  "flexDirection": "row",
+                  "paddingBottom": 20,
+                  "paddingLeft": 40,
+                  "paddingRight": 40,
+                  "paddingTop": 20,
+                  "width": "100%",
+                },
+              ]
+            }
+          >
+            <Text>
+              Default body02
+            </Text>
           </View>
         </View>
       </View>
@@ -268,231 +154,87 @@ exports[`[Accordion] render test should operate animation when isAnimated is tru
                 "borderBottomWidth": 1,
                 "flexDirection": "row",
                 "height": 50,
-                "justifyContent": "space-between",
-                "paddingLeft": 20,
-                "paddingRight": 20,
                 "zIndex": 10,
               },
             ]
           }
-          testID="itemTitle_1"
+          testID="title_1"
         >
-          <View />
-          <Text
-            style={
-              Object {
-                "color": "#FFFFFF",
-                "fontWeight": "bold",
-              }
-            }
-          >
-            test data2
+          <Text>
+            Defualt-title-02
           </Text>
           <View
-            style={false}
-          >
-            <RNSVGSvgView
-              align="xMidYMid"
-              bbHeight="20"
-              bbWidth="20"
-              focusable={false}
-              height="20"
-              meetOrSlice={0}
-              minX={0}
-              minY={0}
-              style={
-                Array [
-                  Object {
-                    "backgroundColor": "transparent",
-                    "borderWidth": 0,
-                  },
-                  Object {
-                    "flex": 0,
-                    "height": 20,
-                    "width": 20,
-                  },
-                ]
-              }
-              vbHeight={20}
-              vbWidth={20}
-              width="20"
-            >
-              <RNSVGGroup>
-                <RNSVGLine
-                  propList={
-                    Array [
-                      "stroke",
-                      "strokeWidth",
-                      "strokeLinecap",
-                    ]
-                  }
-                  stroke={4294967295}
-                  strokeLinecap={1}
-                  strokeWidth="1.5"
-                  x1={5}
-                  x2={10}
-                  y1={7}
-                  y2={12}
-                />
-                <RNSVGLine
-                  propList={
-                    Array [
-                      "stroke",
-                      "strokeWidth",
-                      "strokeLinecap",
-                    ]
-                  }
-                  stroke={4294967295}
-                  strokeLinecap={1}
-                  strokeWidth="1.5"
-                  x1={10}
-                  x2={15}
-                  y1={12}
-                  y2={7}
-                />
-              </RNSVGGroup>
-            </RNSVGSvgView>
-          </View>
+            style={
+              Array [
+                Object {
+                  "position": "absolute",
+                  "right": 20,
+                },
+                Object {
+                  "transform": Array [
+                    Object {
+                      "rotate": "0deg",
+                    },
+                  ],
+                },
+              ]
+            }
+          />
         </>
         <View
           style={
             Object {
               "height": undefined,
+              "transform": Array [
+                Object {
+                  "translateY": 0,
+                },
+              ],
             }
           }
+          testID="body_1"
         >
           <View
             style={
-              Object {
-                "transform": Array [
-                  Object {
-                    "translateY": 0,
-                  },
-                ],
-              }
+              Array [
+                Object {
+                  "alignItems": "center",
+                  "borderBottomColor": "lightgray",
+                  "borderBottomWidth": 1,
+                  "flexDirection": "row",
+                  "paddingBottom": 20,
+                  "paddingLeft": 40,
+                  "paddingRight": 40,
+                  "paddingTop": 20,
+                  "width": "100%",
+                },
+              ]
             }
-            testID="itemBody_1"
           >
-            <View
-              style={
-                Array [
-                  Object {
-                    "alignItems": "center",
-                    "borderBottomColor": "lightgray",
-                    "borderBottomWidth": 1,
-                    "flexDirection": "row",
-                    "justifyContent": "flex-start",
-                    "paddingBottom": 20,
-                    "paddingLeft": 40,
-                    "paddingRight": 40,
-                    "paddingTop": 20,
-                    "width": "100%",
-                  },
-                ]
-              }
-            >
-              <View />
-              <Text
-                style={
-                  Object {
-                    "color": "#141414",
-                    "fontWeight": "bold",
-                  }
-                }
-              >
-                test data
-              </Text>
-            </View>
-            <View
-              style={
-                Array [
-                  Object {
-                    "alignItems": "center",
-                    "borderBottomColor": "lightgray",
-                    "borderBottomWidth": 1,
-                    "flexDirection": "row",
-                    "justifyContent": "flex-start",
-                    "paddingBottom": 20,
-                    "paddingLeft": 40,
-                    "paddingRight": 40,
-                    "paddingTop": 20,
-                    "width": "100%",
-                  },
-                ]
-              }
-            >
-              <View />
-              <Text
-                style={
-                  Object {
-                    "color": "#141414",
-                    "fontWeight": "bold",
-                  }
-                }
-              >
-                test data
-              </Text>
-            </View>
-            <View
-              style={
-                Array [
-                  Object {
-                    "alignItems": "center",
-                    "borderBottomColor": "lightgray",
-                    "borderBottomWidth": 1,
-                    "flexDirection": "row",
-                    "justifyContent": "flex-start",
-                    "paddingBottom": 20,
-                    "paddingLeft": 40,
-                    "paddingRight": 40,
-                    "paddingTop": 20,
-                    "width": "100%",
-                  },
-                ]
-              }
-            >
-              <View />
-              <Text
-                style={
-                  Object {
-                    "color": "#141414",
-                    "fontWeight": "bold",
-                  }
-                }
-              >
-                test data
-              </Text>
-            </View>
-            <View
-              style={
-                Array [
-                  Object {
-                    "alignItems": "center",
-                    "borderBottomColor": "lightgray",
-                    "borderBottomWidth": 1,
-                    "flexDirection": "row",
-                    "justifyContent": "flex-start",
-                    "paddingBottom": 20,
-                    "paddingLeft": 40,
-                    "paddingRight": 40,
-                    "paddingTop": 20,
-                    "width": "100%",
-                  },
-                ]
-              }
-            >
-              <View />
-              <Text
-                style={
-                  Object {
-                    "color": "#141414",
-                    "fontWeight": "bold",
-                  }
-                }
-              >
-                test data
-              </Text>
-            </View>
+            <Text>
+              Default body01
+            </Text>
+          </View>
+          <View
+            style={
+              Array [
+                Object {
+                  "alignItems": "center",
+                  "borderBottomColor": "lightgray",
+                  "borderBottomWidth": 1,
+                  "flexDirection": "row",
+                  "paddingBottom": 20,
+                  "paddingLeft": 40,
+                  "paddingRight": 40,
+                  "paddingTop": 20,
+                  "width": "100%",
+                },
+              ]
+            }
+          >
+            <Text>
+              Default body02
+            </Text>
           </View>
         </View>
       </View>
@@ -501,7 +243,7 @@ exports[`[Accordion] render test should operate animation when isAnimated is tru
 </View>
 `;
 
-exports[`[Accordion] render test should render collapsed when collapsedWhenRendered props is false 1`] = `
+exports[`[Accordion] render test should operate animation when isAnimated props is true 1`] = `
 <View
   pointerEvents="box-none"
   style={
@@ -550,201 +292,87 @@ exports[`[Accordion] render test should render collapsed when collapsedWhenRende
                 "borderBottomWidth": 1,
                 "flexDirection": "row",
                 "height": 50,
-                "justifyContent": "space-between",
-                "paddingLeft": 20,
-                "paddingRight": 20,
                 "zIndex": 10,
               },
             ]
           }
-          testID="itemTitle_0"
+          testID="title_0"
         >
-          <View />
-          <Text
-            style={
-              Object {
-                "color": "#FFFFFF",
-                "fontWeight": "bold",
-              }
-            }
-          >
-            test data1
+          <Text>
+            Defualt-title-01
           </Text>
           <View
-            style={false}
-          >
-            <RNSVGSvgView
-              align="xMidYMid"
-              bbHeight="20"
-              bbWidth="20"
-              focusable={false}
-              height="20"
-              meetOrSlice={0}
-              minX={0}
-              minY={0}
-              style={
-                Array [
-                  Object {
-                    "backgroundColor": "transparent",
-                    "borderWidth": 0,
-                  },
-                  Object {
-                    "flex": 0,
-                    "height": 20,
-                    "width": 20,
-                  },
-                ]
-              }
-              vbHeight={20}
-              vbWidth={20}
-              width="20"
-            >
-              <RNSVGGroup>
-                <RNSVGLine
-                  propList={
-                    Array [
-                      "stroke",
-                      "strokeWidth",
-                      "strokeLinecap",
-                    ]
-                  }
-                  stroke={4294967295}
-                  strokeLinecap={1}
-                  strokeWidth="1.5"
-                  x1={5}
-                  x2={10}
-                  y1={7}
-                  y2={12}
-                />
-                <RNSVGLine
-                  propList={
-                    Array [
-                      "stroke",
-                      "strokeWidth",
-                      "strokeLinecap",
-                    ]
-                  }
-                  stroke={4294967295}
-                  strokeLinecap={1}
-                  strokeWidth="1.5"
-                  x1={10}
-                  x2={15}
-                  y1={12}
-                  y2={7}
-                />
-              </RNSVGGroup>
-            </RNSVGSvgView>
-          </View>
+            style={
+              Array [
+                Object {
+                  "position": "absolute",
+                  "right": 20,
+                },
+                Object {
+                  "transform": Array [
+                    Object {
+                      "rotate": "180deg",
+                    },
+                  ],
+                },
+              ]
+            }
+          />
         </>
         <View
           style={
             Object {
               "height": undefined,
+              "transform": Array [
+                Object {
+                  "translateY": 0,
+                },
+              ],
             }
           }
+          testID="body_0"
         >
           <View
             style={
-              Object {
-                "transform": Array [
-                  Object {
-                    "translateY": 0,
-                  },
-                ],
-              }
+              Array [
+                Object {
+                  "alignItems": "center",
+                  "borderBottomColor": "lightgray",
+                  "borderBottomWidth": 1,
+                  "flexDirection": "row",
+                  "paddingBottom": 20,
+                  "paddingLeft": 40,
+                  "paddingRight": 40,
+                  "paddingTop": 20,
+                  "width": "100%",
+                },
+              ]
             }
-            testID="itemBody_0"
           >
-            <View
-              style={
-                Array [
-                  Object {
-                    "alignItems": "center",
-                    "borderBottomColor": "lightgray",
-                    "borderBottomWidth": 1,
-                    "flexDirection": "row",
-                    "justifyContent": "flex-start",
-                    "paddingBottom": 20,
-                    "paddingLeft": 40,
-                    "paddingRight": 40,
-                    "paddingTop": 20,
-                    "width": "100%",
-                  },
-                ]
-              }
-            >
-              <View />
-              <Text
-                style={
-                  Object {
-                    "color": "#141414",
-                    "fontWeight": "bold",
-                  }
-                }
-              >
-                test data
-              </Text>
-            </View>
-            <View
-              style={
-                Array [
-                  Object {
-                    "alignItems": "center",
-                    "borderBottomColor": "lightgray",
-                    "borderBottomWidth": 1,
-                    "flexDirection": "row",
-                    "justifyContent": "flex-start",
-                    "paddingBottom": 20,
-                    "paddingLeft": 40,
-                    "paddingRight": 40,
-                    "paddingTop": 20,
-                    "width": "100%",
-                  },
-                ]
-              }
-            >
-              <View />
-              <Text
-                style={
-                  Object {
-                    "color": "#141414",
-                    "fontWeight": "bold",
-                  }
-                }
-              >
-                test data
-              </Text>
-            </View>
-            <View
-              style={
-                Array [
-                  Object {
-                    "alignItems": "center",
-                    "borderBottomColor": "lightgray",
-                    "borderBottomWidth": 1,
-                    "flexDirection": "row",
-                    "justifyContent": "flex-start",
-                    "paddingBottom": 20,
-                    "paddingLeft": 40,
-                    "paddingRight": 40,
-                    "paddingTop": 20,
-                    "width": "100%",
-                  },
-                ]
-              }
-            >
-              <View />
-              <Text
-                style={
-                  Object {
-                    "color": "#141414",
-                    "fontWeight": "bold",
-                  }
-                }
-              >
-                test data
-              </Text>
-            </View>
+            <Text>
+              Default body01
+            </Text>
+          </View>
+          <View
+            style={
+              Array [
+                Object {
+                  "alignItems": "center",
+                  "borderBottomColor": "lightgray",
+                  "borderBottomWidth": 1,
+                  "flexDirection": "row",
+                  "paddingBottom": 20,
+                  "paddingLeft": 40,
+                  "paddingRight": 40,
+                  "paddingTop": 20,
+                  "width": "100%",
+                },
+              ]
+            }
+          >
+            <Text>
+              Default body02
+            </Text>
           </View>
         </View>
       </View>
@@ -769,231 +397,330 @@ exports[`[Accordion] render test should render collapsed when collapsedWhenRende
                 "borderBottomWidth": 1,
                 "flexDirection": "row",
                 "height": 50,
-                "justifyContent": "space-between",
-                "paddingLeft": 20,
-                "paddingRight": 20,
                 "zIndex": 10,
               },
             ]
           }
-          testID="itemTitle_1"
+          testID="title_1"
         >
-          <View />
-          <Text
-            style={
-              Object {
-                "color": "#FFFFFF",
-                "fontWeight": "bold",
-              }
-            }
-          >
-            test data2
+          <Text>
+            Defualt-title-02
           </Text>
           <View
-            style={false}
-          >
-            <RNSVGSvgView
-              align="xMidYMid"
-              bbHeight="20"
-              bbWidth="20"
-              focusable={false}
-              height="20"
-              meetOrSlice={0}
-              minX={0}
-              minY={0}
-              style={
-                Array [
-                  Object {
-                    "backgroundColor": "transparent",
-                    "borderWidth": 0,
-                  },
-                  Object {
-                    "flex": 0,
-                    "height": 20,
-                    "width": 20,
-                  },
-                ]
-              }
-              vbHeight={20}
-              vbWidth={20}
-              width="20"
-            >
-              <RNSVGGroup>
-                <RNSVGLine
-                  propList={
-                    Array [
-                      "stroke",
-                      "strokeWidth",
-                      "strokeLinecap",
-                    ]
-                  }
-                  stroke={4294967295}
-                  strokeLinecap={1}
-                  strokeWidth="1.5"
-                  x1={5}
-                  x2={10}
-                  y1={7}
-                  y2={12}
-                />
-                <RNSVGLine
-                  propList={
-                    Array [
-                      "stroke",
-                      "strokeWidth",
-                      "strokeLinecap",
-                    ]
-                  }
-                  stroke={4294967295}
-                  strokeLinecap={1}
-                  strokeWidth="1.5"
-                  x1={10}
-                  x2={15}
-                  y1={12}
-                  y2={7}
-                />
-              </RNSVGGroup>
-            </RNSVGSvgView>
-          </View>
+            style={
+              Array [
+                Object {
+                  "position": "absolute",
+                  "right": 20,
+                },
+                Object {
+                  "transform": Array [
+                    Object {
+                      "rotate": "180deg",
+                    },
+                  ],
+                },
+              ]
+            }
+          />
         </>
         <View
           style={
             Object {
               "height": undefined,
+              "transform": Array [
+                Object {
+                  "translateY": 0,
+                },
+              ],
             }
           }
+          testID="body_1"
         >
           <View
             style={
-              Object {
-                "transform": Array [
-                  Object {
-                    "translateY": 0,
-                  },
-                ],
-              }
+              Array [
+                Object {
+                  "alignItems": "center",
+                  "borderBottomColor": "lightgray",
+                  "borderBottomWidth": 1,
+                  "flexDirection": "row",
+                  "paddingBottom": 20,
+                  "paddingLeft": 40,
+                  "paddingRight": 40,
+                  "paddingTop": 20,
+                  "width": "100%",
+                },
+              ]
             }
-            testID="itemBody_1"
           >
-            <View
-              style={
-                Array [
-                  Object {
-                    "alignItems": "center",
-                    "borderBottomColor": "lightgray",
-                    "borderBottomWidth": 1,
-                    "flexDirection": "row",
-                    "justifyContent": "flex-start",
-                    "paddingBottom": 20,
-                    "paddingLeft": 40,
-                    "paddingRight": 40,
-                    "paddingTop": 20,
-                    "width": "100%",
-                  },
-                ]
-              }
-            >
-              <View />
-              <Text
-                style={
-                  Object {
-                    "color": "#141414",
-                    "fontWeight": "bold",
-                  }
-                }
-              >
-                test data
-              </Text>
-            </View>
-            <View
-              style={
-                Array [
-                  Object {
-                    "alignItems": "center",
-                    "borderBottomColor": "lightgray",
-                    "borderBottomWidth": 1,
-                    "flexDirection": "row",
-                    "justifyContent": "flex-start",
-                    "paddingBottom": 20,
-                    "paddingLeft": 40,
-                    "paddingRight": 40,
-                    "paddingTop": 20,
-                    "width": "100%",
-                  },
-                ]
-              }
-            >
-              <View />
-              <Text
-                style={
-                  Object {
-                    "color": "#141414",
-                    "fontWeight": "bold",
-                  }
-                }
-              >
-                test data
-              </Text>
-            </View>
-            <View
-              style={
-                Array [
-                  Object {
-                    "alignItems": "center",
-                    "borderBottomColor": "lightgray",
-                    "borderBottomWidth": 1,
-                    "flexDirection": "row",
-                    "justifyContent": "flex-start",
-                    "paddingBottom": 20,
-                    "paddingLeft": 40,
-                    "paddingRight": 40,
-                    "paddingTop": 20,
-                    "width": "100%",
-                  },
-                ]
-              }
-            >
-              <View />
-              <Text
-                style={
-                  Object {
-                    "color": "#141414",
-                    "fontWeight": "bold",
-                  }
-                }
-              >
-                test data
-              </Text>
-            </View>
-            <View
-              style={
-                Array [
-                  Object {
-                    "alignItems": "center",
-                    "borderBottomColor": "lightgray",
-                    "borderBottomWidth": 1,
-                    "flexDirection": "row",
-                    "justifyContent": "flex-start",
-                    "paddingBottom": 20,
-                    "paddingLeft": 40,
-                    "paddingRight": 40,
-                    "paddingTop": 20,
-                    "width": "100%",
-                  },
-                ]
-              }
-            >
-              <View />
-              <Text
-                style={
-                  Object {
-                    "color": "#141414",
-                    "fontWeight": "bold",
-                  }
-                }
-              >
-                test data
-              </Text>
-            </View>
+            <Text>
+              Default body01
+            </Text>
+          </View>
+          <View
+            style={
+              Array [
+                Object {
+                  "alignItems": "center",
+                  "borderBottomColor": "lightgray",
+                  "borderBottomWidth": 1,
+                  "flexDirection": "row",
+                  "paddingBottom": 20,
+                  "paddingLeft": 40,
+                  "paddingRight": 40,
+                  "paddingTop": 20,
+                  "width": "100%",
+                },
+              ]
+            }
+          >
+            <Text>
+              Default body02
+            </Text>
+          </View>
+        </View>
+      </View>
+    </View>
+  </View>
+</View>
+`;
+
+exports[`[Accordion] render test should render collapsed when collapseOnStart props is true 1`] = `
+<View
+  pointerEvents="box-none"
+  style={
+    Object {
+      "flex": 1,
+    }
+  }
+>
+  <View
+    collapsable={true}
+    pointerEvents="box-none"
+    style={
+      Object {
+        "flex": 1,
+      }
+    }
+  >
+    <View
+      style={
+        Array [
+          Object {
+            "alignItems": "center",
+            "flexDirection": "column",
+          },
+        ]
+      }
+    >
+      <View
+        style={
+          Array [
+            Object {
+              "backgroundColor": "transparent",
+              "overflow": "hidden",
+              "width": 300,
+            },
+          ]
+        }
+      >
+        <
+          style={
+            Array [
+              Object {
+                "alignItems": "center",
+                "backgroundColor": "#141414",
+                "borderBottomColor": "white",
+                "borderBottomWidth": 1,
+                "flexDirection": "row",
+                "height": 50,
+                "zIndex": 10,
+              },
+            ]
+          }
+          testID="title_0"
+        >
+          <Text>
+            Defualt-title-01
+          </Text>
+          <View
+            style={
+              Array [
+                Object {
+                  "position": "absolute",
+                  "right": 20,
+                },
+                Object {
+                  "transform": Array [
+                    Object {
+                      "rotate": "180deg",
+                    },
+                  ],
+                },
+              ]
+            }
+          />
+        </>
+        <View
+          style={
+            Object {
+              "height": undefined,
+              "transform": Array [
+                Object {
+                  "translateY": -1,
+                },
+              ],
+            }
+          }
+          testID="body_0"
+        >
+          <View
+            style={
+              Array [
+                Object {
+                  "alignItems": "center",
+                  "borderBottomColor": "lightgray",
+                  "borderBottomWidth": 1,
+                  "flexDirection": "row",
+                  "paddingBottom": 20,
+                  "paddingLeft": 40,
+                  "paddingRight": 40,
+                  "paddingTop": 20,
+                  "width": "100%",
+                },
+              ]
+            }
+          >
+            <Text>
+              Default body01
+            </Text>
+          </View>
+          <View
+            style={
+              Array [
+                Object {
+                  "alignItems": "center",
+                  "borderBottomColor": "lightgray",
+                  "borderBottomWidth": 1,
+                  "flexDirection": "row",
+                  "paddingBottom": 20,
+                  "paddingLeft": 40,
+                  "paddingRight": 40,
+                  "paddingTop": 20,
+                  "width": "100%",
+                },
+              ]
+            }
+          >
+            <Text>
+              Default body02
+            </Text>
+          </View>
+        </View>
+      </View>
+      <View
+        style={
+          Array [
+            Object {
+              "backgroundColor": "transparent",
+              "overflow": "hidden",
+              "width": 300,
+            },
+          ]
+        }
+      >
+        <
+          style={
+            Array [
+              Object {
+                "alignItems": "center",
+                "backgroundColor": "#141414",
+                "borderBottomColor": "white",
+                "borderBottomWidth": 1,
+                "flexDirection": "row",
+                "height": 50,
+                "zIndex": 10,
+              },
+            ]
+          }
+          testID="title_1"
+        >
+          <Text>
+            Defualt-title-02
+          </Text>
+          <View
+            style={
+              Array [
+                Object {
+                  "position": "absolute",
+                  "right": 20,
+                },
+                Object {
+                  "transform": Array [
+                    Object {
+                      "rotate": "180deg",
+                    },
+                  ],
+                },
+              ]
+            }
+          />
+        </>
+        <View
+          style={
+            Object {
+              "height": undefined,
+              "transform": Array [
+                Object {
+                  "translateY": -1,
+                },
+              ],
+            }
+          }
+          testID="body_1"
+        >
+          <View
+            style={
+              Array [
+                Object {
+                  "alignItems": "center",
+                  "borderBottomColor": "lightgray",
+                  "borderBottomWidth": 1,
+                  "flexDirection": "row",
+                  "paddingBottom": 20,
+                  "paddingLeft": 40,
+                  "paddingRight": 40,
+                  "paddingTop": 20,
+                  "width": "100%",
+                },
+              ]
+            }
+          >
+            <Text>
+              Default body01
+            </Text>
+          </View>
+          <View
+            style={
+              Array [
+                Object {
+                  "alignItems": "center",
+                  "borderBottomColor": "lightgray",
+                  "borderBottomWidth": 1,
+                  "flexDirection": "row",
+                  "paddingBottom": 20,
+                  "paddingLeft": 40,
+                  "paddingRight": 40,
+                  "paddingTop": 20,
+                  "width": "100%",
+                },
+              ]
+            }
+          >
+            <Text>
+              Default body02
+            </Text>
           </View>
         </View>
       </View>
@@ -1051,201 +778,87 @@ exports[`[Accordion] render test should render without crasing 1`] = `
                 "borderBottomWidth": 1,
                 "flexDirection": "row",
                 "height": 50,
-                "justifyContent": "space-between",
-                "paddingLeft": 20,
-                "paddingRight": 20,
                 "zIndex": 10,
               },
             ]
           }
-          testID="itemTitle_0"
+          testID="title_0"
         >
-          <View />
-          <Text
-            style={
-              Object {
-                "color": "#FFFFFF",
-                "fontWeight": "bold",
-              }
-            }
-          >
-            test data1
+          <Text>
+            Defualt-title-01
           </Text>
           <View
-            style={false}
-          >
-            <RNSVGSvgView
-              align="xMidYMid"
-              bbHeight="20"
-              bbWidth="20"
-              focusable={false}
-              height="20"
-              meetOrSlice={0}
-              minX={0}
-              minY={0}
-              style={
-                Array [
-                  Object {
-                    "backgroundColor": "transparent",
-                    "borderWidth": 0,
-                  },
-                  Object {
-                    "flex": 0,
-                    "height": 20,
-                    "width": 20,
-                  },
-                ]
-              }
-              vbHeight={20}
-              vbWidth={20}
-              width="20"
-            >
-              <RNSVGGroup>
-                <RNSVGLine
-                  propList={
-                    Array [
-                      "stroke",
-                      "strokeWidth",
-                      "strokeLinecap",
-                    ]
-                  }
-                  stroke={4294967295}
-                  strokeLinecap={1}
-                  strokeWidth="1.5"
-                  x1={5}
-                  x2={10}
-                  y1={7}
-                  y2={12}
-                />
-                <RNSVGLine
-                  propList={
-                    Array [
-                      "stroke",
-                      "strokeWidth",
-                      "strokeLinecap",
-                    ]
-                  }
-                  stroke={4294967295}
-                  strokeLinecap={1}
-                  strokeWidth="1.5"
-                  x1={10}
-                  x2={15}
-                  y1={12}
-                  y2={7}
-                />
-              </RNSVGGroup>
-            </RNSVGSvgView>
-          </View>
+            style={
+              Array [
+                Object {
+                  "position": "absolute",
+                  "right": 20,
+                },
+                Object {
+                  "transform": Array [
+                    Object {
+                      "rotate": "0deg",
+                    },
+                  ],
+                },
+              ]
+            }
+          />
         </>
         <View
           style={
             Object {
               "height": undefined,
+              "transform": Array [
+                Object {
+                  "translateY": 0,
+                },
+              ],
             }
           }
+          testID="body_0"
         >
           <View
             style={
-              Object {
-                "transform": Array [
-                  Object {
-                    "translateY": 0,
-                  },
-                ],
-              }
+              Array [
+                Object {
+                  "alignItems": "center",
+                  "borderBottomColor": "lightgray",
+                  "borderBottomWidth": 1,
+                  "flexDirection": "row",
+                  "paddingBottom": 20,
+                  "paddingLeft": 40,
+                  "paddingRight": 40,
+                  "paddingTop": 20,
+                  "width": "100%",
+                },
+              ]
             }
-            testID="itemBody_0"
           >
-            <View
-              style={
-                Array [
-                  Object {
-                    "alignItems": "center",
-                    "borderBottomColor": "lightgray",
-                    "borderBottomWidth": 1,
-                    "flexDirection": "row",
-                    "justifyContent": "flex-start",
-                    "paddingBottom": 20,
-                    "paddingLeft": 40,
-                    "paddingRight": 40,
-                    "paddingTop": 20,
-                    "width": "100%",
-                  },
-                ]
-              }
-            >
-              <View />
-              <Text
-                style={
-                  Object {
-                    "color": "#141414",
-                    "fontWeight": "bold",
-                  }
-                }
-              >
-                test data
-              </Text>
-            </View>
-            <View
-              style={
-                Array [
-                  Object {
-                    "alignItems": "center",
-                    "borderBottomColor": "lightgray",
-                    "borderBottomWidth": 1,
-                    "flexDirection": "row",
-                    "justifyContent": "flex-start",
-                    "paddingBottom": 20,
-                    "paddingLeft": 40,
-                    "paddingRight": 40,
-                    "paddingTop": 20,
-                    "width": "100%",
-                  },
-                ]
-              }
-            >
-              <View />
-              <Text
-                style={
-                  Object {
-                    "color": "#141414",
-                    "fontWeight": "bold",
-                  }
-                }
-              >
-                test data
-              </Text>
-            </View>
-            <View
-              style={
-                Array [
-                  Object {
-                    "alignItems": "center",
-                    "borderBottomColor": "lightgray",
-                    "borderBottomWidth": 1,
-                    "flexDirection": "row",
-                    "justifyContent": "flex-start",
-                    "paddingBottom": 20,
-                    "paddingLeft": 40,
-                    "paddingRight": 40,
-                    "paddingTop": 20,
-                    "width": "100%",
-                  },
-                ]
-              }
-            >
-              <View />
-              <Text
-                style={
-                  Object {
-                    "color": "#141414",
-                    "fontWeight": "bold",
-                  }
-                }
-              >
-                test data
-              </Text>
-            </View>
+            <Text>
+              Default body01
+            </Text>
+          </View>
+          <View
+            style={
+              Array [
+                Object {
+                  "alignItems": "center",
+                  "borderBottomColor": "lightgray",
+                  "borderBottomWidth": 1,
+                  "flexDirection": "row",
+                  "paddingBottom": 20,
+                  "paddingLeft": 40,
+                  "paddingRight": 40,
+                  "paddingTop": 20,
+                  "width": "100%",
+                },
+              ]
+            }
+          >
+            <Text>
+              Default body02
+            </Text>
           </View>
         </View>
       </View>
@@ -1270,231 +883,87 @@ exports[`[Accordion] render test should render without crasing 1`] = `
                 "borderBottomWidth": 1,
                 "flexDirection": "row",
                 "height": 50,
-                "justifyContent": "space-between",
-                "paddingLeft": 20,
-                "paddingRight": 20,
                 "zIndex": 10,
               },
             ]
           }
-          testID="itemTitle_1"
+          testID="title_1"
         >
-          <View />
-          <Text
-            style={
-              Object {
-                "color": "#FFFFFF",
-                "fontWeight": "bold",
-              }
-            }
-          >
-            test data2
+          <Text>
+            Defualt-title-02
           </Text>
           <View
-            style={false}
-          >
-            <RNSVGSvgView
-              align="xMidYMid"
-              bbHeight="20"
-              bbWidth="20"
-              focusable={false}
-              height="20"
-              meetOrSlice={0}
-              minX={0}
-              minY={0}
-              style={
-                Array [
-                  Object {
-                    "backgroundColor": "transparent",
-                    "borderWidth": 0,
-                  },
-                  Object {
-                    "flex": 0,
-                    "height": 20,
-                    "width": 20,
-                  },
-                ]
-              }
-              vbHeight={20}
-              vbWidth={20}
-              width="20"
-            >
-              <RNSVGGroup>
-                <RNSVGLine
-                  propList={
-                    Array [
-                      "stroke",
-                      "strokeWidth",
-                      "strokeLinecap",
-                    ]
-                  }
-                  stroke={4294967295}
-                  strokeLinecap={1}
-                  strokeWidth="1.5"
-                  x1={5}
-                  x2={10}
-                  y1={7}
-                  y2={12}
-                />
-                <RNSVGLine
-                  propList={
-                    Array [
-                      "stroke",
-                      "strokeWidth",
-                      "strokeLinecap",
-                    ]
-                  }
-                  stroke={4294967295}
-                  strokeLinecap={1}
-                  strokeWidth="1.5"
-                  x1={10}
-                  x2={15}
-                  y1={12}
-                  y2={7}
-                />
-              </RNSVGGroup>
-            </RNSVGSvgView>
-          </View>
+            style={
+              Array [
+                Object {
+                  "position": "absolute",
+                  "right": 20,
+                },
+                Object {
+                  "transform": Array [
+                    Object {
+                      "rotate": "0deg",
+                    },
+                  ],
+                },
+              ]
+            }
+          />
         </>
         <View
           style={
             Object {
               "height": undefined,
+              "transform": Array [
+                Object {
+                  "translateY": 0,
+                },
+              ],
             }
           }
+          testID="body_1"
         >
           <View
             style={
-              Object {
-                "transform": Array [
-                  Object {
-                    "translateY": 0,
-                  },
-                ],
-              }
+              Array [
+                Object {
+                  "alignItems": "center",
+                  "borderBottomColor": "lightgray",
+                  "borderBottomWidth": 1,
+                  "flexDirection": "row",
+                  "paddingBottom": 20,
+                  "paddingLeft": 40,
+                  "paddingRight": 40,
+                  "paddingTop": 20,
+                  "width": "100%",
+                },
+              ]
             }
-            testID="itemBody_1"
           >
-            <View
-              style={
-                Array [
-                  Object {
-                    "alignItems": "center",
-                    "borderBottomColor": "lightgray",
-                    "borderBottomWidth": 1,
-                    "flexDirection": "row",
-                    "justifyContent": "flex-start",
-                    "paddingBottom": 20,
-                    "paddingLeft": 40,
-                    "paddingRight": 40,
-                    "paddingTop": 20,
-                    "width": "100%",
-                  },
-                ]
-              }
-            >
-              <View />
-              <Text
-                style={
-                  Object {
-                    "color": "#141414",
-                    "fontWeight": "bold",
-                  }
-                }
-              >
-                test data
-              </Text>
-            </View>
-            <View
-              style={
-                Array [
-                  Object {
-                    "alignItems": "center",
-                    "borderBottomColor": "lightgray",
-                    "borderBottomWidth": 1,
-                    "flexDirection": "row",
-                    "justifyContent": "flex-start",
-                    "paddingBottom": 20,
-                    "paddingLeft": 40,
-                    "paddingRight": 40,
-                    "paddingTop": 20,
-                    "width": "100%",
-                  },
-                ]
-              }
-            >
-              <View />
-              <Text
-                style={
-                  Object {
-                    "color": "#141414",
-                    "fontWeight": "bold",
-                  }
-                }
-              >
-                test data
-              </Text>
-            </View>
-            <View
-              style={
-                Array [
-                  Object {
-                    "alignItems": "center",
-                    "borderBottomColor": "lightgray",
-                    "borderBottomWidth": 1,
-                    "flexDirection": "row",
-                    "justifyContent": "flex-start",
-                    "paddingBottom": 20,
-                    "paddingLeft": 40,
-                    "paddingRight": 40,
-                    "paddingTop": 20,
-                    "width": "100%",
-                  },
-                ]
-              }
-            >
-              <View />
-              <Text
-                style={
-                  Object {
-                    "color": "#141414",
-                    "fontWeight": "bold",
-                  }
-                }
-              >
-                test data
-              </Text>
-            </View>
-            <View
-              style={
-                Array [
-                  Object {
-                    "alignItems": "center",
-                    "borderBottomColor": "lightgray",
-                    "borderBottomWidth": 1,
-                    "flexDirection": "row",
-                    "justifyContent": "flex-start",
-                    "paddingBottom": 20,
-                    "paddingLeft": 40,
-                    "paddingRight": 40,
-                    "paddingTop": 20,
-                    "width": "100%",
-                  },
-                ]
-              }
-            >
-              <View />
-              <Text
-                style={
-                  Object {
-                    "color": "#141414",
-                    "fontWeight": "bold",
-                  }
-                }
-              >
-                test data
-              </Text>
-            </View>
+            <Text>
+              Default body01
+            </Text>
+          </View>
+          <View
+            style={
+              Array [
+                Object {
+                  "alignItems": "center",
+                  "borderBottomColor": "lightgray",
+                  "borderBottomWidth": 1,
+                  "flexDirection": "row",
+                  "paddingBottom": 20,
+                  "paddingLeft": 40,
+                  "paddingRight": 40,
+                  "paddingTop": 20,
+                  "width": "100%",
+                },
+              ]
+            }
+          >
+            <Text>
+              Default body02
+            </Text>
           </View>
         </View>
       </View>
