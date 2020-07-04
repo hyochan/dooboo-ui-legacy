@@ -5,6 +5,7 @@ import {
   ViewStyle,
 } from 'react-native';
 import React, { FC, useCallback, useEffect, useRef, useState } from 'react';
+
 import styled from 'styled-components/native';
 
 const Container = styled.View`
@@ -105,7 +106,7 @@ const AccordionItem: FC<Props> = (props) => {
     setItemVisible(!isItemVisible);
   };
 
-  useCallback((): void => {
+  useEffect((): void => {
     if (isBodyMounted) {
       animValue.setValue(isItemVisible ? bodyHeight : 0);
     }
