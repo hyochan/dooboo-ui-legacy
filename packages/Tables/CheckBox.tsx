@@ -1,10 +1,9 @@
 import React, { ReactElement } from 'react';
-import Svg, { Line } from 'react-native-svg';
 import { TouchableOpacity, View } from 'react-native';
 
 import styled from 'styled-components/native';
 
-const CheckView = styled.View`
+const CheckView = styled.View<{ checked: boolean }>`
   height: 20px;
   width: 20px;
   border-width: 2px;
@@ -12,46 +11,27 @@ const CheckView = styled.View`
   border-color: #d5d5d5;
   align-items: center;
   justify-content: center;
+  background-color: ${({ checked }): string =>
+    !checked ? '#ffffff' : '#d5d5d5'};
 `;
 
+const CheckMark = styled.Image`
+  width: 14px;
+  height: 14px;
+`;
 interface Props {
-  checked?: boolean;
+  value?: boolean;
   onClick?: () => void;
 }
 
 function CheckBox(props: Props): ReactElement {
-  const { checked, onClick } = props;
+  const { value, onClick } = props;
 
   return (
     <TouchableOpacity testID="checkbox-test-id" onPress={onClick}>
-      <View style={{ flexDirection: 'row' }}>
-        <CheckView>
-          {checked ? (
-            <View>
-              <Svg height="20" width="20" viewBox="0 0 20 20">
-                <Line
-                  x1={5}
-                  y1={7}
-                  x2={10}
-                  y2={12}
-                  stroke="black"
-                  strokeWidth="1.5"
-                  strokeLinecap="round"
-                />
-                <Line
-                  x1={10}
-                  y1={12}
-                  x2={15}
-                  y2={5}
-                  stroke="black"
-                  strokeWidth="1.5"
-                  strokeLinecap="round"
-                />
-              </Svg>
-            </View>
-          ) : null}
-        </CheckView>
-      </View>
+      <CheckView checked={value}>
+        <CheckMark source={require('../__assets__/mark.png')} />
+      </CheckView>
     </TouchableOpacity>
   );
 }
