@@ -19,9 +19,7 @@
     "install-packages": "lerna exec -- yarn"
   },
   "dependencies": {
-    "d3": "^5.16.0",
-    "dooboolab-welcome": "^1.2.0",
-    "react-native-svg": "^12.1.0"
+    "dooboolab-welcome": "^1.2.0"
   },
   "devDependencies": {
     "@babel/core": "^7.10.2",
