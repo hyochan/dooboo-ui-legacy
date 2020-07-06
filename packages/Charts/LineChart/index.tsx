@@ -12,13 +12,13 @@ const Container = styled.View`
   flex-direction: column;
   height: 100%;
   width: 100%;
-  background-color: 'transparent';
+  background-color: transparent;
   justify-content: center;
   align-items: center;
 `;
 const HeaderContainer = styled.View`
   width: 100%;
-  background-color: 'transparent';
+  background-color: transparent;
   margin: 0;
   padding: 0;
 `;
