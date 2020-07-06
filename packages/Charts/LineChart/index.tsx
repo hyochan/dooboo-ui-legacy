@@ -137,7 +137,11 @@ const LineChart: FC<LineChartProps> = (props) => {
         setCurrentWidth(e.nativeEvent.layout.width);
       }}>
       {/* Header */}
-      {header && <HeaderContainer>{header}</HeaderContainer>}
+      {header && (
+        <HeaderContainer>
+          {header}
+        </HeaderContainer>
+      )}
       {/* Graph view */}
       <ChartContainer>
         <GraphWrapper>
