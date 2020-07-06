@@ -68,7 +68,7 @@ function SwitchToggle(props: Props): React.ReactElement {
     props.containerStyle && props.circleStyle
       ? (props.containerStyle.width as number) -
         ((props.circleStyle.width as number) +
-          (props.containerStyle.padding as number) * 2)
+          (props.containerStyle.padding as number || 0) * 2)
       : 0;
   const circlePosXEnd = endPos;
   const [circlePosXStart] = useState(getStart());
