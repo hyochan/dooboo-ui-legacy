@@ -3,7 +3,7 @@ import { StyleProp, TextStyle, ViewStyle } from 'react-native';
 /* eslint-disable sort-imports */
 import React from 'react';
 
-type GraphLStyle = {
+type GraphStyle = {
   withLine?: boolean; // default: true
   lineColor?: string; // default: ('#000000')
   lineWidth?: number; // default: 2
@@ -56,7 +56,7 @@ export interface LineChartProps {
   /* ====== [OPTIONAL] ====== */
   header?: React.ReactElement;
   /* *** [GRAPH STYLE] *** */
-  graphStyle?: GraphLStyle; // [Line, Dot, Text]
+  graphStyle?: GraphStyle; // [Line, Dot, Text]
 
   /* **** [AXIS STYLE] **** */
   xStyle?: XStyle; // [Line], [Text]
