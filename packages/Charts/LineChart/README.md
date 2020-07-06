@@ -1,22 +1,44 @@
 # LineChart
 
-> Customizable line chart component for react-native. This component is using react-native-svg & d3 libraries to create the graph.<br/>
+> Customizable & responsive Line Chart component for react-native. This component is using `react-native-svg`, `d3` and `styled-components/native` libraries to create the graph.<br/>
 
-![image](https://i.ibb.co/QmHp4K9/2020-07-02-19-18-56.png)
+![image](https://i.ibb.co/QmHp4K9/2020-07-02-19-18-56.png)(dooboo)
 
 ## Props
 
-| Property     | Required | Types         | Default                     | Description                                                                   |
-| ------------ | -------- | ------------- | --------------------------- | ----------------------------------------------------------------------------- |
-| screenHeight |          | number        | 250                         | recommend getting onLayout width value from parent component to be responsive |
-| screenWidth  |          | number        | 300                         | recommend to get onLayout width value from parent component to be responsive  |
-| data         | ✓        | Array<'Data'> |                             | Array of objects                                                              |
-| xAxisKey     | ✓        | string        |                             | X-axis parameter existing "key" name in \${"data"}                            |
-| yAxisKey     | ✓        | string        |                             | Y-axis parameter existing "key" name in \${"data"}                            |
-| yUnit        |          | number        | 10                          | Y-axis value unit                                                             |
-| graphStyle   |          | object        | [Graph-Style](#Graph-Style) | fully customizable graph style                                                |
-| xStyle       |          | object        | [X-Style](#X-Style)         | fully customizable graph style                                                |
-| yStyle       |          | object        | [Y-Style](#Y-Style)         | fully customizable graph style                                                |
+| Property   | Required | Types            | Default                     | Description                                                 |
+| ---------- | -------- | ---------------- | --------------------------- | ----------------------------------------------------------- |
+| data       | ✓        | Array<'Data'>    |                             | Array of objects                                            |
+| xAxisKey   | ✓        | string           |                             | X-axis parameter existing "key" name in \${"data"}          |
+| yAxisKey   | ✓        | string           |                             | Y-axis parameter existing "key" name in \${"data"}          |
+| yUnit      |          | string Or number | 10                          | Y-axis value unit                                           |
+| header     |          | ReactElement     | undefined                   | fully customizable React element ([Example](#ReactElement)) |
+| graphStyle |          | object           | [Graph-Style](#Graph-Style) | fully customizable graph style                              |
+| xStyle     |          | object           | [X-Style](#X-Style)         | fully customizable graph style                              |
+| yStyle     |          | object           | [Y-Style](#Y-Style)         | fully customizable graph style                              |
+
+### `ReactElement` Example
+
+```javascript
+// Example
+<LineChart
+  data={mockData}
+  xAxisKey={'key1'}
+  yAxisKey={'key2'}
+  header={
+    <CustomHeaderContainer>
+      <Text
+        style={{
+          fontSize: 16,
+          fontWeight: '600',
+          color: '#000',
+        }}>
+        {'My Line-chart'}
+      </Text>
+    </CustomHeaderContainer>
+  }
+/>
+```
 
 ### `GraphStyle`
 
@@ -160,18 +182,12 @@ yarn add @dooboo-ui/core
 - Usage
 
   ```tsx
-  <View style={styles.container}
-  onLayout={(e): void => {
-        setCurrentWidth(e.nativeEvent.layout.width);
-        setCurrentHeight(e.nativeEvent.layout.height);
-      }}>
+  <View style={styles.container}>
     <LineChart
-        screenHeight={currentHeight}
-        screenWidth={currentWidth}
         data={this.state.data}
         xAxisKey={'key1'}
         yAxisKey={'key2'}
-        yUnit={'2'}
+        yUnit={'10'}
         header={
           <CustomHeaderContainer>
             <Text
@@ -226,3 +242,34 @@ yarn add @dooboo-ui/core
   </View>
   });
   ```
+
+## `Responsive Feature` (WEB)
+
+LineChart is wrapped internally with a container which provides the `height` & `width` from the `onLayout` native property of `View` component.
+
+If you need the chart to be responsive, wrap the `LineChart` with a responsive `container`.
+
+```javascript
+// Responsive example
+import { LineChart } from '@dooboo-ui/core';
+import styled from 'styled-components/native';
+
+const CustomContainer = styled.View`
+  height: 100%;
+  width: 100%;
+`;
+
+<CustomContainer>
+      <LineChart
+        data={this.state.data}
+        xAxisKey={'key1'}
+        yAxisKey={'key2'}
+        yUnit={'10'}
+        header={...}
+        graphStyle={{...}}
+        xStyle={{...}}
+        yStyle={{...}}
+      />
+</CustomContainer>
+
+```

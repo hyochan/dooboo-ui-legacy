@@ -1,17 +1,18 @@
 import { Dimensions, Text } from 'react-native';
 import React, { ReactElement } from 'react';
+
 import { ContainerDeco } from '../../storybook/decorators';
-import LineChart from '../../main/LineChart';
+import { LineChart } from '../../packages/Charts';
 import { storiesOf } from '@storybook/react-native';
 import styled from 'styled-components/native';
 
-const Container = styled.SafeAreaView`
-  flex: 1;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+const CustomContainer = styled.View`
+  height: 40%;
+  width: 80%;
+  text-align: center;
 `;
 const CustomHeaderContainer = styled.View`
+  height: 40px;
   width: 100%;
   padding: 10px;
   background-color: rgba(245, 245, 245, 1);
@@ -85,22 +86,11 @@ const mockData = [
 ];
 
 const Default = (): React.ReactElement => {
-  const [currentWidth, setCurrentWidth] = React.useState<number>(
-    Dimensions.get('window').width,
-  );
-  const [currentHeight, setCurrentHeight] = React.useState<number>(
-    Dimensions.get('window').height,
-  );
+  const currentScreen = Dimensions.get('window').width;
 
   return (
-    <Container
-      onLayout={(e): void => {
-        setCurrentWidth(e.nativeEvent.layout.width);
-        setCurrentHeight(e.nativeEvent.layout.height);
-      }}>
+    <CustomContainer style={currentScreen > 768 && { width: '40%' }}>
       <LineChart
-        screenHeight={currentHeight}
-        screenWidth={currentWidth}
         data={mockData}
         xAxisKey={'key5'}
         yAxisKey={'key2'}
@@ -113,7 +103,7 @@ const Default = (): React.ReactElement => {
                 fontWeight: '600',
                 color: '#000',
               }}>
-              {'My chart'}
+              {'My Line-chart'}
             </Text>
           </CustomHeaderContainer>
         }
@@ -156,7 +146,7 @@ const Default = (): React.ReactElement => {
           fontWeight: 'bold',
         }}
       />
-    </Container>
+    </CustomContainer>
   );
 };
 
@@ -164,20 +154,20 @@ const Default = (): React.ReactElement => {
  * Below are stories for web
  */
 export default {
-  title: 'LineChart',
+  title: 'Charts',
 };
 
 export const toStorybook = (): ReactElement => <Default />;
 
 toStorybook.story = {
-  name: 'default',
+  name: 'LineChart',
 };
 
 /**
  * Below are stories for app
  */
-storiesOf('LineChart', module)
+storiesOf('Charts', module)
   .addDecorator(ContainerDeco)
-  .add('default', () => <Default />, {
+  .add('LineChart', () => <Default />, {
     notes: 'Simple explanation',
   });
