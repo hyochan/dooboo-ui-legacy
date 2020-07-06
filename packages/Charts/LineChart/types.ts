@@ -1,6 +1,7 @@
+import { StyleProp, TextStyle, ViewStyle } from 'react-native';
+
 /* eslint-disable sort-imports */
 import React from 'react';
-import { StyleProp, TextStyle, ViewStyle } from 'react-native';
 
 type GraphLStyle = {
   withLine?: boolean; // default: true
@@ -43,16 +44,14 @@ type YStyle = {
 };
 
 export interface LineChartProps {
-  screenHeight: number;
-  screenWidth: number;
   /* ====== [REQUIRED] ====== */
   // Dataset for the line chart
-  data: Array<any>;
+  data: Array<Record<string, any>>;
   // X-axis parameter existing "key" in ${data}
   xAxisKey: string;
   // Y-axis parameter existing "key" in ${data}
   yAxisKey: string;
-  yUnit: string;
+  yUnit: string | number;
 
   /* ====== [OPTIONAL] ====== */
   header?: React.ReactElement;
