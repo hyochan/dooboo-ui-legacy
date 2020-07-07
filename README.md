@@ -69,3 +69,33 @@ We aim to support `react-native` ui components in all platforms and we are curre
 - [Snackbar](https://github.com/dooboolab/dooboo-ui/tree/master/packages/Snackbar)
 - [theme](https://github.com/dooboolab/dooboo-ui/tree/master/packages/theme)
 - [TinderCard](https://github.com/dooboolab/dooboo-ui/tree/master/packages/TinderCard)
+
+## Expo-web
+
+You need to set webpack for using "dooboo-ui" in expo-web.
+1. Install @expo/webpack-config in your expo's project.
+```yarn add @expo/webpack-config``` 
+or ```npm install @expo/webpack-config```
+
+2. Create webpack.config.js in root path and Add below code.
+See [issue](https://forums.expo.io/t/error-when-running-expo-start-web/33096/3) below for more details.
+
+```js
+const createExpoWebpackConfigAsync = require('@expo/webpack-config');
+
+module.exports = async function(env, argv) {
+  const config = await createExpoWebpackConfigAsync(
+    {
+      ...env,
+      babel: {
+        dangerouslyAddModulePathsToTranspile: [
+          'dooboo-ui',
+        ],
+      },
+    },
+    argv
+  );
+  return config;
+};
+```
+
