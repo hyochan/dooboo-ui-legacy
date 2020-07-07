@@ -2,7 +2,12 @@
 
 > Customizable & responsive Line Chart component for react-native. This component is using `react-native-svg`, `d3` and `styled-components/native` libraries to create the graph.<br/>
 
-![image](https://i.ibb.co/QmHp4K9/2020-07-02-19-18-56.png)(dooboo)
+#### iOS
+![iOS](https://user-images.githubusercontent.com/50701501/86733899-8777d580-c06c-11ea-8b9f-b9ffff50edd0.png)
+#### Android
+![Android](https://user-images.githubusercontent.com/50701501/86733842-7cbd4080-c06c-11ea-833c-53e30f6d939c.png)
+
+
 
 ## Props
 
@@ -114,7 +119,7 @@ yarn add @dooboo-ui/core
     data: [
       {
         id: 'abcd1234efgh5674',
-        key1: '6일차',
+        key1: 'day-6',
         key2: Math.trunc(Math.random() * 10),
         key3: '06-30',
         key4: Math.trunc(Math.random() * 1000),
@@ -123,7 +128,7 @@ yarn add @dooboo-ui/core
       },
       {
         id: 'abcd1234efgh5675',
-        key1: '5일차',
+        key1: 'day-5',
         key2: Math.trunc(Math.random() * 10),
         key3: '06-29',
         key4: Math.trunc(Math.random() * 1000),
@@ -132,7 +137,7 @@ yarn add @dooboo-ui/core
       },
       {
         id: 'abcd1234efgh5676',
-        key1: '4일차',
+        key1: 'day-4',
         key2: Math.trunc(Math.random() * 10),
         key3: '06-28',
         key4: Math.trunc(Math.random() * 1000),
@@ -141,7 +146,7 @@ yarn add @dooboo-ui/core
       },
       {
         id: 'abcd1234efgh5677',
-        key1: '3일차',
+        key1: 'day-3',
         key2: Math.trunc(Math.random() * 10),
         key3: '06-27',
         key4: Math.trunc(Math.random() * 1000),
@@ -150,7 +155,7 @@ yarn add @dooboo-ui/core
       },
       {
         id: 'abcd1234efgh5678',
-        key1: '2일차',
+        key1: 'day-2',
         key2: Math.trunc(Math.random() * 10),
         key3: '06-26',
         key4: Math.trunc(Math.random() * 1000),
@@ -159,7 +164,7 @@ yarn add @dooboo-ui/core
       },
       {
         id: 'abcd1234efgh5677',
-        key1: '1일차',
+        key1: 'day-1',
         key2: Math.trunc(Math.random() * 10),
         key3: '06-25',
         key4: Math.trunc(Math.random() * 1000),
@@ -168,7 +173,7 @@ yarn add @dooboo-ui/core
       },
       {
         id: 'abcd1234efgh5678',
-        key1: '금일',
+        key1: 'd-day',
         key2: Math.trunc(Math.random() * 10),
         key3: '06-24',
         key4: Math.trunc(Math.random() * 1000),
@@ -259,6 +264,7 @@ const CustomContainer = styled.View`
   width: 100%;
 `;
 
+// Recommend to use conditional styling based on width to support other devices
 <CustomContainer>
       <LineChart
         data={this.state.data}
@@ -271,5 +277,4 @@ const CustomContainer = styled.View`
         yStyle={{...}}
       />
 </CustomContainer>
-
 ```
