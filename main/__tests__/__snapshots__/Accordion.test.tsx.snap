@@ -60,19 +60,15 @@ exports[`[Accordion] render test should adjust duration of animation depends on 
           </Text>
           <View
             style={
-              Array [
-                Object {
-                  "position": "absolute",
-                  "right": 20,
-                },
-                Object {
-                  "transform": Array [
-                    Object {
-                      "rotate": "0deg",
-                    },
-                  ],
-                },
-              ]
+              Object {
+                "position": "absolute",
+                "right": 20,
+                "transform": Array [
+                  Object {
+                    "rotate": "0deg",
+                  },
+                ],
+              }
             }
           />
         </>
@@ -165,19 +161,15 @@ exports[`[Accordion] render test should adjust duration of animation depends on 
           </Text>
           <View
             style={
-              Array [
-                Object {
-                  "position": "absolute",
-                  "right": 20,
-                },
-                Object {
-                  "transform": Array [
-                    Object {
-                      "rotate": "0deg",
-                    },
-                  ],
-                },
-              ]
+              Object {
+                "position": "absolute",
+                "right": 20,
+                "transform": Array [
+                  Object {
+                    "rotate": "0deg",
+                  },
+                ],
+              }
             }
           />
         </>
@@ -303,19 +295,15 @@ exports[`[Accordion] render test should operate animation when isAnimated props 
           </Text>
           <View
             style={
-              Array [
-                Object {
-                  "position": "absolute",
-                  "right": 20,
-                },
-                Object {
-                  "transform": Array [
-                    Object {
-                      "rotate": "180deg",
-                    },
-                  ],
-                },
-              ]
+              Object {
+                "position": "absolute",
+                "right": 20,
+                "transform": Array [
+                  Object {
+                    "rotate": "180deg",
+                  },
+                ],
+              }
             }
           />
         </>
@@ -408,19 +396,15 @@ exports[`[Accordion] render test should operate animation when isAnimated props 
           </Text>
           <View
             style={
-              Array [
-                Object {
-                  "position": "absolute",
-                  "right": 20,
-                },
-                Object {
-                  "transform": Array [
-                    Object {
-                      "rotate": "180deg",
-                    },
-                  ],
-                },
-              ]
+              Object {
+                "position": "absolute",
+                "right": 20,
+                "transform": Array [
+                  Object {
+                    "rotate": "180deg",
+                  },
+                ],
+              }
             }
           />
         </>
@@ -546,19 +530,15 @@ exports[`[Accordion] render test should render collapsed when collapseOnStart pr
           </Text>
           <View
             style={
-              Array [
-                Object {
-                  "position": "absolute",
-                  "right": 20,
-                },
-                Object {
-                  "transform": Array [
-                    Object {
-                      "rotate": "180deg",
-                    },
-                  ],
-                },
-              ]
+              Object {
+                "position": "absolute",
+                "right": 20,
+                "transform": Array [
+                  Object {
+                    "rotate": "0deg",
+                  },
+                ],
+              }
             }
           />
         </>
@@ -651,19 +631,15 @@ exports[`[Accordion] render test should render collapsed when collapseOnStart pr
           </Text>
           <View
             style={
-              Array [
-                Object {
-                  "position": "absolute",
-                  "right": 20,
-                },
-                Object {
-                  "transform": Array [
-                    Object {
-                      "rotate": "180deg",
-                    },
-                  ],
-                },
-              ]
+              Object {
+                "position": "absolute",
+                "right": 20,
+                "transform": Array [
+                  Object {
+                    "rotate": "0deg",
+                  },
+                ],
+              }
             }
           />
         </>
@@ -789,19 +765,15 @@ exports[`[Accordion] render test should render without crasing 1`] = `
           </Text>
           <View
             style={
-              Array [
-                Object {
-                  "position": "absolute",
-                  "right": 20,
-                },
-                Object {
-                  "transform": Array [
-                    Object {
-                      "rotate": "0deg",
-                    },
-                  ],
-                },
-              ]
+              Object {
+                "position": "absolute",
+                "right": 20,
+                "transform": Array [
+                  Object {
+                    "rotate": "0deg",
+                  },
+                ],
+              }
             }
           />
         </>
@@ -894,19 +866,15 @@ exports[`[Accordion] render test should render without crasing 1`] = `
           </Text>
           <View
             style={
-              Array [
-                Object {
-                  "position": "absolute",
-                  "right": 20,
-                },
-                Object {
-                  "transform": Array [
-                    Object {
-                      "rotate": "0deg",
-                    },
-                  ],
-                },
-              ]
+              Object {
+                "position": "absolute",
+                "right": 20,
+                "transform": Array [
+                  Object {
+                    "rotate": "0deg",
+                  },
+                ],
+              }
             }
           />
         </>

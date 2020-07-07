@@ -2,16 +2,9 @@ import Svg, { Line } from 'react-native-svg';
 import React from 'react';
 import { View } from 'react-native';
 
-interface Props {
-  arrowDirection: string;
-}
-
-export default function Arrow(props: Props): React.ReactElement {
+export default function Arrow(): React.ReactElement {
   return (
-    <View
-      style={
-        props.arrowDirection === 'up' && { transform: [{ rotate: '180deg' }] }
-      }>
+    <View>
       <Svg height="20" width="20" viewBox="0 0 20 20">
         <Line
           x1={5}
