@@ -3,9 +3,9 @@
 > Customizable & responsive Line Chart component for react-native. This component is using `react-native-svg`, `d3` and `styled-components/native` libraries to create the graph.<br/>
 
 ## Screen
-iOS            |  Android
-:-------------------------:|:-------------------------:
-![iOS](https://user-images.githubusercontent.com/50701501/86733899-8777d580-c06c-11ea-8b9f-b9ffff50edd0.png) |  ![Android](https://user-images.githubusercontent.com/50701501/86735833-0ae5f680-c06e-11ea-82f4-749f58f5366f.png)
+Web| iOS            |  Android
+:-------------------------:|:-------------------------:|:-------------------------:
+![image](https://i.ibb.co/QmHp4K9/2020-07-02-19-18-56.png) | ![iOS](https://user-images.githubusercontent.com/50701501/86733899-8777d580-c06c-11ea-8b9f-b9ffff50edd0.png) |  ![Android](https://user-images.githubusercontent.com/50701501/86735833-0ae5f680-c06e-11ea-82f4-749f58f5366f.png)
 
 ## Installation
 
