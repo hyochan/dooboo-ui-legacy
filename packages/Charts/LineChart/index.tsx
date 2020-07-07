@@ -31,6 +31,7 @@ const ChartContainer = styled.View`
 const GraphWrapper = styled.View`
   flex: 1;
   flex-direction: column;
+  transform: scale(1,-1);
 `;
 
 const LineChart: FC<LineChartProps> = (props) => {
@@ -137,19 +138,14 @@ const LineChart: FC<LineChartProps> = (props) => {
         setCurrentWidth(e.nativeEvent.layout.width);
       }}>
       {/* Header */}
-      {header && (
-        <HeaderContainer>
-          {header}
-        </HeaderContainer>
-      )}
+      {header && <HeaderContainer>{header}</HeaderContainer>}
       {/* Graph view */}
       <ChartContainer>
         <GraphWrapper>
           <Svg
             height={SVGHeight}
             width={SVGWidth}
-            transform="scale(1, -1)"
-            transform-origin="center">
+            preserveAspectRatio="xMidYMid slice">
             {/* Graph Y-axis labels view */}
             <G x={SVGPadding} y={SVGPadding}>
               {yStyle.withLine && (
@@ -170,7 +166,7 @@ const LineChart: FC<LineChartProps> = (props) => {
                         <Line
                           x1={20}
                           y1={yAxis(unit) + 10}
-                          x2={30}
+                          x2={25}
                           y2={yAxis(unit) + 10}
                           stroke={yStyle.lineColor}
                           strokeWidth={yStyle.lineStrokeWidth}
@@ -178,7 +174,7 @@ const LineChart: FC<LineChartProps> = (props) => {
                       )}
                       {yStyle.withText && (
                         <Text
-                          transform="scale(1, -1)"
+                          scale={[1, -1]}
                           fill={yStyle.textColor}
                           stroke={yStyle.textStrokeColor}
                           fontSize={yStyle.fontSize}
@@ -219,7 +215,7 @@ const LineChart: FC<LineChartProps> = (props) => {
                       )}
                       {xStyle.withText && (
                         <Text
-                          transform="scale(1, -1)"
+                          scale={[1, -1]}
                           fill={xStyle.textColor}
                           stroke={xStyle.textStrokeColor}
                           fontSize={xStyle.fontSize}
@@ -261,7 +257,7 @@ const LineChart: FC<LineChartProps> = (props) => {
                     )}
                     {graphStyle.withText && (
                       <Text
-                        transform="scale(1, -1)"
+                        scale={[1, -1]}
                         fill={graphStyle.textColor}
                         stroke={graphStyle.textStrokeColor}
                         fontSize={graphStyle.fontSize}
