@@ -70,7 +70,9 @@ We aim to support `react-native` ui components in all platforms and we are curre
 - [theme](https://github.com/dooboolab/dooboo-ui/tree/master/packages/theme)
 - [TinderCard](https://github.com/dooboolab/dooboo-ui/tree/master/packages/TinderCard)
 
-## Expo-web
+## Troubleshoot
+
+#### Workaround when you face error in expo web
 
 You need to set webpack for using "dooboo-ui" in expo-web.
 1. Install @expo/webpack-config in your expo's project.
