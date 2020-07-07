@@ -5,7 +5,7 @@
 ## Screen
 iOS            |  Android
 :-------------------------:|:-------------------------:
-![iOS](https://user-images.githubusercontent.com/50701501/86733899-8777d580-c06c-11ea-8b9f-b9ffff50edd0.png) |  ![Android](https://user-images.githubusercontent.com/50701501/86733842-7cbd4080-c06c-11ea-833c-53e30f6d939c.png)
+![iOS](https://user-images.githubusercontent.com/50701501/86733899-8777d580-c06c-11ea-8b9f-b9ffff50edd0.png) |  ![Android](https://user-images.githubusercontent.com/50701501/86735833-0ae5f680-c06e-11ea-82f4-749f58f5366f.png)
 
 ## Installation
 
