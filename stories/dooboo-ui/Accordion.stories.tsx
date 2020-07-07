@@ -1,6 +1,7 @@
-import { ARROW_UP, IC_FACEBOOK, IC_GOOGLE } from '../Icon';
+import { IC_FACEBOOK, IC_GOOGLE } from '../Icon';
 import React, { ReactElement } from 'react';
 import Accordion from '../../main/Accordion';
+import Arrow from '../../main/Accordion/Arrow';
 import { ContainerDeco } from '../../storybook/decorators';
 import { storiesOf } from '@storybook/react-native';
 import styled from 'styled-components/native';
@@ -10,11 +11,6 @@ const Container = styled.View`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-`;
-
-const StyledImage = styled.Image`
-  width: 20px;
-  height: 20px;
 `;
 
 const StyledTitle = styled.Text`
@@ -108,7 +104,7 @@ const Default = (): React.ReactElement => {
         collapseOnStart={true}
         animDuration={400}
         activeOpacity={1}
-        toggleElement={<StyledImage source={ARROW_UP} />}
+        toggleElement={<Arrow />}
       />
     </Container>
   );
@@ -245,7 +241,7 @@ const CustomStyle = (): React.ReactElement => {
           borderBottomWidth: 1,
           borderBottomColor: 'gray',
         }}
-        toggleElement={<StyledImage source={ARROW_UP} />}
+        toggleElement={<Arrow />}
       />
     </Container>
   );
