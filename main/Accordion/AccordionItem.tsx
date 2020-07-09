@@ -1,11 +1,10 @@
 import {
   Animated,
+  Easing,
   LayoutChangeEvent,
-  View,
   ViewStyle,
 } from 'react-native';
-import React, { FC, useCallback, useEffect, useRef, useState } from 'react';
-
+import React, { FC, useEffect, useRef, useState } from 'react';
 import styled from 'styled-components/native';
 
 const Container = styled.View`
@@ -24,11 +23,6 @@ const TitleContainer = styled.TouchableOpacity`
   z-index: 10;
 `;
 
-const ToggleIndicator = styled.View`
-  position: absolute;
-  right: 20px;
-`;
-
 const StyledItem = styled.View`
   flex-direction: row;
   align-items: center;
@@ -37,11 +31,6 @@ const StyledItem = styled.View`
   border-bottom-width: 1px;
   border-bottom-color: lightgray;
 `;
-
-enum DirectionIndicator {
-  'UP' = 'up',
-  'DOWN' = 'down',
-}
 
 type titleType = {
   leftElement?: React.ReactElement;
@@ -88,14 +77,14 @@ const AccordionItem: FC<Props> = (props) => {
     bodyStyle,
   } = props;
 
-  const animValue = useRef(new Animated.Value(0)).current;
+  const dropDownAnimValue = useRef(new Animated.Value(0)).current;
+  const rotateAnimValue = useRef(new Animated.Value(0)).current;
 
   const [opened, setItemVisible] = useState<boolean>(collapseOnStart);
+  const [rotateState, setRotateState] = useState<boolean>(false);
   const [bodyMounted, setBodyMounted] = useState<boolean>(false);
 
   const [bodyHeight, setBodyHeight] = useState<number>(1);
-
-  const [directionIndicator, setDirectionIndicator] = useState(DirectionIndicator.DOWN);
 
   const handleBodyLayout = (e: LayoutChangeEvent): void => {
     if (bodyMounted) return;
@@ -105,26 +94,25 @@ const AccordionItem: FC<Props> = (props) => {
     setBodyHeight(height);
   };
 
-  const handleVisibleState = (): void => {
+  const handleAnimState = (): void => {
     setItemVisible(!opened);
+    setRotateState(!opened);
   };
 
   useEffect((): void => {
     if (bodyMounted) {
-      animValue.setValue(opened ? layoutHeight : 0);
+      dropDownAnimValue.setValue(opened ? layoutHeight : 0);
     }
   }, [bodyMounted]);
 
   useEffect((): void => {
     if (bodyHeight === layoutHeight) {
-      Animated.timing(animValue, {
+      Animated.timing(dropDownAnimValue, {
         toValue: 0,
         duration: animDuration || 300,
         useNativeDriver: true,
         delay: 10,
       }).start();
-
-      setDirectionIndicator(DirectionIndicator.UP);
     }
   }, [bodyHeight]);
 
@@ -135,28 +123,28 @@ const AccordionItem: FC<Props> = (props) => {
         return;
       }
 
-      // setBodyHeight(0);
-      Animated.timing(animValue, {
+      Animated.timing(dropDownAnimValue, {
         toValue: 1,
         duration: animDuration || 300,
         useNativeDriver: true,
       }).start(() => {
         setBodyHeight(0);
       });
-
-      setDirectionIndicator(DirectionIndicator.DOWN);
     } else {
       const targetValue = opened ? 1 : 0;
-      animValue.setValue(targetValue);
-
-      if (opened) {
-        setDirectionIndicator(DirectionIndicator.UP);
-        return;
-      }
-
-      setDirectionIndicator(DirectionIndicator.DOWN);
+      dropDownAnimValue.setValue(targetValue);
     }
   }, [opened]);
+
+  useEffect(() => {
+    const targetValue = opened ? 0 : 1;
+    Animated.timing(rotateAnimValue, {
+      toValue: targetValue,
+      duration: 200,
+      easing: Easing.linear,
+      useNativeDriver: true,
+    }).start();
+  }, [rotateState]);
 
   return (
     <Container
@@ -164,7 +152,7 @@ const AccordionItem: FC<Props> = (props) => {
     >
       <TitleContainer
         testID={`title_${testID}`}
-        onPress={handleVisibleState}
+        onPress={handleAnimState}
         activeOpacity={activeOpacity}
         style={titleStyle}
       >
@@ -173,16 +161,21 @@ const AccordionItem: FC<Props> = (props) => {
         {datum.title.rightElement ? (
           datum.title.rightElement
         ) : (
-          <ToggleIndicator
+          <Animated.View
             style={{
+              position: 'absolute',
+              right: 20,
               transform: [
-                directionIndicator === 'up'
-                  ? { rotate: '180deg' }
-                  : { rotate: '0deg' },
+                {
+                  rotate: rotateAnimValue.interpolate({
+                    inputRange: [0, 1],
+                    outputRange: ['0deg', '180deg'],
+                  }),
+                },
               ],
             }}>
             {toggleElement || null}
-          </ToggleIndicator>
+          </Animated.View>
         )}
       </TitleContainer>
       <Animated.View
@@ -193,7 +186,7 @@ const AccordionItem: FC<Props> = (props) => {
             : bodyHeight,
           transform: [
             {
-              translateY: animValue.interpolate({
+              translateY: dropDownAnimValue.interpolate({
                 inputRange: [0, 1],
                 outputRange: [0, -bodyHeight],
               }),
