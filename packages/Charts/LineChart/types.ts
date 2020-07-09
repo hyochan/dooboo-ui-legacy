@@ -1,6 +1,5 @@
 import { StyleProp, TextStyle, ViewStyle } from 'react-native';
 
-/* eslint-disable sort-imports */
 import React from 'react';
 
 type GraphStyle = {
@@ -30,6 +29,7 @@ type XStyle = {
   fontSize?: string; // default: ('12')
   fontWeight?: string; // default: ('bold')
 };
+
 type YStyle = {
   withLabel?: boolean; // default: true
   withIndicator?: boolean; // default: true

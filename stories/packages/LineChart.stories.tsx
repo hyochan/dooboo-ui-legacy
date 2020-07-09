@@ -1,14 +1,14 @@
-import { Dimensions, Text } from 'react-native';
 import React, { ReactElement } from 'react';
 
 import { ContainerDeco } from '../../storybook/decorators';
-import { LineChart } from '../../packages/Charts';
+import { LineChart } from '../../packages/Charts/lib';
+import { Text } from 'react-native';
 import { storiesOf } from '@storybook/react-native';
 import styled from 'styled-components/native';
 
 const CustomContainer = styled.View`
-  height: 40%;
-  width: 80%;
+  height: 50%;
+  width: 50%;
   text-align: center;
 `;
 const CustomHeaderContainer = styled.View`
@@ -22,63 +22,63 @@ const CustomHeaderContainer = styled.View`
 const mockData = [
   {
     id: 'abcd1234efgh5674',
-    key1: '6일차',
+    key1: 'D-6',
     key2: Math.trunc(Math.random() * 10),
-    key3: '06-30',
+    key3: '06/30',
     key4: Math.trunc(Math.random() * 1000),
     key5: 'A',
     key6: Math.trunc(Math.random() * 10000),
   },
   {
     id: 'abcd1234efgh5675',
-    key1: '5일차',
+    key1: 'D-5',
     key2: Math.trunc(Math.random() * 10),
-    key3: '06-29',
+    key3: '06/29',
     key4: Math.trunc(Math.random() * 1000),
     key5: 'B',
     key6: Math.trunc(Math.random() * 10000),
   },
   {
     id: 'abcd1234efgh5676',
-    key1: '4일차',
+    key1: 'D-4',
     key2: Math.trunc(Math.random() * 10),
-    key3: '06-28',
+    key3: '06/28',
     key4: Math.trunc(Math.random() * 1000),
     key5: 'C',
     key6: Math.trunc(Math.random() * 10000),
   },
   {
     id: 'abcd1234efgh5677',
-    key1: '3일차',
+    key1: 'D-3',
     key2: Math.trunc(Math.random() * 10),
-    key3: '06-27',
+    key3: '06/27',
     key4: Math.trunc(Math.random() * 1000),
     key5: 'D',
     key6: Math.trunc(Math.random() * 10000),
   },
   {
     id: 'abcd1234efgh5678',
-    key1: '2일차',
+    key1: 'D-2',
     key2: Math.trunc(Math.random() * 10),
-    key3: '06-26',
+    key3: '06/26',
     key4: Math.trunc(Math.random() * 1000),
     key5: 'E',
     key6: Math.trunc(Math.random() * 10000),
   },
   {
     id: 'abcd1234efgh5677',
-    key1: '1일차',
+    key1: 'D-1',
     key2: Math.trunc(Math.random() * 10),
-    key3: '06-25',
+    key3: '06/25',
     key4: Math.trunc(Math.random() * 1000),
     key5: 'F',
     key6: Math.trunc(Math.random() * 10000),
   },
   {
     id: 'abcd1234efgh5678',
-    key1: '금일',
+    key1: 'D-day',
     key2: Math.trunc(Math.random() * 10),
-    key3: '06-24',
+    key3: '06/24',
     key4: Math.trunc(Math.random() * 1000),
     key5: 'G',
     key6: Math.trunc(Math.random() * 10000),
@@ -86,10 +86,20 @@ const mockData = [
 ];
 
 const Default = (): React.ReactElement => {
-  const currentScreen = Dimensions.get('window').width;
-
+  const [currentWidth, setCurrentWidth] = React.useState<number | undefined>();
   return (
-    <CustomContainer style={currentScreen > 768 && { width: '40%' }}>
+    <CustomContainer
+      onLayout={(e): void => {
+        setCurrentWidth(e.nativeEvent.layout.width);
+      }}
+      style={{
+        width:
+          currentWidth && currentWidth > 768
+            ? '50%'
+            : currentWidth && currentWidth > 1024
+              ? '40%'
+              : '50%',
+      }}>
       <LineChart
         data={mockData}
         xAxisKey={'key5'}

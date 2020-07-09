@@ -197,18 +197,18 @@ yarn add @dooboo-ui/core
 
 ```javascript
 {
-withLine: true,
-lineColor: '#000000',
-lineWidth: 2,
-withDots: true,
-dotColor: '#ffffff',
-dotStrokeColor: '#000000',
-dotStrokeWidth: 2,
-withText: true,
-textColor: '#000000',
-textStrokeColor: 'none',
-fontSize: '12',
-fontWeight: 'bold'
+  withLine: true,
+  lineColor: '#000000',
+  lineWidth: 2,
+  withDots: true,
+  dotColor: '#ffffff',
+  dotStrokeColor: '#000000',
+  dotStrokeWidth: 2,
+  withText: true,
+  textColor: '#000000',
+  textStrokeColor: 'none',
+  fontSize: '12',
+  fontWeight: 'bold'
 }
 ```
 
@@ -216,16 +216,16 @@ fontWeight: 'bold'
 
 ```javascript
 {
-withLabel: true,
+  withLabel: true,
   withIndicator: true,
-          withLine: true,
-          lineColor: '#000000', // hex | rgba | string: 'red' | 'black'
-          lineStrokeWidth: 1,
-          withText: true,
-          textColor: '#000000', // hex | rgba | string: 'red' | 'black'
-          textStrokeColor: 'none',
-          fontSize: '12',
-          fontWeight: 'bold',
+  withLine: true,
+  lineColor: '#000000', // hex | rgba | string: 'red' | 'black'
+  lineStrokeWidth: 1,
+  withText: true,
+  textColor: '#000000', // hex | rgba | string: 'red' | 'black'
+  textStrokeColor: 'none',
+  fontSize: '12',
+  fontWeight: 'bold',
 }
 ```
 
@@ -233,16 +233,16 @@ withLabel: true,
 
 ```javascript
 {
-withLabel: true,
-          withIndicator: true,
-          withLine: true,
-          lineColor: '#000000', // hex | rgba | string: 'red' | 'black'
-          lineStrokeWidth: 1,
-          withText: true,
-          textColor: '#000000', // hex | rgba | string: 'red' | 'black'
-          textStrokeColor: 'none', // hex | rgba | string: 'red' | 'black'
-          fontSize: '12',
-          fontWeight: 'bold',
+  withLabel: true,
+  withIndicator: true,
+  withLine: true,
+  lineColor: '#000000', // hex | rgba | string: 'red' | 'black'
+  lineStrokeWidth: 1,
+  withText: true,
+  textColor: '#000000', // hex | rgba | string: 'red' | 'black'
+  textStrokeColor: 'none', // hex | rgba | string: 'red' | 'black'
+  fontSize: '12',
+  fontWeight: 'bold',
 }
 ```
 
