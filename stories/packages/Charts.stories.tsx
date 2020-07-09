@@ -239,7 +239,7 @@ toStorybook2.story = {
 /**
  * Below are stories for app
  */
-storiesOf('Charts2', module)
+storiesOf('Charts', module)
   .addDecorator(ContainerDeco)
   .add('LineChart', () => <LineChartComponent />)
   .add('BarChart', () => <BarChartComponent />);

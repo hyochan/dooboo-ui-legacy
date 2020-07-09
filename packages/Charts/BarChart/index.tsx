@@ -1,10 +1,10 @@
 import * as d3 from 'd3';
 
 import { G, Line, Rect, Svg, Text } from 'react-native-svg';
-import { Hoverable, useActive, useFocus, useHover } from 'react-native-web-hooks';
 import React, { FC } from 'react';
 
 import { BarChartProps } from './types';
+import { Hoverable } from 'react-native-web-hooks';
 import styled from 'styled-components/native';
 
 // Styled component declaration
@@ -33,10 +33,6 @@ const GraphWrapper = styled.View`
   flex: 1;
   flex-direction: column;
   transform: scale(1,-1);
-`;
-const BarWrapper = styled.View`
-
-  background-color: transparent;
 `;
 
 const BarChart: FC<BarChartProps> = (props) => {
@@ -233,7 +229,7 @@ const BarChart: FC<BarChartProps> = (props) => {
               {data.map((item, index) => {
                 return (
                   <G key={index}>
-                    {/* <Hoverable>
+                    <Hoverable>
                       {(isHovered): React.ReactElement =>
                         <Rect
                           x={xAxis(index)}
@@ -247,7 +243,7 @@ const BarChart: FC<BarChartProps> = (props) => {
                           ry={1}
                         />
                       }
-                    </Hoverable> */}
+                    </Hoverable>
                     <Text
                       scale={[1, -1]}
                       fill={ graphStyle.textColor}
