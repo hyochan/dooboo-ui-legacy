@@ -133,10 +133,12 @@ const EditText: FC<Props> = (props) => {
     default:
       return (
         <Container
+          testID={'EditText-test'}
           style={containerStyle}
         >
           <StyledLabel style={labelTextStyle}>{labelText}</StyledLabel>
           <StyledTextInput
+            testID={'TextInput-test'}
             onFocus={(): void => {
               setFocus(true);
               setErrorState(false);
@@ -164,12 +166,14 @@ const EditText: FC<Props> = (props) => {
       return (
         <>
           <RowContainer
+            testID={'EditText-test'}
             style={[
               containerStyle,
               errorState ? errorStyle : focused && { borderColor: focusColor },
             ]}>
             <StyledRowLabel style={labelTextStyle}>{labelText}</StyledRowLabel>
             <StyledRowTextInput
+              testID={'TextInput-row-test'}
               onFocus={(): void => {
                 setFocus(true);
                 setErrorState(false);
