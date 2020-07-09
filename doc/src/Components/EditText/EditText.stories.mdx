@@ -1,0 +1,159 @@
+import { Meta, Story, Preview } from '@storybook/addon-docs/blocks';
+
+<Meta title="Components|EditText" />
+
+# EditText
+
+> [EditText] component is an enhanced version on pure react-native [TextInput] component.
+
+## Preview
+
+|                        | Default                                                                                                                     | Row                                                                                                                     |
+| ---------------------- | --------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------- |
+| `underlined`           | ![underlined_default](https://user-images.githubusercontent.com/31176502/71721202-8bc9f880-2e67-11ea-8ffd-b6bf81814a26.gif) | ![underlined_row](https://user-images.githubusercontent.com/31176502/71721235-ad2ae480-2e67-11ea-914f-dc74ea4c6e7f.gif) |
+| <center>`box`</center> | ![default](https://user-images.githubusercontent.com/31176502/71764827-4b827d00-2f30-11ea-85dd-887b218afeec.gif)            | ![row](https://user-images.githubusercontent.com/31176502/71720737-1873b700-2e66-11ea-9b6b-1cdc175cbc0a.gif)            |
+
+## Props
+
+|                      | necessary | types            | default              |
+| -------------------- | --------- | ---------------- | -------------------- |
+| testID               |           | string           |                      |
+| type                 |           | string           | `underlined`         |
+| errorTestID          |           | string           |                      |
+| isRow                |           | boolean          | `false`              |
+| style                |           | `ViewStyle`      |                      |
+| label                |           | string           |                      |
+| labelTextStyle       |           | `TextStyle`      |                      |
+| value                |           | `TextInputProps` |                      |
+| inputContainerRadius |           | string           | `3`                  |
+| borderStyle          |           | `ViewStyle`      |                      |
+| borderWidth          |           | number           | `0.6`                |
+| borderColor          |           | string           | `#eaeaf9`            |
+| inputLeftMargin      |           | number           | `110`                |
+| textStyle            |           | `TextStyle`      |                      |
+| placeholder          |           | string           |                      |
+| placeholderTextColor |           | string           |                      |
+| secureTextEntry      |           | boolean          |                      |
+| onChangeText         |           | (e) => {}        |                      |
+| onSubmitEditing      |           | func             |                      |
+| leftElement          |           | `ReactElement`   |                      |
+| leftElementStyle     |           | `ViewStyle`      |                      |
+| rightElement         |           | `ReactElement`   |                      |
+| rightElementStyle    |           | `ViewStyle`      |                      |
+| textInputProps       |           | `TextInputProps` |                      |
+| focusedLabelStyle    |           | `TextStyle`      | `fontWeight: 'bold'` |
+| focusedBorderWidth   |           | number           | `1`                  |
+| focusColor           |           | string           | `#79B3F5`            |
+| errorColor           |           | string           | `#FF8989`            |
+| errorText            |           | string           |                      |
+| errorTextStyle       |           | `TextStyle`      |                      |
+
+## Installation
+
+```sh
+yarn add @dooboo-ui/core
+```
+
+## Getting started
+
+### Import
+
+```javascript
+import { EditText } from '@dooboo-ui/core';
+```
+
+### Usage
+
+```javascript
+function Page(props: Props) {
+  const validateEmail = (email: string) => {
+    const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    return re.test(email);
+  };
+
+  const fontStyle: TextStyle = {
+    fontWeight: 'bold',
+    fontSize: 13,
+  };
+
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [errorEmail, setErrorEmail] = useState('');
+
+  const onSignIn = () => {
+    if (!validateEmail(email)) {
+      setErrorEmail('Not a valid email address');
+    } else {
+      setErrorEmail('');
+    }
+  };
+
+  const onTextChanged = (type: string, text: string) => {
+    type === 'EMAIL' ? setEmail(text) : setPassword(text);
+
+    if (type === 'EMAIL' && text === '') {
+      setErrorEmail('');
+    }
+  };
+
+  return (
+    <StyledScrollView
+      contentContainerStyle={{
+        marginTop: 8,
+        paddingHorizontal: 20,
+        paddingBottom: 40,
+      }}>
+      <Container>
+        <HeaderTitle>Sign in with Email</HeaderTitle>
+        <EditText
+          testID="EMAIL_INPUT"
+          textStyle={{
+            color: '#495057',
+          }}
+          label="Email"
+          placeholder="Write email address"
+          placeholderTextColor="#ADB5BD"
+          value={email}
+          onChangeText={(text: string) => onTextChanged('EMAIL', text)}
+          style={{ marginTop: 50 }}
+          errorText={errorEmail}
+          onSubmitEditing={onSignIn}
+        />
+        <EditText
+          testID="PASSWORD_INPUT"
+          textStyle={{
+            color: '#ADB5BD',
+          }}
+          secureTextEntry={true}
+          label="Password"
+          placeholder="Please write your password"
+          placeholderTextColor="#ADB5BD"
+          value={password}
+          onChangeText={(text: string) => onTextChanged('PASSWORD', text)}
+          style={{ marginTop: 36 }}
+          onSubmitEditing={onSignIn}
+        />
+        <StyledSignInButton
+          testID="btnEmail"
+          onPress={() => onSignIn()}
+          textStyle={fontStyle}
+          text="Login"
+        />
+        {/* Email SignUp text */}
+        <View
+          style={{
+            marginTop: 20,
+            flexDirection: 'row',
+            justifyContent: 'center',
+            alignItems: 'center',
+          }}>
+          <StyledText testID="NO_ACCOUNT">Do not have and account? </StyledText>
+          <TouchableOpacity onPress={() => null} style={{ padding: 4 }}>
+            <StyledAccentText>Find</StyledAccentText>
+          </TouchableOpacity>
+        </View>
+      </Container>
+    </StyledScrollView>
+  );
+}
+```
