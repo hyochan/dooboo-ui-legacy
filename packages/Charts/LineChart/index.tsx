@@ -85,30 +85,10 @@ const LineChart: FC<LineChartProps> = (props) => {
       fontWeight: 'bold',
     },
   } = props;
+
   // Initialize
   const [currentHeight, setCurrentHeight] = React.useState<number>(400);
   const [currentWidth, setCurrentWidth] = React.useState<number>(500);
-
-  const dataLen = data.length;
-  const dataWithIdx = data.map((item, index) => ({
-    ...item,
-    idx: dataLen - index,
-  }));
-  const SVGPadding = 30; // default padding: 30
-  const SVGHeight = currentHeight;
-  const SVGWidth = currentWidth;
-  // X-AXIS
-  const xDomain = dataWithIdx.map((item) => item.idx);
-  const xRange = [SVGPadding, SVGWidth - SVGPadding * 4];
-  const xAxis = d3.scalePoint().domain(xDomain).range(xRange);
-
-  // Y-AXIS
-  const yDomain = [0, d3.max(data, (item) => item[yAxisKey])];
-  const yRange = [
-    SVGPadding,
-    SVGHeight - SVGPadding * (SVGHeight < 768 ? 4.5 : 5),
-  ];
-  const yAxis = d3.scaleLinear().domain(yDomain).range(yRange);
 
   // get Y axis values range
   const getYmaxRange = (
@@ -129,8 +109,26 @@ const LineChart: FC<LineChartProps> = (props) => {
     return range;
   };
 
-  const yAxisRange = getYmaxRange(data, yUnit);
+  // SVG Layout
+  const SVGPadding = 30; // default padding: 30
+  const SVGHeight = currentHeight;
+  const SVGWidth = currentWidth;
+  const indicatorSize = 5;
+  const textGap = 10;
 
+  // X-AXIS
+  const xDomain = data.map((item, index) => index);
+  const xRange = [SVGPadding, SVGWidth - SVGPadding];
+  const xAxis = d3.scalePoint().domain(xDomain).range(xRange);
+
+  // Y-AXIS
+  const yAxisRange = getYmaxRange(data, yUnit);
+  const yDomain = [0, d3.max(yAxisRange, (item) => item)];
+  const yRange = [
+    SVGPadding,
+    SVGHeight - SVGPadding * (SVGHeight < 736 ? 2.7 : SVGHeight < 1023 ? 3 : 4.5),
+  ];
+  const yAxis = d3.scaleLinear().domain(yDomain).range(yRange);
   return (
     <Container
       onLayout={(e): void => {
@@ -147,13 +145,13 @@ const LineChart: FC<LineChartProps> = (props) => {
             width={SVGWidth}
             preserveAspectRatio="xMidYMid slice">
             {/* Graph Y-axis labels view */}
-            <G x={SVGPadding} y={SVGPadding}>
+            <G>
               {yStyle.withLine && (
                 <Line
-                  x1={25}
-                  y1={yAxis(yAxisRange[yAxisRange.length - 1]) + 25}
-                  x2={25}
-                  y2={0}
+                  x1={xAxis(0)}
+                  y1={yAxis(0)}
+                  x2={xAxis(0)}
+                  y2={yAxis(yAxisRange[yAxisRange.length - 1])}
                   stroke={yStyle.lineColor}
                   strokeWidth={yStyle.lineStrokeWidth}
                 />
@@ -164,10 +162,10 @@ const LineChart: FC<LineChartProps> = (props) => {
                     <G key={index}>
                       {yStyle.withIndicator && (
                         <Line
-                          x1={20}
-                          y1={yAxis(unit) + 10}
-                          x2={25}
-                          y2={yAxis(unit) + 10}
+                          x1={xAxis(0) - indicatorSize}
+                          y1={yAxis(unit)}
+                          x2={xAxis(0)}
+                          y2={yAxis(unit)}
                           stroke={yStyle.lineColor}
                           strokeWidth={yStyle.lineStrokeWidth}
                         />
@@ -179,8 +177,8 @@ const LineChart: FC<LineChartProps> = (props) => {
                           stroke={yStyle.textStrokeColor}
                           fontSize={yStyle.fontSize}
                           fontWeight={yStyle.fontWeight}
-                          x={xAxis(0)}
-                          y={-yAxis(unit) - 5}
+                          x={xAxis(0) - indicatorSize - textGap}
+                          y={-yAxis(unit) + 4}
                           textAnchor="middle">
                           {unit}
                         </Text>
@@ -191,24 +189,24 @@ const LineChart: FC<LineChartProps> = (props) => {
               {/* Graph X-axis labels view */}
               {xStyle.withLabel && xStyle.withLine && (
                 <Line
-                  x1={xAxis(dataLen) - SVGPadding / 2}
-                  y1={10}
-                  x2={xAxis(dataLen - dataLen + 1) + SVGPadding * 2}
-                  y2={10}
+                  x1={xAxis(0)}
+                  x2={xAxis(data.length - 1)}
+                  y1={yAxis(0)}
+                  y2={yAxis(0)}
                   stroke={xStyle.lineColor}
                   strokeWidth={xStyle.lineStrokeWidth}
                 />
               )}
               {xStyle.withLabel &&
-                dataWithIdx.map((item, index) => {
+                data.map((item, index) => {
                   return (
                     <G key={index}>
                       {xStyle.withIndicator && (
                         <Line
-                          x1={xAxis(dataLen - index) + 20}
-                          y1={10}
-                          x2={xAxis(dataLen - index) + 20}
-                          y2={5}
+                          x1={xAxis(index)}
+                          y1={yAxis(0)}
+                          x2={xAxis(index)}
+                          y2={yAxis(0) - indicatorSize}
                           stroke={xStyle.lineColor}
                           strokeWidth={xStyle.lineStrokeWidth}
                         />
@@ -220,9 +218,8 @@ const LineChart: FC<LineChartProps> = (props) => {
                           stroke={xStyle.textStrokeColor}
                           fontSize={xStyle.fontSize}
                           fontWeight={xStyle.fontWeight}
-                          x={xAxis(dataLen - index) + 20}
-                          y={10}
-                          textAnchor="middle">
+                          x={xAxis(index) - 4}
+                          y={-yAxis(0) + 5 + indicatorSize + textGap}>
                           {item[xAxisKey]}
                         </Text>
                       )}
@@ -230,27 +227,27 @@ const LineChart: FC<LineChartProps> = (props) => {
                   );
                 })}
               {/* Graph: Text, Dots & Line */}
-              {dataWithIdx.map((item, index) => {
-                const xStart = dataLen - index;
+              {data.map((item, index) => {
+                const xStart = index;
                 const yStart = item[yAxisKey];
                 let xEnd: number;
                 let yEnd: number;
 
-                if (index === dataLen - 1) {
+                if (index === data.length - 1) {
                   xEnd = xStart;
                   yEnd = yStart;
                 } else {
-                  xEnd = dataLen - index - 1;
-                  yEnd = dataWithIdx[index + 1][yAxisKey];
+                  xEnd = index + 1;
+                  yEnd = data[index + 1][yAxisKey];
                 }
                 return (
                   <G key={index}>
                     {graphStyle.withLine && (
                       <Line
-                        x1={xAxis(xStart) + 20}
-                        y1={yAxis(yStart) + 10}
-                        x2={xAxis(xEnd) + 20}
-                        y2={yAxis(yEnd) + 10}
+                        x1={xAxis(xStart)}
+                        y1={yAxis(yStart)}
+                        x2={xAxis(xEnd)}
+                        y2={yAxis(yEnd)}
                         stroke={graphStyle.lineColor}
                         strokeWidth={graphStyle.lineWidth}
                       />
@@ -262,16 +259,16 @@ const LineChart: FC<LineChartProps> = (props) => {
                         stroke={graphStyle.textStrokeColor}
                         fontSize={graphStyle.fontSize}
                         fontWeight={graphStyle.fontWeight}
-                        x={xAxis(dataLen - index) + 20}
-                        y={-yAxis(item[yAxisKey]) - 20}
+                        x={xAxis(index)}
+                        y={-yAxis(item[yAxisKey]) - textGap}
                         textAnchor="middle">
                         {item[yAxisKey]}
                       </Text>
                     )}
                     {graphStyle.withDots && (
                       <Circle
-                        cx={xAxis(dataLen - index) + 20}
-                        cy={yAxis(item[yAxisKey]) + 10}
+                        cx={xAxis(index)}
+                        cy={yAxis(item[yAxisKey])}
                         r="4"
                         fill={graphStyle.dotColor}
                         stroke={graphStyle.dotStrokeColor}
