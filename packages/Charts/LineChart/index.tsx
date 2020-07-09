@@ -85,7 +85,6 @@ const LineChart: FC<LineChartProps> = (props) => {
       fontWeight: 'bold',
     },
   } = props;
-
   // Initialize
   const [currentHeight, setCurrentHeight] = React.useState<number>(400);
   const [currentWidth, setCurrentWidth] = React.useState<number>(500);
