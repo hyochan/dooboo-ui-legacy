@@ -1,8 +1,8 @@
+import { BarChart, LineChart } from '../../packages/Charts/lib';
 import { Dimensions, Text } from 'react-native';
 import React, { ReactElement } from 'react';
 
 import { ContainerDeco } from '../../storybook/decorators';
-import { LineChart } from '../../packages/Charts/lib';
 import { storiesOf } from '@storybook/react-native';
 import styled from 'styled-components/native';
 
@@ -163,9 +163,9 @@ const BarChartComponent = (): React.ReactElement => {
         setCurrentWidth(e.nativeEvent.layout.width);
       }}
       style={{
-        width: currentWidth > 768 ? '50%' : currentWidth > 1024 ? '40%' : '70%',
+        width: currentWidth > 768 ? '50%' : currentWidth > 1024 ? '40%' : '50%',
       }}>
-      <LineChart
+      <BarChart
         data={mockData}
         xAxisKey={'key5'}
         yAxisKey={'key2'}
@@ -178,21 +178,15 @@ const BarChartComponent = (): React.ReactElement => {
                 fontWeight: '600',
                 color: '#000',
               }}>
-              {'My Line-chart'}
+              {'My Bar-chart'}
             </Text>
           </CustomHeaderContainer>
         }
         graphStyle={{
-          withLine: true,
-          lineColor: '#000000',
-          lineWidth: 2,
-          withDots: true,
-          dotColor: '#ffffff',
-          dotStrokeColor: '#000000',
-          dotStrokeWidth: 2,
-          withText: true,
-          textColor: '#000000',
-          textStrokeColor: 'none',
+          barWidth: 30,
+          color: '#000000',
+          strokeWidth: 2,
+          strokeColor: 'rgba(0,0,0,0.1)',
           fontSize: '12',
           fontWeight: 'bold',
         }}
@@ -233,23 +227,19 @@ export default {
 };
 
 export const toStorybook1 = (): ReactElement => <LineChartComponent />;
-// export const toStorybook2 = (): ReactElement => <BarChartComponent />;
+export const toStorybook2 = (): ReactElement => <BarChartComponent />;
 
 toStorybook1.story = {
   name: 'LineChart',
 };
-// toStorybook2.story = {
-//   name: 'BarChart',
-// };
+toStorybook2.story = {
+  name: 'BarChart',
+};
 
 /**
  * Below are stories for app
  */
 storiesOf('Charts', module)
   .addDecorator(ContainerDeco)
-  .add('LineChart', () => <LineChartComponent />, {
-    notes: 'Simple Line Chart',
-  });
-// .add('BarChart', () => <BarChartComponent />, {
-//   notes: 'Simple Bar Chart',
-// });
+  .add('LineChart', () => <LineChartComponent />)
+  .add('BarChart', () => <BarChartComponent />);

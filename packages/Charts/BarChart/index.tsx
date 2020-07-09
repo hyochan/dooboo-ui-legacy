@@ -1,6 +1,7 @@
 import * as d3 from 'd3';
 
-import { Circle, G, Line, Svg, Text } from 'react-native-svg';
+import { G, Line, Rect, Svg, Text } from 'react-native-svg';
+import { Hoverable, useActive, useFocus, useHover } from 'react-native-web-hooks';
 import React, { FC } from 'react';
 
 import { BarChartProps } from './types';
@@ -33,6 +34,10 @@ const GraphWrapper = styled.View`
   flex-direction: column;
   transform: scale(1,-1);
 `;
+const BarWrapper = styled.View`
+
+  background-color: transparent;
+`;
 
 const BarChart: FC<BarChartProps> = (props) => {
   // Destructuring props & Declaring default values
@@ -45,13 +50,10 @@ const BarChart: FC<BarChartProps> = (props) => {
     /* ====== [OPTIONAL] ====== */
     header = undefined,
     graphStyle = {
-      withLine: true,
-      lineColor: '#000000',
-      lineWidth: 2,
-      withDots: true,
-      dotColor: '#ffffff',
-      dotStrokeColor: '#000000',
-      dotStrokeWidth: 2,
+      barWidth: 30,
+      color: '#000000',
+      strokeWidth: 0,
+      strokeColor: 'rgba(0,0,0,0.1)',
       withText: true,
       textColor: '#000000',
       textStrokeColor: 'none',
@@ -190,7 +192,7 @@ const BarChart: FC<BarChartProps> = (props) => {
               {xStyle.withLabel && xStyle.withLine && (
                 <Line
                   x1={xAxis(0)}
-                  x2={xAxis(data.length - 1)}
+                  x2={xAxis(data.length - 1) + graphStyle.barWidth}
                   y1={yAxis(0)}
                   y2={yAxis(0)}
                   stroke={xStyle.lineColor}
@@ -203,9 +205,9 @@ const BarChart: FC<BarChartProps> = (props) => {
                     <G key={index}>
                       {xStyle.withIndicator && (
                         <Line
-                          x1={xAxis(index)}
+                          x1={xAxis(index) + graphStyle.barWidth / 2}
                           y1={yAxis(0)}
-                          x2={xAxis(index)}
+                          x2={xAxis(index) + graphStyle.barWidth / 2}
                           y2={yAxis(0) - indicatorSize}
                           stroke={xStyle.lineColor}
                           strokeWidth={xStyle.lineStrokeWidth}
@@ -218,8 +220,9 @@ const BarChart: FC<BarChartProps> = (props) => {
                           stroke={xStyle.textStrokeColor}
                           fontSize={xStyle.fontSize}
                           fontWeight={xStyle.fontWeight}
-                          x={xAxis(index) - 4}
-                          y={-yAxis(0) + 5 + indicatorSize + textGap}>
+                          x={xAxis(index) + graphStyle.barWidth / 2}
+                          y={-yAxis(0) + 5 + indicatorSize + textGap}
+                          textAnchor={'middle'}>
                           {item[xAxisKey]}
                         </Text>
                       )}
@@ -228,53 +231,34 @@ const BarChart: FC<BarChartProps> = (props) => {
                 })}
               {/* Graph: Text, Dots & Line */}
               {data.map((item, index) => {
-                const xStart = index;
-                const yStart = item[yAxisKey];
-                let xEnd: number;
-                let yEnd: number;
-
-                if (index === data.length - 1) {
-                  xEnd = xStart;
-                  yEnd = yStart;
-                } else {
-                  xEnd = index + 1;
-                  yEnd = data[index + 1][yAxisKey];
-                }
                 return (
                   <G key={index}>
-                    {graphStyle.withLine && (
-                      <Line
-                        x1={xAxis(xStart)}
-                        y1={yAxis(yStart)}
-                        x2={xAxis(xEnd)}
-                        y2={yAxis(yEnd)}
-                        stroke={graphStyle.lineColor}
-                        strokeWidth={graphStyle.lineWidth}
-                      />
-                    )}
-                    {graphStyle.withText && (
-                      <Text
-                        scale={[1, -1]}
-                        fill={graphStyle.textColor}
-                        stroke={graphStyle.textStrokeColor}
-                        fontSize={graphStyle.fontSize}
-                        fontWeight={graphStyle.fontWeight}
-                        x={xAxis(index)}
-                        y={-yAxis(item[yAxisKey]) - textGap}
-                        textAnchor="middle">
-                        {item[yAxisKey]}
-                      </Text>
-                    )}
-                    {graphStyle.withDots && (
-                      <Circle
-                        cx={xAxis(index)}
-                        cy={yAxis(item[yAxisKey])}
-                        r="4"
-                        fill={graphStyle.dotColor}
-                        stroke={graphStyle.dotStrokeColor}
-                        strokeWidth={graphStyle.dotStrokeWidth}
-                      />
-                    )}
+                    {/* <Hoverable>
+                      {(isHovered): React.ReactElement =>
+                        <Rect
+                          x={xAxis(index)}
+                          y={yAxis(0)}
+                          width={graphStyle.barWidth}
+                          height={yAxis(item[yAxisKey]) - SVGPadding}
+                          fill={graphStyle.color}
+                          opacity={isHovered ? 0.5 : 0.8}
+                          strokeWidth={graphStyle.strokeWidth}
+                          stroke={graphStyle.strokeColor}
+                          ry={1}
+                        />
+                      }
+                    </Hoverable> */}
+                    <Text
+                      scale={[1, -1]}
+                      fill={ graphStyle.textColor}
+                      stroke={graphStyle.textStrokeColor}
+                      fontSize={graphStyle.fontSize}
+                      fontWeight={graphStyle.fontWeight}
+                      x={xAxis(index) + graphStyle.barWidth / 2}
+                      y={-yAxis(item[yAxisKey]) - textGap}
+                      textAnchor="middle">
+                      {item[yAxisKey]}
+                    </Text>
                   </G>
                 );
               })}

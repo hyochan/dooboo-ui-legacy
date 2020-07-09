@@ -1,13 +1,10 @@
 import React from 'react';
 
 type GraphStyle = {
-  withLine?: boolean; // default: true
-  lineColor?: string; // default: ('#000000')
-  lineWidth?: number; // default: 2
-  withDots?: boolean; // default: true
-  dotColor?: string; // default: ('#ffffff')
-  dotStrokeWidth?: number; // default: 2
-  dotStrokeColor?: string; // default: ('#000000')
+  barWidth?: number; // default: 30
+  color?: string; // default: ('#000000')
+  strokeWidth?: number; // default: 2
+  strokeColor?: string; // default: ('rgba(0,0,0,0.5)')
   withText?: boolean; // default: true
   textColor?: string; // default: ('#000000')
   textStrokeColor?: string; // default: ('none')
@@ -54,7 +51,7 @@ export interface BarChartProps {
   /* ====== [OPTIONAL] ====== */
   header?: React.ReactElement;
   /* *** [GRAPH STYLE] *** */
-  graphStyle?: GraphStyle; // [Line, Dot, Text]
+  graphStyle?: GraphStyle; // [React, Text]
 
   /* **** [AXIS STYLE] **** */
   xStyle?: XStyle; // [Line], [Text]
