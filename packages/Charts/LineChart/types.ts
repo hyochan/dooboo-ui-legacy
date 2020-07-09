@@ -29,7 +29,6 @@ type XStyle = {
   fontSize?: string; // default: ('12')
   fontWeight?: string; // default: ('bold')
 };
-
 type YStyle = {
   withLabel?: boolean; // default: true
   withIndicator?: boolean; // default: true
