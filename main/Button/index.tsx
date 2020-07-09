@@ -5,9 +5,10 @@ import {
   TouchableOpacityProps,
   ViewStyle,
 } from 'react-native';
+import React, { useRef } from 'react';
 
-import React from 'react';
 import styled from 'styled-components/native';
+import { useHover } from './hooks';
 
 const StyledButton = styled.View`
   align-self: center;
@@ -49,6 +50,8 @@ interface Props {
   activeOpacity?: number;
   text?: string;
   touchableOpacityProps?: TouchableOpacityProps;
+  isHoverAble?: boolean;
+  hoverStyle?: ViewStyle;
 }
 
 function Button(props: Props): React.ReactElement {
@@ -68,7 +71,22 @@ function Button(props: Props): React.ReactElement {
     activeOpacity,
     onPress,
     touchableOpacityProps,
+    isHoverAble,
+    hoverStyle,
   } = props;
+  const ref = useRef(null);
+  const isHovered = useHover(ref);
+
+  if (isHoverAble) {
+    return (
+      <StyledButton
+        ref={ref}
+        testID={testID}
+        style={[containerStyle, isHovered && hoverStyle, style]}>
+        <StyledText style={textStyle}>{text}</StyledText>
+      </StyledButton>
+    );
+  }
 
   if (isDisabled) {
     return (

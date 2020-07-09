@@ -34,6 +34,20 @@ function Default(): React.ReactElement {
       <Button
         style={{
           marginVertical: 40,
+          backgroundColor: 'gray',
+        }}
+        containerStyle={{
+          marginTop: 32,
+        }}
+        isHoverAble={true}
+        hoverStyle={{
+          opacity: 0.5,
+        }}
+        text={'HoverButton'}
+      />
+      <Button
+        style={{
+          marginVertical: 40,
         }}
         containerStyle={{
           marginTop: 32,
