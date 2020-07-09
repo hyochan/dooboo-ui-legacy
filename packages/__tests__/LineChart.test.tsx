@@ -102,8 +102,8 @@ describe('[LineChart] renders', () => {
     props = createTestProps({
       data: testingData,
       xAxisKey: 'key1',
-      yAxisKey: 'key3',
-      yUnit: '3',
+      yAxisKey: 'key4',
+      yUnit: '100',
     });
     component = <LineChart {...props} />;
 

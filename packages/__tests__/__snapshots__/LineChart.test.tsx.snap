@@ -57,6 +57,14 @@ exports[`[LineChart] renders should render when custom props given 1`] = `
                 "flexDirection": "column",
                 "flexGrow": 1,
                 "flexShrink": 1,
+                "transform": Array [
+                  Object {
+                    "scaleY": -1,
+                  },
+                  Object {
+                    "scaleX": 1,
+                  },
+                ],
               },
             ]
           }
@@ -79,34 +87,10 @@ exports[`[LineChart] renders should render when custom props given 1`] = `
                 },
               ]
             }
-            transform="scale(1, -1)"
-            transform-origin="center"
             width={500}
           >
-            <RNSVGGroup
-              matrix={
-                Array [
-                  1,
-                  0,
-                  0,
-                  -1,
-                  0,
-                  0,
-                ]
-              }
-            >
-              <RNSVGGroup
-                matrix={
-                  Array [
-                    1,
-                    0,
-                    -0,
-                    1,
-                    30,
-                    30,
-                  ]
-                }
-              >
+            <RNSVGGroup>
+              <RNSVGGroup>
                 <RNSVGLine
                   propList={
                     Array [
@@ -116,24 +100,10 @@ exports[`[LineChart] renders should render when custom props given 1`] = `
                   }
                   stroke={4278190080}
                   strokeWidth={1}
-                  x1={25}
-                  x2={25}
-                  y1={NaN}
-                  y2={0}
-                />
-                <RNSVGLine
-                  propList={
-                    Array [
-                      "stroke",
-                      "strokeWidth",
-                    ]
-                  }
-                  stroke={4278190080}
-                  strokeWidth={1}
-                  x1={15}
-                  x2={440}
-                  y1={10}
-                  y2={10}
+                  x1={30}
+                  x2={30}
+                  y1={30}
+                  y2={319}
                 />
                 <RNSVGGroup>
                   <RNSVGLine
@@ -145,10 +115,10 @@ exports[`[LineChart] renders should render when custom props given 1`] = `
                     }
                     stroke={4278190080}
                     strokeWidth={1}
-                    x1={50}
-                    x2={50}
-                    y1={10}
-                    y2={5}
+                    x1={25}
+                    x2={30}
+                    y1={30}
+                    y2={30}
                   />
                   <RNSVGText
                     content={null}
@@ -158,7 +128,7 @@ exports[`[LineChart] renders should render when custom props given 1`] = `
                     font={
                       Object {
                         "fontSize": "12",
-                        "fontWeight": "bold",
+                        "fontWeight": "normal",
                         "textAnchor": "middle",
                       }
                     }
@@ -182,17 +152,17 @@ exports[`[LineChart] renders should render when custom props given 1`] = `
                     stroke={null}
                     x={
                       Array [
-                        50,
+                        15,
                       ]
                     }
                     y={
                       Array [
-                        10,
+                        -26,
                       ]
                     }
                   >
                     <RNSVGTSpan
-                      content="6일차"
+                      content="0"
                       dx={Array []}
                       dy={Array []}
                       font={Object {}}
@@ -212,10 +182,10 @@ exports[`[LineChart] renders should render when custom props given 1`] = `
                     }
                     stroke={4278190080}
                     strokeWidth={1}
-                    x1={108.33333333333334}
-                    x2={108.33333333333334}
-                    y1={10}
-                    y2={5}
+                    x1={25}
+                    x2={30}
+                    y1={78.16666666666666}
+                    y2={78.16666666666666}
                   />
                   <RNSVGText
                     content={null}
@@ -225,7 +195,7 @@ exports[`[LineChart] renders should render when custom props given 1`] = `
                     font={
                       Object {
                         "fontSize": "12",
-                        "fontWeight": "bold",
+                        "fontWeight": "normal",
                         "textAnchor": "middle",
                       }
                     }
@@ -249,17 +219,17 @@ exports[`[LineChart] renders should render when custom props given 1`] = `
                     stroke={null}
                     x={
                       Array [
-                        108.33333333333334,
+                        15,
                       ]
                     }
                     y={
                       Array [
-                        10,
+                        -74.16666666666666,
                       ]
                     }
                   >
                     <RNSVGTSpan
-                      content="5일차"
+                      content="100"
                       dx={Array []}
                       dy={Array []}
                       font={Object {}}
@@ -279,10 +249,10 @@ exports[`[LineChart] renders should render when custom props given 1`] = `
                     }
                     stroke={4278190080}
                     strokeWidth={1}
-                    x1={166.66666666666669}
-                    x2={166.66666666666669}
-                    y1={10}
-                    y2={5}
+                    x1={25}
+                    x2={30}
+                    y1={126.33333333333333}
+                    y2={126.33333333333333}
                   />
                   <RNSVGText
                     content={null}
@@ -292,7 +262,7 @@ exports[`[LineChart] renders should render when custom props given 1`] = `
                     font={
                       Object {
                         "fontSize": "12",
-                        "fontWeight": "bold",
+                        "fontWeight": "normal",
                         "textAnchor": "middle",
                       }
                     }
@@ -316,17 +286,17 @@ exports[`[LineChart] renders should render when custom props given 1`] = `
                     stroke={null}
                     x={
                       Array [
-                        166.66666666666669,
+                        15,
                       ]
                     }
                     y={
                       Array [
-                        10,
+                        -122.33333333333333,
                       ]
                     }
                   >
                     <RNSVGTSpan
-                      content="4일차"
+                      content="200"
                       dx={Array []}
                       dy={Array []}
                       font={Object {}}
@@ -346,10 +316,10 @@ exports[`[LineChart] renders should render when custom props given 1`] = `
                     }
                     stroke={4278190080}
                     strokeWidth={1}
-                    x1={225}
-                    x2={225}
-                    y1={10}
-                    y2={5}
+                    x1={25}
+                    x2={30}
+                    y1={174.5}
+                    y2={174.5}
                   />
                   <RNSVGText
                     content={null}
@@ -359,7 +329,7 @@ exports[`[LineChart] renders should render when custom props given 1`] = `
                     font={
                       Object {
                         "fontSize": "12",
-                        "fontWeight": "bold",
+                        "fontWeight": "normal",
                         "textAnchor": "middle",
                       }
                     }
@@ -383,17 +353,17 @@ exports[`[LineChart] renders should render when custom props given 1`] = `
                     stroke={null}
                     x={
                       Array [
-                        225,
+                        15,
                       ]
                     }
                     y={
                       Array [
-                        10,
+                        -170.5,
                       ]
                     }
                   >
                     <RNSVGTSpan
-                      content="3일차"
+                      content="300"
                       dx={Array []}
                       dy={Array []}
                       font={Object {}}
@@ -413,10 +383,10 @@ exports[`[LineChart] renders should render when custom props given 1`] = `
                     }
                     stroke={4278190080}
                     strokeWidth={1}
-                    x1={283.33333333333337}
-                    x2={283.33333333333337}
-                    y1={10}
-                    y2={5}
+                    x1={25}
+                    x2={30}
+                    y1={222.66666666666666}
+                    y2={222.66666666666666}
                   />
                   <RNSVGText
                     content={null}
@@ -426,7 +396,7 @@ exports[`[LineChart] renders should render when custom props given 1`] = `
                     font={
                       Object {
                         "fontSize": "12",
-                        "fontWeight": "bold",
+                        "fontWeight": "normal",
                         "textAnchor": "middle",
                       }
                     }
@@ -450,17 +420,17 @@ exports[`[LineChart] renders should render when custom props given 1`] = `
                     stroke={null}
                     x={
                       Array [
-                        283.33333333333337,
+                        15,
                       ]
                     }
                     y={
                       Array [
-                        10,
+                        -218.66666666666666,
                       ]
                     }
                   >
                     <RNSVGTSpan
-                      content="2일차"
+                      content="400"
                       dx={Array []}
                       dy={Array []}
                       font={Object {}}
@@ -480,10 +450,10 @@ exports[`[LineChart] renders should render when custom props given 1`] = `
                     }
                     stroke={4278190080}
                     strokeWidth={1}
-                    x1={341.6666666666667}
-                    x2={341.6666666666667}
-                    y1={10}
-                    y2={5}
+                    x1={25}
+                    x2={30}
+                    y1={270.83333333333337}
+                    y2={270.83333333333337}
                   />
                   <RNSVGText
                     content={null}
@@ -493,7 +463,7 @@ exports[`[LineChart] renders should render when custom props given 1`] = `
                     font={
                       Object {
                         "fontSize": "12",
-                        "fontWeight": "bold",
+                        "fontWeight": "normal",
                         "textAnchor": "middle",
                       }
                     }
@@ -517,17 +487,17 @@ exports[`[LineChart] renders should render when custom props given 1`] = `
                     stroke={null}
                     x={
                       Array [
-                        341.6666666666667,
+                        15,
                       ]
                     }
                     y={
                       Array [
-                        10,
+                        -266.83333333333337,
                       ]
                     }
                   >
                     <RNSVGTSpan
-                      content="1일차"
+                      content="500"
                       dx={Array []}
                       dy={Array []}
                       font={Object {}}
@@ -547,10 +517,10 @@ exports[`[LineChart] renders should render when custom props given 1`] = `
                     }
                     stroke={4278190080}
                     strokeWidth={1}
-                    x1={400}
-                    x2={400}
-                    y1={10}
-                    y2={5}
+                    x1={25}
+                    x2={30}
+                    y1={319}
+                    y2={319}
                   />
                   <RNSVGText
                     content={null}
@@ -560,7 +530,7 @@ exports[`[LineChart] renders should render when custom props given 1`] = `
                     font={
                       Object {
                         "fontSize": "12",
-                        "fontWeight": "bold",
+                        "fontWeight": "normal",
                         "textAnchor": "middle",
                       }
                     }
@@ -584,17 +554,493 @@ exports[`[LineChart] renders should render when custom props given 1`] = `
                     stroke={null}
                     x={
                       Array [
-                        400,
+                        15,
                       ]
                     }
                     y={
                       Array [
-                        10,
+                        -315,
                       ]
                     }
                   >
                     <RNSVGTSpan
-                      content="금일"
+                      content="600"
+                      dx={Array []}
+                      dy={Array []}
+                      font={Object {}}
+                      rotate={Array []}
+                      x={Array []}
+                      y={Array []}
+                    />
+                  </RNSVGText>
+                </RNSVGGroup>
+                <RNSVGLine
+                  propList={
+                    Array [
+                      "stroke",
+                      "strokeWidth",
+                    ]
+                  }
+                  stroke={4278190080}
+                  strokeWidth={1}
+                  x1={30}
+                  x2={470}
+                  y1={30}
+                  y2={30}
+                />
+                <RNSVGGroup>
+                  <RNSVGLine
+                    propList={
+                      Array [
+                        "stroke",
+                        "strokeWidth",
+                      ]
+                    }
+                    stroke={4278190080}
+                    strokeWidth={1}
+                    x1={30}
+                    x2={30}
+                    y1={30}
+                    y2={25}
+                  />
+                  <RNSVGText
+                    content={null}
+                    dx={Array []}
+                    dy={Array []}
+                    fill={4278190080}
+                    font={
+                      Object {
+                        "fontSize": "12",
+                        "fontWeight": "bold",
+                      }
+                    }
+                    matrix={
+                      Array [
+                        1,
+                        0,
+                        0,
+                        -1,
+                        0,
+                        0,
+                      ]
+                    }
+                    propList={
+                      Array [
+                        "fill",
+                        "stroke",
+                      ]
+                    }
+                    rotate={Array []}
+                    stroke={null}
+                    x={
+                      Array [
+                        26,
+                      ]
+                    }
+                    y={
+                      Array [
+                        -10,
+                      ]
+                    }
+                  >
+                    <RNSVGTSpan
+                      content="D-6"
+                      dx={Array []}
+                      dy={Array []}
+                      font={Object {}}
+                      rotate={Array []}
+                      x={Array []}
+                      y={Array []}
+                    />
+                  </RNSVGText>
+                </RNSVGGroup>
+                <RNSVGGroup>
+                  <RNSVGLine
+                    propList={
+                      Array [
+                        "stroke",
+                        "strokeWidth",
+                      ]
+                    }
+                    stroke={4278190080}
+                    strokeWidth={1}
+                    x1={103.33333333333333}
+                    x2={103.33333333333333}
+                    y1={30}
+                    y2={25}
+                  />
+                  <RNSVGText
+                    content={null}
+                    dx={Array []}
+                    dy={Array []}
+                    fill={4278190080}
+                    font={
+                      Object {
+                        "fontSize": "12",
+                        "fontWeight": "bold",
+                      }
+                    }
+                    matrix={
+                      Array [
+                        1,
+                        0,
+                        0,
+                        -1,
+                        0,
+                        0,
+                      ]
+                    }
+                    propList={
+                      Array [
+                        "fill",
+                        "stroke",
+                      ]
+                    }
+                    rotate={Array []}
+                    stroke={null}
+                    x={
+                      Array [
+                        99.33333333333333,
+                      ]
+                    }
+                    y={
+                      Array [
+                        -10,
+                      ]
+                    }
+                  >
+                    <RNSVGTSpan
+                      content="D-5"
+                      dx={Array []}
+                      dy={Array []}
+                      font={Object {}}
+                      rotate={Array []}
+                      x={Array []}
+                      y={Array []}
+                    />
+                  </RNSVGText>
+                </RNSVGGroup>
+                <RNSVGGroup>
+                  <RNSVGLine
+                    propList={
+                      Array [
+                        "stroke",
+                        "strokeWidth",
+                      ]
+                    }
+                    stroke={4278190080}
+                    strokeWidth={1}
+                    x1={176.66666666666666}
+                    x2={176.66666666666666}
+                    y1={30}
+                    y2={25}
+                  />
+                  <RNSVGText
+                    content={null}
+                    dx={Array []}
+                    dy={Array []}
+                    fill={4278190080}
+                    font={
+                      Object {
+                        "fontSize": "12",
+                        "fontWeight": "bold",
+                      }
+                    }
+                    matrix={
+                      Array [
+                        1,
+                        0,
+                        0,
+                        -1,
+                        0,
+                        0,
+                      ]
+                    }
+                    propList={
+                      Array [
+                        "fill",
+                        "stroke",
+                      ]
+                    }
+                    rotate={Array []}
+                    stroke={null}
+                    x={
+                      Array [
+                        172.66666666666666,
+                      ]
+                    }
+                    y={
+                      Array [
+                        -10,
+                      ]
+                    }
+                  >
+                    <RNSVGTSpan
+                      content="D-4"
+                      dx={Array []}
+                      dy={Array []}
+                      font={Object {}}
+                      rotate={Array []}
+                      x={Array []}
+                      y={Array []}
+                    />
+                  </RNSVGText>
+                </RNSVGGroup>
+                <RNSVGGroup>
+                  <RNSVGLine
+                    propList={
+                      Array [
+                        "stroke",
+                        "strokeWidth",
+                      ]
+                    }
+                    stroke={4278190080}
+                    strokeWidth={1}
+                    x1={250}
+                    x2={250}
+                    y1={30}
+                    y2={25}
+                  />
+                  <RNSVGText
+                    content={null}
+                    dx={Array []}
+                    dy={Array []}
+                    fill={4278190080}
+                    font={
+                      Object {
+                        "fontSize": "12",
+                        "fontWeight": "bold",
+                      }
+                    }
+                    matrix={
+                      Array [
+                        1,
+                        0,
+                        0,
+                        -1,
+                        0,
+                        0,
+                      ]
+                    }
+                    propList={
+                      Array [
+                        "fill",
+                        "stroke",
+                      ]
+                    }
+                    rotate={Array []}
+                    stroke={null}
+                    x={
+                      Array [
+                        246,
+                      ]
+                    }
+                    y={
+                      Array [
+                        -10,
+                      ]
+                    }
+                  >
+                    <RNSVGTSpan
+                      content="D-3"
+                      dx={Array []}
+                      dy={Array []}
+                      font={Object {}}
+                      rotate={Array []}
+                      x={Array []}
+                      y={Array []}
+                    />
+                  </RNSVGText>
+                </RNSVGGroup>
+                <RNSVGGroup>
+                  <RNSVGLine
+                    propList={
+                      Array [
+                        "stroke",
+                        "strokeWidth",
+                      ]
+                    }
+                    stroke={4278190080}
+                    strokeWidth={1}
+                    x1={323.3333333333333}
+                    x2={323.3333333333333}
+                    y1={30}
+                    y2={25}
+                  />
+                  <RNSVGText
+                    content={null}
+                    dx={Array []}
+                    dy={Array []}
+                    fill={4278190080}
+                    font={
+                      Object {
+                        "fontSize": "12",
+                        "fontWeight": "bold",
+                      }
+                    }
+                    matrix={
+                      Array [
+                        1,
+                        0,
+                        0,
+                        -1,
+                        0,
+                        0,
+                      ]
+                    }
+                    propList={
+                      Array [
+                        "fill",
+                        "stroke",
+                      ]
+                    }
+                    rotate={Array []}
+                    stroke={null}
+                    x={
+                      Array [
+                        319.3333333333333,
+                      ]
+                    }
+                    y={
+                      Array [
+                        -10,
+                      ]
+                    }
+                  >
+                    <RNSVGTSpan
+                      content="D-2"
+                      dx={Array []}
+                      dy={Array []}
+                      font={Object {}}
+                      rotate={Array []}
+                      x={Array []}
+                      y={Array []}
+                    />
+                  </RNSVGText>
+                </RNSVGGroup>
+                <RNSVGGroup>
+                  <RNSVGLine
+                    propList={
+                      Array [
+                        "stroke",
+                        "strokeWidth",
+                      ]
+                    }
+                    stroke={4278190080}
+                    strokeWidth={1}
+                    x1={396.66666666666663}
+                    x2={396.66666666666663}
+                    y1={30}
+                    y2={25}
+                  />
+                  <RNSVGText
+                    content={null}
+                    dx={Array []}
+                    dy={Array []}
+                    fill={4278190080}
+                    font={
+                      Object {
+                        "fontSize": "12",
+                        "fontWeight": "bold",
+                      }
+                    }
+                    matrix={
+                      Array [
+                        1,
+                        0,
+                        0,
+                        -1,
+                        0,
+                        0,
+                      ]
+                    }
+                    propList={
+                      Array [
+                        "fill",
+                        "stroke",
+                      ]
+                    }
+                    rotate={Array []}
+                    stroke={null}
+                    x={
+                      Array [
+                        392.66666666666663,
+                      ]
+                    }
+                    y={
+                      Array [
+                        -10,
+                      ]
+                    }
+                  >
+                    <RNSVGTSpan
+                      content="D-1"
+                      dx={Array []}
+                      dy={Array []}
+                      font={Object {}}
+                      rotate={Array []}
+                      x={Array []}
+                      y={Array []}
+                    />
+                  </RNSVGText>
+                </RNSVGGroup>
+                <RNSVGGroup>
+                  <RNSVGLine
+                    propList={
+                      Array [
+                        "stroke",
+                        "strokeWidth",
+                      ]
+                    }
+                    stroke={4278190080}
+                    strokeWidth={1}
+                    x1={470}
+                    x2={470}
+                    y1={30}
+                    y2={25}
+                  />
+                  <RNSVGText
+                    content={null}
+                    dx={Array []}
+                    dy={Array []}
+                    fill={4278190080}
+                    font={
+                      Object {
+                        "fontSize": "12",
+                        "fontWeight": "bold",
+                      }
+                    }
+                    matrix={
+                      Array [
+                        1,
+                        0,
+                        0,
+                        -1,
+                        0,
+                        0,
+                      ]
+                    }
+                    propList={
+                      Array [
+                        "fill",
+                        "stroke",
+                      ]
+                    }
+                    rotate={Array []}
+                    stroke={null}
+                    x={
+                      Array [
+                        466,
+                      ]
+                    }
+                    y={
+                      Array [
+                        -10,
+                      ]
+                    }
+                  >
+                    <RNSVGTSpan
+                      content="D-day"
                       dx={Array []}
                       dy={Array []}
                       font={Object {}}
@@ -614,10 +1060,10 @@ exports[`[LineChart] renders should render when custom props given 1`] = `
                     }
                     stroke={4278190080}
                     strokeWidth={2}
-                    x1={50}
-                    x2={108.33333333333334}
-                    y1={NaN}
-                    y2={NaN}
+                    x1={30}
+                    x2={103.33333333333333}
+                    y1={310.33}
+                    y2={203.4}
                   />
                   <RNSVGText
                     content={null}
@@ -651,17 +1097,17 @@ exports[`[LineChart] renders should render when custom props given 1`] = `
                     stroke={null}
                     x={
                       Array [
-                        50,
+                        30,
                       ]
                     }
                     y={
                       Array [
-                        NaN,
+                        -320.33,
                       ]
                     }
                   >
                     <RNSVGTSpan
-                      content="06-30"
+                      content="582"
                       dx={Array []}
                       dy={Array []}
                       font={Object {}}
@@ -671,8 +1117,8 @@ exports[`[LineChart] renders should render when custom props given 1`] = `
                     />
                   </RNSVGText>
                   <RNSVGCircle
-                    cx={50}
-                    cy={NaN}
+                    cx={30}
+                    cy={310.33}
                     fill={4294967295}
                     propList={
                       Array [
@@ -696,10 +1142,10 @@ exports[`[LineChart] renders should render when custom props given 1`] = `
                     }
                     stroke={4278190080}
                     strokeWidth={2}
-                    x1={108.33333333333334}
-                    x2={166.66666666666669}
-                    y1={NaN}
-                    y2={NaN}
+                    x1={103.33333333333333}
+                    x2={176.66666666666666}
+                    y1={203.4}
+                    y2={313.7016666666667}
                   />
                   <RNSVGText
                     content={null}
@@ -733,17 +1179,17 @@ exports[`[LineChart] renders should render when custom props given 1`] = `
                     stroke={null}
                     x={
                       Array [
-                        108.33333333333334,
+                        103.33333333333333,
                       ]
                     }
                     y={
                       Array [
-                        NaN,
+                        -213.4,
                       ]
                     }
                   >
                     <RNSVGTSpan
-                      content="06-29"
+                      content="360"
                       dx={Array []}
                       dy={Array []}
                       font={Object {}}
@@ -753,8 +1199,8 @@ exports[`[LineChart] renders should render when custom props given 1`] = `
                     />
                   </RNSVGText>
                   <RNSVGCircle
-                    cx={108.33333333333334}
-                    cy={NaN}
+                    cx={103.33333333333333}
+                    cy={203.4}
                     fill={4294967295}
                     propList={
                       Array [
@@ -778,10 +1224,10 @@ exports[`[LineChart] renders should render when custom props given 1`] = `
                     }
                     stroke={4278190080}
                     strokeWidth={2}
-                    x1={166.66666666666669}
-                    x2={225}
-                    y1={NaN}
-                    y2={NaN}
+                    x1={176.66666666666666}
+                    x2={250}
+                    y1={313.7016666666667}
+                    y2={137.41166666666666}
                   />
                   <RNSVGText
                     content={null}
@@ -815,17 +1261,17 @@ exports[`[LineChart] renders should render when custom props given 1`] = `
                     stroke={null}
                     x={
                       Array [
-                        166.66666666666669,
+                        176.66666666666666,
                       ]
                     }
                     y={
                       Array [
-                        NaN,
+                        -323.7016666666667,
                       ]
                     }
                   >
                     <RNSVGTSpan
-                      content="06-28"
+                      content="589"
                       dx={Array []}
                       dy={Array []}
                       font={Object {}}
@@ -835,8 +1281,8 @@ exports[`[LineChart] renders should render when custom props given 1`] = `
                     />
                   </RNSVGText>
                   <RNSVGCircle
-                    cx={166.66666666666669}
-                    cy={NaN}
+                    cx={176.66666666666666}
+                    cy={313.7016666666667}
                     fill={4294967295}
                     propList={
                       Array [
@@ -860,10 +1306,10 @@ exports[`[LineChart] renders should render when custom props given 1`] = `
                     }
                     stroke={4278190080}
                     strokeWidth={2}
-                    x1={225}
-                    x2={283.33333333333337}
-                    y1={NaN}
-                    y2={NaN}
+                    x1={250}
+                    x2={323.3333333333333}
+                    y1={137.41166666666666}
+                    y2={187.50500000000002}
                   />
                   <RNSVGText
                     content={null}
@@ -897,17 +1343,17 @@ exports[`[LineChart] renders should render when custom props given 1`] = `
                     stroke={null}
                     x={
                       Array [
-                        225,
+                        250,
                       ]
                     }
                     y={
                       Array [
-                        NaN,
+                        -147.41166666666666,
                       ]
                     }
                   >
                     <RNSVGTSpan
-                      content="06-27"
+                      content="223"
                       dx={Array []}
                       dy={Array []}
                       font={Object {}}
@@ -917,8 +1363,8 @@ exports[`[LineChart] renders should render when custom props given 1`] = `
                     />
                   </RNSVGText>
                   <RNSVGCircle
-                    cx={225}
-                    cy={NaN}
+                    cx={250}
+                    cy={137.41166666666666}
                     fill={4294967295}
                     propList={
                       Array [
@@ -942,10 +1388,10 @@ exports[`[LineChart] renders should render when custom props given 1`] = `
                     }
                     stroke={4278190080}
                     strokeWidth={2}
-                    x1={283.33333333333337}
-                    x2={341.6666666666667}
-                    y1={NaN}
-                    y2={NaN}
+                    x1={323.3333333333333}
+                    x2={396.66666666666663}
+                    y1={187.50500000000002}
+                    y2={289.13666666666666}
                   />
                   <RNSVGText
                     content={null}
@@ -979,17 +1425,17 @@ exports[`[LineChart] renders should render when custom props given 1`] = `
                     stroke={null}
                     x={
                       Array [
-                        283.33333333333337,
+                        323.3333333333333,
                       ]
                     }
                     y={
                       Array [
-                        NaN,
+                        -197.50500000000002,
                       ]
                     }
                   >
                     <RNSVGTSpan
-                      content="06-26"
+                      content="327"
                       dx={Array []}
                       dy={Array []}
                       font={Object {}}
@@ -999,8 +1445,8 @@ exports[`[LineChart] renders should render when custom props given 1`] = `
                     />
                   </RNSVGText>
                   <RNSVGCircle
-                    cx={283.33333333333337}
-                    cy={NaN}
+                    cx={323.3333333333333}
+                    cy={187.50500000000002}
                     fill={4294967295}
                     propList={
                       Array [
@@ -1024,10 +1470,10 @@ exports[`[LineChart] renders should render when custom props given 1`] = `
                     }
                     stroke={4278190080}
                     strokeWidth={2}
-                    x1={341.6666666666667}
-                    x2={400}
-                    y1={NaN}
-                    y2={NaN}
+                    x1={396.66666666666663}
+                    x2={470}
+                    y1={289.13666666666666}
+                    y2={259.2733333333333}
                   />
                   <RNSVGText
                     content={null}
@@ -1061,17 +1507,17 @@ exports[`[LineChart] renders should render when custom props given 1`] = `
                     stroke={null}
                     x={
                       Array [
-                        341.6666666666667,
+                        396.66666666666663,
                       ]
                     }
                     y={
                       Array [
-                        NaN,
+                        -299.13666666666666,
                       ]
                     }
                   >
                     <RNSVGTSpan
-                      content="06-25"
+                      content="538"
                       dx={Array []}
                       dy={Array []}
                       font={Object {}}
@@ -1081,8 +1527,8 @@ exports[`[LineChart] renders should render when custom props given 1`] = `
                     />
                   </RNSVGText>
                   <RNSVGCircle
-                    cx={341.6666666666667}
-                    cy={NaN}
+                    cx={396.66666666666663}
+                    cy={289.13666666666666}
                     fill={4294967295}
                     propList={
                       Array [
@@ -1106,10 +1552,10 @@ exports[`[LineChart] renders should render when custom props given 1`] = `
                     }
                     stroke={4278190080}
                     strokeWidth={2}
-                    x1={400}
-                    x2={400}
-                    y1={NaN}
-                    y2={NaN}
+                    x1={470}
+                    x2={470}
+                    y1={259.2733333333333}
+                    y2={259.2733333333333}
                   />
                   <RNSVGText
                     content={null}
@@ -1143,17 +1589,17 @@ exports[`[LineChart] renders should render when custom props given 1`] = `
                     stroke={null}
                     x={
                       Array [
-                        400,
+                        470,
                       ]
                     }
                     y={
                       Array [
-                        NaN,
+                        -269.2733333333333,
                       ]
                     }
                   >
                     <RNSVGTSpan
-                      content="06-24"
+                      content="476"
                       dx={Array []}
                       dy={Array []}
                       font={Object {}}
@@ -1163,8 +1609,8 @@ exports[`[LineChart] renders should render when custom props given 1`] = `
                     />
                   </RNSVGText>
                   <RNSVGCircle
-                    cx={400}
-                    cy={NaN}
+                    cx={470}
+                    cy={259.2733333333333}
                     fill={4294967295}
                     propList={
                       Array [
