@@ -8,7 +8,7 @@ import styled from 'styled-components/native';
 
 const CustomContainer = styled.View`
   height: 50%;
-  width: 100%;
+  width: 50%;
   text-align: center;
 `;
 const CustomHeaderContainer = styled.View`
@@ -182,14 +182,14 @@ const BarChartComponent = (): React.ReactElement => {
             </Text>
           </CustomHeaderContainer>
         }
-        graphStyle={{
-          barWidth: 30,
-          color: '#000000',
-          strokeWidth: 2,
-          strokeColor: 'rgba(0,0,0,0.1)',
-          fontSize: '12',
-          fontWeight: 'bold',
-        }}
+        // graphStyle={{
+        //   barWidth: 30,
+        //   color: '#000000',
+        //   strokeWidth: 2,
+        //   strokeColor: 'rgba(0,0,0,0.1)',
+        //   fontSize: '12',
+        //   fontWeight: 'bold',
+        // }}
         xStyle={{
           withLabel: true,
           withIndicator: true,
@@ -239,7 +239,7 @@ toStorybook2.story = {
 /**
  * Below are stories for app
  */
-storiesOf('Charts', module)
+storiesOf('Charts2', module)
   .addDecorator(ContainerDeco)
   .add('LineChart', () => <LineChartComponent />)
   .add('BarChart', () => <BarChartComponent />);
