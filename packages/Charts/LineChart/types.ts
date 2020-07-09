@@ -1,6 +1,5 @@
 import { StyleProp, TextStyle, ViewStyle } from 'react-native';
 
-/* eslint-disable sort-imports */
 import React from 'react';
 
 type GraphStyle = {
