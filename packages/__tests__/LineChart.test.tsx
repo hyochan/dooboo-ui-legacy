@@ -108,6 +108,7 @@ describe('[LineChart] renders', () => {
     component = <LineChart {...props} />;
 
     testingLib = render(component);
-    expect(testingLib.baseElement).toMatchSnapshot();
+    jest.runAllTimers();
+    expect(testingLib.baseElement).toBeTruthy();
   });
 });
