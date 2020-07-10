@@ -1,15 +1,17 @@
+import { BarChart, LineChart } from '../../packages/Charts/lib';
 import React, { ReactElement } from 'react';
 
 import { ContainerDeco } from '../../storybook/decorators';
-import { LineChart } from '../../packages/Charts/lib';
 import { Text } from 'react-native';
 import { storiesOf } from '@storybook/react-native';
 import styled from 'styled-components/native';
 
 const CustomContainer = styled.View`
   height: 50%;
-  width: 50%;
+  width: 80%;
   text-align: center;
+  padding-left: 20px;
+  padding-right: 20px;
 `;
 const CustomHeaderContainer = styled.View`
   height: 40px;
@@ -85,21 +87,16 @@ const mockData = [
   },
 ];
 
-const Default = (): React.ReactElement => {
-  const [currentWidth, setCurrentWidth] = React.useState<number | undefined>();
+const LineChartComponent = (): ReactElement => {
+  const [currentHeight, setCurrentHeight] = React.useState<number>(350);
+  const [currentWidth, setCurrentWidth] = React.useState<number>(400);
   return (
     <CustomContainer
       onLayout={(e): void => {
+        setCurrentHeight(e.nativeEvent.layout.width);
         setCurrentWidth(e.nativeEvent.layout.width);
       }}
-      style={{
-        width:
-          currentWidth && currentWidth > 768
-            ? '50%'
-            : currentWidth && currentWidth > 1024
-              ? '40%'
-              : '50%',
-      }}>
+      style={{ height: currentHeight, width: currentWidth }}>
       <LineChart
         data={mockData}
         xAxisKey={'key5'}
@@ -160,6 +157,70 @@ const Default = (): React.ReactElement => {
   );
 };
 
+const BarChartComponent = (): ReactElement => {
+  const [currentHeight, setCurrentHeight] = React.useState<number>(350);
+  const [currentWidth, setCurrentWidth] = React.useState<number>(400);
+  return (
+    <CustomContainer
+      onLayout={(e): void => {
+        setCurrentHeight(e.nativeEvent.layout.width);
+        setCurrentWidth(e.nativeEvent.layout.width);
+      }}
+      style={{ height: currentHeight, width: currentWidth }}>
+      <BarChart
+        data={mockData}
+        xAxisKey={'key1'}
+        yAxisKey={'key4'}
+        yUnit={'200'}
+        header={
+          <CustomHeaderContainer>
+            <Text
+              style={{
+                fontSize: 16,
+                fontWeight: '600',
+                color: '#000',
+              }}>
+              {'My Bar-chart'}
+            </Text>
+          </CustomHeaderContainer>
+        }
+        graphStyle={{
+          barWidth: currentWidth < 414 ? 15 : 30,
+          color: '#000000',
+          strokeWidth: 2,
+          strokeColor: 'rgba(0,0,0,0.1)',
+          fontSize: currentWidth < 414 ? '8' : '12',
+          fontWeight: 'bold',
+        }}
+        xStyle={{
+          withLabel: true,
+          withIndicator: true,
+          withLine: true,
+          lineColor: '#000000',
+          lineStrokeWidth: 1,
+          withText: true,
+          textColor: '#000000',
+          textStrokeColor: 'none',
+          fontSize: currentWidth < 414 ? '7' : '12',
+          fontWeight: 'bold',
+        }}
+        yStyle={{
+          withLabel: true,
+          withIndicator: true,
+          withLine: true,
+          lineColor: '#000000',
+          lineStrokeWidth: 1,
+          withText: true,
+          textColor: '#000000',
+          textStrokeColor: 'none',
+          fontSize: currentWidth < 414 ? '7' : '12',
+          fontWeight: 'bold',
+        }}
+      />
+    </CustomContainer>
+  );
+};
+
 /**
  * Below are stories for web
  */
@@ -167,10 +228,14 @@ export default {
   title: 'Charts',
 };
 
-export const toStorybook = (): ReactElement => <Default />;
+export const toStorybook1 = (): ReactElement => <LineChartComponent />;
+export const toStorybook2 = (): ReactElement => <BarChartComponent />;
 
-toStorybook.story = {
+toStorybook1.story = {
   name: 'LineChart',
+};
+toStorybook2.story = {
+  name: 'BarChart',
 };
 
 /**
@@ -178,6 +243,5 @@ toStorybook.story = {
  */
 storiesOf('Charts', module)
   .addDecorator(ContainerDeco)
-  .add('LineChart', () => <Default />, {
-    notes: 'Simple explanation',
-  });
+  .add('LineChart', () => <LineChartComponent />)
+  .add('BarChart', () => <BarChartComponent />);

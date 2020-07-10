@@ -63,7 +63,7 @@
     "react-dom": "16.13.1",
     "react-native": "https://github.com/expo/react-native/archive/sdk-38.0.0.tar.gz",
     "react-native-svg": "^12.1.0",
-    "react-native-web": "^0.13.3",
+    "react-native-web": "^0.12.3",
     "react-test-renderer": "^16.13.1",
     "react-useinterval": "^1.0.1",
     "styled-components": "^5.1.1",
