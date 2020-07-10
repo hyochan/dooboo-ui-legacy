@@ -63,7 +63,7 @@ exports[`[EditText] render default component test should render Row type compone
               "color": "#4f4f4f",
               "fontSize": 20,
               "fontStyle": "normal",
-              "fontWeight": "bold",
+              "fontWeight": "500",
               "height": 56,
               "lineHeight": 27,
               "paddingBottom": 15,
@@ -142,7 +142,7 @@ exports[`[EditText] render default component test should render with error messa
               "color": "#4f4f4f",
               "fontSize": 20,
               "fontStyle": "normal",
-              "fontWeight": "bold",
+              "fontWeight": "500",
               "height": 56,
               "lineHeight": 27,
               "paddingBottom": 15,
@@ -151,6 +151,7 @@ exports[`[EditText] render default component test should render with error messa
               "paddingTop": 14,
               "width": "100%",
             },
+            undefined,
             Object {
               "borderColor": "#E54E4E",
             },
@@ -234,7 +235,7 @@ exports[`[EditText] render default component test should render without crasing 
               "color": "#4f4f4f",
               "fontSize": 20,
               "fontStyle": "normal",
-              "fontWeight": "bold",
+              "fontWeight": "500",
               "height": 56,
               "lineHeight": 27,
               "paddingBottom": 15,
@@ -243,6 +244,7 @@ exports[`[EditText] render default component test should render without crasing 
               "paddingTop": 14,
               "width": "100%",
             },
+            undefined,
             false,
           ]
         }

@@ -7,7 +7,7 @@ import {
   TextStyle,
   ViewStyle,
 } from 'react-native';
-import React, { FC, useState } from 'react';
+import React, { FC, useEffect, useState } from 'react';
 import styled from 'styled-components/native';
 
 const Container = styled.View`
@@ -56,7 +56,6 @@ const StyledTextInput = styled.TextInput`
   font-weight: 500;
   font-size: 20px;
   line-height: 27px;
-  font-weight: bold;
   color: #4f4f4f;
   ${Platform.OS === 'web' && { 'outline-style': 'none' }}
 `;
@@ -72,7 +71,6 @@ const StyledRowTextInput = styled.TextInput`
   font-weight: 500;
   font-size: 20px;
   line-height: 27px;
-  font-weight: bold;
   color: #4f4f4f;
   ${Platform.OS === 'web' && { 'outline-style': 'none' }}
 `;
@@ -83,9 +81,11 @@ interface Props {
   placeholder?: TextInputProps['placeholder'];
   placeholderTextColor?: TextInputProps['placeholderTextColor'];
   containerStyle?: ViewStyle;
+  textInputStyle?: ViewStyle;
   focusColor?: string;
   labelText?: string;
   labelTextStyle?: TextStyle;
+  value?: TextInputProps['value'];
   isErrored?: boolean;
   errorMessage?: React.ReactElement;
   errorStyle?: ViewStyle;
@@ -105,9 +105,11 @@ const EditText: FC<Props> = (props) => {
     placeholder = 'text',
     placeholderTextColor = '#BDBDBD',
     containerStyle,
+    textInputStyle,
     focusColor = '#109CF1',
     labelText = 'Label',
     labelTextStyle,
+    value,
     isErrored = false,
     errorMessage = (
       <Text style={{ color: '#E54E4E', marginTop: 8 }}>
@@ -128,6 +130,10 @@ const EditText: FC<Props> = (props) => {
   const [focused, setFocus] = useState<boolean>(false);
   const [errorState, setErrorState] = useState<boolean>(isErrored);
 
+  useEffect(() => {
+    setErrorState(isErrored);
+  }, [isErrored]);
+
   switch (labelPosition) {
     case 'default':
     default:
@@ -139,6 +145,12 @@ const EditText: FC<Props> = (props) => {
           <StyledLabel style={labelTextStyle}>{labelText}</StyledLabel>
           <StyledTextInput
             testID={'TextInput-test'}
+            value={value}
+            style={[
+              textInputStyle,
+              errorState ? errorStyle : focused && { borderColor: focusColor },
+            ]}
+            numberOfLines={numberOfLines}
             onFocus={(): void => {
               setFocus(true);
               setErrorState(false);
@@ -149,10 +161,6 @@ const EditText: FC<Props> = (props) => {
               setErrorState(false);
               onBlur && onBlur();
             }}
-            style={[
-              errorState ? errorStyle : focused && { borderColor: focusColor },
-            ]}
-            numberOfLines={numberOfLines}
             secureTextEntry={secureTextEntry}
             placeholder={placeholder}
             placeholderTextColor={placeholderTextColor}
@@ -174,6 +182,8 @@ const EditText: FC<Props> = (props) => {
             <StyledRowLabel style={labelTextStyle}>{labelText}</StyledRowLabel>
             <StyledRowTextInput
               testID={'TextInput-row-test'}
+              value={value}
+              style={textInputStyle}
               onFocus={(): void => {
                 setFocus(true);
                 setErrorState(false);
