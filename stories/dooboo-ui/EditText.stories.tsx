@@ -7,6 +7,8 @@ import { storiesOf } from '@storybook/react-native';
 import styled from 'styled-components/native';
 
 const Container = styled.View`
+  justify-content: center;
+  align-items: center;
   flex-direction: column;
 `;
 
@@ -18,7 +20,14 @@ const StyledTitle = styled.Text`
 const Default = ():React.ReactElement => {
   return (
     <SafeAreaView>
-      <ScrollView>
+      <ScrollView
+        contentContainerStyle={{
+          marginTop: 8,
+          alignSelf: 'stretch',
+          paddingHorizontal: 20,
+          paddingVertical: 100,
+        }}
+      >
         <Container>
           <View>
             <StyledTitle>
@@ -39,8 +48,9 @@ const Default = ():React.ReactElement => {
               labelText={'Label'}
               placeholder={'text'}
               textInputStyle={{
-                borderWidth: 0,
-                borderBottomWidth: 1,
+                borderTopWidth: 0,
+                borderLeftWidth: 0,
+                borderRightWidth: 0,
                 borderRadius: 0,
                 borderColor: '#BDBDBD',
               }}
@@ -55,36 +65,46 @@ const Default = ():React.ReactElement => {
 const RowType = ():React.ReactElement => {
   return (
     <SafeAreaView>
-      <ScrollView>
-        <View>
-          <StyledTitle>
-          Row Type
-          </StyledTitle>
-          <EditText
-            labelPosition={'row'}
-            numberOfLines={1}
-            placeholder={'text'}
-            labelText={'Label'}
-          />
-        </View>
+      <ScrollView
+        contentContainerStyle={{
+          marginTop: 8,
+          alignSelf: 'stretch',
+          paddingHorizontal: 20,
+          paddingVertical: 100,
+        }}
+      >
+        <Container>
+          <View>
+            <StyledTitle>
+              Row Type
+            </StyledTitle>
+            <EditText
+              labelPosition={'row'}
+              numberOfLines={1}
+              placeholder={'text'}
+              labelText={'Label'}
+            />
+          </View>
+          <View style={{ marginTop: 50 }}>
+            <StyledTitle style={{ marginBottom: 10 }}>
+                Border Bottom
+            </StyledTitle>
+            <EditText
+              labelPosition={'row'}
+              numberOfLines={1}
+              placeholder={'text'}
+              labelText={'Label'}
+              containerStyle={{
+                borderTopWidth: 0,
+                borderLeftWidth: 0,
+                borderRightWidth: 0,
+                borderRadius: 0,
+                borderColor: '#BDBDBD',
+              }}
+            />
+          </View>
+        </Container>
 
-        <View style={{ marginTop: 50 }}>
-          <StyledTitle style={{ marginBottom: 10 }}>
-              Border Bottom
-          </StyledTitle>
-          <EditText
-            labelPosition={'row'}
-            numberOfLines={1}
-            placeholder={'text'}
-            labelText={'Label'}
-            containerStyle={{
-              borderWidth: 0,
-              borderBottomWidth: 1,
-              borderRadius: 0,
-              borderColor: '#BDBDBD',
-            }}
-          />
-        </View>
       </ScrollView>
     </SafeAreaView>
   );
@@ -137,50 +157,57 @@ const UseCase = ():React.ReactElement => {
             SignUp
           </Text>
         </View>
-        <EditText
-          labelText={'Email'}
-          value={email}
-          isErrored={isEmailErrored}
-          errorStyle={{ borderColor: '#E54E4E' }}
-          errorMessage={
-            <Text style={{ color: '#E54E4E', marginTop: 8 }}>
-              Invaild Email address
-            </Text>
-          }
-          placeholder={'dooboolab@gmail.com'}
-          placeholderTextColor={'#707683'}
-          onChangeText={(email): void => { setEmail(email); }}
-          containerStyle={{
-            marginBottom: 30,
-            width: 528,
+        <View
+          style={{
+            justifyContent: 'center',
+            alignItems: 'center',
           }}
-          labelTextStyle={{
-            color: '#323C47',
-          }}
-          onFocus={(): void => setEmailError(false)}
-        />
-        <EditText
-          labelText={'Password'}
-          value={password}
-          isErrored={isPswErrored}
-          errorStyle={{ borderColor: '#E54E4E' }}
-          errorMessage={
-            <Text style={{ color: '#E54E4E', marginTop: 8 }}>
-              Invaild Password
-            </Text>
-          }
-          placeholder={'********'}
-          placeholderTextColor={'#707683'}
-          onChangeText={(password): void => { setPassword(password); }}
-          secureTextEntry={true}
-          containerStyle={{
-            width: 528,
-          }}
-          labelTextStyle={{
-            color: '#323C47',
-          }}
-          onFocus={(): void => setPswError(false)}
-        />
+        >
+          <EditText
+            labelText={'Email'}
+            value={email}
+            isErrored={isEmailErrored}
+            errorStyle={{ borderColor: '#E54E4E' }}
+            errorMessage={
+              <Text style={{ color: '#E54E4E', marginTop: 8 }}>
+                Invaild Email address
+              </Text>
+            }
+            placeholder={'dooboolab@gmail.com'}
+            placeholderTextColor={'#707683'}
+            onChangeText={(email): void => { setEmail(email); }}
+            containerStyle={{
+              marginBottom: 30,
+              width: 528,
+            }}
+            labelTextStyle={{
+              color: '#323C47',
+            }}
+            onFocus={(): void => setEmailError(false)}
+          />
+          <EditText
+            labelText={'Password'}
+            value={password}
+            isErrored={isPswErrored}
+            errorStyle={{ borderColor: '#E54E4E' }}
+            errorMessage={
+              <Text style={{ color: '#E54E4E', marginTop: 8 }}>
+                Invaild Password
+              </Text>
+            }
+            placeholder={'********'}
+            placeholderTextColor={'#707683'}
+            onChangeText={(password): void => { setPassword(password); }}
+            secureTextEntry={true}
+            containerStyle={{
+              width: 528,
+            }}
+            labelTextStyle={{
+              color: '#323C47',
+            }}
+            onFocus={(): void => setPswError(false)}
+          />
+        </View>
         <View
           style={{
             alignItems: 'center',
@@ -203,7 +230,7 @@ const UseCase = ():React.ReactElement => {
             borderColor: '#609FFF',
             borderRadius: 6,
             marginTop: 40,
-            width: '100%',
+            width: 528,
           }}
           text="이메일 인증하기"
           textStyle={{
