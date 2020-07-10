@@ -1,90 +1,93 @@
-# LineChart
+# BarChart
 
-> Customizable & responsive Line Chart component for react-native. This component is using `react-native-svg`, `d3` and `styled-components/native` libraries to create the graph.<br/>
+> Customizable & responsive Bar Chart component for react-native. This component is using `react-native-svg`, `d3` and `styled-components/native` libraries to create the graph.<br/>
 
 ## Screen
 Web| iOS            |  Android
 :-------------------------:|:-------------------------:|:-------------------------:
-![image](https://i.ibb.co/QmHp4K9/2020-07-02-19-18-56.png) | ![iOS](https://user-images.githubusercontent.com/50701501/86733899-8777d580-c06c-11ea-8b9f-b9ffff50edd0.png) |  ![Android](https://user-images.githubusercontent.com/50701501/86735833-0ae5f680-c06e-11ea-82f4-749f58f5366f.png)
+![BarChart_web](https://user-images.githubusercontent.com/50701501/87108910-4ff06f80-c29e-11ea-8660-3eebc3b61ffb.png) | ![BarChart_ios](https://user-images.githubusercontent.com/50701501/87108967-6d253e00-c29e-11ea-9bf7-5285dc1eff07.png) |  ![BarChart_android](https://user-images.githubusercontent.com/50701501/87109009-8201d180-c29e-11ea-9d12-8e1d8f254455.png)
+
+<br/>
 
 ## Installation
 
 ```sh
 yarn add @dooboo-ui/core
 ```
+<br/>
 
 ## Getting started
 
 - Import
 
   ```javascript
-  import { LineChart } from '@dooboo-ui/core';
+  import { BarChart } from '@dooboo-ui/core';
   ```
 
 - Data
 
   ```javascript
   state = {
-    data: [
+      data: [
       {
         id: 'abcd1234efgh5674',
-        key1: 'day-6',
+        key1: 'D-6',
         key2: Math.trunc(Math.random() * 10),
-        key3: '06-30',
+        key3: '06/30',
         key4: Math.trunc(Math.random() * 1000),
         key5: 'A',
         key6: Math.trunc(Math.random() * 10000),
       },
       {
         id: 'abcd1234efgh5675',
-        key1: 'day-5',
+        key1: 'D-5',
         key2: Math.trunc(Math.random() * 10),
-        key3: '06-29',
+        key3: '06/29',
         key4: Math.trunc(Math.random() * 1000),
         key5: 'B',
         key6: Math.trunc(Math.random() * 10000),
       },
       {
         id: 'abcd1234efgh5676',
-        key1: 'day-4',
+        key1: 'D-4',
         key2: Math.trunc(Math.random() * 10),
-        key3: '06-28',
+        key3: '06/28',
         key4: Math.trunc(Math.random() * 1000),
         key5: 'C',
         key6: Math.trunc(Math.random() * 10000),
       },
       {
         id: 'abcd1234efgh5677',
-        key1: 'day-3',
+        key1: 'D-3',
         key2: Math.trunc(Math.random() * 10),
-        key3: '06-27',
+        key3: '06/27',
         key4: Math.trunc(Math.random() * 1000),
         key5: 'D',
         key6: Math.trunc(Math.random() * 10000),
       },
       {
         id: 'abcd1234efgh5678',
-        key1: 'day-2',
+        key1: 'D-2',
         key2: Math.trunc(Math.random() * 10),
-        key3: '06-26',
+        key3: '06/26',
         key4: Math.trunc(Math.random() * 1000),
         key5: 'E',
         key6: Math.trunc(Math.random() * 10000),
       },
       {
         id: 'abcd1234efgh5677',
-        key1: 'day-1',
+        key1: 'D-1',
         key2: Math.trunc(Math.random() * 10),
-        key3: '06-25',
+        key3: '06/25',
         key4: Math.trunc(Math.random() * 1000),
         key5: 'F',
         key6: Math.trunc(Math.random() * 10000),
       },
       {
         id: 'abcd1234efgh5678',
-        key1: 'd-day',
+        key1: 'D-day',
         key2: Math.trunc(Math.random() * 10),
-        key3: '06-24',
+        key3: '06/24',
         key4: Math.trunc(Math.random() * 1000),
         key5: 'G',
         key6: Math.trunc(Math.random() * 10000),
@@ -97,35 +100,29 @@ yarn add @dooboo-ui/core
 
   ```tsx
   <View style={styles.container}>
-    <LineChart
+    <BarChart
         data={this.state.data}
-        xAxisKey={'key1'}
-        yAxisKey={'key2'}
-        yUnit={'10'}
+        xAxisKey={'key3'}
+        yAxisKey={'key4'}
+        yUnit={'200'}
         header={
           <CustomHeaderContainer>
             <Text
               style={{
                 fontSize: 16,
                 fontWeight: '600',
-                color: '#fff',
+                color: '#000',
               }}>
-              {'my header'}
+              {'My Bar-chart'}
             </Text>
           </CustomHeaderContainer>
         }
         graphStyle={{
-          withLine: true,
-          lineColor: '#000000',
-          lineWidth: 2,
-          withDots: true,
-          dotColor: '#ffffff',
-          dotStrokeColor: '#000000',
-          dotStrokeWidth: 2,
-          withText: true,
-          textColor: '#000000',
-          textStrokeColor: 'none',
-          fontSize: '12',
+          barWidth: currentWidth < 414 ? 15 : 30,
+          color: '#000000',
+          strokeWidth: 2,
+          strokeColor: 'rgba(0,0,0,0.1)',
+          fontSize: currentWidth < 414 ? '8' : '12',
           fontWeight: 'bold',
         }}
         xStyle={{
@@ -137,7 +134,7 @@ yarn add @dooboo-ui/core
           withText: true,
           textColor: '#000000',
           textStrokeColor: 'none',
-          fontSize: '12',
+          fontSize: currentWidth < 414 ? '7' : '12',
           fontWeight: 'bold',
         }}
         yStyle={{
@@ -149,13 +146,14 @@ yarn add @dooboo-ui/core
           withText: true,
           textColor: '#000000',
           textStrokeColor: 'none',
-          fontSize: '12',
+          fontSize: currentWidth < 414 ? '7' : '12',
           fontWeight: 'bold',
         }}
       />
   </View>
   });
   ```
+<br/>
 
 ## Props
 
@@ -164,20 +162,23 @@ yarn add @dooboo-ui/core
 | data       | ✓        | Array<'Data'>    |                             | Array of objects                                            |
 | xAxisKey   | ✓        | string           |                             | X-axis parameter existing "key" name in \${"data"}          |
 | yAxisKey   | ✓        | string           |                             | Y-axis parameter existing "key" name in \${"data"}          |
-| yUnit      |          | string Or number | 10                          | Y-axis value unit                                           |
-| header     |          | ReactElement     | undefined                   | fully customizable React element ([Example](#ReactElement)) |
+| yUnit      |          | string OR number | 10                          | Y-axis value unit                                           |
+| header     |          | ReactElement     | undefined                   | custom React element ([Example](#ReactElement)) |
 | graphStyle |          | object           | [Graph-Style](#Graph-Style) | fully customizable graph style                              |
 | xStyle     |          | object           | [X-Style](#X-Style)         | fully customizable graph style                              |
 | yStyle     |          | object           | [Y-Style](#Y-Style)         | fully customizable graph style                              |
+
+<br/>
+<br/>
 
 ### `ReactElement` Example
 
 ```javascript
 // Example
-<LineChart
+<BarChart
   data={mockData}
-  xAxisKey={'key1'}
-  yAxisKey={'key2'}
+  xAxisKey={'key5'}
+  yAxisKey={'key4'}
   header={
     <CustomHeaderContainer>
       <Text
@@ -186,7 +187,7 @@ yarn add @dooboo-ui/core
           fontWeight: '600',
           color: '#000',
         }}>
-        {'My Line-chart'}
+        {'My Bar-chart'}
       </Text>
     </CustomHeaderContainer>
   }
@@ -197,18 +198,12 @@ yarn add @dooboo-ui/core
 
 ```javascript
 {
-  withLine: true,
-  lineColor: '#000000',
-  lineWidth: 2,
-  withDots: true,
-  dotColor: '#ffffff',
-  dotStrokeColor: '#000000',
-  dotStrokeWidth: 2,
-  withText: true,
-  textColor: '#000000',
-  textStrokeColor: 'none',
-  fontSize: '12',
-  fontWeight: 'bold'
+  barWidth: 30, // string OR number
+  color: '#000000',
+  strokeWidth: 2,
+  strokeColor: 'rgba(0,0,0,0.1)',
+  fontSize: currentWidth '12',
+  fontWeight: 'bold',
 }
 ```
 
@@ -245,16 +240,17 @@ yarn add @dooboo-ui/core
   fontWeight: 'bold',
 }
 ```
+<br/>
 
 ## `Responsive Feature` (WEB)
 
-LineChart is wrapped internally with a container which provides the `height` & `width` from the `onLayout` native property of `View` component.
+`BarChart` is wrapped internally with a container that provides the `height` & `width` from the `onLayout` native property of `View` component. This resizes the chart layout based on the current `window` height & width.
 
-If you need the chart to be responsive, wrap the `LineChart` with a responsive `container`.
+If you need the chart to be responsive, wrap the `BarChart` with a **responsive** `container`. The Chart has `{width: 100%, height: 100%}` filling its parent element.
 
 ```javascript
 // Responsive example
-import { LineChart } from '@dooboo-ui/core';
+import { BarChart } from '@dooboo-ui/core';
 import styled from 'styled-components/native';
 
 const CustomContainer = styled.View`
@@ -262,9 +258,9 @@ const CustomContainer = styled.View`
   width: 100%;
 `;
 
-// Recommend to use conditional styling based on width to support other devices
+// Recommend to use conditional styling on <CustomContainer> based on width to support other devices
 <CustomContainer>
-      <LineChart
+      <BarChart
         data={this.state.data}
         xAxisKey={'key1'}
         yAxisKey={'key2'}
