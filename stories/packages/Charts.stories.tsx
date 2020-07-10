@@ -88,8 +88,15 @@ const mockData = [
 ];
 
 const LineChartComponent = (): ReactElement => {
+  const [currentHeight, setCurrentHeight] = React.useState<number>(350);
+  const [currentWidth, setCurrentWidth] = React.useState<number>(400);
   return (
-    <CustomContainer>
+    <CustomContainer
+      onLayout={(e): void => {
+        setCurrentHeight(e.nativeEvent.layout.width);
+        setCurrentWidth(e.nativeEvent.layout.width);
+      }}
+      style={{ height: currentHeight, width: currentWidth }}>
       <LineChart
         data={mockData}
         xAxisKey={'key5'}
@@ -151,12 +158,15 @@ const LineChartComponent = (): ReactElement => {
 };
 
 const BarChartComponent = (): ReactElement => {
-  const [currentWidth, setCurrentWidth] = React.useState<number>(500);
+  const [currentHeight, setCurrentHeight] = React.useState<number>(350);
+  const [currentWidth, setCurrentWidth] = React.useState<number>(400);
   return (
     <CustomContainer
       onLayout={(e): void => {
+        setCurrentHeight(e.nativeEvent.layout.width);
         setCurrentWidth(e.nativeEvent.layout.width);
-      }}>
+      }}
+      style={{ height: currentHeight, width: currentWidth }}>
       <BarChart
         data={mockData}
         xAxisKey={'key1'}
