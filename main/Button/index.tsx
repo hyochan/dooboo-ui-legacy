@@ -50,8 +50,13 @@ interface Props {
   activeOpacity?: number;
   text?: string;
   touchableOpacityProps?: TouchableOpacityProps;
-  isHoverAble?: boolean;
+  /** hover */
+  /** Accent */
   hoverStyle?: ViewStyle;
+  Accent?: ViewStyle;
+  /** Secondary */
+  hoverTextStyle?: TextStyle;
+  Secondary?: ViewStyle;
 }
 
 function Button(props: Props): React.ReactElement {
@@ -71,22 +76,13 @@ function Button(props: Props): React.ReactElement {
     activeOpacity,
     onPress,
     touchableOpacityProps,
-    isHoverAble,
     hoverStyle,
+    Accent,
+    Secondary,
+    hoverTextStyle,
   } = props;
   const ref = useRef(null);
   const isHovered = useHover(ref);
-
-  if (isHoverAble) {
-    return (
-      <StyledButton
-        ref={ref}
-        testID={testID}
-        style={[containerStyle, isHovered && hoverStyle, style]}>
-        <StyledText style={textStyle}>{text}</StyledText>
-      </StyledButton>
-    );
-  }
 
   if (isDisabled) {
     return (
@@ -112,9 +108,20 @@ function Button(props: Props): React.ReactElement {
       style={containerStyle}
       delayPressIn={30}
       {...touchableOpacityProps}>
-      <StyledButton style={style}>
+      <StyledButton
+        ref={ref}
+        testID={testID}
+        style={[
+          containerStyle,
+          Accent,
+          Secondary,
+          isHovered && hoverStyle ? hoverStyle : style,
+        ]}>
         {leftElement || null}
-        <StyledText style={textStyle}>{text}</StyledText>
+        <StyledText
+          style={[isHovered && hoverTextStyle ? hoverTextStyle : textStyle]}>
+          {text}
+        </StyledText>
         {rightElement || null}
       </StyledButton>
     </TouchableOpacity>

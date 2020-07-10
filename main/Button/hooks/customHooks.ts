@@ -10,7 +10,7 @@ export default function customHooks<T>({
 }): (ref: React.MutableRefObject<T>) => any {
   return function(ref): boolean {
     if (
-      // Pseudo classes only work in the browser
+      // customHooks classes only work in the browser
       Platform.OS !== 'web'
     ) {
       return false;
