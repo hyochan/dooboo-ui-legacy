@@ -8,8 +8,6 @@ import styled from 'styled-components/native';
 
 // Styled component declaration
 const Container = styled.View`
-  flex: 1;
-  flex-direction: column;
   height: 100%;
   width: 100%;
   background-color: transparent;
@@ -26,12 +24,7 @@ const ChartContainer = styled.View`
   height: 100%;
   width: 100%;
   flex: 1;
-  flex-direction: row;
-`;
-const GraphWrapper = styled.View`
-  flex: 1;
-  flex-direction: column;
-  transform: scale(1,-1);
+  transform: scale(1, -1);
 `;
 
 const LineChart: FC<LineChartProps> = (props) => {
@@ -138,24 +131,24 @@ const LineChart: FC<LineChartProps> = (props) => {
       {header && <HeaderContainer>{header}</HeaderContainer>}
       {/* Graph view */}
       <ChartContainer>
-        <GraphWrapper>
-          <Svg
-            height={SVGHeight}
-            width={SVGWidth}
-            preserveAspectRatio="xMidYMid slice">
-            {/* Graph Y-axis labels view */}
-            <G>
-              {yStyle.withLine && (
-                <Line
-                  x1={xAxis(0)}
-                  y1={yAxis(0)}
-                  x2={xAxis(0)}
-                  y2={yAxis(yAxisRange[yAxisRange.length - 1])}
-                  stroke={yStyle.lineColor}
-                  strokeWidth={yStyle.lineStrokeWidth}
-                />
-              )}
-              {yStyle.withLabel &&
+        {/* <GraphWrapper> */}
+        <Svg
+          height={SVGHeight}
+          width={SVGWidth}
+          preserveAspectRatio="xMidYMid slice">
+          {/* Graph Y-axis labels view */}
+          <G>
+            {yStyle.withLine && (
+              <Line
+                x1={xAxis(0)}
+                y1={yAxis(0)}
+                x2={xAxis(0)}
+                y2={yAxis(yAxisRange[yAxisRange.length - 1])}
+                stroke={yStyle.lineColor}
+                strokeWidth={yStyle.lineStrokeWidth}
+              />
+            )}
+            {yStyle.withLabel &&
                 yAxisRange.map((unit, index) => {
                   return (
                     <G key={index}>
@@ -185,18 +178,18 @@ const LineChart: FC<LineChartProps> = (props) => {
                     </G>
                   );
                 })}
-              {/* Graph X-axis labels view */}
-              {xStyle.withLabel && xStyle.withLine && (
-                <Line
-                  x1={xAxis(0)}
-                  x2={xAxis(data.length - 1)}
-                  y1={yAxis(0)}
-                  y2={yAxis(0)}
-                  stroke={xStyle.lineColor}
-                  strokeWidth={xStyle.lineStrokeWidth}
-                />
-              )}
-              {xStyle.withLabel &&
+            {/* Graph X-axis labels view */}
+            {xStyle.withLabel && xStyle.withLine && (
+              <Line
+                x1={xAxis(0)}
+                x2={xAxis(data.length - 1)}
+                y1={yAxis(0)}
+                y2={yAxis(0)}
+                stroke={xStyle.lineColor}
+                strokeWidth={xStyle.lineStrokeWidth}
+              />
+            )}
+            {xStyle.withLabel &&
                 data.map((item, index) => {
                   return (
                     <G key={index}>
@@ -225,61 +218,61 @@ const LineChart: FC<LineChartProps> = (props) => {
                     </G>
                   );
                 })}
-              {/* Graph: Text, Dots & Line */}
-              {data.map((item, index) => {
-                const xStart = index;
-                const yStart = item[yAxisKey];
-                let xEnd: number;
-                let yEnd: number;
+            {/* Graph: Text, Dots & Line */}
+            {data.map((item, index) => {
+              const xStart = index;
+              const yStart = item[yAxisKey];
+              let xEnd: number;
+              let yEnd: number;
 
-                if (index === data.length - 1) {
-                  xEnd = xStart;
-                  yEnd = yStart;
-                } else {
-                  xEnd = index + 1;
-                  yEnd = data[index + 1][yAxisKey];
-                }
-                return (
-                  <G key={index}>
-                    {graphStyle.withLine && (
-                      <Line
-                        x1={xAxis(xStart)}
-                        y1={yAxis(yStart)}
-                        x2={xAxis(xEnd)}
-                        y2={yAxis(yEnd)}
-                        stroke={graphStyle.lineColor}
-                        strokeWidth={graphStyle.lineWidth}
-                      />
-                    )}
-                    {graphStyle.withText && (
-                      <Text
-                        scale={[1, -1]}
-                        fill={graphStyle.textColor}
-                        stroke={graphStyle.textStrokeColor}
-                        fontSize={graphStyle.fontSize}
-                        fontWeight={graphStyle.fontWeight}
-                        x={xAxis(index)}
-                        y={-yAxis(item[yAxisKey]) - textGap}
-                        textAnchor="middle">
-                        {item[yAxisKey]}
-                      </Text>
-                    )}
-                    {graphStyle.withDots && (
-                      <Circle
-                        cx={xAxis(index)}
-                        cy={yAxis(item[yAxisKey])}
-                        r="4"
-                        fill={graphStyle.dotColor}
-                        stroke={graphStyle.dotStrokeColor}
-                        strokeWidth={graphStyle.dotStrokeWidth}
-                      />
-                    )}
-                  </G>
-                );
-              })}
-            </G>
-          </Svg>
-        </GraphWrapper>
+              if (index === data.length - 1) {
+                xEnd = xStart;
+                yEnd = yStart;
+              } else {
+                xEnd = index + 1;
+                yEnd = data[index + 1][yAxisKey];
+              }
+              return (
+                <G key={index}>
+                  {graphStyle.withLine && (
+                    <Line
+                      x1={xAxis(xStart)}
+                      y1={yAxis(yStart)}
+                      x2={xAxis(xEnd)}
+                      y2={yAxis(yEnd)}
+                      stroke={graphStyle.lineColor}
+                      strokeWidth={graphStyle.lineWidth}
+                    />
+                  )}
+                  {graphStyle.withText && (
+                    <Text
+                      scale={[1, -1]}
+                      fill={graphStyle.textColor}
+                      stroke={graphStyle.textStrokeColor}
+                      fontSize={graphStyle.fontSize}
+                      fontWeight={graphStyle.fontWeight}
+                      x={xAxis(index)}
+                      y={-yAxis(item[yAxisKey]) - textGap}
+                      textAnchor="middle">
+                      {item[yAxisKey]}
+                    </Text>
+                  )}
+                  {graphStyle.withDots && (
+                    <Circle
+                      cx={xAxis(index)}
+                      cy={yAxis(item[yAxisKey])}
+                      r="4"
+                      fill={graphStyle.dotColor}
+                      stroke={graphStyle.dotStrokeColor}
+                      strokeWidth={graphStyle.dotStrokeWidth}
+                    />
+                  )}
+                </G>
+              );
+            })}
+          </G>
+        </Svg>
+        {/* </GraphWrapper> */}
       </ChartContainer>
     </Container>
   );

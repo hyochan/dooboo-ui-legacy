@@ -9,8 +9,6 @@ import styled from 'styled-components/native';
 
 // Styled component declaration
 const Container = styled.View`
-  flex: 1;
-  flex-direction: column;
   height: 100%;
   width: 100%;
   background-color: transparent;
@@ -27,12 +25,7 @@ const ChartContainer = styled.View`
   height: 100%;
   width: 100%;
   flex: 1;
-  flex-direction: row;
-`;
-const GraphWrapper = styled.View`
-  flex: 1;
-  flex-direction: column;
-  transform: scale(1,-1);
+  transform: scale(1, -1);
 `;
 
 const BarChart: FC<BarChartProps> = (props) => {
@@ -137,24 +130,23 @@ const BarChart: FC<BarChartProps> = (props) => {
       {header && <HeaderContainer>{header}</HeaderContainer>}
       {/* Graph view */}
       <ChartContainer>
-        <GraphWrapper>
-          <Svg
-            height={SVGHeight}
-            width={SVGWidth}
-            preserveAspectRatio="xMidYMid slice">
-            {/* Graph Y-axis labels view */}
-            <G>
-              {yStyle.withLine && (
-                <Line
-                  x1={xAxis(0)}
-                  y1={yAxis(0)}
-                  x2={xAxis(0)}
-                  y2={yAxis(yAxisRange[yAxisRange.length - 1])}
-                  stroke={yStyle.lineColor}
-                  strokeWidth={yStyle.lineStrokeWidth}
-                />
-              )}
-              {yStyle.withLabel &&
+        <Svg
+          height={SVGHeight}
+          width={SVGWidth}
+          preserveAspectRatio="xMidYMid slice">
+          {/* Graph Y-axis labels view */}
+          <G>
+            {yStyle.withLine && (
+              <Line
+                x1={xAxis(0)}
+                y1={yAxis(0)}
+                x2={xAxis(0)}
+                y2={yAxis(yAxisRange[yAxisRange.length - 1])}
+                stroke={yStyle.lineColor}
+                strokeWidth={yStyle.lineStrokeWidth}
+              />
+            )}
+            {yStyle.withLabel &&
                 yAxisRange.map((unit, index) => {
                   return (
                     <G key={index}>
@@ -184,23 +176,23 @@ const BarChart: FC<BarChartProps> = (props) => {
                     </G>
                   );
                 })}
-              {/* Graph X-axis labels view */}
-              {xStyle.withLabel && xStyle.withLine && (
-                <Line
-                  x1={xAxis(0)}
-                  x2={
-                    xAxis(data.length - 1) + typeof graphStyle.barWidth ===
+            {/* Graph X-axis labels view */}
+            {xStyle.withLabel && xStyle.withLine && (
+              <Line
+                x1={xAxis(0)}
+                x2={
+                  xAxis(data.length - 1) + (typeof graphStyle.barWidth ===
                     'string'
-                      ? Number(graphStyle.barWidth)
-                      : graphStyle.barWidth
-                  }
-                  y1={yAxis(0)}
-                  y2={yAxis(0)}
-                  stroke={xStyle.lineColor}
-                  strokeWidth={xStyle.lineStrokeWidth}
-                />
-              )}
-              {xStyle.withLabel &&
+                    ? Number(graphStyle.barWidth)
+                    : graphStyle.barWidth)
+                }
+                y1={yAxis(0)}
+                y2={yAxis(0)}
+                stroke={xStyle.lineColor}
+                strokeWidth={xStyle.lineStrokeWidth}
+              />
+            )}
+            {xStyle.withLabel &&
                 data.map((item, index) => {
                   return (
                     <G key={index}>
@@ -248,48 +240,47 @@ const BarChart: FC<BarChartProps> = (props) => {
                     </G>
                   );
                 })}
-              {/* Graph: Text, Dots & Line */}
-              {data.map((item, index) => {
-                return (
-                  <G key={index}>
-                    <Hoverable>
-                      {(isHovered): React.ReactElement => (
-                        <Rect
-                          x={xAxis(index)}
-                          y={yAxis(0)}
-                          width={graphStyle.barWidth}
-                          height={yAxis(item[yAxisKey]) - SVGPadding}
-                          fill={graphStyle.color}
-                          opacity={isHovered ? 0.5 : 0.8}
-                          strokeWidth={graphStyle.strokeWidth}
-                          stroke={graphStyle.strokeColor}
-                          ry={1}
-                        />
-                      )}
-                    </Hoverable>
-                    <Text
-                      scale={[1, -1]}
-                      fill={item[yAxisKey] === 0 ? 'red' : graphStyle.textColor}
-                      stroke={graphStyle.textStrokeColor}
-                      fontSize={graphStyle.fontSize}
-                      fontWeight={graphStyle.fontWeight}
-                      x={
-                        xAxis(index) +
+            {/* Graph: Text, Dots & Line */}
+            {data.map((item, index) => {
+              return (
+                <G key={index}>
+                  <Hoverable>
+                    {(isHovered): React.ReactElement => (
+                      <Rect
+                        x={xAxis(index)}
+                        y={yAxis(0)}
+                        width={graphStyle.barWidth}
+                        height={yAxis(item[yAxisKey]) - SVGPadding}
+                        fill={graphStyle.color}
+                        opacity={isHovered ? 0.5 : 0.8}
+                        strokeWidth={graphStyle.strokeWidth}
+                        stroke={graphStyle.strokeColor}
+                        ry={1}
+                      />
+                    )}
+                  </Hoverable>
+                  <Text
+                    scale={[1, -1]}
+                    fill={item[yAxisKey] === 0 ? 'red' : graphStyle.textColor}
+                    stroke={graphStyle.textStrokeColor}
+                    fontSize={graphStyle.fontSize}
+                    fontWeight={graphStyle.fontWeight}
+                    x={
+                      xAxis(index) +
                         (typeof graphStyle.barWidth === 'string'
                           ? Number(graphStyle.barWidth)
                           : graphStyle.barWidth) /
                           2
-                      }
-                      y={-yAxis(item[yAxisKey]) - textGap}
-                      textAnchor="middle">
-                      {item[yAxisKey]}
-                    </Text>
-                  </G>
-                );
-              })}
-            </G>
-          </Svg>
-        </GraphWrapper>
+                    }
+                    y={-yAxis(item[yAxisKey]) - textGap}
+                    textAnchor="middle">
+                    {item[yAxisKey]}
+                  </Text>
+                </G>
+              );
+            })}
+          </G>
+        </Svg>
       </ChartContainer>
     </Container>
   );

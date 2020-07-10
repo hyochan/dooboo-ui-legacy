@@ -8,8 +8,10 @@ import styled from 'styled-components/native';
 
 const CustomContainer = styled.View`
   height: 50%;
-  width: 75%;
+  width: 80%;
   text-align: center;
+  padding-left: 20px;
+  padding-right: 20px;
 `;
 const CustomHeaderContainer = styled.View`
   height: 40px;
