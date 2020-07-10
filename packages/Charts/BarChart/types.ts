@@ -1,7 +1,7 @@
 import React from 'react';
 
 type GraphStyle = {
-  barWidth?: number; // default: 30
+  barWidth?: number | string; // default: 30
   color?: string; // default: ('#000000')
   strokeWidth?: number; // default: 2
   strokeColor?: string; // default: ('rgba(0,0,0,0.5)')
@@ -42,11 +42,9 @@ export interface BarChartProps {
   /* ====== [REQUIRED] ====== */
   // Dataset for the line chart
   data: Array<Record<string, any>>;
-  // X-axis parameter existing "key" in ${data}
-  xAxisKey: string;
-  // Y-axis parameter existing "key" in ${data}
-  yAxisKey: string;
-  yUnit: string | number;
+  xAxisKey: string; // X-axis parameter existing "key" in ${data}
+  yAxisKey: string; // Y-axis parameter existing "key" in ${data}
+  yUnit: string | number; // Y-axis unit to parse the values
 
   /* ====== [OPTIONAL] ====== */
   header?: React.ReactElement;

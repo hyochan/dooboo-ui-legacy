@@ -42,7 +42,7 @@ const BarChart: FC<BarChartProps> = (props) => {
     data = [],
     xAxisKey = 'key3',
     yAxisKey = 'key6',
-    yUnit = '100',
+    yUnit = '10',
     /* ====== [OPTIONAL] ====== */
     header = undefined,
     graphStyle = {
@@ -108,7 +108,7 @@ const BarChart: FC<BarChartProps> = (props) => {
   };
 
   // SVG Layout
-  const SVGPadding = 30; // default padding: 30
+  const SVGPadding = 60; // default padding: 30
   const SVGHeight = currentHeight;
   const SVGWidth = currentWidth;
   const indicatorSize = 5;
@@ -124,7 +124,7 @@ const BarChart: FC<BarChartProps> = (props) => {
   const yDomain = [0, d3.max(yAxisRange, (item) => item)];
   const yRange = [
     SVGPadding,
-    SVGHeight - SVGPadding * (SVGHeight < 736 ? 2.7 : SVGHeight < 1023 ? 3 : 4.5),
+    SVGHeight - SVGPadding * (SVGHeight < 736 ? 1.5 : SVGHeight < 1023 ? 2.5 : 3.5),
   ];
   const yAxis = d3.scaleLinear().domain(yDomain).range(yRange);
   return (
@@ -177,7 +177,7 @@ const BarChart: FC<BarChartProps> = (props) => {
                           fontWeight={yStyle.fontWeight}
                           x={xAxis(0) - indicatorSize - textGap}
                           y={-yAxis(unit) + 4}
-                          textAnchor="middle">
+                          textAnchor="end">
                           {unit}
                         </Text>
                       )}
@@ -188,7 +188,12 @@ const BarChart: FC<BarChartProps> = (props) => {
               {xStyle.withLabel && xStyle.withLine && (
                 <Line
                   x1={xAxis(0)}
-                  x2={xAxis(data.length - 1) + graphStyle.barWidth}
+                  x2={
+                    xAxis(data.length - 1) + typeof graphStyle.barWidth ===
+                    'string'
+                      ? Number(graphStyle.barWidth)
+                      : graphStyle.barWidth
+                  }
                   y1={yAxis(0)}
                   y2={yAxis(0)}
                   stroke={xStyle.lineColor}
@@ -201,9 +206,21 @@ const BarChart: FC<BarChartProps> = (props) => {
                     <G key={index}>
                       {xStyle.withIndicator && (
                         <Line
-                          x1={xAxis(index) + graphStyle.barWidth / 2}
+                          x1={
+                            xAxis(index) +
+                            (typeof graphStyle.barWidth === 'string'
+                              ? Number(graphStyle.barWidth)
+                              : graphStyle.barWidth) /
+                              2
+                          }
                           y1={yAxis(0)}
-                          x2={xAxis(index) + graphStyle.barWidth / 2}
+                          x2={
+                            xAxis(index) +
+                            (typeof graphStyle.barWidth === 'string'
+                              ? Number(graphStyle.barWidth)
+                              : graphStyle.barWidth) /
+                              2
+                          }
                           y2={yAxis(0) - indicatorSize}
                           stroke={xStyle.lineColor}
                           strokeWidth={xStyle.lineStrokeWidth}
@@ -216,7 +233,13 @@ const BarChart: FC<BarChartProps> = (props) => {
                           stroke={xStyle.textStrokeColor}
                           fontSize={xStyle.fontSize}
                           fontWeight={xStyle.fontWeight}
-                          x={xAxis(index) + graphStyle.barWidth / 2}
+                          x={
+                            xAxis(index) +
+                            (typeof graphStyle.barWidth === 'string'
+                              ? Number(graphStyle.barWidth)
+                              : graphStyle.barWidth) /
+                              2
+                          }
                           y={-yAxis(0) + 5 + indicatorSize + textGap}
                           textAnchor={'middle'}>
                           {item[xAxisKey]}
@@ -230,7 +253,7 @@ const BarChart: FC<BarChartProps> = (props) => {
                 return (
                   <G key={index}>
                     <Hoverable>
-                      {(isHovered): React.ReactElement =>
+                      {(isHovered): React.ReactElement => (
                         <Rect
                           x={xAxis(index)}
                           y={yAxis(0)}
@@ -242,15 +265,21 @@ const BarChart: FC<BarChartProps> = (props) => {
                           stroke={graphStyle.strokeColor}
                           ry={1}
                         />
-                      }
+                      )}
                     </Hoverable>
                     <Text
                       scale={[1, -1]}
-                      fill={ graphStyle.textColor}
+                      fill={item[yAxisKey] === 0 ? 'red' : graphStyle.textColor}
                       stroke={graphStyle.textStrokeColor}
                       fontSize={graphStyle.fontSize}
                       fontWeight={graphStyle.fontWeight}
-                      x={xAxis(index) + graphStyle.barWidth / 2}
+                      x={
+                        xAxis(index) +
+                        (typeof graphStyle.barWidth === 'string'
+                          ? Number(graphStyle.barWidth)
+                          : graphStyle.barWidth) /
+                          2
+                      }
                       y={-yAxis(item[yAxisKey]) - textGap}
                       textAnchor="middle">
                       {item[yAxisKey]}

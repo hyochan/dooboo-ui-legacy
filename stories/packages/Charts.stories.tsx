@@ -1,14 +1,14 @@
 import { BarChart, LineChart } from '../../packages/Charts/lib';
-import { Dimensions, Text } from 'react-native';
 import React, { ReactElement } from 'react';
 
 import { ContainerDeco } from '../../storybook/decorators';
+import { Text } from 'react-native';
 import { storiesOf } from '@storybook/react-native';
 import styled from 'styled-components/native';
 
 const CustomContainer = styled.View`
   height: 50%;
-  width: 50%;
+  width: 75%;
   text-align: center;
 `;
 const CustomHeaderContainer = styled.View`
@@ -85,16 +85,9 @@ const mockData = [
   },
 ];
 
-const LineChartComponent = (): React.ReactElement => {
-  const [currentWidth, setCurrentWidth] = React.useState<number>(Dimensions.get('window').width * 0.8);
+const LineChartComponent = (): ReactElement => {
   return (
-    <CustomContainer
-      onLayout={(e): void => {
-        setCurrentWidth(e.nativeEvent.layout.width);
-      }}
-      style={{
-        width: currentWidth > 768 ? '50%' : currentWidth > 1024 ? '40%' : '50%',
-      }}>
+    <CustomContainer>
       <LineChart
         data={mockData}
         xAxisKey={'key5'}
@@ -155,21 +148,18 @@ const LineChartComponent = (): React.ReactElement => {
   );
 };
 
-const BarChartComponent = (): React.ReactElement => {
+const BarChartComponent = (): ReactElement => {
   const [currentWidth, setCurrentWidth] = React.useState<number>(500);
   return (
     <CustomContainer
       onLayout={(e): void => {
         setCurrentWidth(e.nativeEvent.layout.width);
-      }}
-      style={{
-        width: currentWidth > 768 ? '50%' : currentWidth > 1024 ? '40%' : '50%',
       }}>
       <BarChart
         data={mockData}
-        xAxisKey={'key5'}
-        yAxisKey={'key2'}
-        yUnit={'2'}
+        xAxisKey={'key1'}
+        yAxisKey={'key4'}
+        yUnit={'200'}
         header={
           <CustomHeaderContainer>
             <Text
@@ -182,14 +172,14 @@ const BarChartComponent = (): React.ReactElement => {
             </Text>
           </CustomHeaderContainer>
         }
-        // graphStyle={{
-        //   barWidth: 30,
-        //   color: '#000000',
-        //   strokeWidth: 2,
-        //   strokeColor: 'rgba(0,0,0,0.1)',
-        //   fontSize: '12',
-        //   fontWeight: 'bold',
-        // }}
+        graphStyle={{
+          barWidth: currentWidth < 414 ? 15 : 30,
+          color: '#000000',
+          strokeWidth: 2,
+          strokeColor: 'rgba(0,0,0,0.1)',
+          fontSize: currentWidth < 414 ? '8' : '12',
+          fontWeight: 'bold',
+        }}
         xStyle={{
           withLabel: true,
           withIndicator: true,
@@ -199,7 +189,7 @@ const BarChartComponent = (): React.ReactElement => {
           withText: true,
           textColor: '#000000',
           textStrokeColor: 'none',
-          fontSize: '12',
+          fontSize: currentWidth < 414 ? '7' : '12',
           fontWeight: 'bold',
         }}
         yStyle={{
@@ -211,7 +201,7 @@ const BarChartComponent = (): React.ReactElement => {
           withText: true,
           textColor: '#000000',
           textStrokeColor: 'none',
-          fontSize: '12',
+          fontSize: currentWidth < 414 ? '7' : '12',
           fontWeight: 'bold',
         }}
       />
