@@ -60,8 +60,7 @@ describe('[EditText] event test', () => {
     act(() => {
       fireEvent.focus(textInput);
     });
-
-    expect(textInput.props.style[1].borderColor).toEqual('#109CF1');
+    expect(textInput.props.style[2].borderColor).toEqual('#109CF1');
   });
 
   it('should change borderColor when blured', () => {
