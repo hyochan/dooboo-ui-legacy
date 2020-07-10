@@ -1,9 +1,10 @@
 import * as d3 from 'd3';
 
-import { Circle, G, Line, Svg, Text } from 'react-native-svg';
+import { G, Line, Rect, Svg, Text } from 'react-native-svg';
 import React, { FC } from 'react';
 
-import { LineChartProps } from './types';
+import { BarChartProps } from './types';
+import { Hoverable } from 'react-native-web-hooks';
 import styled from 'styled-components/native';
 
 // Styled component declaration
@@ -27,24 +28,21 @@ const ChartContainer = styled.View`
   transform: scale(1, -1);
 `;
 
-const LineChart: FC<LineChartProps> = (props) => {
+const BarChart: FC<BarChartProps> = (props) => {
   // Destructuring props & Declaring default values
   const {
     /* ====== [REQUIRED] ====== */
     data = [],
     xAxisKey = 'key3',
     yAxisKey = 'key6',
-    yUnit = '100',
+    yUnit = '10',
     /* ====== [OPTIONAL] ====== */
     header = undefined,
     graphStyle = {
-      withLine: true,
-      lineColor: '#000000',
-      lineWidth: 2,
-      withDots: true,
-      dotColor: '#ffffff',
-      dotStrokeColor: '#000000',
-      dotStrokeWidth: 2,
+      barWidth: 30,
+      color: '#000000',
+      strokeWidth: 0,
+      strokeColor: 'rgba(0,0,0,0.1)',
       withText: true,
       textColor: '#000000',
       textStrokeColor: 'none',
@@ -78,6 +76,7 @@ const LineChart: FC<LineChartProps> = (props) => {
       fontWeight: 'bold',
     },
   } = props;
+
   // Initialize
   const [currentHeight, setCurrentHeight] = React.useState<number>(400);
   const [currentWidth, setCurrentWidth] = React.useState<number>(500);
@@ -102,7 +101,7 @@ const LineChart: FC<LineChartProps> = (props) => {
   };
 
   // SVG Layout
-  const SVGPadding = 30; // default padding: 30
+  const SVGPadding = 60; // default padding: 30
   const SVGHeight = currentHeight;
   const SVGWidth = currentWidth;
   const indicatorSize = 5;
@@ -118,7 +117,7 @@ const LineChart: FC<LineChartProps> = (props) => {
   const yDomain = [0, d3.max(yAxisRange, (item) => item)];
   const yRange = [
     SVGPadding,
-    SVGHeight - SVGPadding * (SVGHeight < 736 ? 2.7 : SVGHeight < 1023 ? 3 : 4.5),
+    SVGHeight - SVGPadding * (SVGHeight < 736 ? 1.5 : SVGHeight < 1023 ? 2.5 : 3.5),
   ];
   const yAxis = d3.scaleLinear().domain(yDomain).range(yRange);
   return (
@@ -131,7 +130,6 @@ const LineChart: FC<LineChartProps> = (props) => {
       {header && <HeaderContainer>{header}</HeaderContainer>}
       {/* Graph view */}
       <ChartContainer>
-        {/* <GraphWrapper> */}
         <Svg
           height={SVGHeight}
           width={SVGWidth}
@@ -171,7 +169,7 @@ const LineChart: FC<LineChartProps> = (props) => {
                           fontWeight={yStyle.fontWeight}
                           x={xAxis(0) - indicatorSize - textGap}
                           y={-yAxis(unit) + 4}
-                          textAnchor="middle">
+                          textAnchor="end">
                           {unit}
                         </Text>
                       )}
@@ -182,7 +180,12 @@ const LineChart: FC<LineChartProps> = (props) => {
             {xStyle.withLabel && xStyle.withLine && (
               <Line
                 x1={xAxis(0)}
-                x2={xAxis(data.length - 1)}
+                x2={
+                  xAxis(data.length - 1) + (typeof graphStyle.barWidth ===
+                    'string'
+                    ? Number(graphStyle.barWidth)
+                    : graphStyle.barWidth)
+                }
                 y1={yAxis(0)}
                 y2={yAxis(0)}
                 stroke={xStyle.lineColor}
@@ -195,9 +198,21 @@ const LineChart: FC<LineChartProps> = (props) => {
                     <G key={index}>
                       {xStyle.withIndicator && (
                         <Line
-                          x1={xAxis(index)}
+                          x1={
+                            xAxis(index) +
+                            (typeof graphStyle.barWidth === 'string'
+                              ? Number(graphStyle.barWidth)
+                              : graphStyle.barWidth) /
+                              2
+                          }
                           y1={yAxis(0)}
-                          x2={xAxis(index)}
+                          x2={
+                            xAxis(index) +
+                            (typeof graphStyle.barWidth === 'string'
+                              ? Number(graphStyle.barWidth)
+                              : graphStyle.barWidth) /
+                              2
+                          }
                           y2={yAxis(0) - indicatorSize}
                           stroke={xStyle.lineColor}
                           strokeWidth={xStyle.lineStrokeWidth}
@@ -210,8 +225,15 @@ const LineChart: FC<LineChartProps> = (props) => {
                           stroke={xStyle.textStrokeColor}
                           fontSize={xStyle.fontSize}
                           fontWeight={xStyle.fontWeight}
-                          x={xAxis(index) - 4}
-                          y={-yAxis(0) + 5 + indicatorSize + textGap}>
+                          x={
+                            xAxis(index) +
+                            (typeof graphStyle.barWidth === 'string'
+                              ? Number(graphStyle.barWidth)
+                              : graphStyle.barWidth) /
+                              2
+                          }
+                          y={-yAxis(0) + 5 + indicatorSize + textGap}
+                          textAnchor={'middle'}>
                           {item[xAxisKey]}
                         </Text>
                       )}
@@ -220,62 +242,48 @@ const LineChart: FC<LineChartProps> = (props) => {
                 })}
             {/* Graph: Text, Dots & Line */}
             {data.map((item, index) => {
-              const xStart = index;
-              const yStart = item[yAxisKey];
-              let xEnd: number;
-              let yEnd: number;
-
-              if (index === data.length - 1) {
-                xEnd = xStart;
-                yEnd = yStart;
-              } else {
-                xEnd = index + 1;
-                yEnd = data[index + 1][yAxisKey];
-              }
               return (
                 <G key={index}>
-                  {graphStyle.withLine && (
-                    <Line
-                      x1={xAxis(xStart)}
-                      y1={yAxis(yStart)}
-                      x2={xAxis(xEnd)}
-                      y2={yAxis(yEnd)}
-                      stroke={graphStyle.lineColor}
-                      strokeWidth={graphStyle.lineWidth}
-                    />
-                  )}
-                  {graphStyle.withText && (
-                    <Text
-                      scale={[1, -1]}
-                      fill={graphStyle.textColor}
-                      stroke={graphStyle.textStrokeColor}
-                      fontSize={graphStyle.fontSize}
-                      fontWeight={graphStyle.fontWeight}
-                      x={xAxis(index)}
-                      y={-yAxis(item[yAxisKey]) - textGap}
-                      textAnchor="middle">
-                      {item[yAxisKey]}
-                    </Text>
-                  )}
-                  {graphStyle.withDots && (
-                    <Circle
-                      cx={xAxis(index)}
-                      cy={yAxis(item[yAxisKey])}
-                      r="4"
-                      fill={graphStyle.dotColor}
-                      stroke={graphStyle.dotStrokeColor}
-                      strokeWidth={graphStyle.dotStrokeWidth}
-                    />
-                  )}
+                  <Hoverable>
+                    {(isHovered): React.ReactElement => (
+                      <Rect
+                        x={xAxis(index)}
+                        y={yAxis(0)}
+                        width={graphStyle.barWidth}
+                        height={yAxis(item[yAxisKey]) - SVGPadding}
+                        fill={graphStyle.color}
+                        opacity={isHovered ? 0.5 : 0.8}
+                        strokeWidth={graphStyle.strokeWidth}
+                        stroke={graphStyle.strokeColor}
+                        ry={1}
+                      />
+                    )}
+                  </Hoverable>
+                  <Text
+                    scale={[1, -1]}
+                    fill={item[yAxisKey] === 0 ? 'red' : graphStyle.textColor}
+                    stroke={graphStyle.textStrokeColor}
+                    fontSize={graphStyle.fontSize}
+                    fontWeight={graphStyle.fontWeight}
+                    x={
+                      xAxis(index) +
+                        (typeof graphStyle.barWidth === 'string'
+                          ? Number(graphStyle.barWidth)
+                          : graphStyle.barWidth) /
+                          2
+                    }
+                    y={-yAxis(item[yAxisKey]) - textGap}
+                    textAnchor="middle">
+                    {item[yAxisKey]}
+                  </Text>
                 </G>
               );
             })}
           </G>
         </Svg>
-        {/* </GraphWrapper> */}
       </ChartContainer>
     </Container>
   );
 };
 
-export default LineChart;
+export default BarChart;

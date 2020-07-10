@@ -1,11 +1,10 @@
 import * as React from 'react';
 
+import { BarChart, LineChart } from '../Charts/lib';
 import {
   RenderResult,
   render,
 } from '@testing-library/react-native';
-
-import { LineChart } from '../Charts';
 
 let props: any;
 let component: React.ReactElement;
@@ -96,7 +95,7 @@ describe('[LineChart] renders', () => {
     expect(testingLib.baseElement).toBeTruthy();
   });
 
-  it('should render when custom props given', () => {
+  it('[BarChart] should render when custom props given', () => {
     jest.useFakeTimers();
 
     props = createTestProps({
@@ -106,6 +105,36 @@ describe('[LineChart] renders', () => {
       yUnit: '100',
     });
     component = <LineChart {...props} />;
+
+    testingLib = render(component);
+    jest.runAllTimers();
+    expect(testingLib.baseElement).toBeTruthy();
+  });
+});
+
+describe('[BarChart] renders', () => {
+  it('should render without crashing', () => {
+    props = createTestProps({
+      data: testingData,
+      xAxisKey: 'key3',
+      yAxisKey: 'key4',
+      yUnit: '10',
+    });
+    component = <BarChart {...props} />;
+    testingLib = render(component);
+    expect(testingLib.baseElement).toBeTruthy();
+  });
+
+  it('[BarChart] should render when custom props given', () => {
+    jest.useFakeTimers();
+
+    props = createTestProps({
+      data: testingData,
+      xAxisKey: 'key5',
+      yAxisKey: 'key6',
+      yUnit: '1000',
+    });
+    component = <BarChart {...props} />;
 
     testingLib = render(component);
     jest.runAllTimers();
