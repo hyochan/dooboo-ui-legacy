@@ -56,7 +56,8 @@ yarn add @dooboo-ui/core
     textStyle={{
       color: 'white',
     }}
-    onPress={(): void => {}}>
+    onPress={(): void => {}}
+    >
     Sample button
   </Button>
   ```

@@ -53,10 +53,10 @@ interface Props {
   /** hover */
   /** Accent */
   hoverStyle?: ViewStyle;
-  Accent?: ViewStyle;
+  accentStyle?: ViewStyle;
   /** Secondary */
   hoverTextStyle?: TextStyle;
-  Secondary?: ViewStyle;
+  secondaryStyle?: ViewStyle;
 }
 
 function Button(props: Props): React.ReactElement {
@@ -77,10 +77,11 @@ function Button(props: Props): React.ReactElement {
     onPress,
     touchableOpacityProps,
     hoverStyle,
-    Accent,
-    Secondary,
+    accentStyle,
+    secondaryStyle,
     hoverTextStyle,
   } = props;
+
   const ref = useRef(null);
   const isHovered = useHover(ref);
 
@@ -113,8 +114,8 @@ function Button(props: Props): React.ReactElement {
         testID={testID}
         style={[
           containerStyle,
-          Accent,
-          Secondary,
+          accentStyle,
+          secondaryStyle,
           isHovered && hoverStyle ? hoverStyle : style,
         ]}>
         {leftElement || null}

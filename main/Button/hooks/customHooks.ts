@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React, { useEffect, useState } from 'react';
 
 import { Platform } from 'react-native';
 import getNode from './utils/getNode';
@@ -9,28 +9,24 @@ export default function customHooks<T>({
   events: string[];
 }): (ref: React.MutableRefObject<T>) => any {
   return function(ref): boolean {
-    if (
-      // customHooks classes only work in the browser
-      Platform.OS !== 'web'
-    ) {
+    if (Platform.OS !== 'web') {
       return false;
     }
 
-    const [isActive, setActive] = React.useState(false);
-
-    React.useEffect(() => {
+    const [isActive, setActive] = useState<boolean>(false);
+    useEffect(() => {
       const [eventIn, eventOut] = events;
 
       const node = getNode(ref);
       if (!node) {
         return;
       }
-      const resolve = (value): void => setActive(value);
-      // @ts-ignore
-      const onStart = resolve.bind(this, true);
-      // @ts-ignore
-      const onEnd = resolve.bind(this, false);
-
+      const onStart = (): void => {
+        setActive(true);
+      };
+      const onEnd = (): void => {
+        setActive(false);
+      };
       node.addEventListener(eventIn, onStart);
       node.addEventListener(eventOut, onEnd);
 

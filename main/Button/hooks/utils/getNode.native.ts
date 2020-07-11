@@ -1,4 +1,3 @@
-// @ts-ignore
 function getNode(ref: { current: any }): any {
   try {
     let node = ref && (ref.current || ref);

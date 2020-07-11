@@ -40,7 +40,7 @@ function Default(): React.ReactElement {
         hoverStyle={{
           backgroundColor: '#34AFF9',
         }}
-        Accent={{
+        accentStyle={{
           shadowColor: 'black',
           shadowOffset: {
             width: 0,
@@ -60,7 +60,7 @@ function Default(): React.ReactElement {
         hoverTextStyle={{
           color: '#34AFF9',
         }}
-        Secondary={{
+        secondaryStyle={{
           borderColor: '#109CF1',
           borderWidth: 2,
           shadowColor: 'black',

@@ -1,4 +1,3 @@
-// @ts-ignore
 import { findDOMNode } from 'react-dom';
 import getNativeNode from './getNode.native';
 
