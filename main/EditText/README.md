@@ -119,53 +119,60 @@ interface Props {
               color: '#1B1B21',
             }}
           >
-            회원가입
+            SignUp
           </Text>
         </View>
-        <EditText
-          labelText={'이메일'}
-          value={email}
-          isErrored={isEmailErrored}
-          errorStyle={{ borderColor: '#E54E4E' }}
-          errorMessage={
-            <Text style={{ color: '#E54E4E', marginTop: 8 }}>
-              이메일이 유효하지 않습니다.
-            </Text>
-          }
-          placeholder={'dooboolab@gmail.com'}
-          placeholderTextColor={'#707683'}
-          onChangeText={(email): void => { setEmail(email); }}
-          containerStyle={{
-            marginBottom: 30,
-            width: 528,
+        <View
+          style={{
+            justifyContent: 'center',
+            alignItems: 'center',
           }}
-          labelTextStyle={{
-            color: '#323C47',
-          }}
-          onFocus={(): void => setEmailError(false)}
-        />
-        <EditText
-          labelText={'비밀번호'}
-          value={password}
-          isErrored={isPswErrored}
-          errorStyle={{ borderColor: '#E54E4E' }}
-          errorMessage={
-            <Text style={{ color: '#E54E4E', marginTop: 8 }}>
-              비밀번호가 유효하지 않습니다.
-            </Text>
-          }
-          placeholder={'********'}
-          placeholderTextColor={'#707683'}
-          onChangeText={(password): void => { setPassword(password); }}
-          secureTextEntry={true}
-          containerStyle={{
-            width: 528,
-          }}
-          labelTextStyle={{
-            color: '#323C47',
-          }}
-          onFocus={(): void => setPswError(false)}
-        />
+        >
+          <EditText
+            labelText={'Email'}
+            value={email}
+            isErrored={isEmailErrored}
+            errorStyle={{ borderColor: '#E54E4E' }}
+            errorMessage={
+              <Text style={{ color: '#E54E4E', marginTop: 8 }}>
+                Invaild Email address
+              </Text>
+            }
+            placeholder={'dooboolab@gmail.com'}
+            placeholderTextColor={'#707683'}
+            onChangeText={(email): void => { setEmail(email); }}
+            containerStyle={{
+              marginBottom: 30,
+              width: 528,
+            }}
+            labelTextStyle={{
+              color: '#323C47',
+            }}
+            onFocus={(): void => setEmailError(false)}
+          />
+          <EditText
+            labelText={'Password'}
+            value={password}
+            isErrored={isPswErrored}
+            errorStyle={{ borderColor: '#E54E4E' }}
+            errorMessage={
+              <Text style={{ color: '#E54E4E', marginTop: 8 }}>
+                Invaild Password
+              </Text>
+            }
+            placeholder={'********'}
+            placeholderTextColor={'#707683'}
+            onChangeText={(password): void => { setPassword(password); }}
+            secureTextEntry={true}
+            containerStyle={{
+              width: 528,
+            }}
+            labelTextStyle={{
+              color: '#323C47',
+            }}
+            onFocus={(): void => setPswError(false)}
+          />
+        </View>
         <View
           style={{
             alignItems: 'center',
@@ -174,12 +181,12 @@ interface Props {
         >
           <Text
             style={{
-              fontSize: 12,
+              fontSize: 14,
               lineHeight: 18,
               color: '#231F20',
             }}
           >
-            회원가입 시 이용약관 및 개인정보 수집 및 이용 동의서 내용을 확인하였으며, 동의합니다.
+            Agree to terms and conditions
           </Text>
         </View>
         <Button
@@ -188,7 +195,7 @@ interface Props {
             borderColor: '#609FFF',
             borderRadius: 6,
             marginTop: 40,
-            width: '100%',
+            width: 528,
           }}
           text="이메일 인증하기"
           textStyle={{
