@@ -57,7 +57,7 @@ yarn add @dooboo-ui/core
       color: 'white',
     }}
     onPress={(): void => {}}
-    >
+  >
     Sample button
   </Button>
   ```
@@ -69,7 +69,8 @@ yarn add @dooboo-ui/core
       backgroundColor: 'red',
       borderColor: 'blue',
     }}
-    onPress={(): void => {}}>
+    onPress={(): void => {}}
+  >
     <SampleText>Sample button</SampleText>
   </Button>
   ```
@@ -92,9 +93,10 @@ yarn add @dooboo-ui/core
     textStyle={{
       color: 'white',
     }}
-    onPress={(): void => {}}>
+    onPress={(): void => {}}
+  >
     Sample button
-  </SampleButton>;
+  </SampleButton>
   ```
 
   ```jsx
@@ -110,7 +112,7 @@ yarn add @dooboo-ui/core
   `;
   <SampleButton testID="sampleButton" onPress={(): void => {}}>
     <SampleText>Sample button</SampleText>
-  </SampleButton>;
+  </SampleButton>
   ```
 
   - example
@@ -189,7 +191,8 @@ yarn add @dooboo-ui/core
               setGoogleLoading(false);
               clearTimeout(timeout);
             }, 2000);
-          }}>
+          }}
+        >
           GOOGLE SIGN IN
         </Button>
         <Button
@@ -209,7 +212,8 @@ yarn add @dooboo-ui/core
               setFacebookLoading(false);
               clearTimeout(timeout);
             }, 2000);
-          }}>
+          }}
+        >
           FACEBOOK SIGN IN
         </Button>
       </Container>
