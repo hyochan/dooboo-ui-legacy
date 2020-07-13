@@ -1,4 +1,4 @@
-import React, { ReactElement, useState } from 'react';
+import React, { useState } from 'react';
 import { number, text } from '@storybook/addon-knobs';
 
 import { IC_MAGNIFIER } from '../Icon';
@@ -32,29 +32,26 @@ const Magnifier = styled.Image`
   margin-bottom: 2px;
 `;
 
-const CustomIcon: React.FC = () => (
-  <MagContainer>
-    <Magnifier source={IC_MAGNIFIER} />
-  </MagContainer>
-);
-
-const SearchInputWithState: React.FC<{ customIcon?: React.ReactNode }> = ({
-  customIcon,
-}) => {
+const Default = (): React.ReactElement => {
   const [value, setValue] = useState<string>('');
   return (
-    <>
+    <Container>
       <SearchInput
         value={value}
         onDebounceOrOnReset={(str): void => {
           setValue(str);
         }}
         debounceDelay={number('delay', 400)}
-        placeholderText={text('placeholder', '')}
-        customIcon={customIcon}
+        placeholder={text('placeholder', 'Search for anything')}
+        placeholderTextColor={'#BDBDBD'}
+        customIcon={
+          <MagContainer>
+            <Magnifier source={IC_MAGNIFIER} />
+          </MagContainer>
+        }
       />
       <Value>{`value (after debounced delay) : ${value}`}</Value>
-    </>
+    </Container>
   );
 };
 
@@ -66,12 +63,12 @@ export default {
   title: 'SearchInput',
 };
 
-export const toStorybook = (): ReactElement => <SearchInputWithState />;
+export const toStorybook = (): React.ReactElement => <Default />;
 
 toStorybook.story = {
   name: 'default',
+  notes: 'Basic SearchInput style',
 };
-
 /**
  * Below are stories for app
  */
@@ -82,7 +79,4 @@ const ContainerDeco = (storyFn: any): React.ReactElement => (
 
 storiesOf('SearchInput', module)
   .addDecorator(ContainerDeco)
-  .add('default', () => <SearchInputWithState />)
-  .add('custom icon', () => (
-    <SearchInputWithState customIcon={<CustomIcon />} />
-  ));
+  .add('default', () => <Default />);

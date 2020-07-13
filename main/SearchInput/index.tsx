@@ -1,6 +1,5 @@
-import * as React from 'react';
-
-import { StyleProp, StyleSheet, View, ViewStyle } from 'react-native';
+import { Platform, StyleProp, StyleSheet, TextInputProps, View, ViewStyle } from 'react-native';
+import React, { FC, useEffect, useState } from 'react';
 
 import styled from 'styled-components/native';
 
@@ -18,6 +17,7 @@ const Input = styled.TextInput`
   flex-grow: 1;
   align-self: center;
   font-size: 16px;
+  ${Platform.OS === 'web' && { 'outline-style': 'none' }}
 `;
 
 const ResetContainer = styled.View`
@@ -47,18 +47,21 @@ const ResetText = styled.Text`
 export interface SearchInputProps {
   testID?: string;
   value: string;
-  onDebounceOrOnReset?: (value: string) => void;
   style?: StyleProp<ViewStyle>;
   debounceDelay?: number;
-  customIcon?: React.ReactNode;
-  placeholderText?: string;
+  customIcon?: React.ReactElement;
+  placeholder?: TextInputProps['placeholder'];
+  placeholderTextColor?: TextInputProps['placeholderTextColor'];
+  onFocus?: () => void
+  onBlur?: () => void
+  onDebounceOrOnReset?: (value: string) => void;
 }
 
 // reference : https://dev.to/gabe_ragland/debouncing-with-react-hooks-jci
 function useDebounce(value: string, delay = 400): string {
-  const [debouncedValue, setDebouncedValue] = React.useState<string>(value);
+  const [debouncedValue, setDebouncedValue] = useState<string>(value);
 
-  React.useEffect(() => {
+  useEffect(() => {
     const handler = setTimeout(() => {
       setDebouncedValue(value);
     }, delay);
@@ -70,41 +73,56 @@ function useDebounce(value: string, delay = 400): string {
   return debouncedValue;
 }
 
-const SearchInput: React.FC<SearchInputProps> = (props) => {
-  const [value, setValue] = React.useState<string>(props.value);
-  const debouncedValue = useDebounce(value, props.debounceDelay);
+const SearchInput: FC<SearchInputProps> = (props) => {
+  const {
+    testID,
+    value,
+    style,
+    debounceDelay,
+    customIcon,
+    placeholder = 'Search for anything',
+    placeholderTextColor = '#BDBDBD',
+    onFocus,
+    onBlur,
+    onDebounceOrOnReset,
+  } = props;
 
-  React.useEffect(() => {
-    if (props.onDebounceOrOnReset) {
-      props.onDebounceOrOnReset(debouncedValue);
+  const [inputValue, setInputValue] = useState<string>(value);
+  const debouncedValue = useDebounce(value, debounceDelay);
+
+  useEffect(() => {
+    if (onDebounceOrOnReset) {
+      onDebounceOrOnReset(debouncedValue);
     }
   }, [debouncedValue]);
 
-  React.useEffect(() => {
-    setValue(props.value);
-  }, [props.value]);
+  useEffect(() => {
+    setInputValue(value);
+  }, [value]);
 
   return (
     <Container
-      style={StyleSheet.flatten(props.style)}
+      style={StyleSheet.flatten(style)}
     >
-      {props.customIcon ? props.customIcon : <View style={{ width: 10 }} />}
+      {customIcon || <View style={{ width: 10 }} />}
       <Input
         testID={'SEARCH_INPUT'}
-        value={value}
+        value={inputValue}
         onChangeText={(text): void => {
-          setValue(text);
+          setInputValue(text);
         }}
-        placeholder={props.placeholderText || 'placehoder...'}
-        placeholderTextColor={'#cdd2d7'}
+        placeholder={placeholder}
+        placeholderTextColor={placeholderTextColor}
+        onFocus={onFocus}
+        onBlur={onBlur}
       />
-      {props.value !== '' && (
+      {value !== '' && (
         <ResetContainer>
           <Reset
-            testID={props.testID}
+            testID={testID}
             onPress={(): void => {
-              if (props.onDebounceOrOnReset) {
-                props.onDebounceOrOnReset('');
+              if (onDebounceOrOnReset) {
+                onDebounceOrOnReset('');
               }
             }}
           >
