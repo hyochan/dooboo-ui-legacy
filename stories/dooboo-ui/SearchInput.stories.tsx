@@ -1,13 +1,16 @@
 import React, { useState } from 'react';
+import { SafeAreaView, ScrollView, Text, View } from 'react-native';
 import { number, text } from '@storybook/addon-knobs';
-
 import { IC_MAGNIFIER } from '../Icon';
 import SearchInput from '../../main/SearchInput';
 import { storiesOf } from '@storybook/react-native';
 import styled from 'styled-components/native';
 
 const Container = styled.SafeAreaView`
-  flex: 1;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
 `;
 
 const Value = styled.Text`
@@ -18,10 +21,10 @@ const Value = styled.Text`
 const MagContainer = styled.View`
   height: 24px;
   width: 24px;
-  margin-left: 8px;
-  margin-right: 2px;
-  margin-top: 9px;
-  margin-bottom: 9px;
+  margin-left: 12px;
+  margin-right: 23px;
+  margin-top: 19px;
+  margin-bottom: 21px;
   justify-content: center;
   align-items: center;
 `;
@@ -35,23 +38,41 @@ const Magnifier = styled.Image`
 const Default = (): React.ReactElement => {
   const [value, setValue] = useState<string>('');
   return (
-    <Container>
-      <SearchInput
-        value={value}
-        onDebounceOrOnReset={(str): void => {
-          setValue(str);
+    <SafeAreaView>
+      <ScrollView
+        contentContainerStyle={{
+          marginTop: 8,
+          alignSelf: 'stretch',
+          paddingHorizontal: 20,
+          paddingVertical: 100,
         }}
-        debounceDelay={number('delay', 400)}
-        placeholder={text('placeholder', 'Search for anything')}
-        placeholderTextColor={'#BDBDBD'}
-        customIcon={
-          <MagContainer>
-            <Magnifier source={IC_MAGNIFIER} />
-          </MagContainer>
-        }
-      />
-      <Value>{`value (after debounced delay) : ${value}`}</Value>
-    </Container>
+      >
+        <Container>
+          <SearchInput
+            value={value}
+            containerStyle={{
+              borderColor: '#E0E0E0',
+            }}
+            inputStyle={{
+              color: 'black',
+            }}
+            focusColor="#109CF1"
+            placeholder={text('placeholder', 'Search for anything')}
+            placeholderTextColor={'#BDBDBD'}
+            customIcon={
+              <MagContainer>
+                <Magnifier source={IC_MAGNIFIER} />
+              </MagContainer>
+            }
+            debounceDelay={number('delay', 400)}
+            onDebounceOrOnReset={(str): void => {
+              setValue(str);
+            }}
+          />
+          <Value>{`value (after debounced delay) : ${value}`}</Value>
+        </Container>
+      </ScrollView>
+    </SafeAreaView>
   );
 };
 
