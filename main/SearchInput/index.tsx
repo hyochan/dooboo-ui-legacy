@@ -140,7 +140,7 @@ const SearchInput: FC<Props> = (props) => {
                 setInputValue('');
               }}
             >
-              {resetIndicator && <ResetText>X</ResetText>}
+              {resetIndicator ?? <ResetText>X</ResetText>}
             </ResetContainer>
           )
       }

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { SafeAreaView, ScrollView, Text, View } from 'react-native';
+import { SafeAreaView, ScrollView } from 'react-native';
 import { number, text } from '@storybook/addon-knobs';
 import { IC_MAGNIFIER } from '../Icon';
 import SearchInput from '../../main/SearchInput';
