@@ -2,7 +2,7 @@
 
 > Simple drop down item component for react-native. This component supports drop down toggle with animation.<br/>
 
-![image](https://user-images.githubusercontent.com/27461460/47951961-a7a7e500-dfab-11e8-9189-86c0eddb6e12.gif)
+![image](https://user-images.githubusercontent.com/58724686/87262058-81ae4400-c4f3-11ea-8c56-216c101ef218.gif)
 
 ## Props
 
@@ -10,13 +10,13 @@
 | -------------------- | --------- | ---------------------- | ----------------------|
 | data                 | ✓         | array                  | `Default Data`        |
 | isAnimated           |           | boolean                | `true`                |
-| collapseOnStart      |           | boolean                | `false`               |
+| collapseOnStart      | ✓         | boolean                | `false`               |
 | animDuration         |           | number                 | `300`                 |
 | activeOpacity        |           | number                 | `1`                   |
 | toggleElement        |           | React.ReactElement     | `default arrow image` |
 | accordionItemStyle   |           | ViewStyle              | ``                    |
 | titleStyle           |           | ViewStyle              | ``                    |
-| titleStyle           |           | ViewStyle              | ``                    |
+| bodyStyle            |           | ViewStyle              | ``                    |
 
 
 ## Installation
@@ -64,17 +64,79 @@ const data = [
         },
       ],
     },
+    {
+      title: {
+        name: <StyledTitle>Defualt-title-03</StyledTitle>,
+      },
+      bodies: [
+        {
+          name: <StyledItem>Default body01</StyledItem>,
+        },
+        {
+          name: <StyledItem>Default body02</StyledItem>,
+        },
+      ],
+    },
   ];
 }
 ```
 
-- Usage
+## Usage
   ```tsx
-  <Accordion
-    data={accordionData}
-    isAnimate={true}
-    collapseOnStart={false}
-    animDuration={300}
-    activeOpacity={1}
-  />
+const Default = (): React.ReactElement => {
+  const data = [
+    {
+      title: {
+        name: <StyledTitle>Defualt-title-01</StyledTitle>,
+      },
+      bodies: [
+        {
+          name: <StyledItem>Default body01</StyledItem>,
+        },
+        {
+          name: <StyledItem>Default body02</StyledItem>,
+        },
+      ],
+    },
+    {
+      title: {
+        name: <StyledTitle>Defualt-title-02</StyledTitle>,
+      },
+      bodies: [
+        {
+          name: <StyledItem>Default body01</StyledItem>,
+        },
+        {
+          name: <StyledItem>Default body02</StyledItem>,
+        },
+      ],
+    },
+    {
+      title: {
+        name: <StyledTitle>Defualt-title-03</StyledTitle>,
+      },
+      bodies: [
+        {
+          name: <StyledItem>Default body01</StyledItem>,
+        },
+        {
+          name: <StyledItem>Default body02</StyledItem>,
+        },
+      ],
+    },
+  ];
+
+  return (
+    <Container>
+      <Accordion
+        data={data}
+        isAnimated={true}
+        collapseOnStart={true}
+        animDuration={400}
+        activeOpacity={1}
+        toggleElement={<Arrow />}
+      />
+    </Container>
+  );
+};
   ```
