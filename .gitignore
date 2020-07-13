@@ -24,3 +24,8 @@ storybook
 
 # Coverage
 coverage
+
+**/.expo
+
+# gh-pages
+doc-build

@@ -1,5 +1,5 @@
-import { Animated, Easing, Platform } from 'react-native';
-import React, { useState } from 'react';
+import { Animated, Easing } from 'react-native';
+import React, { useRef } from 'react';
 
 import styled from 'styled-components/native';
 
@@ -34,7 +34,7 @@ interface RadioButtonProps {
 const DEFAULT_CIRCLE: {
   [key: string]: string;
 } = {
-  OUTER_SIZE: '23',
+  OUTER_SIZE: '24',
   COLOR: 'rgba(0, 0, 0, 0.54)',
   BORDER_RADIUS: '12',
 };
@@ -42,7 +42,7 @@ const DEFAULT_CIRCLE: {
 const COLOR: {
   [key: string]: string;
 } = {
-  LIGHTGRAY: '#c8c8c8',
+  LIGHTGRAY: '#E0E0E0',
   GRAY59: '#969696',
   BLACK: '#000000',
 };
@@ -75,9 +75,9 @@ const getCircleStyles = (size: number, color: string): ICircleProps => {
   return {
     color,
     size,
-    innerSize: size / 2 - size / 8,
+    innerSize: Math.floor(size - size / 3),
     borderRadius: size / 2,
-    borderWidth: size / 6,
+    borderWidth: size / 10,
   };
 };
 
@@ -86,7 +86,7 @@ const InnerCircleAnim = ({
   borderRadius,
   color,
 }: ICircleProps): React.ReactElement => {
-  const [circleAnim] = useState(new Animated.ValueXY());
+  const circleAnim = useRef(new Animated.ValueXY()).current;
 
   React.useEffect(() => {
     Animated.timing(circleAnim, {
@@ -96,7 +96,7 @@ const InnerCircleAnim = ({
       },
       easing: Easing.ease,
       duration: 80,
-      useNativeDriver: Platform.OS === 'android',
+      useNativeDriver: true,
     }).start();
   }, []);
 
@@ -104,8 +104,8 @@ const InnerCircleAnim = ({
     <Animated.View
       style={{
         borderRadius,
-        width: circleAnim.x,
-        height: circleAnim.y,
+        width: innerSize,
+        height: innerSize,
         backgroundColor: color,
       }}
     />
@@ -141,7 +141,7 @@ function RadioButton(props: RadioButtonProps): React.ReactElement {
       isLabelColumn={isLabelColumn}
       onPress={(): void => onPress?.(value)}>
       {isLabelFront && <SCLabelText disabled={disabled}>{label}</SCLabelText>}
-      <SCOuterCircle {...circleStyles}>
+      <SCOuterCircle {...circleStyles} style={ disabled && { backgroundColor: COLOR.LIGHTGRAY }}>
         {isSelected && <InnerCircleAnim {...circleStyles} />}
       </SCOuterCircle>
       {!isLabelFront && <SCLabelText disabled={disabled}>{label}</SCLabelText>}
