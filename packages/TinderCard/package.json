@@ -2,7 +2,7 @@
   "name": "@dooboo-ui/tinder-card",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "license": "MIT",
   "postinstall": "tsc",
   "scripts": {
