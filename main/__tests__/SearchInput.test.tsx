@@ -1,37 +1,84 @@
-import * as React from 'react';
-
+import React, { ReactElement } from 'react';
+import {
+  RenderResult,
+  act,
+  cleanup,
+  fireEvent,
+  render,
+} from '@testing-library/react-native';
 import SearchInput from '../SearchInput';
-import { render } from '@testing-library/react-native';
-import renderer from 'react-test-renderer';
 
-const createTestProps = ({ value = '' }: { value: string }): Record<string, unknown> => ({
-  testID: 'RESET_BUTTON',
-  onDebounceOrOnReset: jest.fn(),
-  value: value,
+let props: any;
+let component: ReactElement;
+let testingLib: RenderResult;
+
+const createTestProps = (
+  obj?: Record<string, unknown>,
+): Record<string, unknown> => ({
+  ...obj,
 });
 
-const component = (props): React.ReactElement => <SearchInput {...props} />;
+describe('[SearchInput] render test', () => {
+  const inputValue = '';
+  it('should render without crashing', () => {
+    props = createTestProps();
+    component = <SearchInput {...props} value={inputValue}/>;
+    testingLib = render(component);
 
-describe('[SearchInput] render', () => {
-  it('component and snapshot matches', () => {
-    const rendered: renderer.ReactTestRendererJSON = renderer
-      .create(component(createTestProps({ value: '' })))
-      .toJSON();
-    expect(rendered).toMatchSnapshot();
-    expect(rendered).toBeTruthy();
+    expect(testingLib.baseElement).toMatchSnapshot();
+    expect(testingLib.baseElement).toBeTruthy();
   });
 });
 
-describe('[SearchInput] interaction', () => {
-  it('should show reset button when input `value` exists', () => {
-    const rendered = render(
-      component(createTestProps({ value: 'initial value' })),
-    );
-    expect(rendered.getByTestId('RESET_BUTTON')).toBeTruthy();
+describe('[SearchInput] event test', () => {
+  beforeAll(() => {
+    const inputValue = '';
+    props = createTestProps();
+    testingLib = render(<SearchInput {...props} value={inputValue} />);
   });
 
-  it('should not show reset button when empty input value', () => {
-    const rendered = render(component(createTestProps({ value: '' })));
-    expect(rendered.queryByTestId('RESET_BUTTON')).toBeNull();
+  it('should change borderColor when focused', () => {
+    const input = testingLib.getByTestId('SEARCH_INPUT');
+    const container = testingLib.getByTestId('SEARCH_CONTAINER');
+
+    act(() => {
+      fireEvent.focus(input);
+    });
+    expect(container.props.style[2].borderColor).toEqual('#109CF1');
+  });
+
+  it('should change borderColor when Blured', () => {
+    const input = testingLib.getByTestId('SEARCH_INPUT');
+    const container = testingLib.getByTestId('SEARCH_CONTAINER');
+
+    act(() => {
+      fireEvent.blur(input);
+    });
+    expect(container.props.style[0].borderColor).toEqual('#E0E0E0');
+  });
+
+  afterAll((done) => {
+    cleanup();
+    done();
+  });
+});
+
+describe('[SearchInput] ResetIndicator test', () => {
+  beforeAll(() => {
+    const inputValue = 'some value';
+    props = createTestProps();
+    testingLib = render(<SearchInput {...props} value={inputValue} />);
+  });
+
+  it('should set inputValue to empty whened clicked', () => {
+    const resetIndicator = testingLib.getByTestId('RESET_INDICATOR');
+
+    act(() => {
+      fireEvent.keyPress(resetIndicator);
+    });
+  });
+  afterAll((done) => {
+    cleanup();
+    done();
   });
 });
