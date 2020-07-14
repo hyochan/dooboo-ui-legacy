@@ -2,7 +2,7 @@
   "name": "@dooboo-ui/theme",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "license": "MIT",
   "scripts": {
     "build": "rm -rf ./lib && tsc"
@@ -20,8 +20,8 @@
     "dooboolab-welcome": "^1.2.0"
   },
   "devDependencies": {
-    "typescript": "^3.9.5",
-    "styled-components": "^5.1.1"
+    "styled-components": "^5.1.1",
+    "typescript": "^3.9.5"
   },
   "peerDependencies": {
     "react": ">=16.9",

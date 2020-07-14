@@ -37,7 +37,9 @@ describe('[Button]', () => {
   });
 
   it('should render left and right elements', () => {
-    rendered = renderer.create(component({ leftElement: <Text/>, rightElement: <Text/> }));
+    rendered = renderer.create(
+      component({ leftElement: <Text />, rightElement: <Text /> }),
+    );
     root = rendered.root;
 
     const texts = root.findAllByType(Text);

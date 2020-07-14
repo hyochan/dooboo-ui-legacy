@@ -16,7 +16,6 @@ const Container = styled.View`
   width: 100%;
   margin-top: 28px;
   padding-top: 80px;
-
   flex-direction: column;
 `;
 
@@ -30,13 +29,60 @@ function Default(): React.ReactElement {
         isLoading={false}
         text="😀 😎 👍 💯"
         onPress={action('Clicked')}
+        style={{
+          marginVertical: 40,
+        }}
+      />
+      <Button
+        style={{
+          backgroundColor: '#109CF1',
+        }}
+        hoverStyle={{
+          backgroundColor: '#34AFF9',
+        }}
+        accentStyle={{
+          shadowColor: 'black',
+          shadowOffset: {
+            width: 0,
+            height: 4,
+          },
+          shadowOpacity: 0.24,
+          shadowRadius: 16.0,
+          elevation: 10,
+          borderRadius: 4,
+        }}
+        textStyle={{ color: '#FFFFFF' }}
+        onPress={action('Clicked')}
+        text={'Accent button '}
+      />
+
+      <Button
+        hoverTextStyle={{
+          color: '#34AFF9',
+        }}
+        secondaryStyle={{
+          borderColor: '#109CF1',
+          borderWidth: 2,
+          shadowColor: 'black',
+          shadowOffset: {
+            width: 0,
+            height: 4,
+          },
+          shadowOpacity: 0.24,
+          shadowRadius: 16.0,
+          elevation: 10,
+          borderRadius: 4,
+        }}
+        style={{
+          marginVertical: 40,
+        }}
+        textStyle={{ color: '#109CF1' }}
+        onPress={action('Clicked')}
+        text={'Secondary'}
       />
       <Button
         style={{
           marginVertical: 40,
-        }}
-        containerStyle={{
-          marginTop: 32,
         }}
         isDisabled={true}
         text={text('button text', 'this is disabled')}

@@ -1,64 +1,65 @@
-import * as React from 'react';
-
-import { StyleProp, StyleSheet, View, ViewStyle } from 'react-native';
+import { Platform, StyleProp, TextInputProps, TextStyle, ViewStyle } from 'react-native';
+import React, { FC, useEffect, useState } from 'react';
 
 import styled from 'styled-components/native';
 
 const Container = styled.View`
-  background-color: #f3f5f7;
-  height: 42px;
+  height: 56px;
+  width: 335px;
   margin-left: 20px;
   margin-right: 20px;
   border-radius: 8px;
-
+  border-width: 1px;
+  border-color: #E0E0E0;
   flex-direction: row;
+  align-items: center;
 `;
 
 const Input = styled.TextInput`
   flex-grow: 1;
   align-self: center;
   font-size: 16px;
+  ${Platform.OS === 'web' && { 'outline-style': 'none' }}
 `;
 
-const ResetContainer = styled.View`
-  height: 24px;
-  width: 24px;
-  margin-left: 2px;
-  margin-right: 11px;
-  margin-top: 9px;
-  margin-bottom: 9px;
-  justify-content: center;
-  align-items: center;
-`;
-
-const Reset = styled.TouchableOpacity`
-  background-color: #c6ccd1;
+const ResetContainer = styled.TouchableOpacity`
   border-radius: 20px;
-  width: 20px;
-  height: 20px;
+  background-color: #BDBDBD;
+  width: 24px;
+  height: 24px;
+  margin-top: 18px;
+  margin-bottom: 18px;
+  margin-right: 11px;
   justify-content: center;
   align-items: center;
 `;
 
 const ResetText = styled.Text`
   color: white;
+  font-weight: 800; 
 `;
 
-export interface SearchInputProps {
-  testID?: string;
+interface Props {
   value: string;
-  onDebounceOrOnReset?: (value: string) => void;
-  style?: StyleProp<ViewStyle>;
+  containerStyle?: StyleProp<ViewStyle>;
+  inputStyle?: TextStyle;
+  focusColor?: string;
   debounceDelay?: number;
-  customIcon?: React.ReactNode;
-  placeholderText?: string;
+  customIcon?: React.ReactElement;
+  placeholder?: TextInputProps['placeholder'];
+  placeholderTextColor?: TextInputProps['placeholderTextColor'];
+  resetIndicator?: React.ReactElement;
+  resetIndicatorStyle?: ViewStyle;
+  onFocus?: () => void
+  onBlur?: () => void
+  onDebounceOrOnReset?: (value: string) => void;
 }
 
 // reference : https://dev.to/gabe_ragland/debouncing-with-react-hooks-jci
-function useDebounce(value: string, delay = 400): string {
-  const [debouncedValue, setDebouncedValue] = React.useState<string>(value);
+function useDebounce(value: string, delay: number): string {
+  const [debouncedValue, setDebouncedValue] = useState<string>(value);
 
-  React.useEffect(() => {
+  useEffect(() => {
     const handler = setTimeout(() => {
       setDebouncedValue(value);
     }, delay);
@@ -70,48 +71,79 @@ function useDebounce(value: string, delay = 400): string {
   return debouncedValue;
 }
 
-const SearchInput: React.FC<SearchInputProps> = (props) => {
-  const [value, setValue] = React.useState<string>(props.value);
-  const debouncedValue = useDebounce(value, props.debounceDelay);
+const SearchInput: FC<Props> = (props) => {
+  const {
+    value,
+    containerStyle,
+    inputStyle,
+    focusColor = '#109CF1',
+    debounceDelay = 400,
+    customIcon,
+    placeholder = 'Search for anything',
+    placeholderTextColor = '#BDBDBD',
+    resetIndicator,
+    resetIndicatorStyle,
+    onFocus,
+    onBlur,
+    onDebounceOrOnReset,
+  } = props;
 
-  React.useEffect(() => {
-    if (props.onDebounceOrOnReset) {
-      props.onDebounceOrOnReset(debouncedValue);
+  const [focused, setFocus] = useState<boolean>(false);
+  const [inputValue, setInputValue] = useState<string>(value);
+  const debouncedValue = useDebounce(inputValue, debounceDelay);
+
+  useEffect(() => {
+    if (onDebounceOrOnReset) {
+      onDebounceOrOnReset(debouncedValue);
     }
   }, [debouncedValue]);
 
-  React.useEffect(() => {
-    setValue(props.value);
-  }, [props.value]);
+  useEffect(() => {
+    setInputValue(value);
+  }, [value]);
 
   return (
     <Container
-      style={StyleSheet.flatten(props.style)}
+      testID={'SEARCH_CONTAINER'}
+      style={[
+        containerStyle,
+        focused && { borderColor: focusColor },
+      ]}
     >
-      {props.customIcon ? props.customIcon : <View style={{ width: 10 }} />}
+      {customIcon || null}
       <Input
         testID={'SEARCH_INPUT'}
-        value={value}
+        value={inputValue}
+        style={inputStyle}
         onChangeText={(text): void => {
-          setValue(text);
+          setInputValue(text);
         }}
-        placeholder={props.placeholderText || 'placehoder...'}
-        placeholderTextColor={'#cdd2d7'}
+        placeholder={placeholder}
+        placeholderTextColor={placeholderTextColor}
+        onFocus={(): void => {
+          setFocus(true);
+          onFocus && onFocus();
+        }}
+        onBlur={(): void => {
+          setFocus(false);
+          onBlur && onBlur();
+        }}
       />
-      {props.value !== '' && (
-        <ResetContainer>
-          <Reset
-            testID={props.testID}
-            onPress={(): void => {
-              if (props.onDebounceOrOnReset) {
-                props.onDebounceOrOnReset('');
-              }
-            }}
-          >
-            <ResetText>X</ResetText>
-          </Reset>
-        </ResetContainer>
-      )}
+      {
+        value !== '' &&
+          (
+            <ResetContainer
+              testID={'RESET_INDICATOR'}
+              style={resetIndicatorStyle}
+              activeOpacity={1}
+              onPress={(): void => {
+                setInputValue('');
+              }}
+            >
+              {resetIndicator ?? <ResetText>X</ResetText>}
+            </ResetContainer>
+          )
+      }
     </Container>
   );
 };

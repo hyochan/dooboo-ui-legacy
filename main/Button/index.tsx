@@ -5,9 +5,10 @@ import {
   TouchableOpacityProps,
   ViewStyle,
 } from 'react-native';
+import React, { useRef } from 'react';
 
-import React from 'react';
 import styled from 'styled-components/native';
+import { useHover } from './hooks';
 
 const StyledButton = styled.View`
   align-self: center;
@@ -49,6 +50,13 @@ interface Props {
   activeOpacity?: number;
   text?: string;
   touchableOpacityProps?: TouchableOpacityProps;
+  /** hover */
+  /** Accent */
+  hoverStyle?: ViewStyle;
+  accentStyle?: ViewStyle;
+  /** Secondary */
+  hoverTextStyle?: TextStyle;
+  secondaryStyle?: ViewStyle;
 }
 
 function Button(props: Props): React.ReactElement {
@@ -68,7 +76,14 @@ function Button(props: Props): React.ReactElement {
     activeOpacity,
     onPress,
     touchableOpacityProps,
+    hoverStyle,
+    accentStyle,
+    secondaryStyle,
+    hoverTextStyle,
   } = props;
+
+  const ref = useRef(null);
+  const isHovered = useHover(ref);
 
   if (isDisabled) {
     return (
@@ -94,9 +109,20 @@ function Button(props: Props): React.ReactElement {
       style={containerStyle}
       delayPressIn={30}
       {...touchableOpacityProps}>
-      <StyledButton style={style}>
+      <StyledButton
+        ref={ref}
+        testID={testID}
+        style={[
+          containerStyle,
+          accentStyle,
+          secondaryStyle,
+          isHovered && hoverStyle ? hoverStyle : style,
+        ]}>
         {leftElement || null}
-        <StyledText style={textStyle}>{text}</StyledText>
+        <StyledText
+          style={[isHovered && hoverTextStyle ? hoverTextStyle : textStyle]}>
+          {text}
+        </StyledText>
         {rightElement || null}
       </StyledButton>
     </TouchableOpacity>

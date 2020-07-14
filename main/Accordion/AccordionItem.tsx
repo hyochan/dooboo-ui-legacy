@@ -5,6 +5,7 @@ import {
   ViewStyle,
 } from 'react-native';
 import React, { FC, useEffect, useRef, useState } from 'react';
+
 import styled from 'styled-components/native';
 
 const Container = styled.View`
@@ -81,7 +82,7 @@ const AccordionItem: FC<Props> = (props) => {
   const rotateAnimValue = useRef(new Animated.Value(0)).current;
 
   const [opened, setItemVisible] = useState<boolean>(collapseOnStart);
-  const [rotateState, setRotateState] = useState<boolean>(false);
+  const [rotateState, setRotateState] = useState<boolean>(true);
   const [bodyMounted, setBodyMounted] = useState<boolean>(false);
 
   const [bodyHeight, setBodyHeight] = useState<number>(1);

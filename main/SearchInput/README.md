@@ -1,6 +1,9 @@
 # Search Input
 
-> Simple search input for react-native.
+> [SearchInput] component is for searchbar made with [TextInput].
+
+## Preview
+![SearchInput](https://user-images.githubusercontent.com/58724686/87272975-ceedde00-c512-11ea-82d0-80f3d90e1adf.gif)
 
 ## Installation
 
@@ -8,58 +11,91 @@
 yarn add @dooboo-ui/core
 ```
 
-## Usage
-
-![](https://i.imgur.com/t84mZ1e.gif)
-
-- debounced input
-- reset button
-- customizable icon
-
-# Props
-
-```ts
-export interface SearchInputProps {
-  value: string;
-  onDebounceOrOnReset?: (value: string) => void;
-  style?: StyleProp<ViewStyle>;
-  debounceDelay?: number;
-  customIcon?: React.ReactNode;
-  placeholderText?: string;
-}
-```
-
-|                   | necessary | types                  | default                  | info            |
-| ----------------- | :-------: | ---------------------- | ------------------------ | --------------- |
-| value             |     ✓     | string                 | undefined                |                 |
-| onDebounceOrReset |     ✓     | (string) => void       | undefined                |                 |
-| style             |           | `StyleProp<ViewStyle>` | undefined                | container style |
-| debounceDelay     |           | number                 | 400                      |                 |
-| customIcon        |           | React.ReactNode        | magnifier icon component |                 |
-| placeholderText   |           | string                 | 검색어를 입력해주세요.   |                 |
-
-# Getting started
+## Getting started
 
 - Import
 
-  ```tsx
-  import { SearchInput } from '@dooboo-ui/core';
-  ```
+  ```javascript
+  import { EditText } from '@dooboo-ui/core';
 
-- Usage
+- Props
+```tsx
+interface Props {
+  testID?: string;
+  value: string;
+  containerStyle?: StyleProp<ViewStyle>;
+  inputStyle?: TextStyle;
+  focusColor?: string;
+  debounceDelay?: number;
+  customIcon?: React.ReactElement;
+  placeholder?: TextInputProps['placeholder'];
+  placeholderTextColor?: TextInputProps['placeholderTextColor'];
+  resetIndicator?: React.ReactElement;
+  resetIndicatorStyle?: ViewStyle;
+  onFocus?: () => void
+  onBlur?: () => void
+  onDebounceOrOnReset?: (value: string) => void;
+}
+```
+
+|                      | necessary | types                                  | default              |
+| -------------------- | --------- | -------------------------------------- | -------------------- |
+| testID               |           | string                                 |                      |
+| value                | ✓         | string                                 |                      |
+| containerStyle       |           | `StyleProp<ViewStyle>`                 |                      |
+| inputStyle           |           | `TextStyle`                            |                      |
+| focusColor           |           | string                                 |                      |
+| debounceDelay        |           | number                                 |                      |
+| customIcon           |           | `ReactElement`                         |                      |
+| placeholder          |           | TextInputProps['placeholder']          |                      |
+| placeholderTextColor |           | TextInputProps['placeholderTextColor'] |                      |
+| resetIndicator       |           | `ReactElement`                         |                      |
+| resetIndicatorStyle  |           | `ViewStyle`                            |                      |
+| onFocus              |           | () => {}                               |                      |
+| onBlur               |           | () => {}                               |                      |
+| onDebounceOrOnReset  |           | (value) => void                        |                      |
+
+## Usage
+
   ```tsx
-  const SearchInputWithState = () => {
-    const [value, setValue] = useState('');
-    return (
-      <>
-        <SearchInput
-          value={value}
-          onDebounceOrOnReset={setValue}
-          debounceDelay={number('delay', 400)}
-          placeholderText={text('placeholder', '')}
-        />
-        <Value>{`value (after debounced delay) : ${value}`}</Value>
-      </>
-    );
-  };
+const Default = (): React.ReactElement => {
+  const [value, setValue] = useState<string>('');
+  return (
+    <SafeAreaView>
+      <ScrollView
+        contentContainerStyle={{
+          marginTop: 8,
+          alignSelf: 'stretch',
+          paddingHorizontal: 20,
+          paddingVertical: 100,
+        }}
+      >
+        <Container>
+          <SearchInput
+            value={value}
+            containerStyle={{
+              borderColor: '#E0E0E0',
+            }}
+            inputStyle={{
+              color: 'black',
+            }}
+            focusColor="#109CF1"
+            placeholder={text('placeholder', 'Search for anything')}
+            placeholderTextColor={'#BDBDBD'}
+            customIcon={
+              <MagContainer>
+                <Magnifier source={IC_MAGNIFIER} />
+              </MagContainer>
+            }
+            debounceDelay={number('delay', 400)}
+            onDebounceOrOnReset={(str): void => {
+              setValue(str);
+            }}
+          />
+          <Value>{`value (after debounced delay) : ${value}`}</Value>
+        </Container>
+      </ScrollView>
+    </SafeAreaView>
+  );
+};
   ```
