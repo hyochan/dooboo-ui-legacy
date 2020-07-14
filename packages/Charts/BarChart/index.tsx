@@ -147,42 +147,51 @@ const BarChart: FC<BarChartProps> = (props) => {
               />
             )}
             {yStyle.withLabel &&
-                yAxisRange.map((unit, index) => {
-                  return (
-                    <G key={index}>
-                      {yStyle.withIndicator && (
-                        <Line
-                          x1={xAxis(0) - indicatorSize}
-                          y1={yAxis(unit)}
-                          x2={xAxis(0)}
-                          y2={yAxis(unit)}
-                          stroke={yStyle.lineColor}
-                          strokeWidth={yStyle.lineStrokeWidth}
-                        />
-                      )}
-                      {yStyle.withText && (
-                        <Text
-                          scale={[1, -1]}
-                          fill={yStyle.textColor}
-                          stroke={yStyle.textStrokeColor}
-                          fontSize={yStyle.fontSize}
-                          fontWeight={yStyle.fontWeight}
-                          x={xAxis(0) - indicatorSize - textGap}
-                          y={-yAxis(unit) + 4}
-                          textAnchor="end">
-                          {unit}
-                        </Text>
-                      )}
-                    </G>
-                  );
-                })}
+              yAxisRange.map((unit, index) => {
+                return (
+                  <G key={index}>
+                    <Line
+                      x1={xAxis(0)}
+                      y1={yAxis(unit)}
+                      x2={xAxis(data.length - 1) + Number(graphStyle.barWidth)}
+                      y2={yAxis(unit)}
+                      stroke={'rgba(0,0,0, 0.2)'}
+                      strokeDasharray={'2'}
+                      strokeWidth={yStyle.lineStrokeWidth}
+                    />
+                    {yStyle.withIndicator && (
+                      <Line
+                        x1={xAxis(0) - indicatorSize}
+                        y1={yAxis(unit)}
+                        x2={xAxis(0)}
+                        y2={yAxis(unit)}
+                        stroke={yStyle.lineColor}
+                        strokeWidth={yStyle.lineStrokeWidth}
+                      />
+                    )}
+                    {yStyle.withText && (
+                      <Text
+                        scale={[1, -1]}
+                        fill={yStyle.textColor}
+                        stroke={yStyle.textStrokeColor}
+                        fontSize={yStyle.fontSize}
+                        fontWeight={yStyle.fontWeight}
+                        x={xAxis(0) - indicatorSize - textGap}
+                        y={-yAxis(unit) + 4}
+                        textAnchor="end">
+                        {unit}
+                      </Text>
+                    )}
+                  </G>
+                );
+              })}
             {/* Graph X-axis labels view */}
             {xStyle.withLabel && xStyle.withLine && (
               <Line
                 x1={xAxis(0)}
                 x2={
-                  xAxis(data.length - 1) + (typeof graphStyle.barWidth ===
-                    'string'
+                  xAxis(data.length - 1) +
+                  (typeof graphStyle.barWidth === 'string'
                     ? Number(graphStyle.barWidth)
                     : graphStyle.barWidth)
                 }
@@ -193,53 +202,53 @@ const BarChart: FC<BarChartProps> = (props) => {
               />
             )}
             {xStyle.withLabel &&
-                data.map((item, index) => {
-                  return (
-                    <G key={index}>
-                      {xStyle.withIndicator && (
-                        <Line
-                          x1={
-                            xAxis(index) +
-                            (typeof graphStyle.barWidth === 'string'
-                              ? Number(graphStyle.barWidth)
-                              : graphStyle.barWidth) /
-                              2
-                          }
-                          y1={yAxis(0)}
-                          x2={
-                            xAxis(index) +
-                            (typeof graphStyle.barWidth === 'string'
-                              ? Number(graphStyle.barWidth)
-                              : graphStyle.barWidth) /
-                              2
-                          }
-                          y2={yAxis(0) - indicatorSize}
-                          stroke={xStyle.lineColor}
-                          strokeWidth={xStyle.lineStrokeWidth}
-                        />
-                      )}
-                      {xStyle.withText && (
-                        <Text
-                          scale={[1, -1]}
-                          fill={xStyle.textColor}
-                          stroke={xStyle.textStrokeColor}
-                          fontSize={xStyle.fontSize}
-                          fontWeight={xStyle.fontWeight}
-                          x={
-                            xAxis(index) +
-                            (typeof graphStyle.barWidth === 'string'
-                              ? Number(graphStyle.barWidth)
-                              : graphStyle.barWidth) /
-                              2
-                          }
-                          y={-yAxis(0) + 5 + indicatorSize + textGap}
-                          textAnchor={'middle'}>
-                          {item[xAxisKey]}
-                        </Text>
-                      )}
-                    </G>
-                  );
-                })}
+              data.map((item, index) => {
+                return (
+                  <G key={index}>
+                    {xStyle.withIndicator && (
+                      <Line
+                        x1={
+                          xAxis(index) +
+                          (typeof graphStyle.barWidth === 'string'
+                            ? Number(graphStyle.barWidth)
+                            : graphStyle.barWidth) /
+                            2
+                        }
+                        y1={yAxis(0)}
+                        x2={
+                          xAxis(index) +
+                          (typeof graphStyle.barWidth === 'string'
+                            ? Number(graphStyle.barWidth)
+                            : graphStyle.barWidth) /
+                            2
+                        }
+                        y2={yAxis(0) - indicatorSize}
+                        stroke={xStyle.lineColor}
+                        strokeWidth={xStyle.lineStrokeWidth}
+                      />
+                    )}
+                    {xStyle.withText && (
+                      <Text
+                        scale={[1, -1]}
+                        fill={xStyle.textColor}
+                        stroke={xStyle.textStrokeColor}
+                        fontSize={xStyle.fontSize}
+                        fontWeight={xStyle.fontWeight}
+                        x={
+                          xAxis(index) +
+                          (typeof graphStyle.barWidth === 'string'
+                            ? Number(graphStyle.barWidth)
+                            : graphStyle.barWidth) /
+                            2
+                        }
+                        y={-yAxis(0) + 5 + indicatorSize + textGap}
+                        textAnchor={'middle'}>
+                        {item[xAxisKey]}
+                      </Text>
+                    )}
+                  </G>
+                );
+              })}
             {/* Graph: Text, Dots & Line */}
             {data.map((item, index) => {
               return (
@@ -267,10 +276,10 @@ const BarChart: FC<BarChartProps> = (props) => {
                     fontWeight={graphStyle.fontWeight}
                     x={
                       xAxis(index) +
-                        (typeof graphStyle.barWidth === 'string'
-                          ? Number(graphStyle.barWidth)
-                          : graphStyle.barWidth) /
-                          2
+                      (typeof graphStyle.barWidth === 'string'
+                        ? Number(graphStyle.barWidth)
+                        : graphStyle.barWidth) /
+                        2
                     }
                     y={-yAxis(item[yAxisKey]) - textGap}
                     textAnchor="middle">

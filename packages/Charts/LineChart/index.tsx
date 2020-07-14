@@ -152,6 +152,17 @@ const LineChart: FC<LineChartProps> = (props) => {
                 yAxisRange.map((unit, index) => {
                   return (
                     <G key={index}>
+                      <Line
+                        x1={xAxis(0)}
+                        y1={yAxis(unit)}
+                        x2={
+                          xAxis(data.length - 1)
+                        }
+                        y2={yAxis(unit)}
+                        stroke={'rgba(0,0,0, 0.2)'}
+                        strokeDasharray={'2'}
+                        strokeWidth={yStyle.lineStrokeWidth}
+                      />
                       {yStyle.withIndicator && (
                         <Line
                           x1={xAxis(0) - indicatorSize}
