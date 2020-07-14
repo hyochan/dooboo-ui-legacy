@@ -1,72 +1,84 @@
-import React, { ReactElement } from 'react';
 import {
+  FlatList,
   SafeAreaView,
-  ScrollView,
   StyleSheet,
   Text,
+  TextStyle,
   TouchableOpacity,
   View,
+  ViewStyle,
 } from 'react-native';
+import React, { ReactElement } from 'react';
 
-const styles = StyleSheet.create({
+interface Style {
+  container: ViewStyle,
+  calendarSize: ViewStyle,
+  title: TextStyle,
+  titleFlex: ViewStyle,
+  headerFlex: ViewStyle,
+  year: TextStyle,
+  week: ViewStyle,
+  weekday: ViewStyle,
+  beforeArrow: ViewStyle,
+  nextArrow: ViewStyle,
+}
+
+const styles = StyleSheet.create<Style>({
   container: {
     flex: 1,
-    paddingTop: '40px',
+    paddingTop: 40,
   },
   calendarSize: {
-    width: '330px',
-    height: '388px',
+    width: 330,
+    height: 388,
   },
   title: {
     fontFamily: 'Avenir',
     fontSize: 20,
     textAlign: 'center',
     justifyContent: 'center',
-    left: '150px',
-    width: '300px',
+    left: 150,
+    width: 300,
   },
   titleFlex: {
     display: 'flex',
     flexDirection: 'column',
   },
   headerFlex: {
-    display: 'flex',
     flexDirection: 'row',
     justifyContent: 'center',
-    paddingBottom: '30px',
+    paddingBottom: 30,
   },
   year: {
     fontSize: 12,
   },
   week: {
-    display: 'flex',
     justifyContent: 'space-between',
-    fontFamily: 'Avenir',
-    fontWeight: 1000,
-    fontSize: 14,
-    textAlign: 'center',
+    // fontFamily: 'Avenir',
+    // fontWeight: '900',
+    // fontSize: 14,
+    // textAlign: 'center',
   },
   weekday: {
-    display: 'flex',
     flexDirection: 'row',
-    color: '#4F4F4F',
-    fontWeight: 1000,
+    // color: '#4F4F4F',
+    // fontWeight: '900',
   },
   beforeArrow: {
-    marginLeft: '10px',
-    paddingLeft: '20px',
-    paddingBottom: '24px',
-    paddingTop: '3px',
-    width: '28px',
-    height: '28px',
-    fontSize: 40,
-    color: 'royalblue',
+    marginLeft: 10,
+    paddingLeft: 20,
+    paddingBottom: 24,
+    paddingTop: 3,
+    width: 28,
+    height: 28,
+    // fontSize: 40,
+    // color: 'royalblue',
   },
   nextArrow: {
-    marginRight: '10px',
-    width: '28px',
-    paddingBottom: '20px',
-    height: '28px',
+    marginRight: 10,
+    width: 28,
+    paddingBottom: 20,
+    height: 28,
     fontSize: 40,
     color: 'royalblue',
   },
@@ -117,24 +129,24 @@ function CalendarCarousel<T>(props: Props<T>): React.ReactElement {
   for (let d = 0; d < 7; d++) {
     week.push(data.week[d]);
   }
-  const weekdays = week.map((d) => {
-    return (
-      <View
-        key={d}
-        style={{
-          width: '97px',
-          paddingBottom: '10px',
-        }}>
-        <Text
-          style={{
-            textAlign: 'center',
-            fontSize: 20,
-          }}>
-          {d}
-        </Text>
-      </View>
-    );
-  });
+  // const weekdays = week.map((d) => {
+  //   return (
+  //     <View
+  //       key={d}
+  //       style={{
+  //         width: '97px',
+  //         paddingBottom: '10px',
+  //       }}>
+  //       <Text
+  //         style={{
+  //           textAlign: 'center',
+  //           fontSize: 20,
+  //         }}>
+  //         {d}
+  //       </Text>
+  //     </View>
+  //   );
+  // });
 
   // get month to print title
   const currentMonth = data.month[month];
@@ -169,9 +181,9 @@ function CalendarCarousel<T>(props: Props<T>): React.ReactElement {
     frontBlanks.push(
       <View
         style={{
-          width: '47px',
-          height: '47px',
-          paddingTop: '13.5px',
+          width: 47,
+          height: 47,
+          paddingTop: 13.5,
           alignItems: 'center',
         }}>
         <Text
@@ -180,7 +192,7 @@ function CalendarCarousel<T>(props: Props<T>): React.ReactElement {
             fontFamily: 'Avenir',
             color: 'lightgray',
           }}>
-          {i}
+          {`${i}`}
         </Text>
       </View>,
     );
@@ -205,10 +217,10 @@ function CalendarCarousel<T>(props: Props<T>): React.ReactElement {
           style={{
             borderRadius: 50,
             backgroundColor: '#109CF1',
-            width: '47px',
-            height: '47px',
+            width: 47,
+            height: 47,
             alignItems: 'center',
-            paddingTop: '13.5px',
+            paddingTop: 13.5,
           }}>
           <Text
             style={{
@@ -216,7 +228,7 @@ function CalendarCarousel<T>(props: Props<T>): React.ReactElement {
               color: 'white',
               textAlign: 'center',
             }}>
-            {d}
+            {`${d}`}
           </Text>
         </View>,
       );
@@ -228,9 +240,9 @@ function CalendarCarousel<T>(props: Props<T>): React.ReactElement {
               borderRadius: 50,
               backgroundColor: '#F0F8FD',
               alignItems: 'center',
-              paddingTop: '13.5px',
-              width: '47px',
-              height: '47px',
+              paddingTop: 13.5,
+              width: 47,
+              height: 47,
             }}>
             <Text
               style={{
@@ -238,7 +250,7 @@ function CalendarCarousel<T>(props: Props<T>): React.ReactElement {
                 textAlign: 'center',
                 fontFamily: 'Avenir',
               }}>
-              {d}
+              {`${d}`}
             </Text>
           </View>
         </TouchableOpacity>,
@@ -248,9 +260,9 @@ function CalendarCarousel<T>(props: Props<T>): React.ReactElement {
         <TouchableOpacity onPress={selectDate}>
           <View
             style={{
-              width: '47px',
-              height: '47px',
-              paddingTop: '13.5px',
+              width: 47,
+              height: 47,
+              paddingTop: 13.5,
               alignItems: 'center',
             }}>
             <Text
@@ -258,7 +270,7 @@ function CalendarCarousel<T>(props: Props<T>): React.ReactElement {
                 textAlign: 'center',
                 fontFamily: 'Avenir',
               }}>
-              {d}
+              {`${d}`}
             </Text>
           </View>
         </TouchableOpacity>,
@@ -275,9 +287,9 @@ function CalendarCarousel<T>(props: Props<T>): React.ReactElement {
     endBlanks.push(
       <View
         style={{
-          width: '47px',
-          height: '47px',
-          paddingTop: '13.5px',
+          width: 47,
+          height: 47,
+          paddingTop: 13.5,
           alignItems: 'center',
         }}>
         <Text
@@ -286,7 +298,7 @@ function CalendarCarousel<T>(props: Props<T>): React.ReactElement {
             color: 'lightgray',
             textAlign: 'center',
           }}>
-          {e}
+          {`${e}`}
         </Text>
       </View>,
     );
@@ -294,62 +306,67 @@ function CalendarCarousel<T>(props: Props<T>): React.ReactElement {
 
   // 7개씩 끊어서 달프린트해주기
   const totalSlots = [...frontBlanks, ...daysInMonth, ...endBlanks];
-  const rows = [];
-  let cells = [];
+  // const rows = [];
+  const cells = [];
 
-  totalSlots.forEach((row, i) => {
-    if (i % 7 !== 0) {
-      cells.push(row);
-    } else {
-      const insertRow = cells.slice();
-      rows.push(insertRow);
-      cells = [];
-      cells.push(row);
-    }
-    if (i === totalSlots.length - 1) {
-      const insertRow = cells.slice();
-      rows.push(insertRow);
-    }
-  });
+  // totalSlots.forEach((row, i) => {
+  //   if (i % 7 !== 0) {
+  //     cells.push(row);
+  //   } else {
+  //     const insertRow = cells.slice();
+  //     rows.push(insertRow);
+  //     cells = [];
+  //     cells.push(row);
+  //   }
+  //   if (i === totalSlots.length - 1) {
+  //     const insertRow = cells.slice();
+  //     rows.push(insertRow);
+  //   }
+  // });
 
-  const days = rows.map((d, i) => {
-    return (
-      <View key={d} style={{ display: 'flex', flexDirection: 'row' }}>
-        {' '}
-        {d}{' '}
-      </View>
-    );
-  });
+  // const renderDays = rows.map((d, i) => {
+  //   return (
+  //     <View key={d} style={{ display: 'flex', flexDirection: 'row', backgroundColor: 'blue' }}>
+  //       <Text style={{
+  //         color: 'white',
+  //       }}>{`${d}`}</Text>
+  //     </View>
+  //   );
+  // });
+
+  console.log('totalSlots', totalSlots);
 
   return (
-    <>
-      <SafeAreaView style={styles.container}>
-        <ScrollView style={styles.calendarSize}>
-          <View style={styles.headerFlex}>
-            <TouchableOpacity onPress={swipeLeft}>
-              <View style={styles.beforeArrow}> &#8249;</View>
-            </TouchableOpacity>
-            <Text style={styles.title}>
-              <View style={styles.titleFlex}>
-                <View>
-                  <Text>{currentMonth}</Text>
-                </View>
-                <Text style={styles.year}>{year}</Text>
-              </View>
-            </Text>
-            <View>
-              <TouchableOpacity onPress={swipeRight}>
-                <View style={styles.nextArrow}> &#8250;</View>
-              </TouchableOpacity>
-            </View>
-          </View>
-          <View style={styles.week}>
-            <View style={styles.weekday}></View>
-          </View>
-          {days}
-        </ScrollView>
-      </SafeAreaView>
-    </>
+    <SafeAreaView style={styles.container}>
+      <View style={styles.headerFlex}>
+        <TouchableOpacity onPress={swipeLeft}>
+          <View style={styles.beforeArrow}><Text>안뇽</Text></View>
+        </TouchableOpacity>
+        <Text style={styles.title}>
+          {/* <View style={styles.titleFlex}> */}
+          <Text>{currentMonth}</Text>
+          <Text style={styles.year}>{year}</Text>
+          {/* </View> */}
+        </Text>
+        <View>
+          <TouchableOpacity onPress={swipeRight}>
+            {/* <View style={styles.nextArrow}> &#8250;</View> */}
+          </TouchableOpacity>
+        </View>
+      </View>
+      <View style={styles.week}>
+        <View style={styles.weekday}></View>
+      </View>
+      <FlatList
+      // keyExtractor=
+        style={styles.calendarSize}
+        numColumns={7}
+        data={totalSlots}
+        renderItem={({ item, index }): ReactElement => {
+          return item;
+        }}
+      />
+    </SafeAreaView>
   );
 }
 
