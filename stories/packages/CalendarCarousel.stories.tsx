@@ -15,26 +15,18 @@ const Container = styled.SafeAreaView`
 
 function Default(): React.ReactElement {
   const [month, setMonth] = useState(new Date().getMonth());
-  const [status, setStatus] = useState(0);
-
   const prevMonth = (): void => {
     if (month === 0) {
       setMonth((month) => 12);
     }
     setMonth((month) => month - 1);
   };
-
   const nextMonth = (): void => {
     if (month === 11) {
       setMonth((month) => -1);
     }
     setMonth((month) => month + 1);
   };
-
-  const changeStatus = (): void => {
-    setStatus((status) => 1);
-  };
-
   return (
     <Container>
       <CalendarCarousel
@@ -43,8 +35,6 @@ function Default(): React.ReactElement {
         onNextMonth={nextMonth}
         swipeLeft={prevMonth}
         swipeRight={nextMonth}
-        status={status}
-        pressStatus={changeStatus}
       />
     </Container>
   );
