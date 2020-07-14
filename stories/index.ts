@@ -12,3 +12,4 @@ import './packages/Charts.stories';
 import './packages/Snackbar.stories';
 import './packages/TinderCard.stories';
 import './packages/Tables.stories';
+import './packages/CalendarCarousel.stories';
