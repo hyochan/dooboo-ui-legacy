@@ -1,6 +1,7 @@
 import {
   FlatList,
   SafeAreaView,
+  ScrollView,
   StyleSheet,
   Text,
   TextStyle,
@@ -106,6 +107,7 @@ function CalendarCarousel<T>(props: Props<T>): React.ReactElement {
   const { month, onPrevMonth, onNextMonth, swipeLeft, swipeRight } = props;
   const firstDay = new Date(new Date().getFullYear(), month, 1).getDay();
   const year = new Date().getFullYear();
+  const [isSwapping, setIsSwapping] = React.useState(false);
 
   if (((year % 4 && year % 100) || year % 400 === 0) !== 0) {
     const dates = (data.dates[1] = 29);
@@ -172,7 +174,7 @@ function CalendarCarousel<T>(props: Props<T>): React.ReactElement {
         <View
           style={{
             borderRadius: 50,
-            backgroundColor: '#109CF1',
+            backgroundColor: isSwapping ? 'black' : '#109CF1',
             width: 47,
             height: 47,
             alignItems: 'center',
@@ -237,6 +239,7 @@ function CalendarCarousel<T>(props: Props<T>): React.ReactElement {
   }
 
   const calendarDays = [...frontBlanks, ...daysInMonth, ...endBlanks];
+
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.headerFlex}>

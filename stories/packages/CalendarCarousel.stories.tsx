@@ -2,6 +2,7 @@ import React, { ReactElement, useState } from 'react';
 
 import CalendarCarousel from '../../packages/CalendarCarousel';
 import { ContainerDeco } from '../../storybook/decorators';
+import { ScrollView } from 'react-native';
 import { storiesOf } from '@storybook/react-native';
 import styled from 'styled-components/native';
 
@@ -29,13 +30,20 @@ function Default(): React.ReactElement {
   };
   return (
     <Container>
-      <CalendarCarousel
-        month={month}
-        onPrevMonth={prevMonth}
-        onNextMonth={nextMonth}
-        swipeLeft={prevMonth}
-        swipeRight={nextMonth}
-      />
+      <ScrollView
+        horizontal={true}
+        pagingEnabled={true}
+        showsHorizontalScrollIndicator={true}
+        scrollIndicatorInsets={{ top: 10, left: 10, bottom: 10, right: 10 }}
+        onScrollBeginDrag={prevMonth}>
+        <CalendarCarousel
+          month={month}
+          onPrevMonth={prevMonth}
+          onNextMonth={nextMonth}
+          swipeLeft={prevMonth}
+          swipeRight={nextMonth}
+        />
+      </ScrollView>
     </Container>
   );
 }
