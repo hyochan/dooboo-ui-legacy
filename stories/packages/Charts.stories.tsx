@@ -1,4 +1,4 @@
-import { BarChart, LineChart } from '../../packages/Charts/lib';
+// import { BarChart, LineChart } from '../../packages/Charts/lib';
 import React, { ReactElement } from 'react';
 
 import { ContainerDeco } from '../../storybook/decorators';

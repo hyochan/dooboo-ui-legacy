@@ -24,4 +24,5 @@
   "javascript.preferences.importModuleSpecifier": "relative",
   "typescript.preferences.importModuleSpecifier": "relative",
   "prettier.configPath": ".prettierrc.js",
+  "editor.formatOnSave": true,
 } 
