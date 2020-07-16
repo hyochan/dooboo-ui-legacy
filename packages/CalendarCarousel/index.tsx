@@ -1,7 +1,6 @@
 import {
   FlatList,
   SafeAreaView,
-  ScrollView,
   StyleSheet,
   Text,
   TextStyle,
@@ -75,80 +74,43 @@ const styles = StyleSheet.create<Style>({
   },
 });
 
-const data = {
-  dates: [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31],
-  week: ['S', 'M', 'T', 'W', 'T', 'F', 'S'],
-  month: [
-    'January',
-    'February',
-    'March',
-    'April',
-    'May',
-    'June',
-    'July',
-    'August',
-    'September',
-    'October',
-    'November',
-    'December',
-  ],
-  Day: new Date().getDate(),
-};
-
 interface Props<T> {
+  date?: Date;
+  year?: number;
   month?: number;
-  onPrevMonth?: () => void;
-  onNextMonth?: () => void;
   swipeLeft?: () => void;
   swipeRight?: () => void;
 }
 
 function CalendarCarousel<T>(props: Props<T>): React.ReactElement {
-  const { month, onPrevMonth, onNextMonth, swipeLeft, swipeRight } = props;
-  const firstDay = new Date(new Date().getFullYear(), month, 1).getDay();
-  const year = new Date().getFullYear();
-  const [isSwapping, setIsSwapping] = React.useState(false);
-
-  if (((year % 4 && year % 100) || year % 400 === 0) !== 0) {
-    const dates = (data.dates[1] = 29);
-  } else {
-    const dates = data.dates;
-  }
+  const { date, year, month, swipeLeft, swipeRight } = props;
+  const monthName = new Date(year, month, 1).toLocaleString('default', {
+    month: 'long',
+  });
 
   const weekdays = [];
+  const frontBlanks = [];
+  const days = [];
+  const endBlanks = [];
+  const calendarDays = [...frontBlanks, ...days, ...endBlanks];
+
+  const currentMonthDays = new Date(year, month, 0).getDate();
+  const firstWeekday = new Date(year, month, 1).getDay();
+  const lastWeekday = new Date(year, month, currentMonthDays).getDay();
+  let numPrevMonthDays = new Date(year, month - 1, 0).getDate();
+
   for (let idx = 0; idx <= 6; idx++) {
-    const d = data.week[idx];
+    const someDay = new Date(2020, 5, idx);
+    const wd = someDay.toLocaleString('default', { weekday: 'narrow' });
     weekdays.push(
       <View style={{ width: 47.14 }} key={idx}>
-        <Text style={styles.weekdayText}>{d}</Text>
+        <Text style={styles.weekdayText}>{wd}</Text>
       </View>,
     );
   }
 
-  const currentMonth = data.month[month];
-  const numDays = data.dates[month];
-
-  let prevDate = data.dates[month - 1];
-  if (month === 0) {
-    prevDate = data.dates[11];
-  }
-
-  const prevMonthDays = [];
-  for (let idx = 0; idx < 10; idx++) {
-    prevMonthDays.push(prevDate);
-    prevDate--;
-  }
-
-  const blanks = [];
-  for (let i = 0; i < firstDay; i++) {
-    blanks.push(i);
-  }
-  const numBlanks = blanks.length;
-  const blankDays = prevMonthDays.slice(0, numBlanks).reverse();
-
-  const frontBlanks = [];
-  blankDays.forEach((i) => {
-    frontBlanks.push(
+  for (let idx = 0; idx < firstWeekday; idx++) {
+    frontBlanks.unshift(
       <View
         style={{
           width: 47,
@@ -161,20 +123,24 @@ function CalendarCarousel<T>(props: Props<T>): React.ReactElement {
             fontFamily: 'Avenir',
             color: 'lightgray',
           }}>
-          {`${i}`}
+          {`${numPrevMonthDays}`}
         </Text>
       </View>,
     );
-  });
+    numPrevMonthDays--;
+  }
 
-  const daysInMonth = [];
-  for (let d = 1; d <= numDays; d++) {
-    if (d === data.Day && currentMonth === data.month[new Date().getMonth()]) {
-      daysInMonth.push(
+  for (let d = 1; d <= currentMonthDays; d++) {
+    if (
+      date.getDate() === d &&
+      date.getMonth() === month &&
+      date.getFullYear() === year
+    ) {
+      days.push(
         <View
           style={{
             borderRadius: 50,
-            backgroundColor: isSwapping ? 'black' : '#109CF1',
+            backgroundColor: '#109CF1',
             width: 47,
             height: 47,
             alignItems: 'center',
@@ -191,7 +157,7 @@ function CalendarCarousel<T>(props: Props<T>): React.ReactElement {
         </View>,
       );
     } else {
-      daysInMonth.push(
+      days.push(
         <TouchableOpacity>
           <View
             style={{
@@ -213,49 +179,41 @@ function CalendarCarousel<T>(props: Props<T>): React.ReactElement {
     }
   }
 
-  const frontSlots = [...frontBlanks, ...daysInMonth];
-  const rowNum = Math.ceil((frontBlanks.length + daysInMonth.length) / 7);
-  const endBlank = rowNum * 7 - frontSlots.length;
-  const endBlanks = [];
-  for (let e = 1; e <= endBlank; e++) {
-    endBlanks.push(
-      <View
-        style={{
-          width: 47,
-          height: 47,
-          paddingTop: 13.5,
-          alignItems: 'center',
-        }}>
-        <Text
+  if (6 - lastWeekday >= 1) {
+    for (let idx = 1; idx <= 6 - lastWeekday; idx++) {
+      endBlanks.push(
+        <View
           style={{
-            fontFamily: 'Avenir',
-            color: 'lightgray',
-            textAlign: 'center',
+            width: 47,
+            height: 47,
+            paddingTop: 13.5,
+            alignItems: 'center',
           }}>
-          {`${e}`}
-        </Text>
-      </View>,
-    );
+          <Text
+            style={{
+              fontFamily: 'Avenir',
+              color: 'lightgray',
+              textAlign: 'center',
+            }}>
+            {`${idx}`}
+          </Text>
+        </View>,
+      );
+    }
   }
-
-  const calendarDays = [...frontBlanks, ...daysInMonth, ...endBlanks];
 
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.headerFlex}>
         <TouchableOpacity onPress={swipeLeft}>
-          <View>
-            <Text style={styles.beforeArrowText}> &#8249;</Text>
-          </View>
+          <Text style={styles.beforeArrowText}> &#8249;</Text>
         </TouchableOpacity>
         <View style={styles.titleFlex}>
-          <Text style={styles.titleText}>{currentMonth}</Text>
+          <Text style={styles.titleText}>{monthName}</Text>
           <Text style={styles.yearText}>{year}</Text>
         </View>
         <TouchableOpacity onPress={swipeRight}>
-          <View>
-            <Text style={styles.nextArrowText}>&#8250;</Text>
-          </View>
+          <Text style={styles.nextArrowText}>&#8250;</Text>
         </TouchableOpacity>
       </View>
       <View style={styles.weekdayFlex}>{weekdays}</View>
@@ -266,9 +224,9 @@ function CalendarCarousel<T>(props: Props<T>): React.ReactElement {
         renderItem={({ item }): ReactElement => {
           return item;
         }}
+        keyExtractor={(item): string => item.id}
       />
     </SafeAreaView>
   );
 }
-
 export default CalendarCarousel;

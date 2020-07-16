@@ -2,7 +2,6 @@ import React, { ReactElement, useState } from 'react';
 
 import CalendarCarousel from '../../packages/CalendarCarousel';
 import { ContainerDeco } from '../../storybook/decorators';
-import { ScrollView } from 'react-native';
 import { storiesOf } from '@storybook/react-native';
 import styled from 'styled-components/native';
 
@@ -15,35 +14,37 @@ const Container = styled.SafeAreaView`
 `;
 
 function Default(): React.ReactElement {
-  const [month, setMonth] = useState(new Date().getMonth());
-  const prevMonth = (): void => {
-    if (month === 0) {
-      setMonth((month) => 12);
-    }
-    setMonth((month) => month - 1);
-  };
-  const nextMonth = (): void => {
+  const date = new Date();
+  const [year, setYear] = useState(date.getFullYear());
+  const [month, setMonth] = useState(date.getMonth());
+
+  const setNextMonth = (): void => {
     if (month === 11) {
-      setMonth((month) => -1);
+      setMonth((month) => (month = 0));
+      setYear((year) => year + 1);
+    } else {
+      setMonth((month) => month + 1);
     }
-    setMonth((month) => month + 1);
   };
+
+  const setPrevMonth = (): void => {
+    if (month === 0) {
+      setMonth((month) => (month = 11));
+      setYear((year) => year - 1);
+    } else {
+      setMonth((month) => month - 1);
+    }
+  };
+
   return (
     <Container>
-      <ScrollView
-        horizontal={true}
-        pagingEnabled={true}
-        showsHorizontalScrollIndicator={true}
-        scrollIndicatorInsets={{ top: 10, left: 10, bottom: 10, right: 10 }}
-        onScrollBeginDrag={prevMonth}>
-        <CalendarCarousel
-          month={month}
-          onPrevMonth={prevMonth}
-          onNextMonth={nextMonth}
-          swipeLeft={prevMonth}
-          swipeRight={nextMonth}
-        />
-      </ScrollView>
+      <CalendarCarousel
+        date={new Date()}
+        year={year}
+        month={month}
+        swipeLeft={setPrevMonth}
+        swipeRight={setNextMonth}
+      />
     </Container>
   );
 }
