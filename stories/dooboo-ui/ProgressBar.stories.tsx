@@ -1,5 +1,6 @@
 import React, { ReactElement } from 'react';
 import { SafeAreaView, StyleSheet, Text } from 'react-native';
+
 import { ContainerDeco } from '../../storybook/decorators';
 import ProgressBar from '../../main/ProgressBar';
 import { storiesOf } from '@storybook/react-native';
@@ -39,7 +40,7 @@ function Default(): React.ReactElement {
         round={'square'}
         height={10}
         animationType={'indeterminate'}
-        animationSpeed={1000}
+        animationSpeed={2000}
       />
 
       <Text>Infinite indeterminate-flex ProgressBar</Text>
@@ -49,7 +50,7 @@ function Default(): React.ReactElement {
         round={'square'}
         height={10}
         animationType={'indeterminate-flex'}
-        animationSpeed={1000}
+        animationSpeed={2000}
       />
     </SafeAreaView>
   );

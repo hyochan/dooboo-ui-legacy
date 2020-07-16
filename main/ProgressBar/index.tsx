@@ -1,15 +1,10 @@
+import { Animated, Dimensions, Easing } from 'react-native';
 import React, { ReactElement, useEffect, useRef } from 'react';
+
 import styled from 'styled-components/native';
-import {
-  Animated,
-  Dimensions,
-  Easing,
-  StyleProp,
-  ViewStyle,
-} from 'react-native';
 
 export interface Props {
-  style?: StyleProp<ViewStyle>;
+  style?: React.CSSProperties;
   round?: 'round' | 'square';
   barColor?: string | undefined;
   bgColor?: string | undefined;
@@ -151,15 +146,6 @@ const ProgressBar = ({
   );
 };
 
-ProgressBar.defaultProps = {
-  borderRadius: 0,
-  bgColor: '#d0e3ff',
-  barColor: '#609FFF',
-  height: 5,
-  animationType: 'default',
-  animationSpeed: 1000,
-};
-
 export default ProgressBar;
 
 const Container = styled.View`
@@ -181,9 +167,11 @@ const Filler = styled.View`
   justify-content: center;
 `;
 
-const Label = styled.Text`
-  color: #000;
-  font-weight: bold;
-  font-size: 9px;
-  margin-left: 5px;
-`;
+ProgressBar.defaultProps = {
+  borderRadius: 0,
+  bgColor: '#d0e3ff',
+  barColor: '#609FFF',
+  height: 5,
+  animationType: 'default',
+  animationSpeed: 1000,
+};
