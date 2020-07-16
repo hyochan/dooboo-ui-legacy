@@ -89,10 +89,6 @@ function CalendarCarousel<T>(props: Props<T>): React.ReactElement {
   });
 
   const weekdays = [];
-  const frontBlanks = [];
-  const days = [];
-  const endBlanks = [];
-  const calendarDays = [...frontBlanks, ...days, ...endBlanks];
 
   const currentMonthDays = new Date(year, month, 0).getDate();
   const firstWeekday = new Date(year, month, 1).getDay();
@@ -108,7 +104,7 @@ function CalendarCarousel<T>(props: Props<T>): React.ReactElement {
       </View>,
     );
   }
-
+  const frontBlanks = [];
   for (let idx = 0; idx < firstWeekday; idx++) {
     frontBlanks.unshift(
       <View
@@ -130,6 +126,7 @@ function CalendarCarousel<T>(props: Props<T>): React.ReactElement {
     numPrevMonthDays--;
   }
 
+  const days = [];
   for (let d = 1; d <= currentMonthDays; d++) {
     if (
       date.getDate() === d &&
@@ -179,6 +176,7 @@ function CalendarCarousel<T>(props: Props<T>): React.ReactElement {
     }
   }
 
+  const endBlanks = [];
   if (6 - lastWeekday >= 1) {
     for (let idx = 1; idx <= 6 - lastWeekday; idx++) {
       endBlanks.push(
@@ -202,6 +200,7 @@ function CalendarCarousel<T>(props: Props<T>): React.ReactElement {
     }
   }
 
+  const calendarDays = [...frontBlanks, ...days, ...endBlanks];
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.headerFlex}>
