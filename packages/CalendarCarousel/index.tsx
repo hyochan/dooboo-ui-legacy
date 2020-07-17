@@ -32,7 +32,7 @@ const styles = StyleSheet.create<Style>({
     flex: 1,
     paddingTop: 40,
     width: 330,
-    height: 388,
+    height: 488,
   },
   headerFlex: {
     flexDirection: 'row',
@@ -105,20 +105,19 @@ interface Props<T> {
   date?: Date;
   year?: number;
   month?: number;
-  loadedMonth?: number;
   swipeLeft?: () => void;
   swipeRight?: () => void;
 }
 
 function CalendarCarousel<T>(props: Props<T>): React.ReactElement {
-  const { date, year, month, loadedMonth, swipeLeft, swipeRight } = props;
+  const { date, year, month, swipeLeft, swipeRight } = props;
   const monthName = new Date(year, month, 1).toLocaleString('default', {
     month: 'long',
   });
 
   const weekdays = [];
 
-  const currentMonthDays = new Date(year, month, 0).getDate();
+  const currentMonthDays = new Date(year, month + 1, 0).getDate();
   const firstWeekday = new Date(year, month, 1).getDay();
   const lastWeekday = new Date(year, month, currentMonthDays).getDay();
   let numPrevMonthDays = new Date(year, month - 1, 0).getDate();
