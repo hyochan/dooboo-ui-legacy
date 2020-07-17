@@ -2,6 +2,7 @@ import React, { ReactElement, useState } from 'react';
 
 import CalendarCarousel from '../../packages/CalendarCarousel';
 import { ContainerDeco } from '../../storybook/decorators';
+import { ScrollView } from 'react-native';
 import { storiesOf } from '@storybook/react-native';
 import styled from 'styled-components/native';
 
@@ -38,13 +39,15 @@ function Default(): React.ReactElement {
 
   return (
     <Container>
-      <CalendarCarousel
-        date={new Date()}
-        year={year}
-        month={month}
-        swipeLeft={setPrevMonth}
-        swipeRight={setNextMonth}
-      />
+      <ScrollView horizontal>
+        <CalendarCarousel
+          date={new Date()}
+          year={year}
+          month={month}
+          swipeLeft={setPrevMonth}
+          swipeRight={setNextMonth}
+        />
+      </ScrollView>
     </Container>
   );
 }

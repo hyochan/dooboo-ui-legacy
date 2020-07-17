@@ -8,7 +8,7 @@ import {
   View,
   ViewStyle,
 } from 'react-native';
-import React, { ReactElement } from 'react';
+import React, { ReactElement, useState } from 'react';
 
 interface Style {
   container: ViewStyle;
@@ -21,6 +21,10 @@ interface Style {
   weekdayFlex: ViewStyle;
   weekdayText: TextStyle;
   calendarContainerSize: ViewStyle;
+  noPressView: ViewStyle;
+  noPressText: TextStyle;
+  onPressView: ViewStyle;
+  onPressText: TextStyle;
 }
 
 const styles = StyleSheet.create<Style>({
@@ -72,18 +76,42 @@ const styles = StyleSheet.create<Style>({
     width: 330,
     height: 388,
   },
+  noPressView: {
+    width: 47,
+    height: 47,
+    paddingTop: 13.5,
+    alignItems: 'center',
+  },
+  noPressText: {
+    textAlign: 'center',
+    fontFamily: 'Avenir',
+  },
+  onPressView: {
+    width: 47,
+    height: 47,
+    paddingTop: 13.5,
+    alignItems: 'center',
+    borderRadius: 50,
+    backgroundColor: '#F0F8FD',
+  },
+  onPressText: {
+    textAlign: 'center',
+    fontFamily: 'Avenir',
+    color: '#109CF1',
+  },
 });
 
 interface Props<T> {
   date?: Date;
   year?: number;
   month?: number;
+  loadedMonth?: number;
   swipeLeft?: () => void;
   swipeRight?: () => void;
 }
 
 function CalendarCarousel<T>(props: Props<T>): React.ReactElement {
-  const { date, year, month, swipeLeft, swipeRight } = props;
+  const { date, year, month, loadedMonth, swipeLeft, swipeRight } = props;
   const monthName = new Date(year, month, 1).toLocaleString('default', {
     month: 'long',
   });
@@ -94,6 +122,8 @@ function CalendarCarousel<T>(props: Props<T>): React.ReactElement {
   const firstWeekday = new Date(year, month, 1).getDay();
   const lastWeekday = new Date(year, month, currentMonthDays).getDay();
   let numPrevMonthDays = new Date(year, month - 1, 0).getDate();
+
+  const [selectedDay, setSelectedDay] = useState(32);
 
   for (let idx = 0; idx <= 6; idx++) {
     const someDay = new Date(2020, 5, idx);
@@ -153,16 +183,25 @@ function CalendarCarousel<T>(props: Props<T>): React.ReactElement {
           </Text>
         </View>,
       );
+    } else if (d === selectedDay && loadedMonth === month) {
+      days.push(
+        <TouchableOpacity onPress={(): void => setSelectedDay(d)}>
+          <View style={styles.onPressView}>
+            <Text
+              style={{
+                textAlign: 'center',
+                fontFamily: 'Avenir',
+                color: '#109CF1',
+              }}>
+              {`${d}`}
+            </Text>
+          </View>
+        </TouchableOpacity>,
+      );
     } else {
       days.push(
-        <TouchableOpacity>
-          <View
-            style={{
-              width: 47,
-              height: 47,
-              paddingTop: 13.5,
-              alignItems: 'center',
-            }}>
+        <TouchableOpacity onPress={(): void => setSelectedDay(d)}>
+          <View style={styles.noPressView}>
             <Text
               style={{
                 textAlign: 'center',
