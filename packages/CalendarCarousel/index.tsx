@@ -261,7 +261,7 @@ function CalendarCarousel<T>(props: Props<T>): React.ReactElement {
         renderItem={({ item }): ReactElement => {
           return item;
         }}
-        keyExtractor={(item): string => item.id}
+        keyExtractor={(item, id): string => id.toString()}
       />
     </SafeAreaView>
   );
