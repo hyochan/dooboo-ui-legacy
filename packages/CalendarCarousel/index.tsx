@@ -183,7 +183,7 @@ function CalendarCarousel<T>(props: Props<T>): React.ReactElement {
           </Text>
         </View>,
       );
-    } else if (d === selectedDay && loadedMonth === month) {
+    } else if (d === selectedDay) {
       days.push(
         <TouchableOpacity onPress={(): void => setSelectedDay(d)}>
           <View style={styles.onPressView}>
