@@ -10,218 +10,222 @@ exports[`[Calendar] should render without crashing 1`] = `
     }
   }
 >
-  <View
-    style={
-      Object {
-        "flexDirection": "row",
-        "justifyContent": "center",
-        "paddingBottom": 30,
-      }
-    }
-  >
-    <
-      onPress={[Function]}
-    >
-      <Text
-        style={
-          Object {
-            "color": "royalblue",
-            "fontSize": 30,
-          }
-        }
-      >
-         ‹
-      </Text>
-    </>
-    <View
-      style={
-        Object {
-          "display": "flex",
-          "flexDirection": "column",
-        }
-      }
-    >
-      <Text
-        style={
-          Object {
-            "fontSize": 20,
-            "justifyContent": "center",
-            "textAlign": "center",
-            "width": 300,
-          }
-        }
-      >
-        July
-      </Text>
-      <Text
-        style={
-          Object {
-            "fontSize": 12,
-            "justifyContent": "center",
-            "textAlign": "center",
-          }
-        }
-      >
-        2020
-      </Text>
-    </View>
-    <
-      onPress={[Function]}
-    >
-      <Text
-        style={
-          Object {
-            "color": "royalblue",
-            "fontSize": 30,
-          }
-        }
-      >
-        ›
-      </Text>
-    </>
-  </View>
-  <View
-    style={
-      Object {
-        "flexDirection": "row",
-      }
-    }
-  >
-    <View
-      style={
-        Object {
-          "width": 47.14,
-        }
-      }
-    >
-      <Text
-        style={
-          Object {
-            "color": "#4F4F4F",
-            "fontSize": 20,
-            "textAlign": "center",
-          }
-        }
-      >
-        S
-      </Text>
-    </View>
-    <View
-      style={
-        Object {
-          "width": 47.14,
-        }
-      }
-    >
-      <Text
-        style={
-          Object {
-            "color": "#4F4F4F",
-            "fontSize": 20,
-            "textAlign": "center",
-          }
-        }
-      >
-        M
-      </Text>
-    </View>
-    <View
-      style={
-        Object {
-          "width": 47.14,
-        }
-      }
-    >
-      <Text
-        style={
-          Object {
-            "color": "#4F4F4F",
-            "fontSize": 20,
-            "textAlign": "center",
-          }
-        }
-      >
-        T
-      </Text>
-    </View>
-    <View
-      style={
-        Object {
-          "width": 47.14,
-        }
-      }
-    >
-      <Text
-        style={
-          Object {
-            "color": "#4F4F4F",
-            "fontSize": 20,
-            "textAlign": "center",
-          }
-        }
-      >
-        W
-      </Text>
-    </View>
-    <View
-      style={
-        Object {
-          "width": 47.14,
-        }
-      }
-    >
-      <Text
-        style={
-          Object {
-            "color": "#4F4F4F",
-            "fontSize": 20,
-            "textAlign": "center",
-          }
-        }
-      >
-        T
-      </Text>
-    </View>
-    <View
-      style={
-        Object {
-          "width": 47.14,
-        }
-      }
-    >
-      <Text
-        style={
-          Object {
-            "color": "#4F4F4F",
-            "fontSize": 20,
-            "textAlign": "center",
-          }
-        }
-      >
-        F
-      </Text>
-    </View>
-    <View
-      style={
-        Object {
-          "width": 47.14,
-        }
-      }
-    >
-      <Text
-        style={
-          Object {
-            "color": "#4F4F4F",
-            "fontSize": 20,
-            "textAlign": "center",
-          }
-        }
-      >
-        S
-      </Text>
-    </View>
-  </View>
   <ScrollView
+    ListHeaderComponent={
+      <React.Fragment>
+        <View
+          style={
+            Object {
+              "flexDirection": "row",
+              "justifyContent": "center",
+              "paddingBottom": 30,
+            }
+          }
+        >
+          <Component
+            onPress={[Function]}
+          >
+            <Text
+              style={
+                Object {
+                  "color": "royalblue",
+                  "fontSize": 30,
+                }
+              }
+            >
+               ‹
+            </Text>
+          </Component>
+          <View
+            style={
+              Object {
+                "display": "flex",
+                "flexDirection": "column",
+              }
+            }
+          >
+            <Text
+              style={
+                Object {
+                  "fontSize": 20,
+                  "justifyContent": "center",
+                  "textAlign": "center",
+                  "width": 300,
+                }
+              }
+            >
+              July
+            </Text>
+            <Text
+              style={
+                Object {
+                  "fontSize": 12,
+                  "justifyContent": "center",
+                  "textAlign": "center",
+                }
+              }
+            >
+              2020
+            </Text>
+          </View>
+          <Component
+            onPress={[Function]}
+          >
+            <Text
+              style={
+                Object {
+                  "color": "royalblue",
+                  "fontSize": 30,
+                }
+              }
+            >
+              ›
+            </Text>
+          </Component>
+        </View>
+        <View
+          style={
+            Object {
+              "flexDirection": "row",
+            }
+          }
+        >
+          <View
+            style={
+              Object {
+                "width": 47.14,
+              }
+            }
+          >
+            <Text
+              style={
+                Object {
+                  "color": "#4F4F4F",
+                  "fontSize": 20,
+                  "textAlign": "center",
+                }
+              }
+            >
+              S
+            </Text>
+          </View>
+          <View
+            style={
+              Object {
+                "width": 47.14,
+              }
+            }
+          >
+            <Text
+              style={
+                Object {
+                  "color": "#4F4F4F",
+                  "fontSize": 20,
+                  "textAlign": "center",
+                }
+              }
+            >
+              M
+            </Text>
+          </View>
+          <View
+            style={
+              Object {
+                "width": 47.14,
+              }
+            }
+          >
+            <Text
+              style={
+                Object {
+                  "color": "#4F4F4F",
+                  "fontSize": 20,
+                  "textAlign": "center",
+                }
+              }
+            >
+              T
+            </Text>
+          </View>
+          <View
+            style={
+              Object {
+                "width": 47.14,
+              }
+            }
+          >
+            <Text
+              style={
+                Object {
+                  "color": "#4F4F4F",
+                  "fontSize": 20,
+                  "textAlign": "center",
+                }
+              }
+            >
+              W
+            </Text>
+          </View>
+          <View
+            style={
+              Object {
+                "width": 47.14,
+              }
+            }
+          >
+            <Text
+              style={
+                Object {
+                  "color": "#4F4F4F",
+                  "fontSize": 20,
+                  "textAlign": "center",
+                }
+              }
+            >
+              T
+            </Text>
+          </View>
+          <View
+            style={
+              Object {
+                "width": 47.14,
+              }
+            }
+          >
+            <Text
+              style={
+                Object {
+                  "color": "#4F4F4F",
+                  "fontSize": 20,
+                  "textAlign": "center",
+                }
+              }
+            >
+              F
+            </Text>
+          </View>
+          <View
+            style={
+              Object {
+                "width": 47.14,
+              }
+            }
+          >
+            <Text
+              style={
+                Object {
+                  "color": "#4F4F4F",
+                  "fontSize": 20,
+                  "textAlign": "center",
+                }
+              }
+            >
+              S
+            </Text>
+          </View>
+        </View>
+      </React.Fragment>
+    }
     data={
       Array [
         <View
@@ -1078,6 +1082,221 @@ exports[`[Calendar] should render without crashing 1`] = `
     viewabilityConfigCallbackPairs={Array []}
     windowSize={21}
   >
+    <View
+      onLayout={[Function]}
+    >
+      <View
+        style={
+          Object {
+            "flexDirection": "row",
+            "justifyContent": "center",
+            "paddingBottom": 30,
+          }
+        }
+      >
+        <
+          onPress={[Function]}
+        >
+          <Text
+            style={
+              Object {
+                "color": "royalblue",
+                "fontSize": 30,
+              }
+            }
+          >
+             ‹
+          </Text>
+        </>
+        <View
+          style={
+            Object {
+              "display": "flex",
+              "flexDirection": "column",
+            }
+          }
+        >
+          <Text
+            style={
+              Object {
+                "fontSize": 20,
+                "justifyContent": "center",
+                "textAlign": "center",
+                "width": 300,
+              }
+            }
+          >
+            July
+          </Text>
+          <Text
+            style={
+              Object {
+                "fontSize": 12,
+                "justifyContent": "center",
+                "textAlign": "center",
+              }
+            }
+          >
+            2020
+          </Text>
+        </View>
+        <
+          onPress={[Function]}
+        >
+          <Text
+            style={
+              Object {
+                "color": "royalblue",
+                "fontSize": 30,
+              }
+            }
+          >
+            ›
+          </Text>
+        </>
+      </View>
+      <View
+        style={
+          Object {
+            "flexDirection": "row",
+          }
+        }
+      >
+        <View
+          style={
+            Object {
+              "width": 47.14,
+            }
+          }
+        >
+          <Text
+            style={
+              Object {
+                "color": "#4F4F4F",
+                "fontSize": 20,
+                "textAlign": "center",
+              }
+            }
+          >
+            S
+          </Text>
+        </View>
+        <View
+          style={
+            Object {
+              "width": 47.14,
+            }
+          }
+        >
+          <Text
+            style={
+              Object {
+                "color": "#4F4F4F",
+                "fontSize": 20,
+                "textAlign": "center",
+              }
+            }
+          >
+            M
+          </Text>
+        </View>
+        <View
+          style={
+            Object {
+              "width": 47.14,
+            }
+          }
+        >
+          <Text
+            style={
+              Object {
+                "color": "#4F4F4F",
+                "fontSize": 20,
+                "textAlign": "center",
+              }
+            }
+          >
+            T
+          </Text>
+        </View>
+        <View
+          style={
+            Object {
+              "width": 47.14,
+            }
+          }
+        >
+          <Text
+            style={
+              Object {
+                "color": "#4F4F4F",
+                "fontSize": 20,
+                "textAlign": "center",
+              }
+            }
+          >
+            W
+          </Text>
+        </View>
+        <View
+          style={
+            Object {
+              "width": 47.14,
+            }
+          }
+        >
+          <Text
+            style={
+              Object {
+                "color": "#4F4F4F",
+                "fontSize": 20,
+                "textAlign": "center",
+              }
+            }
+          >
+            T
+          </Text>
+        </View>
+        <View
+          style={
+            Object {
+              "width": 47.14,
+            }
+          }
+        >
+          <Text
+            style={
+              Object {
+                "color": "#4F4F4F",
+                "fontSize": 20,
+                "textAlign": "center",
+              }
+            }
+          >
+            F
+          </Text>
+        </View>
+        <View
+          style={
+            Object {
+              "width": 47.14,
+            }
+          }
+        >
+          <Text
+            style={
+              Object {
+                "color": "#4F4F4F",
+                "fontSize": 20,
+                "textAlign": "center",
+              }
+            }
+          >
+            S
+          </Text>
+        </View>
+      </View>
+    </View>
     <View
       onLayout={[Function]}
       style={null}

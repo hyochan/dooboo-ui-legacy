@@ -8,7 +8,7 @@ import {
   View,
   ViewStyle,
 } from 'react-native';
-import React, { PropsWithChildren, ReactElement, useState } from 'react';
+import React, { Fragment, PropsWithChildren, ReactElement, useState } from 'react';
 
 interface Style {
   container: ViewStyle;
@@ -140,9 +140,9 @@ function CalendarCarousel<T>({
     }
 
     const update = new Date(
-      date.getFullYear(),
-      date.getMonth() + 1,
-      date.getDate(),
+      currentDate.getFullYear(),
+      currentDate.getMonth() + 1,
+      currentDate.getDate(),
     );
 
     setCurrentDate(update);
@@ -260,23 +260,27 @@ function CalendarCarousel<T>({
   const calendarDays = [...frontBlanks, ...days, ...endBlanks];
   return (
     <SafeAreaView style={styles.container}>
-      <View style={styles.headerFlex}>
-        <TouchableOpacity onPress={(): void => changeMonth(true)}>
-          <Text style={styles.beforeArrowText}> &#8249;</Text>
-        </TouchableOpacity>
-        <View style={styles.titleFlex}>
-          <Text style={styles.titleText}>{monthName}</Text>
-          <Text style={styles.yearText}>{year}</Text>
-        </View>
-        <TouchableOpacity onPress={(): void => changeMonth(false)}>
-          <Text style={styles.nextArrowText}>&#8250;</Text>
-        </TouchableOpacity>
-      </View>
-      <View style={styles.weekdayFlex}>{weekdays}</View>
       <FlatList
         style={styles.calendarContainerSize}
         numColumns={7}
         data={calendarDays}
+        ListHeaderComponent={
+          <Fragment>
+            <View style={styles.headerFlex}>
+              <TouchableOpacity onPress={(): void => changeMonth(true)}>
+                <Text style={styles.beforeArrowText}> &#8249;</Text>
+              </TouchableOpacity>
+              <View style={styles.titleFlex}>
+                <Text style={styles.titleText}>{monthName}</Text>
+                <Text style={styles.yearText}>{year}</Text>
+              </View>
+              <TouchableOpacity onPress={(): void => changeMonth(false)}>
+                <Text style={styles.nextArrowText}>&#8250;</Text>
+              </TouchableOpacity>
+            </View>
+            <View style={styles.weekdayFlex}>{weekdays}</View>
+          </Fragment>
+        }
         renderItem={({ item }): ReactElement => {
           return item;
         }}
