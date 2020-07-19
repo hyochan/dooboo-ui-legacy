@@ -2,7 +2,6 @@ import React, { ReactElement, useState } from 'react';
 
 import CalendarCarousel from '../../packages/CalendarCarousel';
 import { ContainerDeco } from '../../storybook/decorators';
-import { ScrollView } from 'react-native';
 import { storiesOf } from '@storybook/react-native';
 import styled from 'styled-components/native';
 
@@ -11,7 +10,6 @@ const Container = styled.SafeAreaView`
   align-self: stretch;
   justify-content: center;
   align-items: center;
-  background-color: white;
 `;
 
 function Default(): React.ReactElement {
@@ -39,15 +37,13 @@ function Default(): React.ReactElement {
 
   return (
     <Container>
-      <ScrollView horizontal>
-        <CalendarCarousel
-          date={new Date()}
-          year={year}
-          month={month}
-          swipeLeft={setPrevMonth}
-          swipeRight={setNextMonth}
-        />
-      </ScrollView>
+      <CalendarCarousel
+        date={new Date()}
+        year={year}
+        month={month}
+        swipeLeft={setPrevMonth}
+        swipeRight={setNextMonth}
+      />
     </Container>
   );
 }
