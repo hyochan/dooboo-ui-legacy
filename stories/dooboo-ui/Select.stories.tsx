@@ -19,6 +19,7 @@ const Default = (): React.ReactElement => {
         testID={'defaultSelect'}
         activeOpacity={1}
         onPress={():void => console.log('YEAHH')}
+        dark={true}
         disabled={false}
         placeholder={'New fancy select'}
       />

@@ -1,8 +1,4 @@
-import {
-  Modal,
-  StyleProp,
-  TextStyle,
-} from 'react-native';
+import { Animated, Easing, StyleProp, TextStyle } from 'react-native';
 import styled, { DefaultTheme, ThemeProps } from 'styled-components/native';
 
 import Arrow from './Arrow';
@@ -19,29 +15,11 @@ interface ThemeType extends DefaultTheme {
   backgroundColor: string;
   borderColor: string;
   fontColor: string;
-  fontSize: string;
 }
 interface StatefulThemeType extends ThemeType {
+  DEFAULT: ThemeType;
   INVERTED: ThemeType;
   DISABLED: ThemeType;
-}
-
-interface Props {
-  testID?: string;
-  style: React.CSSProperties;
-  textStyle: StyleProp<TextStyle>;
-  dark?: boolean;
-  inverted?: boolean;
-  isLoading?: boolean;
-  disabled?: boolean;
-  iconLeft?: React.ReactElement;
-  iconRight?: React.ReactElement;
-  indicatorColor: string;
-  activeOpacity: number;
-  children?: string | React.ReactElement;
-  text?: string;
-  onPress?: (params?: any) => void | Promise<void>;
-  placeholder?: string | number;
 }
 
 const COLOR: {
@@ -66,39 +44,60 @@ export const THEME: {
     backgroundColor: COLOR.WHITE,
     borderColor: COLOR.BLUE,
     fontColor: COLOR.STRONGBLUE,
-    fontSize: COLOR.STRONGBLUE,
+    DEFAULT: {
+      backgroundColor: COLOR.WHITE,
+      borderColor: COLOR.BLUE,
+      fontColor: COLOR.STRONGBLUE,
+    },
     INVERTED: {
       backgroundColor: COLOR.BLUE,
       borderColor: COLOR.STRONGBLUE,
       fontColor: COLOR.WHITE,
-      fontSize: COLOR.WHITE,
     },
     DISABLED: {
       backgroundColor: COLOR.VERYLIGHTGRAY,
       borderColor: COLOR.LIGHTGRAY,
       fontColor: COLOR.GRAY59,
-      fontSize: COLOR.GRAY59,
     },
   },
   DARK: {
     backgroundColor: COLOR.WHITE,
     borderColor: COLOR.GRAY7,
-    fontColor: COLOR.GRAY3,
-    fontSize: COLOR.GRAY3,
+    fontColor: COLOR.WHITE,
+    DEFAULT: {
+      backgroundColor: COLOR.GRAY7,
+      borderColor: COLOR.GRAY3,
+      fontColor: COLOR.WHITE,
+    },
     INVERTED: {
       backgroundColor: COLOR.GRAY7,
       borderColor: COLOR.GRAY3,
       fontColor: COLOR.WHITE,
-      fontSize: COLOR.WHITE,
     },
     DISABLED: {
       backgroundColor: COLOR.VERYLIGHTGRAY,
       borderColor: COLOR.LIGHTGRAY,
       fontColor: COLOR.GRAY59,
-      fontSize: COLOR.GRAY59,
     },
   },
 };
+
+interface Props {
+  testID?: string;
+  textStyle: StyleProp<TextStyle>;
+  dark?: boolean;
+  inverted?: boolean;
+  isLoading?: boolean;
+  disabled?: boolean;
+  iconLeft?: React.ReactElement;
+  iconRight?: React.ReactElement;
+  indicatorColor: string;
+  activeOpacity: number;
+  children?: React.ReactElement | undefined;
+  text?: string;
+  onPress?: (params?: any) => void | Promise<void>;
+  placeholder?: string | number;
+}
 
 const Container = styled.View`
   width: 100%;
@@ -107,21 +106,30 @@ const Container = styled.View`
 const RootWrapper = styled.TouchableOpacity`
   width: 100%;
   height: 100%;
-`;
-const RootSelect = styled.View`
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
   padding: 14px 6px;
   background-color: #ffffff;
-  border-radius: 3px;
-  border-color: rgb(224, 224, 224);
-  box-shadow: 2px 2px 4px rgba(212, 210, 212, 1);
+  border-top-left-radius: 3px;
+  border-top-right-radius: 3px;
+  border-bottom-left-radius: 3px;
+  border-bottom-right-radius: 3px;
+  border-color: rgba(224, 224, 224, 0.5);
+  box-shadow: 0px 2px 4px rgba(212, 210, 212, 1);
 `;
-// TODO: config max-height to set default height
-const SelectItemListView = styled.TouchableOpacity`
+const SelectListModal = styled.Modal`
   width: 100%;
-  height: 100%;
+  border-color: transparent;
+  background-color: rgba(224, 224, 224, 0.2);
+  border-bottom-left-radius: 3px;
+  border-bottom-right-radius: 3px;
+`;
+
+const ItemWrapper = styled.TouchableOpacity`
+  width: 100%;
+  padding: 14px 6px;
+  justify-content: center;
 `;
 
 const Text = styled.Text<TextType>`
@@ -131,44 +139,130 @@ const Text = styled.Text<TextType>`
 `;
 
 function Select(props: Props): React.ReactElement {
+  // Props
   const {
     testID,
+    dark,
     disabled,
     activeOpacity,
     onPress,
     placeholder,
     style,
   } = props;
-
+  // Initialize
   const [isOpen, toggle] = React.useState(false);
+  const [containerHeight, setContainerHeight] = React.useState(0);
+  const [selectedItem, setSelectedItem] = React.useState<any>();
+  const rotateAnimValue = React.useRef(new Animated.Value(0)).current;
+  const slideAnimValue = React.useRef(new Animated.Value(0)).current;
+
+  // LifeCycle
+  React.useEffect(() => {
+    const rotateValue = isOpen ? 1 : 0;
+    Animated.timing(rotateAnimValue, {
+      toValue: rotateValue,
+      duration: 120,
+      easing: Easing.linear,
+      useNativeDriver: true,
+    }).start();
+
+    const slideValue = isOpen ? 1 : 0;
+    Animated.timing(slideAnimValue, {
+      toValue: slideValue,
+      duration: 250,
+      easing: Easing.linear,
+      useNativeDriver: true,
+    }).start();
+  }, [isOpen]);
 
   return (
-    <Container>
+    <Container
+      onLayout={(e) => setContainerHeight(e.nativeEvent.layout.height)}>
       <RootWrapper
         testID={testID}
         activeOpacity={activeOpacity}
-        onPress={onPress}
-        disabled={disabled}>
-        <RootSelect>
-          <Text
-            theme={{
-              fontSize: style.fontSize ? style.fontSize : '12px',
-              color: style.color ? style.color : '#000',
-            }}>
-            {placeholder}
-          </Text>
-          <Arrow color={'#000'} />
-        </RootSelect>
-      </RootWrapper>
-      <Modal visible={true} transparent={true}>
-        <SelectItemListView
-          onPress={():void => toggle(!isOpen)}
-          style={{
-            display: isOpen ? 'flex' : 'none',
+        onPress={(): void => toggle(!isOpen)}
+        disabled={disabled}
+        style={[
+          dark ? THEME.DARK.DEFAULT : THEME.LIGHT.DEFAULT,
+          {
+            borderBottomLeftRadius: isOpen ? 0 : 3,
+            borderBottomRightRadius: isOpen ? 0 : 3,
+          },
+        ]}>
+        <Text
+          theme={{
+            fontSize: style.fontSize ? style.fontSize : '12',
+            fontColor: style.fontColor
+              ? style.fontColor
+              : dark
+                ? THEME.DARK.DEFAULT.fontColor
+                : THEME.LIGHT.DEFAULT.fontColor,
           }}>
-          {props.children}
-        </SelectItemListView>
-      </Modal>
+          {selectedItem || placeholder}
+        </Text>
+        <Animated.View
+          style={{
+            transform: [
+              {
+                rotate: rotateAnimValue.interpolate({
+                  inputRange: [0, 1],
+                  outputRange: ['0deg', '180deg'],
+                }),
+              },
+            ],
+          }}>
+          <Arrow
+            color={
+              dark
+                ? THEME.DARK.DEFAULT.fontColor
+                : THEME.LIGHT.DEFAULT.fontColor
+            }
+          />
+        </Animated.View>
+      </RootWrapper>
+      <SelectListModal
+        animationType="slide"
+        transparent={true}
+        visible={isOpen}>
+        <Animated.ScrollView
+          style={{
+            overflow: 'hidden',
+            height: slideAnimValue.interpolate({
+              inputRange: [0, 1],
+              outputRange: [0, 100],
+            }),
+          }}>
+          <ItemWrapper
+            onPress={() => setSelectedItem('Item1')}
+            style={{ height: containerHeight }}>
+            <Text
+              theme={{
+                fontSize: style.fontSize ? style.fontSize : '12',
+                color: style.fontColor
+                  ? style.fontColor
+                  : dark
+                    ? THEME.DARK.INVERTED.fontColor
+                    : THEME.LIGHT.INVERTED.fontColor,
+              }}>
+              {'Item1'}
+            </Text>
+          </ItemWrapper>
+          <ItemWrapper onPress={() => setSelectedItem('Item2')}>
+            <Text
+              theme={{
+                fontSize: style.fontSize ? style.fontSize : '12',
+                color: style.fontColor
+                  ? style.fontColor
+                  : dark
+                    ? THEME.DARK.INVERTED.fontColor
+                    : THEME.LIGHT.INVERTED.fontColor,
+              }}>
+              {'Item2'}
+            </Text>
+          </ItemWrapper>
+        </Animated.ScrollView>
+      </SelectListModal>
     </Container>
   );
 }
