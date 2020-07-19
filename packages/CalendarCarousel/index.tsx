@@ -111,7 +111,7 @@ const isToday = (date: Date): boolean => {
 };
 
 function CalendarCarousel<T>({
-  date, onDateChanged, selectDate, selectedDate,
+  date = new Date(), onDateChanged, selectDate, selectedDate,
 }: PropsWithChildren<Props<T>>): ReactElement {
   const [currentDate, setCurrentDate] = useState<Date>(date);
   const monthName = currentDate.toLocaleString('default', {
