@@ -29,7 +29,6 @@ interface Style {
 
 const styles = StyleSheet.create<Style>({
   container: {
-    flex: 1,
     paddingTop: 40,
     width: 330,
     height: 488,
