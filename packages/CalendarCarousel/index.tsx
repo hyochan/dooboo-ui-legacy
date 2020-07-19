@@ -8,7 +8,7 @@ import {
   View,
   ViewStyle,
 } from 'react-native';
-import React, { ReactElement, useState } from 'react';
+import React, { PropsWithChildren, ReactElement, useState } from 'react';
 
 interface Style {
   container: ViewStyle;
@@ -47,7 +47,6 @@ const styles = StyleSheet.create<Style>({
     flexDirection: 'column',
   },
   titleText: {
-    fontFamily: 'Avenir',
     fontSize: 20,
     textAlign: 'center',
     justifyContent: 'center',
@@ -67,7 +66,6 @@ const styles = StyleSheet.create<Style>({
   },
   weekdayText: {
     color: '#4F4F4F',
-    fontFamily: 'Avenir',
     fontSize: 20,
     textAlign: 'center',
   },
@@ -83,7 +81,6 @@ const styles = StyleSheet.create<Style>({
   },
   noPressText: {
     textAlign: 'center',
-    fontFamily: 'Avenir',
   },
   onPressView: {
     width: 47,
@@ -95,33 +92,62 @@ const styles = StyleSheet.create<Style>({
   },
   onPressText: {
     textAlign: 'center',
-    fontFamily: 'Avenir',
     color: '#109CF1',
   },
 });
 
 interface Props<T> {
   date?: Date;
-  year?: number;
-  month?: number;
-  swipeLeft?: () => void;
-  swipeRight?: () => void;
+  onDateChanged?: (date: Date) => void;
+  selectedDate?: Date;
+  selectDate?: (date: Date) => void;
 }
 
-function CalendarCarousel<T>(props: Props<T>): React.ReactElement {
-  const { date, year, month, swipeLeft, swipeRight } = props;
-  const monthName = new Date(year, month, 1).toLocaleString('default', {
+const isToday = (date: Date): boolean => {
+  const today = new Date();
+  return date.getDate() === today.getDate() &&
+      date.getMonth() === today.getMonth() &&
+      date.getFullYear() === today.getFullYear();
+};
+
+function CalendarCarousel<T>({
+  date, onDateChanged, selectDate, selectedDate,
+}: PropsWithChildren<Props<T>>): ReactElement {
+  const [currentDate, setCurrentDate] = useState<Date>(date);
+  const monthName = currentDate.toLocaleString('default', {
     month: 'long',
   });
 
   const weekdays = [];
+  const year = currentDate.getFullYear();
+  const month = currentDate.getMonth();
 
   const currentMonthDays = new Date(year, month + 1, 0).getDate();
   const firstWeekday = new Date(year, month, 1).getDay();
   const lastWeekday = new Date(year, month, currentMonthDays).getDay();
   let numPrevMonthDays = new Date(year, month - 1, 0).getDate();
 
-  const [selectedDay, setSelectedDay] = useState(32);
+  const changeMonth = (toPrevMonth?: boolean): void => {
+    if (toPrevMonth) {
+      const update = new Date(
+        currentDate.getFullYear(),
+        currentDate.getMonth() - 1,
+        currentDate.getDate(),
+      );
+
+      setCurrentDate(update);
+      return onDateChanged?.(update);
+    }
+
+    const update = new Date(
+      date.getFullYear(),
+      date.getMonth() + 1,
+      date.getDate(),
+    );
+
+    setCurrentDate(update);
+    return onDateChanged?.(update);
+  };
 
   for (let idx = 0; idx <= 6; idx++) {
     const someDay = new Date(2020, 5, idx);
@@ -135,20 +161,15 @@ function CalendarCarousel<T>(props: Props<T>): React.ReactElement {
   const frontBlanks = [];
   for (let idx = 0; idx < firstWeekday; idx++) {
     frontBlanks.unshift(
-      <View
-        style={{
-          width: 47,
-          height: 47,
-          paddingTop: 13.5,
-        }}>
-        <Text
-          style={{
-            textAlign: 'center',
-            fontFamily: 'Avenir',
-            color: 'lightgray',
-          }}>
-          {`${numPrevMonthDays}`}
-        </Text>
+      <View style={{
+        width: 47,
+        height: 47,
+        paddingTop: 13.5,
+      }}>
+        <Text style={{
+          textAlign: 'center',
+          color: 'lightgray',
+        }}>{`${numPrevMonthDays}`}</Text>
       </View>,
     );
     numPrevMonthDays--;
@@ -156,11 +177,13 @@ function CalendarCarousel<T>(props: Props<T>): React.ReactElement {
 
   const days = [];
   for (let d = 1; d <= currentMonthDays; d++) {
-    if (
-      date.getDate() === d &&
-      date.getMonth() === month &&
-      date.getFullYear() === year
-    ) {
+    if (isToday(
+      new Date(
+        currentDate.getFullYear(),
+        currentDate.getMonth(),
+        d,
+      ),
+    )) {
       days.push(
         <View
           style={{
@@ -171,42 +194,40 @@ function CalendarCarousel<T>(props: Props<T>): React.ReactElement {
             alignItems: 'center',
             paddingTop: 13.5,
           }}>
-          <Text
-            style={{
-              fontFamily: 'Avenir',
-              color: 'white',
-              textAlign: 'center',
-            }}>
-            {`${d}`}
-          </Text>
+          <Text style={{
+            color: 'white',
+            textAlign: 'center',
+          }}>{`${d}`}</Text>
         </View>,
       );
-    } else if (d === selectedDay) {
+    } else if (d === (selectedDate?.getDate() || -1)) {
       days.push(
-        <TouchableOpacity onPress={(): void => setSelectedDay(d)}>
+        <TouchableOpacity onPress={(): void => selectDate?.(
+          new Date(
+            currentDate.getFullYear(),
+            currentDate.getMonth(),
+            d,
+          ),
+        )}>
           <View style={styles.onPressView}>
-            <Text
-              style={{
-                textAlign: 'center',
-                fontFamily: 'Avenir',
-                color: '#109CF1',
-              }}>
-              {`${d}`}
-            </Text>
+            <Text style={{
+              textAlign: 'center',
+              color: '#109CF1',
+            }}>{`${d}`}</Text>
           </View>
         </TouchableOpacity>,
       );
     } else {
       days.push(
-        <TouchableOpacity onPress={(): void => setSelectedDay(d)}>
+        <TouchableOpacity onPress={(): void => selectDate?.(
+          new Date(
+            currentDate.getFullYear(),
+            currentDate.getMonth(),
+            d,
+          ),
+        )}>
           <View style={styles.noPressView}>
-            <Text
-              style={{
-                textAlign: 'center',
-                fontFamily: 'Avenir',
-              }}>
-              {`${d}`}
-            </Text>
+            <Text style={{ textAlign: 'center' }}>{`${d}`}</Text>
           </View>
         </TouchableOpacity>,
       );
@@ -226,7 +247,6 @@ function CalendarCarousel<T>(props: Props<T>): React.ReactElement {
           }}>
           <Text
             style={{
-              fontFamily: 'Avenir',
               color: 'lightgray',
               textAlign: 'center',
             }}>
@@ -241,14 +261,14 @@ function CalendarCarousel<T>(props: Props<T>): React.ReactElement {
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.headerFlex}>
-        <TouchableOpacity onPress={swipeLeft}>
+        <TouchableOpacity onPress={(): void => changeMonth(true)}>
           <Text style={styles.beforeArrowText}> &#8249;</Text>
         </TouchableOpacity>
         <View style={styles.titleFlex}>
           <Text style={styles.titleText}>{monthName}</Text>
           <Text style={styles.yearText}>{year}</Text>
         </View>
-        <TouchableOpacity onPress={swipeRight}>
+        <TouchableOpacity onPress={(): void => changeMonth(false)}>
           <Text style={styles.nextArrowText}>&#8250;</Text>
         </TouchableOpacity>
       </View>

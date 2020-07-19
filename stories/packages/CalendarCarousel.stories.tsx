@@ -12,37 +12,19 @@ const Container = styled.SafeAreaView`
   align-items: center;
 `;
 
+const date = new Date();
+
 function Default(): React.ReactElement {
-  const date = new Date();
-  const [year, setYear] = useState(date.getFullYear());
-  const [month, setMonth] = useState(date.getMonth());
-
-  const setNextMonth = (): void => {
-    if (month === 11) {
-      setMonth((month) => (month = 0));
-      setYear((year) => year + 1);
-    } else {
-      setMonth((month) => month + 1);
-    }
-  };
-
-  const setPrevMonth = (): void => {
-    if (month === 0) {
-      setMonth((month) => (month = 11));
-      setYear((year) => year - 1);
-    } else {
-      setMonth((month) => month - 1);
-    }
-  };
+  const [currentDate, setCurrentDate] = useState<Date>(date);
+  const [selectedDate, setSelectedDate] = useState<Date>();
 
   return (
     <Container>
       <CalendarCarousel
-        date={new Date()}
-        year={year}
-        month={month}
-        swipeLeft={setPrevMonth}
-        swipeRight={setNextMonth}
+        date={currentDate}
+        onDateChanged={(date): void => setCurrentDate(date)}
+        selectedDate={ selectedDate }
+        selectDate={(date: Date): void => setSelectedDate(date)}
       />
     </Container>
   );
