@@ -1,4 +1,7 @@
-import { DefaultTheme, ThemeProvider as OriginalThemeProvider } from 'styled-components/native';
+import {
+  DefaultTheme,
+  ThemeProvider as OriginalThemeProvider,
+} from 'styled-components/native';
 import {
   Theme as DoobooTheme,
   ThemeParam,
@@ -8,11 +11,13 @@ import {
   light as lightTheme,
 } from './theme';
 import React, { useState } from 'react';
+
 import createCtx from './createCtx';
 
 interface Context {
   themeType: ThemeType;
   theme: DefaultTheme;
+  dooboo: DoobooTheme;
   changeThemeType: () => void;
 }
 const [useCtx, Provider] = createCtx<Context>();
@@ -24,12 +29,14 @@ interface Props {
   // using initial ThemeType is essential while testing apps with consistent ThemeType
   initialThemeType?: ThemeType;
   customTheme?: ThemeParam;
+  dooboo?: DoobooTheme;
 }
 
 function ThemeProvider({
   children,
   initialThemeType = defaultThemeType,
   customTheme,
+  dooboo,
 }: Props): React.ReactElement {
   const [themeType, setThemeType] = useState(initialThemeType);
 
@@ -67,8 +74,8 @@ function ThemeProvider({
         themeType,
         changeThemeType,
         theme: theme,
-      }}
-    >
+        dooboo: dooboo,
+      }}>
       <OriginalThemeProvider theme={theme}>{children}</OriginalThemeProvider>
     </Provider>
   );
