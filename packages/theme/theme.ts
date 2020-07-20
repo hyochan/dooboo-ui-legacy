@@ -72,7 +72,7 @@ export const light = {
   btnFont: '#FFFFFF',
   btnGray: colors.gray5,
   btnWhite: '#ffffff',
-  text: colors.gray7,
+  text: colors.gray8,
   whiteText: '#ffffff',
   blueText: colors.blue1,
   darkText: colors.dark7,
@@ -91,11 +91,7 @@ export const light = {
   warnColor: colors.red4,
   tealBackGround: colors.green0,
   tealColor: colors.green1,
-  labelInput: {
-    border: colors.gray2,
-    label: colors.gray8,
-    background: '#FFFFFF',
-  },
+  whiteBackground: '#FFFFFF',
 };
 
 export type Theme = typeof light;
@@ -132,7 +128,7 @@ export const dark = {
   mediumLine: colors.primary8,
   border: '#EDEDED',
   grayBorder0: colors.gray1,
-  grayBorder1: colors.gray2,
+  grayBorder1: colors.white0,
   grayBorder2: colors.gray4,
   grayBorder3: colors.gray5,
   disableColor: colors.white2,
@@ -140,11 +136,7 @@ export const dark = {
   warnColor: colors.red4,
   tealBackGround: colors.green0,
   tealColor: colors.green1,
-  labelInput: {
-    border: colors.white0,
-    label: colors.white0,
-    background: colors.dark6,
-  },
+  whiteBackground: colors.dark6,
 };
 
 export const theme = {
