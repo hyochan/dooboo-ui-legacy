@@ -32,6 +32,7 @@ interface Props {
   buttonContainerStyle?: StyleProp<ViewStyle> | any;
   rightContainerStyle?: StyleProp<ViewStyle> | any;
   leftContainerStyle?: StyleProp<ViewStyle> | any;
+  RTL?: boolean;
 }
 
 const styles = StyleSheet.create({
@@ -70,7 +71,7 @@ function SwitchToggle(props: Props): React.ReactElement {
         ((props.circleStyle.width as number) +
           (props.containerStyle.padding as number || 0) * 2)
       : 0;
-  const circlePosXEnd = endPos;
+  const circlePosXEnd = props.RTL ? -endPos : endPos;
   const [circlePosXStart] = useState(getStart());
 
   const prevSwitchOnRef = useRef<boolean>();
