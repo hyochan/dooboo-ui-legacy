@@ -22,7 +22,7 @@ function Default(): React.ReactElement {
     <Container>
       <CalendarCarousel
         date={currentDate}
-        onDateChanged={(date: Date): void => setCurrentDate(date)}
+        onMonthChanged={(date: Date): void => setCurrentDate(date)}
         selectedDate={selectedDate}
         selectDate={(date: Date): void => setSelectedDate(date)}
       />

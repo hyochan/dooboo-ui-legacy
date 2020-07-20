@@ -12,19 +12,22 @@ import React, { Fragment, PropsWithChildren, ReactElement, useState } from 'reac
 
 interface Style {
   container: ViewStyle;
-  headerFlex: ViewStyle;
-  beforeArrowText: TextStyle;
-  titleFlex: ViewStyle;
+  headerStyle: ViewStyle;
+  arrowText: TextStyle;
+  titleContainer: ViewStyle;
   titleText: TextStyle;
   yearText: TextStyle;
-  nextArrowText: TextStyle;
-  weekdayFlex: ViewStyle;
+  weekdayStyle: ViewStyle;
   weekdayText: TextStyle;
-  calendarContainerSize: ViewStyle;
-  noPressView: ViewStyle;
-  noPressText: TextStyle;
-  onPressView: ViewStyle;
-  onPressText: TextStyle;
+  dayContainer: ViewStyle;
+  otherDaysView: ViewStyle;
+  otherDaysText: TextStyle;
+  currentDayView: ViewStyle;
+  currentDayText: TextStyle;
+  notActiveView: ViewStyle;
+  notActiveText: TextStyle;
+  activeView: ViewStyle;
+  activeText: TextStyle;
 }
 
 const styles = StyleSheet.create<Style>({
@@ -33,16 +36,16 @@ const styles = StyleSheet.create<Style>({
     width: 330,
     height: 488,
   },
-  headerFlex: {
+  headerStyle: {
     flexDirection: 'row',
     justifyContent: 'center',
     paddingBottom: 30,
   },
-  beforeArrowText: {
+  arrowText: {
     color: 'royalblue',
     fontSize: 30,
   },
-  titleFlex: {
+  titleContainer: {
     display: 'flex',
     flexDirection: 'column',
   },
@@ -57,11 +60,7 @@ const styles = StyleSheet.create<Style>({
     textAlign: 'center',
     justifyContent: 'center',
   },
-  nextArrowText: {
-    color: 'royalblue',
-    fontSize: 30,
-  },
-  weekdayFlex: {
+  weekdayStyle: {
     flexDirection: 'row',
   },
   weekdayText: {
@@ -69,20 +68,41 @@ const styles = StyleSheet.create<Style>({
     fontSize: 20,
     textAlign: 'center',
   },
-  calendarContainerSize: {
+  dayContainer: {
     width: 330,
     height: 388,
   },
-  noPressView: {
+  otherDaysView: {
+    width: 47,
+    height: 47,
+    paddingTop: 13.5,
+  },
+  otherDaysText: {
+    color: 'lightgray',
+    textAlign: 'center',
+  },
+  currentDayView: {
+    borderRadius: 50,
+    backgroundColor: '#109CF1',
+    width: 47,
+    height: 47,
+    alignItems: 'center',
+    paddingTop: 13.5,
+  },
+  currentDayText: {
+    color: 'white',
+    textAlign: 'center',
+  },
+  notActiveView: {
     width: 47,
     height: 47,
     paddingTop: 13.5,
     alignItems: 'center',
   },
-  noPressText: {
+  notActiveText: {
     textAlign: 'center',
   },
-  onPressView: {
+  activeView: {
     width: 47,
     height: 47,
     paddingTop: 13.5,
@@ -90,7 +110,7 @@ const styles = StyleSheet.create<Style>({
     borderRadius: 50,
     backgroundColor: '#F0F8FD',
   },
-  onPressText: {
+  activeText: {
     textAlign: 'center',
     color: '#109CF1',
   },
@@ -98,7 +118,7 @@ const styles = StyleSheet.create<Style>({
 
 interface Props<T> {
   date?: Date;
-  onDateChanged?: (date: Date) => void;
+  onMonthChanged?: (date: Date) => void;
   selectedDate?: Date;
   selectDate?: (date: Date) => void;
 }
@@ -111,7 +131,7 @@ const isToday = (date: Date): boolean => {
 };
 
 function CalendarCarousel<T>({
-  date = new Date(), onDateChanged, selectDate, selectedDate,
+  date = new Date(), onMonthChanged, selectDate, selectedDate,
 }: PropsWithChildren<Props<T>>): ReactElement {
   const [currentDate, setCurrentDate] = useState<Date>(date);
   const monthName = currentDate.toLocaleString('default', {
@@ -136,7 +156,7 @@ function CalendarCarousel<T>({
       );
 
       setCurrentDate(update);
-      return onDateChanged?.(update);
+      return onMonthChanged?.(update);
     }
 
     const update = new Date(
@@ -146,30 +166,24 @@ function CalendarCarousel<T>({
     );
 
     setCurrentDate(update);
-    return onDateChanged?.(update);
+    return onMonthChanged?.(update);
   };
 
   for (let idx = 0; idx <= 6; idx++) {
-    const someDay = new Date(2020, 5, idx);
-    const wd = someDay.toLocaleString('default', { weekday: 'narrow' });
+    const matchMonth = new Date(2020, 5, idx);
+    const weekDay = matchMonth.toLocaleString('default', { weekday: 'narrow' });
     weekdays.push(
       <View style={{ width: 47.14 }} key={idx}>
-        <Text style={styles.weekdayText}>{wd}</Text>
+        <Text style={styles.weekdayText}>{weekDay}</Text>
       </View>,
     );
   }
-  const frontBlanks = [];
+
+  const prevDays = [];
   for (let idx = 0; idx < firstWeekday; idx++) {
-    frontBlanks.unshift(
-      <View style={{
-        width: 47,
-        height: 47,
-        paddingTop: 13.5,
-      }}>
-        <Text style={{
-          textAlign: 'center',
-          color: 'lightgray',
-        }}>{`${numPrevMonthDays}`}</Text>
+    prevDays.unshift(
+      <View style={styles.otherDaysView}>
+        <Text style={styles.otherDaysText}>{`${numPrevMonthDays}`}</Text>
       </View>,
     );
     numPrevMonthDays--;
@@ -186,21 +200,11 @@ function CalendarCarousel<T>({
     )) {
       days.push(
         <View
-          style={{
-            borderRadius: 50,
-            backgroundColor: '#109CF1',
-            width: 47,
-            height: 47,
-            alignItems: 'center',
-            paddingTop: 13.5,
-          }}>
-          <Text style={{
-            color: 'white',
-            textAlign: 'center',
-          }}>{`${d}`}</Text>
+          style={styles.currentDayView}>
+          <Text style={styles.currentDayText}>{`${d}`}</Text>
         </View>,
       );
-    } else if (d === (selectedDate?.getDate() || -1)) {
+    } else if (d === selectedDate?.getDate() && month === selectedDate?.getMonth()) {
       days.push(
         <TouchableOpacity onPress={(): void => selectDate?.(
           new Date(
@@ -209,11 +213,8 @@ function CalendarCarousel<T>({
             d,
           ),
         )}>
-          <View style={styles.onPressView}>
-            <Text style={{
-              textAlign: 'center',
-              color: '#109CF1',
-            }}>{`${d}`}</Text>
+          <View style={styles.activeView}>
+            <Text style={styles.activeText}>{`${d}`}</Text>
           </View>
         </TouchableOpacity>,
       );
@@ -226,30 +227,22 @@ function CalendarCarousel<T>({
             d,
           ),
         )}>
-          <View style={styles.noPressView}>
-            <Text style={{ textAlign: 'center' }}>{`${d}`}</Text>
+          <View style={styles.notActiveView}>
+            <Text style={styles.notActiveText}>{`${d}`}</Text>
           </View>
         </TouchableOpacity>,
       );
     }
   }
 
-  const endBlanks = [];
+  const nextDays = [];
   if (6 - lastWeekday >= 1) {
     for (let idx = 1; idx <= 6 - lastWeekday; idx++) {
-      endBlanks.push(
+      nextDays.push(
         <View
-          style={{
-            width: 47,
-            height: 47,
-            paddingTop: 13.5,
-            alignItems: 'center',
-          }}>
+          style={styles.otherDaysView}>
           <Text
-            style={{
-              color: 'lightgray',
-              textAlign: 'center',
-            }}>
+            style={styles.otherDaysText}>
             {`${idx}`}
           </Text>
         </View>,
@@ -257,30 +250,35 @@ function CalendarCarousel<T>({
     }
   }
 
-  const calendarDays = [...frontBlanks, ...days, ...endBlanks];
+  const calendarDays = [...prevDays, ...days, ...nextDays];
+
+  const renderHeader = () : React.ReactElement => {
+    return (
+      <Fragment>
+        <View style={styles.headerStyle}>
+          <TouchableOpacity onPress={(): void => changeMonth(true)}>
+            <Text style={styles.arrowText}> &#8249;</Text>
+          </TouchableOpacity>
+          <View style={styles.titleContainer}>
+            <Text style={styles.titleText}>{monthName}</Text>
+            <Text style={styles.yearText}>{year}</Text>
+          </View>
+          <TouchableOpacity onPress={(): void => changeMonth(false)}>
+            <Text style={styles.arrowText}>&#8250;</Text>
+          </TouchableOpacity>
+        </View>
+        <View style={styles.weekdayStyle}>{weekdays}</View>
+      </Fragment>
+    );
+  };
+
   return (
     <SafeAreaView style={styles.container}>
       <FlatList
-        style={styles.calendarContainerSize}
+        ListHeaderComponent={renderHeader}
+        style={styles.dayContainer}
         numColumns={7}
         data={calendarDays}
-        ListHeaderComponent={
-          <Fragment>
-            <View style={styles.headerFlex}>
-              <TouchableOpacity onPress={(): void => changeMonth(true)}>
-                <Text style={styles.beforeArrowText}> &#8249;</Text>
-              </TouchableOpacity>
-              <View style={styles.titleFlex}>
-                <Text style={styles.titleText}>{monthName}</Text>
-                <Text style={styles.yearText}>{year}</Text>
-              </View>
-              <TouchableOpacity onPress={(): void => changeMonth(false)}>
-                <Text style={styles.nextArrowText}>&#8250;</Text>
-              </TouchableOpacity>
-            </View>
-            <View style={styles.weekdayFlex}>{weekdays}</View>
-          </Fragment>
-        }
         renderItem={({ item }): ReactElement => {
           return item;
         }}

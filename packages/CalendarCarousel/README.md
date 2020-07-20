@@ -14,9 +14,6 @@ Scroll Through each of the months (will automatically load to the next year on D
 - React-Native : FlatList, StyleSheet, SafeAreaView, Text, Texstyle...
 - typescript 
 
-#### Libraries
-Date-fns : https://date-fns.org/
-
 ## Visuals
 
 #### Final Design Plan
