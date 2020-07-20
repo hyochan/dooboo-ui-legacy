@@ -28,6 +28,7 @@
 | buttonContainerStyle |           | `StyleProp<ViewStyle>` | Styles for button container                              |
 | rightContainerStyle  |           | `StyleProp<ViewStyle>` | Styles for right text container                          |
 | leftContainerStyle   |           | `StyleProp<ViewStyle>` | Styles for left text container                           |
+| RTL                  |           | boolean                | false                                                    |
 
 ## Installation
 
