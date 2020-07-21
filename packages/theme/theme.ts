@@ -82,11 +82,12 @@ export const light = {
   thickLine: colors.primary6,
   mediumLine: colors.primary8,
   border: '#EDEDED',
-  grayBorder0: colors.gray1,
-  grayBorder1: colors.gray2,
-  grayBorder2: colors.gray4,
-  grayBorder3: colors.gray5,
+  borderLight0: colors.gray1,
+  borderLight1: colors.gray2,
+  borderLight2: colors.gray4,
+  borderLight3: colors.gray5,
   disableColor: colors.white2,
+  lightBlueBackground: colors.primary1,
   warnBackground: colors.red0,
   warnColor: colors.red4,
   tealBackGround: colors.green0,
@@ -96,7 +97,7 @@ export const light = {
 
 export type Theme = typeof light;
 
-export const dark = {
+export const dark: Theme = {
   brand: colors.dark,
   brandLight: '#29BDFF',
   title: colors.dark,
@@ -127,11 +128,12 @@ export const dark = {
   thickLine: colors.primary5,
   mediumLine: colors.primary8,
   border: '#EDEDED',
-  grayBorder0: colors.gray1,
-  grayBorder1: colors.white0,
-  grayBorder2: colors.gray4,
-  grayBorder3: colors.gray5,
+  borderLight0: colors.gray1,
+  borderLight1: colors.white0,
+  borderLight2: colors.gray4,
+  borderLight3: colors.gray5,
   disableColor: colors.white2,
+  lightBlueBackground: colors.primary1,
   warnBackground: colors.red0,
   warnColor: colors.red4,
   tealBackGround: colors.green0,
