@@ -118,7 +118,7 @@ const styles = StyleSheet.create<Style>({
 
 interface Props<T> {
   date?: Date;
-  onMonthChanged?: (date: Date) => void;
+  onDateChanged?: (date: Date) => void;
   selectedDate?: Date;
   selectDate?: (date: Date) => void;
 }
@@ -131,7 +131,7 @@ const isToday = (date: Date): boolean => {
 };
 
 function CalendarCarousel<T>({
-  date = new Date(), onMonthChanged, selectDate, selectedDate,
+  date = new Date(), onDateChanged, selectDate, selectedDate,
 }: PropsWithChildren<Props<T>>): ReactElement {
   const [currentDate, setCurrentDate] = useState<Date>(date);
   const monthName = currentDate.toLocaleString('default', {
@@ -156,7 +156,7 @@ function CalendarCarousel<T>({
       );
 
       setCurrentDate(update);
-      return onMonthChanged?.(update);
+      return onDateChanged?.(update);
     }
 
     const update = new Date(
@@ -166,7 +166,7 @@ function CalendarCarousel<T>({
     );
 
     setCurrentDate(update);
-    return onMonthChanged?.(update);
+    return onDateChanged?.(update);
   };
 
   for (let idx = 0; idx <= 6; idx++) {
