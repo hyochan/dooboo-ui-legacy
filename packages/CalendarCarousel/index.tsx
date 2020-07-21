@@ -1,6 +1,7 @@
 import {
   FlatList,
   SafeAreaView,
+  ScrollView,
   StyleSheet,
   Text,
   TextStyle,
@@ -9,6 +10,12 @@ import {
   ViewStyle,
 } from 'react-native';
 import React, { Fragment, PropsWithChildren, ReactElement, useState } from 'react';
+
+enum MonthType {
+  prev,
+  current,
+  next,
+}
 
 interface Style {
   container: ViewStyle;
@@ -169,6 +176,7 @@ function CalendarCarousel<T>({
     return onDateChanged?.(update);
   };
 
+  // TODO: Provide drawing calendar as a one single function to reuse it in other pages.
   for (let idx = 0; idx <= 6; idx++) {
     const matchMonth = new Date(2020, 5, idx);
     const weekDay = matchMonth.toLocaleString('default', { weekday: 'narrow' });
@@ -272,18 +280,35 @@ function CalendarCarousel<T>({
     );
   };
 
+  const renderMonth = (type?: MonthType): ReactElement => {
+    // TODO: differentiate months to render with `MonthType
+
+    return <FlatList
+      style={styles.dayContainer}
+      numColumns={7}
+      data={calendarDays}
+      renderItem={({ item }): ReactElement => {
+        return item;
+      }}
+      keyExtractor={(item, id): string => id.toString()}
+    />;
+  };
+
   return (
     <SafeAreaView style={styles.container}>
-      <FlatList
-        ListHeaderComponent={renderHeader}
-        style={styles.dayContainer}
-        numColumns={7}
-        data={calendarDays}
-        renderItem={({ item }): ReactElement => {
-          return item;
+      { renderHeader() }
+      <ScrollView
+        horizontal
+        pagingEnabled
+        onScrollEndDrag={(e): void => {
+          // TODO: You can see targetContentOffset to check current page
+          console.log('onScrollEndDrag', e);
         }}
-        keyExtractor={(item, id): string => id.toString()}
-      />
+      >
+        {renderMonth()}
+        {renderMonth()}
+        {renderMonth()}
+      </ScrollView>
     </SafeAreaView>
   );
 }
