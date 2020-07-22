@@ -30,11 +30,11 @@ export const THEME: {
 } = {
   LIGHT: {
     backgroundColor: COLOR.WHITE,
-    borderColor: COLOR.DODGERBLUE,
+    borderColor: COLOR.LIGHTGRAY,
     fontColor: COLOR.GRAY7,
     INVERTED: {
-      backgroundColor: COLOR.LIGHTBLUE,
-      borderColor: COLOR.DODGERBLUE,
+      backgroundColor: COLOR.WHITE,
+      borderColor: COLOR.LIGHTGRAY,
       fontColor: COLOR.GRAY7,
     },
     DISABLED: {
@@ -45,11 +45,11 @@ export const THEME: {
   },
   DARK: {
     backgroundColor: COLOR.GRAY7,
-    borderColor: COLOR.GRAY7,
+    borderColor: COLOR.LIGHTGRAY,
     fontColor: COLOR.WHITE,
     INVERTED: {
       backgroundColor: COLOR.GRAY59,
-      borderColor: COLOR.GRAY3,
+      borderColor: COLOR.LIGHTGRAY,
       fontColor: COLOR.WHITE,
     },
     DISABLED: {

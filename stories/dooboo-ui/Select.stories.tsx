@@ -6,7 +6,7 @@ import LoadingIndicator from '../../main/LoadingIndicator';
 import { storiesOf } from '@storybook/react-native';
 import styled from 'styled-components/native';
 
-const Container = styled.View` 
+const CustomContainer = styled.View` 
   width: 100%;
   height: 100%;
   display: flex;
@@ -21,11 +21,11 @@ const TogglerWrapper = styled.View`
   justify-content: center;
   align-items: center;
   text-align: center;
-  margin: 20px;
+  margin: 10px;
 `;
 const ThemeSwitch = styled.Switch`
-  width: 20px;
-  height: 10px;
+  width: 30px;
+  height: 30px;
 `;
 const CustomSelectContainer = styled.View`
   width: 185px;
@@ -40,8 +40,8 @@ const CustomText = styled.Text`
 
 const Default = (): React.ReactElement => {
   // [Toggler] states
-  const [darkTheme, setDarkTheme] = React.useState<boolean>(false);
-  const [borderless, setBorder] = React.useState<boolean>(false);
+  const [darkTheme, setDarkTheme] = React.useState<boolean>(true);
+  const [borderless, setBorder] = React.useState<boolean>(true);
 
   // [Select] states
   const [selectedValue, onSelectValue] = React.useState<
@@ -54,53 +54,56 @@ const Default = (): React.ReactElement => {
     boolean
   >(false);
 
-  const delaySelect = (selectedItem) => {
+  const delaySelect = (selectedItem) : void => {
     setLoading(true);
     setTimeout(() => {
       setLoading(false);
       onSelectValue(selectedItem);
-    }, 2000);
+    }, 700);
   };
 
   return (
-    <Container>
+    <CustomContainer>
       <TogglerWrapper>
         <CustomText>{'Dark mode?'}</CustomText>
         <ThemeSwitch
           value={darkTheme}
-          onValueChange={() => setDarkTheme(!darkTheme)}
+          onValueChange={(): void => setDarkTheme(!darkTheme)}
         />
         <CustomText>{'Bordered?'}</CustomText>
         <ThemeSwitch
           value={borderless}
-          onValueChange={() => setBorder(!borderless)}
+          onValueChange={(): void => setBorder(!borderless)}
         />
       </TogglerWrapper>
       <CustomSelectContainer>
         <Select
-          testID={'defaultSelect'}
+          // testID={'defaultSelect'}
           open={isOpen}
           loading={isLoading}
-          disabled={false}
-          showArrow={true}
-          dark={darkTheme}
-          bordered={borderless}
-          activeOpacity={0.7}
-          listHeight={undefined}
-          placeholder={'New fancy select'}
+          // disabled={false}
+          // showArrow={true}
+          // isDarkMode={darkTheme}
+          // bordered={borderless}
+          // activeOpacity={0.5}
+          // listHeight={undefined}
+          // placeholder={'New fancy select'}
           value={selectedValue}
-          defaultValue={undefined}
-          onSelect={(value): any => onSelectValue(value)}
-          onOpen={(isOpen): any => toggleSelect(isOpen)}
-          prefixIcon={undefined}
-          suffixIcon={undefined}
-          customLoader={LoadingIndicator}>
+          defaultValue={'undefined'}
+          onSelect={(value): void => delaySelect(value)}
+          onOpen={(isOpen): void => toggleSelect(isOpen)}
+          // prefixIcon={undefined}
+          // suffixIcon={undefined}
+          customLoader={<LoadingIndicator size="small"/>}
+          // customTextStyle={undefined}
+          // customStyle={undefined}
+        >
           <Item value={'Item-1'}>{'Item-1'}</Item>
           <Item value={'Item-2'}>{'Item-2'}</Item>
           <Item value={'Item-3'}>{'Item-3'}</Item>
         </Select>
       </CustomSelectContainer>
-    </Container>
+    </CustomContainer>
   );
 };
 
