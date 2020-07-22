@@ -305,7 +305,7 @@ function CalendarCarousel<T>({
         onScroll= {(e): void => {
           // TODO: You can see targetContentOffset to check current page
           console.log('onScroll', e);
-        }
+        }}
         onScrollEndDrag={(e): void => {
           // TODO: You can see targetContentOffset to check current page
           console.log('onScrollEndDrag', e);
