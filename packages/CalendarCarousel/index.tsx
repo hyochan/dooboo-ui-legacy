@@ -143,7 +143,6 @@ function CalendarCarousel<T>({
   const [currentDate, setCurrentDate] = useState<Date>(date);
 
   const changeMonth = (toPrevMonth?: boolean): void => {
-    console.log('changeMonth');
     if (toPrevMonth) {
       const update = new Date(
         currentDate.getFullYear(),
@@ -303,6 +302,10 @@ function CalendarCarousel<T>({
         onMomentumScrollBegin={(e): void => {
           console.log('momentScroll', e);
         }}
+        onScroll= {(e): void => {
+          // TODO: You can see targetContentOffset to check current page
+          console.log('onScroll', e);
+        }
         onScrollEndDrag={(e): void => {
           // TODO: You can see targetContentOffset to check current page
           console.log('onScrollEndDrag', e);
