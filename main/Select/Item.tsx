@@ -53,9 +53,4 @@ const Item: React.FC<Props> = (props): React.ReactElement => {
   );
 };
 
-Item.defaultProps = {
-  isDarkMode: false,
-
-};
-
 export default Item;

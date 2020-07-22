@@ -12,7 +12,6 @@ import { THEME } from './theme';
 import styled from 'styled-components/native';
 
 interface Props {
-  testID?: string; // Id for tests
   open?: boolean; // Select is toggled?
   loading?: boolean; // is Loading?
   disabled?: boolean; // is Disabled?
@@ -46,7 +45,6 @@ const RootWrapper = styled.TouchableOpacity<{
   width: 100%;
   height: 100%;
   flex-direction: row;
-  justify-content: space-between;
   align-items: center;
   padding: 14px 12px;
   background-color: ${({ isDarkMode, disabled }): string =>
@@ -85,15 +83,8 @@ const SelectListWrapper = styled.View<{
     bordered ? '5px' : '0'};
   border-width: ${({ visible }): string => (visible ? '1px' : '0px')};
   box-shadow: 0px 2px 4px rgba(212, 210, 212, 0.8);
-  
 `;
 
-const ItemWrapper = styled.TouchableOpacity`
-  width: 100%;
-  flex-direction: row;
-  align-items: center;
-  padding: 14px 12px;
-`;
 const IconView = styled.View`
   width: 20px;
   height: 20px;
@@ -123,7 +114,6 @@ const ItemText = styled.Text<{ isDarkMode: boolean }>`
 const Select : React.FC<Props> = (props): React.ReactElement => {
   // Init props
   const {
-    testID,
     open = false,
     loading = false,
     disabled = false,
@@ -149,11 +139,6 @@ const Select : React.FC<Props> = (props): React.ReactElement => {
   const [containerHeight, setContainerHeight] = React.useState(0);
   const rotateAnimValue = React.useRef(new Animated.Value(0)).current;
   const slideAnimValue = React.useRef(new Animated.Value(0)).current;
-
-  const handleOnSelect = (param: string | number): Props['onSelect'] =>
-    onSelect && onSelect(param);
-  const handleModalOpen = (param: boolean): Props['onOpen'] =>
-    onOpen && onOpen(param);
 
   // LifeCycle
   React.useEffect(() => {
@@ -185,7 +170,6 @@ const Select : React.FC<Props> = (props): React.ReactElement => {
     <Container
       onLayout={(e): void => setContainerHeight(e.nativeEvent.layout.height)}>
       <RootWrapper
-        testID={testID}
         activeOpacity={activeOpacity}
         disabled={loading ? true : disabled}
         bordered={bordered}
@@ -197,20 +181,24 @@ const Select : React.FC<Props> = (props): React.ReactElement => {
           },
           customStyle,
         ]}
-        onPress={(): any => handleModalOpen(!open)}>
+        onPress={(): any => onOpen(!open)}>
         {value && value !== placeholder ? (
-          <ItemText isDarkMode={isDarkMode} style={[customTextStyle]}>
-            {value}
-          </ItemText>
+          <Fragment>
+            {prefixIcon && <IconView>{prefixIcon}</IconView>}
+            <ItemText isDarkMode={isDarkMode} style={[customTextStyle]}>
+              {defaultValue === value ? defaultValue : value}
+            </ItemText>
+          </Fragment>
         ) : (
           <Fragment>
             {prefixIcon && <IconView>{prefixIcon}</IconView>}
-            { <RootText
-              isDarkMode={isDarkMode}
-              disabled={loading}
-              style={[customTextStyle]}>
-              {defaultValue || placeholder}
-            </RootText>
+            {
+              <RootText
+                isDarkMode={isDarkMode}
+                disabled={loading}
+                style={[customTextStyle]}>
+                {defaultValue || placeholder}
+              </RootText>
             }
           </Fragment>
         )}
@@ -252,26 +240,31 @@ const Select : React.FC<Props> = (props): React.ReactElement => {
       <SelectListWrapper
         visible={open || false}
         isDarkMode={isDarkMode || false}
-        bordered={bordered || false}>
-        <Animated.View
-          style={{
-            zIndex: 9999,
-            overflow: 'hidden',
-            height: slideAnimValue.interpolate({
-              inputRange: [0, 1],
-              outputRange: [
-                0,
-                listHeight ||
-                  containerHeight * (React.Children.count(children)),
-              ],
-            }),
-          }}>
+        bordered={bordered || false}
+        style={[customStyle]}>
+        <Animated.ScrollView
+          keyboardDismissMode={'on-drag'}
+          style={[
+            {
+              zIndex: 9999,
+              overflow: 'hidden',
+              height: slideAnimValue.interpolate({
+                inputRange: [0, 1],
+                outputRange: [
+                  0,
+                  listHeight ||
+                    containerHeight * React.Children.count(children),
+                ],
+              }),
+            },
+            customStyle,
+          ]}>
           {React.Children.map(children, (child) => {
             if (React.isValidElement(child)) {
               return React.cloneElement(child, {
                 onSelectItem: (value) => {
-                  handleModalOpen(!open);
-                  return handleOnSelect(value);
+                  onOpen(!open);
+                  return onSelect(value);
                 },
                 activeOpacity,
                 containerHeight,
@@ -282,7 +275,7 @@ const Select : React.FC<Props> = (props): React.ReactElement => {
             }
             return child;
           })}
-        </Animated.View>
+        </Animated.ScrollView>
       </SelectListWrapper>
     </Container>
   );
