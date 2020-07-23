@@ -12,6 +12,7 @@ import { THEME } from './theme';
 import styled from 'styled-components/native';
 
 interface Props {
+  testID?: string;
   open?: boolean; // Select is toggled?
   loading?: boolean; // is Loading?
   disabled?: boolean; // is Disabled?
@@ -114,6 +115,7 @@ const ItemText = styled.Text<{ isDarkMode: boolean }>`
 const Select : React.FC<Props> = (props): React.ReactElement => {
   // Init props
   const {
+    testID = 'Select',
     open = false,
     loading = false,
     disabled = false,
@@ -168,6 +170,7 @@ const Select : React.FC<Props> = (props): React.ReactElement => {
 
   return (
     <Container
+      testID={testID}
       onLayout={(e): void => setContainerHeight(e.nativeEvent.layout.height)}>
       <RootWrapper
         activeOpacity={activeOpacity}

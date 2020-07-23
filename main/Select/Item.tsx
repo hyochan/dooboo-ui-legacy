@@ -5,6 +5,7 @@ import { THEME } from './theme';
 import styled from 'styled-components/native';
 
 interface Props {
+  testID?: string;
   isDarkMode?: boolean; // dark mode
   activeOpacity?: number; // set the opacity of selected value
   containerHeight?: number; // fix the height of dropdown list
@@ -29,6 +30,7 @@ const ItemText = styled.Text<{ dark: boolean | undefined }>`
 const Item: React.FC<Props> = (props): React.ReactElement => {
   // Init props
   const {
+    testID = 'Item',
     children = '',
     onSelectItem = (value): string | number => value,
     containerHeight,
@@ -42,7 +44,7 @@ const Item: React.FC<Props> = (props): React.ReactElement => {
   React.useEffect(() => {}, [value]);
   return (
     <ItemWrapper
-      testID={`item-${children}`}
+      testID={`item-${testID}`}
       activeOpacity={activeOpacity}
       style={[{ height: containerHeight }, customStyle]}
       onPress={(): void => onSelectItem(value)}>
