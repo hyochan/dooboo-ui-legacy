@@ -266,7 +266,7 @@ function CalendarCarousel<T>({
     const calendarDays = [...prevDays, ...days, ...nextDays];
 
     return (
-      <Fragment>
+      <View>
         <View style={styles.headerStyle}>
           <TouchableOpacity onPress={(): void => changeMonth(true)}>
             <Text style={styles.arrowText}> &#8249;</Text>
@@ -289,8 +289,7 @@ function CalendarCarousel<T>({
           }}
           keyExtractor={(item, id): string => id.toString()}
         />
-      </Fragment>
-
+      </View>
     );
   };
 
