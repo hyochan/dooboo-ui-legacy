@@ -58,7 +58,7 @@ const Default = (): React.ReactElement => {
     <CustomContainer style={{ justifyContent: 'center' }}>
       <CustomSelectContainer>
         <Select
-          open={isOpen}
+          opened={isOpen}
           loading={false}
           disabled={false}
           showArrow={true}
@@ -79,10 +79,9 @@ const Default = (): React.ReactElement => {
 };
 
 const ChangeProps = (): React.ReactElement => {
-  // [Toggler] states
-  const [darkTheme, setDarkTheme] = React.useState<boolean>(false);
-  const [borderless, setBorder] = React.useState<boolean>(false);
-  const [showArrow, setShowArrow] = React.useState<boolean>(false);
+  const [darkTheme, setDarkTheme] = React.useState<boolean>(true);
+  const [borderless, setBorder] = React.useState<boolean>(true);
+  const [showArrow, setShowArrow] = React.useState<boolean>(true);
   const [disabled, setDisabled] = React.useState<boolean>(false);
 
   // [Select] states
@@ -126,7 +125,7 @@ const ChangeProps = (): React.ReactElement => {
       </TogglerWrapper>
       <CustomSelectContainer>
         <Select
-          open={isOpen}
+          opened={isOpen}
           loading={isLoading}
           disabled={disabled}
           showArrow={showArrow}
@@ -147,8 +146,6 @@ const ChangeProps = (): React.ReactElement => {
 };
 
 const Customized = (): React.ReactElement => {
-  // [Toggler] states
-  const [defaultValue, onChangeDefaultValue] = React.useState<string>('');
   const [listHeight, onChangeListHeight] = React.useState<string>('');
   const [customPrefix, setCustomPrefix] = React.useState<string>(
     'https://user-images.githubusercontent.com/50701501/88152214-ae263680-cc3e-11ea-9a72-062e0208ee79.png',
@@ -202,7 +199,7 @@ const Customized = (): React.ReactElement => {
       </TogglerWrapper>
       <CustomSelectContainer style={{ height: 60, width: 200 }}>
         <Select
-          open={isOpen}
+          opened={isOpen}
           loading={isLoading}
           disabled={false}
           showArrow={true}

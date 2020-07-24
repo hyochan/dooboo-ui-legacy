@@ -13,7 +13,7 @@ import styled from 'styled-components/native';
 
 interface Props {
   testID?: string;
-  open?: boolean; // Select is toggled?
+  opened?: boolean; // Select is toggled?
   loading?: boolean; // is Loading?
   disabled?: boolean; // is Disabled?
   showArrow?: boolean; // show Right Arrow?
@@ -49,22 +49,15 @@ const RootWrapper = styled.TouchableOpacity<{
   align-items: center;
   padding: 14px 12px;
   background-color: ${({ isDarkMode, disabled }): string =>
-    isDarkMode
-      ? disabled
-        ? THEME.DARK.DISABLED.backgroundColor
-        : THEME.DARK.backgroundColor
-      : disabled
-        ? THEME.LIGHT.DISABLED.backgroundColor
-        : THEME.LIGHT.backgroundColor};
+    disabled
+      ? THEME.LIGHT.DISABLED.backgroundColor
+      : (isDarkMode && THEME.DARK.backgroundColor) ||
+        THEME.LIGHT.backgroundColor};
   border-radius: ${({ bordered }): string => (bordered ? '5px' : '0')};
   border-color: ${({ isDarkMode, disabled }): string =>
-    isDarkMode
-      ? disabled
-        ? THEME.DARK.DISABLED.borderColor
-        : THEME.DARK.borderColor
-      : disabled
-        ? THEME.LIGHT.DISABLED.borderColor
-        : THEME.LIGHT.borderColor};
+    disabled
+      ? THEME.LIGHT.DISABLED.borderColor
+      : (isDarkMode && THEME.DARK.borderColor) || THEME.LIGHT.borderColor};
   box-shadow: 0px 2px 4px rgba(212, 210, 212, 0.8);
   opacity: 0.9;
 `;
@@ -75,9 +68,7 @@ const SelectListWrapper = styled.View<{
 }>`
   border-color: transparent;
   background-color: ${({ isDarkMode }): string =>
-    isDarkMode
-      ? THEME.DARK.INVERTED.backgroundColor
-      : THEME.LIGHT.INVERTED.backgroundColor};
+    (isDarkMode && THEME.DARK.INVERTED.backgroundColor) || THEME.LIGHT.INVERTED.backgroundColor};
   border-bottom-left-radius: ${({ bordered }): string =>
     bordered ? '5px' : '0'};
   border-bottom-right-radius: ${({ bordered }): string =>
@@ -97,26 +88,17 @@ const RootText = styled.Text<{ isDarkMode: boolean; disabled: boolean }>`
   align-self: center;
   font-size: 12px;
   color: ${({ isDarkMode, disabled }): string =>
-    isDarkMode
-      ? disabled
-        ? THEME.DARK.DISABLED.fontColor
-        : THEME.DARK.fontColor
-      : disabled
-        ? THEME.LIGHT.DISABLED.fontColor
-        : THEME.LIGHT.fontColor};
+    disabled
+      ? THEME.LIGHT.DISABLED.fontColor
+      : (isDarkMode && THEME.DARK.fontColor) || THEME.LIGHT.fontColor};
   opacity: ${({ isDarkMode }): number => (isDarkMode ? 0.6 : 0.8)};
-`;
-const ItemText = styled.Text<{ isDarkMode: boolean }>`
-  font-size: 12px;
-  color: ${({ isDarkMode }): string =>
-    isDarkMode ? THEME.DARK.fontColor : THEME.LIGHT.fontColor};
 `;
 
 const Select : React.FC<Props> = (props): React.ReactElement => {
   // Init props
   const {
     testID = 'Select',
-    open = false,
+    opened = false,
     loading = false,
     disabled = false,
     showArrow = true,
@@ -128,7 +110,7 @@ const Select : React.FC<Props> = (props): React.ReactElement => {
     value = '',
     defaultValue = '',
     onSelect = (value): string | number => value,
-    onOpen = (open): boolean => open,
+    onOpen = (opened): boolean => opened,
     prefixIcon,
     suffixIcon,
     customLoader,
@@ -144,7 +126,7 @@ const Select : React.FC<Props> = (props): React.ReactElement => {
 
   // LifeCycle
   React.useEffect(() => {
-    const rotateValue = open ? 1 : 0;
+    const rotateValue = opened ? 1 : 0;
     Animated.timing(rotateAnimValue, {
       toValue: rotateValue,
       duration: 120,
@@ -152,21 +134,17 @@ const Select : React.FC<Props> = (props): React.ReactElement => {
       useNativeDriver: true,
     }).start();
 
-    const slideValue = open ? 1 : 0;
+    const slideValue = !disabled && opened ? 1 : 0;
     Animated.timing(slideAnimValue, {
       toValue: slideValue,
       duration: 120,
       easing: Easing.linear,
       useNativeDriver: false,
     }).start();
-  }, [open]);
+  }, [opened, disabled]);
 
   React.useEffect(() => {
-  }, [value]);
-  React.useEffect(() => {
-  }, [bordered]);
-  React.useEffect(() => {
-  }, [loading]);
+  }, [value, bordered, loading]);
 
   return (
     <Container
@@ -179,20 +157,13 @@ const Select : React.FC<Props> = (props): React.ReactElement => {
         isDarkMode={isDarkMode}
         style={[
           {
-            borderBottomLeftRadius: open ? 0 : bordered ? 5 : 0,
-            borderBottomRightRadius: open ? 0 : bordered ? 5 : 0,
+            borderBottomLeftRadius: opened ? 0 : bordered ? 5 : 0,
+            borderBottomRightRadius: opened ? 0 : bordered ? 5 : 0,
           },
           customStyle,
         ]}
-        onPress={(): any => onOpen(!open)}>
-        {value && value !== placeholder ? (
-          <Fragment>
-            {prefixIcon && <IconView>{prefixIcon}</IconView>}
-            <ItemText isDarkMode={isDarkMode} style={[customTextStyle]}>
-              {defaultValue === value ? defaultValue : value}
-            </ItemText>
-          </Fragment>
-        ) : (
+        onPress={(): any => onOpen(!opened)}>
+        {
           <Fragment>
             {prefixIcon && <IconView>{prefixIcon}</IconView>}
             {
@@ -200,12 +171,11 @@ const Select : React.FC<Props> = (props): React.ReactElement => {
                 isDarkMode={isDarkMode}
                 disabled={loading}
                 style={[customTextStyle]}>
-                {defaultValue || placeholder}
+                {defaultValue || value || placeholder}
               </RootText>
             }
           </Fragment>
-        )}
-
+        }
         {
           <Animated.View
             style={{
@@ -221,29 +191,22 @@ const Select : React.FC<Props> = (props): React.ReactElement => {
               ],
             }}>
             <IconView>
-              {loading ? (
-                customLoader || <LoadingIndicator size="small" />
-              ) : suffixIcon || null ? (
-                suffixIcon
-              ) : showArrow ? (
+              {(loading && (customLoader || <LoadingIndicator size="small" />)) ||
+              suffixIcon || (showArrow && (
                 <Arrow
-                  color={
-                    isDarkMode ? THEME.DARK.fontColor : THEME.LIGHT.fontColor
-                  }
+                  color={ (isDarkMode && THEME.DARK.fontColor) || THEME.LIGHT.fontColor }
                   customColor={customTextStyle}
                 />
-              ) : (
-                suffixIcon
-              )}
+              ))}
             </IconView>
           </Animated.View>
         }
       </RootWrapper>
 
       <SelectListWrapper
-        visible={open || false}
-        isDarkMode={isDarkMode || false}
-        bordered={bordered || false}
+        visible={opened}
+        isDarkMode={isDarkMode}
+        bordered={bordered}
         style={[customStyle]}>
         <Animated.ScrollView
           keyboardDismissMode={'on-drag'}
@@ -266,7 +229,7 @@ const Select : React.FC<Props> = (props): React.ReactElement => {
             if (React.isValidElement(child)) {
               return React.cloneElement(child, {
                 onSelectItem: (value) => {
-                  onOpen(!open);
+                  onOpen(!opened);
                   return onSelect(value);
                 },
                 activeOpacity,
