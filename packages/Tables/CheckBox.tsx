@@ -30,7 +30,7 @@ function CheckBox(props: Props): ReactElement {
   return (
     <TouchableOpacity testID="checkbox-test-id" onPress={onClick}>
       <CheckView checked={value}>
-        <CheckMark source={require('../__assets__/mark.png')} />
+        <CheckMark source={require('./__assets__/mark.png')} />
       </CheckView>
     </TouchableOpacity>
   );

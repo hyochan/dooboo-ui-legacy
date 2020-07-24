@@ -1,7 +1,6 @@
 {
   "name": "@dooboo-ui/calendar-carousel",
-  "main": "lib/index.js",
-  "types": "lib/index.d.ts",
+  "main": "./index.tsx",
   "version": "0.0.2",
   "license": "MIT",
   "postinstall": "tsc",
