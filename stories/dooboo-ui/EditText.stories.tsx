@@ -178,7 +178,6 @@ const UseCase = ():React.ReactElement => {
             onChangeText={(email): void => { setEmail(email); }}
             containerStyle={{
               marginBottom: 30,
-              width: 528,
             }}
             labelTextStyle={{
               color: '#323C47',
@@ -199,9 +198,6 @@ const UseCase = ():React.ReactElement => {
             placeholderTextColor={'#707683'}
             onChangeText={(password): void => { setPassword(password); }}
             secureTextEntry={true}
-            containerStyle={{
-              width: 528,
-            }}
             labelTextStyle={{
               color: '#323C47',
             }}
@@ -230,13 +226,12 @@ const UseCase = ():React.ReactElement => {
             borderColor: '#609FFF',
             borderRadius: 6,
             marginTop: 40,
-            width: 528,
           }}
-          text="이메일 인증하기"
+          text="CONFIREM MY EMAIL"
           textStyle={{
             color: '#609FFF',
             fontWeight: 'bold',
-            fontSize: 10,
+            fontSize: 15,
             lineHeight: 15,
             letterSpacing: -0.1,
           }}
