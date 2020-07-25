@@ -13,32 +13,32 @@ import styled from 'styled-components/native';
 
 interface Props {
   testID?: string;
-  opened?: boolean; // Select is toggled?
-  loading?: boolean; // is Loading?
-  disabled?: boolean; // is Disabled?
-  showArrow?: boolean; // show Right Arrow?
-  isDarkMode?: boolean; // isDarkMode mode
-  bordered?: boolean; // with round borders?
-  activeOpacity?: number; // set the opacity of selected value
-  listHeight?: number; // fix the height of dropdown list
-  placeholder?: string | number; // placeholder value
-  value?: string | number; // current selected value
-  defaultValue?: string | number; // initial value instead of placeholder
-  onSelect?: (param: string | number) => any;
-  onOpen?: (param: boolean) => any;
-  prefixIcon?: ReactNode; // Icon on the left of placeholder
-  suffixIcon?: ReactNode; // Icon on the right of placeholder
-  customLoader?: ReactNode; // custom loader while loading is true
-  customTextStyle?: TextStyle;
-  customStyle?: ViewStyle;
+  opened?: boolean;
+  loading?: boolean;
+  disabled?: boolean;
+  showArrow?: boolean;
+  isDarkMode?: boolean;
+  bordered?: boolean;
+  activeOpacity?: number;
+  listHeight?: number;
+  placeholder?: string | number;
+  value?: string | number;
+  defaultValue?: string | number;
+  onSelect?: (param: string | number) => void;
+  onOpen?: (param: boolean) => void;
+  prefixIcon?: ReactNode;
+  suffixIcon?: ReactNode;
+  customLoader?: ReactNode;
+  style?: ViewStyle | TextStyle;
   children?: ReactNode;
 }
 
 const Container = styled.View`
-  width: 100%;
   height: 100%;
+  width: 100%;
 `;
-const RootWrapper = styled.TouchableOpacity<{
+
+const SelectWrapper = styled.TouchableOpacity<{
   isDarkMode: boolean;
   disabled: boolean;
   bordered: boolean;
@@ -61,14 +61,16 @@ const RootWrapper = styled.TouchableOpacity<{
   box-shadow: 0px 2px 4px rgba(212, 210, 212, 0.8);
   opacity: 0.9;
 `;
-const SelectListWrapper = styled.View<{
+
+const SelectChildWrapper = styled.View<{
   visible: boolean;
   isDarkMode: boolean;
   bordered: boolean;
 }>`
   border-color: transparent;
   background-color: ${({ isDarkMode }): string =>
-    (isDarkMode && THEME.DARK.INVERTED.backgroundColor) || THEME.LIGHT.INVERTED.backgroundColor};
+    (isDarkMode && THEME.DARK.INVERTED.backgroundColor) ||
+    THEME.LIGHT.INVERTED.backgroundColor};
   border-bottom-left-radius: ${({ bordered }): string =>
     bordered ? '5px' : '0'};
   border-bottom-right-radius: ${({ bordered }): string =>
@@ -84,7 +86,7 @@ const IconView = styled.View`
   align-items: center;
 `;
 
-const RootText = styled.Text<{ isDarkMode: boolean; disabled: boolean }>`
+const StyledText = styled.Text<{ isDarkMode: boolean; disabled: boolean }>`
   align-self: center;
   font-size: 12px;
   color: ${({ isDarkMode, disabled }): string =>
@@ -97,7 +99,7 @@ const RootText = styled.Text<{ isDarkMode: boolean; disabled: boolean }>`
 const Select : React.FC<Props> = (props): React.ReactElement => {
   // Init props
   const {
-    testID = 'Select',
+    testID,
     opened = false,
     loading = false,
     disabled = false,
@@ -106,21 +108,20 @@ const Select : React.FC<Props> = (props): React.ReactElement => {
     bordered = true,
     activeOpacity = 1,
     listHeight,
-    placeholder = '  ',
-    value = '',
-    defaultValue = '',
+    placeholder,
+    value,
+    defaultValue,
     onSelect = (value): string | number => value,
     onOpen = (opened): boolean => opened,
     prefixIcon,
     suffixIcon,
     customLoader,
-    customTextStyle,
-    customStyle,
+    style,
     children,
   } = props;
 
   // Initialize
-  const [containerHeight, setContainerHeight] = React.useState(0);
+  const [containerHeight, setContainerHeight] = React.useState(10);
   const rotateAnimValue = React.useRef(new Animated.Value(0)).current;
   const slideAnimValue = React.useRef(new Animated.Value(0)).current;
 
@@ -147,11 +148,11 @@ const Select : React.FC<Props> = (props): React.ReactElement => {
   }, [value, bordered, loading]);
 
   return (
-    <Container
-      testID={testID}
-      onLayout={(e): void => setContainerHeight(e.nativeEvent.layout.height)}>
-      <RootWrapper
-        activeOpacity={activeOpacity}
+    <Container testID={testID} >
+      <SelectWrapper
+        testID={'SELECT_WRAPPER'}
+        onLayout={(e): void => setContainerHeight(e.nativeEvent.layout.height)}
+        activeOpacity={0.95}
         disabled={loading ? true : disabled}
         bordered={bordered}
         isDarkMode={isDarkMode}
@@ -160,89 +161,89 @@ const Select : React.FC<Props> = (props): React.ReactElement => {
             borderBottomLeftRadius: opened ? 0 : bordered ? 5 : 0,
             borderBottomRightRadius: opened ? 0 : bordered ? 5 : 0,
           },
-          customStyle,
+          style,
         ]}
-        onPress={(): any => onOpen(!opened)}>
-        {
-          <Fragment>
-            {prefixIcon && <IconView>{prefixIcon}</IconView>}
-            {
-              <RootText
-                isDarkMode={isDarkMode}
-                disabled={loading}
-                style={[customTextStyle]}>
-                {defaultValue || value || placeholder}
-              </RootText>
-            }
-          </Fragment>
-        }
-        {
-          <Animated.View
-            style={{
-              position: 'absolute',
-              right: 10,
-              transform: [
-                {
-                  rotate: rotateAnimValue.interpolate({
-                    inputRange: [0, 1],
-                    outputRange: ['0deg', '180deg'],
-                  }),
-                },
-              ],
-            }}>
-            <IconView>
-              {(loading && (customLoader || <LoadingIndicator size="small" />)) ||
-              suffixIcon || (showArrow && (
+        onPress={(): void => onOpen(!opened)}>
+        <Fragment>
+          {prefixIcon && <IconView>{prefixIcon}</IconView>}
+          {
+            <StyledText
+              isDarkMode={isDarkMode}
+              disabled={loading}
+              style={[style]}>
+              {defaultValue || value || placeholder}
+            </StyledText>
+          }
+        </Fragment>
+        <Animated.View
+          testID={'SELECT_SUFFIX'}
+          style={{
+            position: 'absolute',
+            right: 10,
+            transform: [
+              {
+                rotate: rotateAnimValue.interpolate({
+                  inputRange: [0, 1],
+                  outputRange: ['0deg', '180deg'],
+                }),
+              },
+            ],
+          }}>
+          <IconView>
+            {(loading && (customLoader || <LoadingIndicator size="small" />)) ||
+              suffixIcon ||
+              (showArrow && (
                 <Arrow
-                  color={ (isDarkMode && THEME.DARK.fontColor) || THEME.LIGHT.fontColor }
-                  customColor={customTextStyle}
+                  color={
+                    (isDarkMode && THEME.DARK.fontColor) ||
+                    THEME.LIGHT.fontColor
+                  }
+                  customColor={style}
                 />
               ))}
-            </IconView>
-          </Animated.View>
-        }
-      </RootWrapper>
-
-      <SelectListWrapper
+          </IconView>
+        </Animated.View>
+      </SelectWrapper>
+      <SelectChildWrapper
         visible={opened}
         isDarkMode={isDarkMode}
         bordered={bordered}
-        style={[customStyle]}>
+        style={[style]}>
         <Animated.ScrollView
+          testID={'SELECT_CHILD_SCROLLVIEW'}
           keyboardDismissMode={'on-drag'}
           style={[
             {
-              zIndex: 9999,
-              overflow: 'hidden',
               height: slideAnimValue.interpolate({
                 inputRange: [0, 1],
                 outputRange: [
                   0,
                   listHeight ||
-                    containerHeight * React.Children.count(children),
+                    containerHeight * React.Children.count(children) + 1,
                 ],
               }),
             },
-            customStyle,
+            style,
           ]}>
-          {React.Children.map(children, (child) => {
-            if (React.isValidElement(child)) {
-              return React.cloneElement(child, {
-                onSelectItem: (value) => {
-                  onOpen(!opened);
-                  return onSelect(value);
-                },
-                activeOpacity,
-                containerHeight,
-                isDarkMode,
-                customTextStyle,
-                customStyle,
-              });
-            }
-            return child;
-          })}
+          <Fragment>
+            {React.Children.map(children, (child) => {
+              if (React.isValidElement(child)) {
+                return React.cloneElement(child, {
+                  onSelectItem: (value) => {
+                    onOpen(!opened);
+                    return onSelect(value);
+                  },
+                  activeOpacity,
+                  containerHeight,
+                  isDarkMode,
+                  style,
+                });
+              }
+              return child;
+            })}
+          </Fragment>
         </Animated.ScrollView>
-      </SelectListWrapper>
+      </SelectChildWrapper>
     </Container>
   );
 };

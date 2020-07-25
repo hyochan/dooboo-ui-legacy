@@ -10,9 +10,8 @@ interface Props {
   activeOpacity?: number; // set the opacity of selected value
   containerHeight?: number; // fix the height of dropdown list
   value: string | number; // current selected value
-  onSelectItem?:((param: string | number) => any) | undefined;
-  customTextStyle?: TextStyle;
-  customStyle?: ViewStyle;
+  onSelectItem?:((param: string | number) => void) | undefined;
+  style?: ViewStyle | TextStyle;
   children?: string | number;
 }
 const ItemWrapper = styled.TouchableOpacity`
@@ -25,7 +24,7 @@ const ItemText = styled.Text<{ dark: boolean | undefined }>`
   font-size: 12px;
   color: ${({ dark }): string =>
     dark ? THEME.DARK.fontColor : THEME.LIGHT.fontColor};
-  opacity: 0.9;
+  opacity: 0.3;
 `;
 const Item: React.FC<Props> = (props): React.ReactElement => {
   // Init props
@@ -37,18 +36,17 @@ const Item: React.FC<Props> = (props): React.ReactElement => {
     activeOpacity = 1,
     value,
     isDarkMode = false,
-    customTextStyle,
-    customStyle,
+    style,
   } = props;
 
   React.useEffect(() => {}, [value]);
   return (
     <ItemWrapper
-      testID={`item-${testID}`}
+      testID={testID}
       activeOpacity={activeOpacity}
-      style={[{ height: containerHeight }, customStyle]}
+      style={[{ height: containerHeight }, style]}
       onPress={(): void => onSelectItem(value)}>
-      <ItemText dark={isDarkMode} style={customTextStyle}>
+      <ItemText dark={isDarkMode} style={style}>
         {children}
       </ItemText>
     </ItemWrapper>

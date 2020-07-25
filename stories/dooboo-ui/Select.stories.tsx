@@ -10,7 +10,6 @@ import styled from 'styled-components/native';
 const CustomContainer = styled.View` 
   width: 100%;
   height: 100%;
-  display: flex;
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
@@ -232,8 +231,7 @@ const Customized = (): React.ReactElement => {
               imgSource="https://user-images.githubusercontent.com/50701501/88150309-2f2ffe80-cc3c-11ea-8507-a4b45487eec5.gif"
             />
           }
-          customTextStyle={{ color: '#e84a5f' }}
-          customStyle={{ backgroundColor: '#ede682' }}>
+          style={{ backgroundColor: '#ede682', color: '#e84a5f', fontSize: 18 }}>
           <Item value={'Banana'}>{'Banana'}</Item>
           <Item value={'Apple'}>{'Apple'}</Item>
           <Item value={'Orange'}>{'Orange'}</Item>
