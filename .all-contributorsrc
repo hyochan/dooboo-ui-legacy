@@ -1,0 +1,24 @@
+{
+  "files": [
+    "README.md"
+  ],
+  "imageSize": 100,
+  "commit": false,
+  "contributors": [
+    {
+      "login": "P-iknow",
+      "name": "Youngchang Lee",
+      "avatar_url": "https://avatars0.githubusercontent.com/u/35516239?v=4",
+      "profile": "https://p-iknow.netlify.app/",
+      "contributions": [
+        "code"
+      ]
+    }
+  ],
+  "contributorsPerLine": 7,
+  "projectName": "dooboo-ui",
+  "projectOwner": "dooboolab",
+  "repoType": "github",
+  "repoHost": "https://github.com",
+  "skipCi": true
+}
