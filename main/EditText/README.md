@@ -1,49 +1,10 @@
 # EditText
 
-> [EditText] component is an enhanced version on pure react-native [TextInput] component.
+> EditText component is an enhanced version on pure react-native [TextInput] component.</br>
 
-## Preview
-![EditText](https://user-images.githubusercontent.com/58724686/87130683-4121b100-c2ce-11ea-8663-3f6e7d380a6d.gif)
-
-## Installation
-
-```sh
-yarn add @dooboo-ui/core
-```
-
-## Getting started
-
-- Import
-
-  ```javascript
-  import { EditText } from '@dooboo-ui/core';
+![image](https://user-images.githubusercontent.com/58724686/87130683-4121b100-c2ce-11ea-8663-3f6e7d380a6d.gif)
 
 ## Props
-
-```ts
-interface Props {
-  labelPosition?: labelPositionType;
-  placeholder?: TextInputProps['placeholder'];
-  placeholderTextColor?: TextInputProps['placeholderTextColor'];
-  containerStyle?: ViewStyle;
-  textInputStyle?: ViewStyle;
-  focusColor?: string;
-  labelText?: string;
-  labelTextStyle?: TextStyle;
-  value?: TextInputProps['value'];
-  isErrored?: boolean;
-  errorMessage?: React.ReactElement;
-  errorStyle?: ViewStyle;
-  numberOfLines?: number;
-  secureTextEntry?: boolean;
-  onFocus?: () => void;
-  onBlur?: () => void;
-  onChangeText?: TextInputProps['onChangeText'];
-  onSubmitEditing?: (
-    e: NativeSyntheticEvent<TextInputSubmitEditingEventData>,
-  ) => void;
-}
-```
 
 |                      | necessary | types                  | default              |
 | -------------------- | --------- | ---------------------- | -------------------- |
@@ -66,16 +27,24 @@ interface Props {
 | onChangeText         |           |  ()=> {}               |                      |
 | onSubmitEditing      |           |  ()=> {}               |                      |
 
+## Installation
+
+```sh
+yarn add dooboo-ui
+```
 
 ## Description
 - When you want to use Row type, you should set labelPosition props to 'row'. 
   You can remove the border with containerStyle porps in row type. but In default, you can remove the border with textInputStyle props. 
 
-- Usage
-  This is for login use case.
+## Usage
+  This is use case for signIn view.
 
-  ```ts
-  const UseCase = ():React.ReactElement => {
+```javascript
+
+import {EditText} from 'dooboo-ui';
+
+const UseCase = ():React.ReactElement => {
   const [email, setEmail] = useState<string>('');
   const [password, setPassword] = useState<string>('');
   const [isEmailErrored, setEmailError] = useState<boolean>(false);
@@ -211,4 +180,4 @@ interface Props {
     </SafeAreaView>
   );
 };
-  ```
+```
