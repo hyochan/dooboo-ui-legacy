@@ -3,7 +3,6 @@
   "scripts": {
     "pre": "lerna clean --yes && lerna bootstrap && lerna run build",
     "predeploy": "yarn build",
-    "deploy": "gh-pages -d doc-build",
     "postinstall": "dooboolab-welcome postinstall && rm -rf storybook && cp -R .storybook storybook",
     "publish": "yarn build && cd lib && npm publish && cd ..",
     "publish:packages": "yarn pre && yarn build-packages && lerna exec -- npm publish",
@@ -17,7 +16,8 @@
     "test": "lerna run build && yarn lint && yarn tsc && jest",
     "build": "cp README.md ./lib/README.md && tsc --project tsconfigBuild.json",
     "postbuild": "cp -r main/__assets__ lib/__assets__",
-    "build-storybook": "cd doc && yarn build && cd ..",
+    "build-storybook": "rm -rf doc-build && cd doc && yarn build && cd ..",
+    "deploy-storybook": "gh-pages -d doc-build",
     "build-packages": "lerna exec -- yarn build",
     "install-packages": "lerna exec -- yarn",
     "upgrade-packages": "lerna exec -- ncu -u && yarn install-packages"
