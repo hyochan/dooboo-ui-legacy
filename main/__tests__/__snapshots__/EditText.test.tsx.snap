@@ -28,13 +28,12 @@ exports[`[EditText] render default component test should render Row type compone
             "borderWidth": 1,
             "flexDirection": "row",
             "paddingLeft": 20,
-            "width": 335,
+            "width": "100%",
           },
           undefined,
           false,
         ]
       }
-      testID="EditText-test"
     >
       <Text
         style={
@@ -105,11 +104,10 @@ exports[`[EditText] render default component test should render with error messa
         Array [
           Object {
             "flexDirection": "column",
-            "width": 335,
+            "width": "100%",
           },
         ]
       }
-      testID="EditText-test"
     >
       <Text
         style={
@@ -198,11 +196,10 @@ exports[`[EditText] render default component test should render without crasing 
         Array [
           Object {
             "flexDirection": "column",
-            "width": 335,
+            "width": "100%",
           },
         ]
       }
-      testID="EditText-test"
     >
       <Text
         style={
