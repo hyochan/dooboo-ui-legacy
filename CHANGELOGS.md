@@ -1,6 +1,6 @@
 ## Changelogs
-- **[0.0.4]**
-  * Fix regression in [EditText] [#261](https://github.com/dooboolab/dooboo-ui/pull/261)
+- **[0.0.10]**
+  * Fix regression in [EditText] [#262](https://github.com/dooboolab/dooboo-ui/pull/262)
 
 - **[0.0.3]**
   * Support RTL for [SwitchToggle] [#251](https://github.com/dooboolab/dooboo-ui/pull/251)
