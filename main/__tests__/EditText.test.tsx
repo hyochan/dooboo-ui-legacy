@@ -1,80 +1,341 @@
-import React, { ReactElement } from 'react';
+import * as React from 'react';
+
 import {
   RenderResult,
-  act,
-  cleanup,
   fireEvent,
   render,
+  wait,
+  waitForElement,
 } from '@testing-library/react-native';
-import EditText from '../EditText';
 
-let props: any;
-let component: ReactElement;
+import EditText from '../EditText';
+import { View } from 'react-native';
+// Note: test renderer must be required after react-native.
+import renderer from 'react-test-renderer';
+
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+let component: React.ReactElement;
 let testingLib: RenderResult;
 
-const createTestProps = (
-  obj?: Record<string, unknown>,
-): Record<string, unknown> => ({
-  ...obj,
-});
+describe('[EditText]', () => {
+  let value = '';
 
-describe('[EditText] render default component test', () => {
-  it('should render without crasing', () => {
-    component = <EditText />;
-    testingLib = render(component);
+  describe('interactions', () => {
+    const props = {
+      testID: 'INPUT_TEST',
+      testError: 'ERROR_TEST',
+      type: 'box',
+      borderWidth: 3,
+      textStyle: {},
+      labelWidth: 90,
+      borderStyle: { },
+      borderColor: '#fff',
+      errorColor: '#fff',
+      onChangeText: (word: string): void => {
+        value = word;
+      },
+      leftElement: <View />,
+      rightElement: <View />,
+      rightElementStyle: {},
+      leftElementStyle: {},
+      focusColor: '#fff',
+      inputContainerRadius: 30,
+      onFocus: undefined,
+      focusLabelStyle: { fontWeight: 500 },
+      focusBorderWidth: 10,
+    };
 
-    expect(testingLib.baseElement).toMatchSnapshot();
-  });
-
-  it('should render with error message when isErrored props is true', () => {
-    props = createTestProps({
-      isErrored: true,
+    beforeEach(() => {
+      component = <EditText {...props} autoCapitalize="words" />;
+      testingLib = render(component);
     });
 
-    component = <EditText {...props} />;
-    testingLib = render(component);
+    it('should set error message when no valid email has been written', async () => {
+      const input = await waitForElement(() => testingLib.getByTestId('INPUT_TEST'));
+      await wait(() => {
+        fireEvent.changeText(input, 'input test');
+      });
 
-    expect(testingLib.baseElement).toMatchSnapshot();
-  });
-
-  it('should render Row type component when labelPosition props is row', () => {
-    props = createTestProps({
-      labelPosition: 'row',
+      expect(value).toEqual('input test');
     });
 
-    component = <EditText {...props} />;
-    testingLib = render(component);
-    expect(testingLib.baseElement).toMatchSnapshot();
-  });
-});
+    it('should trigger onSubmit', async () => {
+      const input = await waitForElement(() => testingLib.getByTestId('INPUT_TEST'));
 
-describe('[EditText] event test', () => {
-  beforeAll(() => {
-    props = createTestProps();
-    testingLib = render(<EditText />);
-  });
-
-  it('should change borderColor when focused', () => {
-    const textInput = testingLib.getByTestId('TextInput-test');
-
-    act(() => {
-      fireEvent.focus(textInput);
-    });
-    expect(textInput.props.style[2].borderColor).toEqual('#109CF1');
-  });
-
-  it('should change borderColor when blured', () => {
-    const textInput = testingLib.getByTestId('TextInput-test');
-
-    act(() => {
-      fireEvent.blur(textInput);
+      await wait(() => {
+        fireEvent.submitEditing(input);
+      });
     });
 
-    expect(textInput.props.style[0].borderColor).toEqual('#e0e0e0');
+    it('renders editText and running onFocus', async () => {
+      props.onFocus = (): void => {};
+      component = <EditText {...props} />;
+      testingLib = render(component);
+      const input = await waitForElement(() => testingLib.getByTestId('INPUT_TEST'));
+
+      await wait(() => {
+        fireEvent.focus(input);
+      });
+    });
   });
 
-  afterAll((done) => {
-    cleanup();
-    done();
+  // errorText == undefined ? true : false
+  describe('Type: [default]', () => {
+    const props = {
+      testID: 'INPUT_TEST',
+      testError: 'ERROR_TEST',
+      label: 'label text',
+      errorText: undefined,
+      onFocus: undefined,
+      onBlur: undefined,
+    };
+
+    it('renders without crashing', () => {
+      component = <EditText {...props} />;
+      testingLib = render(component);
+      const rendered = renderer.create(component).toJSON();
+      expect(rendered).toMatchSnapshot();
+      expect(rendered).toBeTruthy();
+    });
+
+    it('renders editText and running onFocus', async () => {
+      props.onFocus = (): void => {};
+      component = <EditText {...props} />;
+      testingLib = render(component);
+      const input = await waitForElement(() => testingLib.getByTestId('INPUT_TEST'));
+
+      await wait(() => {
+        fireEvent.focus(input);
+      });
+    });
+
+    describe('when running onBlur (focused === false)', () => {
+      props.onBlur = (): void => {};
+
+      it('should trigger blur without errorText', async () => {
+        component = <EditText {...props} />;
+        testingLib = render(component);
+        const input = await waitForElement(() => testingLib.getByTestId('INPUT_TEST'));
+
+        await wait(() => {
+          fireEvent.blur(input);
+        });
+      });
+
+      it('should trigger blur with errorText', async () => {
+        props.errorText = 'error text';
+        component = <EditText {...props} />;
+        testingLib = render(component);
+        const input = await waitForElement(() => testingLib.getByTestId('INPUT_TEST'));
+
+        await wait(() => {
+          fireEvent.blur(input);
+        });
+      });
+    });
+  });
+
+  describe('Type: [row]', () => {
+    const props = {
+      testID: 'INPUT_TEST',
+      testError: 'ERROR_TEST',
+      type: 'row',
+      label: undefined,
+      errorText: undefined,
+      onFocus: undefined,
+      onBlur: undefined,
+    };
+
+    it('renders without crashing', () => {
+      component = <EditText {...props} />;
+      testingLib = render(component);
+      const rendered = renderer.create(component).toJSON();
+      expect(rendered).toMatchSnapshot();
+      expect(rendered).toBeTruthy();
+    });
+
+    it('renders row type input and runs onFocus', async () => {
+      props.label = 'label text';
+      props.onFocus = (): void => {};
+      component = <EditText {...props} />;
+      testingLib = render(component);
+      const input = await waitForElement(() => testingLib.getByTestId('INPUT_TEST'));
+
+      await wait(() => {
+        fireEvent.focus(input);
+      });
+    });
+
+    describe('when running onBlur (focused === false)', () => {
+      props.onBlur = (): void => {};
+      // props.errorText = 'error test';
+
+      it('renders row type input without errorText', async () => {
+        component = <EditText {...props} />;
+        testingLib = render(component);
+        const input = await waitForElement(() => testingLib.getByTestId('INPUT_TEST'));
+
+        await wait(() => {
+          fireEvent.blur(input);
+        });
+      });
+
+      it('renders row type input with props errorText', async () => {
+        props.errorText = 'error text';
+        component = <EditText {...props} />;
+        testingLib = render(component);
+        const input = await waitForElement(() => testingLib.getByTestId('INPUT_TEST'));
+
+        await wait(() => {
+          fireEvent.blur(input);
+        });
+      });
+
+      it('should trigger blur focus when onBlur and onFocus are undefined', async () => {
+        props.onBlur = undefined;
+        props.onFocus = undefined;
+        component = <EditText {...props} />;
+        testingLib = render(component);
+        const input = await waitForElement(() => testingLib.getByTestId('INPUT_TEST'));
+
+        await wait(() => {
+          fireEvent.blur(input);
+        });
+
+        await wait(() => {
+          fireEvent.focus(input);
+        });
+      });
+    });
+  });
+
+  describe('Type: [box]', () => {
+    const props = {
+      testID: 'INPUT_TEST',
+      testError: 'ERROR_TEST',
+      type: 'box',
+      label: 'label text',
+      errorText: undefined,
+      onFocus: undefined,
+      onBlur: undefined,
+    };
+
+    it('renders without crashing', () => {
+      component = <EditText {...props} />;
+      testingLib = render(component);
+      const rendered = renderer.create(component).toJSON();
+      expect(rendered).toMatchSnapshot();
+      expect(rendered).toBeTruthy();
+    });
+
+    it('renders editText and running onFocus', async () => {
+      props.onFocus = (): void => {};
+      component = <EditText {...props} />;
+      testingLib = render(component);
+      const input = await waitForElement(() => testingLib.getByTestId('INPUT_TEST'));
+
+      await wait(() => {
+        fireEvent.focus(input);
+      });
+    });
+
+    describe('when running onBlur (focused === false)', () => {
+      props.onBlur = (): void => {};
+
+      it('should trigger blur without errorText', async () => {
+        component = <EditText {...props} />;
+        testingLib = render(component);
+        const input = await waitForElement(() => testingLib.getByTestId('INPUT_TEST'));
+
+        await wait(() => {
+          fireEvent.blur(input);
+        });
+      });
+
+      it('should trigger blur with errorText', async () => {
+        props.errorText = 'error text';
+        component = <EditText {...props} />;
+        testingLib = render(component);
+        const input = await waitForElement(() => testingLib.getByTestId('INPUT_TEST'));
+
+        await wait(() => {
+          fireEvent.blur(input);
+        });
+      });
+    });
+  });
+
+  describe('Type: [rowBox]', () => {
+    const props = {
+      testID: 'INPUT_TEST',
+      testError: 'ERROR_TEST',
+      type: 'rowBox',
+      label: undefined,
+      errorText: undefined,
+      onFocus: undefined,
+      onBlur: undefined,
+    };
+
+    it('renders without crashing', () => {
+      component = <EditText {...props} />;
+      testingLib = render(component);
+      const rendered = renderer.create(component).toJSON();
+      expect(rendered).toMatchSnapshot();
+      expect(rendered).toBeTruthy();
+    });
+
+    it('renders row type input and runs onFocus', async () => {
+      props.label = 'label text';
+      props.onFocus = (): void => {};
+      component = <EditText {...props} />;
+      testingLib = render(component);
+      const input = await waitForElement(() => testingLib.getByTestId('INPUT_TEST'));
+
+      await wait(() => {
+        fireEvent.focus(input);
+      });
+    });
+
+    describe('when running onBlur (focused === false)', () => {
+      props.onBlur = (): void => {};
+      // props.errorText = 'error test';
+
+      it('renders row type input without errorText', async () => {
+        component = <EditText {...props} />;
+        testingLib = render(component);
+        const input = await waitForElement(() => testingLib.getByTestId('INPUT_TEST'));
+
+        await wait(() => {
+          fireEvent.blur(input);
+        });
+      });
+
+      it('renders row type input with props errorText', async () => {
+        props.errorText = 'error text';
+        component = <EditText {...props} />;
+        testingLib = render(component);
+        const input = await waitForElement(() => testingLib.getByTestId('INPUT_TEST'));
+
+        await wait(() => {
+          fireEvent.blur(input);
+        });
+      });
+
+      it('should trigger blur focus when onBlur and onFocus are undefined', async () => {
+        props.onBlur = undefined;
+        props.onFocus = undefined;
+        component = <EditText {...props} />;
+        testingLib = render(component);
+        const input = await waitForElement(() => testingLib.getByTestId('INPUT_TEST'));
+
+        await wait(() => {
+          fireEvent.blur(input);
+        });
+
+        await wait(() => {
+          fireEvent.focus(input);
+        });
+      });
+    });
   });
 });

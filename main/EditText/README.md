@@ -1,183 +1,159 @@
 # EditText
 
-> EditText component is an enhanced version on pure react-native [TextInput] component.</br>
+> [EditText] component is an enhanced version on pure react-native [TextInput] component.
 
-![image](https://user-images.githubusercontent.com/58724686/87130683-4121b100-c2ce-11ea-8663-3f6e7d380a6d.gif)
+## Preview
+
+| | Default | Row |
+|--|---------------|--------------|
+| `underlined` |![underlined_default](https://user-images.githubusercontent.com/31176502/71721202-8bc9f880-2e67-11ea-8ffd-b6bf81814a26.gif) | ![underlined_row](https://user-images.githubusercontent.com/31176502/71721235-ad2ae480-2e67-11ea-914f-dc74ea4c6e7f.gif) |
+| <center>`box`</center> |![default](https://user-images.githubusercontent.com/31176502/71764827-4b827d00-2f30-11ea-85dd-887b218afeec.gif) | ![row](https://user-images.githubusercontent.com/31176502/71720737-1873b700-2e66-11ea-9b6b-1cdc175cbc0a.gif) |
 
 ## Props
 
 |                      | necessary | types                  | default              |
 | -------------------- | --------- | ---------------------- | -------------------- |
-| labelPosition        |           | 'row'                  |                      |
-| placeholder          |           | string                 |         `text`       |
-| placeholderTextColor |           | object                 |                      |
-| containerStyle       |           | `ViewStyle`            |                      |
-| textInputStyle       |           | `ViewStyle`            |                      |
-| focusColor           |           | string                 |                      |
-| labelText            |           | string                 |                      |
+| testID               |           | string                 |                      |
+| type                 |           | string                 |     `underlined`     |
+| errorTestID          |           | string                 |                      |
+| isRow                |           | boolean                |        `false`       |
+| style                |           | `ViewStyle`            |                      |
+| label                |           | string                 |                      |
 | labelTextStyle       |           | `TextStyle`            |                      |
 | value                |           | `TextInputProps`       |                      |
-| isErrored            |           | boolean                |        `false`       |
-| errorMessage         |           | `React.ReactElement`   |                      |
-| errorStyle           |           | `ViewStyle`            |                      |
-| numberOfLine         |           |  number                |                      |
-| secureTextEntry      |           |  boolean               |                      |
-| onFocus              |           |  ()=> {}               |                      |
-| onBlur               |           |  ()=> {}               |                      |
-| onChangeText         |           |  ()=> {}               |                      |
-| onSubmitEditing      |           |  ()=> {}               |                      |
+| inputContainerRadius |           | string                 |          `3`         |
+| borderStyle          |           | `ViewStyle`            |                      |
+| borderWidth          |           | number                 |         `0.6`        |
+| borderColor          |           | string                 |       `#eaeaf9`      |
+| inputLeftMargin      |           | number                 |         `110`        |
+| textStyle            |           | `TextStyle`            |                      |
+| placeholder          |           | string                 |                      |
+| placeholderTextColor |           | string                 |                      |
+| secureTextEntry      |           | boolean                |                      |
+| onChangeText         |           | (e) => {}              |                      |
+| onSubmitEditing      |           | func                   |                      |
+| leftElement          |           | `ReactElement`         |                      |
+| leftElementStyle     |           | `ViewStyle`            |                      |
+| rightElement         |           | `ReactElement`         |                      |
+| rightElementStyle    |           | `ViewStyle`            |                      |
+| textInputProps       |           | `TextInputProps`       |                      |
+| focusedLabelStyle    |           | `TextStyle`            | `fontWeight: 'bold'` |
+| focusedBorderWidth   |           | number                 |          `1`         | 
+| focusColor           |           | string                 |       `#79B3F5`      |
+| errorColor           |           | string                 |       `#FF8989`      |
+| errorText            |           | string                 |                      |
+| errorTextStyle       |           | `TextStyle`            |                      |
 
 ## Installation
 
 ```sh
-yarn add dooboo-ui
+yarn add @dooboo-ui/core
 ```
 
-## Description
-- When you want to use Row type, you should set labelPosition props to 'row'. 
-  You can remove the border with containerStyle porps in row type. but In default, you can remove the border with textInputStyle props. 
+## Getting started
 
-## Usage
-  This is use case for signIn view.
+- Import
 
-```javascript
+  ```javascript
+  import { EditText } from '@dooboo-ui/core';
+  ```
 
-import {EditText} from 'dooboo-ui';
+- Usage
 
-const UseCase = ():React.ReactElement => {
-  const [email, setEmail] = useState<string>('');
-  const [password, setPassword] = useState<string>('');
-  const [isEmailErrored, setEmailError] = useState<boolean>(false);
-  const [isPswErrored, setPswError] = useState<boolean>(false);
+  ```javascript
+  function Page(props: Props) {
+    const validateEmail = (email: string) => {
+      const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+      return re.test(email);
+    };
 
-  const onSignIn = (): void => {
-    if (email === '' && password === '') {
-      setEmailError(true);
-      setPswError(true);
-    } else if (email === '') {
-      setEmailError(true);
-    } else if (password === '') {
-      setPswError(true);
-    }
-  };
+    const fontStyle: TextStyle = {
+      fontWeight: 'bold',
+      fontSize: 13,
+    };
 
-  return (
-    <SafeAreaView>
-      <ScrollView
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+    const [errorEmail, setErrorEmail] = useState('');
+
+    const onSignIn = () => {
+      if (!validateEmail(email)) {
+        setErrorEmail('Not a valid email address');
+      } else {
+        setErrorEmail('');
+      }
+    };
+
+    const onTextChanged = (type: string, text: string) => {
+      type === 'EMAIL' ? setEmail(text) : setPassword(text);
+
+      if (type === 'EMAIL' && text === '') {
+        setErrorEmail('');
+      }
+    };
+
+    return (
+      <StyledScrollView
         contentContainerStyle={{
           marginTop: 8,
-          alignSelf: 'stretch',
           paddingHorizontal: 20,
-          paddingVertical: 100,
+          paddingBottom: 40,
         }}
       >
-        <View
-          style={{
-            display: 'flex',
-            flexDirection: 'column',
-            alignItems: 'center',
-            padding: 20,
-            paddingTop: 10,
-          }}
-        >
-          <Text
-            style={{
-              fontWeight: 'bold',
-              fontSize: 36,
-              lineHeight: 53,
-              color: '#1B1B21',
-            }}
-          >
-            SignUp
-          </Text>
-        </View>
-        <View
-          style={{
-            justifyContent: 'center',
-            alignItems: 'center',
-          }}
-        >
+        <Container>
+          <HeaderTitle>Sign in with Email</HeaderTitle>
           <EditText
-            labelText={'Email'}
+            testID="EMAIL_INPUT"
+            textStyle={{
+              color: '#495057',
+            }}
+            label="Email"
+            placeholder="Write email address"
+            placeholderTextColor="#ADB5BD"
             value={email}
-            isErrored={isEmailErrored}
-            errorStyle={{ borderColor: '#E54E4E' }}
-            errorMessage={
-              <Text style={{ color: '#E54E4E', marginTop: 8 }}>
-                Invaild Email address
-              </Text>
-            }
-            placeholder={'dooboolab@gmail.com'}
-            placeholderTextColor={'#707683'}
-            onChangeText={(email): void => { setEmail(email); }}
-            containerStyle={{
-              marginBottom: 30,
-              width: 528,
-            }}
-            labelTextStyle={{
-              color: '#323C47',
-            }}
-            onFocus={(): void => setEmailError(false)}
+            onChangeText={(text: string) => onTextChanged('EMAIL', text)}
+            style={{ marginTop: 50 }}
+            errorText={errorEmail}
+            onSubmitEditing={onSignIn}
           />
           <EditText
-            labelText={'Password'}
-            value={password}
-            isErrored={isPswErrored}
-            errorStyle={{ borderColor: '#E54E4E' }}
-            errorMessage={
-              <Text style={{ color: '#E54E4E', marginTop: 8 }}>
-                Invaild Password
-              </Text>
-            }
-            placeholder={'********'}
-            placeholderTextColor={'#707683'}
-            onChangeText={(password): void => { setPassword(password); }}
+            testID="PASSWORD_INPUT"
+            textStyle={{
+              color: '#ADB5BD',
+            }}
             secureTextEntry={true}
-            containerStyle={{
-              width: 528,
-            }}
-            labelTextStyle={{
-              color: '#323C47',
-            }}
-            onFocus={(): void => setPswError(false)}
+            label="Password"
+            placeholder="Please write your password"
+            placeholderTextColor="#ADB5BD"
+            value={password}
+            onChangeText={(text: string) => onTextChanged('PASSWORD', text)}
+            style={{ marginTop: 36 }}
+            onSubmitEditing={onSignIn}
           />
-        </View>
-        <View
-          style={{
-            alignItems: 'center',
-            marginTop: 25,
-          }}
-        >
-          <Text
+          <StyledSignInButton
+            testID="btnEmail"
+            onPress={() => onSignIn()}
+            textStyle={fontStyle}
+            text="Login"
+          />
+          {/* Email SignUp text */}
+          <View
             style={{
-              fontSize: 14,
-              lineHeight: 18,
-              color: '#231F20',
+              marginTop: 20,
+              flexDirection: 'row',
+              justifyContent: 'center',
+              alignItems: 'center',
             }}
           >
-            Agree to terms and conditions
-          </Text>
-        </View>
-        <Button
-          style={{
-            borderWidth: 1,
-            borderColor: '#609FFF',
-            borderRadius: 6,
-            marginTop: 40,
-            width: 528,
-          }}
-          text="이메일 인증하기"
-          textStyle={{
-            color: '#609FFF',
-            fontWeight: 'bold',
-            fontSize: 10,
-            lineHeight: 15,
-            letterSpacing: -0.1,
-          }}
-          onPress={(): void => onSignIn()}
-        />
-      </ScrollView>
-    </SafeAreaView>
-  );
-};
-```
+            <StyledText testID="NO_ACCOUNT">
+              Do not have and account?{' '}
+            </StyledText>
+            <TouchableOpacity onPress={() => null} style={{ padding: 4 }}>
+              <StyledAccentText>Find</StyledAccentText>
+            </TouchableOpacity>
+          </View>
+        </Container>
+      </StyledScrollView>
+    );
+  }
+  ```
