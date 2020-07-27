@@ -1,6 +1,5 @@
 import {
   FlatList,
-  RefreshControl,
   SafeAreaView,
   ScrollView,
   StyleSheet,
@@ -318,9 +317,7 @@ function CalendarCarousel<T>({
         contentOffset = {{ x: 330, y: 0 }}
         ref={scrollRef}
         onScroll={(e):void => {
-          console.log('ouside: ', e.nativeEvent.contentOffset.x);
           if (e.nativeEvent.contentOffset.x === 0) {
-            console.log('prevMonth :', e.nativeEvent.contentOffset.x);
             if (scrollRef && scrollRef.current) {
               if (scrolling) return;
 
@@ -338,9 +335,7 @@ function CalendarCarousel<T>({
                 scrolling = false;
               }, 30);
             }
-            console.log('prevMonth : ');
           } else if (layoutWidth && e.nativeEvent.contentOffset.x === (layoutWidth * 2)) {
-            console.log('nextMonth : ', e.nativeEvent.contentOffset.x);
             if (scrollRef && scrollRef.current) {
               if (scrolling) return;
 
@@ -366,4 +361,5 @@ function CalendarCarousel<T>({
     </SafeAreaView>
   );
 }
+
 export default CalendarCarousel;
