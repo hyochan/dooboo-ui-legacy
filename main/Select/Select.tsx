@@ -48,7 +48,7 @@ const SelectWrapper = styled.TouchableOpacity<{
   padding: 14px 12px;
   background-color: #f7f7f7;
   border-radius: ${({ bordered }): string => (bordered ? '5px' : '0')};
-  border-color: ${({ disabled }): string => disabled ? '#c8c8c8' : 'none'};
+  border-color: ${({ disabled }): string => disabled ? '#c8c8c8' : 'transparent'};
   box-shadow: 0px 2px 4px rgba(212, 210, 212, 0.8);
   opacity: 0.9;
 `;

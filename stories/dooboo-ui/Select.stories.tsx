@@ -51,7 +51,7 @@ const Default = (): React.ReactElement => {
   >();
   const [isOpen, toggleSelect] = React.useState<
     boolean
-  >(true);
+  >(false);
 
   return (
     <CustomContainer style={{ justifyContent: 'center' }}>
