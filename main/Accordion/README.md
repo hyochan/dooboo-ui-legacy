@@ -18,71 +18,16 @@
 | titleStyle           |           | ViewStyle              | ``                    |
 | bodyStyle            |           | ViewStyle              | ``                    |
 
-
 ## Installation
 
 ```sh
-yarn add @dooboo-ui/core
-```
-
-## Getting started
-
-- Import
-
-  ```javascript
-  import { Accordion } from '@dooboo-ui/core';
-  ```
-
-- Data
-
-  ```javascript
-  state = {
-const data = [
-    {
-      title: {
-        name: <StyledTitle>Defualt-title-01</StyledTitle>,
-      },
-      bodies: [
-        {
-          name: <StyledItem>Default body01</StyledItem>,
-        },
-        {
-          name: <StyledItem>Default body02</StyledItem>,
-        },
-      ],
-    },
-    {
-      title: {
-        name: <StyledTitle>Defualt-title-02</StyledTitle>,
-      },
-      bodies: [
-        {
-          name: <StyledItem>Default body01</StyledItem>,
-        },
-        {
-          name: <StyledItem>Default body02</StyledItem>,
-        },
-      ],
-    },
-    {
-      title: {
-        name: <StyledTitle>Defualt-title-03</StyledTitle>,
-      },
-      bodies: [
-        {
-          name: <StyledItem>Default body01</StyledItem>,
-        },
-        {
-          name: <StyledItem>Default body02</StyledItem>,
-        },
-      ],
-    },
-  ];
-}
+yarn add dooboo-ui
 ```
 
 ## Usage
-  ```tsx
+```javascript
+import { Accordion } from 'dooboo-ui';
+
 const Default = (): React.ReactElement => {
   const data = [
     {
@@ -139,4 +84,4 @@ const Default = (): React.ReactElement => {
     </Container>
   );
 };
-  ```
+```
