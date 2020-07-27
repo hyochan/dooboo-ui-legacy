@@ -46,27 +46,22 @@ const CustomText = styled.Text`
 
 const Default = (): React.ReactElement => {
   // [Select] states
-  const [selectedValue, onSelectValue] = React.useState<
+  const [selectedValue, onSelectedValue] = React.useState<
     string | number
   >();
   const [isOpen, toggleSelect] = React.useState<
     boolean
-  >(false);
+  >(true);
 
   return (
     <CustomContainer style={{ justifyContent: 'center' }}>
       <CustomSelectContainer>
         <Select
           opened={isOpen}
-          loading={false}
-          disabled={false}
-          showArrow={true}
-          isDarkMode={false}
-          bordered={true}
           activeOpacity={0.5}
           placeholder={'New fancy select'}
           value={selectedValue}
-          onSelect={(value): void => onSelectValue(value)}
+          onSelect={(value): void => onSelectedValue(value)}
           onOpen={(isOpen): void => toggleSelect(isOpen)}>
           <Item value={'Item-1'}>{'Item-1'}</Item>
           <Item value={'Item-2'}>{'Item-2'}</Item>
@@ -83,8 +78,7 @@ const ChangeProps = (): React.ReactElement => {
   const [showArrow, setShowArrow] = React.useState<boolean>(true);
   const [disabled, setDisabled] = React.useState<boolean>(false);
 
-  // [Select] states
-  const [selectedValue, onSelectValue] = React.useState<string | number>();
+  const [selectedValue, onSelectedValue] = React.useState<string | number>();
   const [isOpen, toggleSelect] = React.useState<boolean>(false);
   const [isLoading, setLoading] = React.useState<boolean>(false);
 
@@ -92,7 +86,7 @@ const ChangeProps = (): React.ReactElement => {
     setLoading(true);
     setTimeout(() => {
       setLoading(false);
-      onSelectValue(selectedItem);
+      onSelectedValue(selectedItem);
     }, 700);
   };
 
@@ -128,7 +122,6 @@ const ChangeProps = (): React.ReactElement => {
           loading={isLoading}
           disabled={disabled}
           showArrow={showArrow}
-          isDarkMode={darkTheme}
           bordered={borderless}
           activeOpacity={0.5}
           placeholder={'New fancy select'}
@@ -145,7 +138,7 @@ const ChangeProps = (): React.ReactElement => {
 };
 
 const Customized = (): React.ReactElement => {
-  const [listHeight, onChangeListHeight] = React.useState<string>('');
+  const [listHeightValue, setListHeightValue] = React.useState<string>('');
   const [customPrefix, setCustomPrefix] = React.useState<string>(
     'https://user-images.githubusercontent.com/50701501/88152214-ae263680-cc3e-11ea-9a72-062e0208ee79.png',
   );
@@ -153,8 +146,7 @@ const Customized = (): React.ReactElement => {
     'https://user-images.githubusercontent.com/50701501/88151403-9dc18c00-cc3d-11ea-95c0-447162f8465e.png',
   );
 
-  // [Select] states
-  const [selectedValue, onSelectValue] = React.useState<
+  const [selectedValue, onSelectedValue] = React.useState<
     string | number
   >();
   const [isOpen, toggleSelect] = React.useState<
@@ -168,7 +160,7 @@ const Customized = (): React.ReactElement => {
     setLoading(true);
     setTimeout(() => {
       setLoading(false);
-      onSelectValue(selectedItem);
+      onSelectedValue(selectedItem);
     }, 700);
   };
 
@@ -179,8 +171,8 @@ const Customized = (): React.ReactElement => {
           <CustomText>{'Fixed List height'}</CustomText>
           <CustomTextInput
             placeholder={'Set or Auto-sized'}
-            value={listHeight}
-            onChangeText={(text): void => onChangeListHeight(text)}
+            value={listHeightValue}
+            onChangeText={(text): void => setListHeightValue(text)}
           />
           <CustomText>{'Custom Prefix icon'}</CustomText>
           <CustomTextInput
@@ -200,10 +192,8 @@ const Customized = (): React.ReactElement => {
         <Select
           opened={isOpen}
           loading={isLoading}
-          disabled={false}
-          showArrow={true}
           activeOpacity={0.9}
-          listHeight={Number(listHeight)}
+          listHeight={Number(listHeightValue)}
           placeholder={'My placeholder'}
           value={selectedValue}
           defaultValue={undefined}
@@ -231,8 +221,18 @@ const Customized = (): React.ReactElement => {
               imgSource="https://user-images.githubusercontent.com/50701501/88150309-2f2ffe80-cc3c-11ea-8507-a4b45487eec5.gif"
             />
           }
-          style={{ backgroundColor: '#ede682', color: '#e84a5f', fontSize: 18 }}>
-          <Item value={'Banana'}>{'Banana'}</Item>
+          customStyle={{
+            backgroundColor: '#ede682',
+          }}
+          customTextStyle={{ color: '#e84a5f', fontSize: 18 }}>
+          <Item
+            value={'Banana'}
+            customStyle={{
+              backgroundColor: '#e84a5f',
+            }}
+            customTextStyle={{ color: '#ede682' }}>
+            {'Banana'}
+          </Item>
           <Item value={'Apple'}>{'Apple'}</Item>
           <Item value={'Orange'}>{'Orange'}</Item>
         </Select>

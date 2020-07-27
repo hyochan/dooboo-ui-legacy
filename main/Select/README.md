@@ -40,26 +40,26 @@ yarn add @dooboo-ui/core
 
 ### `Select` Props
 
-| property         | necessary | types                      | default             | description                               |
-| -----------------| --------- | -------------------------- | ------------------- | ----------------------------------------- |
-| testID           |           | string                     |  -                  | for testing purposes                      |
-| opened           |           | boolean                    |  false              | Controlled open state of dropdown         |
-| loading          |           | boolean                    |  false              | Indicate loading state                    |
-| disabled         |           | boolean                    |  false              | Whether disabled Select                   |
-| showArrow        |           | boolean                    |  true               | Whether to show the drop-down arrow       |
-| bordered         |           | boolean                    |  true               | Whether has border style                  |
-| isDarkMode       |           | boolean                    |  false              | Whether enabled *Dark mode style or Light |
-| activeOpacity    |           | number                     |  1                  | Set the opacity when Item is pressed      |
-| listHeight       |           | number                     |  (Auto-sized)       | Config popup height                       |
-| placeholder      |           | string or number           |  -                  | Placeholder of select                            | 
-| value            |           | string or number           |  -                  | Current selected option                          |
-| defaultValue     |           | string or number           |  -                  | Initial selected option                          |
-| onSelect         |           | (value) => {}              |  -                  | Called when a Item is selected, the params are the item's value |
-| onOpen           |           | (opened) => {}             |  -                  | Called when Select drop-down open or close       |
-| prefixIcon       |           | `ReactNode`                |  -                  | Custom prefix icon                               |
-| suffixIcon       |           | `ReactNode`                |  *`Arrow`           | Custom suffix icon, this replace default `Arrow` |
-| customLoader     |           | `ReactNode`                |  *`LoadingIndicator`| Custom loader, this replace default `Loader`     |
-| style            |           | `ViewStyle` or `TextStyle` |  -                  | Custom user styles, this applies for `Item`      |
+| property         | necessary | types            | default             | description                                                     |
+| -----------------| --------- | ---------------- | ------------------- | --------------------------------------------------------------- |
+| testID           |           | string           |  -                  | for testing purposes                                            |
+| opened           |           | boolean          |  false              | Controlled open state of dropdown                               |
+| loading          |           | boolean          |  false              | Indicate loading state                                          |
+| disabled         |           | boolean          |  false              | Whether disabled Select                                         |
+| showArrow        |           | boolean          |  true               | Whether to show the drop-down arrow                             |
+| bordered         |           | boolean          |  true               | Whether has border style                                        |
+| activeOpacity    |           | number           |  .75                  | Set the opacity when Item is pressed                            |
+| listHeight       |           | number           |  (Auto-sized)       | Config popup height                                             |
+| placeholder      |           | string or number |  -                  | Placeholder of select                                           | 
+| value            |           | string or number |  -                  | Current selected option                                         |
+| defaultValue     |           | string or number |  -                  | Initial selected option                                         |
+| onSelect         |           | (value) => {}    |  -                  | Called when a Item is selected, the param is the `Item`'s value |
+| onOpen           |           | (opened) => {}   |  -                  | Called when `Select` drop-down open or close                    |
+| prefixIcon       |           | `ReactNode`      |  -                  | Custom prefix icon                                              |
+| suffixIcon       |           | `ReactNode`      |  *`Arrow`           | Custom suffix icon, this replace default `Arrow`                |
+| customLoader     |           | `ReactNode`      |  *`LoadingIndicator`| Custom loader, this replace default `Loader`                    |
+| customStyle      |           | `ViewStyle`      |  -                  | Custom user styles, this applies for `Item`                     |
+| customTextStyle  |           | `TextStyle`      |  -                  | Custom user styles, this applies for `Item`                     |
 
 > * Default `Arrow` is the same element used in [dooboo-ui/accordion](https://github.com/dooboolab/dooboo-ui/tree/master/main/Accordion) and default `LoadingIndicator` is from [dooboo-ui/loadingIndicator](https://github.com/dooboolab/dooboo-ui/tree/master/main/LoadingIndicator)
 
@@ -70,10 +70,11 @@ yarn add @dooboo-ui/core
 ### `Item` Props
 
 | property         | necessary | types                      | default              | description 
-| -----------------| --------- | -------------------------- | -------------------- | ----------------------------------- |
-| value            | ✓         | string or number           | -                    | Item value                          |
-| activeOpacity    |           | number                     | -                    | This replace Select's               |
-| style            |           | `ViewStyle` or `TextStyle` | -                    | Custom style                        |
+| -----------------| --------- | -------------------------- | -------------------- | ------------------------------------------- |
+| value            | ✓         | string or number           | -                    | Item value                                  |
+| activeOpacity    |           | number                     | .75                    | This replace Select's                       |
+| customStyle      |           | `ViewStyle`                | -                   | Custom user styles, this applies for `Item` |
+| customTextStyle  |           | `TextStyle`                | -                   | Custom user styles, this applies for `Item` |
 
 <br/>
 <br/>
@@ -102,7 +103,7 @@ const CustomSelectContainer = styled.View`
 
 const Default = (): React.ReactElement => {
   
-  const [selectedValue, onSelectValue] = React.useState<string | number>();
+  const [selectedValue, onSelectedValue] = React.useState<string | number>();
   const [isOpen, toggleSelect] = React.useState<boolean>(false);
 
   return (
@@ -113,12 +114,11 @@ const Default = (): React.ReactElement => {
           loading={false}
           disabled={false}
           showArrow={true}
-          isDarkMode={false}
           bordered={true}
           activeOpacity={0.75}
           placeholder={'New fancy select'}
           value={selectedValue}
-          onSelect={(value): void => onSelectValue(value)}
+          onSelect={(value): void => onSelectedValue(value)}
           onOpen={(isOpen): void => toggleSelect(isOpen)}
           >
           <Item value={'Item-1'}>{'Item-1'}</Item>

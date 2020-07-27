@@ -4,12 +4,11 @@ import { TextStyle, View } from 'react-native';
 import React from 'react';
 
 interface Props {
-  color: string;
   customColor?: TextStyle;
 }
 
 export default function Arrow(props: Props): React.ReactElement {
-  const { color, customColor = { color: color } } = props;
+  const { customColor = { color: '#2b2b2b' } } = props;
   return (
     <View>
       <Svg height="20" width="20" viewBox="0 0 20 20">
@@ -18,7 +17,7 @@ export default function Arrow(props: Props): React.ReactElement {
           y1={7}
           x2={10}
           y2={12}
-          stroke={customColor.color || color}
+          stroke={customColor.color || '#2b2b2b'}
           strokeWidth="1.5"
           strokeLinecap="round"
           opacity={0.95}
@@ -28,7 +27,7 @@ export default function Arrow(props: Props): React.ReactElement {
           y1={12}
           x2={15}
           y2={7}
-          stroke={customColor.color || color}
+          stroke={customColor.color || '#2b2b2b'}
           strokeWidth="1.5"
           strokeLinecap="round"
           opacity={0.95}
