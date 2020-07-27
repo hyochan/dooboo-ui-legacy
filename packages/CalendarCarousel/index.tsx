@@ -1,5 +1,6 @@
 import {
   FlatList,
+  RefreshControl,
   SafeAreaView,
   ScrollView,
   StyleSheet,
@@ -9,13 +10,7 @@ import {
   View,
   ViewStyle,
 } from 'react-native';
-import React, { Fragment, PropsWithChildren, ReactElement, useState } from 'react';
-
-enum MonthType {
-  prev,
-  current,
-  next,
-}
+import React, { Fragment, PropsWithChildren, ReactElement, useEffect, useRef, useState } from 'react';
 
 interface Style {
   container: ViewStyle;
@@ -137,10 +132,21 @@ interface Props<T> {
   selectDate?: (date: Date) => void;
 }
 
+let layoutWidth = 0;
+let scrolling = false;
+let timeout;
+
 function CalendarCarousel<T>({
   date = new Date(), onDateChanged, selectDate, selectedDate,
 }: PropsWithChildren<Props<T>>): React.ReactElement {
   const [currentDate, setCurrentDate] = useState<Date>(date);
+  const scrollRef = useRef<ScrollView>(null);
+
+  useEffect(() => {
+    return function cleanup(): void {
+      if (timeout) clearTimeout(timeout);
+    };
+  }, []);
 
   const changeMonth = (toPrevMonth?: boolean): void => {
     if (toPrevMonth) {
@@ -163,10 +169,6 @@ function CalendarCarousel<T>({
     setCurrentDate(update);
     return onDateChanged?.(update);
   };
-
-  const prevMonth = new Date(currentDate.getFullYear(), currentDate.getMonth() - 1, currentDate.getDate());
-  const currentMonth = new Date(currentDate.getFullYear(), currentDate.getMonth(), currentDate.getDate());
-  const nextMonth = new Date(currentDate.getFullYear(), currentDate.getMonth() + 1, currentDate.getDate());
 
   const renderCalendar = (currentDate: Date): any => {
     const monthName = currentDate.toLocaleString('default', {
@@ -266,7 +268,7 @@ function CalendarCarousel<T>({
     const calendarDays = [...prevDays, ...days, ...nextDays];
 
     return (
-      <View>
+      <View nativeID="1">
         <View style={styles.headerStyle}>
           <TouchableOpacity onPress={(): void => changeMonth(true)}>
             <Text style={styles.arrowText}> &#8249;</Text>
@@ -293,30 +295,73 @@ function CalendarCarousel<T>({
     );
   };
 
+  const renderCalendars = (currentDate: Date): ReactElement => {
+    const prevMonth = new Date(currentDate.getFullYear(), currentDate.getMonth() - 1, currentDate.getDate());
+    const currentMonth = new Date(currentDate.getFullYear(), currentDate.getMonth(), currentDate.getDate());
+    const nextMonth = new Date(currentDate.getFullYear(), currentDate.getMonth() + 1, currentDate.getDate());
+
+    return <Fragment>
+      {renderCalendar(prevMonth)}
+      {renderCalendar(currentMonth)}
+      {renderCalendar(nextMonth)}
+    </Fragment>;
+  };
+
   return (
-    <SafeAreaView style={styles.container}>
+    <SafeAreaView style={styles.container} onLayout={(e): void => {
+      layoutWidth = e.nativeEvent.layout.width;
+    }}>
       <ScrollView
         horizontal
         pagingEnabled
-        onMomentumScrollBegin={(e): void => {
-          console.log('momentScroll', e);
-        }}
-        onScroll= {(e): void => {
-          // TODO: You can see targetContentOffset to check current page
-          console.log('onScroll', e);
-        }}
-        onScrollEndDrag={(e): void => {
-          // TODO: You can see targetContentOffset to check current page
-          console.log('onScrollEndDrag', e);
-        }}
-        onScrollBeginDrag= {(e): void => {
-          // TODO: You can see targetContentOffset to check current page
+        scrollEventThrottle={16}
+        contentOffset = {{ x: 330, y: 0 }}
+        ref={scrollRef}
+        onScroll={(e):void => {
+          console.log('ouside: ', e.nativeEvent.contentOffset.x);
+          if (e.nativeEvent.contentOffset.x === 0) {
+            console.log('prevMonth :', e.nativeEvent.contentOffset.x);
+            if (scrollRef && scrollRef.current) {
+              if (scrolling) return;
 
+              scrolling = true;
+              setCurrentDate(new Date(currentDate.getFullYear(), currentDate.getMonth() - 1, currentDate.getDate()));
+
+              scrollRef.current.scrollTo({
+                x: layoutWidth,
+                animated: false,
+              });
+
+              if (timeout) clearTimeout();
+
+              timeout = setTimeout(() => {
+                scrolling = false;
+              }, 30);
+            }
+            console.log('prevMonth : ');
+          } else if (layoutWidth && e.nativeEvent.contentOffset.x === (layoutWidth * 2)) {
+            console.log('nextMonth : ', e.nativeEvent.contentOffset.x);
+            if (scrollRef && scrollRef.current) {
+              if (scrolling) return;
+
+              scrolling = true;
+              setCurrentDate(new Date(currentDate.getFullYear(), currentDate.getMonth() + 1, currentDate.getDate()));
+
+              scrollRef.current.scrollTo({
+                x: layoutWidth,
+                animated: false,
+              });
+
+              if (timeout) clearTimeout();
+
+              timeout = setTimeout(() => {
+                scrolling = false;
+              }, 30);
+            }
+          }
         }}
       >
-        {renderCalendar(prevMonth)}
-        {renderCalendar(currentMonth)}
-        {renderCalendar(nextMonth)}
+        {renderCalendars(currentDate)}
       </ScrollView>
     </SafeAreaView>
   );
