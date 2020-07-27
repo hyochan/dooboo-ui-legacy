@@ -61,6 +61,7 @@ We aim to support `react-native` ui components in all platforms and we are curre
 - [RadioButton](https://github.com/dooboolab/dooboo-ui/tree/master/main/RadioButton)
 - [Rating](https://github.com/dooboolab/dooboo-ui/tree/master/main/Rating)
 - [SearchInput](https://github.com/dooboolab/dooboo-ui/tree/master/main/SearchInput)
+- [Select](https://github.com/dooboolab/dooboo-ui/tree/master/main/Select)
 - [Slider](https://github.com/dooboolab/dooboo-ui/tree/master/main/Slider)
 - [SwitchToggle](https://github.com/dooboolab/dooboo-ui/tree/master/main/SwitchToggle)
 
@@ -71,6 +72,7 @@ We aim to support `react-native` ui components in all platforms and we are curre
 > Below elements are not included in `dooboo-ui` package since it depends on other packages that may overload its package.
 
 - [CalendarCarousel](https://github.com/dooboolab/dooboo-ui/tree/master/packages/CalendarCarousel)
+- [Charts](https://github.com/dooboolab/dooboo-ui/tree/master/packages/Charts)
 - [GiftedChat](https://github.com/dooboolab/dooboo-ui/tree/master/packages/GiftedChat)
 - [Snackbar](https://github.com/dooboolab/dooboo-ui/tree/master/packages/Snackbar)
 - [theme](https://github.com/dooboolab/dooboo-ui/tree/master/packages/theme)
