@@ -12,7 +12,7 @@ import styled from 'styled-components/native';
 
 const Container = styled.View`
   flex-direction: column;
-  width: 335px;
+  width: 100%;
 `;
 
 const RowContainer = styled.View`
@@ -22,7 +22,7 @@ const RowContainer = styled.View`
   border-radius: 6px;
   border-color: #e0e0e0;
   padding-left: 20px;
-  width: 335px;
+  width: 100%;
 `;
 
 const StyledLabel = styled.Text`
@@ -75,9 +75,14 @@ const StyledRowTextInput = styled.TextInput`
   ${Platform.OS === 'web' && { 'outline-style': 'none' }}
 `;
 
-type labelPositionType = 'row';
+export enum EditTextInputType {
+  DEFAULT = 'default',
+  ROW = 'row',
+}
+
 interface Props {
-  labelPosition?: labelPositionType;
+  testID?: string;
+  labelPosition?: EditTextInputType;
   placeholder?: TextInputProps['placeholder'];
   placeholderTextColor?: TextInputProps['placeholderTextColor'];
   containerStyle?: ViewStyle;
@@ -101,6 +106,7 @@ interface Props {
 
 const EditText: FC<Props> = (props) => {
   const {
+    testID,
     labelPosition = 'default',
     placeholder = 'text',
     placeholderTextColor = '#BDBDBD',
@@ -135,11 +141,11 @@ const EditText: FC<Props> = (props) => {
   }, [isErrored]);
 
   switch (labelPosition) {
-    case 'default':
+    case EditTextInputType.DEFAULT:
     default:
       return (
         <Container
-          testID={'EditText-test'}
+          testID={testID}
           style={containerStyle}
         >
           <StyledLabel style={labelTextStyle}>{labelText}</StyledLabel>
@@ -170,11 +176,11 @@ const EditText: FC<Props> = (props) => {
           {errorState && errorMessage}
         </Container>
       );
-    case 'row':
+    case EditTextInputType.ROW:
       return (
         <>
           <RowContainer
-            testID={'EditText-test'}
+            testID={testID}
             style={[
               containerStyle,
               errorState ? errorStyle : focused && { borderColor: focusColor },

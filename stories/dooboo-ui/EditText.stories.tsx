@@ -1,8 +1,8 @@
+import EditText, { EditTextInputType } from '../../main/EditText';
 import React, { ReactElement, useState } from 'react';
 import { SafeAreaView, ScrollView, Text, View } from 'react-native';
 import Button from '../../main/Button';
 import { ContainerDeco } from '../../storybook/decorators';
-import EditText from '../../main/EditText';
 import { storiesOf } from '@storybook/react-native';
 import styled from 'styled-components/native';
 
@@ -10,6 +10,7 @@ const Container = styled.View`
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  width: 335px;
 `;
 
 const StyledTitle = styled.Text`
@@ -43,6 +44,7 @@ const Default = ():React.ReactElement => {
               Border Bottom
             </StyledTitle>
             <EditText
+              testID={'EditText-test'}
               numberOfLines={1}
               secureTextEntry={true}
               labelText={'Label'}
@@ -79,7 +81,8 @@ const RowType = ():React.ReactElement => {
               Row Type
             </StyledTitle>
             <EditText
-              labelPosition={'row'}
+              testID={'EditText-test'}
+              labelPosition={EditTextInputType.ROW}
               numberOfLines={1}
               placeholder={'text'}
               labelText={'Label'}
@@ -90,7 +93,7 @@ const RowType = ():React.ReactElement => {
                 Border Bottom
             </StyledTitle>
             <EditText
-              labelPosition={'row'}
+              labelPosition={EditTextInputType.ROW}
               numberOfLines={1}
               placeholder={'text'}
               labelText={'Label'}
