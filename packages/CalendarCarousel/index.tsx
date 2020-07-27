@@ -169,7 +169,7 @@ function CalendarCarousel<T>({
     return onDateChanged?.(update);
   };
 
-  const renderCalendar = (currentDate: Date): any => {
+  const renderCalendar = (currentDate: Date): ReactElement => {
     const monthName = currentDate.toLocaleString('default', {
       month: 'long',
     });
@@ -182,7 +182,6 @@ function CalendarCarousel<T>({
     const lastWeekday = new Date(year, month, currentMonthDays).getDay();
     let numPrevMonthDays = new Date(year, month - 1, 0).getDate();
 
-    // TODO: Provide drawing calendar as a one single function to reuse it in other pages.
     for (let idx = 0; idx <= 6; idx++) {
       const matchMonth = new Date(2020, 5, idx);
       const weekDay = matchMonth.toLocaleString('default', { weekday: 'narrow' });
@@ -306,6 +305,19 @@ function CalendarCarousel<T>({
     </Fragment>;
   };
 
+  const scrollToMiddleCalendar = (): void => {
+    scrollRef.current.scrollTo({
+      x: layoutWidth,
+      animated: false,
+    });
+
+    if (timeout) clearTimeout();
+
+    timeout = setTimeout(() => {
+      scrolling = false;
+    }, 30);
+  };
+
   return (
     <SafeAreaView style={styles.container} onLayout={(e): void => {
       layoutWidth = e.nativeEvent.layout.width;
@@ -323,17 +335,7 @@ function CalendarCarousel<T>({
 
               scrolling = true;
               setCurrentDate(new Date(currentDate.getFullYear(), currentDate.getMonth() - 1, currentDate.getDate()));
-
-              scrollRef.current.scrollTo({
-                x: layoutWidth,
-                animated: false,
-              });
-
-              if (timeout) clearTimeout();
-
-              timeout = setTimeout(() => {
-                scrolling = false;
-              }, 30);
+              scrollToMiddleCalendar();
             }
           } else if (layoutWidth && e.nativeEvent.contentOffset.x === (layoutWidth * 2)) {
             if (scrollRef && scrollRef.current) {
@@ -341,17 +343,7 @@ function CalendarCarousel<T>({
 
               scrolling = true;
               setCurrentDate(new Date(currentDate.getFullYear(), currentDate.getMonth() + 1, currentDate.getDate()));
-
-              scrollRef.current.scrollTo({
-                x: layoutWidth,
-                animated: false,
-              });
-
-              if (timeout) clearTimeout();
-
-              timeout = setTimeout(() => {
-                scrolling = false;
-              }, 30);
+              scrollToMiddleCalendar();
             }
           }
         }}
