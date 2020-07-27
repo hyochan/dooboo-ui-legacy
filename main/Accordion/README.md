@@ -21,12 +21,12 @@
 ## Installation
 
 ```sh
-yarn add @dooboo-ui/core
+yarn add dooboo-ui
 ```
 
 ## Usage
 ```javascript
-import { Accordion } from '@dooboo-ui/core';
+import { Accordion } from 'dooboo-ui';
 
 const Default = (): React.ReactElement => {
   const data = [
