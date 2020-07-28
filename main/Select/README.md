@@ -19,7 +19,7 @@ The animation is powered by `react-native` Animated library.
 ## Installation
 
 ```sh
-yarn add @dooboo-ui/core
+yarn add dooboo-ui
 ```
 
 <br/>
@@ -31,7 +31,7 @@ yarn add @dooboo-ui/core
 ### Import
 
 ```tsx
-  import { Item, Select } from '@dooboo-ui/core';
+  import { Item, Select } from 'dooboo-ui';
 ```
 
 <br/>

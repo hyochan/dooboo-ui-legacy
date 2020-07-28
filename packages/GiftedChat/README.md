@@ -26,7 +26,7 @@
 ## Installation
 
 ```sh
-yarn add @dooboo-ui/core
+yarn add dooboo-ui
 ```
 
 or
@@ -40,7 +40,7 @@ yarn add @dooboo-ui/gifted-chat
 - Import
 
   ```javascript
-  import { GiftedChat } from '@dooboo-ui/core';
+  import { GiftedChat } from 'dooboo-ui';
   ```
 
 - Usage

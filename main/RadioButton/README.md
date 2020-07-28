@@ -6,7 +6,7 @@
 ## Installation
 
 ```sh
-yarn add @dooboo-ui/core
+yarn add dooboo-ui
 ```
 
 ## Props
@@ -44,7 +44,7 @@ interface IRadioButtonProps {
 ### Import
 
 ```tsx
-import { RadioButton } from '@dooboo-ui/core';
+import { RadioButton } from 'dooboo-ui';
 ```
 
 ### Usage

@@ -1,7 +1,7 @@
 # LoadingIndicator
 
-[![Npm Version](http://img.shields.io/npm/v/@dooboo-ui/core.svg?style=flat-square)](https://npmjs.org/package/@dooboo-ui/core)
-[![Downloads](http://img.shields.io/npm/dm/@dooboo-ui/core.svg?style=flat-square)](https://npmjs.org/package/@dooboo-ui/core)
+[![Npm Version](http://img.shields.io/npm/v/dooboo-ui.svg?style=flat-square)](https://npmjs.org/package/dooboo-ui)
+[![Downloads](http://img.shields.io/npm/dm/dooboo-ui.svg?style=flat-square)](https://npmjs.org/package/dooboo-ui)
 
 > Simple [LoadingIndicator] that overlaps screen indicating that it is doing something.
 
@@ -18,7 +18,7 @@
 ## Installation
 
 ```sh
-yarn add @dooboo-ui/core
+yarn add dooboo-ui
 ```
 
 ## Usage
@@ -28,7 +28,7 @@ yarn add @dooboo-ui/core
 - Import
 
   ```javascript
-  import { LoadingIndicator } from '@dooboo-ui/core';
+  import { LoadingIndicator } from 'dooboo-ui';
   ```
   
 - Usage

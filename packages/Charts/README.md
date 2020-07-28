@@ -22,7 +22,7 @@ This collection of charts are made using [`react-native-svg`](https://www.npmjs.
 ## Installation
 
 ```sh
-yarn add @dooboo-ui/core
+yarn add dooboo-ui
 ```
 
 <br/>
@@ -31,7 +31,7 @@ yarn add @dooboo-ui/core
 - Import
 
   ```javascript
-  import { LineChart, BarChart, PieChart } from '@dooboo-ui/core';
+  import { LineChart, BarChart, PieChart } from 'dooboo-ui';
   ```
 <br/>
 

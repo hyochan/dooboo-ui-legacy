@@ -34,7 +34,7 @@
 4. Run pod install if you clone list of independent components in `@dooboo-ui/*`
 
    - `cd ios && pod install`
-     > Note that @dooboo-ui/native(or @dooboo-ui/core) don't need this step.
+     > Note that @dooboo-ui/native(or dooboo-ui) don't need this step.
 
 5. Run your project
 
