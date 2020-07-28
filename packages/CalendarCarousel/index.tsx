@@ -169,7 +169,7 @@ function CalendarCarousel<T>({
     return onDateChanged?.(update);
   };
 
-  const renderCalendar = (currentDate: Date): any => {
+  const renderCalendar = (currentDate: Date): ReactElement => {
     const monthName = currentDate.toLocaleString('default', {
       month: 'long',
     });
@@ -305,6 +305,19 @@ function CalendarCarousel<T>({
     </Fragment>;
   };
 
+  const scrollToMiddleCalendar = (): void => {
+    scrollRef.current.scrollTo({
+      x: layoutWidth,
+      animated: false,
+    });
+
+    if (timeout) clearTimeout();
+
+    timeout = setTimeout(() => {
+      scrolling = false;
+    }, 30);
+  };
+
   return (
     <SafeAreaView style={styles.container} onLayout={(e): void => {
       layoutWidth = e.nativeEvent.layout.width;
@@ -321,28 +334,14 @@ function CalendarCarousel<T>({
               if (scrolling) return;
               scrolling = true;
               setCurrentDate(prevMonth);
-              scrollRef.current.scrollTo({
-                x: layoutWidth,
-                animated: false,
-              });
-              if (timeout) clearTimeout();
-              timeout = setTimeout(() => {
-                scrolling = false;
-              }, 30);
+              scrollToMiddleCalendar();
             }
           } else if (layoutWidth && e.nativeEvent.contentOffset.x === (layoutWidth * 2)) {
             if (scrollRef && scrollRef.current) {
               if (scrolling) return;
               scrolling = true;
               setCurrentDate(nextMonth);
-              scrollRef.current.scrollTo({
-                x: layoutWidth,
-                animated: false,
-              });
-              if (timeout) clearTimeout();
-              timeout = setTimeout(() => {
-                scrolling = false;
-              }, 30);
+              scrollToMiddleCalendar();
             }
           }
         }}
@@ -352,4 +351,5 @@ function CalendarCarousel<T>({
     </SafeAreaView>
   );
 }
+
 export default CalendarCarousel;
