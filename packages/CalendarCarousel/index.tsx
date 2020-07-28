@@ -1,6 +1,5 @@
 import {
   FlatList,
-  RefreshControl,
   SafeAreaView,
   ScrollView,
   StyleSheet,
@@ -183,7 +182,6 @@ function CalendarCarousel<T>({
     const lastWeekday = new Date(year, month, currentMonthDays).getDay();
     let numPrevMonthDays = new Date(year, month - 1, 0).getDate();
 
-    // TODO: Provide drawing calendar as a one single function to reuse it in other pages.
     for (let idx = 0; idx <= 6; idx++) {
       const matchMonth = new Date(2020, 5, idx);
       const weekDay = matchMonth.toLocaleString('default', { weekday: 'narrow' });
@@ -295,11 +293,11 @@ function CalendarCarousel<T>({
     );
   };
 
-  const renderCalendars = (currentDate: Date): ReactElement => {
-    const prevMonth = new Date(currentDate.getFullYear(), currentDate.getMonth() - 1, currentDate.getDate());
-    const currentMonth = new Date(currentDate.getFullYear(), currentDate.getMonth(), currentDate.getDate());
-    const nextMonth = new Date(currentDate.getFullYear(), currentDate.getMonth() + 1, currentDate.getDate());
+  const prevMonth = new Date(currentDate.getFullYear(), currentDate.getMonth() - 1, currentDate.getDate());
+  const currentMonth = new Date(currentDate.getFullYear(), currentDate.getMonth(), currentDate.getDate());
+  const nextMonth = new Date(currentDate.getFullYear(), currentDate.getMonth() + 1, currentDate.getDate());
 
+  const renderCalendars = (currentDate: Date): ReactElement => {
     return <Fragment>
       {renderCalendar(prevMonth)}
       {renderCalendar(currentMonth)}
@@ -314,46 +312,34 @@ function CalendarCarousel<T>({
       <ScrollView
         horizontal
         pagingEnabled
-        scrollEventThrottle={16}
+        scrollEventThrottle ={16}
         contentOffset = {{ x: 330, y: 0 }}
         ref={scrollRef}
         onScroll={(e):void => {
-          console.log('ouside: ', e.nativeEvent.contentOffset.x);
           if (e.nativeEvent.contentOffset.x === 0) {
-            console.log('prevMonth :', e.nativeEvent.contentOffset.x);
             if (scrollRef && scrollRef.current) {
               if (scrolling) return;
-
               scrolling = true;
-              setCurrentDate(new Date(currentDate.getFullYear(), currentDate.getMonth() - 1, currentDate.getDate()));
-
+              setCurrentDate(prevMonth);
               scrollRef.current.scrollTo({
                 x: layoutWidth,
                 animated: false,
               });
-
               if (timeout) clearTimeout();
-
               timeout = setTimeout(() => {
                 scrolling = false;
               }, 30);
             }
-            console.log('prevMonth : ');
           } else if (layoutWidth && e.nativeEvent.contentOffset.x === (layoutWidth * 2)) {
-            console.log('nextMonth : ', e.nativeEvent.contentOffset.x);
             if (scrollRef && scrollRef.current) {
               if (scrolling) return;
-
               scrolling = true;
-              setCurrentDate(new Date(currentDate.getFullYear(), currentDate.getMonth() + 1, currentDate.getDate()));
-
+              setCurrentDate(nextMonth);
               scrollRef.current.scrollTo({
                 x: layoutWidth,
                 animated: false,
               });
-
               if (timeout) clearTimeout();
-
               timeout = setTimeout(() => {
                 scrolling = false;
               }, 30);
