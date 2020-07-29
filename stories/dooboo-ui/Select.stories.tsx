@@ -1,6 +1,6 @@
 import { Image, View } from 'react-native';
-import { Item, Select } from '../../main/Select';
 import React, { ReactElement } from 'react';
+import { Select, SelectItem } from '../../main/Select';
 
 import { ContainerDeco } from '../../storybook/decorators';
 import LoadingIndicator from '../../main/LoadingIndicator';
@@ -63,9 +63,9 @@ const Default = (): React.ReactElement => {
           value={selectedValue}
           onSelect={(value): void => onSelectedValue(value)}
           onOpen={(isOpen): void => toggleSelect(isOpen)}>
-          <Item value={'Item-1'}>{'Item-1'}</Item>
-          <Item value={'Item-2'}>{'Item-2'}</Item>
-          <Item value={'Item-3'}>{'Item-3'}</Item>
+          <SelectItem value={'Item-1'}>{'Item-1'}</SelectItem>
+          <SelectItem value={'Item-2'}>{'Item-2'}</SelectItem>
+          <SelectItem value={'Item-3'}>{'Item-3'}</SelectItem>
         </Select>
       </CustomSelectContainer>
     </CustomContainer>
@@ -128,9 +128,9 @@ const ChangeProps = (): React.ReactElement => {
           value={selectedValue}
           onSelect={(value): void => delaySelect(value)}
           onOpen={(isOpen): void => toggleSelect(isOpen)}>
-          <Item value={'Item-1'}>{'Item-1'}</Item>
-          <Item value={'Item-2'}>{'Item-2'}</Item>
-          <Item value={'Item-3'}>{'Item-3'}</Item>
+          <SelectItem value={'Item-1'}>{'Item-1'}</SelectItem>
+          <SelectItem value={'Item-2'}>{'Item-2'}</SelectItem>
+          <SelectItem value={'Item-3'}>{'Item-3'}</SelectItem>
         </Select>
       </CustomSelectContainer>
     </CustomContainer>
@@ -225,16 +225,16 @@ const Customized = (): React.ReactElement => {
             backgroundColor: '#ede682',
           }}
           customTextStyle={{ color: '#e84a5f', fontSize: 18 }}>
-          <Item
+          <SelectItem
             value={'Banana'}
             customStyle={{
               backgroundColor: '#e84a5f',
             }}
             customTextStyle={{ color: '#ede682' }}>
             {'Banana'}
-          </Item>
-          <Item value={'Apple'}>{'Apple'}</Item>
-          <Item value={'Orange'}>{'Orange'}</Item>
+          </SelectItem>
+          <SelectItem value={'Apple'}>{'Apple'}</SelectItem>
+          <SelectItem value={'Orange'}>{'Orange'}</SelectItem>
         </Select>
       </CustomSelectContainer>
     </CustomContainer>

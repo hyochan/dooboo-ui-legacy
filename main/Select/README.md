@@ -83,7 +83,7 @@ yarn add dooboo-ui
 ## Usage
 
 ```tsx
-import { Item, Select } from '../../main/Select';
+import { Select, SelectItem } from 'dooboo-ui';
 import styled from 'styled-components/native';
 
 
@@ -121,9 +121,9 @@ const Default = (): React.ReactElement => {
           onSelect={(value): void => onSelectedValue(value)}
           onOpen={(isOpen): void => toggleSelect(isOpen)}
           >
-          <Item value={'Item-1'}>{'Item-1'}</Item>
-          <Item value={'Item-2'}>{'Item-2'}</Item>
-          <Item value={'Item-3'}>{'Item-3'}</Item>
+          <SelectItem value={'Item-1'}>{'Item-1'}</SelectItem>
+          <SelectItem value={'Item-2'}>{'Item-2'}</SelectItem>
+          <SelectItem value={'Item-3'}>{'Item-3'}</SelectItem>
         </Select>
       </CustomSelectContainer>
     </CustomContainer>

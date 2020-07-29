@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`[Item] render test should render without crashing 1`] = `
+exports[`[Select] render test should render without crashing 1`] = `
 <View
   pointerEvents="box-none"
   style={
@@ -77,7 +77,7 @@ exports[`[Item] render test should render without crashing 1`] = `
             ]
           }
         >
-          Item-1
+          Testing-placeholder
         </Text>
         <View
           style={
@@ -212,7 +212,7 @@ exports[`[Item] render test should render without crashing 1`] = `
 </View>
 `;
 
-exports[`[Select] render test should render without crashing 1`] = `
+exports[`[SelectItem] render test should render without crashing 1`] = `
 <View
   pointerEvents="box-none"
   style={
@@ -289,7 +289,7 @@ exports[`[Select] render test should render without crashing 1`] = `
             ]
           }
         >
-          Testing-placeholder
+          Item-1
         </Text>
         <View
           style={

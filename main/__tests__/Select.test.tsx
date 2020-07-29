@@ -1,10 +1,10 @@
-import { Item, Select } from '../Select';
 import React, { ReactElement } from 'react';
 import {
   RenderResult,
   cleanup,
   render,
 } from '@testing-library/react-native';
+import { Select, SelectItem } from '../Select';
 
 let props: any;
 let component: ReactElement;
@@ -28,7 +28,7 @@ describe('[Select] render test', () => {
   });
 });
 
-describe('[Item] render test', () => {
+describe('[SelectItem] render test', () => {
   const itemValue = 'Item-1';
   it('should render without crashing', () => {
     props = createTestProps();
@@ -50,8 +50,8 @@ describe('[Select, Item] event test', () => {
     });
     component = (
       <Select {...props}>
-        <Item value="Item-1">{'Item-1'}</Item>
-        <Item value="Item-2">{'Item-2'}</Item>
+        <SelectItem value="Item-1">{'Item-1'}</SelectItem>
+        <SelectItem value="Item-2">{'Item-2'}</SelectItem>
       </Select>
     );
     testingLib = render(component);
