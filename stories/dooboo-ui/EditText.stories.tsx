@@ -1,13 +1,13 @@
 import EditText, { EditTextInputType } from '../../main/EditText';
 import {
   Image,
+  Platform,
   SafeAreaView,
   ScrollView,
   Text,
   TextStyle,
   TouchableOpacity,
   View,
-  Platform,
 } from 'react-native';
 import React, { ReactElement, useState } from 'react';
 
@@ -67,7 +67,7 @@ const Default = (): React.ReactElement => {
             alignItems: 'center',
             padding: 20,
             paddingTop: 10,
-            width: `${Platform.OS === 'web' ? 438 : '100%' }`,
+            width: `${Platform.OS === 'web' ? 438 : '100%'}`,
           }}
         >
           <Text
@@ -203,7 +203,7 @@ const RowEditText = (): React.ReactElement => {
             alignItems: 'center',
             padding: 20,
             paddingTop: 10,
-            width: `${Platform.OS === 'web' ? 438 : '100%' }`,
+            width: `${Platform.OS === 'web' ? 438 : '100%'}`,
           }}
         >
           <Text
@@ -366,7 +366,7 @@ const BoxEditText = (): React.ReactElement => {
             alignItems: 'center',
             padding: 20,
             paddingTop: 10,
-            width: `${Platform.OS === 'web' ? 438 : '100%' }`,
+            width: `${Platform.OS === 'web' ? 438 : '100%'}`,
           }}
         >
           <Text
@@ -403,7 +403,7 @@ const BoxEditText = (): React.ReactElement => {
             onChangeText={(text: string): void => onTextChanged('EMAIL', text)}
             style={{
               marginTop: 30,
-              width: `${Platform.OS === 'web' ? 438 : '100%' }`,
+              width: `${Platform.OS === 'web' ? 438 : '100%'}`,
             }}
             contentStyle={{
               paddingHorizontal: 16,
@@ -444,7 +444,7 @@ const BoxEditText = (): React.ReactElement => {
             }
             style={{
               marginTop: 20,
-              width: `${Platform.OS === 'web' ? 438 : '100%' }`,
+              width: `${Platform.OS === 'web' ? 438 : '100%'}`,
             }}
             contentStyle={{
               paddingHorizontal: 16,
@@ -478,7 +478,7 @@ const BoxEditText = (): React.ReactElement => {
             placeholderTextColor="#707683"
             style={{
               marginTop: 20,
-              width: `${Platform.OS === 'web' ? 438 : '100%' }`,
+              width: `${Platform.OS === 'web' ? 438 : '100%'}`,
             }}
             contentStyle={{
               paddingHorizontal: 16,
@@ -566,7 +566,7 @@ const BoxRowEditText = (): React.ReactElement => {
             alignItems: 'center',
             padding: 20,
             paddingTop: 10,
-            width: `${Platform.OS === 'web' ? 438 : '100%' }`,
+            width: `${Platform.OS === 'web' ? 438 : '100%'}`,
           }}
         >
           <Text

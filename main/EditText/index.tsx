@@ -260,7 +260,7 @@ function EditText(props: Props): ReactElement {
                     borderBottomWidth: focusedBorderWidth,
                   }
                   : null,
-                  contentStyle,
+              contentStyle,
             ]}
           >
             {label ? (
@@ -341,7 +341,7 @@ function EditText(props: Props): ReactElement {
                 : focused
                   ? { borderColor: focusColor, borderWidth: focusedBorderWidth }
                   : null,
-                  contentStyle,
+              contentStyle,
             ]}
           >
             <StyledTextInput
