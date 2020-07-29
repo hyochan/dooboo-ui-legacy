@@ -43,6 +43,7 @@ exports[`[EditText] Type: [box] renders without crashing 1`] = `
         },
         undefined,
         null,
+        undefined,
       ]
     }
   >
@@ -170,6 +171,7 @@ exports[`[EditText] Type: [row] renders without crashing 1`] = `
         },
         undefined,
         null,
+        undefined,
       ]
     }
   >

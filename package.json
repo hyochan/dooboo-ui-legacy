@@ -9,6 +9,7 @@
     "lint": "eslint main packages stories --ext .ts,.tsx,.js,.jsx",
     "tsc": "tsc",
     "start": "expo start",
+    "jest": "jest",
     "android": "expo start --android",
     "ios": "expo start --ios",
     "web": "start-storybook -p 6006",

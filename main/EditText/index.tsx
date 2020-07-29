@@ -90,6 +90,7 @@ interface Props {
   labelTextStyle?: TextStyle;
   labelWidth?: number;
   value?: TextInputProps['value'];
+  contentStyle?: ViewStyle;
   inputContainerType?: string;
   inputContainerRadius?: number;
   borderStyle?: ViewStyle;
@@ -142,6 +143,7 @@ function EditText(props: Props): ReactElement {
     labelTextStyle,
     labelWidth = 110,
     value,
+    contentStyle,
     borderStyle,
     borderWidth = 0.6,
     borderColor = '#eaeaf9',
@@ -258,6 +260,7 @@ function EditText(props: Props): ReactElement {
                     borderBottomWidth: focusedBorderWidth,
                   }
                   : null,
+                  contentStyle,
             ]}
           >
             {label ? (
@@ -338,6 +341,7 @@ function EditText(props: Props): ReactElement {
                 : focused
                   ? { borderColor: focusColor, borderWidth: focusedBorderWidth }
                   : null,
+                  contentStyle,
             ]}
           >
             <StyledTextInput
