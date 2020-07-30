@@ -6,8 +6,8 @@
 
 | | Default | Row |
 |--|---------------|--------------|
-| `underlined` |![underlined_default](https://user-images.githubusercontent.com/31176502/71721202-8bc9f880-2e67-11ea-8ffd-b6bf81814a26.gif) | ![underlined_row](https://user-images.githubusercontent.com/31176502/71721235-ad2ae480-2e67-11ea-914f-dc74ea4c6e7f.gif) |
-| <center>`box`</center> |![default](https://user-images.githubusercontent.com/31176502/71764827-4b827d00-2f30-11ea-85dd-887b218afeec.gif) | ![row](https://user-images.githubusercontent.com/31176502/71720737-1873b700-2e66-11ea-9b6b-1cdc175cbc0a.gif) |
+| `underlined` |![underlined_default](https://user-images.githubusercontent.com/58724686/88875168-bcd2a600-d25b-11ea-9d17-7ae71c200e21.png) | ![underlined_row](https://user-images.githubusercontent.com/58724686/88875181-c22ff080-d25b-11ea-9c9b-5c9a847f96fe.png) |
+| <center>`box`</center> |![default](https://user-images.githubusercontent.com/58724686/88875188-c52ae100-d25b-11ea-8f52-be578d72737d.png) | ![row](https://user-images.githubusercontent.com/58724686/88875196-c9ef9500-d25b-11ea-82b6-bb15111eba53.png) |
 
 ## Props
 
@@ -27,6 +27,7 @@
 | borderColor          |           | string                 |       `#eaeaf9`      |
 | inputLeftMargin      |           | number                 |         `110`        |
 | textStyle            |           | `TextStyle`            |                      |
+| contentStyle         |           | `ViewStyle`            |                      |
 | placeholder          |           | string                 |                      |
 | placeholderTextColor |           | string                 |                      |
 | secureTextEntry      |           | boolean                |                      |
@@ -54,86 +55,115 @@ yarn add dooboo-ui
 
 - Import
 
-  ```javascript
-  import { EditText } from 'dooboo-ui';
-  ```
+```javascript
+import { EditText } from 'dooboo-ui';
+```
 
 - Usage
 
-  ```javascript
-  function Page(props: Props) {
-    const validateEmail = (email: string) => {
-      const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-      return re.test(email);
-    };
+```javascript
+const Default = (): React.ReactElement => {
+  const validateEmail = (email: string): boolean => {
+    const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    return re.test(email);
+  };
 
-    const fontStyle: TextStyle = {
-      fontWeight: 'bold',
-      fontSize: 13,
-    };
+  const [email, setEmail] = useState<string>('');
+  const [password, setPassword] = useState<string>('');
+  const [errorEmail, setErrorEmail] = useState<string>('');
 
-    const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
-    const [errorEmail, setErrorEmail] = useState('');
+  const onSignIn = (): void => {
+    if (!validateEmail(email)) {
+      setErrorEmail('Not a valid email address');
+    }
+  };
 
-    const onSignIn = () => {
-      if (!validateEmail(email)) {
-        setErrorEmail('Not a valid email address');
-      } else {
-        setErrorEmail('');
-      }
-    };
+  const onTextChanged = (type: string, text: string): void => {
+    type === 'EMAIL' ? setEmail(text) : setPassword(text);
 
-    const onTextChanged = (type: string, text: string) => {
-      type === 'EMAIL' ? setEmail(text) : setPassword(text);
+    if (type === 'EMAIL' && text === '') {
+      setErrorEmail('');
+    }
+  };
 
-      if (type === 'EMAIL' && text === '') {
-        setErrorEmail('');
-      }
-    };
-
-    return (
-      <StyledScrollView
+  return (
+    <SafeAreaView>
+      <ScrollView
         contentContainerStyle={{
           marginTop: 8,
+          alignSelf: 'stretch',
           paddingHorizontal: 20,
-          paddingBottom: 40,
+          paddingVertical: 100,
+          display: 'flex',
+          flexDirection: 'column',
+          justifyContent: 'center',
+          alignItems: 'center',
         }}
       >
-        <Container>
-          <HeaderTitle>Sign in with Email</HeaderTitle>
+        <View
+          style={{
+            display: 'flex',
+            flexDirection: 'column',
+            justifyContent: 'center',
+            alignItems: 'center',
+            width: Platform.OS === 'web' ? 438 : '100%',
+          }}
+        >
+          <Text
+            style={{
+              fontWeight: 'bold',
+              fontSize: 24,
+              lineHeight: 35,
+              color: '#495057',
+            }}>
+            Sign in with Email
+          </Text>
           <EditText
-            testID="EMAIL_INPUT"
+            testID="EMAIL_INPUT_DEFAULT"
             textStyle={{
               color: '#495057',
             }}
             label="Email"
-            placeholder="Write email address"
+            placeholder="Email address"
             placeholderTextColor="#ADB5BD"
             value={email}
-            onChangeText={(text: string) => onTextChanged('EMAIL', text)}
-            style={{ marginTop: 50 }}
+            onChangeText={(text: string): void => onTextChanged('EMAIL', text)}
+            style={{ 
+              marginTop: 50 
+            }}
             errorText={errorEmail}
             onSubmitEditing={onSignIn}
           />
           <EditText
-            testID="PASSWORD_INPUT"
+            testID="PASSWORD_INPUT_DEFAULT"
             textStyle={{
               color: '#ADB5BD',
             }}
             secureTextEntry={true}
             label="Password"
-            placeholder="Please write your password"
+            placeholder="Your password"
             placeholderTextColor="#ADB5BD"
             value={password}
-            onChangeText={(text: string) => onTextChanged('PASSWORD', text)}
+            onChangeText={(text: string): void =>
+              onTextChanged('PASSWORD', text)
+            }
             style={{ marginTop: 36 }}
             onSubmitEditing={onSignIn}
           />
-          <StyledSignInButton
-            testID="btnEmail"
-            onPress={() => onSignIn()}
-            textStyle={fontStyle}
+          <Button
+            style={{
+              borderRadius: 6,
+              borderWidth: 0,
+              marginTop: 40,
+              width: 184,
+              height: 48,
+              backgroundColor: '#6DA6FC',
+            }}
+            testID="BTN_DEFAULT"
+            onPress={(): void => onSignIn()}
+            textStyle={{
+              color: '#FFFFFF',
+            }}
             text="Login"
           />
           {/* Email SignUp text */}
@@ -145,15 +175,29 @@ yarn add dooboo-ui
               alignItems: 'center',
             }}
           >
-            <StyledText testID="NO_ACCOUNT">
+            <Text
+              testID="NO_ACCOUNT"
+              style={{
+                fontSize: 14,
+                color: '#495057',
+              }}
+            >
               Do not have and account?{' '}
-            </StyledText>
-            <TouchableOpacity onPress={() => null} style={{ padding: 4 }}>
-              <StyledAccentText>Find</StyledAccentText>
+            </Text>
+            <TouchableOpacity onPress={(): null => null} style={{ padding: 4 }}>
+              <Text
+                style={{
+                  color: '#6772e5',
+                  fontWeight: 'bold',
+                }}
+              >
+                Find
+              </Text>
             </TouchableOpacity>
           </View>
-        </Container>
-      </StyledScrollView>
-    );
-  }
+        </View>
+      </ScrollView>
+    </SafeAreaView>
+  );
+};
   ```

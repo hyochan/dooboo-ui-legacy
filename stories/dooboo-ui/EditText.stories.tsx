@@ -5,7 +5,6 @@ import {
   SafeAreaView,
   ScrollView,
   Text,
-  TextStyle,
   TouchableOpacity,
   View,
 } from 'react-native';
@@ -20,11 +19,6 @@ const Default = (): React.ReactElement => {
   const validateEmail = (email: string): boolean => {
     const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     return re.test(email);
-  };
-
-  const fontStyle: TextStyle = {
-    fontWeight: 'bold',
-    fontSize: 13,
   };
 
   const [email, setEmail] = useState<string>('');
@@ -65,9 +59,7 @@ const Default = (): React.ReactElement => {
             flexDirection: 'column',
             justifyContent: 'center',
             alignItems: 'center',
-            padding: 20,
-            paddingTop: 10,
-            width: `${Platform.OS === 'web' ? 438 : '100%'}`,
+            width: Platform.OS === 'web' ? 438 : '100%',
           }}
         >
           <Text
@@ -80,7 +72,7 @@ const Default = (): React.ReactElement => {
             Sign in with Email
           </Text>
           <EditText
-            testID="EMAIL_INPUT"
+            testID="EMAIL_INPUT_DEFAULT"
             textStyle={{
               color: '#495057',
             }}
@@ -89,12 +81,14 @@ const Default = (): React.ReactElement => {
             placeholderTextColor="#ADB5BD"
             value={email}
             onChangeText={(text: string): void => onTextChanged('EMAIL', text)}
-            style={{ marginTop: 50 }}
+            style={{
+              marginTop: 50,
+            }}
             errorText={errorEmail}
             onSubmitEditing={onSignIn}
           />
           <EditText
-            testID="PASSWORD_INPUT"
+            testID="PASSWORD_INPUT_DEFAULT"
             textStyle={{
               color: '#ADB5BD',
             }}
@@ -111,15 +105,18 @@ const Default = (): React.ReactElement => {
           />
           <Button
             style={{
-              borderRadius: 26,
+              borderRadius: 6,
               borderWidth: 0,
               marginTop: 40,
               width: 184,
-              backgroundColor: 'rgb(36, 205, 151)',
+              height: 48,
+              backgroundColor: '#6DA6FC',
             }}
-            testID="btnEmail"
+            testID="BTN_DEFAULT"
             onPress={(): void => onSignIn()}
-            textStyle={fontStyle}
+            textStyle={{
+              color: '#FFFFFF',
+            }}
             text="Login"
           />
           {/* Email SignUp text */}
@@ -163,11 +160,6 @@ const RowEditText = (): React.ReactElement => {
     return re.test(email);
   };
 
-  const fontStyle: TextStyle = {
-    fontWeight: 'bold',
-    fontSize: 13,
-  };
-
   const [email, setEmail] = useState<string>('');
   const [emailErrorText, setEmailErrorText] = useState<string>('');
   const [passwordErrorText, setPasswordErrorText] = useState<string>('');
@@ -188,7 +180,7 @@ const RowEditText = (): React.ReactElement => {
           marginTop: 8,
           alignSelf: 'stretch',
           paddingHorizontal: 20,
-          paddingVertical: 30,
+          paddingVertical: 100,
           display: 'flex',
           flexDirection: 'column',
           justifyContent: 'center',
@@ -201,23 +193,23 @@ const RowEditText = (): React.ReactElement => {
             flexDirection: 'column',
             justifyContent: 'center',
             alignItems: 'center',
-            padding: 20,
-            paddingTop: 10,
-            width: `${Platform.OS === 'web' ? 438 : '100%'}`,
+            width: Platform.OS === 'web' ? 438 : '100%',
           }}
         >
           <Text
             style={{
+              fontStyle: 'normal',
               fontWeight: 'bold',
-              fontSize: 24,
-              lineHeight: 35,
-              color: '#495057',
+              fontSize: 32,
+              lineHeight: 47,
+              letterSpacing: -0.05,
+              color: '#323C47',
             }}
           >
             Sign in with Email
           </Text>
           <EditText
-            testID="EMAIL_INPUT"
+            testID="EMAIL_INPUT_ROW"
             errorTestID="EMAIL_INPUT_ERROR"
             type={EditTextInputType.ROW}
             value={email}
@@ -247,7 +239,7 @@ const RowEditText = (): React.ReactElement => {
             }}
           />
           <EditText
-            testID="PASSWORD_INPUT"
+            testID="PASSWORD_INPUT_ROW"
             errorTestID="PASSWORD_INPUT_ERROR"
             type={EditTextInputType.ROW}
             autoCapitalize="none"
@@ -272,15 +264,18 @@ const RowEditText = (): React.ReactElement => {
           />
           <Button
             style={{
-              borderRadius: 26,
+              borderRadius: 6,
               borderWidth: 0,
               marginTop: 40,
               width: 184,
-              backgroundColor: 'rgb(36, 205, 151)',
+              height: 48,
+              backgroundColor: '#6DA6FC',
             }}
-            testID="btnEmail"
+            testID="BTN_ROW"
             onPress={(): void => onSignIn()}
-            textStyle={fontStyle}
+            textStyle={{
+              color: '#FFFFFF',
+            }}
             text="Login"
           />
           {/* Email SignUp text */}
@@ -351,7 +346,7 @@ const BoxEditText = (): React.ReactElement => {
           marginTop: 8,
           alignSelf: 'stretch',
           paddingHorizontal: 20,
-          paddingVertical: 30,
+          paddingVertical: 100,
           display: 'flex',
           flexDirection: 'column',
           justifyContent: 'center',
@@ -364,9 +359,7 @@ const BoxEditText = (): React.ReactElement => {
             flexDirection: 'column',
             justifyContent: 'center',
             alignItems: 'center',
-            padding: 20,
-            paddingTop: 10,
-            width: `${Platform.OS === 'web' ? 438 : '100%'}`,
+            width: Platform.OS === 'web' ? 438 : '100%',
           }}
         >
           <Text
@@ -379,10 +372,10 @@ const BoxEditText = (): React.ReactElement => {
               color: '#323C47',
             }}
           >
-            Sign In
+            Sign Up
           </Text>
           <EditText
-            testID="EMAIL_INPUT"
+            testID="EMAIL_INPUT_BOX"
             type={EditTextInputType.BOX}
             labelTextStyle= {{
               color: '#333333',
@@ -403,7 +396,6 @@ const BoxEditText = (): React.ReactElement => {
             onChangeText={(text: string): void => onTextChanged('EMAIL', text)}
             style={{
               marginTop: 30,
-              width: `${Platform.OS === 'web' ? 438 : '100%'}`,
             }}
             contentStyle={{
               paddingHorizontal: 16,
@@ -420,7 +412,7 @@ const BoxEditText = (): React.ReactElement => {
             rightElement={<Image source={IC_CHECK} style={{ width: 16, height: 16 }} />}
           />
           <EditText
-            testID="PASSWORD_INPUT"
+            testID="PASSWORD_INPUT_BOX"
             type={EditTextInputType.BOX}
             labelTextStyle= {{
               color: '#333333',
@@ -444,7 +436,6 @@ const BoxEditText = (): React.ReactElement => {
             }
             style={{
               marginTop: 20,
-              width: `${Platform.OS === 'web' ? 438 : '100%'}`,
             }}
             contentStyle={{
               paddingHorizontal: 16,
@@ -500,7 +491,7 @@ const BoxEditText = (): React.ReactElement => {
               height: 48,
               backgroundColor: '#6DA6FC',
             }}
-            testID="btnEmail"
+            testID="BTN_BOX"
             onPress={(): void => onSignIn()}
             textStyle={{
               color: '#FFFFFF',
@@ -517,11 +508,6 @@ const BoxRowEditText = (): React.ReactElement => {
   const validateEmail = (email: string): boolean => {
     const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     return re.test(email);
-  };
-
-  const fontStyle: TextStyle = {
-    fontWeight: 'bold',
-    fontSize: 13,
   };
 
   const [email, setEmail] = useState<string>('');
@@ -551,7 +537,7 @@ const BoxRowEditText = (): React.ReactElement => {
           marginTop: 8,
           alignSelf: 'stretch',
           paddingHorizontal: 20,
-          paddingVertical: 30,
+          paddingVertical: 100,
           display: 'flex',
           flexDirection: 'column',
           justifyContent: 'center',
@@ -564,23 +550,23 @@ const BoxRowEditText = (): React.ReactElement => {
             flexDirection: 'column',
             justifyContent: 'center',
             alignItems: 'center',
-            padding: 20,
-            paddingTop: 10,
-            width: `${Platform.OS === 'web' ? 438 : '100%'}`,
+            width: Platform.OS === 'web' ? 438 : '100%',
           }}
         >
           <Text
             style={{
+              fontStyle: 'normal',
               fontWeight: 'bold',
-              fontSize: 24,
-              lineHeight: 35,
-              color: '#495057',
+              fontSize: 32,
+              lineHeight: 47,
+              letterSpacing: -0.05,
+              color: '#323C47',
             }}
           >
             Sign in with Email
           </Text>
           <EditText
-            testID="EMAIL_INPUT"
+            testID="EMAIL_INPUT_BOXROW"
             type="rowBox"
             textStyle={{
               color: '#495057',
@@ -590,13 +576,17 @@ const BoxRowEditText = (): React.ReactElement => {
             placeholderTextColor="#ADB5BD"
             value={email}
             onChangeText={(text: string): void => onTextChanged('EMAIL', text)}
-            style={{ marginTop: 50 }}
+            style={{
+              marginTop: 50,
+            }}
             errorText={errorEmail}
             onSubmitEditing={onSignIn}
-            borderStyle={{ height: 60 }}
+            borderStyle={{
+              height: 60,
+            }}
           />
           <EditText
-            testID="PASSWORD_INPUT"
+            testID="PASSWORD_INPUT_BOXROW"
             type={EditTextInputType.ROW_BOX}
             inputContainerRadius={25}
             textStyle={{
@@ -610,21 +600,26 @@ const BoxRowEditText = (): React.ReactElement => {
             onChangeText={(text: string): void =>
               onTextChanged('PASSWORD', text)
             }
-            style={{ marginTop: 36 }}
+            style={{
+              marginTop: 36,
+            }}
             onSubmitEditing={onSignIn}
           />
           <Button
             style={{
-              borderRadius: 26,
+              borderRadius: 6,
               borderWidth: 0,
               marginTop: 40,
               width: 184,
-              backgroundColor: 'rgb(36, 205, 151)',
+              height: 48,
+              backgroundColor: '#6DA6FC',
             }}
-            testID="btnEmail"
+            testID="BTN_BOXROW"
             onPress={(): void => onSignIn()}
-            textStyle={fontStyle}
-            text="Login"
+            textStyle={{
+              color: '#FFFFFF',
+            }}
+            text="SignIn"
           />
           <View
             style={{
