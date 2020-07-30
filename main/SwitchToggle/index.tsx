@@ -28,10 +28,9 @@ interface Props {
   textRightStyle?: StyleProp<TextStyle>;
   textLeftStyle?: StyleProp<TextStyle>;
   buttonStyle?: StyleProp<ViewStyle>;
-  // limitation: https://github.com/DefinitelyTyped/DefinitelyTyped/issues/12202
-  buttonContainerStyle?: StyleProp<ViewStyle> | any;
-  rightContainerStyle?: StyleProp<ViewStyle> | any;
-  leftContainerStyle?: StyleProp<ViewStyle> | any;
+  buttonContainerStyle?: Animated.WithAnimatedValue<StyleProp<ViewStyle>>;
+  rightContainerStyle?: Animated.WithAnimatedValue<StyleProp<ViewStyle>>;
+  leftContainerStyle?: Animated.WithAnimatedValue<StyleProp<ViewStyle>>;
   RTL?: boolean;
 }
 
@@ -42,7 +41,7 @@ const styles = StyleSheet.create({
   },
 });
 
-const SwitchToggle: React.FC<Props> = (props): React.ReactElement => {
+const SwitchToggle: React.FC<Props> = (props) => {
   const [animXValue] = useState(new Animated.Value(props.switchOn ? 1 : 0));
   const getStart = (): number | Record<string, unknown> | undefined => {
     // prettier-ignore
