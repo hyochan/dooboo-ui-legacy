@@ -67,7 +67,7 @@ exports[`[Calendar] should render without crashing 1`] = `
               }
             }
           >
-            M06
+            June
           </Text>
           <Text
             style={
@@ -2021,7 +2021,7 @@ exports[`[Calendar] should render without crashing 1`] = `
               }
             }
           >
-            M07
+            July
           </Text>
           <Text
             style={
@@ -3981,7 +3981,7 @@ exports[`[Calendar] should render without crashing 1`] = `
               }
             }
           >
-            M08
+            August
           </Text>
           <Text
             style={
