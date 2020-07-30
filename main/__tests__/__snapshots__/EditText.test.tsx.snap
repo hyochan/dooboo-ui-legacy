@@ -22,7 +22,7 @@ exports[`[EditText] Type: [box] renders without crashing 1`] = `
           "marginBottom": 5,
         },
         undefined,
-        null,
+        false,
       ]
     }
   >
@@ -42,7 +42,8 @@ exports[`[EditText] Type: [box] renders without crashing 1`] = `
           "borderWidth": 0.6,
         },
         undefined,
-        null,
+        false,
+        undefined,
       ]
     }
   >
@@ -95,7 +96,7 @@ exports[`[EditText] Type: [default] renders without crashing 1`] = `
           "marginBottom": 5,
         },
         undefined,
-        null,
+        false,
       ]
     }
   >
@@ -137,7 +138,7 @@ exports[`[EditText] Type: [default] renders without crashing 1`] = `
           "borderBottomWidth": 0.6,
           "borderColor": "#eaeaf9",
         },
-        null,
+        false,
       ]
     }
   />
@@ -169,7 +170,8 @@ exports[`[EditText] Type: [row] renders without crashing 1`] = `
           "borderColor": "#eaeaf9",
         },
         undefined,
-        null,
+        false,
+        undefined,
       ]
     }
   >
@@ -233,7 +235,7 @@ exports[`[EditText] Type: [rowBox] renders without crashing 1`] = `
           "borderWidth": 0.6,
         },
         undefined,
-        null,
+        false,
       ]
     }
   >
