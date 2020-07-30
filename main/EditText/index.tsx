@@ -7,7 +7,7 @@ import {
   TextStyle,
   ViewStyle,
 } from 'react-native';
-import React, { ReactElement, useState } from 'react';
+import React, { FC, ReactElement, useState } from 'react';
 
 import styled from 'styled-components/native';
 
@@ -131,7 +131,7 @@ export enum EditTextInputType {
   ROW_BOX = 'rowBox',
 }
 
-function EditText(props: Props): ReactElement {
+const EditText: FC<Props> = (props) => {
   const [focused, setFocus] = useState(false);
 
   const {
@@ -459,6 +459,6 @@ function EditText(props: Props): ReactElement {
         </RowContainer>
       );
   }
-}
+};
 
-export default EditText;
+export { EditText };

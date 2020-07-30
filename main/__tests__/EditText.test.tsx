@@ -8,7 +8,7 @@ import {
   waitForElement,
 } from '@testing-library/react-native';
 
-import EditText from '../EditText';
+import { EditText } from '../../main';
 import { View } from 'react-native';
 // Note: test renderer must be required after react-native.
 import renderer from 'react-test-renderer';

@@ -9,7 +9,7 @@ import Snackbar, {
 import { color, text } from '@storybook/addon-knobs';
 
 import { ContainerDeco } from '../../storybook/decorators';
-import SwitchToggle from '../../main/SwitchToggle';
+import { SwitchToggle } from '../../main';
 import { storiesOf } from '@storybook/react-native';
 import styled from 'styled-components/native';
 

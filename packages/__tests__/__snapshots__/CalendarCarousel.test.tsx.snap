@@ -67,7 +67,7 @@ exports[`[Calendar] should render without crashing 1`] = `
               }
             }
           >
-            June
+            July
           </Text>
           <Text
             style={
@@ -257,7 +257,47 @@ exports[`[Calendar] should render without crashing 1`] = `
                   }
                 }
               >
+                29
+              </Text>
+            </View>,
+            <View
+              style={
+                Object {
+                  "height": 47,
+                  "paddingTop": 13.5,
+                  "width": 47,
+                }
+              }
+            >
+              <Text
+                style={
+                  Object {
+                    "color": "lightgray",
+                    "textAlign": "center",
+                  }
+                }
+              >
                 30
+              </Text>
+            </View>,
+            <View
+              style={
+                Object {
+                  "height": 47,
+                  "paddingTop": 13.5,
+                  "width": 47,
+                }
+              }
+            >
+              <Text
+                style={
+                  Object {
+                    "color": "lightgray",
+                    "textAlign": "center",
+                  }
+                }
+              >
+                31
               </Text>
             </View>,
             <Component
@@ -983,6 +1023,29 @@ exports[`[Calendar] should render without crashing 1`] = `
             <View
               style={
                 Object {
+                  "alignItems": "center",
+                  "backgroundColor": "#109CF1",
+                  "borderRadius": 50,
+                  "height": 47,
+                  "paddingTop": 13.5,
+                  "width": 47,
+                }
+              }
+            >
+              <Text
+                style={
+                  Object {
+                    "color": "white",
+                    "textAlign": "center",
+                  }
+                }
+              >
+                31
+              </Text>
+            </View>,
+            <View
+              style={
+                Object {
                   "height": 47,
                   "paddingTop": 13.5,
                   "width": 47,
@@ -998,66 +1061,6 @@ exports[`[Calendar] should render without crashing 1`] = `
                 }
               >
                 1
-              </Text>
-            </View>,
-            <View
-              style={
-                Object {
-                  "height": 47,
-                  "paddingTop": 13.5,
-                  "width": 47,
-                }
-              }
-            >
-              <Text
-                style={
-                  Object {
-                    "color": "lightgray",
-                    "textAlign": "center",
-                  }
-                }
-              >
-                2
-              </Text>
-            </View>,
-            <View
-              style={
-                Object {
-                  "height": 47,
-                  "paddingTop": 13.5,
-                  "width": 47,
-                }
-              }
-            >
-              <Text
-                style={
-                  Object {
-                    "color": "lightgray",
-                    "textAlign": "center",
-                  }
-                }
-              >
-                3
-              </Text>
-            </View>,
-            <View
-              style={
-                Object {
-                  "height": 47,
-                  "paddingTop": 13.5,
-                  "width": 47,
-                }
-              }
-            >
-              <Text
-                style={
-                  Object {
-                    "color": "lightgray",
-                    "textAlign": "center",
-                  }
-                }
-              >
-                4
               </Text>
             </View>,
           ]
@@ -1118,7 +1121,47 @@ exports[`[Calendar] should render without crashing 1`] = `
                   }
                 }
               >
+                29
+              </Text>
+            </View>
+            <View
+              style={
+                Object {
+                  "height": 47,
+                  "paddingTop": 13.5,
+                  "width": 47,
+                }
+              }
+            >
+              <Text
+                style={
+                  Object {
+                    "color": "lightgray",
+                    "textAlign": "center",
+                  }
+                }
+              >
                 30
+              </Text>
+            </View>
+            <View
+              style={
+                Object {
+                  "height": 47,
+                  "paddingTop": 13.5,
+                  "width": 47,
+                }
+              }
+            >
+              <Text
+                style={
+                  Object {
+                    "color": "lightgray",
+                    "textAlign": "center",
+                  }
+                }
+              >
+                31
               </Text>
             </View>
             <
@@ -1217,6 +1260,19 @@ exports[`[Calendar] should render without crashing 1`] = `
                 </Text>
               </View>
             </>
+          </View>
+        </View>
+        <View
+          onLayout={[Function]}
+          style={null}
+        >
+          <View
+            style={
+              Object {
+                "flexDirection": "row",
+              }
+            }
+          >
             <
               onPress={[Function]}
             >
@@ -1265,19 +1321,6 @@ exports[`[Calendar] should render without crashing 1`] = `
                 </Text>
               </View>
             </>
-          </View>
-        </View>
-        <View
-          onLayout={[Function]}
-          style={null}
-        >
-          <View
-            style={
-              Object {
-                "flexDirection": "row",
-              }
-            }
-          >
             <
               onPress={[Function]}
             >
@@ -1398,6 +1441,19 @@ exports[`[Calendar] should render without crashing 1`] = `
                 </Text>
               </View>
             </>
+          </View>
+        </View>
+        <View
+          onLayout={[Function]}
+          style={null}
+        >
+          <View
+            style={
+              Object {
+                "flexDirection": "row",
+              }
+            }
+          >
             <
               onPress={[Function]}
             >
@@ -1446,19 +1502,6 @@ exports[`[Calendar] should render without crashing 1`] = `
                 </Text>
               </View>
             </>
-          </View>
-        </View>
-        <View
-          onLayout={[Function]}
-          style={null}
-        >
-          <View
-            style={
-              Object {
-                "flexDirection": "row",
-              }
-            }
-          >
             <
               onPress={[Function]}
             >
@@ -1579,6 +1622,19 @@ exports[`[Calendar] should render without crashing 1`] = `
                 </Text>
               </View>
             </>
+          </View>
+        </View>
+        <View
+          onLayout={[Function]}
+          style={null}
+        >
+          <View
+            style={
+              Object {
+                "flexDirection": "row",
+              }
+            }
+          >
             <
               onPress={[Function]}
             >
@@ -1627,19 +1683,6 @@ exports[`[Calendar] should render without crashing 1`] = `
                 </Text>
               </View>
             </>
-          </View>
-        </View>
-        <View
-          onLayout={[Function]}
-          style={null}
-        >
-          <View
-            style={
-              Object {
-                "flexDirection": "row",
-              }
-            }
-          >
             <
               onPress={[Function]}
             >
@@ -1760,6 +1803,19 @@ exports[`[Calendar] should render without crashing 1`] = `
                 </Text>
               </View>
             </>
+          </View>
+        </View>
+        <View
+          onLayout={[Function]}
+          style={null}
+        >
+          <View
+            style={
+              Object {
+                "flexDirection": "row",
+              }
+            }
+          >
             <
               onPress={[Function]}
             >
@@ -1808,19 +1864,6 @@ exports[`[Calendar] should render without crashing 1`] = `
                 </Text>
               </View>
             </>
-          </View>
-        </View>
-        <View
-          onLayout={[Function]}
-          style={null}
-        >
-          <View
-            style={
-              Object {
-                "flexDirection": "row",
-              }
-            }
-          >
             <
               onPress={[Function]}
             >
@@ -1896,6 +1939,29 @@ exports[`[Calendar] should render without crashing 1`] = `
             <View
               style={
                 Object {
+                  "alignItems": "center",
+                  "backgroundColor": "#109CF1",
+                  "borderRadius": 50,
+                  "height": 47,
+                  "paddingTop": 13.5,
+                  "width": 47,
+                }
+              }
+            >
+              <Text
+                style={
+                  Object {
+                    "color": "white",
+                    "textAlign": "center",
+                  }
+                }
+              >
+                31
+              </Text>
+            </View>
+            <View
+              style={
+                Object {
                   "height": 47,
                   "paddingTop": 13.5,
                   "width": 47,
@@ -1911,66 +1977,6 @@ exports[`[Calendar] should render without crashing 1`] = `
                 }
               >
                 1
-              </Text>
-            </View>
-            <View
-              style={
-                Object {
-                  "height": 47,
-                  "paddingTop": 13.5,
-                  "width": 47,
-                }
-              }
-            >
-              <Text
-                style={
-                  Object {
-                    "color": "lightgray",
-                    "textAlign": "center",
-                  }
-                }
-              >
-                2
-              </Text>
-            </View>
-            <View
-              style={
-                Object {
-                  "height": 47,
-                  "paddingTop": 13.5,
-                  "width": 47,
-                }
-              }
-            >
-              <Text
-                style={
-                  Object {
-                    "color": "lightgray",
-                    "textAlign": "center",
-                  }
-                }
-              >
-                3
-              </Text>
-            </View>
-            <View
-              style={
-                Object {
-                  "height": 47,
-                  "paddingTop": 13.5,
-                  "width": 47,
-                }
-              }
-            >
-              <Text
-                style={
-                  Object {
-                    "color": "lightgray",
-                    "textAlign": "center",
-                  }
-                }
-              >
-                4
               </Text>
             </View>
           </View>
@@ -2950,29 +2956,6 @@ exports[`[Calendar] should render without crashing 1`] = `
                 </Text>
               </View>
             </Component>,
-            <View
-              style={
-                Object {
-                  "alignItems": "center",
-                  "backgroundColor": "#109CF1",
-                  "borderRadius": 50,
-                  "height": 47,
-                  "paddingTop": 13.5,
-                  "width": 47,
-                }
-              }
-            >
-              <Text
-                style={
-                  Object {
-                    "color": "white",
-                    "textAlign": "center",
-                  }
-                }
-              >
-                30
-              </Text>
-            </View>,
             <Component
               onPress={[Function]}
             >
@@ -2993,10 +2976,33 @@ exports[`[Calendar] should render without crashing 1`] = `
                     }
                   }
                 >
-                  31
+                  30
                 </Text>
               </View>
             </Component>,
+            <View
+              style={
+                Object {
+                  "alignItems": "center",
+                  "backgroundColor": "#109CF1",
+                  "borderRadius": 50,
+                  "height": 47,
+                  "paddingTop": 13.5,
+                  "width": 47,
+                }
+              }
+            >
+              <Text
+                style={
+                  Object {
+                    "color": "white",
+                    "textAlign": "center",
+                  }
+                }
+              >
+                31
+              </Text>
+            </View>,
             <View
               style={
                 Object {
@@ -3866,29 +3872,6 @@ exports[`[Calendar] should render without crashing 1`] = `
                 </Text>
               </View>
             </>
-            <View
-              style={
-                Object {
-                  "alignItems": "center",
-                  "backgroundColor": "#109CF1",
-                  "borderRadius": 50,
-                  "height": 47,
-                  "paddingTop": 13.5,
-                  "width": 47,
-                }
-              }
-            >
-              <Text
-                style={
-                  Object {
-                    "color": "white",
-                    "textAlign": "center",
-                  }
-                }
-              >
-                30
-              </Text>
-            </View>
             <
               onPress={[Function]}
             >
@@ -3909,10 +3892,33 @@ exports[`[Calendar] should render without crashing 1`] = `
                     }
                   }
                 >
-                  31
+                  30
                 </Text>
               </View>
             </>
+            <View
+              style={
+                Object {
+                  "alignItems": "center",
+                  "backgroundColor": "#109CF1",
+                  "borderRadius": 50,
+                  "height": 47,
+                  "paddingTop": 13.5,
+                  "width": 47,
+                }
+              }
+            >
+              <Text
+                style={
+                  Object {
+                    "color": "white",
+                    "textAlign": "center",
+                  }
+                }
+              >
+                31
+              </Text>
+            </View>
             <View
               style={
                 Object {

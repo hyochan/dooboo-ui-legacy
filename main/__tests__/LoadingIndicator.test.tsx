@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import LoadingIndicator from '../LoadingIndicator';
+import { LoadingIndicator } from '../../main';
 import { View } from 'react-native';
 import renderer from 'react-test-renderer';
 

@@ -2,7 +2,7 @@ import { IC_FACEBOOK, IC_GOOGLE } from '../Icon';
 import { Image, View } from 'react-native';
 import React, { ReactElement, useState } from 'react';
 
-import Button from '../../main/Button';
+import { Button } from '../../main';
 import { ContainerDeco } from '../../storybook/decorators';
 import { action } from '@storybook/addon-actions';
 import { storiesOf } from '@storybook/react-native';

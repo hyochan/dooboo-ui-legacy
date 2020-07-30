@@ -181,4 +181,4 @@ SwitchToggle.defaultProps = {
   duration: 300,
 };
 
-export default SwitchToggle;
+export { SwitchToggle };

@@ -6,7 +6,8 @@ import {
   fireEvent,
   render,
 } from '@testing-library/react-native';
-import SearchInput from '../SearchInput';
+
+import { SearchInput } from '../../main';
 
 let props: any;
 let component: ReactElement;

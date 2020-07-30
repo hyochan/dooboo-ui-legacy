@@ -1,7 +1,7 @@
 import * as React from 'react';
 
 // Note: test renderer must be required after react-native.
-import SwitchToggle from '../SwitchToggle';
+import { SwitchToggle } from '../../main';
 import { TouchableOpacity } from 'react-native';
 import renderer from 'react-test-renderer';
 

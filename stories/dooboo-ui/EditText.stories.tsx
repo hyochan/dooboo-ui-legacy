@@ -1,4 +1,4 @@
-import EditText, { EditTextInputType } from '../../main/EditText';
+import { Button, EditText, EditTextInputType } from '../../main';
 import {
   Image,
   Platform,
@@ -10,7 +10,6 @@ import {
 } from 'react-native';
 import React, { ReactElement, useState } from 'react';
 
-import Button from '../../main/Button';
 import { ContainerDeco } from '../../storybook/decorators';
 import { IC_CHECK } from '../Icon';
 import { storiesOf } from '@storybook/react-native';

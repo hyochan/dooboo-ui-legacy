@@ -14,7 +14,7 @@ import {
 import Label from '../Slider/Label';
 import Marks from '../Slider/Marks';
 import Rail from '../Slider/Rail';
-import Slider from '../Slider';
+import { Slider } from '../../main';
 import Thumb from '../Slider/Thumb';
 import Track from '../Slider/Track';
 
