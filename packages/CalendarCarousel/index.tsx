@@ -29,13 +29,17 @@ interface Style {
   notActiveText: TextStyle;
   activeView: ViewStyle;
   activeText: TextStyle;
+  markView: ViewStyle;
+  mark: ViewStyle;
+  markDataStyle: ViewStyle;
+  eventContainer: ViewStyle;
 }
 
 const styles = StyleSheet.create<Style>({
   container: {
     paddingTop: 40,
     width: 330,
-    height: 488,
+    height: 430,
   },
   headerStyle: {
     flexDirection: 'row',
@@ -114,6 +118,26 @@ const styles = StyleSheet.create<Style>({
   activeText: {
     textAlign: 'center',
     color: '#109CF1',
+  },
+  markView: {
+    paddingTop: 13.5,
+    alignItems: 'center',
+    width: 47,
+    height: 47,
+  },
+  mark: {
+    width: 4,
+    height: 4,
+    borderRadius: 50,
+    backgroundColor: '#109CF1',
+  },
+  markDataStyle: {
+    width: 100,
+    height: 100,
+    backgroundColor: 'red',
+  },
+  eventContainer: {
+    height: 100,
   },
 });
 
@@ -202,6 +226,33 @@ function CalendarCarousel<T>({
       numPrevMonthDays--;
     }
 
+    const markedDays = [7, 17, 20];
+    const markedDayEvents = [
+      {
+        day: 7,
+        events: 'walk dog',
+      },
+      {
+        day: 17,
+        events: 'birthday',
+      },
+      {
+        day: 20,
+        events: 'cooking',
+      },
+    ];
+
+    const [eventSwitch, setEventSwitch] = useState(0);
+    const dayEvents = [];
+    const isInside = (d : number) :boolean => {
+      for (let m = 0; m <= markedDays.length; m++) {
+        if (d === markedDays[m]) {
+          return true;
+        }
+      }
+      return false;
+    };
+
     const days = [];
     for (let d = 1; d <= currentMonthDays; d++) {
       if (isToday(
@@ -216,6 +267,15 @@ function CalendarCarousel<T>({
             style={styles.currentDayView}>
             <Text style={styles.currentDayText}>{`${d}`}</Text>
           </View>,
+        );
+      } else if (isInside(d) && date.getMonth() === month) {
+        days.push(
+          <TouchableOpacity onPress ={(): void => { setEventSwitch(d); }}>
+            <View style={styles.markView}>
+              <Text style={styles.notActiveText}>{`${d}`}</Text>
+              <View style= {styles.mark}></View>
+            </View>
+          </TouchableOpacity>,
         );
       } else if (d === selectedDate?.getDate() && month === selectedDate?.getMonth()) {
         days.push(
@@ -234,12 +294,12 @@ function CalendarCarousel<T>({
       } else {
         days.push(
           <TouchableOpacity onPress={(): void => selectDate?.(
-          new Date(
-            currentDate.getFullYear(),
-            currentDate.getMonth(),
-            d,
-          ),
-        )}>
+            new Date(
+              currentDate.getFullYear(),
+              currentDate.getMonth(),
+              d,
+            ),
+          )}>
             <View style={styles.notActiveView}>
               <Text style={styles.notActiveText}>{`${d}`}</Text>
             </View>
@@ -265,8 +325,14 @@ function CalendarCarousel<T>({
 
     const calendarDays = [...prevDays, ...days, ...nextDays];
 
+    for (let i = 0; i <= markedDayEvents.length - 1; i++) {
+      if (markedDayEvents[i].day === eventSwitch) {
+        const getEventDay = markedDayEvents[i].events; dayEvents.push(getEventDay);
+      }
+    }
+
     return (
-      <View nativeID="1">
+      <View>
         <View style={styles.headerStyle}>
           <TouchableOpacity onPress={(): void => changeMonth(true)}>
             <Text style={styles.arrowText}> &#8249;</Text>
@@ -289,10 +355,20 @@ function CalendarCarousel<T>({
           }}
           keyExtractor={(item, id): string => id.toString()}
         />
+        <FlatList
+          style= {styles.eventContainer}
+          data= {dayEvents}
+          numColumns = {1}
+          renderItem={({ item }): ReactElement => {
+            if (eventSwitch) {
+              return (
+                <Text>{item}</Text>);
+            }
+          }}
+        />
       </View>
     );
   };
-
   const prevMonth = new Date(currentDate.getFullYear(), currentDate.getMonth() - 1, currentDate.getDate());
   const currentMonth = new Date(currentDate.getFullYear(), currentDate.getMonth(), currentDate.getDate());
   const nextMonth = new Date(currentDate.getFullYear(), currentDate.getMonth() + 1, currentDate.getDate());
@@ -318,6 +394,24 @@ function CalendarCarousel<T>({
     }, 30);
   };
 
+  const scrollEffect = (e : any) : void => {
+    if (e.nativeEvent.contentOffset.x === 0) {
+      if (scrollRef && scrollRef.current) {
+        if (scrolling) return;
+        scrolling = true;
+        setCurrentDate(prevMonth);
+        scrollToMiddleCalendar();
+      }
+    } else if (layoutWidth && e.nativeEvent.contentOffset.x === (layoutWidth * 2)) {
+      if (scrollRef && scrollRef.current) {
+        if (scrolling) return;
+        scrolling = true;
+        setCurrentDate(nextMonth);
+        scrollToMiddleCalendar();
+      }
+    }
+  };
+
   return (
     <SafeAreaView style={styles.container} onLayout={(e): void => {
       layoutWidth = e.nativeEvent.layout.width;
@@ -328,23 +422,7 @@ function CalendarCarousel<T>({
         scrollEventThrottle ={16}
         contentOffset = {{ x: 330, y: 0 }}
         ref={scrollRef}
-        onScroll={(e):void => {
-          if (e.nativeEvent.contentOffset.x === 0) {
-            if (scrollRef && scrollRef.current) {
-              if (scrolling) return;
-              scrolling = true;
-              setCurrentDate(prevMonth);
-              scrollToMiddleCalendar();
-            }
-          } else if (layoutWidth && e.nativeEvent.contentOffset.x === (layoutWidth * 2)) {
-            if (scrollRef && scrollRef.current) {
-              if (scrolling) return;
-              scrolling = true;
-              setCurrentDate(nextMonth);
-              scrollToMiddleCalendar();
-            }
-          }
-        }}
+        onScroll={(e):void => { scrollEffect(e); }}
       >
         {renderCalendars(currentDate)}
       </ScrollView>
