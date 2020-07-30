@@ -39,7 +39,7 @@ yarn add dooboo-ui
 - Import
 
   ```javascript
-  import { Button } from 'dooboo-ui/core';
+  import { Button } from 'dooboo-ui';
   ```
 
 - Usage
