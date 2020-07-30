@@ -1,4 +1,10 @@
 ## Changelogs
+- **[0.0.13]**
+  * Add `contentStyle` to [EditText] [#264](https://github.com/dooboolab/dooboo-ui/pull/264)
+
+- **[0.0.12]**
+  * Renamed `Item` to `SelectItem` and fixes import pathes [#265](https://github.com/dooboolab/dooboo-ui/issues/265)
+
 - **[0.0.11]**
   * Fix regression in [EditText] [#262](https://github.com/dooboolab/dooboo-ui/pull/262)
   * Fix regression in [Button]
