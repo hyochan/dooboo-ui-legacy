@@ -32,7 +32,7 @@
 ## Installation
 
 ```sh
-yarn add @dooboo-ui/core
+yarn add dooboo-ui
 ```
 
 ## Usage
@@ -40,7 +40,7 @@ yarn add @dooboo-ui/core
 ```javascript
 import React, { ReactElement } from 'react';
 
-import { Slider } from '@dooboo-ui/core';
+import { Slider } from 'dooboo-ui';
 import styled from 'styled-components/native';
 
 function Page(): ReactElement {

@@ -33,7 +33,7 @@
 ## Installation
 
 ```sh
-yarn add @dooboo-ui/core
+yarn add dooboo-ui
 ```
 
 ## Usage
@@ -41,7 +41,7 @@ yarn add @dooboo-ui/core
 ```javascript
 import React, { ReactElement, useState } from 'react';
 
-import { SwitchToggle } from '@dooboo-ui/core';
+import { SwitchToggle } from 'dooboo-ui';
 import styled from 'styled-components/native';
 
 const Container = styled.View`

@@ -2,7 +2,7 @@
 
 > You should be aware of below stacks(do not need to be professional) to contribute to our repository.
 
-1. [React Native](https://facebook.github.io/react-native)
+1. [React Native](https://reactnative.dev)
 2. [VSCODE](https://code.visualstudio.com)
    - We are using `vscode` as our ide. Please install `eslint` plugin.
 
@@ -34,7 +34,7 @@
 4. Run pod install if you clone list of independent components in `@dooboo-ui/*`
 
    - `cd ios && pod install`
-     > Note that @dooboo-ui/native(or @dooboo-ui/core) don't need this step.
+     > Note that @dooboo-ui/native(or dooboo-ui) don't need this step.
 
 5. Run your project
 

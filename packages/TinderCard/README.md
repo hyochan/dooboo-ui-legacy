@@ -31,14 +31,14 @@
 ### Installation
 
 ```sh
-yarn add @dooboo-ui/core
+yarn add dooboo-ui
 ```
 
 ### Import
 
   ```javascript
-  import { TinderCard } from '@dooboo-ui/core';
-  import { TinderCardDirection, TinderCardRef } from '@dooboo-ui/core/lib/TinderCard';
+  import { TinderCard } from 'dooboo-ui';
+  import { TinderCardDirection, TinderCardRef } from 'dooboo-ui/lib/TinderCard';
   ```
 
   ##### TinderCard
@@ -66,7 +66,7 @@ yarn add @dooboo-ui/core
     ```
 
   ##### TinderCardDirection
-  - You can use this by importing on `@dooboo-ui/core/lib/TinderCard` 
+  - You can use this by importing on `dooboo-ui/lib/TinderCard` 
   - Structure
       if you put swiping direction on event function, you can use this. For example, `TinderCardDirection.RIGHT` or `TinderCardDirection.LEFT`
 
@@ -89,9 +89,9 @@ yarn add @dooboo-ui/core
   - Usage
     
     1. Import module `TinderCardRef` 
-        First of all, you should import module `TinderCardRef` in `@dooboo-ui/core/lib/TinderCard`.
+        First of all, you should import module `TinderCardRef` in `dooboo-ui/lib/TinderCard`.
         ```
-        import { TinderCardRef } from '@dooboo-ui/core/lib/TinderCard';
+        import { TinderCardRef } from 'dooboo-ui/lib/TinderCard';
         ```
     2. Allocate `useRef()` having type `TinderCardRef` Object.
         ```
@@ -127,8 +127,8 @@ yarn add @dooboo-ui/core
 ### Full code of example
 
   ```javascript
-  import { TinderCard } from '@dooboo-ui/core';
-  import { TinderCardDirection, TinderCardRef } from '@dooboo-ui/core/lib/TinderCard';
+  import { TinderCard } from 'dooboo-ui';
+  import { TinderCardDirection, TinderCardRef } from 'dooboo-ui/lib/TinderCard';
 
   interface Item {
     id: string;

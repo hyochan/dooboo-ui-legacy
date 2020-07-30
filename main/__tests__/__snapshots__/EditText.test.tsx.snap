@@ -1,257 +1,273 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`[EditText] render default component test should render Row type component when labelPosition props is row 1`] = `
+exports[`[EditText] Type: [box] renders without crashing 1`] = `
 <View
-  pointerEvents="box-none"
   style={
-    Object {
-      "flex": 1,
-    }
+    Array [
+      Object {
+        "alignSelf": "stretch",
+        "display": "flex",
+        "flexDirection": "column",
+      },
+    ]
   }
 >
-  <View
-    collapsable={true}
-    pointerEvents="box-none"
+  <Text
     style={
-      Object {
-        "flex": 1,
-      }
+      Array [
+        Object {
+          "color": "#b9b9c4",
+          "fontSize": 14,
+          "fontWeight": "500",
+          "marginBottom": 5,
+        },
+        undefined,
+        null,
+      ]
     }
   >
-    <View
+    label text
+  </Text>
+  <View
+    style={
+      Array [
+        Object {
+          "alignItems": "center",
+          "flexDirection": "row",
+          "justifyContent": "space-between",
+          "width": "100%",
+        },
+        Object {
+          "borderColor": "#eaeaf9",
+          "borderWidth": 0.6,
+        },
+        undefined,
+        null,
+      ]
+    }
+  >
+    <TextInput
+      allowFontScaling={true}
+      autoCapitalize="none"
+      multiline={false}
+      onBlur={[Function]}
+      onFocus={[Function]}
+      rejectResponderTermination={true}
       style={
         Array [
           Object {
-            "alignItems": "center",
-            "borderColor": "#e0e0e0",
-            "borderRadius": 6,
-            "borderWidth": 1,
-            "flexDirection": "row",
-            "paddingLeft": 20,
-            "width": 335,
+            "fontSize": 15,
+            "fontWeight": "500",
+            "paddingBottom": 15,
+            "paddingTop": 15,
           },
-          undefined,
-          false,
+          Object {
+            "paddingVertical": 16,
+          },
         ]
       }
-      testID="EditText-test"
-    >
-      <Text
-        style={
-          Array [
-            Object {
-              "color": "#828282",
-              "fontSize": 14,
-              "fontStyle": "normal",
-              "fontWeight": "800",
-              "lineHeight": 19,
-            },
-          ]
-        }
-      >
-        Label
-      </Text>
-      <TextInput
-        allowFontScaling={true}
-        placeholder="text"
-        placeholderTextColor="#BDBDBD"
-        rejectResponderTermination={true}
-        secureTextEntry={false}
-        style={
-          Array [
-            Object {
-              "color": "#4f4f4f",
-              "fontSize": 20,
-              "fontStyle": "normal",
-              "fontWeight": "500",
-              "height": 56,
-              "lineHeight": 27,
-              "paddingBottom": 15,
-              "paddingLeft": 20,
-              "paddingRight": 20,
-              "paddingTop": 14,
-              "width": "100%",
-            },
-          ]
-        }
-        testID="TextInput-row-test"
-        underlineColorAndroid="transparent"
-      />
-    </View>
+      testID="INPUT_TEST"
+      underlineColorAndroid="transparent"
+    />
   </View>
 </View>
 `;
 
-exports[`[EditText] render default component test should render with error message when isErrored props is true 1`] = `
+exports[`[EditText] Type: [default] renders without crashing 1`] = `
 <View
-  pointerEvents="box-none"
   style={
-    Object {
-      "flex": 1,
+    Array [
+      Object {
+        "alignSelf": "stretch",
+        "display": "flex",
+        "flexDirection": "column",
+      },
+    ]
+  }
+>
+  <Text
+    style={
+      Array [
+        Object {
+          "color": "#b9b9c4",
+          "fontSize": 14,
+          "fontWeight": "500",
+          "marginBottom": 5,
+        },
+        undefined,
+        null,
+      ]
     }
+  >
+    label text
+  </Text>
+  <TextInput
+    allowFontScaling={true}
+    autoCapitalize="none"
+    multiline={false}
+    onBlur={[Function]}
+    onFocus={[Function]}
+    rejectResponderTermination={true}
+    style={
+      Array [
+        Object {
+          "fontSize": 15,
+          "fontWeight": "500",
+          "paddingBottom": 15,
+          "paddingTop": 15,
+        },
+        Object {
+          "paddingVertical": 16,
+        },
+      ]
+    }
+    testID="INPUT_TEST"
+    underlineColorAndroid="transparent"
+  />
+  <View
+    style={
+      Array [
+        Object {
+          "alignItems": "center",
+          "flexDirection": "row",
+          "width": "100%",
+        },
+        undefined,
+        Object {
+          "borderBottomWidth": 0.6,
+          "borderColor": "#eaeaf9",
+        },
+        null,
+      ]
+    }
+  />
+</View>
+`;
+
+exports[`[EditText] Type: [row] renders without crashing 1`] = `
+<View
+  style={
+    Array [
+      Object {
+        "alignSelf": "stretch",
+        "flexDirection": "column",
+      },
+    ]
   }
 >
   <View
-    collapsable={true}
-    pointerEvents="box-none"
     style={
-      Object {
-        "flex": 1,
-      }
+      Array [
+        Object {
+          "alignItems": "center",
+          "flexDirection": "row",
+          "justifyContent": "space-between",
+          "width": "100%",
+        },
+        Object {
+          "borderBottomWidth": 0.6,
+          "borderColor": "#eaeaf9",
+        },
+        undefined,
+        null,
+      ]
     }
   >
-    <View
+    <TextInput
+      allowFontScaling={true}
+      autoCapitalize="none"
+      multiline={false}
+      onBlur={[Function]}
+      onFocus={[Function]}
+      rejectResponderTermination={true}
       style={
         Array [
           Object {
-            "flexDirection": "column",
-            "width": 335,
+            "color": "#2c374e",
+            "flexBasis": 0,
+            "flexGrow": 1,
+            "flexShrink": 1,
+            "fontSize": 14,
+            "fontWeight": "bold",
+            "height": "100%",
+            "paddingBottom": 16,
+            "paddingTop": 16,
+          },
+          Object {
+            "paddingVertical": 16,
+          },
+          Object {
+            "textAlign": "left",
           },
         ]
       }
-      testID="EditText-test"
-    >
-      <Text
-        style={
-          Array [
-            Object {
-              "color": "#828282",
-              "fontSize": 14,
-              "fontStyle": "normal",
-              "fontWeight": "800",
-              "lineHeight": 19,
-              "marginBottom": 6,
-            },
-          ]
-        }
-      >
-        Label
-      </Text>
-      <TextInput
-        allowFontScaling={true}
-        placeholder="text"
-        placeholderTextColor="#BDBDBD"
-        rejectResponderTermination={true}
-        secureTextEntry={false}
-        style={
-          Array [
-            Object {
-              "borderColor": "#e0e0e0",
-              "borderRadius": 6,
-              "borderWidth": 1,
-              "color": "#4f4f4f",
-              "fontSize": 20,
-              "fontStyle": "normal",
-              "fontWeight": "500",
-              "height": 56,
-              "lineHeight": 27,
-              "paddingBottom": 15,
-              "paddingLeft": 20,
-              "paddingRight": 20,
-              "paddingTop": 14,
-              "width": "100%",
-            },
-            undefined,
-            Object {
-              "borderColor": "#E54E4E",
-            },
-          ]
-        }
-        testID="TextInput-test"
-        underlineColorAndroid="transparent"
-      />
-      <Text
-        style={
-          Object {
-            "color": "#E54E4E",
-            "marginTop": 8,
-          }
-        }
-      >
-        Default error message
-      </Text>
-    </View>
+      testID="INPUT_TEST"
+      underlineColorAndroid="transparent"
+    />
   </View>
 </View>
 `;
 
-exports[`[EditText] render default component test should render without crasing 1`] = `
+exports[`[EditText] Type: [rowBox] renders without crashing 1`] = `
 <View
-  pointerEvents="box-none"
   style={
-    Object {
-      "flex": 1,
-    }
+    Array [
+      Object {
+        "alignSelf": "stretch",
+        "flexDirection": "column",
+      },
+    ]
   }
 >
   <View
-    collapsable={true}
-    pointerEvents="box-none"
     style={
-      Object {
-        "flex": 1,
-      }
+      Array [
+        Object {
+          "alignItems": "center",
+          "flexDirection": "row",
+          "justifyContent": "space-between",
+          "width": "100%",
+        },
+        Object {
+          "borderColor": "#eaeaf9",
+          "borderWidth": 0.6,
+        },
+        undefined,
+        null,
+      ]
     }
   >
-    <View
+    <TextInput
+      allowFontScaling={true}
+      autoCapitalize="none"
+      multiline={false}
+      onBlur={[Function]}
+      onFocus={[Function]}
+      rejectResponderTermination={true}
       style={
         Array [
           Object {
-            "flexDirection": "column",
-            "width": 335,
+            "color": "#2c374e",
+            "flexBasis": 0,
+            "flexGrow": 1,
+            "flexShrink": 1,
+            "fontSize": 14,
+            "fontWeight": "bold",
+            "height": "100%",
+            "paddingBottom": 16,
+            "paddingTop": 16,
+          },
+          Object {
+            "paddingRight": 15,
+          },
+          Object {
+            "paddingVertical": 16,
           },
         ]
       }
-      testID="EditText-test"
-    >
-      <Text
-        style={
-          Array [
-            Object {
-              "color": "#828282",
-              "fontSize": 14,
-              "fontStyle": "normal",
-              "fontWeight": "800",
-              "lineHeight": 19,
-              "marginBottom": 6,
-            },
-          ]
-        }
-      >
-        Label
-      </Text>
-      <TextInput
-        allowFontScaling={true}
-        placeholder="text"
-        placeholderTextColor="#BDBDBD"
-        rejectResponderTermination={true}
-        secureTextEntry={false}
-        style={
-          Array [
-            Object {
-              "borderColor": "#e0e0e0",
-              "borderRadius": 6,
-              "borderWidth": 1,
-              "color": "#4f4f4f",
-              "fontSize": 20,
-              "fontStyle": "normal",
-              "fontWeight": "500",
-              "height": 56,
-              "lineHeight": 27,
-              "paddingBottom": 15,
-              "paddingLeft": 20,
-              "paddingRight": 20,
-              "paddingTop": 14,
-              "width": "100%",
-            },
-            undefined,
-            false,
-          ]
-        }
-        testID="TextInput-test"
-        underlineColorAndroid="transparent"
-      />
-    </View>
+      testID="INPUT_TEST"
+      underlineColorAndroid="transparent"
+    />
   </View>
 </View>
 `;

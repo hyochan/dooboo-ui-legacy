@@ -111,7 +111,6 @@ function Button(props: Props): React.ReactElement {
       {...touchableOpacityProps}>
       <StyledButton
         ref={ref}
-        testID={testID}
         style={[
           containerStyle,
           accentStyle,
