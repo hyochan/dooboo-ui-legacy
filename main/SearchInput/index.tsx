@@ -148,4 +148,4 @@ const SearchInput: FC<Props> = (props) => {
   );
 };
 
-export default SearchInput;
+export { SearchInput };

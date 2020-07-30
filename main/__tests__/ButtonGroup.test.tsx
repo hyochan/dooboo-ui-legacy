@@ -4,7 +4,7 @@ import * as React from 'react';
 
 import { RenderResult, act, fireEvent, render } from '@testing-library/react-native';
 
-import ButtonGroup from '../ButtonGroup';
+import { ButtonGroup } from '../../main';
 // Note: test renderer must be required after react-native.
 import renderer from 'react-test-renderer';
 

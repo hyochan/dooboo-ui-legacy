@@ -210,4 +210,4 @@ const Slider: FC<Props> = ({
   );
 };
 
-export default Slider;
+export { Slider };

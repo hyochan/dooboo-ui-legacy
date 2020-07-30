@@ -7,7 +7,7 @@ import {
 import React, { Fragment, ReactNode } from 'react';
 
 import Arrow from './Arrow';
-import LoadingIndicator from '../LoadingIndicator';
+import { LoadingIndicator } from '../LoadingIndicator';
 import styled from 'styled-components/native';
 
 interface Props {

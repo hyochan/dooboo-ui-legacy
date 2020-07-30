@@ -5,7 +5,7 @@ import {
   TouchableOpacityProps,
   ViewStyle,
 } from 'react-native';
-import React, { useRef } from 'react';
+import React, { FC, useRef } from 'react';
 
 import styled from 'styled-components/native';
 import { useHover } from './hooks';
@@ -59,7 +59,7 @@ interface Props {
   secondaryStyle?: ViewStyle;
 }
 
-function Button(props: Props): React.ReactElement {
+const Button: FC<Props> = (props) => {
   const {
     isDisabled,
     testID,
@@ -126,6 +126,6 @@ function Button(props: Props): React.ReactElement {
       </StyledButton>
     </TouchableOpacity>
   );
-}
+};
 
-export default Button;
+export { Button };

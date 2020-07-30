@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { FC, useState } from 'react';
 import {
   StyleProp,
   StyleSheet,
@@ -23,7 +23,7 @@ interface Props {
   initialIndex?: number;
 }
 
-function Shared(props: Props): React.ReactElement {
+const ButtonGroup: FC<Props> = (props) => {
   const {
     borderRadius = 0,
     initialIndex = 0,
@@ -86,9 +86,9 @@ function Shared(props: Props): React.ReactElement {
       })}
     </View>
   );
-}
+};
 
-Shared.defaultProps = {
+ButtonGroup.defaultProps = {
   containerStyle: {
     backgroundColor: 'transparent',
     flexDirection: 'row',
@@ -130,10 +130,7 @@ Shared.defaultProps = {
     textAlign: 'center',
     alignSelf: 'center',
   },
-  selectedOption: {
-    index: 0,
-  },
   data: ['option 1', 'option 2'],
 };
 
-export default Shared;
+export { ButtonGroup };

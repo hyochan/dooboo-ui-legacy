@@ -1,9 +1,8 @@
 import { Image, View } from 'react-native';
+import { LoadingIndicator, Select, SelectItem } from '../../main';
 import React, { ReactElement } from 'react';
-import { Select, SelectItem } from '../../main/Select';
 
 import { ContainerDeco } from '../../storybook/decorators';
-import LoadingIndicator from '../../main/LoadingIndicator';
 import { storiesOf } from '@storybook/react-native';
 import styled from 'styled-components/native';
 
