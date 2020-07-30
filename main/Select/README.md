@@ -9,7 +9,7 @@ The animation is powered by `react-native` Animated library.
 
 ## Preview
 | default | ChangeProps | Customized |   
-|---|---|---|
+|---------|-------------|------------|
 |  ![default-select](https://user-images.githubusercontent.com/50701501/88159035-ba62c180-cc47-11ea-9a3b-dfe545a1c47b.gif) | ![changeprops-select](https://user-images.githubusercontent.com/50701501/88159072-c5b5ed00-cc47-11ea-808e-e548a3effaf3.gif)  | ![customized-select](https://user-images.githubusercontent.com/50701501/88159238-fd249980-cc47-11ea-9f94-b6fe1acb7bae.gif) |   
 
 <br/>
@@ -31,7 +31,7 @@ yarn add dooboo-ui
 ### Import
 
 ```tsx
-  import { Item, Select } from 'dooboo-ui';
+  import { Select, SelectItem } from 'dooboo-ui';
 ```
 
 <br/>
@@ -48,7 +48,7 @@ yarn add dooboo-ui
 | disabled         |           | boolean          |  false              | Whether disabled Select                                         |
 | showArrow        |           | boolean          |  true               | Whether to show the drop-down arrow                             |
 | bordered         |           | boolean          |  true               | Whether has border style                                        |
-| activeOpacity    |           | number           |  .75                  | Set the opacity when Item is pressed                            |
+| activeOpacity    |           | number           |  .75                | Set the opacity when Item is pressed                            |
 | listHeight       |           | number           |  (Auto-sized)       | Config popup height                                             |
 | placeholder      |           | string or number |  -                  | Placeholder of select                                           | 
 | value            |           | string or number |  -                  | Current selected option                                         |
