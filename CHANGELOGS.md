@@ -2,7 +2,7 @@
 - **[0.0.15]**
   * Add `contentStyle` to [EditText] [#264](https://github.com/dooboolab/dooboo-ui/pull/264)
   * Types fixes
-  * Changed all the import paths in more concise way.
+  * Changed all the import paths in more concise way [#270](https://github.com/dooboolab/dooboo-ui/pull/270).
   * Renamed `Item` to `SelectItem` and fixes import pathes [#265](https://github.com/dooboolab/dooboo-ui/issues/265)
 
 - **[0.0.11]**
