@@ -42,7 +42,7 @@ const styles = StyleSheet.create({
   },
 });
 
-function SwitchToggle(props: Props): React.ReactElement {
+const SwitchToggle: React.FC<Props> = (props): React.ReactElement => {
   const [animXValue] = useState(new Animated.Value(props.switchOn ? 1 : 0));
   const getStart = (): number | Record<string, unknown> | undefined => {
     // prettier-ignore
@@ -157,7 +157,7 @@ function SwitchToggle(props: Props): React.ReactElement {
       </Animated.View>
     </TouchableOpacity>
   );
-}
+};
 
 SwitchToggle.defaultProps = {
   switchOn: false,
