@@ -226,18 +226,28 @@ function CalendarCarousel<T>({
       numPrevMonthDays--;
     }
 
-    const markedDays = [7, 17, 20];
+    const markedDays = [7, 17, 27];
+
     const markedDayEvents = [
       {
+        selectedEventDate: new Date(2020, 7, 7),
+        year: 2020,
+        month: 6,
         day: 7,
         events: 'walk dog',
       },
       {
+        selectedEventDate: new Date(2020, 7, 17),
+        year: 2020,
+        month: 6,
         day: 17,
         events: 'birthday',
       },
       {
-        day: 20,
+        selectedEventDate: new Date(2020, 7, 27),
+        year: 2020,
+        month: 6,
+        day: 27,
         events: 'cooking',
       },
     ];
@@ -245,8 +255,8 @@ function CalendarCarousel<T>({
     const [eventSwitch, setEventSwitch] = useState(0);
     const dayEvents = [];
     const isInside = (d : number) :boolean => {
-      for (let m = 0; m <= markedDays.length; m++) {
-        if (d === markedDays[m]) {
+      for (let m = 0; m <= markedDayEvents.length; m++) {
+        if (d === markedDays[m] && month === new Date().getMonth()) {
           return true;
         }
       }
@@ -268,7 +278,7 @@ function CalendarCarousel<T>({
             <Text style={styles.currentDayText}>{`${d}`}</Text>
           </View>,
         );
-      } else if (isInside(d) && date.getMonth() === month) {
+      } else if (isInside(d)) {
         days.push(
           <TouchableOpacity onPress ={(): void => { setEventSwitch(d); }}>
             <View style={styles.markView}>
