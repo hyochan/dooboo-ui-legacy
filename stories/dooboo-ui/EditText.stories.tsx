@@ -72,7 +72,7 @@ const Default = (): React.ReactElement => {
             Sign in with Email
           </Text>
           <EditText
-            testID="EMAIL_INPUT_DEFAULT"
+            testID="email-input-defualt"
             textStyle={{
               color: '#495057',
             }}
@@ -88,7 +88,7 @@ const Default = (): React.ReactElement => {
             onSubmitEditing={onSignIn}
           />
           <EditText
-            testID="PASSWORD_INPUT_DEFAULT"
+            testID="password-input-default"
             textStyle={{
               color: '#ADB5BD',
             }}
@@ -112,7 +112,7 @@ const Default = (): React.ReactElement => {
               height: 48,
               backgroundColor: '#6DA6FC',
             }}
-            testID="BTN_DEFAULT"
+            testID="btn-default"
             onPress={(): void => onSignIn()}
             textStyle={{
               color: '#FFFFFF',
@@ -129,7 +129,7 @@ const Default = (): React.ReactElement => {
             }}
           >
             <Text
-              testID="NO_ACCOUNT"
+              testID="no-account"
               style={{
                 fontSize: 14,
                 color: '#495057',
@@ -209,8 +209,8 @@ const RowEditText = (): React.ReactElement => {
             Sign in with Email
           </Text>
           <EditText
-            testID="EMAIL_INPUT_ROW"
-            errorTestID="EMAIL_INPUT_ERROR"
+            testID="email-input-row"
+            errorTestID="email-input-error"
             type={EditTextInputType.ROW}
             value={email}
             numberOfLines={1}
@@ -239,8 +239,8 @@ const RowEditText = (): React.ReactElement => {
             }}
           />
           <EditText
-            testID="PASSWORD_INPUT_ROW"
-            errorTestID="PASSWORD_INPUT_ERROR"
+            testID="password-input-row"
+            errorTestID="password-input-error"
             type={EditTextInputType.ROW}
             autoCapitalize="none"
             style={{
@@ -271,7 +271,7 @@ const RowEditText = (): React.ReactElement => {
               height: 48,
               backgroundColor: '#6DA6FC',
             }}
-            testID="BTN_ROW"
+            testID="btn-row"
             onPress={(): void => onSignIn()}
             textStyle={{
               color: '#FFFFFF',
@@ -288,7 +288,7 @@ const RowEditText = (): React.ReactElement => {
             }}
           >
             <Text
-              testID="NO_ACCOUNT"
+              testID="no-account"
               style={{
                 fontSize: 14,
                 color: '#495057',
@@ -375,7 +375,7 @@ const BoxEditText = (): React.ReactElement => {
             Sign Up
           </Text>
           <EditText
-            testID="EMAIL_INPUT_BOX"
+            testID="email-input-box"
             type={EditTextInputType.BOX}
             labelTextStyle= {{
               color: '#333333',
@@ -412,7 +412,7 @@ const BoxEditText = (): React.ReactElement => {
             rightElement={<Image source={IC_CHECK} style={{ width: 16, height: 16 }} />}
           />
           <EditText
-            testID="PASSWORD_INPUT_BOX"
+            testID="password-input-box"
             type={EditTextInputType.BOX}
             labelTextStyle= {{
               color: '#333333',
@@ -449,7 +449,7 @@ const BoxEditText = (): React.ReactElement => {
             }}
           />
           <EditText
-            testID="PASSWORD_INPUT_CONFIRM"
+            testID="password-input-confirm"
             type={EditTextInputType.BOX}
             labelTextStyle= {{
               color: '#333333',
@@ -491,7 +491,7 @@ const BoxEditText = (): React.ReactElement => {
               height: 48,
               backgroundColor: '#6DA6FC',
             }}
-            testID="BTN_BOX"
+            testID="btn-box"
             onPress={(): void => onSignIn()}
             textStyle={{
               color: '#FFFFFF',
@@ -566,7 +566,7 @@ const BoxRowEditText = (): React.ReactElement => {
             Sign in with Email
           </Text>
           <EditText
-            testID="EMAIL_INPUT_BOXROW"
+            testID="email-input-boxrow"
             type="rowBox"
             textStyle={{
               color: '#495057',
@@ -586,7 +586,7 @@ const BoxRowEditText = (): React.ReactElement => {
             }}
           />
           <EditText
-            testID="PASSWORD_INPUT_BOXROW"
+            testID="password-input-boxrow"
             type={EditTextInputType.ROW_BOX}
             inputContainerRadius={25}
             textStyle={{
@@ -614,7 +614,7 @@ const BoxRowEditText = (): React.ReactElement => {
               height: 48,
               backgroundColor: '#6DA6FC',
             }}
-            testID="BTN_BOXROW"
+            testID="btn-boxrow"
             onPress={(): void => onSignIn()}
             textStyle={{
               color: '#FFFFFF',
@@ -629,7 +629,7 @@ const BoxRowEditText = (): React.ReactElement => {
               alignItems: 'center',
             }}>
             <Text
-              testID="NO_ACCOUNT"
+              testID="no-account"
               style={{
                 fontSize: 14,
                 color: '#495057',
