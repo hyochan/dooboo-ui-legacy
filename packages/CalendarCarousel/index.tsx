@@ -226,40 +226,34 @@ function CalendarCarousel<T>({
       numPrevMonthDays--;
     }
 
-    const markedDays = [7, 17, 27];
     const markedDayEvents = [
       {
         selectedEventDate: new Date(2020, 7, 7),
-        year: 2020,
-        month: 6,
-        day: 7,
         events: 'walk dog',
       },
       {
         selectedEventDate: new Date(2020, 7, 17),
-        year: 2020,
-        month: 6,
-        day: 17,
         events: 'birthday',
       },
       {
         selectedEventDate: new Date(2020, 7, 27),
-        year: 2020,
-        month: 6,
-        day: 27,
         events: 'cooking',
       },
     ];
 
     const [eventSwitch, setEventSwitch] = useState(0);
     const dayEvents = [];
+    const markeddates = markedDayEvents.map((markeddates) => markeddates.selectedEventDate.getDate());
+    const markedmonths = markedDayEvents.map((markedmonths) => markedmonths.selectedEventDate.getMonth() - 1);
     const isInside = (d: number) : boolean => {
-      for (let m = 0; m <= markedDayEvents.length; m++) {
-        if (d === markedDays[m] && month === new Date().getMonth()) {
-          return true;
-        }
-      }
+      if (markeddates.includes(d) && markedmonths.includes(month)) { return true; }
+      return false;
     };
+    for (let i = 0; i <= markedDayEvents.length - 1; i++) {
+      if (markeddates[i] === eventSwitch) {
+        const getEventDay = markedDayEvents[i].events; dayEvents.push(getEventDay);
+      }
+    }
 
     const days = [];
     for (let d = 1; d <= currentMonthDays; d++) {
@@ -332,12 +326,6 @@ function CalendarCarousel<T>({
     }
 
     const calendarDays = [...prevDays, ...days, ...nextDays];
-
-    for (let i = 0; i <= markedDayEvents.length - 1; i++) {
-      if (markedDayEvents[i].day === eventSwitch) {
-        const getEventDay = markedDayEvents[i].events; dayEvents.push(getEventDay);
-      }
-    }
 
     return (
       <View>
