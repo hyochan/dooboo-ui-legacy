@@ -23,9 +23,7 @@ exports[`[Calendar] should render without crashing 1`] = `
     pagingEnabled={true}
     scrollEventThrottle={16}
   >
-    <View
-      nativeID="1"
-    >
+    <View>
       <View
         style={
           Object {
@@ -1976,10 +1974,37 @@ exports[`[Calendar] should render without crashing 1`] = `
           </View>
         </View>
       </ScrollView>
+      <ScrollView
+        data={Array []}
+        disableVirtualization={false}
+        getItem={[Function]}
+        getItemCount={[Function]}
+        horizontal={false}
+        initialNumToRender={10}
+        keyExtractor={[Function]}
+        maxToRenderPerBatch={10}
+        onContentSizeChange={[Function]}
+        onEndReachedThreshold={2}
+        onLayout={[Function]}
+        onMomentumScrollEnd={[Function]}
+        onScroll={[Function]}
+        onScrollBeginDrag={[Function]}
+        onScrollEndDrag={[Function]}
+        removeClippedSubviews={false}
+        renderItem={[Function]}
+        scrollEventThrottle={50}
+        stickyHeaderIndices={Array []}
+        style={
+          Object {
+            "height": 100,
+          }
+        }
+        updateCellsBatchingPeriod={50}
+        viewabilityConfigCallbackPairs={Array []}
+        windowSize={21}
+      />
     </View>
-    <View
-      nativeID="1"
-    >
+    <View>
       <View
         style={
           Object {
@@ -2420,6 +2445,16 @@ exports[`[Calendar] should render without crashing 1`] = `
                 >
                   7
                 </Text>
+                <View
+                  style={
+                    Object {
+                      "backgroundColor": "#109CF1",
+                      "borderRadius": 50,
+                      "height": 4,
+                      "width": 4,
+                    }
+                  }
+                />
               </View>
             </Component>,
             <Component
@@ -2660,6 +2695,16 @@ exports[`[Calendar] should render without crashing 1`] = `
                 >
                   17
                 </Text>
+                <View
+                  style={
+                    Object {
+                      "backgroundColor": "#109CF1",
+                      "borderRadius": 50,
+                      "height": 4,
+                      "width": 4,
+                    }
+                  }
+                />
               </View>
             </Component>,
             <Component
@@ -2900,6 +2945,16 @@ exports[`[Calendar] should render without crashing 1`] = `
                 >
                   27
                 </Text>
+                <View
+                  style={
+                    Object {
+                      "backgroundColor": "#109CF1",
+                      "borderRadius": 50,
+                      "height": 4,
+                      "width": 4,
+                    }
+                  }
+                />
               </View>
             </Component>,
             <Component
@@ -3297,6 +3352,16 @@ exports[`[Calendar] should render without crashing 1`] = `
                 >
                   7
                 </Text>
+                <View
+                  style={
+                    Object {
+                      "backgroundColor": "#109CF1",
+                      "borderRadius": 50,
+                      "height": 4,
+                      "width": 4,
+                    }
+                  }
+                />
               </View>
             </>
             <
@@ -3550,6 +3615,16 @@ exports[`[Calendar] should render without crashing 1`] = `
                 >
                   17
                 </Text>
+                <View
+                  style={
+                    Object {
+                      "backgroundColor": "#109CF1",
+                      "borderRadius": 50,
+                      "height": 4,
+                      "width": 4,
+                    }
+                  }
+                />
               </View>
             </>
             <
@@ -3816,6 +3891,16 @@ exports[`[Calendar] should render without crashing 1`] = `
                 >
                   27
                 </Text>
+                <View
+                  style={
+                    Object {
+                      "backgroundColor": "#109CF1",
+                      "borderRadius": 50,
+                      "height": 4,
+                      "width": 4,
+                    }
+                  }
+                />
               </View>
             </>
             <
@@ -3936,10 +4021,37 @@ exports[`[Calendar] should render without crashing 1`] = `
           </View>
         </View>
       </ScrollView>
+      <ScrollView
+        data={Array []}
+        disableVirtualization={false}
+        getItem={[Function]}
+        getItemCount={[Function]}
+        horizontal={false}
+        initialNumToRender={10}
+        keyExtractor={[Function]}
+        maxToRenderPerBatch={10}
+        onContentSizeChange={[Function]}
+        onEndReachedThreshold={2}
+        onLayout={[Function]}
+        onMomentumScrollEnd={[Function]}
+        onScroll={[Function]}
+        onScrollBeginDrag={[Function]}
+        onScrollEndDrag={[Function]}
+        removeClippedSubviews={false}
+        renderItem={[Function]}
+        scrollEventThrottle={50}
+        stickyHeaderIndices={Array []}
+        style={
+          Object {
+            "height": 100,
+          }
+        }
+        updateCellsBatchingPeriod={50}
+        viewabilityConfigCallbackPairs={Array []}
+        windowSize={21}
+      />
     </View>
-    <View
-      nativeID="1"
-    >
+    <View>
       <View
         style={
           Object {
@@ -6191,6 +6303,35 @@ exports[`[Calendar] should render without crashing 1`] = `
           </View>
         </View>
       </ScrollView>
+      <ScrollView
+        data={Array []}
+        disableVirtualization={false}
+        getItem={[Function]}
+        getItemCount={[Function]}
+        horizontal={false}
+        initialNumToRender={10}
+        keyExtractor={[Function]}
+        maxToRenderPerBatch={10}
+        onContentSizeChange={[Function]}
+        onEndReachedThreshold={2}
+        onLayout={[Function]}
+        onMomentumScrollEnd={[Function]}
+        onScroll={[Function]}
+        onScrollBeginDrag={[Function]}
+        onScrollEndDrag={[Function]}
+        removeClippedSubviews={false}
+        renderItem={[Function]}
+        scrollEventThrottle={50}
+        stickyHeaderIndices={Array []}
+        style={
+          Object {
+            "height": 100,
+          }
+        }
+        updateCellsBatchingPeriod={50}
+        viewabilityConfigCallbackPairs={Array []}
+        windowSize={21}
+      />
     </View>
   </ScrollView>
 </SafeAreaView>
