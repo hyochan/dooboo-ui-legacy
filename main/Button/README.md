@@ -31,7 +31,7 @@
 ## Installation
 
 ```sh
-yarn add @dooboo-ui/core
+yarn add dooboo-ui
 ```
 
 ## Getting started

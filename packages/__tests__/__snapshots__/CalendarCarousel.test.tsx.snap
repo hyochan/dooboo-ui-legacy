@@ -2902,29 +2902,30 @@ exports[`[Calendar] should render without crashing 1`] = `
                 </Text>
               </View>
             </Component>,
-            <View
-              style={
-                Object {
-                  "alignItems": "center",
-                  "backgroundColor": "#109CF1",
-                  "borderRadius": 50,
-                  "height": 47,
-                  "paddingTop": 13.5,
-                  "width": 47,
-                }
-              }
+            <Component
+              onPress={[Function]}
             >
-              <Text
+              <View
                 style={
                   Object {
-                    "color": "white",
-                    "textAlign": "center",
+                    "alignItems": "center",
+                    "height": 47,
+                    "paddingTop": 13.5,
+                    "width": 47,
                   }
                 }
               >
-                28
-              </Text>
-            </View>,
+                <Text
+                  style={
+                    Object {
+                      "textAlign": "center",
+                    }
+                  }
+                >
+                  28
+                </Text>
+              </View>
+            </Component>,
             <Component
               onPress={[Function]}
             >
@@ -2949,30 +2950,29 @@ exports[`[Calendar] should render without crashing 1`] = `
                 </Text>
               </View>
             </Component>,
-            <Component
-              onPress={[Function]}
+            <View
+              style={
+                Object {
+                  "alignItems": "center",
+                  "backgroundColor": "#109CF1",
+                  "borderRadius": 50,
+                  "height": 47,
+                  "paddingTop": 13.5,
+                  "width": 47,
+                }
+              }
             >
-              <View
+              <Text
                 style={
                   Object {
-                    "alignItems": "center",
-                    "height": 47,
-                    "paddingTop": 13.5,
-                    "width": 47,
+                    "color": "white",
+                    "textAlign": "center",
                   }
                 }
               >
-                <Text
-                  style={
-                    Object {
-                      "textAlign": "center",
-                    }
-                  }
-                >
-                  30
-                </Text>
-              </View>
-            </Component>,
+                30
+              </Text>
+            </View>,
             <Component
               onPress={[Function]}
             >
@@ -3818,29 +3818,30 @@ exports[`[Calendar] should render without crashing 1`] = `
                 </Text>
               </View>
             </>
-            <View
-              style={
-                Object {
-                  "alignItems": "center",
-                  "backgroundColor": "#109CF1",
-                  "borderRadius": 50,
-                  "height": 47,
-                  "paddingTop": 13.5,
-                  "width": 47,
-                }
-              }
+            <
+              onPress={[Function]}
             >
-              <Text
+              <View
                 style={
                   Object {
-                    "color": "white",
-                    "textAlign": "center",
+                    "alignItems": "center",
+                    "height": 47,
+                    "paddingTop": 13.5,
+                    "width": 47,
                   }
                 }
               >
-                28
-              </Text>
-            </View>
+                <Text
+                  style={
+                    Object {
+                      "textAlign": "center",
+                    }
+                  }
+                >
+                  28
+                </Text>
+              </View>
+            </>
             <
               onPress={[Function]}
             >
@@ -3865,30 +3866,29 @@ exports[`[Calendar] should render without crashing 1`] = `
                 </Text>
               </View>
             </>
-            <
-              onPress={[Function]}
+            <View
+              style={
+                Object {
+                  "alignItems": "center",
+                  "backgroundColor": "#109CF1",
+                  "borderRadius": 50,
+                  "height": 47,
+                  "paddingTop": 13.5,
+                  "width": 47,
+                }
+              }
             >
-              <View
+              <Text
                 style={
                   Object {
-                    "alignItems": "center",
-                    "height": 47,
-                    "paddingTop": 13.5,
-                    "width": 47,
+                    "color": "white",
+                    "textAlign": "center",
                   }
                 }
               >
-                <Text
-                  style={
-                    Object {
-                      "textAlign": "center",
-                    }
-                  }
-                >
-                  30
-                </Text>
-              </View>
-            </>
+                30
+              </Text>
+            </View>
             <
               onPress={[Function]}
             >

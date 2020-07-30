@@ -47,7 +47,7 @@
 ## Installation
 
 ```sh
-yarn add @dooboo-ui/core
+yarn add dooboo-ui
 ```
 
 ## Getting started
@@ -55,7 +55,7 @@ yarn add @dooboo-ui/core
 - Import
 
   ```javascript
-  import { EditText } from '@dooboo-ui/core';
+  import { EditText } from 'dooboo-ui';
   ```
 
 - Usage

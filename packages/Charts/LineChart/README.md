@@ -12,7 +12,7 @@ Web| iOS            |  Android
 ## Installation
 
 ```sh
-yarn add @dooboo-ui/core
+yarn add dooboo-ui
 ```
 
 <br/>
@@ -22,7 +22,7 @@ yarn add @dooboo-ui/core
 - Import
 
   ```javascript
-  import { LineChart } from '@dooboo-ui/core';
+  import { LineChart } from 'dooboo-ui';
   ```
 
 - Data
@@ -352,7 +352,7 @@ If you need the chart to be responsive, wrap the `LineChart` with a **responsive
 
 ```javascript
 // Responsive example
-import { LineChart } from '@dooboo-ui/core';
+import { LineChart } from 'dooboo-ui';
 import styled from 'styled-components/native';
 
 const CustomContainer = styled.View`

@@ -39,13 +39,13 @@ Scroll Through each of the months (will automatically load to the next year on D
 #### Installation
 
 ```
-yarn add @dooboo-ui/core
+yarn add dooboo-ui
 ```
 #### Import
 
 ```
-import { CalendarCarousel } from '@dooboo-ui/core';
-import { CalendarCarousel } from '@dooboo-ui/core/lib/CalendarCarousel';
+import { CalendarCarousel } from 'dooboo-ui';
+import { CalendarCarousel } from 'dooboo-ui/lib/CalendarCarousel';
 ```
 
 #### Calendar Carousel Calendar Component Example

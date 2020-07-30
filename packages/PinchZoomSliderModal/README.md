@@ -21,11 +21,11 @@
 ## Installation
 
 ```sh
-yarn add @dooboo-ui/core
+yarn add dooboo-ui
 ```
 
 ## Getting started
-> Note that this ui element does not exist in `@dooboo-ui/core` itself. Please install below package.
+> Note that this ui element does not exist in `dooboo-ui` itself. Please install below package.
 
   ```sh
   yarn add @dooboo-ui/pinch-zoom-slider-modal
