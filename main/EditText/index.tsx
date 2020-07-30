@@ -160,7 +160,6 @@ function EditText(props: Props): ReactElement {
     secureTextEntry,
     onChangeText,
     onSubmitEditing,
-
     rightElement,
     rightElementStyle,
     focusedLabelStyle = { fontWeight: 'bold' },

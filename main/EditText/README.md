@@ -55,13 +55,13 @@ yarn add dooboo-ui
 
 - Import
 
-```javascript
+```typescript
 import { EditText } from 'dooboo-ui';
 ```
 
 - Usage
 
-```javascript
+```typescript
 const Default = (): React.ReactElement => {
   const validateEmail = (email: string): boolean => {
     const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
@@ -119,7 +119,7 @@ const Default = (): React.ReactElement => {
             Sign in with Email
           </Text>
           <EditText
-            testID="EMAIL_INPUT_DEFAULT"
+            testID="email-input-defualt"
             textStyle={{
               color: '#495057',
             }}
@@ -128,14 +128,14 @@ const Default = (): React.ReactElement => {
             placeholderTextColor="#ADB5BD"
             value={email}
             onChangeText={(text: string): void => onTextChanged('EMAIL', text)}
-            style={{ 
-              marginTop: 50 
+            style={{
+              marginTop: 50,
             }}
             errorText={errorEmail}
             onSubmitEditing={onSignIn}
           />
           <EditText
-            testID="PASSWORD_INPUT_DEFAULT"
+            testID="password-input-default"
             textStyle={{
               color: '#ADB5BD',
             }}
@@ -159,7 +159,7 @@ const Default = (): React.ReactElement => {
               height: 48,
               backgroundColor: '#6DA6FC',
             }}
-            testID="BTN_DEFAULT"
+            testID="btn-default"
             onPress={(): void => onSignIn()}
             textStyle={{
               color: '#FFFFFF',
@@ -176,7 +176,7 @@ const Default = (): React.ReactElement => {
             }}
           >
             <Text
-              testID="NO_ACCOUNT"
+              testID="no-account"
               style={{
                 fontSize: 14,
                 color: '#495057',
@@ -200,4 +200,4 @@ const Default = (): React.ReactElement => {
     </SafeAreaView>
   );
 };
-  ```
+```
