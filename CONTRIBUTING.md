@@ -2,7 +2,7 @@
 
 > You should be aware of below stacks(do not need to be professional) to contribute to our repository.
 
-1. [React Native](https://reactnative.dev)
+1. [React Native](https://reactnative.dev/)
 2. [VSCODE](https://code.visualstudio.com)
    - We are using `vscode` as our ide. Please install `eslint` plugin.
 
