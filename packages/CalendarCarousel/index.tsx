@@ -245,15 +245,16 @@ function CalendarCarousel<T>({
     const dayEvents = [];
     const markeddates = markedDayEvents.map((markeddates) => markeddates.selectedEventDate.getDate());
     const markedmonths = markedDayEvents.map((markedmonths) => markedmonths.selectedEventDate.getMonth() - 1);
+
     const isInside = (d: number) : boolean => {
-      if (markeddates.includes(d) && markedmonths.includes(month)) { return true; }
-      return false;
+      return markeddates.includes(d) && markedmonths.includes(month);
     };
-    for (let i = 0; i <= markedDayEvents.length - 1; i++) {
-      if (markeddates[i] === eventSwitch) {
-        const getEventDay = markedDayEvents[i].events; dayEvents.push(getEventDay);
+
+    markedDayEvents.map((markedDayEvent, i) => {
+      if (markeddates[i] === eventSwitch && markedmonths.includes(month)) {
+        dayEvents.push(markedDayEvents[i].events);
       }
-    }
+    });
 
     const days = [];
     for (let d = 1; d <= currentMonthDays; d++) {
