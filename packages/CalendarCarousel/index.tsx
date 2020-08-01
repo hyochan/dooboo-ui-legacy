@@ -329,41 +329,46 @@ function CalendarCarousel<T>({
     const calendarDays = [...prevDays, ...days, ...nextDays];
 
     return (
-      <View>
-        <View style={styles.headerStyle}>
-          <TouchableOpacity onPress={(): void => changeMonth(true)}>
-            <Text style={styles.arrowText}> &#8249;</Text>
-          </TouchableOpacity>
-          <View style={styles.titleContainer}>
-            <Text style={styles.titleText}>{monthName}</Text>
-            <Text style={styles.yearText}>{year}</Text>
-          </View>
-          <TouchableOpacity onPress={(): void => changeMonth(false)}>
-            <Text style={styles.arrowText}>&#8250;</Text>
-          </TouchableOpacity>
-        </View>
-        <View style={styles.weekdayStyle}>{weekdays}</View>
-        <FlatList
-          style={styles.dayContainer}
-          numColumns={7}
-          data={calendarDays}
-          renderItem={({ item }): ReactElement => {
-            return item;
-          }}
-          keyExtractor={(item, id): string => id.toString()}
-        />
-        <FlatList
-          style= {styles.eventContainer}
-          data= {dayEvents}
-          numColumns = {1}
-          renderItem={({ item }): ReactElement => {
-            if (eventSwitch) {
-              return (
-                <Text>{item}</Text>);
-            }
-          }}
-        />
-      </View>
+      <FlatList
+        style={styles.dayContainer}
+        numColumns={7}
+        data={calendarDays}
+        ListHeaderComponent={
+          <Fragment>
+            <View style={styles.headerStyle}>
+              <TouchableOpacity onPress={(): void => changeMonth(true)}>
+                <Text style={styles.arrowText}> &#8249;</Text>
+              </TouchableOpacity>
+              <View style={styles.titleContainer}>
+                <Text style={styles.titleText}>{monthName}</Text>
+                <Text style={styles.yearText}>{year}</Text>
+              </View>
+              <TouchableOpacity onPress={(): void => changeMonth(false)}>
+                <Text style={styles.arrowText}>&#8250;</Text>
+              </TouchableOpacity>
+            </View>
+            <View style={styles.weekdayStyle}>{weekdays}</View>
+          </Fragment>
+        }
+        ListFooterComponent={
+          <Fragment/>
+          /* <FlatList
+            style= {styles.eventContainer}
+            data= {dayEvents}
+            numColumns = {1}
+            renderItem={({ item }): ReactElement => {
+              if (eventSwitch) {
+                return (
+                  <Text>{item}</Text>);
+              }
+            }}
+          /> */
+        }
+        renderItem={({ item }): ReactElement => {
+          return item;
+        }}
+        keyExtractor={(item, id): string => id.toString()}
+      />
     );
   };
 
