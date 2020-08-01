@@ -43,7 +43,7 @@ We love [react-hooks](https://code.fb.com/open-source/react-hooks) and willing t
 
 We aim to support `react-native` ui components in all platforms and we are currently targeting `iOS`, `android` and `web`. If you read [issue on plan for unifying dooboo-ui](https://github.com/dooboolab/dooboo-ui/issues/194), you can see in more detail how we want to drive this project.
 
-## Compatability
+## Compatibility
 
 | package           | version |
 |-------------------|---------|
