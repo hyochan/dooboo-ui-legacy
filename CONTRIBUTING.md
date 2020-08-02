@@ -44,7 +44,7 @@
       ```
    2. **run storybook web server**
       ```
-      yarn storybook
+      yarn web
       ```
    3. **run ios or android**
       ```
