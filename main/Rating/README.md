@@ -3,7 +3,7 @@
 > Simple rating component for react-native. This component supports 'rating' with several options like changing with total number, read-only and disabled option.
 
 ## Preview
-![rating-ios-test-image](../__assets__/rating-img.png)
+![rating-ios-test-image](https://user-images.githubusercontent.com/37579661/89115187-38349180-d4c0-11ea-945d-18d6c4e3bbe3.png)
   
 ## Props
 
