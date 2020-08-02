@@ -14,7 +14,7 @@ export const getPercentByValue = (value: number, maxValue: number, minValue: num
   return (value / (maxValue - minValue)) * 100;
 };
 
-export const getValueByPercent = (percent:number, maxValue:number, minValue:number): number => {
+export const getValueByPercent = (percent: number, maxValue: number, minValue: number): number => {
   return ((maxValue - minValue) * percent) / 100;
 };
 
