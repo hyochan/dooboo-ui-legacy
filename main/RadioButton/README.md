@@ -37,7 +37,7 @@ interface IRadioButtonProps {
 | selected       |                    | `boolean`                      |                       |
 | size           |                    | `number`                       | 23                    |
 | label          |                    | `string`                       |                       |
-| labelPlacement |                    | `'end'|'start'|'top'|'bottom'` | 'end'                 |
+| labelPlacement |                    | `end`,`'start'`,`top`,`bottom` | 'end'                 |
 
 ## Getting started
 

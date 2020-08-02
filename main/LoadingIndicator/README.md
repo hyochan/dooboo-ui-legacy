@@ -12,8 +12,8 @@
 | containerStyle |           | `StyleProp<ViewStyle>`         |             |                              |
 | style          |           | `StyleProp<ViewStyle>`         |             |                              |
 | color          |           | string                         | `'#969696'` |                              |
-| size           |           | string                         | `large`     | `number | 'small' | 'large'` |
-| imgSource      |           | `ImageSourcePropType | string` |             |                              |
+| size           |           | string                         | `large`     | `number`, `small`, `large`   |
+| imgSource      |           | `ImageSourcePropType`          | `string`    |                              |
 
 ## Installation
 
