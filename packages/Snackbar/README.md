@@ -159,7 +159,3 @@ To add some action to the Snackbar, just add options about the action to the sho
 ```
 
 ![Feb-25-2020 00-16-47](https://user-images.githubusercontent.com/17980230/75164429-265a0000-5764-11ea-9c6f-12bf362dc32b.gif)
-
-- More Complex Examples
-
-You can find more complex usages on this [storybook codes](storybook/stories/Snackbr.stories.tsx). 
