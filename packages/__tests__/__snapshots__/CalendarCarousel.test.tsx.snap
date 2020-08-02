@@ -2322,29 +2322,6 @@ exports[`[Calendar] should render without crashing 1`] = `
                 30
               </Text>
             </View>,
-            <View
-              style={
-                Object {
-                  "alignItems": "center",
-                  "backgroundColor": "#109CF1",
-                  "borderRadius": 50,
-                  "height": 47,
-                  "paddingTop": 13.5,
-                  "width": 47,
-                }
-              }
-            >
-              <Text
-                style={
-                  Object {
-                    "color": "white",
-                    "textAlign": "center",
-                  }
-                }
-              >
-                1
-              </Text>
-            </View>,
             <Component
               onPress={[Function]}
             >
@@ -2365,10 +2342,33 @@ exports[`[Calendar] should render without crashing 1`] = `
                     }
                   }
                 >
-                  2
+                  1
                 </Text>
               </View>
             </Component>,
+            <View
+              style={
+                Object {
+                  "alignItems": "center",
+                  "backgroundColor": "#109CF1",
+                  "borderRadius": 50,
+                  "height": 47,
+                  "paddingTop": 13.5,
+                  "width": 47,
+                }
+              }
+            >
+              <Text
+                style={
+                  Object {
+                    "color": "white",
+                    "textAlign": "center",
+                  }
+                }
+              >
+                2
+              </Text>
+            </View>,
             <Component
               onPress={[Function]}
             >
@@ -3326,42 +3326,6 @@ exports[`[Calendar] should render without crashing 1`] = `
                 30
               </Text>
             </View>
-            <View
-              style={
-                Object {
-                  "alignItems": "center",
-                  "backgroundColor": "#109CF1",
-                  "borderRadius": 50,
-                  "height": 47,
-                  "paddingTop": 13.5,
-                  "width": 47,
-                }
-              }
-            >
-              <Text
-                style={
-                  Object {
-                    "color": "white",
-                    "textAlign": "center",
-                  }
-                }
-              >
-                1
-              </Text>
-            </View>
-          </View>
-        </View>
-        <View
-          onLayout={[Function]}
-          style={null}
-        >
-          <View
-            style={
-              Object {
-                "flexDirection": "row",
-              }
-            }
-          >
             <
               onPress={[Function]}
             >
@@ -3382,10 +3346,46 @@ exports[`[Calendar] should render without crashing 1`] = `
                     }
                   }
                 >
-                  2
+                  1
                 </Text>
               </View>
             </>
+          </View>
+        </View>
+        <View
+          onLayout={[Function]}
+          style={null}
+        >
+          <View
+            style={
+              Object {
+                "flexDirection": "row",
+              }
+            }
+          >
+            <View
+              style={
+                Object {
+                  "alignItems": "center",
+                  "backgroundColor": "#109CF1",
+                  "borderRadius": 50,
+                  "height": 47,
+                  "paddingTop": 13.5,
+                  "width": 47,
+                }
+              }
+            >
+              <Text
+                style={
+                  Object {
+                    "color": "white",
+                    "textAlign": "center",
+                  }
+                }
+              >
+                2
+              </Text>
+            </View>
             <
               onPress={[Function]}
             >
