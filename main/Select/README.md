@@ -1,8 +1,8 @@
 # Select
 
-> `Select` dropdown conformed with `Item` component. Always usefull to have a selectable list of items or values.
+> `Select` dropdown conformed with `Item` component. Always useful to have a selectable list of items or values.
 This component is made with react-native components and native styled components. 
-All written in `typescript` ready to use cross-platformly (Web/ iOS/ Android).
+All written in `typescript` ready to use cross-platforms (Web/ iOS/ Android).
 The animation is powered by `react-native` Animated library.
 
 <br/>
