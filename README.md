@@ -118,7 +118,7 @@ Please be our [Backers](https://opencollective.com/dooboo-ui#backers).
 <a href="https://opencollective.com/dooboo-ui#backers" target="_blank"><img src="https://opencollective.com/dooboo-ui/backers.svg?width=890"></a>
 
 ### Contributing
-Please make sure to read the [Contributing Guide](Contributing.md) before making a pull request.
+Please make sure to read the [Contributing Guide](CONTRIBUTING.md) before making a pull request.
 Thank you to all the people who helped to maintain and upgrade this project!
 
 <a href="graphs/contributors"><img src="https://opencollective.com/dooboo-ui/contributors.svg?width=890&button=true" /></a>
