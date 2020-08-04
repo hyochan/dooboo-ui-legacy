@@ -226,9 +226,9 @@ function CalendarCarousel<T>({
     const days = [];
     const nextDays = [];
 
-    const currentMonthDays = new Date(year, month + 1, 0).getDate();
+    const currentMonthLastDay = new Date(year, month + 1, 0).getDate();
     const firstWeekdayOfMonth = new Date(year, month, 1).getDay();
-    const lastWeekdayOfMonth = new Date(year, month, currentMonthDays).getDay();
+    const lastWeekdayOfMonth = new Date(year, month, currentMonthLastDay).getDay();
     let numPrevMonthDays = new Date(year, month - 1, 0).getDate();
 
     const markedDayEvents = [
@@ -288,7 +288,7 @@ function CalendarCarousel<T>({
       numPrevMonthDays--;
     }
 
-    for (let d = 1; d <= currentMonthDays; d++) {
+    for (let d = 1; d <= currentMonthLastDay; d++) {
       const setDate = new Date(currentDate.getFullYear(), currentDate.getMonth(), d);
       if (isToday(setDate)) {
         days.push(
