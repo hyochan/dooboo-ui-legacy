@@ -5,7 +5,7 @@ exports[`[Calendar] should render without crashing 1`] = `
   onLayout={[Function]}
   style={
     Object {
-      "height": 488,
+      "height": 388,
       "paddingTop": 40,
       "width": 330,
     }
@@ -1048,29 +1048,30 @@ exports[`[Calendar] should render without crashing 1`] = `
                 </Text>
               </View>
             </Component>,
-            <View
-              style={
-                Object {
-                  "alignItems": "center",
-                  "backgroundColor": "#109CF1",
-                  "borderRadius": 50,
-                  "height": 47,
-                  "paddingTop": 13.5,
-                  "width": 47,
-                }
-              }
+            <Component
+              onPress={[Function]}
             >
-              <Text
+              <View
                 style={
                   Object {
-                    "color": "white",
-                    "textAlign": "center",
+                    "alignItems": "center",
+                    "height": 47,
+                    "paddingTop": 13.5,
+                    "width": 47,
                   }
                 }
               >
-                31
-              </Text>
-            </View>,
+                <Text
+                  style={
+                    Object {
+                      "textAlign": "center",
+                    }
+                  }
+                >
+                  31
+                </Text>
+              </View>
+            </Component>,
             <View
               style={
                 Object {
@@ -1113,7 +1114,7 @@ exports[`[Calendar] should render without crashing 1`] = `
         stickyHeaderIndices={Array []}
         style={
           Object {
-            "height": 388,
+            "height": 338,
             "width": 330,
           }
         }
@@ -1994,1251 +1995,6 @@ exports[`[Calendar] should render without crashing 1`] = `
                 </Text>
               </View>
             </>
-            <View
-              style={
-                Object {
-                  "alignItems": "center",
-                  "backgroundColor": "#109CF1",
-                  "borderRadius": 50,
-                  "height": 47,
-                  "paddingTop": 13.5,
-                  "width": 47,
-                }
-              }
-            >
-              <Text
-                style={
-                  Object {
-                    "color": "white",
-                    "textAlign": "center",
-                  }
-                }
-              >
-                31
-              </Text>
-            </View>
-            <View
-              style={
-                Object {
-                  "height": 47,
-                  "paddingTop": 13.5,
-                  "width": 47,
-                }
-              }
-            >
-              <Text
-                style={
-                  Object {
-                    "color": "lightgray",
-                    "textAlign": "center",
-                  }
-                }
-              >
-                1
-              </Text>
-            </View>
-          </View>
-        </View>
-      </ScrollView>
-      <ScrollView
-        data={Array []}
-        disableVirtualization={false}
-        getItem={[Function]}
-        getItemCount={[Function]}
-        horizontal={false}
-        initialNumToRender={10}
-        keyExtractor={[Function]}
-        maxToRenderPerBatch={10}
-        onContentSizeChange={[Function]}
-        onEndReachedThreshold={2}
-        onLayout={[Function]}
-        onMomentumScrollEnd={[Function]}
-        onScroll={[Function]}
-        onScrollBeginDrag={[Function]}
-        onScrollEndDrag={[Function]}
-        removeClippedSubviews={false}
-        renderItem={[Function]}
-        scrollEventThrottle={50}
-        stickyHeaderIndices={Array []}
-        style={
-          Object {
-            "height": 100,
-          }
-        }
-        updateCellsBatchingPeriod={50}
-        viewabilityConfigCallbackPairs={Array []}
-        windowSize={21}
-      />
-    </View>
-    <View>
-      <View
-        style={
-          Object {
-            "flexDirection": "row",
-            "justifyContent": "center",
-            "paddingBottom": 30,
-          }
-        }
-      >
-        <
-          onPress={[Function]}
-        >
-          <Text
-            style={
-              Object {
-                "color": "royalblue",
-                "fontSize": 30,
-              }
-            }
-          >
-             ‹
-          </Text>
-        </>
-        <View
-          style={
-            Object {
-              "display": "flex",
-              "flexDirection": "column",
-            }
-          }
-        >
-          <Text
-            style={
-              Object {
-                "fontSize": 20,
-                "justifyContent": "center",
-                "textAlign": "center",
-                "width": 300,
-              }
-            }
-          >
-            July
-          </Text>
-          <Text
-            style={
-              Object {
-                "fontSize": 12,
-                "justifyContent": "center",
-                "textAlign": "center",
-              }
-            }
-          >
-            2020
-          </Text>
-        </View>
-        <
-          onPress={[Function]}
-        >
-          <Text
-            style={
-              Object {
-                "color": "royalblue",
-                "fontSize": 30,
-              }
-            }
-          >
-            ›
-          </Text>
-        </>
-      </View>
-      <View
-        style={
-          Object {
-            "flexDirection": "row",
-          }
-        }
-      >
-        <View
-          style={
-            Object {
-              "width": 47.14,
-            }
-          }
-        >
-          <Text
-            style={
-              Object {
-                "color": "#4F4F4F",
-                "fontSize": 20,
-                "textAlign": "center",
-              }
-            }
-          >
-            S
-          </Text>
-        </View>
-        <View
-          style={
-            Object {
-              "width": 47.14,
-            }
-          }
-        >
-          <Text
-            style={
-              Object {
-                "color": "#4F4F4F",
-                "fontSize": 20,
-                "textAlign": "center",
-              }
-            }
-          >
-            M
-          </Text>
-        </View>
-        <View
-          style={
-            Object {
-              "width": 47.14,
-            }
-          }
-        >
-          <Text
-            style={
-              Object {
-                "color": "#4F4F4F",
-                "fontSize": 20,
-                "textAlign": "center",
-              }
-            }
-          >
-            T
-          </Text>
-        </View>
-        <View
-          style={
-            Object {
-              "width": 47.14,
-            }
-          }
-        >
-          <Text
-            style={
-              Object {
-                "color": "#4F4F4F",
-                "fontSize": 20,
-                "textAlign": "center",
-              }
-            }
-          >
-            W
-          </Text>
-        </View>
-        <View
-          style={
-            Object {
-              "width": 47.14,
-            }
-          }
-        >
-          <Text
-            style={
-              Object {
-                "color": "#4F4F4F",
-                "fontSize": 20,
-                "textAlign": "center",
-              }
-            }
-          >
-            T
-          </Text>
-        </View>
-        <View
-          style={
-            Object {
-              "width": 47.14,
-            }
-          }
-        >
-          <Text
-            style={
-              Object {
-                "color": "#4F4F4F",
-                "fontSize": 20,
-                "textAlign": "center",
-              }
-            }
-          >
-            F
-          </Text>
-        </View>
-        <View
-          style={
-            Object {
-              "width": 47.14,
-            }
-          }
-        >
-          <Text
-            style={
-              Object {
-                "color": "#4F4F4F",
-                "fontSize": 20,
-                "textAlign": "center",
-              }
-            }
-          >
-            S
-          </Text>
-        </View>
-      </View>
-      <ScrollView
-        data={
-          Array [
-            <View
-              style={
-                Object {
-                  "height": 47,
-                  "paddingTop": 13.5,
-                  "width": 47,
-                }
-              }
-            >
-              <Text
-                style={
-                  Object {
-                    "color": "lightgray",
-                    "textAlign": "center",
-                  }
-                }
-              >
-                29
-              </Text>
-            </View>,
-            <View
-              style={
-                Object {
-                  "height": 47,
-                  "paddingTop": 13.5,
-                  "width": 47,
-                }
-              }
-            >
-              <Text
-                style={
-                  Object {
-                    "color": "lightgray",
-                    "textAlign": "center",
-                  }
-                }
-              >
-                30
-              </Text>
-            </View>,
-            <View
-              style={
-                Object {
-                  "height": 47,
-                  "paddingTop": 13.5,
-                  "width": 47,
-                }
-              }
-            >
-              <Text
-                style={
-                  Object {
-                    "color": "lightgray",
-                    "textAlign": "center",
-                  }
-                }
-              >
-                31
-              </Text>
-            </View>,
-            <Component
-              onPress={[Function]}
-            >
-              <View
-                style={
-                  Object {
-                    "alignItems": "center",
-                    "height": 47,
-                    "paddingTop": 13.5,
-                    "width": 47,
-                  }
-                }
-              >
-                <Text
-                  style={
-                    Object {
-                      "textAlign": "center",
-                    }
-                  }
-                >
-                  1
-                </Text>
-              </View>
-            </Component>,
-            <Component
-              onPress={[Function]}
-            >
-              <View
-                style={
-                  Object {
-                    "alignItems": "center",
-                    "height": 47,
-                    "paddingTop": 13.5,
-                    "width": 47,
-                  }
-                }
-              >
-                <Text
-                  style={
-                    Object {
-                      "textAlign": "center",
-                    }
-                  }
-                >
-                  2
-                </Text>
-              </View>
-            </Component>,
-            <Component
-              onPress={[Function]}
-            >
-              <View
-                style={
-                  Object {
-                    "alignItems": "center",
-                    "height": 47,
-                    "paddingTop": 13.5,
-                    "width": 47,
-                  }
-                }
-              >
-                <Text
-                  style={
-                    Object {
-                      "textAlign": "center",
-                    }
-                  }
-                >
-                  3
-                </Text>
-              </View>
-            </Component>,
-            <Component
-              onPress={[Function]}
-            >
-              <View
-                style={
-                  Object {
-                    "alignItems": "center",
-                    "height": 47,
-                    "paddingTop": 13.5,
-                    "width": 47,
-                  }
-                }
-              >
-                <Text
-                  style={
-                    Object {
-                      "textAlign": "center",
-                    }
-                  }
-                >
-                  4
-                </Text>
-              </View>
-            </Component>,
-            <Component
-              onPress={[Function]}
-            >
-              <View
-                style={
-                  Object {
-                    "alignItems": "center",
-                    "height": 47,
-                    "paddingTop": 13.5,
-                    "width": 47,
-                  }
-                }
-              >
-                <Text
-                  style={
-                    Object {
-                      "textAlign": "center",
-                    }
-                  }
-                >
-                  5
-                </Text>
-              </View>
-            </Component>,
-            <Component
-              onPress={[Function]}
-            >
-              <View
-                style={
-                  Object {
-                    "alignItems": "center",
-                    "height": 47,
-                    "paddingTop": 13.5,
-                    "width": 47,
-                  }
-                }
-              >
-                <Text
-                  style={
-                    Object {
-                      "textAlign": "center",
-                    }
-                  }
-                >
-                  6
-                </Text>
-              </View>
-            </Component>,
-            <Component
-              onPress={[Function]}
-            >
-              <View
-                style={
-                  Object {
-                    "alignItems": "center",
-                    "height": 47,
-                    "paddingTop": 13.5,
-                    "width": 47,
-                  }
-                }
-              >
-                <Text
-                  style={
-                    Object {
-                      "textAlign": "center",
-                    }
-                  }
-                >
-                  7
-                </Text>
-                <View
-                  style={
-                    Object {
-                      "backgroundColor": "#109CF1",
-                      "borderRadius": 50,
-                      "height": 4,
-                      "width": 4,
-                    }
-                  }
-                />
-              </View>
-            </Component>,
-            <Component
-              onPress={[Function]}
-            >
-              <View
-                style={
-                  Object {
-                    "alignItems": "center",
-                    "height": 47,
-                    "paddingTop": 13.5,
-                    "width": 47,
-                  }
-                }
-              >
-                <Text
-                  style={
-                    Object {
-                      "textAlign": "center",
-                    }
-                  }
-                >
-                  8
-                </Text>
-              </View>
-            </Component>,
-            <Component
-              onPress={[Function]}
-            >
-              <View
-                style={
-                  Object {
-                    "alignItems": "center",
-                    "height": 47,
-                    "paddingTop": 13.5,
-                    "width": 47,
-                  }
-                }
-              >
-                <Text
-                  style={
-                    Object {
-                      "textAlign": "center",
-                    }
-                  }
-                >
-                  9
-                </Text>
-              </View>
-            </Component>,
-            <Component
-              onPress={[Function]}
-            >
-              <View
-                style={
-                  Object {
-                    "alignItems": "center",
-                    "height": 47,
-                    "paddingTop": 13.5,
-                    "width": 47,
-                  }
-                }
-              >
-                <Text
-                  style={
-                    Object {
-                      "textAlign": "center",
-                    }
-                  }
-                >
-                  10
-                </Text>
-              </View>
-            </Component>,
-            <Component
-              onPress={[Function]}
-            >
-              <View
-                style={
-                  Object {
-                    "alignItems": "center",
-                    "height": 47,
-                    "paddingTop": 13.5,
-                    "width": 47,
-                  }
-                }
-              >
-                <Text
-                  style={
-                    Object {
-                      "textAlign": "center",
-                    }
-                  }
-                >
-                  11
-                </Text>
-              </View>
-            </Component>,
-            <Component
-              onPress={[Function]}
-            >
-              <View
-                style={
-                  Object {
-                    "alignItems": "center",
-                    "height": 47,
-                    "paddingTop": 13.5,
-                    "width": 47,
-                  }
-                }
-              >
-                <Text
-                  style={
-                    Object {
-                      "textAlign": "center",
-                    }
-                  }
-                >
-                  12
-                </Text>
-              </View>
-            </Component>,
-            <Component
-              onPress={[Function]}
-            >
-              <View
-                style={
-                  Object {
-                    "alignItems": "center",
-                    "height": 47,
-                    "paddingTop": 13.5,
-                    "width": 47,
-                  }
-                }
-              >
-                <Text
-                  style={
-                    Object {
-                      "textAlign": "center",
-                    }
-                  }
-                >
-                  13
-                </Text>
-              </View>
-            </Component>,
-            <Component
-              onPress={[Function]}
-            >
-              <View
-                style={
-                  Object {
-                    "alignItems": "center",
-                    "height": 47,
-                    "paddingTop": 13.5,
-                    "width": 47,
-                  }
-                }
-              >
-                <Text
-                  style={
-                    Object {
-                      "textAlign": "center",
-                    }
-                  }
-                >
-                  14
-                </Text>
-              </View>
-            </Component>,
-            <Component
-              onPress={[Function]}
-            >
-              <View
-                style={
-                  Object {
-                    "alignItems": "center",
-                    "height": 47,
-                    "paddingTop": 13.5,
-                    "width": 47,
-                  }
-                }
-              >
-                <Text
-                  style={
-                    Object {
-                      "textAlign": "center",
-                    }
-                  }
-                >
-                  15
-                </Text>
-              </View>
-            </Component>,
-            <Component
-              onPress={[Function]}
-            >
-              <View
-                style={
-                  Object {
-                    "alignItems": "center",
-                    "height": 47,
-                    "paddingTop": 13.5,
-                    "width": 47,
-                  }
-                }
-              >
-                <Text
-                  style={
-                    Object {
-                      "textAlign": "center",
-                    }
-                  }
-                >
-                  16
-                </Text>
-              </View>
-            </Component>,
-            <Component
-              onPress={[Function]}
-            >
-              <View
-                style={
-                  Object {
-                    "alignItems": "center",
-                    "height": 47,
-                    "paddingTop": 13.5,
-                    "width": 47,
-                  }
-                }
-              >
-                <Text
-                  style={
-                    Object {
-                      "textAlign": "center",
-                    }
-                  }
-                >
-                  17
-                </Text>
-                <View
-                  style={
-                    Object {
-                      "backgroundColor": "#109CF1",
-                      "borderRadius": 50,
-                      "height": 4,
-                      "width": 4,
-                    }
-                  }
-                />
-              </View>
-            </Component>,
-            <Component
-              onPress={[Function]}
-            >
-              <View
-                style={
-                  Object {
-                    "alignItems": "center",
-                    "height": 47,
-                    "paddingTop": 13.5,
-                    "width": 47,
-                  }
-                }
-              >
-                <Text
-                  style={
-                    Object {
-                      "textAlign": "center",
-                    }
-                  }
-                >
-                  18
-                </Text>
-              </View>
-            </Component>,
-            <Component
-              onPress={[Function]}
-            >
-              <View
-                style={
-                  Object {
-                    "alignItems": "center",
-                    "height": 47,
-                    "paddingTop": 13.5,
-                    "width": 47,
-                  }
-                }
-              >
-                <Text
-                  style={
-                    Object {
-                      "textAlign": "center",
-                    }
-                  }
-                >
-                  19
-                </Text>
-              </View>
-            </Component>,
-            <Component
-              onPress={[Function]}
-            >
-              <View
-                style={
-                  Object {
-                    "alignItems": "center",
-                    "height": 47,
-                    "paddingTop": 13.5,
-                    "width": 47,
-                  }
-                }
-              >
-                <Text
-                  style={
-                    Object {
-                      "textAlign": "center",
-                    }
-                  }
-                >
-                  20
-                </Text>
-              </View>
-            </Component>,
-            <Component
-              onPress={[Function]}
-            >
-              <View
-                style={
-                  Object {
-                    "alignItems": "center",
-                    "height": 47,
-                    "paddingTop": 13.5,
-                    "width": 47,
-                  }
-                }
-              >
-                <Text
-                  style={
-                    Object {
-                      "textAlign": "center",
-                    }
-                  }
-                >
-                  21
-                </Text>
-              </View>
-            </Component>,
-            <Component
-              onPress={[Function]}
-            >
-              <View
-                style={
-                  Object {
-                    "alignItems": "center",
-                    "height": 47,
-                    "paddingTop": 13.5,
-                    "width": 47,
-                  }
-                }
-              >
-                <Text
-                  style={
-                    Object {
-                      "textAlign": "center",
-                    }
-                  }
-                >
-                  22
-                </Text>
-              </View>
-            </Component>,
-            <Component
-              onPress={[Function]}
-            >
-              <View
-                style={
-                  Object {
-                    "alignItems": "center",
-                    "height": 47,
-                    "paddingTop": 13.5,
-                    "width": 47,
-                  }
-                }
-              >
-                <Text
-                  style={
-                    Object {
-                      "textAlign": "center",
-                    }
-                  }
-                >
-                  23
-                </Text>
-              </View>
-            </Component>,
-            <Component
-              onPress={[Function]}
-            >
-              <View
-                style={
-                  Object {
-                    "alignItems": "center",
-                    "height": 47,
-                    "paddingTop": 13.5,
-                    "width": 47,
-                  }
-                }
-              >
-                <Text
-                  style={
-                    Object {
-                      "textAlign": "center",
-                    }
-                  }
-                >
-                  24
-                </Text>
-              </View>
-            </Component>,
-            <Component
-              onPress={[Function]}
-            >
-              <View
-                style={
-                  Object {
-                    "alignItems": "center",
-                    "height": 47,
-                    "paddingTop": 13.5,
-                    "width": 47,
-                  }
-                }
-              >
-                <Text
-                  style={
-                    Object {
-                      "textAlign": "center",
-                    }
-                  }
-                >
-                  25
-                </Text>
-              </View>
-            </Component>,
-            <Component
-              onPress={[Function]}
-            >
-              <View
-                style={
-                  Object {
-                    "alignItems": "center",
-                    "height": 47,
-                    "paddingTop": 13.5,
-                    "width": 47,
-                  }
-                }
-              >
-                <Text
-                  style={
-                    Object {
-                      "textAlign": "center",
-                    }
-                  }
-                >
-                  26
-                </Text>
-              </View>
-            </Component>,
-            <Component
-              onPress={[Function]}
-            >
-              <View
-                style={
-                  Object {
-                    "alignItems": "center",
-                    "height": 47,
-                    "paddingTop": 13.5,
-                    "width": 47,
-                  }
-                }
-              >
-                <Text
-                  style={
-                    Object {
-                      "textAlign": "center",
-                    }
-                  }
-                >
-                  27
-                </Text>
-                <View
-                  style={
-                    Object {
-                      "backgroundColor": "#109CF1",
-                      "borderRadius": 50,
-                      "height": 4,
-                      "width": 4,
-                    }
-                  }
-                />
-              </View>
-            </Component>,
-            <Component
-              onPress={[Function]}
-            >
-              <View
-                style={
-                  Object {
-                    "alignItems": "center",
-                    "height": 47,
-                    "paddingTop": 13.5,
-                    "width": 47,
-                  }
-                }
-              >
-                <Text
-                  style={
-                    Object {
-                      "textAlign": "center",
-                    }
-                  }
-                >
-                  28
-                </Text>
-              </View>
-            </Component>,
-            <Component
-              onPress={[Function]}
-            >
-              <View
-                style={
-                  Object {
-                    "alignItems": "center",
-                    "height": 47,
-                    "paddingTop": 13.5,
-                    "width": 47,
-                  }
-                }
-              >
-                <Text
-                  style={
-                    Object {
-                      "textAlign": "center",
-                    }
-                  }
-                >
-                  29
-                </Text>
-              </View>
-            </Component>,
-            <Component
-              onPress={[Function]}
-            >
-              <View
-                style={
-                  Object {
-                    "alignItems": "center",
-                    "height": 47,
-                    "paddingTop": 13.5,
-                    "width": 47,
-                  }
-                }
-              >
-                <Text
-                  style={
-                    Object {
-                      "textAlign": "center",
-                    }
-                  }
-                >
-                  30
-                </Text>
-              </View>
-            </Component>,
-            <View
-              style={
-                Object {
-                  "alignItems": "center",
-                  "backgroundColor": "#109CF1",
-                  "borderRadius": 50,
-                  "height": 47,
-                  "paddingTop": 13.5,
-                  "width": 47,
-                }
-              }
-            >
-              <Text
-                style={
-                  Object {
-                    "color": "white",
-                    "textAlign": "center",
-                  }
-                }
-              >
-                31
-              </Text>
-            </View>,
-            <View
-              style={
-                Object {
-                  "height": 47,
-                  "paddingTop": 13.5,
-                  "width": 47,
-                }
-              }
-            >
-              <Text
-                style={
-                  Object {
-                    "color": "lightgray",
-                    "textAlign": "center",
-                  }
-                }
-              >
-                1
-              </Text>
-            </View>,
-          ]
-        }
-        disableVirtualization={false}
-        getItem={[Function]}
-        getItemCount={[Function]}
-        horizontal={false}
-        initialNumToRender={10}
-        keyExtractor={[Function]}
-        maxToRenderPerBatch={10}
-        onContentSizeChange={[Function]}
-        onEndReachedThreshold={2}
-        onLayout={[Function]}
-        onMomentumScrollEnd={[Function]}
-        onScroll={[Function]}
-        onScrollBeginDrag={[Function]}
-        onScrollEndDrag={[Function]}
-        removeClippedSubviews={false}
-        renderItem={[Function]}
-        scrollEventThrottle={50}
-        stickyHeaderIndices={Array []}
-        style={
-          Object {
-            "height": 388,
-            "width": 330,
-          }
-        }
-        updateCellsBatchingPeriod={50}
-        viewabilityConfigCallbackPairs={Array []}
-        windowSize={21}
-      >
-        <View
-          onLayout={[Function]}
-          style={null}
-        >
-          <View
-            style={
-              Object {
-                "flexDirection": "row",
-              }
-            }
-          >
-            <View
-              style={
-                Object {
-                  "height": 47,
-                  "paddingTop": 13.5,
-                  "width": 47,
-                }
-              }
-            >
-              <Text
-                style={
-                  Object {
-                    "color": "lightgray",
-                    "textAlign": "center",
-                  }
-                }
-              >
-                29
-              </Text>
-            </View>
-            <View
-              style={
-                Object {
-                  "height": 47,
-                  "paddingTop": 13.5,
-                  "width": 47,
-                }
-              }
-            >
-              <Text
-                style={
-                  Object {
-                    "color": "lightgray",
-                    "textAlign": "center",
-                  }
-                }
-              >
-                30
-              </Text>
-            </View>
-            <View
-              style={
-                Object {
-                  "height": 47,
-                  "paddingTop": 13.5,
-                  "width": 47,
-                }
-              }
-            >
-              <Text
-                style={
-                  Object {
-                    "color": "lightgray",
-                    "textAlign": "center",
-                  }
-                }
-              >
-                31
-              </Text>
-            </View>
             <
               onPress={[Function]}
             >
@@ -3259,811 +2015,10 @@ exports[`[Calendar] should render without crashing 1`] = `
                     }
                   }
                 >
-                  1
+                  31
                 </Text>
               </View>
             </>
-            <
-              onPress={[Function]}
-            >
-              <View
-                style={
-                  Object {
-                    "alignItems": "center",
-                    "height": 47,
-                    "paddingTop": 13.5,
-                    "width": 47,
-                  }
-                }
-              >
-                <Text
-                  style={
-                    Object {
-                      "textAlign": "center",
-                    }
-                  }
-                >
-                  2
-                </Text>
-              </View>
-            </>
-            <
-              onPress={[Function]}
-            >
-              <View
-                style={
-                  Object {
-                    "alignItems": "center",
-                    "height": 47,
-                    "paddingTop": 13.5,
-                    "width": 47,
-                  }
-                }
-              >
-                <Text
-                  style={
-                    Object {
-                      "textAlign": "center",
-                    }
-                  }
-                >
-                  3
-                </Text>
-              </View>
-            </>
-            <
-              onPress={[Function]}
-            >
-              <View
-                style={
-                  Object {
-                    "alignItems": "center",
-                    "height": 47,
-                    "paddingTop": 13.5,
-                    "width": 47,
-                  }
-                }
-              >
-                <Text
-                  style={
-                    Object {
-                      "textAlign": "center",
-                    }
-                  }
-                >
-                  4
-                </Text>
-              </View>
-            </>
-          </View>
-        </View>
-        <View
-          onLayout={[Function]}
-          style={null}
-        >
-          <View
-            style={
-              Object {
-                "flexDirection": "row",
-              }
-            }
-          >
-            <
-              onPress={[Function]}
-            >
-              <View
-                style={
-                  Object {
-                    "alignItems": "center",
-                    "height": 47,
-                    "paddingTop": 13.5,
-                    "width": 47,
-                  }
-                }
-              >
-                <Text
-                  style={
-                    Object {
-                      "textAlign": "center",
-                    }
-                  }
-                >
-                  5
-                </Text>
-              </View>
-            </>
-            <
-              onPress={[Function]}
-            >
-              <View
-                style={
-                  Object {
-                    "alignItems": "center",
-                    "height": 47,
-                    "paddingTop": 13.5,
-                    "width": 47,
-                  }
-                }
-              >
-                <Text
-                  style={
-                    Object {
-                      "textAlign": "center",
-                    }
-                  }
-                >
-                  6
-                </Text>
-              </View>
-            </>
-            <
-              onPress={[Function]}
-            >
-              <View
-                style={
-                  Object {
-                    "alignItems": "center",
-                    "height": 47,
-                    "paddingTop": 13.5,
-                    "width": 47,
-                  }
-                }
-              >
-                <Text
-                  style={
-                    Object {
-                      "textAlign": "center",
-                    }
-                  }
-                >
-                  7
-                </Text>
-                <View
-                  style={
-                    Object {
-                      "backgroundColor": "#109CF1",
-                      "borderRadius": 50,
-                      "height": 4,
-                      "width": 4,
-                    }
-                  }
-                />
-              </View>
-            </>
-            <
-              onPress={[Function]}
-            >
-              <View
-                style={
-                  Object {
-                    "alignItems": "center",
-                    "height": 47,
-                    "paddingTop": 13.5,
-                    "width": 47,
-                  }
-                }
-              >
-                <Text
-                  style={
-                    Object {
-                      "textAlign": "center",
-                    }
-                  }
-                >
-                  8
-                </Text>
-              </View>
-            </>
-            <
-              onPress={[Function]}
-            >
-              <View
-                style={
-                  Object {
-                    "alignItems": "center",
-                    "height": 47,
-                    "paddingTop": 13.5,
-                    "width": 47,
-                  }
-                }
-              >
-                <Text
-                  style={
-                    Object {
-                      "textAlign": "center",
-                    }
-                  }
-                >
-                  9
-                </Text>
-              </View>
-            </>
-            <
-              onPress={[Function]}
-            >
-              <View
-                style={
-                  Object {
-                    "alignItems": "center",
-                    "height": 47,
-                    "paddingTop": 13.5,
-                    "width": 47,
-                  }
-                }
-              >
-                <Text
-                  style={
-                    Object {
-                      "textAlign": "center",
-                    }
-                  }
-                >
-                  10
-                </Text>
-              </View>
-            </>
-            <
-              onPress={[Function]}
-            >
-              <View
-                style={
-                  Object {
-                    "alignItems": "center",
-                    "height": 47,
-                    "paddingTop": 13.5,
-                    "width": 47,
-                  }
-                }
-              >
-                <Text
-                  style={
-                    Object {
-                      "textAlign": "center",
-                    }
-                  }
-                >
-                  11
-                </Text>
-              </View>
-            </>
-          </View>
-        </View>
-        <View
-          onLayout={[Function]}
-          style={null}
-        >
-          <View
-            style={
-              Object {
-                "flexDirection": "row",
-              }
-            }
-          >
-            <
-              onPress={[Function]}
-            >
-              <View
-                style={
-                  Object {
-                    "alignItems": "center",
-                    "height": 47,
-                    "paddingTop": 13.5,
-                    "width": 47,
-                  }
-                }
-              >
-                <Text
-                  style={
-                    Object {
-                      "textAlign": "center",
-                    }
-                  }
-                >
-                  12
-                </Text>
-              </View>
-            </>
-            <
-              onPress={[Function]}
-            >
-              <View
-                style={
-                  Object {
-                    "alignItems": "center",
-                    "height": 47,
-                    "paddingTop": 13.5,
-                    "width": 47,
-                  }
-                }
-              >
-                <Text
-                  style={
-                    Object {
-                      "textAlign": "center",
-                    }
-                  }
-                >
-                  13
-                </Text>
-              </View>
-            </>
-            <
-              onPress={[Function]}
-            >
-              <View
-                style={
-                  Object {
-                    "alignItems": "center",
-                    "height": 47,
-                    "paddingTop": 13.5,
-                    "width": 47,
-                  }
-                }
-              >
-                <Text
-                  style={
-                    Object {
-                      "textAlign": "center",
-                    }
-                  }
-                >
-                  14
-                </Text>
-              </View>
-            </>
-            <
-              onPress={[Function]}
-            >
-              <View
-                style={
-                  Object {
-                    "alignItems": "center",
-                    "height": 47,
-                    "paddingTop": 13.5,
-                    "width": 47,
-                  }
-                }
-              >
-                <Text
-                  style={
-                    Object {
-                      "textAlign": "center",
-                    }
-                  }
-                >
-                  15
-                </Text>
-              </View>
-            </>
-            <
-              onPress={[Function]}
-            >
-              <View
-                style={
-                  Object {
-                    "alignItems": "center",
-                    "height": 47,
-                    "paddingTop": 13.5,
-                    "width": 47,
-                  }
-                }
-              >
-                <Text
-                  style={
-                    Object {
-                      "textAlign": "center",
-                    }
-                  }
-                >
-                  16
-                </Text>
-              </View>
-            </>
-            <
-              onPress={[Function]}
-            >
-              <View
-                style={
-                  Object {
-                    "alignItems": "center",
-                    "height": 47,
-                    "paddingTop": 13.5,
-                    "width": 47,
-                  }
-                }
-              >
-                <Text
-                  style={
-                    Object {
-                      "textAlign": "center",
-                    }
-                  }
-                >
-                  17
-                </Text>
-                <View
-                  style={
-                    Object {
-                      "backgroundColor": "#109CF1",
-                      "borderRadius": 50,
-                      "height": 4,
-                      "width": 4,
-                    }
-                  }
-                />
-              </View>
-            </>
-            <
-              onPress={[Function]}
-            >
-              <View
-                style={
-                  Object {
-                    "alignItems": "center",
-                    "height": 47,
-                    "paddingTop": 13.5,
-                    "width": 47,
-                  }
-                }
-              >
-                <Text
-                  style={
-                    Object {
-                      "textAlign": "center",
-                    }
-                  }
-                >
-                  18
-                </Text>
-              </View>
-            </>
-          </View>
-        </View>
-        <View
-          onLayout={[Function]}
-          style={null}
-        >
-          <View
-            style={
-              Object {
-                "flexDirection": "row",
-              }
-            }
-          >
-            <
-              onPress={[Function]}
-            >
-              <View
-                style={
-                  Object {
-                    "alignItems": "center",
-                    "height": 47,
-                    "paddingTop": 13.5,
-                    "width": 47,
-                  }
-                }
-              >
-                <Text
-                  style={
-                    Object {
-                      "textAlign": "center",
-                    }
-                  }
-                >
-                  19
-                </Text>
-              </View>
-            </>
-            <
-              onPress={[Function]}
-            >
-              <View
-                style={
-                  Object {
-                    "alignItems": "center",
-                    "height": 47,
-                    "paddingTop": 13.5,
-                    "width": 47,
-                  }
-                }
-              >
-                <Text
-                  style={
-                    Object {
-                      "textAlign": "center",
-                    }
-                  }
-                >
-                  20
-                </Text>
-              </View>
-            </>
-            <
-              onPress={[Function]}
-            >
-              <View
-                style={
-                  Object {
-                    "alignItems": "center",
-                    "height": 47,
-                    "paddingTop": 13.5,
-                    "width": 47,
-                  }
-                }
-              >
-                <Text
-                  style={
-                    Object {
-                      "textAlign": "center",
-                    }
-                  }
-                >
-                  21
-                </Text>
-              </View>
-            </>
-            <
-              onPress={[Function]}
-            >
-              <View
-                style={
-                  Object {
-                    "alignItems": "center",
-                    "height": 47,
-                    "paddingTop": 13.5,
-                    "width": 47,
-                  }
-                }
-              >
-                <Text
-                  style={
-                    Object {
-                      "textAlign": "center",
-                    }
-                  }
-                >
-                  22
-                </Text>
-              </View>
-            </>
-            <
-              onPress={[Function]}
-            >
-              <View
-                style={
-                  Object {
-                    "alignItems": "center",
-                    "height": 47,
-                    "paddingTop": 13.5,
-                    "width": 47,
-                  }
-                }
-              >
-                <Text
-                  style={
-                    Object {
-                      "textAlign": "center",
-                    }
-                  }
-                >
-                  23
-                </Text>
-              </View>
-            </>
-            <
-              onPress={[Function]}
-            >
-              <View
-                style={
-                  Object {
-                    "alignItems": "center",
-                    "height": 47,
-                    "paddingTop": 13.5,
-                    "width": 47,
-                  }
-                }
-              >
-                <Text
-                  style={
-                    Object {
-                      "textAlign": "center",
-                    }
-                  }
-                >
-                  24
-                </Text>
-              </View>
-            </>
-            <
-              onPress={[Function]}
-            >
-              <View
-                style={
-                  Object {
-                    "alignItems": "center",
-                    "height": 47,
-                    "paddingTop": 13.5,
-                    "width": 47,
-                  }
-                }
-              >
-                <Text
-                  style={
-                    Object {
-                      "textAlign": "center",
-                    }
-                  }
-                >
-                  25
-                </Text>
-              </View>
-            </>
-          </View>
-        </View>
-        <View
-          onLayout={[Function]}
-          style={null}
-        >
-          <View
-            style={
-              Object {
-                "flexDirection": "row",
-              }
-            }
-          >
-            <
-              onPress={[Function]}
-            >
-              <View
-                style={
-                  Object {
-                    "alignItems": "center",
-                    "height": 47,
-                    "paddingTop": 13.5,
-                    "width": 47,
-                  }
-                }
-              >
-                <Text
-                  style={
-                    Object {
-                      "textAlign": "center",
-                    }
-                  }
-                >
-                  26
-                </Text>
-              </View>
-            </>
-            <
-              onPress={[Function]}
-            >
-              <View
-                style={
-                  Object {
-                    "alignItems": "center",
-                    "height": 47,
-                    "paddingTop": 13.5,
-                    "width": 47,
-                  }
-                }
-              >
-                <Text
-                  style={
-                    Object {
-                      "textAlign": "center",
-                    }
-                  }
-                >
-                  27
-                </Text>
-                <View
-                  style={
-                    Object {
-                      "backgroundColor": "#109CF1",
-                      "borderRadius": 50,
-                      "height": 4,
-                      "width": 4,
-                    }
-                  }
-                />
-              </View>
-            </>
-            <
-              onPress={[Function]}
-            >
-              <View
-                style={
-                  Object {
-                    "alignItems": "center",
-                    "height": 47,
-                    "paddingTop": 13.5,
-                    "width": 47,
-                  }
-                }
-              >
-                <Text
-                  style={
-                    Object {
-                      "textAlign": "center",
-                    }
-                  }
-                >
-                  28
-                </Text>
-              </View>
-            </>
-            <
-              onPress={[Function]}
-            >
-              <View
-                style={
-                  Object {
-                    "alignItems": "center",
-                    "height": 47,
-                    "paddingTop": 13.5,
-                    "width": 47,
-                  }
-                }
-              >
-                <Text
-                  style={
-                    Object {
-                      "textAlign": "center",
-                    }
-                  }
-                >
-                  29
-                </Text>
-              </View>
-            </>
-            <
-              onPress={[Function]}
-            >
-              <View
-                style={
-                  Object {
-                    "alignItems": "center",
-                    "height": 47,
-                    "paddingTop": 13.5,
-                    "width": 47,
-                  }
-                }
-              >
-                <Text
-                  style={
-                    Object {
-                      "textAlign": "center",
-                    }
-                  }
-                >
-                  30
-                </Text>
-              </View>
-            </>
-            <View
-              style={
-                Object {
-                  "alignItems": "center",
-                  "backgroundColor": "#109CF1",
-                  "borderRadius": 50,
-                  "height": 47,
-                  "paddingTop": 13.5,
-                  "width": 47,
-                }
-              }
-            >
-              <Text
-                style={
-                  Object {
-                    "color": "white",
-                    "textAlign": "center",
-                  }
-                }
-              >
-                31
-              </Text>
-            </View>
             <View
               style={
                 Object {
@@ -4087,35 +2042,6 @@ exports[`[Calendar] should render without crashing 1`] = `
           </View>
         </View>
       </ScrollView>
-      <ScrollView
-        data={Array []}
-        disableVirtualization={false}
-        getItem={[Function]}
-        getItemCount={[Function]}
-        horizontal={false}
-        initialNumToRender={10}
-        keyExtractor={[Function]}
-        maxToRenderPerBatch={10}
-        onContentSizeChange={[Function]}
-        onEndReachedThreshold={2}
-        onLayout={[Function]}
-        onMomentumScrollEnd={[Function]}
-        onScroll={[Function]}
-        onScrollBeginDrag={[Function]}
-        onScrollEndDrag={[Function]}
-        removeClippedSubviews={false}
-        renderItem={[Function]}
-        scrollEventThrottle={50}
-        stickyHeaderIndices={Array []}
-        style={
-          Object {
-            "height": 100,
-          }
-        }
-        updateCellsBatchingPeriod={50}
-        viewabilityConfigCallbackPairs={Array []}
-        windowSize={21}
-      />
     </View>
     <View>
       <View
@@ -4524,30 +2450,29 @@ exports[`[Calendar] should render without crashing 1`] = `
                 </Text>
               </View>
             </Component>,
-            <Component
-              onPress={[Function]}
+            <View
+              style={
+                Object {
+                  "alignItems": "center",
+                  "backgroundColor": "#109CF1",
+                  "borderRadius": 50,
+                  "height": 47,
+                  "paddingTop": 13.5,
+                  "width": 47,
+                }
+              }
             >
-              <View
+              <Text
                 style={
                   Object {
-                    "alignItems": "center",
-                    "height": 47,
-                    "paddingTop": 13.5,
-                    "width": 47,
+                    "color": "white",
+                    "textAlign": "center",
                   }
                 }
               >
-                <Text
-                  style={
-                    Object {
-                      "textAlign": "center",
-                    }
-                  }
-                >
-                  4
-                </Text>
-              </View>
-            </Component>,
+                4
+              </Text>
+            </View>,
             <Component
               onPress={[Function]}
             >
@@ -5318,7 +3243,7 @@ exports[`[Calendar] should render without crashing 1`] = `
         stickyHeaderIndices={Array []}
         style={
           Object {
-            "height": 388,
+            "height": 338,
             "width": 330,
           }
         }
@@ -5542,30 +3467,29 @@ exports[`[Calendar] should render without crashing 1`] = `
                 </Text>
               </View>
             </>
-            <
-              onPress={[Function]}
+            <View
+              style={
+                Object {
+                  "alignItems": "center",
+                  "backgroundColor": "#109CF1",
+                  "borderRadius": 50,
+                  "height": 47,
+                  "paddingTop": 13.5,
+                  "width": 47,
+                }
+              }
             >
-              <View
+              <Text
                 style={
                   Object {
-                    "alignItems": "center",
-                    "height": 47,
-                    "paddingTop": 13.5,
-                    "width": 47,
+                    "color": "white",
+                    "textAlign": "center",
                   }
                 }
               >
-                <Text
-                  style={
-                    Object {
-                      "textAlign": "center",
-                    }
-                  }
-                >
-                  4
-                </Text>
-              </View>
-            </>
+                4
+              </Text>
+            </View>
             <
               onPress={[Function]}
             >
@@ -6369,8 +4293,1044 @@ exports[`[Calendar] should render without crashing 1`] = `
           </View>
         </View>
       </ScrollView>
+    </View>
+    <View>
+      <View
+        style={
+          Object {
+            "flexDirection": "row",
+            "justifyContent": "center",
+            "paddingBottom": 30,
+          }
+        }
+      >
+        <
+          onPress={[Function]}
+        >
+          <Text
+            style={
+              Object {
+                "color": "royalblue",
+                "fontSize": 30,
+              }
+            }
+          >
+             ‹
+          </Text>
+        </>
+        <View
+          style={
+            Object {
+              "display": "flex",
+              "flexDirection": "column",
+            }
+          }
+        >
+          <Text
+            style={
+              Object {
+                "fontSize": 20,
+                "justifyContent": "center",
+                "textAlign": "center",
+                "width": 300,
+              }
+            }
+          >
+            September
+          </Text>
+          <Text
+            style={
+              Object {
+                "fontSize": 12,
+                "justifyContent": "center",
+                "textAlign": "center",
+              }
+            }
+          >
+            2020
+          </Text>
+        </View>
+        <
+          onPress={[Function]}
+        >
+          <Text
+            style={
+              Object {
+                "color": "royalblue",
+                "fontSize": 30,
+              }
+            }
+          >
+            ›
+          </Text>
+        </>
+      </View>
+      <View
+        style={
+          Object {
+            "flexDirection": "row",
+          }
+        }
+      >
+        <View
+          style={
+            Object {
+              "width": 47.14,
+            }
+          }
+        >
+          <Text
+            style={
+              Object {
+                "color": "#4F4F4F",
+                "fontSize": 20,
+                "textAlign": "center",
+              }
+            }
+          >
+            S
+          </Text>
+        </View>
+        <View
+          style={
+            Object {
+              "width": 47.14,
+            }
+          }
+        >
+          <Text
+            style={
+              Object {
+                "color": "#4F4F4F",
+                "fontSize": 20,
+                "textAlign": "center",
+              }
+            }
+          >
+            M
+          </Text>
+        </View>
+        <View
+          style={
+            Object {
+              "width": 47.14,
+            }
+          }
+        >
+          <Text
+            style={
+              Object {
+                "color": "#4F4F4F",
+                "fontSize": 20,
+                "textAlign": "center",
+              }
+            }
+          >
+            T
+          </Text>
+        </View>
+        <View
+          style={
+            Object {
+              "width": 47.14,
+            }
+          }
+        >
+          <Text
+            style={
+              Object {
+                "color": "#4F4F4F",
+                "fontSize": 20,
+                "textAlign": "center",
+              }
+            }
+          >
+            W
+          </Text>
+        </View>
+        <View
+          style={
+            Object {
+              "width": 47.14,
+            }
+          }
+        >
+          <Text
+            style={
+              Object {
+                "color": "#4F4F4F",
+                "fontSize": 20,
+                "textAlign": "center",
+              }
+            }
+          >
+            T
+          </Text>
+        </View>
+        <View
+          style={
+            Object {
+              "width": 47.14,
+            }
+          }
+        >
+          <Text
+            style={
+              Object {
+                "color": "#4F4F4F",
+                "fontSize": 20,
+                "textAlign": "center",
+              }
+            }
+          >
+            F
+          </Text>
+        </View>
+        <View
+          style={
+            Object {
+              "width": 47.14,
+            }
+          }
+        >
+          <Text
+            style={
+              Object {
+                "color": "#4F4F4F",
+                "fontSize": 20,
+                "textAlign": "center",
+              }
+            }
+          >
+            S
+          </Text>
+        </View>
+      </View>
       <ScrollView
-        data={Array []}
+        data={
+          Array [
+            <View
+              style={
+                Object {
+                  "height": 47,
+                  "paddingTop": 13.5,
+                  "width": 47,
+                }
+              }
+            >
+              <Text
+                style={
+                  Object {
+                    "color": "lightgray",
+                    "textAlign": "center",
+                  }
+                }
+              >
+                30
+              </Text>
+            </View>,
+            <View
+              style={
+                Object {
+                  "height": 47,
+                  "paddingTop": 13.5,
+                  "width": 47,
+                }
+              }
+            >
+              <Text
+                style={
+                  Object {
+                    "color": "lightgray",
+                    "textAlign": "center",
+                  }
+                }
+              >
+                31
+              </Text>
+            </View>,
+            <Component
+              onPress={[Function]}
+            >
+              <View
+                style={
+                  Object {
+                    "alignItems": "center",
+                    "height": 47,
+                    "paddingTop": 13.5,
+                    "width": 47,
+                  }
+                }
+              >
+                <Text
+                  style={
+                    Object {
+                      "textAlign": "center",
+                    }
+                  }
+                >
+                  1
+                </Text>
+              </View>
+            </Component>,
+            <Component
+              onPress={[Function]}
+            >
+              <View
+                style={
+                  Object {
+                    "alignItems": "center",
+                    "height": 47,
+                    "paddingTop": 13.5,
+                    "width": 47,
+                  }
+                }
+              >
+                <Text
+                  style={
+                    Object {
+                      "textAlign": "center",
+                    }
+                  }
+                >
+                  2
+                </Text>
+              </View>
+            </Component>,
+            <Component
+              onPress={[Function]}
+            >
+              <View
+                style={
+                  Object {
+                    "alignItems": "center",
+                    "height": 47,
+                    "paddingTop": 13.5,
+                    "width": 47,
+                  }
+                }
+              >
+                <Text
+                  style={
+                    Object {
+                      "textAlign": "center",
+                    }
+                  }
+                >
+                  3
+                </Text>
+              </View>
+            </Component>,
+            <Component
+              onPress={[Function]}
+            >
+              <View
+                style={
+                  Object {
+                    "alignItems": "center",
+                    "height": 47,
+                    "paddingTop": 13.5,
+                    "width": 47,
+                  }
+                }
+              >
+                <Text
+                  style={
+                    Object {
+                      "textAlign": "center",
+                    }
+                  }
+                >
+                  4
+                </Text>
+              </View>
+            </Component>,
+            <Component
+              onPress={[Function]}
+            >
+              <View
+                style={
+                  Object {
+                    "alignItems": "center",
+                    "height": 47,
+                    "paddingTop": 13.5,
+                    "width": 47,
+                  }
+                }
+              >
+                <Text
+                  style={
+                    Object {
+                      "textAlign": "center",
+                    }
+                  }
+                >
+                  5
+                </Text>
+              </View>
+            </Component>,
+            <Component
+              onPress={[Function]}
+            >
+              <View
+                style={
+                  Object {
+                    "alignItems": "center",
+                    "height": 47,
+                    "paddingTop": 13.5,
+                    "width": 47,
+                  }
+                }
+              >
+                <Text
+                  style={
+                    Object {
+                      "textAlign": "center",
+                    }
+                  }
+                >
+                  6
+                </Text>
+              </View>
+            </Component>,
+            <Component
+              onPress={[Function]}
+            >
+              <View
+                style={
+                  Object {
+                    "alignItems": "center",
+                    "height": 47,
+                    "paddingTop": 13.5,
+                    "width": 47,
+                  }
+                }
+              >
+                <Text
+                  style={
+                    Object {
+                      "textAlign": "center",
+                    }
+                  }
+                >
+                  7
+                </Text>
+              </View>
+            </Component>,
+            <Component
+              onPress={[Function]}
+            >
+              <View
+                style={
+                  Object {
+                    "alignItems": "center",
+                    "height": 47,
+                    "paddingTop": 13.5,
+                    "width": 47,
+                  }
+                }
+              >
+                <Text
+                  style={
+                    Object {
+                      "textAlign": "center",
+                    }
+                  }
+                >
+                  8
+                </Text>
+              </View>
+            </Component>,
+            <Component
+              onPress={[Function]}
+            >
+              <View
+                style={
+                  Object {
+                    "alignItems": "center",
+                    "height": 47,
+                    "paddingTop": 13.5,
+                    "width": 47,
+                  }
+                }
+              >
+                <Text
+                  style={
+                    Object {
+                      "textAlign": "center",
+                    }
+                  }
+                >
+                  9
+                </Text>
+              </View>
+            </Component>,
+            <Component
+              onPress={[Function]}
+            >
+              <View
+                style={
+                  Object {
+                    "alignItems": "center",
+                    "height": 47,
+                    "paddingTop": 13.5,
+                    "width": 47,
+                  }
+                }
+              >
+                <Text
+                  style={
+                    Object {
+                      "textAlign": "center",
+                    }
+                  }
+                >
+                  10
+                </Text>
+              </View>
+            </Component>,
+            <Component
+              onPress={[Function]}
+            >
+              <View
+                style={
+                  Object {
+                    "alignItems": "center",
+                    "height": 47,
+                    "paddingTop": 13.5,
+                    "width": 47,
+                  }
+                }
+              >
+                <Text
+                  style={
+                    Object {
+                      "textAlign": "center",
+                    }
+                  }
+                >
+                  11
+                </Text>
+              </View>
+            </Component>,
+            <Component
+              onPress={[Function]}
+            >
+              <View
+                style={
+                  Object {
+                    "alignItems": "center",
+                    "height": 47,
+                    "paddingTop": 13.5,
+                    "width": 47,
+                  }
+                }
+              >
+                <Text
+                  style={
+                    Object {
+                      "textAlign": "center",
+                    }
+                  }
+                >
+                  12
+                </Text>
+              </View>
+            </Component>,
+            <Component
+              onPress={[Function]}
+            >
+              <View
+                style={
+                  Object {
+                    "alignItems": "center",
+                    "height": 47,
+                    "paddingTop": 13.5,
+                    "width": 47,
+                  }
+                }
+              >
+                <Text
+                  style={
+                    Object {
+                      "textAlign": "center",
+                    }
+                  }
+                >
+                  13
+                </Text>
+              </View>
+            </Component>,
+            <Component
+              onPress={[Function]}
+            >
+              <View
+                style={
+                  Object {
+                    "alignItems": "center",
+                    "height": 47,
+                    "paddingTop": 13.5,
+                    "width": 47,
+                  }
+                }
+              >
+                <Text
+                  style={
+                    Object {
+                      "textAlign": "center",
+                    }
+                  }
+                >
+                  14
+                </Text>
+              </View>
+            </Component>,
+            <Component
+              onPress={[Function]}
+            >
+              <View
+                style={
+                  Object {
+                    "alignItems": "center",
+                    "height": 47,
+                    "paddingTop": 13.5,
+                    "width": 47,
+                  }
+                }
+              >
+                <Text
+                  style={
+                    Object {
+                      "textAlign": "center",
+                    }
+                  }
+                >
+                  15
+                </Text>
+              </View>
+            </Component>,
+            <Component
+              onPress={[Function]}
+            >
+              <View
+                style={
+                  Object {
+                    "alignItems": "center",
+                    "height": 47,
+                    "paddingTop": 13.5,
+                    "width": 47,
+                  }
+                }
+              >
+                <Text
+                  style={
+                    Object {
+                      "textAlign": "center",
+                    }
+                  }
+                >
+                  16
+                </Text>
+              </View>
+            </Component>,
+            <Component
+              onPress={[Function]}
+            >
+              <View
+                style={
+                  Object {
+                    "alignItems": "center",
+                    "height": 47,
+                    "paddingTop": 13.5,
+                    "width": 47,
+                  }
+                }
+              >
+                <Text
+                  style={
+                    Object {
+                      "textAlign": "center",
+                    }
+                  }
+                >
+                  17
+                </Text>
+              </View>
+            </Component>,
+            <Component
+              onPress={[Function]}
+            >
+              <View
+                style={
+                  Object {
+                    "alignItems": "center",
+                    "height": 47,
+                    "paddingTop": 13.5,
+                    "width": 47,
+                  }
+                }
+              >
+                <Text
+                  style={
+                    Object {
+                      "textAlign": "center",
+                    }
+                  }
+                >
+                  18
+                </Text>
+              </View>
+            </Component>,
+            <Component
+              onPress={[Function]}
+            >
+              <View
+                style={
+                  Object {
+                    "alignItems": "center",
+                    "height": 47,
+                    "paddingTop": 13.5,
+                    "width": 47,
+                  }
+                }
+              >
+                <Text
+                  style={
+                    Object {
+                      "textAlign": "center",
+                    }
+                  }
+                >
+                  19
+                </Text>
+              </View>
+            </Component>,
+            <Component
+              onPress={[Function]}
+            >
+              <View
+                style={
+                  Object {
+                    "alignItems": "center",
+                    "height": 47,
+                    "paddingTop": 13.5,
+                    "width": 47,
+                  }
+                }
+              >
+                <Text
+                  style={
+                    Object {
+                      "textAlign": "center",
+                    }
+                  }
+                >
+                  20
+                </Text>
+              </View>
+            </Component>,
+            <Component
+              onPress={[Function]}
+            >
+              <View
+                style={
+                  Object {
+                    "alignItems": "center",
+                    "height": 47,
+                    "paddingTop": 13.5,
+                    "width": 47,
+                  }
+                }
+              >
+                <Text
+                  style={
+                    Object {
+                      "textAlign": "center",
+                    }
+                  }
+                >
+                  21
+                </Text>
+              </View>
+            </Component>,
+            <Component
+              onPress={[Function]}
+            >
+              <View
+                style={
+                  Object {
+                    "alignItems": "center",
+                    "height": 47,
+                    "paddingTop": 13.5,
+                    "width": 47,
+                  }
+                }
+              >
+                <Text
+                  style={
+                    Object {
+                      "textAlign": "center",
+                    }
+                  }
+                >
+                  22
+                </Text>
+              </View>
+            </Component>,
+            <Component
+              onPress={[Function]}
+            >
+              <View
+                style={
+                  Object {
+                    "alignItems": "center",
+                    "height": 47,
+                    "paddingTop": 13.5,
+                    "width": 47,
+                  }
+                }
+              >
+                <Text
+                  style={
+                    Object {
+                      "textAlign": "center",
+                    }
+                  }
+                >
+                  23
+                </Text>
+              </View>
+            </Component>,
+            <Component
+              onPress={[Function]}
+            >
+              <View
+                style={
+                  Object {
+                    "alignItems": "center",
+                    "height": 47,
+                    "paddingTop": 13.5,
+                    "width": 47,
+                  }
+                }
+              >
+                <Text
+                  style={
+                    Object {
+                      "textAlign": "center",
+                    }
+                  }
+                >
+                  24
+                </Text>
+              </View>
+            </Component>,
+            <Component
+              onPress={[Function]}
+            >
+              <View
+                style={
+                  Object {
+                    "alignItems": "center",
+                    "height": 47,
+                    "paddingTop": 13.5,
+                    "width": 47,
+                  }
+                }
+              >
+                <Text
+                  style={
+                    Object {
+                      "textAlign": "center",
+                    }
+                  }
+                >
+                  25
+                </Text>
+              </View>
+            </Component>,
+            <Component
+              onPress={[Function]}
+            >
+              <View
+                style={
+                  Object {
+                    "alignItems": "center",
+                    "height": 47,
+                    "paddingTop": 13.5,
+                    "width": 47,
+                  }
+                }
+              >
+                <Text
+                  style={
+                    Object {
+                      "textAlign": "center",
+                    }
+                  }
+                >
+                  26
+                </Text>
+              </View>
+            </Component>,
+            <Component
+              onPress={[Function]}
+            >
+              <View
+                style={
+                  Object {
+                    "alignItems": "center",
+                    "height": 47,
+                    "paddingTop": 13.5,
+                    "width": 47,
+                  }
+                }
+              >
+                <Text
+                  style={
+                    Object {
+                      "textAlign": "center",
+                    }
+                  }
+                >
+                  27
+                </Text>
+              </View>
+            </Component>,
+            <Component
+              onPress={[Function]}
+            >
+              <View
+                style={
+                  Object {
+                    "alignItems": "center",
+                    "height": 47,
+                    "paddingTop": 13.5,
+                    "width": 47,
+                  }
+                }
+              >
+                <Text
+                  style={
+                    Object {
+                      "textAlign": "center",
+                    }
+                  }
+                >
+                  28
+                </Text>
+              </View>
+            </Component>,
+            <Component
+              onPress={[Function]}
+            >
+              <View
+                style={
+                  Object {
+                    "alignItems": "center",
+                    "height": 47,
+                    "paddingTop": 13.5,
+                    "width": 47,
+                  }
+                }
+              >
+                <Text
+                  style={
+                    Object {
+                      "textAlign": "center",
+                    }
+                  }
+                >
+                  29
+                </Text>
+              </View>
+            </Component>,
+            <Component
+              onPress={[Function]}
+            >
+              <View
+                style={
+                  Object {
+                    "alignItems": "center",
+                    "height": 47,
+                    "paddingTop": 13.5,
+                    "width": 47,
+                  }
+                }
+              >
+                <Text
+                  style={
+                    Object {
+                      "textAlign": "center",
+                    }
+                  }
+                >
+                  30
+                </Text>
+              </View>
+            </Component>,
+            <View
+              style={
+                Object {
+                  "height": 47,
+                  "paddingTop": 13.5,
+                  "width": 47,
+                }
+              }
+            >
+              <Text
+                style={
+                  Object {
+                    "color": "lightgray",
+                    "textAlign": "center",
+                  }
+                }
+              >
+                1
+              </Text>
+            </View>,
+            <View
+              style={
+                Object {
+                  "height": 47,
+                  "paddingTop": 13.5,
+                  "width": 47,
+                }
+              }
+            >
+              <Text
+                style={
+                  Object {
+                    "color": "lightgray",
+                    "textAlign": "center",
+                  }
+                }
+              >
+                2
+              </Text>
+            </View>,
+            <View
+              style={
+                Object {
+                  "height": 47,
+                  "paddingTop": 13.5,
+                  "width": 47,
+                }
+              }
+            >
+              <Text
+                style={
+                  Object {
+                    "color": "lightgray",
+                    "textAlign": "center",
+                  }
+                }
+              >
+                3
+              </Text>
+            </View>,
+          ]
+        }
         disableVirtualization={false}
         getItem={[Function]}
         getItemCount={[Function]}
@@ -6391,13 +5351,900 @@ exports[`[Calendar] should render without crashing 1`] = `
         stickyHeaderIndices={Array []}
         style={
           Object {
-            "height": 100,
+            "height": 338,
+            "width": 330,
           }
         }
         updateCellsBatchingPeriod={50}
         viewabilityConfigCallbackPairs={Array []}
         windowSize={21}
-      />
+      >
+        <View
+          onLayout={[Function]}
+          style={null}
+        >
+          <View
+            style={
+              Object {
+                "flexDirection": "row",
+              }
+            }
+          >
+            <View
+              style={
+                Object {
+                  "height": 47,
+                  "paddingTop": 13.5,
+                  "width": 47,
+                }
+              }
+            >
+              <Text
+                style={
+                  Object {
+                    "color": "lightgray",
+                    "textAlign": "center",
+                  }
+                }
+              >
+                30
+              </Text>
+            </View>
+            <View
+              style={
+                Object {
+                  "height": 47,
+                  "paddingTop": 13.5,
+                  "width": 47,
+                }
+              }
+            >
+              <Text
+                style={
+                  Object {
+                    "color": "lightgray",
+                    "textAlign": "center",
+                  }
+                }
+              >
+                31
+              </Text>
+            </View>
+            <
+              onPress={[Function]}
+            >
+              <View
+                style={
+                  Object {
+                    "alignItems": "center",
+                    "height": 47,
+                    "paddingTop": 13.5,
+                    "width": 47,
+                  }
+                }
+              >
+                <Text
+                  style={
+                    Object {
+                      "textAlign": "center",
+                    }
+                  }
+                >
+                  1
+                </Text>
+              </View>
+            </>
+            <
+              onPress={[Function]}
+            >
+              <View
+                style={
+                  Object {
+                    "alignItems": "center",
+                    "height": 47,
+                    "paddingTop": 13.5,
+                    "width": 47,
+                  }
+                }
+              >
+                <Text
+                  style={
+                    Object {
+                      "textAlign": "center",
+                    }
+                  }
+                >
+                  2
+                </Text>
+              </View>
+            </>
+            <
+              onPress={[Function]}
+            >
+              <View
+                style={
+                  Object {
+                    "alignItems": "center",
+                    "height": 47,
+                    "paddingTop": 13.5,
+                    "width": 47,
+                  }
+                }
+              >
+                <Text
+                  style={
+                    Object {
+                      "textAlign": "center",
+                    }
+                  }
+                >
+                  3
+                </Text>
+              </View>
+            </>
+            <
+              onPress={[Function]}
+            >
+              <View
+                style={
+                  Object {
+                    "alignItems": "center",
+                    "height": 47,
+                    "paddingTop": 13.5,
+                    "width": 47,
+                  }
+                }
+              >
+                <Text
+                  style={
+                    Object {
+                      "textAlign": "center",
+                    }
+                  }
+                >
+                  4
+                </Text>
+              </View>
+            </>
+            <
+              onPress={[Function]}
+            >
+              <View
+                style={
+                  Object {
+                    "alignItems": "center",
+                    "height": 47,
+                    "paddingTop": 13.5,
+                    "width": 47,
+                  }
+                }
+              >
+                <Text
+                  style={
+                    Object {
+                      "textAlign": "center",
+                    }
+                  }
+                >
+                  5
+                </Text>
+              </View>
+            </>
+          </View>
+        </View>
+        <View
+          onLayout={[Function]}
+          style={null}
+        >
+          <View
+            style={
+              Object {
+                "flexDirection": "row",
+              }
+            }
+          >
+            <
+              onPress={[Function]}
+            >
+              <View
+                style={
+                  Object {
+                    "alignItems": "center",
+                    "height": 47,
+                    "paddingTop": 13.5,
+                    "width": 47,
+                  }
+                }
+              >
+                <Text
+                  style={
+                    Object {
+                      "textAlign": "center",
+                    }
+                  }
+                >
+                  6
+                </Text>
+              </View>
+            </>
+            <
+              onPress={[Function]}
+            >
+              <View
+                style={
+                  Object {
+                    "alignItems": "center",
+                    "height": 47,
+                    "paddingTop": 13.5,
+                    "width": 47,
+                  }
+                }
+              >
+                <Text
+                  style={
+                    Object {
+                      "textAlign": "center",
+                    }
+                  }
+                >
+                  7
+                </Text>
+              </View>
+            </>
+            <
+              onPress={[Function]}
+            >
+              <View
+                style={
+                  Object {
+                    "alignItems": "center",
+                    "height": 47,
+                    "paddingTop": 13.5,
+                    "width": 47,
+                  }
+                }
+              >
+                <Text
+                  style={
+                    Object {
+                      "textAlign": "center",
+                    }
+                  }
+                >
+                  8
+                </Text>
+              </View>
+            </>
+            <
+              onPress={[Function]}
+            >
+              <View
+                style={
+                  Object {
+                    "alignItems": "center",
+                    "height": 47,
+                    "paddingTop": 13.5,
+                    "width": 47,
+                  }
+                }
+              >
+                <Text
+                  style={
+                    Object {
+                      "textAlign": "center",
+                    }
+                  }
+                >
+                  9
+                </Text>
+              </View>
+            </>
+            <
+              onPress={[Function]}
+            >
+              <View
+                style={
+                  Object {
+                    "alignItems": "center",
+                    "height": 47,
+                    "paddingTop": 13.5,
+                    "width": 47,
+                  }
+                }
+              >
+                <Text
+                  style={
+                    Object {
+                      "textAlign": "center",
+                    }
+                  }
+                >
+                  10
+                </Text>
+              </View>
+            </>
+            <
+              onPress={[Function]}
+            >
+              <View
+                style={
+                  Object {
+                    "alignItems": "center",
+                    "height": 47,
+                    "paddingTop": 13.5,
+                    "width": 47,
+                  }
+                }
+              >
+                <Text
+                  style={
+                    Object {
+                      "textAlign": "center",
+                    }
+                  }
+                >
+                  11
+                </Text>
+              </View>
+            </>
+            <
+              onPress={[Function]}
+            >
+              <View
+                style={
+                  Object {
+                    "alignItems": "center",
+                    "height": 47,
+                    "paddingTop": 13.5,
+                    "width": 47,
+                  }
+                }
+              >
+                <Text
+                  style={
+                    Object {
+                      "textAlign": "center",
+                    }
+                  }
+                >
+                  12
+                </Text>
+              </View>
+            </>
+          </View>
+        </View>
+        <View
+          onLayout={[Function]}
+          style={null}
+        >
+          <View
+            style={
+              Object {
+                "flexDirection": "row",
+              }
+            }
+          >
+            <
+              onPress={[Function]}
+            >
+              <View
+                style={
+                  Object {
+                    "alignItems": "center",
+                    "height": 47,
+                    "paddingTop": 13.5,
+                    "width": 47,
+                  }
+                }
+              >
+                <Text
+                  style={
+                    Object {
+                      "textAlign": "center",
+                    }
+                  }
+                >
+                  13
+                </Text>
+              </View>
+            </>
+            <
+              onPress={[Function]}
+            >
+              <View
+                style={
+                  Object {
+                    "alignItems": "center",
+                    "height": 47,
+                    "paddingTop": 13.5,
+                    "width": 47,
+                  }
+                }
+              >
+                <Text
+                  style={
+                    Object {
+                      "textAlign": "center",
+                    }
+                  }
+                >
+                  14
+                </Text>
+              </View>
+            </>
+            <
+              onPress={[Function]}
+            >
+              <View
+                style={
+                  Object {
+                    "alignItems": "center",
+                    "height": 47,
+                    "paddingTop": 13.5,
+                    "width": 47,
+                  }
+                }
+              >
+                <Text
+                  style={
+                    Object {
+                      "textAlign": "center",
+                    }
+                  }
+                >
+                  15
+                </Text>
+              </View>
+            </>
+            <
+              onPress={[Function]}
+            >
+              <View
+                style={
+                  Object {
+                    "alignItems": "center",
+                    "height": 47,
+                    "paddingTop": 13.5,
+                    "width": 47,
+                  }
+                }
+              >
+                <Text
+                  style={
+                    Object {
+                      "textAlign": "center",
+                    }
+                  }
+                >
+                  16
+                </Text>
+              </View>
+            </>
+            <
+              onPress={[Function]}
+            >
+              <View
+                style={
+                  Object {
+                    "alignItems": "center",
+                    "height": 47,
+                    "paddingTop": 13.5,
+                    "width": 47,
+                  }
+                }
+              >
+                <Text
+                  style={
+                    Object {
+                      "textAlign": "center",
+                    }
+                  }
+                >
+                  17
+                </Text>
+              </View>
+            </>
+            <
+              onPress={[Function]}
+            >
+              <View
+                style={
+                  Object {
+                    "alignItems": "center",
+                    "height": 47,
+                    "paddingTop": 13.5,
+                    "width": 47,
+                  }
+                }
+              >
+                <Text
+                  style={
+                    Object {
+                      "textAlign": "center",
+                    }
+                  }
+                >
+                  18
+                </Text>
+              </View>
+            </>
+            <
+              onPress={[Function]}
+            >
+              <View
+                style={
+                  Object {
+                    "alignItems": "center",
+                    "height": 47,
+                    "paddingTop": 13.5,
+                    "width": 47,
+                  }
+                }
+              >
+                <Text
+                  style={
+                    Object {
+                      "textAlign": "center",
+                    }
+                  }
+                >
+                  19
+                </Text>
+              </View>
+            </>
+          </View>
+        </View>
+        <View
+          onLayout={[Function]}
+          style={null}
+        >
+          <View
+            style={
+              Object {
+                "flexDirection": "row",
+              }
+            }
+          >
+            <
+              onPress={[Function]}
+            >
+              <View
+                style={
+                  Object {
+                    "alignItems": "center",
+                    "height": 47,
+                    "paddingTop": 13.5,
+                    "width": 47,
+                  }
+                }
+              >
+                <Text
+                  style={
+                    Object {
+                      "textAlign": "center",
+                    }
+                  }
+                >
+                  20
+                </Text>
+              </View>
+            </>
+            <
+              onPress={[Function]}
+            >
+              <View
+                style={
+                  Object {
+                    "alignItems": "center",
+                    "height": 47,
+                    "paddingTop": 13.5,
+                    "width": 47,
+                  }
+                }
+              >
+                <Text
+                  style={
+                    Object {
+                      "textAlign": "center",
+                    }
+                  }
+                >
+                  21
+                </Text>
+              </View>
+            </>
+            <
+              onPress={[Function]}
+            >
+              <View
+                style={
+                  Object {
+                    "alignItems": "center",
+                    "height": 47,
+                    "paddingTop": 13.5,
+                    "width": 47,
+                  }
+                }
+              >
+                <Text
+                  style={
+                    Object {
+                      "textAlign": "center",
+                    }
+                  }
+                >
+                  22
+                </Text>
+              </View>
+            </>
+            <
+              onPress={[Function]}
+            >
+              <View
+                style={
+                  Object {
+                    "alignItems": "center",
+                    "height": 47,
+                    "paddingTop": 13.5,
+                    "width": 47,
+                  }
+                }
+              >
+                <Text
+                  style={
+                    Object {
+                      "textAlign": "center",
+                    }
+                  }
+                >
+                  23
+                </Text>
+              </View>
+            </>
+            <
+              onPress={[Function]}
+            >
+              <View
+                style={
+                  Object {
+                    "alignItems": "center",
+                    "height": 47,
+                    "paddingTop": 13.5,
+                    "width": 47,
+                  }
+                }
+              >
+                <Text
+                  style={
+                    Object {
+                      "textAlign": "center",
+                    }
+                  }
+                >
+                  24
+                </Text>
+              </View>
+            </>
+            <
+              onPress={[Function]}
+            >
+              <View
+                style={
+                  Object {
+                    "alignItems": "center",
+                    "height": 47,
+                    "paddingTop": 13.5,
+                    "width": 47,
+                  }
+                }
+              >
+                <Text
+                  style={
+                    Object {
+                      "textAlign": "center",
+                    }
+                  }
+                >
+                  25
+                </Text>
+              </View>
+            </>
+            <
+              onPress={[Function]}
+            >
+              <View
+                style={
+                  Object {
+                    "alignItems": "center",
+                    "height": 47,
+                    "paddingTop": 13.5,
+                    "width": 47,
+                  }
+                }
+              >
+                <Text
+                  style={
+                    Object {
+                      "textAlign": "center",
+                    }
+                  }
+                >
+                  26
+                </Text>
+              </View>
+            </>
+          </View>
+        </View>
+        <View
+          onLayout={[Function]}
+          style={null}
+        >
+          <View
+            style={
+              Object {
+                "flexDirection": "row",
+              }
+            }
+          >
+            <
+              onPress={[Function]}
+            >
+              <View
+                style={
+                  Object {
+                    "alignItems": "center",
+                    "height": 47,
+                    "paddingTop": 13.5,
+                    "width": 47,
+                  }
+                }
+              >
+                <Text
+                  style={
+                    Object {
+                      "textAlign": "center",
+                    }
+                  }
+                >
+                  27
+                </Text>
+              </View>
+            </>
+            <
+              onPress={[Function]}
+            >
+              <View
+                style={
+                  Object {
+                    "alignItems": "center",
+                    "height": 47,
+                    "paddingTop": 13.5,
+                    "width": 47,
+                  }
+                }
+              >
+                <Text
+                  style={
+                    Object {
+                      "textAlign": "center",
+                    }
+                  }
+                >
+                  28
+                </Text>
+              </View>
+            </>
+            <
+              onPress={[Function]}
+            >
+              <View
+                style={
+                  Object {
+                    "alignItems": "center",
+                    "height": 47,
+                    "paddingTop": 13.5,
+                    "width": 47,
+                  }
+                }
+              >
+                <Text
+                  style={
+                    Object {
+                      "textAlign": "center",
+                    }
+                  }
+                >
+                  29
+                </Text>
+              </View>
+            </>
+            <
+              onPress={[Function]}
+            >
+              <View
+                style={
+                  Object {
+                    "alignItems": "center",
+                    "height": 47,
+                    "paddingTop": 13.5,
+                    "width": 47,
+                  }
+                }
+              >
+                <Text
+                  style={
+                    Object {
+                      "textAlign": "center",
+                    }
+                  }
+                >
+                  30
+                </Text>
+              </View>
+            </>
+            <View
+              style={
+                Object {
+                  "height": 47,
+                  "paddingTop": 13.5,
+                  "width": 47,
+                }
+              }
+            >
+              <Text
+                style={
+                  Object {
+                    "color": "lightgray",
+                    "textAlign": "center",
+                  }
+                }
+              >
+                1
+              </Text>
+            </View>
+            <View
+              style={
+                Object {
+                  "height": 47,
+                  "paddingTop": 13.5,
+                  "width": 47,
+                }
+              }
+            >
+              <Text
+                style={
+                  Object {
+                    "color": "lightgray",
+                    "textAlign": "center",
+                  }
+                }
+              >
+                2
+              </Text>
+            </View>
+            <View
+              style={
+                Object {
+                  "height": 47,
+                  "paddingTop": 13.5,
+                  "width": 47,
+                }
+              }
+            >
+              <Text
+                style={
+                  Object {
+                    "color": "lightgray",
+                    "textAlign": "center",
+                  }
+                }
+              >
+                3
+              </Text>
+            </View>
+          </View>
+        </View>
+      </ScrollView>
     </View>
   </ScrollView>
 </SafeAreaView>
