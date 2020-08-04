@@ -31,7 +31,6 @@ interface Style {
   activeText: TextStyle;
   markView: ViewStyle;
   mark: ViewStyle;
-  markDataStyle: ViewStyle;
   eventContainer: ViewStyle;
   eventText: TextStyle;
   selectedMarkView: ViewStyle;
@@ -40,9 +39,9 @@ interface Style {
 
 const styles = StyleSheet.create<Style>({
   container: {
-    paddingTop: 40,
     width: 330,
     height: 388,
+    paddingTop: 40,
   },
   headerStyle: {
     flexDirection: 'row',
@@ -134,23 +133,13 @@ const styles = StyleSheet.create<Style>({
     borderRadius: 50,
     backgroundColor: '#109CF1',
   },
-  markDataStyle: {
-    width: 100,
-    height: 100,
-    backgroundColor: 'red',
-  },
   eventContainer: {
-    height: 50,
     width: 320,
+    height: 50,
     backgroundColor: '#109CF1',
     borderRadius: 30,
     paddingTop: 15,
     flexDirection: 'row',
-  },
-  dayEvent: {
-    fontWeight: '900',
-    paddingLeft: 25,
-    color: 'white',
   },
   eventText: {
     color: 'white',
@@ -165,6 +154,11 @@ const styles = StyleSheet.create<Style>({
     alignItems: 'center',
     borderRadius: 30,
     backgroundColor: '#F0F8FD',
+  },
+  dayEvent: {
+    fontWeight: '900',
+    paddingLeft: 25,
+    color: 'white',
   },
 });
 
@@ -228,30 +222,14 @@ function CalendarCarousel<T>({
     const year = currentDate.getFullYear();
     const month = currentDate.getMonth();
 
-    const currentMonthDays = new Date(year, month + 1, 0).getDate();
-    const firstWeekday = new Date(year, month, 1).getDay();
-    const lastWeekday = new Date(year, month, currentMonthDays).getDay();
-    let numPrevMonthDays = new Date(year, month - 1, 0).getDate();
-
-    for (let idx = 0; idx <= 6; idx++) {
-      const matchMonth = new Date(2020, 5, idx);
-      const weekDay = matchMonth.toLocaleString('default', { weekday: 'narrow' });
-      weekdays.push(
-        <View style={{ width: 47.14 }} key={idx}>
-          <Text style={styles.weekdayText}>{weekDay}</Text>
-        </View>,
-      );
-    }
-
     const prevDays = [];
-    for (let idx = 0; idx < firstWeekday; idx++) {
-      prevDays.unshift(
-        <View style={styles.otherDaysView}>
-          <Text style={styles.otherDaysText}>{`${numPrevMonthDays}`}</Text>
-        </View>,
-      );
-      numPrevMonthDays--;
-    }
+    const days = [];
+    const nextDays = [];
+
+    const currentMonthDays = new Date(year, month + 1, 0).getDate();
+    const firstWeekdayOfMonth = new Date(year, month, 1).getDay();
+    const lastWeekdayOfMonth = new Date(year, month, currentMonthDays).getDay();
+    let numPrevMonthDays = new Date(year, month - 1, 0).getDate();
 
     const markedDayEvents = [
       {
@@ -269,18 +247,17 @@ function CalendarCarousel<T>({
     ];
 
     const [eventSwitch, setEventSwitch] = useState(0);
-
     const markedDates = markedDayEvents.map((markeddates) => markeddates.selectedEventDate.getDate());
     const markedMonths = markedDayEvents.map((markedmonths) => markedmonths.selectedEventDate.getMonth() - 1);
 
-    const isInside = (d: number) : boolean => {
+    const isMarked = (d: number) : boolean => {
       return markedDates.includes(d) && markedMonths.includes(month);
     };
 
     const renderDayEvents = (): ReactElement[] => {
       return markedDayEvents.map((markedDayEvent, i) => {
         if (markedDates[i] === eventSwitch && markedMonths.includes(month)) {
-          return <View style = {styles.eventContainer}>
+          return <View style = {styles.eventContainer} key ={i}>
             <Text style= {styles.dayEvent}>{markedDayEvents[i].selectedEventDate.getDate()}</Text>
             <Text style = {styles.eventText}>{markedDayEvents[i].events}</Text>
           </View>;
@@ -288,63 +265,58 @@ function CalendarCarousel<T>({
       });
     };
 
-    const days = [];
+    const onSelected = (d: number): boolean => {
+      return d === selectedDate?.getDate() && month === selectedDate?.getMonth();
+    };
+
+    for (let idx = 0; idx <= 6; idx++) {
+      const matchMonth = new Date(2020, 5, idx);
+      const weekDay = matchMonth.toLocaleString('default', { weekday: 'narrow' });
+      weekdays.push(
+        <View style={{ width: 47.14 }} key={idx}>
+          <Text style={styles.weekdayText}>{weekDay}</Text>
+        </View>,
+      );
+    }
+
+    for (let idx = 0; idx < firstWeekdayOfMonth; idx++) {
+      prevDays.unshift(
+        <View style={styles.otherDaysView} key={idx}>
+          <Text style={styles.otherDaysText}>{`${numPrevMonthDays}`}</Text>
+        </View>,
+      );
+      numPrevMonthDays--;
+    }
+
     for (let d = 1; d <= currentMonthDays; d++) {
-      if (isToday(
-        new Date(
-          currentDate.getFullYear(),
-          currentDate.getMonth(),
-          d,
-        ),
-      )) {
+      const setDate = new Date(currentDate.getFullYear(), currentDate.getMonth(), d);
+      if (isToday(setDate)) {
         days.push(
-          <View
-            style={styles.currentDayView}>
+          <View style={styles.currentDayView} key={d}>
             <Text style={styles.currentDayText}>{`${d}`}</Text>
           </View>,
         );
-      } else if (isInside(d) && d === selectedDate?.getDate() && month === selectedDate?.getMonth()) {
+      } else if (isMarked(d) && onSelected(d)) {
         days.push(
-          <TouchableOpacity onPress={(): void => {
-            selectDate(
-              new Date(
-                currentDate.getFullYear(),
-                currentDate.getMonth(),
-                d,
-              ),
-            );
-            setEventSwitch(d);
-          }}>
-            <View style={styles.selectedMarkView}>
+          <TouchableOpacity onPress={(): void => { selectDate(setDate); setEventSwitch(d); }}>
+            <View style={styles.selectedMarkView} key ={d}>
               <Text style={styles.activeText}>{`${d}`}</Text>
-              <View style={styles.mark}></View>
+              <View style={styles.mark} key ={d}></View>
             </View>
           </TouchableOpacity>,
         );
-      } else if (isInside(d)) {
+      } else if (isMarked(d)) {
         days.push(
-          <TouchableOpacity onPress={(): void => selectDate?.(
-          new Date(
-            currentDate.getFullYear(),
-            currentDate.getMonth(),
-            d,
-          )
-        )}>
-            <View style={styles.markView}>
+          <TouchableOpacity onPress={(): void => selectDate(setDate)}>
+            <View style={styles.markView} key={d}>
               <Text style={styles.notActiveText}>{`${d}`}</Text>
-              <View style={styles.mark}></View>
+              <View style={styles.mark} key={d}></View>
             </View>
           </TouchableOpacity>,
         );
-      } else if (d === selectedDate?.getDate() && month === selectedDate?.getMonth()) {
+      } else if (onSelected(d)) {
         days.push(
-          <TouchableOpacity onPress={(): void => selectDate?.(
-          new Date(
-            currentDate.getFullYear(),
-            currentDate.getMonth(),
-            d,
-          ),
-        )}>
+          <TouchableOpacity onPress={(): void => selectDate(setDate)}>
             <View style={styles.activeView}>
               <Text style={styles.activeText}>{`${d}`}</Text>
             </View>
@@ -352,13 +324,7 @@ function CalendarCarousel<T>({
         );
       } else {
         days.push(
-          <TouchableOpacity onPress={(): void => selectDate?.(
-          new Date(
-            currentDate.getFullYear(),
-            currentDate.getMonth(),
-            d,
-          ),
-        )}>
+          <TouchableOpacity onPress={(): void => selectDate(setDate)}>
             <View style={styles.notActiveView}>
               <Text style={styles.notActiveText}>{`${d}`}</Text>
             </View>
@@ -367,14 +333,11 @@ function CalendarCarousel<T>({
       }
     }
 
-    const nextDays = [];
-    if (6 - lastWeekday >= 1) {
-      for (let idx = 1; idx <= 6 - lastWeekday; idx++) {
+    if (6 - lastWeekdayOfMonth >= 1) {
+      for (let idx = 1; idx <= 6 - lastWeekdayOfMonth; idx++) {
         nextDays.push(
-          <View
-            style={styles.otherDaysView}>
-            <Text
-              style={styles.otherDaysText}>
+          <View style={styles.otherDaysView}>
+            <Text style={styles.otherDaysText}>
               {`${idx}`}
             </Text>
           </View>,
@@ -413,18 +376,6 @@ function CalendarCarousel<T>({
     );
   };
 
-  const renderCalendars = (currentDate: Date): ReactElement => {
-    const prevMonth = new Date(currentDate.getFullYear(), currentDate.getMonth() - 1, currentDate.getDate());
-    const currentMonth = new Date(currentDate.getFullYear(), currentDate.getMonth(), currentDate.getDate());
-    const nextMonth = new Date(currentDate.getFullYear(), currentDate.getMonth() + 1, currentDate.getDate());
-
-    return <Fragment>
-      {renderCalendar(prevMonth)}
-      {renderCalendar(currentMonth)}
-      {renderCalendar(nextMonth)}
-    </Fragment>;
-  };
-
   const scrollToMiddleCalendar = (): void => {
     scrollRef.current.scrollTo({
       x: layoutWidth,
@@ -456,6 +407,18 @@ function CalendarCarousel<T>({
         scrollToMiddleCalendar();
       }
     }
+  };
+
+  const renderCalendars = (currentDate: Date): ReactElement => {
+    const prevMonth = new Date(currentDate.getFullYear(), currentDate.getMonth() - 1, currentDate.getDate());
+    const currentMonth = new Date(currentDate.getFullYear(), currentDate.getMonth(), currentDate.getDate());
+    const nextMonth = new Date(currentDate.getFullYear(), currentDate.getMonth() + 1, currentDate.getDate());
+
+    return <Fragment>
+      {renderCalendar(prevMonth)}
+      {renderCalendar(currentMonth)}
+      {renderCalendar(nextMonth)}
+    </Fragment>;
   };
 
   return (
