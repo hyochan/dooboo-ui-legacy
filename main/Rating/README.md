@@ -7,32 +7,46 @@
   
 ## Props
 
-| Property | Required | Types   | Default  | Description                |
-| -------- | --------- | ------- | -------- | -------------------------- |
-| total    | ✓         | number  |         | set the total rating value |
-| value    | ✓         | number  |         | set the rating value that will show on the screen. (The value will automatically round down.) |
-| onChange |           | func    | () => {} | set the handler to handle change event |
-| disabled |           | boolean | false    | disabled state of rating   |
+| Property | Required | Types   | Default  | Description                                                                                   |
+| -------- | -------- | ------- | -------- | --------------------------------------------------------------------------------------------- |
+| total    | ✓        | number  |          | set the total rating value                                                                    |
+| value    | ✓        | number  |          | set the rating value that will show on the screen. (The value will automatically round down.) |
+| onChange |          | func    | () => {} | set the handler to handle change event                                                        |
+| disabled |          | boolean | false    | disabled state of rating                                                                      |
 
-## Usage
+## Installation
 
+```sh
+yarn add dooboo-ui
 ```
-interface RatingChangeProps {
-  value: number;
-}
 
-const [value, setValue] = React.useState(0);
+## Getting started
 
-const handleChange = (props: RatingChangeProps): void => {
-    setValue(props.value);
-}
+- Import
 
-// Change rating value with press each of components
-<Rating total={5} value={value} onChange={handleChange} />
+  ```javascript
+  import { Rating } from 'dooboo-ui';
+  ```
 
-// Read only
-<Rating total={5} value={value} />
+- Usage
 
-// Disabled
-<Rating total={5} value={value} disabled />
-```
+  ```tsx
+  interface RatingChangeProps {
+    value: number;
+  }
+
+  const [value, setValue] = React.useState(0);
+
+  const handleChange = (props: RatingChangeProps): void => {
+      setValue(props.value);
+  }
+
+  // Change rating value with press each of components
+  <Rating total={5} value={value} onChange={handleChange} />
+
+  // Read only
+  <Rating total={5} value={value} />
+
+  // Disabled
+  <Rating total={5} value={value} disabled />
+  ```
