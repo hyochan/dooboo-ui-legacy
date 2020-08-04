@@ -7,3 +7,9 @@
 jest.mock('react-native-reanimated', () =>
   require('react-native-reanimated/mock'),
 );
+
+const toLocaleString = Date.prototype.toLocaleString;
+// eslint-disable-next-line no-extend-native
+Date.prototype.toLocaleString = (locale = 'en-US', ...args): string => {
+  return toLocaleString.call(this, locale, ...args);
+};
