@@ -33,13 +33,16 @@ interface Style {
   mark: ViewStyle;
   markDataStyle: ViewStyle;
   eventContainer: ViewStyle;
+  eventText: TextStyle;
+  selectedMarkView: ViewStyle;
+  dayEvent: TextStyle;
 }
 
 const styles = StyleSheet.create<Style>({
   container: {
     paddingTop: 40,
     width: 330,
-    height: 488,
+    height: 388,
   },
   headerStyle: {
     flexDirection: 'row',
@@ -75,7 +78,7 @@ const styles = StyleSheet.create<Style>({
   },
   dayContainer: {
     width: 330,
-    height: 388,
+    height: 338,
   },
   otherDaysView: {
     width: 47,
@@ -137,7 +140,31 @@ const styles = StyleSheet.create<Style>({
     backgroundColor: 'red',
   },
   eventContainer: {
-    height: 100,
+    height: 50,
+    width: 320,
+    backgroundColor: '#109CF1',
+    borderRadius: 30,
+    paddingTop: 15,
+    flexDirection: 'row',
+  },
+  dayEvent: {
+    fontWeight: '900',
+    paddingLeft: 25,
+    color: 'white',
+  },
+  eventText: {
+    color: 'white',
+    fontWeight: '600',
+    paddingLeft: 30,
+    fontSize: 14,
+  },
+  selectedMarkView: {
+    width: 47,
+    height: 47,
+    paddingTop: 13.5,
+    alignItems: 'center',
+    borderRadius: 30,
+    backgroundColor: '#F0F8FD',
   },
 });
 
@@ -161,7 +188,7 @@ let timeout;
 
 function CalendarCarousel<T>({
   date = new Date(), onDateChanged, selectDate, selectedDate,
-}: PropsWithChildren<Props<T>>): React.ReactElement {
+}: PropsWithChildren<Props<T>>): ReactElement {
   const [currentDate, setCurrentDate] = useState<Date>(date);
   const scrollRef = useRef<ScrollView>(null);
 
@@ -229,32 +256,37 @@ function CalendarCarousel<T>({
     const markedDayEvents = [
       {
         selectedEventDate: new Date(2020, 7, 7),
-        events: 'walk dog',
+        events: 'Walk Dog with Neighbor',
       },
       {
         selectedEventDate: new Date(2020, 7, 17),
-        events: 'birthday',
+        events: 'Birthday Party for Jason',
       },
       {
         selectedEventDate: new Date(2020, 7, 27),
-        events: 'cooking',
+        events: 'Cooking for Mom',
       },
     ];
 
     const [eventSwitch, setEventSwitch] = useState(0);
-    const dayEvents = [];
-    const markeddates = markedDayEvents.map((markeddates) => markeddates.selectedEventDate.getDate());
-    const markedmonths = markedDayEvents.map((markedmonths) => markedmonths.selectedEventDate.getMonth() - 1);
+
+    const markedDates = markedDayEvents.map((markeddates) => markeddates.selectedEventDate.getDate());
+    const markedMonths = markedDayEvents.map((markedmonths) => markedmonths.selectedEventDate.getMonth() - 1);
 
     const isInside = (d: number) : boolean => {
-      return markeddates.includes(d) && markedmonths.includes(month);
+      return markedDates.includes(d) && markedMonths.includes(month);
     };
 
-    markedDayEvents.map((markedDayEvent, i) => {
-      if (markeddates[i] === eventSwitch && markedmonths.includes(month)) {
-        dayEvents.push(markedDayEvents[i].events);
-      }
-    });
+    const renderDayEvents = (): ReactElement[] => {
+      return markedDayEvents.map((markedDayEvent, i) => {
+        if (markedDates[i] === eventSwitch && markedMonths.includes(month)) {
+          return <View style = {styles.eventContainer}>
+            <Text style= {styles.dayEvent}>{markedDayEvents[i].selectedEventDate.getDate()}</Text>
+            <Text style = {styles.eventText}>{markedDayEvents[i].events}</Text>
+          </View>;
+        }
+      });
+    };
 
     const days = [];
     for (let d = 1; d <= currentMonthDays; d++) {
@@ -271,9 +303,33 @@ function CalendarCarousel<T>({
             <Text style={styles.currentDayText}>{`${d}`}</Text>
           </View>,
         );
+      } else if (isInside(d) && d === selectedDate?.getDate() && month === selectedDate?.getMonth()) {
+        days.push(
+          <TouchableOpacity onPress={(): void => {
+            selectDate(
+              new Date(
+                currentDate.getFullYear(),
+                currentDate.getMonth(),
+                d,
+              ),
+            );
+            setEventSwitch(d);
+          }}>
+            <View style={styles.selectedMarkView}>
+              <Text style={styles.activeText}>{`${d}`}</Text>
+              <View style={styles.mark}></View>
+            </View>
+          </TouchableOpacity>,
+        );
       } else if (isInside(d)) {
         days.push(
-          <TouchableOpacity onPress ={(): void => { setEventSwitch(d); }}>
+          <TouchableOpacity onPress={(): void => selectDate?.(
+          new Date(
+            currentDate.getFullYear(),
+            currentDate.getMonth(),
+            d,
+          )
+        )}>
             <View style={styles.markView}>
               <Text style={styles.notActiveText}>{`${d}`}</Text>
               <View style={styles.mark}></View>
@@ -352,17 +408,7 @@ function CalendarCarousel<T>({
           }}
           keyExtractor={(item, id): string => id.toString()}
         />
-        <FlatList
-          style= {styles.eventContainer}
-          data= {dayEvents}
-          numColumns = {1}
-          renderItem={({ item }): ReactElement => {
-            if (eventSwitch) {
-              return (
-                <Text>{item}</Text>);
-            }
-          }}
-        />
+        {renderDayEvents()}
       </View>
     );
   };
@@ -422,14 +468,11 @@ function CalendarCarousel<T>({
         scrollEventThrottle={16}
         contentOffset = {{ x: 330, y: 0 }}
         ref={scrollRef}
-        onScroll={(e):void => {
-          scrollEffect(e);
-        }}
+        onScroll={(e): void => scrollEffect(e)}
       >
         {renderCalendars(currentDate)}
       </ScrollView>
-    </SafeAreaView>
-  );
+    </SafeAreaView>);
 }
 
 export default CalendarCarousel;
