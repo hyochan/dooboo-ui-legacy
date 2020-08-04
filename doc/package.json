@@ -27,7 +27,6 @@
   },
   "scripts": {
     "start": "start-storybook --docs -p 9001 -c ./.storybook",
-    "build": "yarn && build-storybook --docs -o ../doc-build -c ./.storybook",
-    "postbuild": "sh postbuild.sh"
+    "build": "yarn && build-storybook --docs -o ../doc-build -c ./.storybook"
   }
 }
