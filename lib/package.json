@@ -1,6 +1,6 @@
 {
   "name": "dooboo-ui",
-  "version": "0.0.12",
+  "version": "0.0.15",
   "main": "index.js",
   "types": "index.d.ts",
   "author": "dooboolab",

@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import RadioButton from '../RadioButton';
+import { RadioButton } from '../../main';
 // Note: test renderer must be required after react-native.
 import { TouchableOpacity } from 'react-native';
 import renderer from 'react-test-renderer';

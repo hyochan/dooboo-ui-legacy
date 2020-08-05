@@ -10,11 +10,11 @@ export const roundNearest = (number: number, digit: number): number => {
   return base;
 };
 
-export const getPercentByValue = (value, maxValue, minValue): number => {
+export const getPercentByValue = (value: number, maxValue: number, minValue: number): number => {
   return (value / (maxValue - minValue)) * 100;
 };
 
-export const getValueByPercent = (percent, maxValue, minValue): number => {
+export const getValueByPercent = (percent: number, maxValue: number, minValue: number): number => {
   return ((maxValue - minValue) * percent) / 100;
 };
 

@@ -1,6 +1,8 @@
 // eslint-disable-next-line
 const { defaults: tsJestConfig } = require('ts-jest/presets');
 
+process.env.TZ = 'Asia/Seoul';
+
 module.exports = {
   ...tsJestConfig,
   preset: '@testing-library/react-native',

@@ -44,7 +44,7 @@
       ```
    2. **run storybook web server**
       ```
-      yarn storybook
+      yarn web
       ```
    3. **run ios or android**
       ```
@@ -119,4 +119,33 @@ array.forEach((e) => {
 ```
 
 - Space before `(` and after `)`.
+
+*** Important ***
+- testID should be written in `kebab-case`
+  `testID = "my-test-id"`
+- Class name should be a `PascalCase`
+- Enum type should be a `PascalCase`
+- Constants should be written in `UPPER_SNAKE_CASE`
+   * Note that this is for `number`, `string` and constant `array`.
+   * Unformed data type like object or class variable should be written in `camelCase`.
+- Variables and functions should be written in `camelCase`
+- Assets name should be written in `lower_snake_case`
+  `const imgUrl = 'assets/icons/icon_add.png'`
+
+
 - **If you find code that does not fit in the coding convention, do not ever try to fix code that is not related to your purpose.**
+
+- [how to use prettier extension for the eslint code rules](https://medium.com/dooboolab/using-eslint-prettier-and-sort-imports-vscode-extensions-for-formatting-open-source-project-16edf317129d)
+- while you are using prettier extension, you may encounter **ternary operator** indentation problems
+
+  ![error](https://i.imgur.com/RhGrbLo.png)
+
+  you can use
+
+  ```
+  // prettier-ignore
+  ```
+
+  like below
+
+  ![fixes](https://i.imgur.com/x3bL5kf.png)

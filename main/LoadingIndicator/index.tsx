@@ -91,4 +91,4 @@ LoadingIndicator.defaultProps = {
   color: '#969696',
 };
 
-export default LoadingIndicator;
+export { LoadingIndicator };

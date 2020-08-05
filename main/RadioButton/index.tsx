@@ -155,4 +155,4 @@ RadioButton.defaultProps = {
   labelPlacement: 'end',
 };
 
-export default RadioButton;
+export { RadioButton };

@@ -7,7 +7,7 @@ import {
   TextStyle,
   ViewStyle,
 } from 'react-native';
-import React, { ReactElement, useState } from 'react';
+import React, { FC, ReactElement, useState } from 'react';
 
 import styled from 'styled-components/native';
 
@@ -90,6 +90,7 @@ interface Props {
   labelTextStyle?: TextStyle;
   labelWidth?: number;
   value?: TextInputProps['value'];
+  contentStyle?: ViewStyle;
   inputContainerType?: string;
   inputContainerRadius?: number;
   borderStyle?: ViewStyle;
@@ -130,7 +131,7 @@ export enum EditTextInputType {
   ROW_BOX = 'rowBox',
 }
 
-function EditText(props: Props): ReactElement {
+const EditText: FC<Props> = (props) => {
   const [focused, setFocus] = useState(false);
 
   const {
@@ -142,6 +143,7 @@ function EditText(props: Props): ReactElement {
     labelTextStyle,
     labelWidth = 110,
     value,
+    contentStyle,
     borderStyle,
     borderWidth = 0.6,
     borderColor = '#eaeaf9',
@@ -158,7 +160,6 @@ function EditText(props: Props): ReactElement {
     secureTextEntry,
     onChangeText,
     onSubmitEditing,
-
     rightElement,
     rightElementStyle,
     focusedLabelStyle = { fontWeight: 'bold' },
@@ -186,9 +187,10 @@ function EditText(props: Props): ReactElement {
               labelTextStyle,
               errorText
                 ? { color: errorColor }
-                : focused
-                  ? [{ color: focusColor }, focusedLabelStyle]
-                  : null,
+                : focused && [
+                  { color: focusColor },
+                  focusedLabelStyle,
+                ],
             ]}
           >
             {label}
@@ -215,22 +217,20 @@ function EditText(props: Props): ReactElement {
             onSubmitEditing={onSubmitEditing}
             multiline={multiline}
           />
-          {borderWidth ? (
-            <StyledLine
+          {
+            borderWidth && <StyledLine
               style={[
                 borderStyle,
                 { borderBottomWidth: borderWidth, borderColor: borderColor },
                 errorText
                   ? { borderColor: errorColor }
-                  : focused
-                    ? [
-                      { borderColor: focusColor },
-                      { borderBottomWidth: focusedBorderWidth },
-                    ]
-                    : null,
+                  : focused && [
+                    { borderColor: focusColor },
+                    { borderBottomWidth: focusedBorderWidth },
+                  ],
               ]}
             />
-          ) : null}
+          }
           {errorText ? (
             <StyledInvalidText
               testID={errorTestID}
@@ -252,12 +252,11 @@ function EditText(props: Props): ReactElement {
                   borderColor: errorColor,
                   borderBottomWidth: focusedBorderWidth,
                 }
-                : focused
-                  ? {
-                    borderColor: focusColor,
-                    borderBottomWidth: focusedBorderWidth,
-                  }
-                  : null,
+                : focused && {
+                  borderColor: focusColor,
+                  borderBottomWidth: focusedBorderWidth,
+                },
+              contentStyle,
             ]}
           >
             {label ? (
@@ -266,9 +265,10 @@ function EditText(props: Props): ReactElement {
                   labelTextStyle,
                   errorText
                     ? [{ color: errorColor }, focusedLabelStyle]
-                    : focused
-                      ? [{ color: focusColor }, focusedLabelStyle]
-                      : null,
+                    : focused && [
+                      { color: focusColor },
+                      focusedLabelStyle,
+                    ],
                   { width: labelWidth },
                 ]}
               >
@@ -319,9 +319,10 @@ function EditText(props: Props): ReactElement {
               labelTextStyle,
               errorText
                 ? { color: errorColor }
-                : focused
-                  ? [{ color: focusColor }, focusedLabelStyle]
-                  : null,
+                : focused && [
+                  { color: focusColor },
+                  focusedLabelStyle,
+                ],
             ]}
           >
             {label}
@@ -335,9 +336,11 @@ function EditText(props: Props): ReactElement {
               borderStyle,
               errorText
                 ? { borderColor: errorColor, borderWidth: focusedBorderWidth }
-                : focused
-                  ? { borderColor: focusColor, borderWidth: focusedBorderWidth }
-                  : null,
+                : focused && {
+                  borderColor: focusColor,
+                  borderWidth: focusedBorderWidth,
+                },
+              contentStyle,
             ]}
           >
             <StyledTextInput
@@ -400,9 +403,10 @@ function EditText(props: Props): ReactElement {
               borderStyle,
               errorText
                 ? { borderColor: errorColor, borderWidth: focusedBorderWidth }
-                : focused
-                  ? { borderColor: focusColor, borderWidth: focusedBorderWidth }
-                  : null,
+                : focused && {
+                  borderColor: focusColor,
+                  borderWidth: focusedBorderWidth,
+                },
             ]}
           >
             {label ? (
@@ -455,6 +459,6 @@ function EditText(props: Props): ReactElement {
         </RowContainer>
       );
   }
-}
+};
 
-export default EditText;
+export { EditText };

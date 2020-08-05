@@ -5,7 +5,8 @@ import {
   fireEvent,
   render,
 } from '@testing-library/react-native';
-import Accordion from '../Accordion';
+
+import { Accordion } from '../../main';
 import { Text } from 'react-native';
 
 let props: any;

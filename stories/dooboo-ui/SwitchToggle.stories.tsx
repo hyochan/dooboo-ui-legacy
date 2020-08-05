@@ -1,7 +1,7 @@
 import React, { ReactElement, useState } from 'react';
 
 import { ContainerDeco } from '../../storybook/decorators';
-import SwitchToggle from '../../main/SwitchToggle';
+import { SwitchToggle } from '../../main';
 import { storiesOf } from '@storybook/react-native';
 
 const Small = (): React.ReactElement => {

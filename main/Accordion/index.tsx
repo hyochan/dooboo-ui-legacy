@@ -1,4 +1,5 @@
 import React, { FC } from 'react';
+
 import AccrordionItem from './AccordionItem';
 import { ViewStyle } from 'react-native';
 import styled from 'styled-components/native';
@@ -8,25 +9,25 @@ const Container = styled.View`
   align-items: center;
 `;
 
-type titleType = {
+type TitleType = {
   leftElement?: React.ReactElement;
   name: React.ReactElement;
   rightElement?: React.ReactElement;
 };
 
-type bodyType = {
+type BodyType = {
   leftElement?: React.ReactElement;
   name: React.ReactElement;
   rightElement?: React.ReactElement;
 };
 
-type datumType = {
-  title: titleType;
-  bodies: Array<bodyType>;
+type DatumType = {
+  title: TitleType;
+  bodies: Array<BodyType>;
 };
 
 interface Props {
-  data: Array<datumType>;
+  data: Array<DatumType>;
   isAnimated?: boolean;
   collapseOnStart: boolean;
   animDuration?: number;
@@ -72,4 +73,5 @@ const Accordion: FC<Props> = (props) => {
     </Container>
   );
 };
-export default Accordion;
+
+export { Accordion };

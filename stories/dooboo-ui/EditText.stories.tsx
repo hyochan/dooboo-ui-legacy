@@ -1,29 +1,23 @@
-import EditText, { EditTextInputType } from '../../main/EditText';
-import { IC_CHECK, IC_EDIT } from '../Icon';
+import { Button, EditText, EditTextInputType } from '../../main';
 import {
   Image,
+  Platform,
   SafeAreaView,
   ScrollView,
   Text,
-  TextStyle,
   TouchableOpacity,
   View,
 } from 'react-native';
 import React, { ReactElement, useState } from 'react';
 
-import Button from '../../main/Button';
 import { ContainerDeco } from '../../storybook/decorators';
+import { IC_CHECK } from '../Icon';
 import { storiesOf } from '@storybook/react-native';
 
 const Default = (): React.ReactElement => {
   const validateEmail = (email: string): boolean => {
     const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     return re.test(email);
-  };
-
-  const fontStyle: TextStyle = {
-    fontWeight: 'bold',
-    fontSize: 13,
   };
 
   const [email, setEmail] = useState<string>('');
@@ -52,14 +46,21 @@ const Default = (): React.ReactElement => {
           alignSelf: 'stretch',
           paddingHorizontal: 20,
           paddingVertical: 100,
-        }}>
+          display: 'flex',
+          flexDirection: 'column',
+          justifyContent: 'center',
+          alignItems: 'center',
+        }}
+      >
         <View
           style={{
             display: 'flex',
             flexDirection: 'column',
-            padding: 20,
-            paddingTop: 10,
-          }}>
+            justifyContent: 'center',
+            alignItems: 'center',
+            width: Platform.OS === 'web' ? 438 : '100%',
+          }}
+        >
           <Text
             style={{
               fontWeight: 'bold',
@@ -70,7 +71,7 @@ const Default = (): React.ReactElement => {
             Sign in with Email
           </Text>
           <EditText
-            testID="EMAIL_INPUT"
+            testID="email-input-defualt"
             textStyle={{
               color: '#495057',
             }}
@@ -79,12 +80,14 @@ const Default = (): React.ReactElement => {
             placeholderTextColor="#ADB5BD"
             value={email}
             onChangeText={(text: string): void => onTextChanged('EMAIL', text)}
-            style={{ marginTop: 50 }}
+            style={{
+              marginTop: 50,
+            }}
             errorText={errorEmail}
             onSubmitEditing={onSignIn}
           />
           <EditText
-            testID="PASSWORD_INPUT"
+            testID="password-input-default"
             textStyle={{
               color: '#ADB5BD',
             }}
@@ -101,15 +104,18 @@ const Default = (): React.ReactElement => {
           />
           <Button
             style={{
-              borderRadius: 26,
+              borderRadius: 6,
               borderWidth: 0,
               marginTop: 40,
-              width: '100%',
-              backgroundColor: 'rgb(36, 205, 151)',
+              width: 184,
+              height: 48,
+              backgroundColor: '#6DA6FC',
             }}
-            testID="btnEmail"
+            testID="btn-default"
             onPress={(): void => onSignIn()}
-            textStyle={fontStyle}
+            textStyle={{
+              color: '#FFFFFF',
+            }}
             text="Login"
           />
           {/* Email SignUp text */}
@@ -119,13 +125,15 @@ const Default = (): React.ReactElement => {
               flexDirection: 'row',
               justifyContent: 'center',
               alignItems: 'center',
-            }}>
+            }}
+          >
             <Text
-              testID="NO_ACCOUNT"
+              testID="no-account"
               style={{
                 fontSize: 14,
                 color: '#495057',
-              }}>
+              }}
+            >
               Do not have and account?{' '}
             </Text>
             <TouchableOpacity onPress={(): null => null} style={{ padding: 4 }}>
@@ -133,7 +141,8 @@ const Default = (): React.ReactElement => {
                 style={{
                   color: '#6772e5',
                   fontWeight: 'bold',
-                }}>
+                }}
+              >
                 Find
               </Text>
             </TouchableOpacity>
@@ -148,11 +157,6 @@ const RowEditText = (): React.ReactElement => {
   const validateEmail = (email: string): boolean => {
     const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     return re.test(email);
-  };
-
-  const fontStyle: TextStyle = {
-    fontWeight: 'bold',
-    fontSize: 13,
   };
 
   const [email, setEmail] = useState<string>('');
@@ -176,31 +180,41 @@ const RowEditText = (): React.ReactElement => {
           alignSelf: 'stretch',
           paddingHorizontal: 20,
           paddingVertical: 100,
-        }}>
+          display: 'flex',
+          flexDirection: 'column',
+          justifyContent: 'center',
+          alignItems: 'center',
+        }}
+      >
         <View
           style={{
-            flex: 1,
+            display: 'flex',
             flexDirection: 'column',
-            padding: 20,
-            paddingTop: 10,
-          }}>
+            justifyContent: 'center',
+            alignItems: 'center',
+            width: Platform.OS === 'web' ? 438 : '100%',
+          }}
+        >
           <Text
             style={{
+              fontStyle: 'normal',
               fontWeight: 'bold',
-              fontSize: 24,
-              lineHeight: 35,
-              color: '#495057',
-            }}>
+              fontSize: 32,
+              lineHeight: 47,
+              letterSpacing: -0.05,
+              color: '#323C47',
+            }}
+          >
             Sign in with Email
           </Text>
           <EditText
-            testID="EMAIL_INPUT"
-            errorTestID="EMAIL_INPUT_ERROR"
+            testID="email-input-row"
+            errorTestID="email-input-error"
             type={EditTextInputType.ROW}
             value={email}
             numberOfLines={1}
             style={{
-              marginTop: 180,
+              marginTop: 50,
             }}
             onBlur={(): void => {
               if (!validateEmail(email)) {
@@ -224,8 +238,8 @@ const RowEditText = (): React.ReactElement => {
             }}
           />
           <EditText
-            testID="PASSWORD_INPUT"
-            errorTestID="PASSWORD_INPUT_ERROR"
+            testID="password-input-row"
+            errorTestID="password-input-error"
             type={EditTextInputType.ROW}
             autoCapitalize="none"
             style={{
@@ -239,7 +253,7 @@ const RowEditText = (): React.ReactElement => {
               setPasswordErrorText('');
               setPassword(text);
             }}
-            placeholder="Write password."
+            placeholder="Write password"
             secureTextEntry={true}
             onSubmitEditing={onSignIn}
             errorText={passwordErrorText}
@@ -249,15 +263,18 @@ const RowEditText = (): React.ReactElement => {
           />
           <Button
             style={{
-              borderRadius: 26,
+              borderRadius: 6,
               borderWidth: 0,
               marginTop: 40,
-              width: '100%',
-              backgroundColor: 'rgb(36, 205, 151)',
+              width: 184,
+              height: 48,
+              backgroundColor: '#6DA6FC',
             }}
-            testID="btnEmail"
+            testID="btn-row"
             onPress={(): void => onSignIn()}
-            textStyle={fontStyle}
+            textStyle={{
+              color: '#FFFFFF',
+            }}
             text="Login"
           />
           {/* Email SignUp text */}
@@ -267,13 +284,15 @@ const RowEditText = (): React.ReactElement => {
               flexDirection: 'row',
               justifyContent: 'center',
               alignItems: 'center',
-            }}>
+            }}
+          >
             <Text
-              testID="NO_ACCOUNT"
+              testID="no-account"
               style={{
                 fontSize: 14,
                 color: '#495057',
-              }}>
+              }}
+            >
               Do not have and account?{' '}
             </Text>
             <TouchableOpacity onPress={(): null => null} style={{ padding: 4 }}>
@@ -281,7 +300,8 @@ const RowEditText = (): React.ReactElement => {
                 style={{
                   color: '#6772e5',
                   fontWeight: 'bold',
-                }}>
+                }}
+              >
                 Find
               </Text>
             </TouchableOpacity>
@@ -298,11 +318,6 @@ const BoxEditText = (): React.ReactElement => {
     return re.test(email);
   };
 
-  const fontStyle: TextStyle = {
-    fontWeight: 'bold',
-    fontSize: 13,
-  };
-
   const [email, setEmail] = useState<string>('');
   const [password, setPassword] = useState<string>('');
   const [errorEmail, setErrorEmail] = useState<string>('');
@@ -331,105 +346,157 @@ const BoxEditText = (): React.ReactElement => {
           alignSelf: 'stretch',
           paddingHorizontal: 20,
           paddingVertical: 100,
-        }}>
+          display: 'flex',
+          flexDirection: 'column',
+          justifyContent: 'center',
+          alignItems: 'center',
+        }}
+      >
         <View
           style={{
-            flex: 1,
+            display: 'flex',
             flexDirection: 'column',
-            padding: 20,
-            paddingTop: 10,
+            justifyContent: 'center',
+            alignItems: 'center',
+            width: Platform.OS === 'web' ? 438 : '100%',
           }}
         >
           <Text
             style={{
+              fontStyle: 'normal',
               fontWeight: 'bold',
-              fontSize: 24,
-              lineHeight: 35,
-              color: '#495057',
+              fontSize: 32,
+              lineHeight: 47,
+              letterSpacing: -0.05,
+              color: '#323C47',
             }}
           >
-            Sign in with Email
+            Sign Up
           </Text>
           <EditText
-            testID="EMAIL_INPUT"
+            testID="email-input-box"
             type={EditTextInputType.BOX}
+            labelTextStyle= {{
+              color: '#333333',
+              fontSize: 14,
+              lineHeight: 24,
+            }}
+            focusedLabelStyle= {{
+              color: '#333333',
+            }}
+            inputContainerRadius={30}
             textStyle={{
               color: '#495057',
             }}
             label="Email"
             placeholder="Email address"
-            placeholderTextColor="#ADB5BD"
+            placeholderTextColor="#707683"
             value={email}
             onChangeText={(text: string): void => onTextChanged('EMAIL', text)}
-            style={{ marginTop: 50 }}
+            style={{
+              marginTop: 30,
+            }}
+            contentStyle={{
+              paddingHorizontal: 16,
+              paddingVertical: 8,
+            }}
             errorText={errorEmail}
             onSubmitEditing={onSignIn}
-            borderStyle={{ height: 60 }}
+            borderStyle={{
+              height: 60,
+              borderRadius: 4,
+              borderColor: '#ECF0F5',
+            }}
             borderWidth={1}
-            leftElement={<Image source={IC_EDIT} />}
-            rightElement={
-              <Image source={IC_CHECK} style={{ width: 16, height: 16 }} />
-            }
+            rightElement={<Image source={IC_CHECK} style={{ width: 16, height: 16 }} />}
           />
           <EditText
-            testID="PASSWORD_INPUT"
+            testID="password-input-box"
             type={EditTextInputType.BOX}
+            labelTextStyle= {{
+              color: '#333333',
+              fontSize: 14,
+              lineHeight: 24,
+            }}
+            focusedLabelStyle= {{
+              color: '#333333',
+            }}
             inputContainerRadius={30}
             textStyle={{
-              color: '#ADB5BD',
+              color: '#495057',
             }}
             secureTextEntry={true}
             label="Password"
             placeholder="Write your password"
-            placeholderTextColor="#ADB5BD"
+            placeholderTextColor="#707683"
             value={password}
             onChangeText={(text: string): void =>
               onTextChanged('PASSWORD', text)
             }
-            style={{ marginTop: 36 }}
+            style={{
+              marginTop: 20,
+            }}
+            contentStyle={{
+              paddingHorizontal: 16,
+              paddingVertical: 8,
+            }}
             onSubmitEditing={onSignIn}
-            leftElement={<Image source={IC_EDIT} />}
-            leftElementStyle={{ width: 60 }}
+            borderStyle={{
+              height: 60,
+              borderRadius: 4,
+              borderColor: '#ECF0F5',
+            }}
+          />
+          <EditText
+            testID="password-input-confirm"
+            type={EditTextInputType.BOX}
+            labelTextStyle= {{
+              color: '#333333',
+              fontSize: 14,
+              lineHeight: 24,
+            }}
+            focusedLabelStyle= {{
+              color: '#333333',
+            }}
+            inputContainerRadius={30}
+            textStyle={{
+              color: '#495057',
+            }}
+            secureTextEntry={true}
+            label="Password Confirm"
+            placeholder="Confirm password"
+            placeholderTextColor="#707683"
+            style={{
+              marginTop: 20,
+              width: `${Platform.OS === 'web' ? 438 : '100%'}`,
+            }}
+            contentStyle={{
+              paddingHorizontal: 16,
+              paddingVertical: 8,
+            }}
+            onSubmitEditing={onSignIn}
+            borderStyle={{
+              height: 60,
+              borderRadius: 4,
+              borderColor: '#ECF0F5',
+            }}
           />
           <Button
             style={{
-              borderRadius: 26,
+              borderRadius: 6,
               borderWidth: 0,
               marginTop: 40,
-              width: '100%',
-              backgroundColor: 'rgb(36, 205, 151)',
+              width: 184,
+              height: 48,
+              backgroundColor: '#6DA6FC',
             }}
-            testID="btnEmail"
+            testID="btn-box"
             onPress={(): void => onSignIn()}
-            textStyle={fontStyle}
-            text="Login"
+            textStyle={{
+              color: '#FFFFFF',
+            }}
+            text="Verify Email"
           />
-          {/* Email SignUp text */}
-          <View
-            style={{
-              marginTop: 20,
-              flexDirection: 'row',
-              justifyContent: 'center',
-              alignItems: 'center',
-            }}>
-            <Text
-              testID="NO_ACCOUNT"
-              style={{
-                fontSize: 14,
-                color: '#495057',
-              }}>
-              Do not have and account?{' '}
-            </Text>
-            <TouchableOpacity onPress={(): null => null} style={{ padding: 4 }}>
-              <Text
-                style={{
-                  color: '#6772e5',
-                  fontWeight: 'bold',
-                }}>
-                Find
-              </Text>
-            </TouchableOpacity>
-          </View>
         </View>
       </ScrollView>
     </SafeAreaView>
@@ -442,11 +509,6 @@ const BoxRowEditText = (): React.ReactElement => {
     return re.test(email);
   };
 
-  const fontStyle: TextStyle = {
-    fontWeight: 'bold',
-    fontSize: 13,
-  };
-
   const [email, setEmail] = useState<string>('');
   const [password, setPassword] = useState<string>('');
   const [errorEmail, setErrorEmail] = useState<string>('');
@@ -475,25 +537,35 @@ const BoxRowEditText = (): React.ReactElement => {
           alignSelf: 'stretch',
           paddingHorizontal: 20,
           paddingVertical: 100,
-        }}>
+          display: 'flex',
+          flexDirection: 'column',
+          justifyContent: 'center',
+          alignItems: 'center',
+        }}
+      >
         <View
           style={{
-            flex: 1,
+            display: 'flex',
             flexDirection: 'column',
-            padding: 20,
-            paddingTop: 10,
-          }}>
+            justifyContent: 'center',
+            alignItems: 'center',
+            width: Platform.OS === 'web' ? 438 : '100%',
+          }}
+        >
           <Text
             style={{
+              fontStyle: 'normal',
               fontWeight: 'bold',
-              fontSize: 24,
-              lineHeight: 35,
-              color: '#495057',
-            }}>
+              fontSize: 32,
+              lineHeight: 47,
+              letterSpacing: -0.05,
+              color: '#323C47',
+            }}
+          >
             Sign in with Email
           </Text>
           <EditText
-            testID="EMAIL_INPUT"
+            testID="email-input-boxrow"
             type="rowBox"
             textStyle={{
               color: '#495057',
@@ -503,13 +575,17 @@ const BoxRowEditText = (): React.ReactElement => {
             placeholderTextColor="#ADB5BD"
             value={email}
             onChangeText={(text: string): void => onTextChanged('EMAIL', text)}
-            style={{ marginTop: 50 }}
+            style={{
+              marginTop: 50,
+            }}
             errorText={errorEmail}
             onSubmitEditing={onSignIn}
-            borderStyle={{ height: 60 }}
+            borderStyle={{
+              height: 60,
+            }}
           />
           <EditText
-            testID="PASSWORD_INPUT"
+            testID="password-input-boxrow"
             type={EditTextInputType.ROW_BOX}
             inputContainerRadius={25}
             textStyle={{
@@ -523,21 +599,26 @@ const BoxRowEditText = (): React.ReactElement => {
             onChangeText={(text: string): void =>
               onTextChanged('PASSWORD', text)
             }
-            style={{ marginTop: 36 }}
+            style={{
+              marginTop: 36,
+            }}
             onSubmitEditing={onSignIn}
           />
           <Button
             style={{
-              borderRadius: 26,
+              borderRadius: 6,
               borderWidth: 0,
               marginTop: 40,
-              width: '100%',
-              backgroundColor: 'rgb(36, 205, 151)',
+              width: 184,
+              height: 48,
+              backgroundColor: '#6DA6FC',
             }}
-            testID="btnEmail"
+            testID="btn-boxrow"
             onPress={(): void => onSignIn()}
-            textStyle={fontStyle}
-            text="Login"
+            textStyle={{
+              color: '#FFFFFF',
+            }}
+            text="SignIn"
           />
           <View
             style={{
@@ -547,7 +628,7 @@ const BoxRowEditText = (): React.ReactElement => {
               alignItems: 'center',
             }}>
             <Text
-              testID="NO_ACCOUNT"
+              testID="no-account"
               style={{
                 fontSize: 14,
                 color: '#495057',

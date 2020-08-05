@@ -14,15 +14,12 @@ Scroll Through each of the months (will automatically load to the next year on D
 - React-Native : FlatList, StyleSheet, SafeAreaView, Text, Texstyle...
 - typescript 
 
-## Visuals
+## Preview
 
 #### Final Design Plan
 
 ![Calendar Carousel](https://user-images.githubusercontent.com/59305253/87650055-0f0bc580-c78c-11ea-9396-2c0230302337.png)
 
-#### Demo
-
-![Calendar Carousel Final](https://user-images.githubusercontent.com/59305253/87649593-75441880-c78b-11ea-96a5-24563ae43f7a.png)
 
 ## Props
 |   Props   |   Types   |                Description                              |   Required |          Default         | 

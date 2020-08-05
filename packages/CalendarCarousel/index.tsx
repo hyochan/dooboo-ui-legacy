@@ -162,20 +162,12 @@ const styles = StyleSheet.create<Style>({
   },
 });
 
-const isToday = (date: Date): boolean => {
-  const today = new Date();
-  return date.getDate() === today.getDate() &&
-      date.getMonth() === today.getMonth() &&
-      date.getFullYear() === today.getFullYear();
-};
-
 interface Props<T> {
   date?: Date;
   onDateChanged?: (date: Date) => void;
   selectedDate?: Date;
   selectDate?: (date: Date) => void;
 }
-
 let layoutWidth = 0;
 let scrolling = false;
 let timeout;
@@ -185,12 +177,21 @@ function CalendarCarousel<T>({
 }: PropsWithChildren<Props<T>>): ReactElement {
   const [currentDate, setCurrentDate] = useState<Date>(date);
   const scrollRef = useRef<ScrollView>(null);
+  const year = currentDate.getFullYear();
+  const month = currentDate.getMonth();
 
   useEffect(() => {
     return function cleanup(): void {
       if (timeout) clearTimeout(timeout);
     };
   }, []);
+
+  const isToday = (date: Date): boolean => {
+    const today = new Date();
+    return date.getDate() === today.getDate() &&
+        date.getMonth() === today.getMonth() &&
+        date.getFullYear() === today.getFullYear();
+  };
 
   const changeMonth = (toPrevMonth?: boolean): void => {
     if (toPrevMonth) {
@@ -215,59 +216,12 @@ function CalendarCarousel<T>({
   };
 
   const renderCalendar = (currentDate: Date): ReactElement => {
-    const monthName = currentDate.toLocaleString('default', {
-      month: 'long',
-    });
+    const monthName = currentDate.toLocaleString('default', { month: 'long' });
     const weekdays = [];
-    const year = currentDate.getFullYear();
-    const month = currentDate.getMonth();
-
-    const prevDays = [];
-    const days = [];
-    const nextDays = [];
-
     const currentMonthLastDay = new Date(year, month + 1, 0).getDate();
     const firstWeekdayOfMonth = new Date(year, month, 1).getDay();
     const lastWeekdayOfMonth = new Date(year, month, currentMonthLastDay).getDay();
     let numPrevMonthDays = new Date(year, month - 1, 0).getDate();
-
-    const markedDayEvents = [
-      {
-        selectedEventDate: new Date(2020, 7, 7),
-        events: 'Walk Dog with Neighbor',
-      },
-      {
-        selectedEventDate: new Date(2020, 7, 17),
-        events: 'Birthday Party for Jason',
-      },
-      {
-        selectedEventDate: new Date(2020, 7, 27),
-        events: 'Cooking for Mom',
-      },
-    ];
-
-    const [eventSwitch, setEventSwitch] = useState(0);
-    const markedDates = markedDayEvents.map((markeddates) => markeddates.selectedEventDate.getDate());
-    const markedMonths = markedDayEvents.map((markedmonths) => markedmonths.selectedEventDate.getMonth() - 1);
-
-    const isMarked = (d: number) : boolean => {
-      return markedDates.includes(d) && markedMonths.includes(month);
-    };
-
-    const renderDayEvents = (): ReactElement[] => {
-      return markedDayEvents.map((markedDayEvent, i) => {
-        if (markedDates[i] === eventSwitch && markedMonths.includes(month)) {
-          return <View style = {styles.eventContainer} key ={i}>
-            <Text style= {styles.dayEvent}>{markedDayEvents[i].selectedEventDate.getDate()}</Text>
-            <Text style = {styles.eventText}>{markedDayEvents[i].events}</Text>
-          </View>;
-        }
-      });
-    };
-
-    const onSelected = (d: number): boolean => {
-      return d === selectedDate?.getDate() && month === selectedDate?.getMonth();
-    };
 
     for (let idx = 0; idx <= 6; idx++) {
       const matchMonth = new Date(2020, 5, idx);
@@ -279,73 +233,36 @@ function CalendarCarousel<T>({
       );
     }
 
+    const prevDates = [];
     for (let idx = 0; idx < firstWeekdayOfMonth; idx++) {
-      prevDays.unshift(
-        <View style={styles.otherDaysView} key={idx}>
-          <Text style={styles.otherDaysText}>{`${numPrevMonthDays}`}</Text>
-        </View>,
-      );
+      prevDates.unshift(new Date(year, month - 1, idx));
       numPrevMonthDays--;
     }
 
+    const dates = [];
     for (let d = 1; d <= currentMonthLastDay; d++) {
-      const setDate = new Date(currentDate.getFullYear(), currentDate.getMonth(), d);
-      if (isToday(setDate)) {
-        days.push(
-          <View style={styles.currentDayView} key={d}>
-            <Text style={styles.currentDayText}>{`${d}`}</Text>
-          </View>,
-        );
-      } else if (isMarked(d) && onSelected(d)) {
-        days.push(
-          <TouchableOpacity onPress={(): void => { selectDate(setDate); setEventSwitch(d); }}>
-            <View style={styles.selectedMarkView} key ={d}>
-              <Text style={styles.activeText}>{`${d}`}</Text>
-              <View style={styles.mark} key ={d}></View>
-            </View>
-          </TouchableOpacity>,
-        );
-      } else if (isMarked(d)) {
-        days.push(
-          <TouchableOpacity onPress={(): void => selectDate(setDate)}>
-            <View style={styles.markView} key={d}>
-              <Text style={styles.notActiveText}>{`${d}`}</Text>
-              <View style={styles.mark} key={d}></View>
-            </View>
-          </TouchableOpacity>,
-        );
-      } else if (onSelected(d)) {
-        days.push(
-          <TouchableOpacity onPress={(): void => selectDate(setDate)}>
-            <View style={styles.activeView}>
-              <Text style={styles.activeText}>{`${d}`}</Text>
-            </View>
-          </TouchableOpacity>,
-        );
-      } else {
-        days.push(
-          <TouchableOpacity onPress={(): void => selectDate(setDate)}>
-            <View style={styles.notActiveView}>
-              <Text style={styles.notActiveText}>{`${d}`}</Text>
-            </View>
-          </TouchableOpacity>,
-        );
-      }
+      dates.push(new Date(year, month, d));
     }
 
+    const nextDates = [];
     if (6 - lastWeekdayOfMonth >= 1) {
       for (let idx = 1; idx <= 6 - lastWeekdayOfMonth; idx++) {
-        nextDays.push(
-          <View style={styles.otherDaysView}>
-            <Text style={styles.otherDaysText}>
-              {`${idx}`}
-            </Text>
-          </View>,
-        );
+        nextDates.push(new Date(year, month + 1, idx));
       }
     }
 
-    const calendarDays = [...prevDays, ...days, ...nextDays];
+    const calendarDates = [...prevDates, ...dates, ...nextDates];
+
+    const renderDayEvents = (): ReactElement[] => {
+      return markedDayEvents.map((markedDayEvent, i) => {
+        if (markedDates[i] === eventSwitch && markedMonths.includes(month)) {
+          return <View style = {styles.eventContainer} key ={i}>
+            <Text style= {styles.dayEvent}>{markedDayEvents[i].selectedEventDate.getDate()}</Text>
+            <Text style = {styles.eventText}>{markedDayEvents[i].events}</Text>
+          </View>;
+        }
+      });
+    };
 
     return (
       <View>
@@ -364,16 +281,98 @@ function CalendarCarousel<T>({
         <View style={styles.weekdayStyle}>{weekdays}</View>
         <FlatList
           style={styles.dayContainer}
+          data={calendarDates}
           numColumns={7}
-          data={calendarDays}
-          renderItem={({ item }): ReactElement => {
-            return item;
-          }}
+          renderItem ={(item : any): ReactElement => renderDates(item)}
           keyExtractor={(item, id): string => id.toString()}
         />
         {renderDayEvents()}
       </View>
     );
+  };
+
+  const markedDayEvents = [
+    {
+      selectedEventDate: new Date(2020, 7, 7),
+      events: 'Walk Dog with Neighbor',
+    },
+    {
+      selectedEventDate: new Date(2020, 7, 17),
+      events: 'Birthday Party for Jason',
+    },
+    {
+      selectedEventDate: new Date(2020, 7, 27),
+      events: 'Cooking for Mom',
+    },
+  ];
+
+  const [eventSwitch, setEventSwitch] = useState(0);
+  const markedDates = markedDayEvents.map((markeddates) => markeddates.selectedEventDate.getDate());
+  const markedMonths = markedDayEvents.map((markedmonths) => markedmonths.selectedEventDate.getMonth() - 1);
+
+  const onSelected = (d: number): boolean => {
+    return d === selectedDate?.getDate() && month === selectedDate?.getMonth();
+  };
+
+  const isMarked = (d: number) : boolean => {
+    return markedDates.includes(d) && markedMonths.includes(month);
+  };
+
+  const renderDates = (day :Date) : ReactElement => (Item(day));
+
+  const Item = (day: Date):ReactElement => {
+    const getYear = day[Object.keys(day)[0]].getFullYear();
+    const getMonth = day[Object.keys(day)[0]].getMonth();
+    const getDay = day[Object.keys(day)[0]].getDate();
+    const setDate = new Date(getYear, getMonth, getDay);
+
+    if (getMonth !== month) {
+      return (
+        <View style={styles.otherDaysView} key={getDay}>
+          <Text style={styles.otherDaysText}>{`${getDay}`}</Text>
+        </View>
+      );
+    } else if (isToday(day[Object.keys(day)[0]])) {
+      return (
+        <View style={styles.currentDayView} key={getDay}>
+          <Text style={styles.currentDayText}>{`${getDay}`}</Text>
+        </View>
+      );
+    } else if (isMarked(getDay) && onSelected(getDay)) {
+      return (
+        <TouchableOpacity onPress={(): void => { selectDate(setDate); setEventSwitch(getDay); }}>
+          <View style={styles.selectedMarkView} key ={getDay}>
+            <Text style={styles.activeText}>{`${getDay}`}</Text>
+            <View style={styles.mark} key ={getDay}></View>
+          </View>
+        </TouchableOpacity>
+      );
+    } else if (isMarked(getDay)) {
+      return (
+        <TouchableOpacity onPress={(): void => selectDate(setDate)}>
+          <View style={styles.markView} key={getDay}>
+            <Text style={styles.notActiveText}>{`${getDay}`}</Text>
+            <View style={styles.mark} key={getDay}></View>
+          </View>
+        </TouchableOpacity>
+      );
+    } else if (onSelected(getDay)) {
+      return (
+        <TouchableOpacity onPress={(): void => selectDate(setDate)}>
+          <View style={styles.activeView}>
+            <Text style={styles.activeText}>{`${getDay}`}</Text>
+          </View>
+        </TouchableOpacity>
+      );
+    } else {
+      return (
+        <TouchableOpacity onPress={(): void => selectDate(setDate)}>
+          <View style={styles.notActiveView}>
+            <Text style={styles.notActiveText}>{`${getDay}`}</Text>
+          </View>
+        </TouchableOpacity>
+      );
+    }
   };
 
   const scrollToMiddleCalendar = (): void => {

@@ -1,7 +1,7 @@
 import { IC_FACEBOOK, IC_GOOGLE } from '../Icon';
 import React, { ReactElement } from 'react';
 
-import Accordion from '../../main/Accordion';
+import { Accordion } from '../../main';
 import Arrow from '../../main/Accordion/Arrow';
 import { ContainerDeco } from '../../storybook/decorators';
 import { storiesOf } from '@storybook/react-native';

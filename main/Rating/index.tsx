@@ -85,4 +85,4 @@ function Rating(props: Props): React.ReactElement {
   );
 }
 
-export default Rating;
+export { Rating };

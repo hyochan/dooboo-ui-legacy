@@ -4,7 +4,7 @@ import {
   cleanup,
   render,
 } from '@testing-library/react-native';
-import { Select, SelectItem } from '../Select';
+import { Select, SelectItem } from '../../main';
 
 let props: any;
 let component: ReactElement;
