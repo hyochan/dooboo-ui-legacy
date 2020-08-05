@@ -8,7 +8,7 @@ interface Props {
   activeOpacity?: number;
   containerHeight?: number;
   value: string | number;
-  onSelectItem?:((param: string | number) => void) | undefined;
+  onSelectItem?:((param: string | number, param2: string | number) => string | number) | undefined;
   customStyle?: ViewStyle
   customTextStyle?: TextStyle;
   children?: string | number;
@@ -26,7 +26,7 @@ const Item: React.FC<Props> = (props): React.ReactElement => {
   const {
     testID,
     children = '',
-    onSelectItem = (value): string | number => value,
+    onSelectItem = (children, value): string | number => value,
     containerHeight,
     activeOpacity = 0.75,
     value,
@@ -40,10 +40,8 @@ const Item: React.FC<Props> = (props): React.ReactElement => {
       testID={testID}
       activeOpacity={activeOpacity}
       style={[{ height: containerHeight }, customStyle]}
-      onPress={(): void => onSelectItem(value)}>
-      <ItemText style={customTextStyle}>
-        {children}
-      </ItemText>
+      onPress={(): string | number => onSelectItem(children, value)}>
+      <ItemText style={customTextStyle}>{children}</ItemText>
     </ItemWrapper>
   );
 };

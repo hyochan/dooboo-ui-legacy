@@ -2,6 +2,9 @@ import {
   Animated,
   Easing,
   TextStyle,
+  TouchableOpacity,
+  TouchableWithoutFeedback,
+  View,
   ViewStyle,
 } from 'react-native';
 import React, { Fragment, ReactNode } from 'react';
@@ -42,13 +45,13 @@ const SelectWrapper = styled.TouchableOpacity<{
   bordered: boolean;
 }>`
   width: 100%;
-  height: 100%;
   flex-direction: row;
   align-items: center;
   padding: 14px 12px;
   background-color: #f7f7f7;
   border-radius: ${({ bordered }): string => (bordered ? '5px' : '0')};
-  border-color: ${({ disabled }): string => disabled ? '#c8c8c8' : 'transparent'};
+  border-color: ${({ disabled }): string =>
+    disabled ? '#c8c8c8' : 'transparent'};
   box-shadow: 0px 2px 4px rgba(212, 210, 212, 0.8);
   opacity: 0.9;
 `;
@@ -57,6 +60,7 @@ const SelectChildWrapper = styled.View<{
   visible: boolean;
   bordered: boolean;
 }>`
+  width: 100%;
   border-color: transparent;
   background-color: #ffffff;
   border-bottom-left-radius: ${({ bordered }): string =>
@@ -104,6 +108,7 @@ const Select : React.FC<Props> = (props): React.ReactElement => {
   } = props;
 
   const [containerHeight, setContainerHeight] = React.useState(10);
+  const [selectedItem, setSelectedItem] = React.useState();
   const rotateAnimValue = React.useRef(new Animated.Value(0)).current;
   const slideAnimValue = React.useRef(new Animated.Value(0)).current;
 
@@ -147,77 +152,78 @@ const Select : React.FC<Props> = (props): React.ReactElement => {
         <Fragment>
           {prefixIcon && <IconView>{prefixIcon}</IconView>}
           {
-            <StyledText
-              disabled={loading}
-              style={[customTextStyle]}>
-              {defaultValue || value || placeholder}
+            <StyledText disabled={loading} style={[customTextStyle]}>
+              {defaultValue || selectedItem || placeholder}
             </StyledText>
           }
+          <Animated.View
+            testID={'SELECT_SUFFIX'}
+            style={[
+              {
+                position: 'absolute',
+                right: 10,
+                transform: [
+                  {
+                    rotate: rotateAnimValue.interpolate({
+                      inputRange: [0, 1],
+                      outputRange: ['0deg', '180deg'],
+                    }),
+                  },
+                ],
+              },
+              customStyle,
+            ]}>
+            <IconView>
+              {(loading &&
+                (customLoader || <LoadingIndicator size="small" />)) ||
+                suffixIcon ||
+                (showArrow && <Arrow customColor={customTextStyle} />)}
+            </IconView>
+          </Animated.View>
         </Fragment>
-        <Animated.View
-          testID={'SELECT_SUFFIX'}
-          style={[
-            {
-              position: 'absolute',
-              right: 10,
-              transform: [
-                {
-                  rotate: rotateAnimValue.interpolate({
-                    inputRange: [0, 1],
-                    outputRange: ['0deg', '180deg'],
-                  }),
-                },
-              ],
-            },
-            customStyle,
-          ]}>
-          <IconView>
-            {(loading && (customLoader || <LoadingIndicator size="small" />)) ||
-              suffixIcon ||
-              (showArrow && (
-                <Arrow
-                  customColor={customTextStyle}
-                />
-              ))}
-          </IconView>
-        </Animated.View>
       </SelectWrapper>
       <SelectChildWrapper
         visible={opened}
         bordered={bordered}
-        style={[customStyle]}>
-        <Animated.ScrollView
-          testID={'SELECT_CHILD_SCROLLVIEW'}
-          keyboardDismissMode={'on-drag'}
-          style={[
-            {
-              height: slideAnimValue.interpolate({
-                inputRange: [0, 1],
-                outputRange: [
-                  0,
-                  listHeight ||
-                    containerHeight * React.Children.count(children) + 1,
-                ],
-              }),
-            },
-            customStyle,
-          ]}>
-          <Fragment>
-            {React.Children.map(children, (child) => {
-              if (React.isValidElement(child)) {
-                return React.cloneElement(child, {
-                  onSelectItem: (value) => {
-                    onOpen(!opened);
-                    return onSelect(value);
-                  },
-                  activeOpacity,
-                  containerHeight,
-                });
-              }
-              return child;
-            })}
-          </Fragment>
-        </Animated.ScrollView>
+        style={[
+          { zIndex: 9999, position: 'absolute', top: containerHeight },
+          customStyle,
+        ]}>
+        <TouchableOpacity>
+          <Animated.ScrollView
+            testID={'SELECT_CHILD_SCROLLVIEW'}
+            keyboardDismissMode={'on-drag'}
+            style={[
+              {
+                height: slideAnimValue.interpolate({
+                  inputRange: [0, 1],
+                  outputRange: [
+                    0,
+                    listHeight ||
+                      containerHeight * React.Children.count(children),
+                  ],
+                }),
+              },
+              customStyle,
+            ]}>
+            <View>
+              {React.Children.map(children, (child) => {
+                if (React.isValidElement(child)) {
+                  return React.cloneElement(child, {
+                    onSelectItem: (itemChildren, value) => {
+                      setSelectedItem(itemChildren);
+                      onOpen(!opened);
+                      return onSelect(value);
+                    },
+                    activeOpacity,
+                    containerHeight,
+                  });
+                }
+                return child;
+              })}
+            </View>
+          </Animated.ScrollView>
+        </TouchableOpacity>
       </SelectChildWrapper>
     </Container>
   );

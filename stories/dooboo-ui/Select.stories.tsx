@@ -44,7 +44,6 @@ const CustomText = styled.Text`
 `;
 
 const Default = (): React.ReactElement => {
-  // [Select] states
   const [selectedValue, onSelectedValue] = React.useState<
     string | number
   >();
@@ -54,6 +53,8 @@ const Default = (): React.ReactElement => {
 
   return (
     <CustomContainer style={{ justifyContent: 'center' }}>
+      <CustomText>{'Selected Item [value]'}</CustomText>
+      <CustomText style={{ fontSize: 14 }}>{selectedValue || ' '}</CustomText>
       <CustomSelectContainer>
         <Select
           opened={isOpen}
@@ -62,9 +63,9 @@ const Default = (): React.ReactElement => {
           value={selectedValue}
           onSelect={(value): void => onSelectedValue(value)}
           onOpen={(isOpen): void => toggleSelect(isOpen)}>
-          <SelectItem value={'Item-1'}>{'Item-1'}</SelectItem>
-          <SelectItem value={'Item-2'}>{'Item-2'}</SelectItem>
-          <SelectItem value={'Item-3'}>{'Item-3'}</SelectItem>
+          <SelectItem value={'Item-Value-1'}>{'Item-1'}</SelectItem>
+          <SelectItem value={'Item-Value-2'}>{'Item-2'}</SelectItem>
+          <SelectItem value={'Item-Value-3'}>{'Item-3'}</SelectItem>
         </Select>
       </CustomSelectContainer>
     </CustomContainer>
@@ -240,6 +241,47 @@ const Customized = (): React.ReactElement => {
   );
 };
 
+const MultipleSelect = (): React.ReactElement => {
+  const [selectedValue1, onSelectedValue1] = React.useState<string | number>();
+  const [isOpen1, toggleSelect1] = React.useState<boolean>(false);
+  const [selectedValue2, onSelectedValue2] = React.useState<string | number>();
+  const [isOpen2, toggleSelect2] = React.useState<boolean>(false);
+
+  return (
+    <CustomContainer style={{ justifyContent: 'center' }}>
+      <CustomText>{'Select-1'}</CustomText>
+      <CustomSelectContainer>
+        <Select
+          opened={isOpen1}
+          activeOpacity={0.5}
+          placeholder={'New fancy select1'}
+          value={selectedValue1}
+          onSelect={(value): void => onSelectedValue1(value)}
+          onOpen={(isOpen): void => toggleSelect1(isOpen)}>
+          <SelectItem value={'Item-Value-1'}>{'Item-1'}</SelectItem>
+          <SelectItem value={'Item-Value-2'}>{'Item-2'}</SelectItem>
+          <SelectItem value={'Item-Value-3'}>{'Item-3'}</SelectItem>
+        </Select>
+      </CustomSelectContainer>
+      <View style={{ margin: 10 }} />
+      <CustomText>{'Select-2'}</CustomText>
+      <CustomSelectContainer>
+        <Select
+          opened={isOpen2}
+          activeOpacity={0.5}
+          placeholder={'New fancy select2'}
+          value={selectedValue2}
+          onSelect={(value): void => onSelectedValue2(value)}
+          onOpen={(isOpen): void => toggleSelect2(isOpen)}>
+          <SelectItem value={'Item-Value-4'}>{'Item-4'}</SelectItem>
+          <SelectItem value={'Item-Value-5'}>{'Item-5'}</SelectItem>
+          <SelectItem value={'Item-Value-6'}>{'Item-6'}</SelectItem>
+        </Select>
+      </CustomSelectContainer>
+    </CustomContainer>
+  );
+};
+
 /**
  * Below are stories for web
  */
@@ -250,6 +292,7 @@ export default {
 export const toStorybook1 = (): ReactElement => <Default />;
 export const toStorybook2 = (): ReactElement => <ChangeProps />;
 export const toStorybook3 = (): ReactElement => <Customized />;
+export const toStorybook4 = (): ReactElement => <MultipleSelect />;
 
 toStorybook1.story = {
   name: 'default',
@@ -257,8 +300,11 @@ toStorybook1.story = {
 toStorybook2.story = {
   name: 'ChangeProps',
 };
-toStorybook2.story = {
+toStorybook3.story = {
   name: 'Customized',
+};
+toStorybook4.story = {
+  name: 'MultipleSelect',
 };
 
 /**
@@ -267,11 +313,14 @@ toStorybook2.story = {
 storiesOf('Select', module)
   .addDecorator(ContainerDeco)
   .add('default', () => <Default />, {
-    notes: 'Simple explanation',
+    notes: 'Default Select component',
   })
   .add('ChangeProps', () => <ChangeProps />, {
-    notes: 'Simple explanation',
+    notes: 'Test props changing',
   })
   .add('Customized', () => <Customized />, {
-    notes: 'Simple explanation',
+    notes: 'A customized Select example',
+  })
+  .add('MultipleSelect', () => <MultipleSelect />, {
+    notes: 'Using more than one Select',
   });
