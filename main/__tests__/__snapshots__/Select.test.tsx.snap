@@ -40,7 +40,6 @@ exports[`[Select] render test should render without crashing 1`] = `
               "borderColor": "transparent",
               "borderRadius": 5,
               "flexDirection": "row",
-              "height": "100%",
               "opacity": 0.9,
               "paddingBottom": 14,
               "paddingLeft": 12,
@@ -190,22 +189,32 @@ exports[`[Select] render test should render without crashing 1`] = `
               },
               "shadowOpacity": 1,
               "shadowRadius": 4,
+              "width": "100%",
+            },
+            Object {
+              "position": "absolute",
+              "top": 10,
+              "zIndex": 9999,
             },
             undefined,
           ]
         }
         visible={false}
       >
-        <ScrollView
-          keyboardDismissMode="on-drag"
-          scrollEventThrottle={0.0001}
-          style={
-            Object {
-              "height": 0,
+        <>
+          <ScrollView
+            keyboardDismissMode="on-drag"
+            scrollEventThrottle={0.0001}
+            style={
+              Object {
+                "height": 0,
+              }
             }
-          }
-          testID="SELECT_CHILD_SCROLLVIEW"
-        />
+            testID="SELECT_CHILD_SCROLLVIEW"
+          >
+            <View />
+          </ScrollView>
+        </>
       </View>
     </View>
   </View>
@@ -252,7 +261,6 @@ exports[`[SelectItem] render test should render without crashing 1`] = `
               "borderColor": "transparent",
               "borderRadius": 5,
               "flexDirection": "row",
-              "height": "100%",
               "opacity": 0.9,
               "paddingBottom": 14,
               "paddingLeft": 12,
@@ -402,22 +410,32 @@ exports[`[SelectItem] render test should render without crashing 1`] = `
               },
               "shadowOpacity": 1,
               "shadowRadius": 4,
+              "width": "100%",
+            },
+            Object {
+              "position": "absolute",
+              "top": 10,
+              "zIndex": 9999,
             },
             undefined,
           ]
         }
         visible={false}
       >
-        <ScrollView
-          keyboardDismissMode="on-drag"
-          scrollEventThrottle={0.0001}
-          style={
-            Object {
-              "height": 0,
+        <>
+          <ScrollView
+            keyboardDismissMode="on-drag"
+            scrollEventThrottle={0.0001}
+            style={
+              Object {
+                "height": 0,
+              }
             }
-          }
-          testID="SELECT_CHILD_SCROLLVIEW"
-        />
+            testID="SELECT_CHILD_SCROLLVIEW"
+          >
+            <View />
+          </ScrollView>
+        </>
       </View>
     </View>
   </View>
