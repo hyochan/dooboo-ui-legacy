@@ -41,7 +41,7 @@ const styles = StyleSheet.create({
   },
 });
 
-const SwitchToggle: React.FC<Props> = (props): React.ReactElement => {
+const SwitchToggle: React.FC<Props> = (props) => {
   const [animXValue] = useState(new Animated.Value(props.switchOn ? 1 : 0));
   const getStart = (): number | Record<string, unknown> | undefined => {
     // prettier-ignore
