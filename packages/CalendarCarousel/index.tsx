@@ -14,7 +14,7 @@ import {
   View,
   ViewStyle,
 } from 'react-native';
-import React, { Fragment, PropsWithChildren, ReactElement, useEffect, useRef, useState } from 'react';
+import React, { Fragment, PropsWithChildren, ReactElement, useRef, useState } from 'react';
 
 interface Style {
   container: ViewStyle;
