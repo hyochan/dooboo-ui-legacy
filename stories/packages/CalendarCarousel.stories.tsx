@@ -14,9 +14,29 @@ const Container = styled.SafeAreaView`
 
 const date = new Date();
 
+interface Event {
+  selectedEventDate: Date;
+  events: string;
+}
+
 function Default(): React.ReactElement {
   const [currentDate, setCurrentDate] = useState<Date>(date);
   const [selectedDate, setSelectedDate] = useState<Date>();
+
+  const markedDayEvents = [
+    {
+      selectedEventDate: new Date(2020, 7, 7),
+      events: 'Walk Dog with Neighbor',
+    },
+    {
+      selectedEventDate: new Date(2020, 7, 17),
+      events: 'Birthday Party for Jason',
+    },
+    {
+      selectedEventDate: new Date(2020, 7, 27),
+      events: 'Cooking for Mom',
+    },
+  ];
 
   return (
     <Container>
@@ -25,6 +45,7 @@ function Default(): React.ReactElement {
         onDateChanged={(date: Date): void => setCurrentDate(date)}
         selectedDate={selectedDate}
         selectDate={(date: Date): void => setSelectedDate(date)}
+        markedDayEvents={markedDayEvents}
       />
     </Container>
   );

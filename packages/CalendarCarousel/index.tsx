@@ -172,9 +172,10 @@ interface Props<T> {
   onDateChanged?: (date: Date) => void;
   selectedDate?: Date;
   selectDate?: (date: Date) => void;
+  markedDayEvents?: any;
 }
 function CalendarCarousel<T>({
-  date = new Date(), onDateChanged, selectDate, selectedDate,
+  date = new Date(), onDateChanged, selectDate, selectedDate, markedDayEvents,
 }: PropsWithChildren<Props<T>>): ReactElement {
   const [currentDate, setCurrentDate] = useState<Date>(date);
   const scrollRef = useRef<ScrollView>(null);
@@ -288,21 +289,6 @@ function CalendarCarousel<T>({
       </View>
     );
   };
-
-  const markedDayEvents = [
-    {
-      selectedEventDate: new Date(2020, 7, 7),
-      events: 'Walk Dog with Neighbor',
-    },
-    {
-      selectedEventDate: new Date(2020, 7, 17),
-      events: 'Birthday Party for Jason',
-    },
-    {
-      selectedEventDate: new Date(2020, 7, 27),
-      events: 'Cooking for Mom',
-    },
-  ];
 
   const [eventSwitch, setEventSwitch] = useState(0);
   const markedDates = markedDayEvents.map((markeddates) => markeddates.selectedEventDate.getDate());
