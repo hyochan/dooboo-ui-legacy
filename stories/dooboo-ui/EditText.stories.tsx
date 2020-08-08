@@ -398,7 +398,6 @@ const BoxEditText = (): React.ReactElement => {
             }}
             contentStyle={{
               paddingHorizontal: 16,
-              paddingVertical: 8,
             }}
             errorText={errorEmail}
             onSubmitEditing={onSignIn}
@@ -438,7 +437,6 @@ const BoxEditText = (): React.ReactElement => {
             }}
             contentStyle={{
               paddingHorizontal: 16,
-              paddingVertical: 8,
             }}
             onSubmitEditing={onSignIn}
             borderStyle={{
@@ -472,7 +470,6 @@ const BoxEditText = (): React.ReactElement => {
             }}
             contentStyle={{
               paddingHorizontal: 16,
-              paddingVertical: 8,
             }}
             onSubmitEditing={onSignIn}
             borderStyle={{
