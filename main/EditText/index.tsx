@@ -63,6 +63,7 @@ const StyledTextInput = styled.TextInput`
   padding-bottom: 15px;
   font-size: 15px;
   font-weight: 500;
+  flex: 1;
   ${Platform.OS === 'web' && { 'outline-style': 'none' }}
 `;
 
