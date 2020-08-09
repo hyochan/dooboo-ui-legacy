@@ -6,27 +6,27 @@
 
 ## Props
 
-|                       | necessary             | types        | default   |
-| --------------------- | --------------------- | ------------ | --------- |
-| testID                |                       | string       |           |
-| containerStyle        |                       | ViewStyle    |           |
-| style                 |                       | ViewStyle    |           |
-| disabledStyle         |                       | ViewStyle    |           |
-| textStyle             |                       | TextStyle    |           |
-| didsabledTextStyle    |                       | TextStyle    |           |
-| isLoading             |                       | boolean      |           |
-| isDisabled            |                       | boolean      |           |
-| leftElement           |                       | ReactElement |           |
-| rightElement          |                       | ReactElement |           |
-| indicatorColor        |                       | string       | '#ffffff' |
-| activeOpacity         |                       | number       | 0.5       |
-| text                  |                       | string       |           |
-| onPress               |                       | func         |           |
-| touchableOpacityProps | TouchableOpacityProps |              |
-| hoverStyle            | ViewStyle             |              |
-| Accent                | ViewStyle             |              |
-| hoverTextStyle        | TextStyle             |              |
-| Secondary             | ViewStyle             |              |
+|                       | necessary | types                 | default   |
+| --------------------- | --------- | --------------------- | --------- |
+| testID                |           | string                |           |
+| containerStyle        |           | ViewStyle             |           |
+| style                 |           | ViewStyle             |           |
+| disabledStyle         |           | ViewStyle             |           |
+| textStyle             |           | TextStyle             |           |
+| didsabledTextStyle    |           | TextStyle             |           |
+| isLoading             |           | boolean               |           |
+| isDisabled            |           | boolean               |           |
+| leftElement           |           | ReactElement          |           |
+| rightElement          |           | ReactElement          |           |
+| indicatorColor        |           | string                | '#ffffff' |
+| activeOpacity         |           | number                | 0.5       |
+| text                  |           | string                |           |
+| onPress               |           | func                  |           |
+| touchableOpacityProps |           | TouchableOpacityProps |           |
+| hoverStyle            |           | ViewStyle             |           |
+| Accent                |           | ViewStyle             |           |
+| hoverTextStyle        |           | TextStyle             |           |
+| Secondary             |           | ViewStyle             |           |
 
 ## Installation
 
@@ -56,8 +56,7 @@ yarn add dooboo-ui
     textStyle={{
       color: 'white',
     }}
-    onPress={(): void => {}}
-  >
+    onPress={(): void => {}}>
     Sample button
   </Button>
   ```
@@ -69,8 +68,7 @@ yarn add dooboo-ui
       backgroundColor: 'red',
       borderColor: 'blue',
     }}
-    onPress={(): void => {}}
-  >
+    onPress={(): void => {}}>
     <SampleText>Sample button</SampleText>
   </Button>
   ```
@@ -93,10 +91,9 @@ yarn add dooboo-ui
     textStyle={{
       color: 'white',
     }}
-    onPress={(): void => {}}
-  >
+    onPress={(): void => {}}>
     Sample button
-  </SampleButton>
+  </SampleButton>;
   ```
 
   ```jsx
@@ -112,7 +109,7 @@ yarn add dooboo-ui
   `;
   <SampleButton testID="sampleButton" onPress={(): void => {}}>
     <SampleText>Sample button</SampleText>
-  </SampleButton>
+  </SampleButton>;
   ```
 
   - example
@@ -191,8 +188,7 @@ yarn add dooboo-ui
               setGoogleLoading(false);
               clearTimeout(timeout);
             }, 2000);
-          }}
-        >
+          }}>
           GOOGLE SIGN IN
         </Button>
         <Button
@@ -212,8 +208,7 @@ yarn add dooboo-ui
               setFacebookLoading(false);
               clearTimeout(timeout);
             }, 2000);
-          }}
-        >
+          }}>
           FACEBOOK SIGN IN
         </Button>
       </Container>
