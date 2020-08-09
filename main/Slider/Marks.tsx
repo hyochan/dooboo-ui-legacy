@@ -88,6 +88,11 @@ const getStepByMarkCount = ({
   count,
   startMark,
   endMark,
+}: {
+  railWidth: number;
+  count: number;
+  startMark: boolean;
+  endMark: boolean;
 }): number => {
   const step = railWidth / count;
 
