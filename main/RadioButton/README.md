@@ -3,6 +3,12 @@
 > Simple radio button for react-native.  
 > Refer : <https://material-ui.com/components/radio-buttons>
 
+## Preview
+
+| Normal | StandAlone | LabelPlace |   
+|---------|-------------|------------|
+| ![Normal](https://user-images.githubusercontent.com/40848918/89731597-4451bd80-da83-11ea-9974-3446dbfe5c93.jpg) | ![StandAlone](https://user-images.githubusercontent.com/40848918/89731598-461b8100-da83-11ea-8246-8d637b270947.jpg) | ![LabelPlacement](https://user-images.githubusercontent.com/40848918/89731599-47e54480-da83-11ea-8093-3a9233f9e51f.jpg) |   
+
 ## Installation
 
 ```sh
