@@ -4,10 +4,6 @@
 
 ## Preview
 
-| Normal | StandAlone | LabelPlace |
-| ------ | ---------- | ---------- |
-
-
 <img src="https://user-images.githubusercontent.com/48340711/89746952-6553f600-daf7-11ea-8595-e1dfc50b8492.png" width="400" />
 <img src="https://user-images.githubusercontent.com/48340711/89746953-67b65000-daf7-11ea-891a-e49019c553d9.png" width="400" />
 <img src="https://user-images.githubusercontent.com/11019960/73301499-3c080280-4256-11ea-9095-80c40703191f.png" width="400" />
