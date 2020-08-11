@@ -3,6 +3,18 @@ const { withUnimodules } = require('@expo/webpack-config/addons');
 
 module.exports = ({ config, mode }) => {
   config.module.rules.push({
+    test: /\.(js|jsx)$/,
+    use: [
+      {
+        loader: 'babel-loader',
+        options: {
+          plugins: ['@babel/plugin-transform-react-jsx'],
+        }
+      },
+    ]  
+  });
+
+  config.module.rules.push({
     test: /\.(gif|jpe?g|png|svg)$/,
     use: {
       loader: 'url-loader',
