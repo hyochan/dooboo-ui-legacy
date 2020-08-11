@@ -29,6 +29,12 @@
    ```
    yarn
    ```
+   
+   The components in `packages` folder need to be prepare by lerna.
+   ```
+   yarn pre
+   ```
+   
    - Note that we recommend using yarn because all of our team members do.
    - Also node that `yarn.lock` and `package-lock.json` sometimes make collision. Try to delete one of them.
 4. Run pod install if you clone list of independent components in `@dooboo-ui/*`
