@@ -146,7 +146,12 @@ const Snackbar = (props: SnackbarProps, ref: React.Ref<SnackbarRef>): React.Reac
           <MessageText style={messageStyle}>{text}</MessageText>
           {actionText && (
             <ActionContainer>
-              <Touchable onPress={onPressAction}>
+              <Touchable 
+                onPress={() => {
+                  onPressAction && onPressAction();
+                  hide(); 
+                }}
+              >
                 <ActionButton>
                   <ActionText style={actionStyle}>{actionText}</ActionText>
                 </ActionButton>

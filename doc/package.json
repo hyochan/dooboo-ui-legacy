@@ -4,6 +4,7 @@
   "main": "index.js",
   "license": "MIT",
   "dependencies": {
+    "@dooboo-ui/snackbar": "file:../packages/Snackbar",
     "@expo/config": "^3.2.15",
     "@expo/webpack-config": "^0.12.20",
     "@storybook/addon-docs": "^6.0.0",
@@ -27,6 +28,7 @@
   },
   "scripts": {
     "start": "start-storybook --docs -p 9001 -c ./.storybook",
-    "build": "yarn && build-storybook --docs -o ../doc-build -c ./.storybook"
+    "build": "yarn && build-storybook --docs -o ../doc-build -c ./.storybook",
+    "postinstall": "yarn upgrade @dooboo-ui/snackbar dooboo-ui"
   }
 }
