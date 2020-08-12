@@ -19,7 +19,7 @@ addParameters({
     },
     theme: create({
       base: 'light',
-      brandTitle: 'DoobooUI',
+      brandTitle: 'dooboo-ui',
       brandUrl: 'https://dooboolab.github.io/dooboo-ui',
       // To control appearance:
       // brandImage: 'http://url.of/some.svg',

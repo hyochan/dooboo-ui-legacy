@@ -63,14 +63,15 @@ The default style of snackbar container is like below.
 }
 ```
 
-You can change the container style by adding `containerStyle` to the object parameter of the `show` method like this.
+You can change the container style by adding `containerStyle` field. 
 ```typescript
 snackbar.show({
   text: 'Simple text message',
   containerStyle: {
     alignSelf: 'left',
     backgroundColor: '#0008',
-    bottom: 0,
+    bottom: undefined, // if this line removed then the component will be stretched vertically because of default bottom value (10).
+    up: 10,
     minWidth: 300,
   }
 })

@@ -58,7 +58,8 @@ export const StyleChanged = getExample({
   containerStyle: {
     alignSelf: 'flex-start',
     backgroundColor: '#0008',
-    bottom: 0,
+    bottom: undefined,
+    top: 10,
     minWidth: 300,
   }      
 });
