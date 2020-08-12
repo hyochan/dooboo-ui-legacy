@@ -5,16 +5,17 @@ import { create } from '@storybook/theming';
 
 // Option defaults:
 addParameters({
-  docs: {
-    container: DocsContainer,
-    page: DocsPage,
-  },
   options: {
     storySort: (a, b) => {
       const sectionA = a[1].id.split('-')[0];
       const sectionB = b[1].id.split('-')[0];
-
-      return sectionB.localeCompare(sectionA);
+      if (sectionA === sectionB) {
+        return a[0].localeCompare(b[0]);
+      }
+      const sectionMap = {
+        overview: 0, components: 1, packages: 2
+      };
+      return sectionMap[sectionA] - sectionMap[sectionB];
     },
     theme: create({
       base: 'light',

@@ -5561,10 +5561,8 @@ domutils@^2.0.0:
     domelementtype "^2.0.1"
     domhandler "^3.0.0"
 
-dooboo-ui@^0.0.3:
-  version "0.0.3"
-  resolved "https://registry.yarnpkg.com/dooboo-ui/-/dooboo-ui-0.0.3.tgz#bc1f3f11b43b818c7602a649ca18dcdad09e2090"
-  integrity sha512-DP3DQNZ6MaaNCLQSlpOXKresQARWRWzkHrj+O1HEGBobPniHEB4D8TV87UZv9MjYTCW1tXn1bp0bZ4WCyFti1w==
+"dooboo-ui@file:../lib":
+  version "0.0.15"
   dependencies:
     dooboolab-welcome "^1.2.0"
 

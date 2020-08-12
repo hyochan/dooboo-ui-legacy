@@ -10,7 +10,7 @@
     "@storybook/cli": "^6.0.0",
     "@storybook/theming": "^6.0.0",
     "babel-loader": "^8.1.0",
-    "dooboo-ui": "^0.0.3",
+    "dooboo-ui": "file:../lib",
     "metro-react-native-babel-preset": "^0.61.0",
     "react-native-web": "^0.13.4",
     "styled-components": "^5.1.1"

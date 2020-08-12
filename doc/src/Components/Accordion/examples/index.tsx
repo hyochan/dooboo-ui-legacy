@@ -8,7 +8,7 @@ const Container = styled.View`
   flex: 1;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  min-height: 600px;
 `;
 
 const StyledTitle = styled.Text`
