@@ -146,10 +146,10 @@ const Snackbar = (props: SnackbarProps, ref: React.Ref<SnackbarRef>): React.Reac
           <MessageText style={messageStyle}>{text}</MessageText>
           {actionText && (
             <ActionContainer>
-              <Touchable 
-                onPress={() => {
+              <Touchable
+                onPress={(): void => {
                   onPressAction && onPressAction();
-                  hide(); 
+                  hide();
                 }}
               >
                 <ActionButton>
