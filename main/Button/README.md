@@ -6,27 +6,27 @@
 
 ## Props
 
-|                       | necessary | types                 | default   |
-| --------------------- | --------- | --------------------- | --------- |
-| testID                |           | string                |           |
-| containerStyle        |           | ViewStyle             |           |
-| style                 |           | ViewStyle             |           |
-| disabledStyle         |           | ViewStyle             |           |
-| textStyle             |           | TextStyle             |           |
-| didsabledTextStyle    |           | TextStyle             |           |
-| isLoading             |           | boolean               |           |
-| isDisabled            |           | boolean               |           |
-| leftElement           |           | ReactElement          |           |
-| rightElement          |           | ReactElement          |           |
-| indicatorColor        |           | string                | '#ffffff' |
-| activeOpacity         |           | number                | 0.5       |
-| text                  |           | string                |           |
-| onPress               |           | func                  |           |
-| touchableOpacityProps |           | TouchableOpacityProps |           |
-| hoverStyle            |           | ViewStyle             |           |
-| Accent                |           | ViewStyle             |           |
-| hoverTextStyle        |           | TextStyle             |           |
-| Secondary             |           | ViewStyle             |           |
+|                       | required | types                 | default   |
+| --------------------- | -------- | --------------------- | --------- |
+| testID                |          | string                |           |
+| containerStyle        |          | ViewStyle             |           |
+| style                 |          | ViewStyle             |           |
+| disabledStyle         |          | ViewStyle             |           |
+| textStyle             |          | TextStyle             |           |
+| didsabledTextStyle    |          | TextStyle             |           |
+| isLoading             |          | boolean               |           |
+| isDisabled            |          | boolean               |           |
+| leftElement           |          | ReactElement          |           |
+| rightElement          |          | ReactElement          |           |
+| indicatorColor        |          | string                | '#ffffff' |
+| activeOpacity         |          | number                | 0.5       |
+| text                  |          | string                |           |
+| onPress               |          | func                  |           |
+| touchableOpacityProps |          | TouchableOpacityProps |           |
+| hoverStyle            |          | ViewStyle             |           |
+| Accent                |          | ViewStyle             |           |
+| hoverTextStyle        |          | TextStyle             |           |
+| Secondary             |          | ViewStyle             |           |
 
 ## Installation
 
