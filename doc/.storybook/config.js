@@ -1,9 +1,14 @@
 import { addDecorator, addParameters, configure } from '@storybook/react';
+import { DocsPage, DocsContainer } from '@storybook/addon-docs/blocks';
 
 import { create } from '@storybook/theming';
 
 // Option defaults:
 addParameters({
+  docs: {
+    container: DocsContainer,
+    page: DocsPage,
+  },
   options: {
     storySort: (a, b) => {
       const sectionA = a[1].id.split('-')[0];
