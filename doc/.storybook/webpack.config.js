@@ -38,7 +38,7 @@ module.exports = ({ config, mode }) => {
     'react-native': 'react-native-web',
   };
 
-  return withUnimodules(config, {
+  const configWithExpo = withUnimodules(config, {
     projectRoot: resolve(__dirname, '../'),
     // babel: {
     //   dangerouslyAddModulePathsToTranspile: [
@@ -47,4 +47,6 @@ module.exports = ({ config, mode }) => {
     //   ],
     // },
   });
+  configWithExpo.output.publicPath = '';
+  return configWithExpo;
 };
