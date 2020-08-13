@@ -14,8 +14,7 @@ const Container = styled.View`
   align-items: center;
   justify-content: center;
   width: 100%;
-  margin-top: 28px;
-  padding-top: 80px;
+  margin-top: 20px;
   flex-direction: column;
 `;
 
