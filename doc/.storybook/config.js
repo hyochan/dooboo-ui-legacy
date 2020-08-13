@@ -1,4 +1,5 @@
 import { addDecorator, addParameters, configure } from '@storybook/react';
+import { DocsPage, DocsContainer } from '@storybook/addon-docs/blocks';
 
 import { create } from '@storybook/theming';
 
@@ -8,12 +9,17 @@ addParameters({
     storySort: (a, b) => {
       const sectionA = a[1].id.split('-')[0];
       const sectionB = b[1].id.split('-')[0];
-
-      return sectionB.localeCompare(sectionA);
+      if (sectionA === sectionB) {
+        return a[0].localeCompare(b[0]);
+      }
+      const sectionMap = {
+        overview: 0, components: 1, packages: 2
+      };
+      return sectionMap[sectionA] - sectionMap[sectionB];
     },
     theme: create({
       base: 'light',
-      brandTitle: 'DoobooUI',
+      brandTitle: 'dooboo-ui',
       brandUrl: 'https://dooboolab.github.io/dooboo-ui',
       // To control appearance:
       // brandImage: 'http://url.of/some.svg',
