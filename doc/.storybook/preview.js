@@ -1,7 +1,4 @@
-import { addDecorator, addParameters, configure } from '@storybook/react';
-import { DocsPage, DocsContainer } from '@storybook/addon-docs/blocks';
-
-import { create } from '@storybook/theming';
+import { addParameters } from '@storybook/react';
 
 // Option defaults:
 addParameters({
@@ -17,13 +14,6 @@ addParameters({
       };
       return sectionMap[sectionA] - sectionMap[sectionB];
     },
-    theme: create({
-      base: 'light',
-      brandTitle: 'dooboo-ui',
-      brandUrl: 'https://dooboolab.github.io/dooboo-ui',
-      // To control appearance:
-      // brandImage: 'http://url.of/some.svg',
-    }),
     /**
      * regex for finding the hierarchy separator
      * @example:
@@ -45,9 +35,3 @@ addParameters({
     panelPosition: 'bottom',
   },
 });
-
-// addDecorator(centered);
-
-const context = require.context('../src', true, /\.stories\.(js|mdx)$/);
-
-configure(context, module);
