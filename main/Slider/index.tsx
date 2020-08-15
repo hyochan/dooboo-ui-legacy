@@ -158,18 +158,18 @@ const Slider: FC<Props> = ({
       }),
     [sliderPositionX, sliderWidth, onChange],
   );
+
+  if (sliderRef.current) {
+    sliderRef.current.measure((x, y, width, height, pageX) => {
+      setSliderPositionX(pageX);
+      setSliderWidth(width);
+    });
+  }
+
   return (
     <Container
       ref={sliderRef}
       {...panResponder.panHandlers}
-      onLayout={(): void => {
-        if (sliderRef) {
-          sliderRef.current.measure((x, y, width, height, pageX) => {
-            setSliderPositionX(pageX);
-            setSliderWidth(width);
-          });
-        }
-      }}
     >
       <Rail testID="rail-test-id" style={railStyle}/>
       <Track testID="track-test-id" percent={percent} style={trackStyle}/>
