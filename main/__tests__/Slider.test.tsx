@@ -43,14 +43,28 @@ describe('[Slider] render', () => {
   });
 
   describe('[Slider] slider.current.measure', () => {
-    it('Should have slider.current.measure called', () => {
-      const measure = jest.fn();
+    const measure = jest.fn();
+    beforeEach(() => {
+      jest.restoreAllMocks();
+      jest.resetAllMocks();
+    });
+
+    it('Should not have slider.current.measure called when current does not exist', () => {
+      const useRefSpy = jest.spyOn(React, 'useRef').mockReturnValueOnce({ current: null });
+      render(
+        <Slider />,
+      );
+      expect(useRefSpy).toBeCalledTimes(1);
+      expect(measure).not.toBeCalled();
+    });
+
+    it('Should have slider.current.measure called when current exist', () => {
       const useRefSpy = jest.spyOn(React, 'useRef').mockReturnValueOnce({ current: { measure } });
       render(
         <Slider />,
       );
-      expect(useRefSpy).toHaveBeenCalled();
-      expect(measure).toHaveBeenCalled();
+      expect(useRefSpy).toBeCalledTimes(1);
+      expect(measure).toBeCalledTimes(1);
     });
   });
 
