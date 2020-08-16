@@ -3,7 +3,7 @@ import React, { useRef } from 'react';
 
 import styled from 'styled-components/native';
 
-interface ICircleProps {
+interface CircleProps {
   color: string;
   size: number;
   innerSize: number;
@@ -11,11 +11,11 @@ interface ICircleProps {
   borderWidth: number;
 }
 
-interface ILabelTextProps {
+interface LabelTextProps {
   disabled?: boolean;
 }
 
-interface IInputRowProps {
+interface InputRowProps {
   isLabelColumn: boolean;
 }
 
@@ -47,7 +47,7 @@ const COLOR: {
   BLACK: '#000000',
 };
 
-const SCInputRow = styled.TouchableOpacity<IInputRowProps>`
+const SCInputRow = styled.TouchableOpacity<InputRowProps>`
   justify-content: ${({ isLabelColumn }): string =>
     isLabelColumn ? 'center' : 'flex-start'};
   flex-direction: ${({ isLabelColumn }): string =>
@@ -56,7 +56,7 @@ const SCInputRow = styled.TouchableOpacity<IInputRowProps>`
   padding: 8px 0;
 `;
 
-const SCOuterCircle = styled.View<ICircleProps>`
+const SCOuterCircle = styled.View<CircleProps>`
   border-radius: ${({ borderRadius }): number => borderRadius}px;
   border-width: ${({ borderWidth }): number => borderWidth}px;
   width: ${({ size }): number => size}px;
@@ -67,11 +67,11 @@ const SCOuterCircle = styled.View<ICircleProps>`
   margin: 7px;
 `;
 
-const SCLabelText = styled.Text<ILabelTextProps>`
+const SCLabelText = styled.Text<LabelTextProps>`
   color: ${({ disabled }): string => (disabled ? COLOR.GRAY59 : COLOR.BLACK)};
 `;
 
-const getCircleStyles = (size: number, color: string): ICircleProps => {
+const getCircleStyles = (size: number, color: string): CircleProps => {
   return {
     color,
     size,
@@ -85,7 +85,7 @@ const InnerCircleAnim = ({
   innerSize,
   borderRadius,
   color,
-}: ICircleProps): React.ReactElement => {
+}: CircleProps): React.ReactElement => {
   const circleAnim = useRef(new Animated.ValueXY()).current;
 
   React.useEffect(() => {
