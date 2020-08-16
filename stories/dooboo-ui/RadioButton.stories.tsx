@@ -202,37 +202,9 @@ function LabelPlacement(): React.ReactElement {
   );
 }
 
-/**
- * Below are stories for web
- */
-export default {
-  title: 'RadioButton',
-};
-export const toStorybook = (): ReactElement => <Normal />;
-export const toStorybook2 = (): ReactElement => <StandAlone />;
-export const toStorybook3 = (): ReactElement => <LabelPlacement />;
-export const toStorybook4 = (): ReactElement => <Controllable />;
-
-toStorybook.story = {
-  name: 'Normal',
-};
-toStorybook2.story = {
-  name: 'StandAlone',
-};
-toStorybook3.story = {
-  name: 'LabelPlacement',
-};
-toStorybook4.story = {
-  name: 'Controllable',
-};
-
-/**
- * Below are stories for app
- */
-storiesOf('RadioButton', module)
-  .addDecorator(ContainerDeco)
-  .add('default', () => (
-    <ScrollView>
+const Default = (): ReactElement => {
+  return (
+    <ScrollView contentContainerStyle={{ maxWidth: 600 }}>
       <Normal />
       <Divider />
       <StandAlone />
@@ -242,6 +214,44 @@ storiesOf('RadioButton', module)
       <Controllable />
       <Divider />
     </ScrollView>
+  );
+};
+
+/**
+ * Below are stories for web
+ */
+export default {
+  title: 'RadioButton',
+};
+export const toStorybookDefault = (): ReactElement => <Default />;
+export const toStorybookNormal = (): ReactElement => <Normal />;
+export const toStorybookStandAlone = (): ReactElement => <StandAlone />;
+export const toStorybookLabel = (): ReactElement => <LabelPlacement />;
+export const toStorybookControllable = (): ReactElement => <Controllable />;
+
+toStorybookDefault.story = {
+  name: 'Default',
+};
+toStorybookNormal.story = {
+  name: 'Normal',
+};
+toStorybookStandAlone.story = {
+  name: 'StandAlone',
+};
+toStorybookLabel.story = {
+  name: 'LabelPlacement',
+};
+toStorybookControllable.story = {
+  name: 'Controllable',
+};
+
+/**
+ * Below are stories for app
+ */
+storiesOf('RadioButton', module)
+  .addDecorator(ContainerDeco)
+  .add('default', () => (
+    <Default />
   ))
   .add('Normal', () => (
     <Normal />
