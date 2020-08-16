@@ -1,6 +1,5 @@
-import * as React from 'react';
-
 import { Animated, View } from 'react-native';
+import React, { useRef } from 'react';
 import { fireEvent, render } from '@testing-library/react-native';
 import {
   getNearestPercentByValue,
@@ -41,6 +40,18 @@ describe('[Slider] render', () => {
     ).asJSON();
     expect(rendered).toMatchSnapshot();
     expect(rendered).toBeTruthy();
+  });
+
+  describe('[Slider] slider.current.measure', () => {
+    it('Should have slider.current.measure called', () => {
+      const measure = jest.fn();
+      const useRefSpy = jest.spyOn(React, 'useRef').mockReturnValueOnce({ current: { measure } });
+      render(
+        <Slider />,
+      );
+      expect(useRefSpy).toHaveBeenCalled();
+      expect(measure).toHaveBeenCalled();
+    });
   });
 
   describe('required components', () => {
