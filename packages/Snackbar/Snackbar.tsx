@@ -3,6 +3,7 @@ import * as React from 'react';
 import {
   Animated,
   Dimensions,
+  Platform,
   StyleSheet,
   TextStyle,
   ViewStyle,
@@ -10,19 +11,15 @@ import {
 
 import styled from 'styled-components/native';
 
-const { width } = Dimensions.get('screen');
-const maxWidth = width - 32;
-
 const styles = StyleSheet.create({
   container: {
     display: 'flex',
     flexDirection: 'row',
     flexWrap: 'wrap',
     minWidth: 150,
-    maxWidth,
     textAlign: 'left',
     alignItems: 'center',
-    alignSelf: 'center',
+    alignSelf: Platform.OS === 'web' ? 'flex-start' : 'center',
     position: 'absolute',
     fontSize: 16,
     paddingHorizontal: 16,
@@ -30,6 +27,7 @@ const styles = StyleSheet.create({
     bottom: 10,
     backgroundColor: '#87b5ff',
     borderRadius: 10,
+    marginHorizontal: 10,
   },
 });
 
@@ -141,7 +139,12 @@ const Snackbar = (props: SnackbarProps, ref: React.Ref<SnackbarRef>): React.Reac
       {showingState.isVisible && (
         <Animated.View
           testID={testID}
-          style={[styles.container, containerStyle, { opacity: fadeAnim }]}
+          style={[
+            styles.container,
+            { maxWidth: Dimensions.get('screen').width - 32 },
+            containerStyle,
+            { opacity: fadeAnim },
+          ]}
         >
           <MessageText style={messageStyle}>{text}</MessageText>
           {actionText && (
