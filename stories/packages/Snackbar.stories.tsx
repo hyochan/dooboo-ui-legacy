@@ -55,8 +55,6 @@ function Default(): React.ReactElement {
         timer: shortOrLong ? Timer.LONG : Timer.SHORT,
         containerStyle: {
           backgroundColor: containerColor,
-          top: 200,
-          height: 40,
         },
         messageStyle: {
           color: messageColor,
