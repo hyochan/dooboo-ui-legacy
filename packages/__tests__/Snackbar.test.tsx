@@ -1,7 +1,7 @@
 import * as React from 'react';
 
-import { Animated, Text, TouchableOpacity, View } from 'react-native';
 import Snackbar, { SnackbarProvider, SnackbarRef, useSnackbarContext } from '../Snackbar';
+import { Text, TouchableOpacity, View } from 'react-native';
 import { act, fireEvent, render } from '@testing-library/react-native';
 
 import renderer from 'react-test-renderer';

@@ -16,7 +16,7 @@ Snackbar is a component but it needs different ways to use from other components
 | text           |     v     | string           | undefined                    |                    |
 | timer          |           | number           | 1500 (Timer.SHORT)           | Closing time (ms)  |
 | messageStyle   |           | TextStyle        | { color: 'white' }           | Message text style |
-| containerStyle |           | ViewStyle        | [See here](#containerstyle)  |                    |
+| containerStyle |           | ViewStyle        | [See here](#view-style)  |                    |
 | actionText     |           | string           | undefined                    |                    |
 | actionStyle    |           | TextStyle        | { color: 'green' }           | Action text style  |
 | onPressAction  |           | function         | undefined                    |                    |
@@ -49,10 +49,9 @@ The default style of snackbar container is like below.
   flexDirection: 'row',
   flexWrap: 'wrap',
   minWidth: 150,
-  maxWidth: Dimensions.get('screen') - 32,
   textAlign: 'left',
   alignItems: 'center',
-  alignSelf: 'center',
+  alignSelf: Platform.OS === 'web' ? 'flex-start' : 'center',
   position: 'absolute',
   fontSize: 16,
   paddingHorizontal: 16,
@@ -60,6 +59,7 @@ The default style of snackbar container is like below.
   bottom: 10,
   backgroundColor: '#87b5ff',
   borderRadius: 10,
+  marginHorizontal: 10,
 }
 ```
 
@@ -68,7 +68,7 @@ You can change the container style by adding `containerStyle` field.
 snackbar.show({
   text: 'Simple text message',
   containerStyle: {
-    alignSelf: 'left',
+    alignSelf: 'center',
     backgroundColor: '#0008',
     bottom: undefined, // if this line removed then the component will be stretched vertically because of default bottom value (10).
     up: 10,
