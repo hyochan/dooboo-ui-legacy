@@ -1,12 +1,24 @@
-import React, { FC } from 'react';
-import { View } from 'react-native';
+import React, { FC, ReactNode, ReactNodeArray } from 'react';
+import styled from 'styled-components/native';
+
+const Container = styled.View`
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 12px 16px;
+  shadow-opacity: 0.25;
+  shadow-radius: 4px;
+  shadow-color: #000;
+  shadow-offset: 0px 2px;
+`;
 
 interface Props {
   testID?: string;
+  children?: ReactNode | ReactNodeArray;
 }
 
-const Card: FC<Props> = (/* props */) => {
-  return <View></View>;
+const Card: FC<Props> = (props) => {
+  const { children } = props;
+  return <Container>{children}</Container>;
 };
 
 Card.defaultProps = {};
