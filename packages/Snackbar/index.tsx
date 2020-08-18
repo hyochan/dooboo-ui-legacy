@@ -27,7 +27,7 @@ function SnackbarProvider(props: SnackbarProviderProps): React.ReactElement {
     snackbar.current && snackbar.current.show({ ...defaultContent, ...content });
   };
   return (
-    <View style={{ flex: 1 }}>
+    <View style={{ flex: 1, width: '100%' }}>
       <SnackbarContext.Provider value={{ show }}>{children}</SnackbarContext.Provider>
       <Snackbar ref={snackbar} />
     </View>);
