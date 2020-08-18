@@ -49,6 +49,7 @@ const Thumb: FC<Props> = ({
       {customThumb || (
         <StyledThumb testID={testID} style={style}>
           <Animated.View
+            testID="thumb-animated"
             style={{
               width: rippleSize,
               height: rippleSize,
