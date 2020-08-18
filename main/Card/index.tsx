@@ -1,4 +1,6 @@
 import React, { FC, ReactNode, ReactNodeArray } from 'react';
+import { ViewStyle } from 'react-native';
+
 import styled from 'styled-components/native';
 
 const Container = styled.View`
@@ -13,12 +15,13 @@ const Container = styled.View`
 
 interface Props {
   testID?: string;
+  containerStyle?: ViewStyle;
   children?: ReactNode | ReactNodeArray;
 }
 
 const Card: FC<Props> = (props) => {
-  const { children } = props;
-  return <Container>{children}</Container>;
+  const { containerStyle, children } = props;
+  return <Container style={[containerStyle]}>{children}</Container>;
 };
 
 Card.defaultProps = {};
