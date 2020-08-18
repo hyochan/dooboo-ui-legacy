@@ -1,4 +1,4 @@
-import { Animated, PanResponderCallbacks, PanResponderInstance, View } from 'react-native';
+import { Animated, MeasureOnSuccessCallback, PanResponderCallbacks, PanResponderInstance, View } from 'react-native';
 import React, { useRef } from 'react';
 import { fireEvent, render } from '@testing-library/react-native';
 import {
@@ -82,6 +82,25 @@ describe('[Slider] render', () => {
       );
       expect(useRefSpy).toBeCalledTimes(1);
       expect(measure).toBeCalledTimes(1);
+    });
+
+    it('Should have slider position updated if measure callback called', () => {
+      const mockRef : { current: any, callback: MeasureOnSuccessCallback | null } = {
+        current: {
+          measure: (callback: MeasureOnSuccessCallback): void => {
+            mockRef.callback = callback;
+          },
+        },
+        callback: null,
+      };
+      jest.spyOn(React, 'useRef').mockReturnValueOnce(mockRef);
+      render(
+        <Slider />,
+      );
+      jest.spyOn(React, 'useRef').mockReturnValueOnce(mockRef);
+      act(() => {
+        mockRef.callback(0, 0, 100, 100, 0, 0);
+      });
     });
   });
 
