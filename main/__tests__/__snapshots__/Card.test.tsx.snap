@@ -1,3 +1,26 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`[Card] should render without crashing 1`] = `<View />`;
+exports[`[Card] should render without crashing 1`] = `
+<View
+  style={
+    Array [
+      Object {
+        "alignItems": "flex-start",
+        "flexDirection": "column",
+        "paddingBottom": 12,
+        "paddingLeft": 16,
+        "paddingRight": 16,
+        "paddingTop": 12,
+        "shadowColor": "#000",
+        "shadowOffset": Object {
+          "height": 2,
+          "width": 0,
+        },
+        "shadowOpacity": 0.25,
+        "shadowRadius": 4,
+      },
+      undefined,
+    ]
+  }
+/>
+`;
