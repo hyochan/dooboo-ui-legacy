@@ -791,6 +791,7 @@ exports[`[Slider] render renders without crashing 1`] = `
               "width": 24,
             }
           }
+          testID="thumb-animated"
         />
       </View>
     </View>
@@ -859,6 +860,7 @@ exports[`[Track] [Thumb] renders without crashing 1`] = `
             "width": 20.8,
           }
         }
+        testID="thumb-animated"
       />
     </View>
   </View>
