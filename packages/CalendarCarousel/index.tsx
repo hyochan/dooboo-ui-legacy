@@ -319,9 +319,11 @@ function CalendarCarousel<T>({
   };
 
   return (
-    <SafeAreaView style={styles.container} onLayout={(e): void => {
-      layoutWidth = e.nativeEvent.layout.width;
-    }}>
+    <SafeAreaView
+      style={styles.container}
+      onLayout={(e): void => {
+        layoutWidth = e.nativeEvent.layout.width;
+      }}>
       <ScrollView
         horizontal
         pagingEnabled
