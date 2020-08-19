@@ -1,5 +1,4 @@
-import arrowDown from './assets/icons/arrowDown.svg';
-import arrowUp from './assets/icons/arrowUp.svg';
+
 import icArrDown from './assets/icons/ic_arr_down.png';
 import icArrUp from './assets/icons/ic_arr_up.png';
 import icCheck from './assets/icons/check.png';
@@ -9,8 +8,6 @@ import icFacebook from './assets/icons/facebook.png';
 import icGoogle from './assets/icons/google.png';
 import icMagnifier from './assets/icons/magnifier.png';
 
-export const ARROW_DOWN = arrowDown;
-export const ARROW_UP = arrowUp;
 export const IC_ARR_DOWN = icArrDown;
 export const IC_ARR_UP = icArrUp;
 export const IC_DELETE = icDelete;
