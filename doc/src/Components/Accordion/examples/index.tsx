@@ -2,7 +2,7 @@
 import React from 'react';
 import { Accordion } from 'dooboo-ui';
 import styled from 'styled-components/native';
-import Arrow from 'dooboo-ui/Accordion/Arrow';
+import { IC_ARR_DOWN } from '../../../icon';
 
 const Container = styled.View`
   flex: 1;
@@ -21,6 +21,11 @@ const StyledTitle = styled.Text`
 const StyledItem = styled.Text`
   font-weight: bold;
   color: black;
+`;
+
+const Arrow = styled.Image`
+  width: 20px;
+  height: 20px;
 `;
 
 const Default = (): React.ReactElement => {
@@ -74,7 +79,7 @@ const Default = (): React.ReactElement => {
         collapseOnStart={true}
         animDuration={400}
         activeOpacity={1}
-        toggleElement={<Arrow />}
+        toggleElement={<Arrow style={{ tintColor: 'white' }} source={IC_ARR_DOWN} />}
       />
     </Container>
   );

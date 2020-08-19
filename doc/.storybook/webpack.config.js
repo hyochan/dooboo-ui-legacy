@@ -15,22 +15,6 @@ module.exports = ({ config, mode }) => {
   });
 
   config.module.rules.push({
-    test: /\.(gif|jpe?g|png|svg)$/,
-    use: {
-      loader: 'url-loader',
-      options: { name: '[name].[ext]' },
-    },
-  });
-
-  config.module.rules.push({
-    test: /\.(png|jpe?g|gif|jp2|webp)$/,
-    loader: 'file-loader',
-    options: {
-      name: 'images/[name].[ext]',
-    },
-  });
-
-  config.module.rules.push({
     test: /\.scss$/,
     use: ['style-loader', 'css-loader', 'sass-loader'],
     include: resolve(__dirname, '../'),

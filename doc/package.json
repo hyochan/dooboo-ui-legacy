@@ -7,9 +7,9 @@
     "@dooboo-ui/snackbar": "file:../packages/Snackbar",
     "@expo/config": "^3.2.15",
     "@expo/webpack-config": "^0.12.20",
-    "@storybook/addon-docs": "^6.0.0",
-    "@storybook/cli": "^6.0.0",
-    "@storybook/theming": "^6.0.0",
+    "@storybook/addon-docs": "^6.0.13",
+    "@storybook/cli": "^6.0.13",
+    "@storybook/theming": "^6.0.13",
     "babel-loader": "^8.1.0",
     "dooboo-ui": "file:../lib",
     "metro-react-native-babel-preset": "^0.61.0",
@@ -17,11 +17,11 @@
     "styled-components": "^5.1.1"
   },
   "devDependencies": {
-    "@storybook/addon-actions": "^6.0.0",
-    "@storybook/addon-links": "^6.0.0",
-    "@storybook/addons": "^6.0.0",
+    "@storybook/addon-actions": "^6.0.13",
+    "@storybook/addon-links": "^6.0.13",
+    "@storybook/addons": "^6.0.13",
     "@storybook/preset-create-react-app": "^3.1.4",
-    "@storybook/react": "^6.0.0",
+    "@storybook/react": "^6.0.13",
     "babel-plugin-react-native-web": "0.13.4",
     "url-loader": "^4.1.0",
     "webpack": "^4.44.0"
