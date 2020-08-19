@@ -162,4 +162,4 @@ To add some action to the Snackbar, just add options about the action to the sho
 
 - More Complex Examples
 
-You can find more complex usages on this [storybook codes](storybook/stories/Snackbr.stories.tsx). 
+You can find more complex usages on this [storybook codes](https://dooboolab.github.io/dooboo-ui/?path=/docs/packages-snackbar--page).
