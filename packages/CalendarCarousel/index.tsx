@@ -214,7 +214,7 @@ function CalendarCarousel<T>({
 
   const renderCalendar = (currentDate: Date): ReactElement => {
     const prevMonth = new Date(currentDate.getFullYear(), currentDate.getMonth(), 1);
-    const formatter = new Intl.DateTimeFormat('en', { month: 'short' });
+    const formatter = new Intl.DateTimeFormat('en', { month: 'long' });
     const monthName = formatter.format(prevMonth);
     const weekdays = [];
     const currentMonthLastDate = new Date(year, month + 1, 0).getDate();
