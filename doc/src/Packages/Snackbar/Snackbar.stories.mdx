@@ -1,0 +1,100 @@
+import { Meta, Story, Canvas } from '@storybook/addon-docs/blocks';
+import { Simple, StyleChanged, TextStyleChanged } from './examples';
+
+<Meta title="Packages/Snackbar" />
+
+# Snackbar
+Simple snackbar component. Snackbar shows the temporal message at bottom of the screen.
+If you want to see the way of installation and basic usage, see [here](https://github.com/dooboolab/dooboo-ui/tree/master/packages/Snackbar).
+
+## Examples
+
+Snackbar is a component but it needs different ways to use from other components. To shows Snackbar, the snackbar should be added to whole screen view and call **'show'** method of the refrence.
+
+|                | necessary | types            | default                      | info               |
+| -------------- | :-------: | ---------------- | ---------------------------- | ------------------ |
+| text           |     v     | string           | undefined                    |                    |
+| timer          |           | number           | 1500 (Timer.SHORT)           | Closing time (ms)  |
+| messageStyle   |           | TextStyle        | { color: 'white' }           | Message text style |
+| containerStyle |           | ViewStyle        | [See here](#containerstyle)  |                    |
+| actionText     |           | string           | undefined                    |                    |
+| actionStyle    |           | TextStyle        | { color: 'green' }           | Action text style  |
+| onPressAction  |           | function         | undefined                    |                    |
+
+
+### Message Contents and duration
+
+You can show a Snackbar with messages during some milliseconds like this.
+```typescript
+snackbar.show({
+  text: 'Simple text',
+  actionText: 'Some action text',
+  timer: 3000,
+})
+```
+And you can see how Snackbar actually appears by changing the parameter values in the block below.
+
+<Canvas withSource='none'>
+    <Simple />
+</Canvas>
+
+Set the action text to show the touchable.
+
+### View style
+
+The default style of snackbar container is like below.
+```typescript
+{
+  display: 'flex',
+  flexDirection: 'row',
+  flexWrap: 'wrap',
+  minWidth: 150,
+  maxWidth: Dimensions.get('screen') - 32,
+  textAlign: 'left',
+  alignItems: 'center',
+  alignSelf: 'center',
+  position: 'absolute',
+  fontSize: 16,
+  paddingHorizontal: 16,
+  paddingVertical: 10,
+  bottom: 10,
+  backgroundColor: '#87b5ff',
+  borderRadius: 10,
+}
+```
+
+You can change the container style by adding `containerStyle` field. 
+```typescript
+snackbar.show({
+  text: 'Simple text message',
+  containerStyle: {
+    alignSelf: 'left',
+    backgroundColor: '#0008',
+    bottom: undefined, // if this line removed then the component will be stretched vertically because of default bottom value (10).
+    up: 10,
+    minWidth: 300,
+  }
+})
+```
+<Canvas withSource='none'>
+  <StyleChanged />
+</Canvas>
+
+### Text styles
+You can also change text styles by add `messageStyle` and `actionStyle` fields to the `show` method parameter like below.
+```typescript
+snackbar.show({
+  text: 'Simple text message',
+  messageStyle: {
+    color: '#ff0000',
+    fontSize: 14,
+  },
+  actionText: 'Some Action',
+  actionStyle: {
+    fontSize: 22,
+  },
+})
+```
+<Canvas withSource='none'>
+  <TextStyleChanged />
+</Canvas>

@@ -376,12 +376,12 @@ const BoxEditText = (): React.ReactElement => {
           <EditText
             testID="email-input-box"
             type={EditTextInputType.BOX}
-            labelTextStyle= {{
+            labelTextStyle={{
               color: '#333333',
               fontSize: 14,
               lineHeight: 24,
             }}
-            focusedLabelStyle= {{
+            focusedLabelStyle={{
               color: '#333333',
             }}
             inputContainerRadius={30}
@@ -398,7 +398,6 @@ const BoxEditText = (): React.ReactElement => {
             }}
             contentStyle={{
               paddingHorizontal: 16,
-              paddingVertical: 8,
             }}
             errorText={errorEmail}
             onSubmitEditing={onSignIn}
@@ -413,12 +412,12 @@ const BoxEditText = (): React.ReactElement => {
           <EditText
             testID="password-input-box"
             type={EditTextInputType.BOX}
-            labelTextStyle= {{
+            labelTextStyle={{
               color: '#333333',
               fontSize: 14,
               lineHeight: 24,
             }}
-            focusedLabelStyle= {{
+            focusedLabelStyle={{
               color: '#333333',
             }}
             inputContainerRadius={30}
@@ -438,7 +437,6 @@ const BoxEditText = (): React.ReactElement => {
             }}
             contentStyle={{
               paddingHorizontal: 16,
-              paddingVertical: 8,
             }}
             onSubmitEditing={onSignIn}
             borderStyle={{
@@ -450,12 +448,12 @@ const BoxEditText = (): React.ReactElement => {
           <EditText
             testID="password-input-confirm"
             type={EditTextInputType.BOX}
-            labelTextStyle= {{
+            labelTextStyle={{
               color: '#333333',
               fontSize: 14,
               lineHeight: 24,
             }}
-            focusedLabelStyle= {{
+            focusedLabelStyle={{
               color: '#333333',
             }}
             inputContainerRadius={30}
@@ -472,7 +470,6 @@ const BoxEditText = (): React.ReactElement => {
             }}
             contentStyle={{
               paddingHorizontal: 16,
-              paddingVertical: 8,
             }}
             onSubmitEditing={onSignIn}
             borderStyle={{

@@ -1,6 +1,7 @@
-import { Meta, Story, Preview } from '@storybook/addon-docs/blocks';
+import { Meta, Story, Canvas } from '@storybook/addon-docs/blocks';
+import Example from './examples';
 
-<Meta title="Components|Accordion" />
+<Meta title="Components/Accordion" />
 
 # Accordion
 
@@ -89,3 +90,9 @@ const Default = (): React.ReactElement => {
   );
 };
 ```
+
+<Canvas withSource="none">
+  <Story name="example">
+    <Example />
+  </Story>
+</Canvas>

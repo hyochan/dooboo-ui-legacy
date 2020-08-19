@@ -3,6 +3,18 @@ const { withUnimodules } = require('@expo/webpack-config/addons');
 
 module.exports = ({ config, mode }) => {
   config.module.rules.push({
+    test: /\.(js|jsx)$/,
+    use: [
+      {
+        loader: 'babel-loader',
+        options: {
+          plugins: ['@babel/plugin-transform-react-jsx'],
+        }
+      },
+    ]  
+  });
+
+  config.module.rules.push({
     test: /\.(gif|jpe?g|png|svg)$/,
     use: {
       loader: 'url-loader',
@@ -38,7 +50,7 @@ module.exports = ({ config, mode }) => {
     'react-native': 'react-native-web',
   };
 
-  return withUnimodules(config, {
+  const configWithExpo = withUnimodules(config, {
     projectRoot: resolve(__dirname, '../'),
     // babel: {
     //   dangerouslyAddModulePathsToTranspile: [
@@ -47,4 +59,6 @@ module.exports = ({ config, mode }) => {
     //   ],
     // },
   });
+  configWithExpo.output.publicPath = '';
+  return configWithExpo;
 };

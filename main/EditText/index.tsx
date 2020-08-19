@@ -11,11 +11,6 @@ import React, { FC, ReactElement, useState } from 'react';
 
 import styled from 'styled-components/native';
 
-const RowContainer = styled.View`
-  flex-direction: column;
-  align-self: stretch;
-`;
-
 const StyledRowContent = styled.View`
   flex-direction: row;
   align-items: center;
@@ -40,8 +35,7 @@ const StyledRowInput = styled.TextInput`
   ${Platform.OS === 'web' && { 'outline-style': 'none' }}
 `;
 
-const ColumnContainer = styled.View`
-  display: flex;
+const Container = styled.View`
   flex-direction: column;
   align-self: stretch;
 `;
@@ -69,6 +63,7 @@ const StyledTextInput = styled.TextInput`
   padding-bottom: 15px;
   font-size: 15px;
   font-weight: 500;
+  flex: 1;
   ${Platform.OS === 'web' && { 'outline-style': 'none' }}
 `;
 
@@ -181,7 +176,7 @@ const EditText: FC<Props> = (props) => {
     case EditTextInputType.DEFAULT:
     default:
       return (
-        <ColumnContainer style={style}>
+        <Container style={style}>
           <StyledLabel
             style={[
               labelTextStyle,
@@ -238,11 +233,11 @@ const EditText: FC<Props> = (props) => {
               {`${errorText}`}
             </StyledInvalidText>
           ) : null}
-        </ColumnContainer>
+        </Container>
       );
     case EditTextInputType.ROW:
       return (
-        <RowContainer style={style}>
+        <Container style={style}>
           <StyledRowContent
             style={[
               { borderColor: borderColor, borderBottomWidth: borderWidth },
@@ -308,12 +303,12 @@ const EditText: FC<Props> = (props) => {
               {errorText}
             </StyledInvalidText>
           ) : null}
-        </RowContainer>
+        </Container>
       );
 
     case EditTextInputType.BOX:
       return (
-        <ColumnContainer style={style}>
+        <Container style={style}>
           <StyledLabel
             style={[
               labelTextStyle,
@@ -388,12 +383,12 @@ const EditText: FC<Props> = (props) => {
               {`${errorText}`}
             </StyledInvalidText>
           ) : null}
-        </ColumnContainer>
+        </Container>
       );
 
     case EditTextInputType.ROW_BOX:
       return (
-        <RowContainer style={style}>
+        <Container style={style}>
           <StyledRowContent
             style={[
               {
@@ -456,7 +451,7 @@ const EditText: FC<Props> = (props) => {
               {errorText}
             </StyledInvalidText>
           ) : null}
-        </RowContainer>
+        </Container>
       );
   }
 };
