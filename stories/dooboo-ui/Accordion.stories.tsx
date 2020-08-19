@@ -1,8 +1,7 @@
-import { IC_FACEBOOK, IC_GOOGLE } from '../Icon';
+import { IC_ARR_DOWN, IC_FACEBOOK, IC_GOOGLE } from '../Icon';
 import React, { ReactElement } from 'react';
 
 import { Accordion } from '../../main';
-import Arrow from '../../main/Accordion/Arrow';
 import { ContainerDeco } from '../../storybook/decorators';
 import { storiesOf } from '@storybook/react-native';
 import styled from 'styled-components/native';
@@ -52,6 +51,11 @@ const RightElement = styled.Image`
   height: 20px;
   position: absolute;
   right: 20px;
+`;
+
+const Arrow = styled.Image`
+  width: 20px;
+  height: 20px;
 `;
 
 const Default = (): React.ReactElement => {
@@ -105,7 +109,7 @@ const Default = (): React.ReactElement => {
         collapseOnStart={true}
         animDuration={400}
         activeOpacity={1}
-        toggleElement={<Arrow />}
+        toggleElement={<Arrow style={{ tintColor: 'white' }} source={IC_ARR_DOWN}/>}
       />
     </Container>
   );
@@ -242,7 +246,7 @@ const CustomStyle = (): React.ReactElement => {
           borderBottomWidth: 1,
           borderBottomColor: 'gray',
         }}
-        toggleElement={<Arrow />}
+        toggleElement={<Arrow style={{ tintColor: 'white' }} source={IC_ARR_DOWN}/>}
       />
     </Container>
   );

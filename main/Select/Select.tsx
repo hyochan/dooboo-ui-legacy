@@ -1,12 +1,13 @@
 import {
   Animated,
   Easing,
+  Image,
   TextStyle,
   ViewStyle,
 } from 'react-native';
 import React, { Fragment, ReactNode } from 'react';
 
-import Arrow from './Arrow';
+import IC_ARROW_DOWN from '../__assets__/arrow_down.png';
 import { LoadingIndicator } from '../LoadingIndicator';
 import styled from 'styled-components/native';
 
@@ -175,8 +176,9 @@ const Select : React.FC<Props> = (props): React.ReactElement => {
             {(loading && (customLoader || <LoadingIndicator size="small" />)) ||
               suffixIcon ||
               (showArrow && (
-                <Arrow
-                  customColor={customTextStyle}
+                <Image
+                  style={{ width: 20, height: 20, tintColor: '#2b2b2b' }}
+                  source={IC_ARROW_DOWN}
                 />
               ))}
           </IconView>
