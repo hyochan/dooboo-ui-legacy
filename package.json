@@ -24,7 +24,8 @@
     "upgrade-packages": "lerna exec -- ncu -u && yarn install-packages"
   },
   "dependencies": {
-    "dooboolab-welcome": "^1.2.0"
+    "dooboolab-welcome": "^1.2.0",
+    "styled-components": "^5.1.1"
   },
   "devDependencies": {
     "@babel/core": "^7.10.4",
@@ -68,7 +69,6 @@
     "react-native-web": "^0.12.3",
     "react-test-renderer": "^16.13.1",
     "react-useinterval": "^1.0.1",
-    "styled-components": "^5.1.1",
     "ts-jest": "^26.1.1",
     "typescript": "^3.9.6"
   },
