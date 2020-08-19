@@ -175,7 +175,7 @@ interface Props<T> {
   markedDayEvents?: any;
 }
 function CalendarCarousel<T>({
-  date = new Date(), onDateChanged, selectDate, selectedDate, markedDayEvents,
+  date = new Date(), onDateChanged, selectDate, selectedDate, markedDayEvents = [],
 }: PropsWithChildren<Props<T>>): ReactElement {
   const [currentDate, setCurrentDate] = useState<Date>(date);
   const scrollRef = useRef<ScrollView>(null);
