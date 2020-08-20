@@ -1,4 +1,4 @@
-import { IC_ARR_DOWN, IC_FACEBOOK, IC_GOOGLE } from '../Icon';
+import { ArrowDown, IC_FACEBOOK, IC_GOOGLE } from '../Icon';
 import React, { ReactElement } from 'react';
 
 import { Accordion } from '../../main';
@@ -53,11 +53,6 @@ const RightElement = styled.Image`
   right: 20px;
 `;
 
-const Arrow = styled.Image`
-  width: 20px;
-  height: 20px;
-`;
-
 const Default = (): React.ReactElement => {
   const data = [
     {
@@ -109,7 +104,7 @@ const Default = (): React.ReactElement => {
         collapseOnStart={true}
         animDuration={400}
         activeOpacity={1}
-        toggleElement={<Arrow style={{ tintColor: 'white' }} source={IC_ARR_DOWN}/>}
+        toggleElement={<ArrowDown />}
       />
     </Container>
   );
@@ -246,7 +241,7 @@ const CustomStyle = (): React.ReactElement => {
           borderBottomWidth: 1,
           borderBottomColor: 'gray',
         }}
-        toggleElement={<Arrow style={{ tintColor: 'white' }} source={IC_ARR_DOWN}/>}
+        toggleElement={<ArrowDown />}
       />
     </Container>
   );
