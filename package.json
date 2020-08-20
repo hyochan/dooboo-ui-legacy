@@ -1,5 +1,6 @@
 {
   "homepage": "https://dooboolab.github.io/dooboo-ui/",
+  "private": true,
   "scripts": {
     "pre": "lerna clean --yes && lerna bootstrap && lerna run build",
     "predeploy": "yarn build",
@@ -74,5 +75,10 @@
   },
   "jest": {
     "preset": "react-native"
+  },
+  "workspaces":{
+    "packages": [
+      "packages/*"
+    ]
   }
 }
