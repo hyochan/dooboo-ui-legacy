@@ -187,11 +187,11 @@ function CalendarCarousel<T>({
   const year = currentDate.getFullYear();
   const month = currentDate.getMonth();
 
-  const isToday = (dateitem: Date): boolean => {
+  const isToday = (dateItem: Date): boolean => {
     const today = new Date();
-    return dateitem.getDate() === today.getDate() &&
-        dateitem.getMonth() === today.getMonth() &&
-        dateitem.getFullYear() === today.getFullYear();
+    return dateItem.getDate() === today.getDate() &&
+        dateItem.getMonth() === today.getMonth() &&
+        dateItem.getFullYear() === today.getFullYear();
   };
 
   const changeMonth = (toPrevMonth?: boolean): void => {
@@ -290,12 +290,14 @@ function CalendarCarousel<T>({
     });
   };
 
-  const onSelected = (d: number): boolean => {
-    return d === selectedDate?.getDate() && month === selectedDate?.getMonth() && year === selectedDate?.getFullYear();
+  const isSelected = (itemDay: number): boolean => {
+    return itemDay === selectedDate?.getDate() &&
+    month === selectedDate?.getMonth() &&
+    year === selectedDate?.getFullYear();
   };
 
-  const isMarked = (d: number) : boolean => {
-    return markedDates.includes(d) && markedMonths.includes(month) && markedYears.includes(year);
+  const hasEvent = (itemDay: number) : boolean => {
+    return markedDates.includes(itemDay) && markedMonths.includes(month) && markedYears.includes(year);
   };
 
   const renderDates = (dateItem: Date):ReactElement => {
@@ -316,7 +318,7 @@ function CalendarCarousel<T>({
           <Text style={styles.currentDayText}>{`${itemDay}`}</Text>
         </View>
       );
-    } else if (isMarked(itemDay) && onSelected(itemDay)) {
+    } else if (hasEvent(itemDay) && isSelected(itemDay)) {
       return (
         <TouchableOpacity onPress={(): void => { selectDate(setItemDay); setEventDay(itemDay); }}>
           <View style={styles.selectedMarkView} key ={itemDay}>
@@ -325,7 +327,7 @@ function CalendarCarousel<T>({
           </View>
         </TouchableOpacity>
       );
-    } else if (isMarked(itemDay)) {
+    } else if (hasEvent(itemDay)) {
       return (
         <TouchableOpacity onPress={(): void => selectDate(setItemDay)}>
           <View style={styles.markView} key={itemDay}>
@@ -334,7 +336,7 @@ function CalendarCarousel<T>({
           </View>
         </TouchableOpacity>
       );
-    } else if (onSelected(itemDay)) {
+    } else if (isSelected(itemDay)) {
       return (
         <TouchableOpacity onPress={(): void => selectDate(setItemDay)}>
           <View style={styles.activeView}>
