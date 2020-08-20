@@ -21,10 +21,22 @@ const Container = styled.View`
 function Default(): React.ReactElement {
   return (
     <Container>
-      <Card>
-        <Text>hi hello</Text>
+      <Card
+        containerStyle={{ marginBottom: 30 }}
+        image={{
+          uri:
+            'https://image.shutterstock.com/z/stock-vector-api-application-programming-interface-software-integration-vector-illustration-1079814893.jpg',
+        }}
+        imageStyle={{ width: 200 }}>
+        <Text style={{ padding: 10 }}>I have Image</Text>
       </Card>
-      <Card />
+      <Card
+        containerStyle={{ marginBottom: 30 }}
+        image={require('../assets/images/dummy_image_1.jpg')}
+      />
+      <Card>
+        <Text style={{ padding: 10 }}>I don't have Image</Text>
+      </Card>
     </Container>
   );
 }
