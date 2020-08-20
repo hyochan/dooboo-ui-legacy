@@ -19,9 +19,12 @@ const Container = styled.View`
 `;
 
 function Default(): React.ReactElement {
+  const [selectedTitle, setSelectedTitle] = React.useState(
+    'this is title',
+  );
   return (
     <Container>
-      <Card>
+      <Card title={selectedTitle}>
         <Text>hi hello</Text>
       </Card>
       <Card />

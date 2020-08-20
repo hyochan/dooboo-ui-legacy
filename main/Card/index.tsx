@@ -13,15 +13,30 @@ const Container = styled.View`
   shadow-offset: 0px 2px;
 `;
 
+const CardTitle = styled.View`
+  width: 100%;
+  height: 40px;
+  
+`;
+
 interface Props {
   testID?: string;
   containerStyle?: ViewStyle;
   children?: ReactNode | ReactNodeArray;
+  title?: string;
 }
 
 const Card: FC<Props> = (props) => {
-  const { containerStyle, children } = props;
-  return <Container style={[containerStyle]}>{children}</Container>;
+  const { containerStyle, children, title } = props;
+  console.log(title);
+  return (
+    <Container style={[containerStyle]}>
+      <CardTitle>
+        {title}
+      </CardTitle>
+      {children}
+    </Container>
+  );
 };
 
 Card.defaultProps = {};
