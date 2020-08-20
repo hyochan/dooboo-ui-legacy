@@ -14,11 +14,6 @@ const Container = styled.SafeAreaView`
 
 const date = new Date();
 
-interface Event {
-  selectedEventDate: Date;
-  events: string;
-}
-
 function Default(): React.ReactElement {
   const [currentDate, setCurrentDate] = useState<Date>(date);
   const [selectedDate, setSelectedDate] = useState<Date>();
@@ -30,7 +25,7 @@ function Default(): React.ReactElement {
     },
     {
       selectedEventDate: new Date(2020, 7, 17),
-      events: 'Birthday Party for Jason',
+      events: 'Birthday Party for Camerine',
     },
     {
       selectedEventDate: new Date(2020, 7, 27),
