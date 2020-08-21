@@ -12,6 +12,10 @@ const Container = styled.View`
   shadow-offset: 0px 2px;
 `;
 
+const ChildrenContainer = styled.View`
+  padding: 16px 24px;
+`;
+
 const StlyedImage = styled.Image`
   width: 100px;
   height: 100px;
@@ -30,7 +34,7 @@ const Card: FC<Props> = (props) => {
   return (
     <Container style={[containerStyle]}>
       {image && <StlyedImage source={image} style={[imageStyle]} />}
-      {children}
+      <ChildrenContainer>{children}</ChildrenContainer>
     </Container>
   );
 };

@@ -28,14 +28,14 @@ function Default(): React.ReactElement {
             'https://image.shutterstock.com/z/stock-vector-api-application-programming-interface-software-integration-vector-illustration-1079814893.jpg',
         }}
         imageStyle={{ width: 200 }}>
-        <Text style={{ padding: 10 }}>I have Image</Text>
+        <Text>I have Image</Text>
       </Card>
       <Card
         containerStyle={{ marginBottom: 30 }}
         image={require('../assets/images/dummy_image_1.jpg')}
       />
       <Card>
-        <Text style={{ padding: 10 }}>I don't have Image</Text>
+        <Text>I don't have Image</Text>
       </Card>
     </Container>
   );
