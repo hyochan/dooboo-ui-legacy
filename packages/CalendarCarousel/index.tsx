@@ -173,9 +173,11 @@ interface Props<T> {
   selectedDate?: Date;
   selectDate?: (date: Date) => void;
   markedDayEvents?: any;
+  monthFormatter?: {format: (date: Date) => string};
 }
 function CalendarCarousel<T>({
-  date = new Date(), onDateChanged, selectDate, selectedDate, markedDayEvents = [],
+  date = new Date(), onDateChanged, selectDate, selectedDate,
+  markedDayEvents = [], monthFormatter = new Intl.DateTimeFormat('default', { month: 'long' }),
 }: PropsWithChildren<Props<T>>): ReactElement {
   const [currentDate, setCurrentDate] = useState<Date>(date);
   const [layoutWidth, setLayoutWidth] = useState<number>(330);
@@ -206,8 +208,7 @@ function CalendarCarousel<T>({
   };
 
   const renderCalendar = (currentDate: Date): ReactElement => {
-    const formatter = new Intl.DateTimeFormat('en', { month: 'long' });
-    const monthName = formatter.format(currentDate);
+    const monthName = monthFormatter.format(currentDate);
 
     const lastDate = new Date(year, month + 1, 0).getDate();
     const firstWeekday = new Date(year, month, 1).getDay();

@@ -26,6 +26,7 @@
   },
   "dependencies": {
     "dooboolab-welcome": "^1.2.0",
+    "intl": "^1.2.5",
     "styled-components": "^5.1.1"
   },
   "devDependencies": {
@@ -76,7 +77,7 @@
   "jest": {
     "preset": "react-native"
   },
-  "workspaces":{
+  "workspaces": {
     "packages": [
       "packages/*"
     ]

@@ -1,3 +1,6 @@
+import 'intl';
+import 'intl/locale-data/jsonp/en';
+
 import React, { ReactElement, useState } from 'react';
 
 import CalendarCarousel from '../../packages/CalendarCarousel';
@@ -17,6 +20,7 @@ const date = new Date();
 function Default(): React.ReactElement {
   const [currentDate, setCurrentDate] = useState<Date>(date);
   const [selectedDate, setSelectedDate] = useState<Date>();
+  const monthFormatter = new Intl.DateTimeFormat('default', { month: 'long' });
 
   const markedDayEvents = [
     {
@@ -41,6 +45,7 @@ function Default(): React.ReactElement {
         selectedDate={selectedDate}
         selectDate={(date: Date): void => setSelectedDate(date)}
         markedDayEvents={markedDayEvents}
+        monthFormatter={monthFormatter}
       />
     </Container>
   );
