@@ -1,14 +1,7 @@
 import React, { FC, ReactNode, ReactNodeArray } from 'react';
-import {
-  ViewStyle,
-  Image,
-  ImageSourcePropType,
-  StyleProp,
-  ImageStyle,
-} from 'react-native';
+import { ViewStyle, ImageSourcePropType, ImageStyle } from 'react-native';
 
 import styled from 'styled-components/native';
-import { ImageProps } from 'react-native-svg';
 
 const Container = styled.View`
   flex-direction: column;
@@ -17,6 +10,11 @@ const Container = styled.View`
   shadow-radius: 4px;
   shadow-color: #000;
   shadow-offset: 0px 2px;
+`;
+
+const ImageContainer = styled.Image`
+  width: 100px;
+  height: 100px;
 `;
 
 interface Props {
@@ -31,16 +29,7 @@ const Card: FC<Props> = (props) => {
   const { containerStyle, children, image, imageStyle } = props;
   return (
     <Container style={[containerStyle]}>
-      {image && (
-        <Image
-          source={image}
-          style={{
-            width: 100,
-            height: 100,
-            ...imageStyle,
-          }}
-        />
-      )}
+      {image && <ImageContainer source={image} style={[imageStyle]} />}
       {children}
     </Container>
   );
