@@ -267,7 +267,7 @@ function CalendarCarousel<T>({
           renderItem ={({ item }): ReactElement => renderDates(item)}
           keyExtractor={(item, id): string => id.toString()}
         />
-        {renderDayEvents()}
+        {renderEventText()}
       </View>
     );
   };
@@ -277,7 +277,7 @@ function CalendarCarousel<T>({
   const markedMonths = markedDayEvents.map((markedmonths) => markedmonths.selectedEventDate.getMonth() - 1);
   const markedYears = markedDayEvents.map((markedyears) => markedyears.selectedEventDate.getFullYear());
 
-  const renderDayEvents = (): ReactElement[] => {
+  const renderEventText = (): ReactElement[] => {
     return markedDayEvents.map((markedDayEvent, i) => {
       if (markedDates[i] === eventDay && markedMonths.includes(month) && markedYears.includes(year)) {
         return (
