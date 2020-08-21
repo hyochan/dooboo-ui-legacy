@@ -1,10 +1,10 @@
-import { Animated, PanResponder, ViewStyle } from 'react-native';
-import React, { useRef, useState } from 'react';
-import { number } from '@storybook/addon-knobs';
+import { Animated, PanResponder, PanResponderInstance, ViewStyle } from 'react-native';
+import React, { useRef } from 'react';
 
 interface Props {
   style: ViewStyle,
   children?: React.ReactChild,
+  blockNativeResponder?: boolean,
 }
 
 interface VectorType {
@@ -75,34 +75,41 @@ class TouchPosition {
   }
 }
 
-function PinchZoom({ children, style }: Props): React.ReactElement {
+function PinchZoom({ children, style, blockNativeResponder = true }: Props): React.ReactElement {
   const touches = useRef([new TouchPosition(), new TouchPosition()]).current;
   const touchCenter = useRef(new TouchPosition()).current;
   const layoutCenter = useRef(new Vector()).current;
   const scale = useRef(new Animated.Value(1)).current;
   const translate = useRef(new Animated.ValueXY(new Vector())).current;
-  const panResponder = React.useRef(
-    PanResponder.create({
-      // Ask to be the responder:
+  const release = (): void => {
+    Animated.timing(scale, {
+      useNativeDriver: true,
+      toValue: 1,
+    }).start();
+    Animated.timing(translate, {
+      useNativeDriver: true,
+      toValue: new Vector(),
+    }).start();
+  };
+  const createPanresponder = (): PanResponderInstance => {
+    return PanResponder.create({
+    // Ask to be the responder:
       onStartShouldSetPanResponder: () => true,
-      onStartShouldSetPanResponderCapture: () =>
-        true,
+      onStartShouldSetPanResponderCapture: () => true,
       onMoveShouldSetPanResponder: () => true,
-      onMoveShouldSetPanResponderCapture: () =>
-        true,
-
+      onMoveShouldSetPanResponderCapture: () => true,
       onPanResponderGrant: ({ nativeEvent }, gestureState) => {
-        // The gesture has started. Show visual feedback so the user knows
-        // what is happening!
-        // gestureState.d{x,y} will be set to zero now
+      // The gesture has started. Show visual feedback so the user knows
+      // what is happening!
+      // gestureState.d{x,y} will be set to zero now
         const [touch1, touch2] = touches;
         touch1.setOffset({ x: nativeEvent.locationX, y: nativeEvent.locationY });
         touch2.setOffset({ x: 0, y: 0 });
       },
       onPanResponderMove: ({ nativeEvent }, gestureState) => {
-        // The most recent move distance is gestureState.move{X,Y}
-        // The accumulated gesture distance since becoming responder is
-        // gestureState.d{x,y}evt
+      // The most recent move distance is gestureState.move{X,Y}
+      // The accumulated gesture distance since becoming responder is
+      // gestureState.d{x,y}evt
         const [touch1, touch2] = touches;
         touch1.setCurrent({ x: nativeEvent.locationX, y: nativeEvent.locationY });
         if (nativeEvent.touches.length === 2) {
@@ -120,31 +127,32 @@ function PinchZoom({ children, style }: Props): React.ReactElement {
           touch2.offset = new Vector();
         }
       },
-      onPanResponderTerminationRequest: (evt, gestureState) =>
-        true,
-      onPanResponderRelease: (evt, gestureState) => {
-        // The user has released all touches while this view is the
-        // responder. This typically means a gesture has succeeded
-        Animated.timing(scale, {
-          useNativeDriver: true,
-          toValue: 1,
-        }).start();
-        Animated.timing(translate, {
-          useNativeDriver: true,
-          toValue: new Vector(),
-        }).start();
-      },
-      onPanResponderTerminate: (evt, gestureState) => {
-        // Another component has become the responder, so this gesture
-        // should be cancelled
-      },
-      onShouldBlockNativeResponder: (evt, gestureState) => {
-        // Returns whether this component should block native components from becoming the JS
-        // responder. Returns true by default. Is currently only supported on android.
+      onPanResponderTerminationRequest: ({ nativeEvent }, gestureState) => {
         return true;
       },
-    }),
-  ).current;
+      onPanResponderRelease: (evt, gestureState) => {
+      // The user has released all touches while this view is the
+      // responder. This typically means a gesture has succeeded
+        release();
+      },
+      onPanResponderTerminate: (evt, gestureState) => {
+      // Another component has become the responder, so this gesture
+      // should be cancelled
+        release();
+      },
+      onShouldBlockNativeResponder: (evt, gestureState) => {
+      // Returns whether this component should block native components from becoming the JS
+      // responder. Returns true by default. Is currently only supported on android.
+        return blockNativeResponder;
+      },
+    });
+  };
+  const [panResponder, setPanResponder] = React.useState<PanResponderInstance>(createPanresponder());
+  React.useEffect(() => {
+    release();
+    setPanResponder(createPanresponder());
+  }, [blockNativeResponder]);
+
   return <Animated.View
     onLayout={({ nativeEvent: { layout } }): void => {
       layoutCenter.x = layout.width / 2;
@@ -160,7 +168,7 @@ function PinchZoom({ children, style }: Props): React.ReactElement {
         ],
       },
     ]}
-    {...panResponder.panHandlers}
+    {...(panResponder?.panHandlers || {})}
   >
     {children}
   </Animated.View>;
