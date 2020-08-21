@@ -11,12 +11,15 @@ const Container = styled.View`
   shadow-radius: 4px;
   shadow-color: #000;
   shadow-offset: 0px 2px;
+  
+  width: 200px;
+  height: 500px;
+  border: 1px solid #000;
 `;
 
 const CardTitle = styled.View`
   width: 100%;
-  height: 40px;
-  
+  height: 40px; 
 `;
 
 interface Props {
@@ -24,14 +27,15 @@ interface Props {
   containerStyle?: ViewStyle;
   children?: ReactNode | ReactNodeArray;
   title?: string;
+  titleStyle?: ViewStyle;
 }
 
 const Card: FC<Props> = (props) => {
-  const { containerStyle, children, title } = props;
-  console.log(title);
+  const { containerStyle, children, title, titleStyle } = props;
+
   return (
     <Container style={[containerStyle]}>
-      <CardTitle>
+      <CardTitle style={[titleStyle]}>
         {title}
       </CardTitle>
       {children}

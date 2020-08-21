@@ -22,12 +22,16 @@ function Default(): React.ReactElement {
   const [selectedTitle, setSelectedTitle] = React.useState(
     'this is title',
   );
+
+  const [devTitleStyle, setdevTitleStyle] = React.useState(
+    { width: '100%', height: '40px', color: 'red' },
+  );
+
   return (
     <Container>
-      <Card title={selectedTitle}>
+      <Card title={selectedTitle} titleStyle={devTitleStyle}>
         <Text>hi hello</Text>
       </Card>
-      <Card />
     </Container>
   );
 }
