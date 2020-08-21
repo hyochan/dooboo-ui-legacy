@@ -63,18 +63,35 @@ function ImageItem({ source, title, content }
   </ItemContainer>;
 }
 
-function Default(): React.ReactElement {
+function ImageList(): React.ReactElement {
   return <Container>
     <FlatList
       data={images}
       style={{ flex: 1 }}
       keyExtractor={ (item):string => item.uri}
       renderItem={({ item, index }): React.ReactElement =>
-        <ImageItem source={item} title={'그림' + (index + 1)} content="이것은 그림에 대한 설명 입니다." />
+        <ImageItem
+          source={item}
+          title={`Image ${(index + 1)}`}
+          content="This line is for the description of the image" />
       } />
   </Container>;
 }
 
+function Article(): React.ReactElement {
+  return <PinchZoom style={{ width: '100%', backgroundColor: '#eee', padding: 10 }}>
+    <TitleText>Article Title</TitleText>
+    <ContentText style={{ minHeight: 100, textAlignVertical: 'center' }}>
+      {
+`This block is for the content of the article. \
+PinchZoom works at only Image but also other views. So, let's zoom in with your fingers.
+`
+      }
+    </ContentText>
+  </PinchZoom>;
+}
+
 storiesOf('PinchZoom', module)
   .addDecorator(ContainerDeco)
-  .add('default', Default);
+  .add('Image list', ImageList)
+  .add('Text block', Article);
