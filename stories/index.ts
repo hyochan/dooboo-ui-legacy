@@ -14,3 +14,4 @@ import './packages/Snackbar.stories';
 import './packages/TinderCard.stories';
 import './packages/Tables.stories';
 import './packages/CalendarCarousel.stories';
+import './packages/PinchZoom.stories';
