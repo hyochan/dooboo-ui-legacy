@@ -1,27 +1,47 @@
 import React, { FC, ReactNode, ReactNodeArray } from 'react';
-import { ViewStyle } from 'react-native';
+import { ViewStyle, ImageSourcePropType, ImageStyle } from 'react-native';
 
 import styled from 'styled-components/native';
 
 const Container = styled.View`
   flex-direction: column;
   align-items: flex-start;
-  padding: 12px 16px;
   shadow-opacity: 0.25;
   shadow-radius: 4px;
   shadow-color: #000;
   shadow-offset: 0px 2px;
 `;
 
+const ContentsContainer = styled.View`
+  padding: 16px 24px;
+`;
+
+const StlyedImage = styled.Image`
+  width: 100px;
+  height: 100px;
+`;
+
 interface Props {
   testID?: string;
   containerStyle?: ViewStyle;
   children?: ReactNode | ReactNodeArray;
+  image?: ImageSourcePropType;
+  imageStyle?: ImageStyle;
+  contentsStyle?: ViewStyle;
 }
 
 const Card: FC<Props> = (props) => {
-  const { containerStyle, children } = props;
-  return <Container style={[containerStyle]}>{children}</Container>;
+  const { containerStyle, children, image, imageStyle, contentsStyle } = props;
+  return (
+    <Container style={[containerStyle]}>
+      {image && <StlyedImage source={image} style={[imageStyle]} />}
+      {children && (
+        <ContentsContainer style={[contentsStyle]}>
+          {children}
+        </ContentsContainer>
+      )}
+    </Container>
+  );
 };
 
 Card.defaultProps = {};
