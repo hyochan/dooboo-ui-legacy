@@ -34,9 +34,10 @@ function Default(): React.ReactElement {
         containerStyle={{ marginBottom: 30 }}
         image={require('../assets/images/dummy_image_1.jpg')}
       />
-      <Card>
+      <Card containerStyle={{ marginBottom: 30 }}>
         <Text>I don't have Image</Text>
       </Card>
+      <Card loading />
     </Container>
   );
 }
