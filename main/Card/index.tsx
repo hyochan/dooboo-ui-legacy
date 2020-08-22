@@ -54,7 +54,7 @@ const Card: FC<Props> = (props) => {
 
   if (loading) {
     return (
-      <LoadingContainer>
+      <LoadingContainer style={[containerStyle]}>
         <ActivityIndicator />
       </LoadingContainer>
     );
