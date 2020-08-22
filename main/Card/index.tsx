@@ -1,7 +1,8 @@
 import React, { FC, ReactNode, ReactNodeArray } from 'react';
-import { TextStyle, View, ViewStyle } from 'react-native';
+import { TextStyle, View, ViewProps, ViewStyle } from 'react-native';
 
 import styled from 'styled-components/native';
+import { StyledFunction } from 'styled-components';
 
 const Container = styled.View`
   flex-direction: column;
@@ -15,22 +16,18 @@ const Container = styled.View`
   width: 300px;
 `;
 
-const TitleContainer = styled.View`
-  display: flex;
-  flex-direction: column;
+interface TitleContainerProps extends ViewProps {
+  titleTextVertical?: boolean;
+}
 
-  border: 1px solid red;
+const TitleContainer = styled.View<TitleContainerProps>`
+  justify-content: ${(props) => (props.titleTextVertical ? 'flex-start' : 'center')};
 `;
 
 const TitleText = styled.Text`
-  width: 100%;
-  height: 30px;
-  border-bottom: 1px solid #000;
-  color: #000;
 `;
 
 const SubTitleText = styled.Text`
-
 `;
 
 interface Props {
@@ -50,14 +47,14 @@ interface Props {
 
 const Card: FC<Props> = (props) => {
   const { containerStyle, children, titleContainerStyle, title, titleStyle, subTitle, subTitleStyle } = props;
-  const titleVertical = subTitle !== undefined && subTitle.length > 0 ? 'center' : '';
-  console.log('titleVertical : ', titleVertical);
+  const titleVertical = !!(subTitle !== undefined && subTitle.length > 0);
+
   return (
     <Container style={[containerStyle]}>
 
-      <TitleContainer style={[titleContainerStyle]} >
-        <TitleText style={[titleStyle]}> {title} </TitleText>
-        { SubTitleText && SubTitleText.length > 0
+      <TitleContainer style={[titleContainerStyle]} titleTextVertical={ titleVertical } >
+        <TitleText style={[titleStyle]} > {title} </TitleText>
+        { subTitle && subTitle.length > 0
           ? <SubTitleText style={[subTitleStyle]}> {subTitle} </SubTitleText>
           : null }
       </TitleContainer>
@@ -68,6 +65,27 @@ const Card: FC<Props> = (props) => {
 };
 
 Card.defaultProps = {
+  titleContainerStyle: {
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'flex-start',
+    justifyContent: 'center',
+    width: '100%',
+    height: 'auto',
+    backgroundColor: 'transparent',
+  },
+  titleStyle: {
+    backgroundColor: 'transparent',
+    fontSize: 13,
+    color: '#000000',
+
+  },
+  subTitleStyle: {
+    backgroundColor: 'transparent',
+    fontSize: 9,
+    color: '#e4e4e4',
+    height: 20,
+  },
 
 };
 
