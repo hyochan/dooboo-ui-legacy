@@ -12,7 +12,7 @@ const Container = styled.View`
   shadow-offset: 0px 2px;
 `;
 
-const ChildrenContainer = styled.View`
+const ContentsContainer = styled.View`
   padding: 16px 24px;
 `;
 
@@ -27,14 +27,19 @@ interface Props {
   children?: ReactNode | ReactNodeArray;
   image?: ImageSourcePropType;
   imageStyle?: ImageStyle;
+  contentsStyle?: ViewStyle;
 }
 
 const Card: FC<Props> = (props) => {
-  const { containerStyle, children, image, imageStyle } = props;
+  const { containerStyle, children, image, imageStyle, contentsStyle } = props;
   return (
     <Container style={[containerStyle]}>
       {image && <StlyedImage source={image} style={[imageStyle]} />}
-      <ChildrenContainer>{children}</ChildrenContainer>
+      {children && (
+        <ContentsContainer style={[contentsStyle]}>
+          {children}
+        </ContentsContainer>
+      )}
     </Container>
   );
 };
