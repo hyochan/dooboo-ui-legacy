@@ -1,5 +1,5 @@
 import React, { FC, ReactNode, ReactNodeArray } from 'react';
-import { ViewStyle } from 'react-native';
+import { TextStyle, View, ViewStyle } from 'react-native';
 
 import styled from 'styled-components/native';
 
@@ -12,37 +12,63 @@ const Container = styled.View`
   shadow-color: #000;
   shadow-offset: 0px 2px;
   
-  width: 200px;
-  height: 500px;
-  border: 1px solid #000;
+  width: 300px;
 `;
 
-const CardTitle = styled.View`
+const TitleContainer = styled.View`
+  display: flex;
+  flex-direction: column;
+
+  border: 1px solid red;
+`;
+
+const TitleText = styled.Text`
   width: 100%;
-  height: 40px; 
+  height: 30px;
+  border-bottom: 1px solid #000;
+  color: #000;
+`;
+
+const SubTitleText = styled.Text`
+
 `;
 
 interface Props {
   testID?: string;
   containerStyle?: ViewStyle;
   children?: ReactNode | ReactNodeArray;
+
+  titleContainerStyle?: ViewStyle;
+
   title?: string;
-  titleStyle?: ViewStyle;
+  titleStyle?: TextStyle;
+
+  subTitle?: string;
+  subTitleStyle?: TextStyle;
+
 }
 
 const Card: FC<Props> = (props) => {
-  const { containerStyle, children, title, titleStyle } = props;
-
+  const { containerStyle, children, titleContainerStyle, title, titleStyle, subTitle, subTitleStyle } = props;
+  const titleVertical = subTitle !== undefined && subTitle.length > 0 ? 'center' : '';
+  console.log('titleVertical : ', titleVertical);
   return (
     <Container style={[containerStyle]}>
-      <CardTitle style={[titleStyle]}>
-        {title}
-      </CardTitle>
+
+      <TitleContainer style={[titleContainerStyle]} >
+        <TitleText style={[titleStyle]}> {title} </TitleText>
+        { SubTitleText && SubTitleText.length > 0
+          ? <SubTitleText style={[subTitleStyle]}> {subTitle} </SubTitleText>
+          : null }
+      </TitleContainer>
+
       {children}
     </Container>
   );
 };
 
-Card.defaultProps = {};
+Card.defaultProps = {
+
+};
 
 export { Card };

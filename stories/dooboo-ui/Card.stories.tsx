@@ -19,17 +19,15 @@ const Container = styled.View`
 `;
 
 function Default(): React.ReactElement {
-  const [selectedTitle, setSelectedTitle] = React.useState(
-    'this is title',
-  );
-
-  const [devTitleStyle, setdevTitleStyle] = React.useState(
-    { width: '100%', height: '40px', color: 'red' },
-  );
-
   return (
     <Container>
-      <Card title={selectedTitle} titleStyle={devTitleStyle}>
+      <Card
+        titleContainerStyle={{ width: '100%', height: '40px', display: 'flex', flexDirection: 'column' }}
+        title={'This is title'}
+        titleStyle={{ display: 'flex', flexDirection: 'column' }}
+        subTitle={'This is subTitle'}
+        subTitleStyle={{ width: '100%', color: '#e4e4e4' }}
+      >
         <Text>hi hello</Text>
       </Card>
     </Container>
