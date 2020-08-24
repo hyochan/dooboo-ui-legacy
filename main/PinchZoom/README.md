@@ -1,0 +1,55 @@
+# Pinch Zoom
+
+> Simple pinch zoom component for react-native.  
+
+## Preview
+
+## Installation
+It may included to next version of dooboo-ui.
+Next line is not working currently.
+
+```sh
+yarn add dooboo-ui
+```
+
+## Props
+
+| Property             |      Required      | Type                           | Default               |
+| -------------------- | :----------------: | ------------------------------ | --------------------- |
+| style                | :white_check_mark: | `ViewStyle`                    |                       |
+| children             | :white_check_mark: | `ReactNode`                    |                       |
+| blockNativeResponder |                    | `boolean`                      | `true`                |
+
+## Getting started
+
+### Import
+
+```tsx
+import { PinchZoom } from 'dooboo-ui';
+```
+
+### Usage
+Just wrap the children with PinchZoom!
+
+```tsx
+function PinchZoomImage(): React.ReactElement {
+  const [width, setWidth] = React.useState<string | number>('100%');
+
+  return <PinchZoom style={{ width, height: 200 }}>
+    <Image
+      style={{ width, height: 200, backgroundColor: '#fff' }}
+      onLoad={({ nativeEvent: { source } }): void => {
+        if (source.width && source.height) {
+          setWidth(200 * source.width / source.height);
+        }
+      }}
+      source={source}
+      resizeMode={'contain'}
+    />
+  </PinchZoom>
+}
+```
+
+## Limitation
+Currently, it consumes native gesture event. So, during it working, the outer view using gesture event (ScrollView, FlatList, etc ... ) may not work. 
+

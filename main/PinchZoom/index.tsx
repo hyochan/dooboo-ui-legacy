@@ -3,7 +3,7 @@ import React, { useRef } from 'react';
 
 interface Props {
   style: ViewStyle,
-  children?: React.ReactNode,
+  children: React.ReactNode,
   blockNativeResponder?: boolean,
 }
 
