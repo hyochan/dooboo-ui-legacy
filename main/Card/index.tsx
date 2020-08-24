@@ -1,4 +1,3 @@
-import React, { FC, ReactNode, ReactNodeArray } from 'react';
 import {
   ActivityIndicator,
   ImageSourcePropType,
@@ -6,18 +5,17 @@ import {
   TextStyle,
   ViewProps,
   ViewStyle,
-
 } from 'react-native';
+import React, { FC, ReactNode, ReactNodeArray } from 'react';
 
 import styled from 'styled-components/native';
+
+import { styles } from './styles';
 
 const Container = styled.View`
   flex-direction: column;
   align-items: flex-start;
-  shadow-opacity: 0.25;
-  shadow-radius: 4px;
-  shadow-color: #000;
-  shadow-offset: 0px 2px;
+  background-color: #fff;
 `;
 
 const ContentsContainer = styled.View`
@@ -36,7 +34,7 @@ const LoadingContainer = styled(Container)`
 `;
 
 const TitleContainer = styled.View<TitleContainerProps>`
-  justify-content: ${(props) => (props.titleTextVertical ? 'flex-start' : 'center')};
+  justify-content: ${(props):string => (props.titleTextVertical ? 'flex-start' : 'center')};
   padding: 5px 10px;
   display: flex;
   flex-direction: column;
@@ -69,12 +67,13 @@ interface Props {
   imageStyle?: ImageStyle;
   contentsStyle?: ViewStyle;
   loading?: boolean;
-
   titleContainerStyle?: ViewStyle;
   title?: string;
   titleStyle?: TextStyle;
   subTitle?: string;
   subTitleStyle?: TextStyle;
+  outlined?: boolean;
+  raised?:boolean;
 }
 
 interface TitleContainerProps extends ViewProps {
@@ -94,6 +93,8 @@ const Card: FC<Props> = (props) => {
     titleStyle,
     subTitle,
     subTitleStyle,
+    outlined,
+    raised,
   } = props;
   const titleVertical = subTitle !== undefined && subTitle.length > 0;
   const renderTitle = title || subTitle;
@@ -106,8 +107,10 @@ const Card: FC<Props> = (props) => {
     );
   }
 
+  const shadowStyle = raised ? styles.raisedShadow : styles.shadow;
+
   return (
-    <Container style={[containerStyle]}>
+    <Container style={[outlined ? styles.border : shadowStyle, containerStyle]}>
       {image && <StlyedImage source={image} style={[imageStyle]} />}
 
       { renderTitle && <TitleContainer style={[titleContainerStyle]} titleTextVertical={ titleVertical } >
