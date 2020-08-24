@@ -199,22 +199,26 @@ function CalendarCarousel<T>({
   const changeMonth = (toPrevMonth?: boolean): void => {
     if (toPrevMonth) {
       const update = prevMonth;
+
       setCurrentDate(update);
       return onDateChanged?.(update);
     }
     const update = nextMonth;
+
     setCurrentDate(update);
     return onDateChanged?.(update);
   };
 
   const renderCalendar = (currentDate: Date): ReactElement => {
     const monthName = monthFormatter.format(currentDate);
-
     const lastDate = new Date(year, month + 1, 0).getDate();
     const firstWeekday = new Date(year, month, 1).getDay();
     const lastWeekday = new Date(year, month, lastDate).getDay();
-
     const weekdays = [];
+    const prevDates = [];
+    const dates = [];
+    const nextDates = [];
+
     for (let idx = 0; idx <= 6; idx++) {
       const matchMonth = new Date(2020, 5, idx);
       const weekDay = matchMonth.toLocaleString('default', { weekday: 'narrow' });
@@ -225,19 +229,16 @@ function CalendarCarousel<T>({
       );
     }
 
-    const prevDates = [];
     for (let idx = 0; idx < firstWeekday; idx++) {
       const date = new Date(year, month, 0);
       date.setDate(date.getDate() - idx);
       prevDates.unshift(date);
     }
 
-    const dates = [];
     for (let idx = 1; idx <= lastDate; idx++) {
       dates.push(new Date(year, month, idx));
     }
 
-    const nextDates = [];
     if (6 - lastWeekday >= 1) {
       for (let idx = 1; idx <= 6 - lastWeekday; idx++) {
         nextDates.push(new Date(year, month + 1, idx));
@@ -345,15 +346,14 @@ function CalendarCarousel<T>({
           </View>
         </TouchableOpacity>
       );
-    } else {
-      return (
-        <TouchableOpacity onPress={(): void => selectDate(setItemDay)}>
-          <View style={styles.notActiveView}>
-            <Text style={styles.notActiveText}>{`${itemDay}`}</Text>
-          </View>
-        </TouchableOpacity>
-      );
     }
+    return (
+      <TouchableOpacity onPress={(): void => selectDate(setItemDay)}>
+        <View style={styles.notActiveView}>
+          <Text style={styles.notActiveText}>{`${itemDay}`}</Text>
+        </View>
+      </TouchableOpacity>
+    );
   };
 
   const scrollToMiddleCalendar = (): void => {
