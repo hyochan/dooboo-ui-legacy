@@ -22,7 +22,8 @@ yarn add dooboo-ui
 | children             | :white_check_mark: | `ReactNode`                    |                       |
 | blockNativeResponder |                    | `boolean`                      | `true`                |
 
-### blockNativeResponder
+- blockNativeResponder
+
 The PinchZoom consumes native gesture event. So, during it working, the parent component using gesture event (ScrollView, FlatList, etc ... ) may not work. 
 If you set this value to false, then the parent component will work but it may prevent zoom action.
 
