@@ -34,7 +34,7 @@ const LoadingContainer = styled(Container)`
 `;
 
 const TitleContainer = styled.View<TitleContainerProps>`
-  justify-content: ${(props) =>
+  justify-content: ${(props): string =>
     props.titleTextVertical ? 'flex-start' : 'center'};
   padding: 5px 10px;
   display: flex;
