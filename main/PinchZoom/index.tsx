@@ -20,6 +20,7 @@ class Vector implements VectorType {
     this.set(vector);
   }
 
+  // istanbul ignore next
   toString(): string {
     return JSON.stringify({ x: this.x, y: this.y });
   }
@@ -33,10 +34,6 @@ class Vector implements VectorType {
   set = (vector: VectorType): void => {
     this.x = vector.x;
     this.y = vector.y;
-  }
-
-  plus = (a: VectorType, b: VectorType = this): Vector => {
-    return new Vector({ x: a.x + b.x, y: a.y + b.y });
   }
 
   multiply = (n: number, b: VectorType = this): Vector => {
@@ -69,10 +66,6 @@ class TouchPosition {
     this.current.x = x;
     this.current.y = y;
   }
-
-  get relativePosition() : Vector {
-    return this.current.subtract(this.offset);
-  }
 }
 
 function PinchZoom({ children, style, blockNativeResponder = true }: Props): React.ReactElement {
@@ -98,7 +91,7 @@ function PinchZoom({ children, style, blockNativeResponder = true }: Props): Rea
       onStartShouldSetPanResponderCapture: () => true,
       onMoveShouldSetPanResponder: () => true,
       onMoveShouldSetPanResponderCapture: () => true,
-      onPanResponderGrant: ({ nativeEvent }, gestureState) => {
+      onPanResponderGrant: ({ nativeEvent }) => {
       // The gesture has started. Show visual feedback so the user knows
       // what is happening!
       // gestureState.d{x,y} will be set to zero now
@@ -106,7 +99,7 @@ function PinchZoom({ children, style, blockNativeResponder = true }: Props): Rea
         touch1.setOffset({ x: nativeEvent.locationX, y: nativeEvent.locationY });
         touch2.setOffset({ x: 0, y: 0 });
       },
-      onPanResponderMove: ({ nativeEvent }, gestureState) => {
+      onPanResponderMove: ({ nativeEvent }) => {
       // The most recent move distance is gestureState.move{X,Y}
       // The accumulated gesture distance since becoming responder is
       // gestureState.d{x,y}evt
@@ -127,20 +120,20 @@ function PinchZoom({ children, style, blockNativeResponder = true }: Props): Rea
           touch2.offset = new Vector();
         }
       },
-      onPanResponderTerminationRequest: ({ nativeEvent }, gestureState) => {
+      onPanResponderTerminationRequest: () => {
         return true;
       },
-      onPanResponderRelease: (evt, gestureState) => {
+      onPanResponderRelease: () => {
       // The user has released all touches while this view is the
       // responder. This typically means a gesture has succeeded
         release();
       },
-      onPanResponderTerminate: (evt, gestureState) => {
+      onPanResponderTerminate: () => {
       // Another component has become the responder, so this gesture
       // should be cancelled
         release();
       },
-      onShouldBlockNativeResponder: (evt, gestureState) => {
+      onShouldBlockNativeResponder: () => {
       // Returns whether this component should block native components from becoming the JS
       // responder. Returns true by default. Is currently only supported on android.
         return blockNativeResponder;
@@ -154,6 +147,7 @@ function PinchZoom({ children, style, blockNativeResponder = true }: Props): Rea
   }, [blockNativeResponder]);
 
   return <Animated.View
+    testID="PINCH_ZOOM_CONTAINER"
     onLayout={({ nativeEvent: { layout } }): void => {
       layoutCenter.x = layout.width / 2;
       layoutCenter.y = layout.height / 2;

@@ -16,7 +16,7 @@ module.exports = {
     'node_modules',
   ],
   testMatch: [
-    '**/__tests__/**/*.ts?(x)',
+    '**/__tests__/**/*test.ts?(x)',
     '**/?(*.)+(spec|test).ts?(x)',
   ],
   moduleFileExtensions: [

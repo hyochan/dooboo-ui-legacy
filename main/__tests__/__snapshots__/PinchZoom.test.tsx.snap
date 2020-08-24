@@ -1,0 +1,713 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`[PinchZoom] of ImageList render  should renders without crashing 1`] = `
+<View
+  style={
+    Array [
+      Object {
+        "flexBasis": 0,
+        "flexGrow": 1,
+        "flexShrink": 1,
+        "paddingBottom": 10,
+        "paddingLeft": 10,
+        "paddingRight": 10,
+        "paddingTop": 10,
+      },
+    ]
+  }
+>
+  <ScrollView
+    data={
+      Array [
+        Object {
+          "uri": "https://images.unsplash.com/photo-1519335337423-a3357c2cd12e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2168&q=80",
+        },
+        Object {
+          "uri": "https://www.housingwire.com/wp-content/uploads/2019/09/Purple-technology-data-internet-3.jpg",
+        },
+        Object {
+          "uri": "https://images.unsplash.com/photo-1543007354-0bc99b7d096b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80",
+        },
+        Object {
+          "uri": "https://p.bigstockphoto.com/eIdTXLbqQilMs9xbjvcs_bigstock-Aerial-View-Of-Sandy-Beach-Wit-256330393.jpg",
+        },
+        Object {
+          "uri": "https://avatars2.githubusercontent.com/u/7970947?v=3&s=460",
+        },
+      ]
+    }
+    disableVirtualization={false}
+    getItem={[Function]}
+    getItemCount={[Function]}
+    horizontal={false}
+    initialNumToRender={10}
+    keyExtractor={[Function]}
+    maxToRenderPerBatch={10}
+    onContentSizeChange={[Function]}
+    onEndReachedThreshold={2}
+    onLayout={[Function]}
+    onMomentumScrollEnd={[Function]}
+    onScroll={[Function]}
+    onScrollBeginDrag={[Function]}
+    onScrollEndDrag={[Function]}
+    removeClippedSubviews={false}
+    renderItem={[Function]}
+    scrollEventThrottle={50}
+    stickyHeaderIndices={Array []}
+    style={
+      Object {
+        "flex": 1,
+      }
+    }
+    updateCellsBatchingPeriod={50}
+    viewabilityConfigCallbackPairs={Array []}
+    windowSize={21}
+  >
+    <View
+      onLayout={[Function]}
+      style={null}
+    >
+      <View
+        style={
+          Array [
+            Object {
+              "minHeight": 200,
+              "paddingBottom": 10,
+              "paddingLeft": 0,
+              "paddingRight": 0,
+              "paddingTop": 10,
+              "width": 730,
+            },
+          ]
+        }
+      >
+        <Text
+          style={
+            Array [
+              Object {
+                "fontSize": 16,
+              },
+            ]
+          }
+        >
+          Image 1
+        </Text>
+        <Text
+          style={
+            Array [
+              Object {
+                "fontSize": 14,
+              },
+            ]
+          }
+        >
+          This line is for the description of the image
+        </Text>
+        <View
+          style={
+            Array [
+              Object {
+                "alignItems": "center",
+                "backgroundColor": "#CCC",
+                "height": 200,
+                "width": "100%",
+              },
+            ]
+          }
+        >
+          <View
+            onLayout={[Function]}
+            style={
+              Object {
+                "height": 200,
+                "transform": Array [
+                  Object {
+                    "translateX": 0,
+                  },
+                  Object {
+                    "translateY": 0,
+                  },
+                  Object {
+                    "scale": 1,
+                  },
+                ],
+                "width": "100%",
+              }
+            }
+            testID="PINCH_ZOOM_CONTAINER"
+          >
+            <Image
+              onLoad={[Function]}
+              resizeMode="contain"
+              source={
+                Object {
+                  "uri": "https://images.unsplash.com/photo-1519335337423-a3357c2cd12e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2168&q=80",
+                }
+              }
+              style={
+                Object {
+                  "backgroundColor": "#fff",
+                  "height": 200,
+                  "width": "100%",
+                }
+              }
+            />
+          </View>
+        </View>
+      </View>
+    </View>
+    <View
+      onLayout={[Function]}
+      style={null}
+    >
+      <View
+        style={
+          Array [
+            Object {
+              "minHeight": 200,
+              "paddingBottom": 10,
+              "paddingLeft": 0,
+              "paddingRight": 0,
+              "paddingTop": 10,
+              "width": 730,
+            },
+          ]
+        }
+      >
+        <Text
+          style={
+            Array [
+              Object {
+                "fontSize": 16,
+              },
+            ]
+          }
+        >
+          Image 2
+        </Text>
+        <Text
+          style={
+            Array [
+              Object {
+                "fontSize": 14,
+              },
+            ]
+          }
+        >
+          This line is for the description of the image
+        </Text>
+        <View
+          style={
+            Array [
+              Object {
+                "alignItems": "center",
+                "backgroundColor": "#CCC",
+                "height": 200,
+                "width": "100%",
+              },
+            ]
+          }
+        >
+          <View
+            onLayout={[Function]}
+            style={
+              Object {
+                "height": 200,
+                "transform": Array [
+                  Object {
+                    "translateX": 0,
+                  },
+                  Object {
+                    "translateY": 0,
+                  },
+                  Object {
+                    "scale": 1,
+                  },
+                ],
+                "width": "100%",
+              }
+            }
+            testID="PINCH_ZOOM_CONTAINER"
+          >
+            <Image
+              onLoad={[Function]}
+              resizeMode="contain"
+              source={
+                Object {
+                  "uri": "https://www.housingwire.com/wp-content/uploads/2019/09/Purple-technology-data-internet-3.jpg",
+                }
+              }
+              style={
+                Object {
+                  "backgroundColor": "#fff",
+                  "height": 200,
+                  "width": "100%",
+                }
+              }
+            />
+          </View>
+        </View>
+      </View>
+    </View>
+    <View
+      onLayout={[Function]}
+      style={null}
+    >
+      <View
+        style={
+          Array [
+            Object {
+              "minHeight": 200,
+              "paddingBottom": 10,
+              "paddingLeft": 0,
+              "paddingRight": 0,
+              "paddingTop": 10,
+              "width": 730,
+            },
+          ]
+        }
+      >
+        <Text
+          style={
+            Array [
+              Object {
+                "fontSize": 16,
+              },
+            ]
+          }
+        >
+          Image 3
+        </Text>
+        <Text
+          style={
+            Array [
+              Object {
+                "fontSize": 14,
+              },
+            ]
+          }
+        >
+          This line is for the description of the image
+        </Text>
+        <View
+          style={
+            Array [
+              Object {
+                "alignItems": "center",
+                "backgroundColor": "#CCC",
+                "height": 200,
+                "width": "100%",
+              },
+            ]
+          }
+        >
+          <View
+            onLayout={[Function]}
+            style={
+              Object {
+                "height": 200,
+                "transform": Array [
+                  Object {
+                    "translateX": 0,
+                  },
+                  Object {
+                    "translateY": 0,
+                  },
+                  Object {
+                    "scale": 1,
+                  },
+                ],
+                "width": "100%",
+              }
+            }
+            testID="PINCH_ZOOM_CONTAINER"
+          >
+            <Image
+              onLoad={[Function]}
+              resizeMode="contain"
+              source={
+                Object {
+                  "uri": "https://images.unsplash.com/photo-1543007354-0bc99b7d096b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80",
+                }
+              }
+              style={
+                Object {
+                  "backgroundColor": "#fff",
+                  "height": 200,
+                  "width": "100%",
+                }
+              }
+            />
+          </View>
+        </View>
+      </View>
+    </View>
+    <View
+      onLayout={[Function]}
+      style={null}
+    >
+      <View
+        style={
+          Array [
+            Object {
+              "minHeight": 200,
+              "paddingBottom": 10,
+              "paddingLeft": 0,
+              "paddingRight": 0,
+              "paddingTop": 10,
+              "width": 730,
+            },
+          ]
+        }
+      >
+        <Text
+          style={
+            Array [
+              Object {
+                "fontSize": 16,
+              },
+            ]
+          }
+        >
+          Image 4
+        </Text>
+        <Text
+          style={
+            Array [
+              Object {
+                "fontSize": 14,
+              },
+            ]
+          }
+        >
+          This line is for the description of the image
+        </Text>
+        <View
+          style={
+            Array [
+              Object {
+                "alignItems": "center",
+                "backgroundColor": "#CCC",
+                "height": 200,
+                "width": "100%",
+              },
+            ]
+          }
+        >
+          <View
+            onLayout={[Function]}
+            style={
+              Object {
+                "height": 200,
+                "transform": Array [
+                  Object {
+                    "translateX": 0,
+                  },
+                  Object {
+                    "translateY": 0,
+                  },
+                  Object {
+                    "scale": 1,
+                  },
+                ],
+                "width": "100%",
+              }
+            }
+            testID="PINCH_ZOOM_CONTAINER"
+          >
+            <Image
+              onLoad={[Function]}
+              resizeMode="contain"
+              source={
+                Object {
+                  "uri": "https://p.bigstockphoto.com/eIdTXLbqQilMs9xbjvcs_bigstock-Aerial-View-Of-Sandy-Beach-Wit-256330393.jpg",
+                }
+              }
+              style={
+                Object {
+                  "backgroundColor": "#fff",
+                  "height": 200,
+                  "width": "100%",
+                }
+              }
+            />
+          </View>
+        </View>
+      </View>
+    </View>
+    <View
+      onLayout={[Function]}
+      style={null}
+    >
+      <View
+        style={
+          Array [
+            Object {
+              "minHeight": 200,
+              "paddingBottom": 10,
+              "paddingLeft": 0,
+              "paddingRight": 0,
+              "paddingTop": 10,
+              "width": 730,
+            },
+          ]
+        }
+      >
+        <Text
+          style={
+            Array [
+              Object {
+                "fontSize": 16,
+              },
+            ]
+          }
+        >
+          Image 5
+        </Text>
+        <Text
+          style={
+            Array [
+              Object {
+                "fontSize": 14,
+              },
+            ]
+          }
+        >
+          This line is for the description of the image
+        </Text>
+        <View
+          style={
+            Array [
+              Object {
+                "alignItems": "center",
+                "backgroundColor": "#CCC",
+                "height": 200,
+                "width": "100%",
+              },
+            ]
+          }
+        >
+          <View
+            onLayout={[Function]}
+            style={
+              Object {
+                "height": 200,
+                "transform": Array [
+                  Object {
+                    "translateX": 0,
+                  },
+                  Object {
+                    "translateY": 0,
+                  },
+                  Object {
+                    "scale": 1,
+                  },
+                ],
+                "width": "100%",
+              }
+            }
+            testID="PINCH_ZOOM_CONTAINER"
+          >
+            <Image
+              onLoad={[Function]}
+              resizeMode="contain"
+              source={
+                Object {
+                  "uri": "https://avatars2.githubusercontent.com/u/7970947?v=3&s=460",
+                }
+              }
+              style={
+                Object {
+                  "backgroundColor": "#fff",
+                  "height": 200,
+                  "width": "100%",
+                }
+              }
+            />
+          </View>
+        </View>
+      </View>
+    </View>
+  </ScrollView>
+</View>
+`;
+
+exports[`[PinchZoom] of ImageList render ImageList interaction test  should be returned to its original size and location after all touch released. 1`] = `
+Object {
+  "height": 200,
+  "transform": Array [
+    Object {
+      "translateX": 0,
+    },
+    Object {
+      "translateY": 0,
+    },
+    Object {
+      "scale": 1,
+    },
+  ],
+  "width": "100%",
+}
+`;
+
+exports[`[PinchZoom] of ImageList render ImageList interaction test  should be returned to its original size and location after all touch released. 2`] = `
+Object {
+  "height": 200,
+  "transform": Array [
+    Object {
+      "translateX": 0,
+    },
+    Object {
+      "translateY": 0,
+    },
+    Object {
+      "scale": 1,
+    },
+  ],
+  "width": "100%",
+}
+`;
+
+exports[`[PinchZoom] of ImageList render ImageList interaction test  should be returned to its original size and location after all touch released. 3`] = `
+Object {
+  "height": 200,
+  "transform": Array [
+    Object {
+      "translateX": 0,
+    },
+    Object {
+      "translateY": 0,
+    },
+    Object {
+      "scale": 1,
+    },
+  ],
+  "width": "100%",
+}
+`;
+
+exports[`[PinchZoom] of ImageList render ImageList interaction test  should be returned to its original size and location after all touch released. 4`] = `
+Object {
+  "height": 200,
+  "transform": Array [
+    Object {
+      "translateX": 0,
+    },
+    Object {
+      "translateY": 0,
+    },
+    Object {
+      "scale": 1,
+    },
+  ],
+  "width": "100%",
+}
+`;
+
+exports[`[PinchZoom] of ImageList render ImageList interaction test  should be returned to its original size and location after all touch released. 5`] = `
+Object {
+  "height": 200,
+  "transform": Array [
+    Object {
+      "translateX": 0,
+    },
+    Object {
+      "translateY": 0,
+    },
+    Object {
+      "scale": 1,
+    },
+  ],
+  "width": "100%",
+}
+`;
+
+exports[`[PinchZoom] of ImageList render ImageList interaction test  should zoom-in and out by touch events 1`] = `
+Object {
+  "height": 200,
+  "transform": Array [
+    Object {
+      "translateX": -19.49948928192947,
+    },
+    Object {
+      "translateY": 13.453309714176148,
+    },
+    Object {
+      "scale": 2.1974050162854932,
+    },
+  ],
+  "width": "100%",
+}
+`;
+
+exports[`[PinchZoom] of ImageList render ImageList interaction test  should zoom-in and out by touch events 2`] = `
+Object {
+  "height": 200,
+  "transform": Array [
+    Object {
+      "translateX": -19.49948928192947,
+    },
+    Object {
+      "translateY": 13.453309714176148,
+    },
+    Object {
+      "scale": 2.1974050162854932,
+    },
+  ],
+  "width": "100%",
+}
+`;
+
+exports[`[PinchZoom] of ImageList render ImageList interaction test  should zoom-in and out by touch events 3`] = `
+Object {
+  "height": 200,
+  "transform": Array [
+    Object {
+      "translateX": -19.49948928192947,
+    },
+    Object {
+      "translateY": 13.453309714176148,
+    },
+    Object {
+      "scale": 2.1974050162854932,
+    },
+  ],
+  "width": "100%",
+}
+`;
+
+exports[`[PinchZoom] of ImageList render ImageList interaction test  should zoom-in and out by touch events 4`] = `
+Object {
+  "height": 200,
+  "transform": Array [
+    Object {
+      "translateX": -19.49948928192947,
+    },
+    Object {
+      "translateY": 13.453309714176148,
+    },
+    Object {
+      "scale": 2.1974050162854932,
+    },
+  ],
+  "width": "100%",
+}
+`;
+
+exports[`[PinchZoom] of ImageList render ImageList interaction test  should zoom-in and out by touch events 5`] = `
+Object {
+  "height": 200,
+  "transform": Array [
+    Object {
+      "translateX": -19.49948928192947,
+    },
+    Object {
+      "translateY": 13.453309714176148,
+    },
+    Object {
+      "scale": 2.1974050162854932,
+    },
+  ],
+  "width": "100%",
+}
+`;
