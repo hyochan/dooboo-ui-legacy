@@ -5,6 +5,10 @@
 
 A Calendar UI that can be swiped horizontally. By default, this calendar displays the current date with a blue circle. Dates can be swiped infinitely and moving through the dates is also possible through clicking the next button arrow.
 
+For an even closer description on how the CalendarCarousel was made, you can read this medium article.
+English : [CalendarCarousel](https://medium.com/@jessielee.shl/the-making-of-dooboo-uis-calendar-carousel-74bf8b0579a9)
+Korean : [CalendarCarousel](https://medium.com/@jessielee.shl/dooboo-ui-calendar-carousel-%EC%A0%9C%EC%9E%91%EA%B3%BC%EC%A0%95-43de8a9e5ad6)
+
 #### Features of this Calendar Include
 - Display Current Date with a blue circle
 - Display Selected Date with a light blue circle
