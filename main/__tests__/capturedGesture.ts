@@ -1,0 +1,435 @@
+/* istanbul ignore file */
+const capturedGesture: { name: string, nativeEvent?: any, returnValue?: boolean }[] = [
+  {
+    name: 'onPanResponderGrant',
+    nativeEvent: {
+      changedTouches: [
+        null,
+      ],
+      identifier: 0,
+      locationX: 173.5855712890625,
+      locationY: 123.69642639160156,
+      pageX: 201.3950958251953,
+      pageY: 445.9821472167969,
+      target: 4069,
+      timestamp: 863596099,
+      touches: [
+        null,
+      ],
+    },
+  },
+  { name: 'onShouldBlockNativeResponder', returnValue: true },
+  {
+    name: 'onPanResponderMove',
+    nativeEvent: {
+      changedTouches: [
+        null,
+      ],
+      identifier: 0,
+      locationX: 173.68600463867188,
+      locationY: 124.109375,
+      pageX: 201.4955291748047,
+      pageY: 446.39508056640625,
+      target: 4069,
+      timestamp: 863596103,
+      touches: [
+        null,
+      ],
+    },
+  }, {
+    name: 'onPanResponderMove',
+    nativeEvent: {
+      changedTouches: [
+        null,
+        {
+          identifier: 1,
+          locationX: 158.9840087890625,
+          locationY: 53.83279800415039,
+          pageX: 186.7935333251953,
+          pageY: 376.1184997558594,
+          target: 4069,
+          timestamp: 863596169,
+        },
+      ],
+      identifier: 0,
+      locationX: 174.38912963867188,
+      locationY: 125.04766845703125,
+      pageX: 202.1986541748047,
+      pageY: 447.3333740234375,
+      target: 4069,
+      timestamp: 863596169,
+      touches: [
+        null,
+        {
+          identifier: 1,
+          locationX: 158.9840087890625,
+          locationY: 53.83279800415039,
+          pageX: 186.7935333251953,
+          pageY: 376.1184997558594,
+          target: 4069,
+          timestamp: 863596169,
+        },
+      ],
+    },
+  }, {
+    name: 'onPanResponderMove',
+    nativeEvent: {
+      changedTouches: [
+        null,
+        {
+          identifier: 1,
+          locationX: 156.38723754882812,
+          locationY: 49.5041389465332,
+          pageX: 184.19676208496094,
+          pageY: 371.78985595703125,
+          target: 4069,
+          timestamp: 863596202,
+        },
+      ],
+      identifier: 0,
+      locationX: 174.38912963867188,
+      locationY: 124.64513397216797,
+      pageX: 202.1986541748047,
+      pageY: 446.93084716796875,
+      target: 4069,
+      timestamp: 863596202,
+      touches: [
+        null,
+        {
+          identifier: 1,
+          locationX: 156.38723754882812,
+          locationY: 49.5041389465332,
+          pageX: 184.19676208496094,
+          pageY: 371.78985595703125,
+          target: 4069,
+          timestamp: 863596202,
+        },
+      ],
+    },
+  }, {
+    name: 'onPanResponderMove',
+    nativeEvent: {
+      changedTouches: [
+        null,
+        {
+          identifier: 1,
+          locationX: 153.83035278320312,
+          locationY: 46.17280578613281,
+          pageX: 181.8080291748047,
+          pageY: 369.22503662109375,
+          target: 4069,
+          timestamp: 863596269,
+        },
+      ],
+      identifier: 0,
+      locationX: 174.34622192382812,
+      locationY: 125.50943756103516,
+      pageX: 202.3238983154297,
+      pageY: 448.5616760253906,
+      target: 4069,
+      timestamp: 863596269,
+      touches: [
+        null,
+        {
+          identifier: 1,
+          locationX: 153.83035278320312,
+          locationY: 46.17280578613281,
+          pageX: 181.8080291748047,
+          pageY: 369.22503662109375,
+          target: 4069,
+          timestamp: 863596269,
+        },
+      ],
+    },
+  }, {
+    name: 'onPanResponderMove',
+    nativeEvent: {
+      changedTouches: [
+        null,
+        {
+          identifier: 1,
+          locationX: 151.5487518310547,
+          locationY: 42.82198715209961,
+          pageX: 180.164794921875,
+          pageY: 368.3923034667969,
+          target: 4069,
+          timestamp: 863596317,
+        },
+      ],
+      identifier: 0,
+      locationX: 176.05088806152344,
+      locationY: 128.5384979248047,
+      pageX: 204.6669158935547,
+      pageY: 454.10882568359375,
+      target: 4069,
+      timestamp: 863596317,
+      touches: [
+        null,
+        {
+          identifier: 1,
+          locationX: 151.5487518310547,
+          locationY: 42.82198715209961,
+          pageX: 180.164794921875,
+          pageY: 368.3923034667969,
+          target: 4069,
+          timestamp: 863596317,
+        },
+      ],
+    },
+  }, {
+    name: 'onPanResponderMove',
+    nativeEvent: {
+      changedTouches: [
+        null,
+        {
+          identifier: 1,
+          locationX: 149.03395080566406,
+          locationY: 38.52134323120117,
+          pageX: 178.31533813476562,
+          pageY: 366.7200012207031,
+          target: 4069,
+          timestamp: 863596368,
+        },
+      ],
+      identifier: 0,
+      locationX: 176.2205352783203,
+      locationY: 128.67941284179688,
+      pageX: 205.50192260742188,
+      pageY: 456.8780822753906,
+      target: 4069,
+      timestamp: 863596368,
+      touches: [
+        null,
+        {
+          identifier: 1,
+          locationX: 149.03395080566406,
+          locationY: 38.52134323120117,
+          pageX: 178.31533813476562,
+          pageY: 366.7200012207031,
+          target: 4069,
+          timestamp: 863596368,
+        },
+      ],
+    },
+  }, {
+    name: 'onPanResponderMove',
+    nativeEvent: {
+      changedTouches: [
+        null,
+        {
+          identifier: 1,
+          locationX: 136.17771911621094,
+          locationY: 16.373512268066406,
+          pageX: 169.4310302734375,
+          pageY: 355.546875,
+          target: 4069,
+          timestamp: 863596634,
+        },
+      ],
+      identifier: 0,
+      locationX: 188.1416778564453,
+      locationY: 156.56881713867188,
+      pageX: 221.3949737548828,
+      pageY: 495.7421875,
+      target: 4069,
+      timestamp: 863596634,
+      touches: [
+        null,
+        {
+          identifier: 1,
+          locationX: 136.17771911621094,
+          locationY: 16.373512268066406,
+          pageX: 169.4310302734375,
+          pageY: 355.546875,
+          target: 4069,
+          timestamp: 863596634,
+        },
+      ],
+    },
+  }, {
+    name: 'onPanResponderMove',
+    nativeEvent: {
+      changedTouches: [
+        null,
+        {
+          identifier: 1,
+          locationX: 134.9792022705078,
+          locationY: 12.3630952835083,
+          pageX: 169.453125,
+          pageY: 355.34039306640625,
+          target: 4069,
+          timestamp: 863596718,
+        },
+      ],
+      identifier: 0,
+      locationX: 187.15187072753906,
+      locationY: 153.552734375,
+      pageX: 221.62579345703125,
+      pageY: 496.530029296875,
+      target: 4069,
+      timestamp: 863596718,
+      touches: [
+        null,
+        {
+          identifier: 1,
+          locationX: 134.9792022705078,
+          locationY: 12.3630952835083,
+          pageX: 169.453125,
+          pageY: 355.34039306640625,
+          target: 4069,
+          timestamp: 863596718,
+        },
+      ],
+    },
+  }, {
+    name: 'onPanResponderMove',
+    nativeEvent: {
+      changedTouches: [
+        null,
+        {
+          identifier: 1,
+          locationX: 134.6920623779297,
+          locationY: 11.955496788024902,
+          pageX: 169.25222778320312,
+          pageY: 355.1385498046875,
+          target: 4069,
+          timestamp: 863596734,
+        },
+      ],
+      identifier: 0,
+      locationX: 187.42193603515625,
+      locationY: 154.19700622558594,
+      pageX: 221.9821014404297,
+      pageY: 497.38006591796875,
+      target: 4069,
+      timestamp: 863596734,
+      touches: [
+        null,
+        {
+          identifier: 1,
+          locationX: 134.6920623779297,
+          locationY: 11.955496788024902,
+          pageX: 169.25222778320312,
+          pageY: 355.1385498046875,
+          target: 4069,
+          timestamp: 863596734,
+        },
+      ],
+    },
+  }, {
+    name: 'onPanResponderMove',
+    nativeEvent: {
+      changedTouches: [
+        null,
+        {
+          identifier: 1,
+          locationX: 125.4496841430664,
+          locationY: -15.431477546691895,
+          pageX: 168.3482208251953,
+          pageY: 354.1015625,
+          target: 4069,
+          timestamp: 863596851,
+        },
+      ],
+      identifier: 0,
+      locationX: 179.8916473388672,
+      locationY: 131.3709716796875,
+      pageX: 222.79017639160156,
+      pageY: 500.9040222167969,
+      target: 4069,
+      timestamp: 863596851,
+      touches: [
+        null,
+        {
+          identifier: 1,
+          locationX: 125.4496841430664,
+          locationY: -15.431477546691895,
+          pageX: 168.3482208251953,
+          pageY: 354.1015625,
+          target: 4069,
+          timestamp: 863596851,
+        },
+      ],
+    },
+  }, {
+    name: 'onPanResponderMove',
+    nativeEvent: {
+      changedTouches: [
+        null,
+        {
+          identifier: 1,
+          locationX: 125.02423095703125,
+          locationY: -17.284690856933594,
+          pageX: 168.4486541748047,
+          pageY: 353.89508056640625,
+          target: 4069,
+          timestamp: 863596951,
+        },
+      ],
+      identifier: 0,
+      locationX: 179.36575317382812,
+      locationY: 129.7242431640625,
+      pageX: 222.79017639160156,
+      pageY: 500.9040222167969,
+      target: 4069,
+      timestamp: 863596951,
+      touches: [
+        null,
+        {
+          identifier: 1,
+          locationX: 125.02423095703125,
+          locationY: -17.284690856933594,
+          pageX: 168.4486541748047,
+          pageY: 353.89508056640625,
+          target: 4069,
+          timestamp: 863596951,
+        },
+      ],
+    },
+  }, {
+    name: 'onPanResponderMove',
+    nativeEvent: {
+      changedTouches: [
+        null,
+        {
+          identifier: 1,
+          locationX: 124.72288513183594,
+          locationY: -17.284690856933594,
+          pageX: 168.14732360839844,
+          pageY: 353.89508056640625,
+          target: 4069,
+          timestamp: 863597085,
+        },
+      ],
+      identifier: 0,
+      locationX: 179.36575317382812,
+      locationY: 129.7242431640625,
+      pageX: 222.79017639160156,
+      pageY: 500.9040222167969,
+      target: 4069,
+      timestamp: 863597085,
+      touches: [
+        null,
+        {
+          identifier: 1,
+          locationX: 124.72288513183594,
+          locationY: -17.284690856933594,
+          pageX: 168.14732360839844,
+          pageY: 353.89508056640625,
+          target: 4069,
+          timestamp: 863597085,
+        },
+      ],
+    },
+  },
+  { name: 'onPanResponderRelease', returnValue: true },
+];
+
+export default capturedGesture.map((item) => {
+  if (item.name === 'onPanREsponderMove') {
+    const { nativeEvent } = item;
+    nativeEvent.touches[0] = item;
+    nativeEvent.changedTouches[0] = item;
+  }
+  return item;
+});
