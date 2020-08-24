@@ -2,7 +2,7 @@ import { Animated, PanResponder, PanResponderInstance, ViewStyle } from 'react-n
 import React, { useRef } from 'react';
 
 interface Props {
-  style: ViewStyle,
+  style?: ViewStyle,
   children: React.ReactNode,
   blockNativeResponder?: boolean,
 }
@@ -86,23 +86,16 @@ function PinchZoom({ children, style, blockNativeResponder = true }: Props): Rea
   };
   const createPanresponder = (): PanResponderInstance => {
     return PanResponder.create({
-    // Ask to be the responder:
       onStartShouldSetPanResponder: () => true,
       onStartShouldSetPanResponderCapture: () => true,
       onMoveShouldSetPanResponder: () => true,
       onMoveShouldSetPanResponderCapture: () => true,
       onPanResponderGrant: ({ nativeEvent }) => {
-      // The gesture has started. Show visual feedback so the user knows
-      // what is happening!
-      // gestureState.d{x,y} will be set to zero now
         const [touch1, touch2] = touches;
         touch1.setOffset({ x: nativeEvent.locationX, y: nativeEvent.locationY });
         touch2.setOffset({ x: 0, y: 0 });
       },
       onPanResponderMove: ({ nativeEvent }) => {
-      // The most recent move distance is gestureState.move{X,Y}
-      // The accumulated gesture distance since becoming responder is
-      // gestureState.d{x,y}evt
         const [touch1, touch2] = touches;
         touch1.setCurrent({ x: nativeEvent.locationX, y: nativeEvent.locationY });
         if (nativeEvent.touches.length === 2) {
@@ -113,7 +106,10 @@ function PinchZoom({ children, style, blockNativeResponder = true }: Props): Rea
           }
           touch2.setCurrent({ x: secondEvent.locationX, y: secondEvent.locationY });
           touchCenter.setCurrent(touch1.current.center(touch2.current));
-          const scaleValue = touch1.current.distance(touch2.current) / touch1.offset.distance(touch2.offset);
+          const scaleValue = Math.max(
+            1,
+            touch1.current.distance(touch2.current) / touch1.offset.distance(touch2.offset),
+          );
           scale.setValue(scaleValue);
           translate.setValue(layoutCenter.subtract(touchCenter.offset).multiply(scaleValue - 1));
         } else {
@@ -123,19 +119,7 @@ function PinchZoom({ children, style, blockNativeResponder = true }: Props): Rea
       onPanResponderTerminationRequest: () => {
         return true;
       },
-      onPanResponderRelease: () => {
-      // The user has released all touches while this view is the
-      // responder. This typically means a gesture has succeeded
-        release();
-      },
-      onPanResponderTerminate: () => {
-      // Another component has become the responder, so this gesture
-      // should be cancelled
-        release();
-      },
       onShouldBlockNativeResponder: () => {
-      // Returns whether this component should block native components from becoming the JS
-      // responder. Returns true by default. Is currently only supported on android.
         return blockNativeResponder;
       },
     });

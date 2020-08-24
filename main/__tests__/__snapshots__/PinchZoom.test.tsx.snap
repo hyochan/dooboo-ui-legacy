@@ -112,6 +112,9 @@ exports[`[PinchZoom] of ImageList render  should renders without crashing 1`] = 
                 "height": 200,
                 "width": "100%",
               },
+              Object {
+                "overflow": "hidden",
+              },
             ]
           }
         >
@@ -148,6 +151,7 @@ exports[`[PinchZoom] of ImageList render  should renders without crashing 1`] = 
                 Object {
                   "backgroundColor": "#fff",
                   "height": 200,
+                  "position": "absolute",
                   "width": "100%",
                 }
               }
@@ -205,6 +209,9 @@ exports[`[PinchZoom] of ImageList render  should renders without crashing 1`] = 
                 "height": 200,
                 "width": "100%",
               },
+              Object {
+                "overflow": "hidden",
+              },
             ]
           }
         >
@@ -241,6 +248,7 @@ exports[`[PinchZoom] of ImageList render  should renders without crashing 1`] = 
                 Object {
                   "backgroundColor": "#fff",
                   "height": 200,
+                  "position": "absolute",
                   "width": "100%",
                 }
               }
@@ -298,6 +306,9 @@ exports[`[PinchZoom] of ImageList render  should renders without crashing 1`] = 
                 "height": 200,
                 "width": "100%",
               },
+              Object {
+                "overflow": "hidden",
+              },
             ]
           }
         >
@@ -334,6 +345,7 @@ exports[`[PinchZoom] of ImageList render  should renders without crashing 1`] = 
                 Object {
                   "backgroundColor": "#fff",
                   "height": 200,
+                  "position": "absolute",
                   "width": "100%",
                 }
               }
@@ -391,6 +403,9 @@ exports[`[PinchZoom] of ImageList render  should renders without crashing 1`] = 
                 "height": 200,
                 "width": "100%",
               },
+              Object {
+                "overflow": "hidden",
+              },
             ]
           }
         >
@@ -427,6 +442,7 @@ exports[`[PinchZoom] of ImageList render  should renders without crashing 1`] = 
                 Object {
                   "backgroundColor": "#fff",
                   "height": 200,
+                  "position": "absolute",
                   "width": "100%",
                 }
               }
@@ -484,6 +500,9 @@ exports[`[PinchZoom] of ImageList render  should renders without crashing 1`] = 
                 "height": 200,
                 "width": "100%",
               },
+              Object {
+                "overflow": "hidden",
+              },
             ]
           }
         >
@@ -520,6 +539,7 @@ exports[`[PinchZoom] of ImageList render  should renders without crashing 1`] = 
                 Object {
                   "backgroundColor": "#fff",
                   "height": 200,
+                  "position": "absolute",
                   "width": "100%",
                 }
               }
@@ -532,7 +552,7 @@ exports[`[PinchZoom] of ImageList render  should renders without crashing 1`] = 
 </View>
 `;
 
-exports[`[PinchZoom] of ImageList render ImageList interaction test  should be returned to its original size and location after all touch released. 1`] = `
+exports[`[PinchZoom] of ImageList render ImageList interaction test  should be returned to its original size and location after close fingers 1`] = `
 Object {
   "height": 200,
   "transform": Array [
@@ -550,7 +570,7 @@ Object {
 }
 `;
 
-exports[`[PinchZoom] of ImageList render ImageList interaction test  should be returned to its original size and location after all touch released. 2`] = `
+exports[`[PinchZoom] of ImageList render ImageList interaction test  should be returned to its original size and location after close fingers 2`] = `
 Object {
   "height": 200,
   "transform": Array [
@@ -568,7 +588,7 @@ Object {
 }
 `;
 
-exports[`[PinchZoom] of ImageList render ImageList interaction test  should be returned to its original size and location after all touch released. 3`] = `
+exports[`[PinchZoom] of ImageList render ImageList interaction test  should be returned to its original size and location after close fingers 3`] = `
 Object {
   "height": 200,
   "transform": Array [
@@ -586,7 +606,7 @@ Object {
 }
 `;
 
-exports[`[PinchZoom] of ImageList render ImageList interaction test  should be returned to its original size and location after all touch released. 4`] = `
+exports[`[PinchZoom] of ImageList render ImageList interaction test  should be returned to its original size and location after close fingers 4`] = `
 Object {
   "height": 200,
   "transform": Array [
@@ -604,7 +624,7 @@ Object {
 }
 `;
 
-exports[`[PinchZoom] of ImageList render ImageList interaction test  should be returned to its original size and location after all touch released. 5`] = `
+exports[`[PinchZoom] of ImageList render ImageList interaction test  should be returned to its original size and location after close fingers 5`] = `
 Object {
   "height": 200,
   "transform": Array [
@@ -622,7 +642,7 @@ Object {
 }
 `;
 
-exports[`[PinchZoom] of ImageList render ImageList interaction test  should zoom-in and out by touch events 1`] = `
+exports[`[PinchZoom] of ImageList render ImageList interaction test  should zoom in by touch events 1`] = `
 Object {
   "height": 200,
   "transform": Array [
@@ -640,7 +660,7 @@ Object {
 }
 `;
 
-exports[`[PinchZoom] of ImageList render ImageList interaction test  should zoom-in and out by touch events 2`] = `
+exports[`[PinchZoom] of ImageList render ImageList interaction test  should zoom in by touch events 2`] = `
 Object {
   "height": 200,
   "transform": Array [
@@ -658,7 +678,7 @@ Object {
 }
 `;
 
-exports[`[PinchZoom] of ImageList render ImageList interaction test  should zoom-in and out by touch events 3`] = `
+exports[`[PinchZoom] of ImageList render ImageList interaction test  should zoom in by touch events 3`] = `
 Object {
   "height": 200,
   "transform": Array [
@@ -676,7 +696,7 @@ Object {
 }
 `;
 
-exports[`[PinchZoom] of ImageList render ImageList interaction test  should zoom-in and out by touch events 4`] = `
+exports[`[PinchZoom] of ImageList render ImageList interaction test  should zoom in by touch events 4`] = `
 Object {
   "height": 200,
   "transform": Array [
@@ -694,7 +714,7 @@ Object {
 }
 `;
 
-exports[`[PinchZoom] of ImageList render ImageList interaction test  should zoom-in and out by touch events 5`] = `
+exports[`[PinchZoom] of ImageList render ImageList interaction test  should zoom in by touch events 5`] = `
 Object {
   "height": 200,
   "transform": Array [

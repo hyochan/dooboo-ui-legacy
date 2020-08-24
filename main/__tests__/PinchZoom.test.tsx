@@ -1,10 +1,11 @@
 import * as React from 'react';
-import { Article, ImageList } from '../PinchZoom/example';
 import { PanResponderCallbacks, PanResponderInstance } from 'react-native';
 import { RenderResult, act, fireEvent, render } from '@testing-library/react-native';
+import { closeGesture, openGesture } from './capturedGesture';
 
-import capturedGesture from './capturedGesture';
+import { ImageList } from '../PinchZoom/example';
 import renderer from 'react-test-renderer';
+
 jest.useFakeTimers();
 
 const testResponders: PanResponderCallbacks[] = [];
@@ -55,13 +56,12 @@ describe('[PinchZoom] of ImageList render', () => {
       });
     });
 
-    it(' should zoom-in and out by touch events', () => {
+    it(' should zoom in by touch events', () => {
       act(() => {
         testResponders.forEach((handler) => {
-          capturedGesture.filter(({ name }) => (name !== 'onPanResponderRelease'))
-            .forEach(({ name, nativeEvent }) => {
-              handler[name]({ nativeEvent });
-            });
+          openGesture.forEach(({ name, nativeEvent }) => {
+            handler[name]({ nativeEvent });
+          });
         });
       });
       pinchZoomContainerList.forEach((container) => {
@@ -69,13 +69,12 @@ describe('[PinchZoom] of ImageList render', () => {
       });
     });
 
-    it(' should be returned to its original size and location after all touch released.', () => {
+    it(' should be returned to its original size and location after close fingers', () => {
       act(() => {
         testResponders.forEach((handler) => {
-          capturedGesture.filter(({ name }) => (name === 'onPanResponderRelease'))
-            .forEach(({ name, nativeEvent }) => {
-              handler[name]({ nativeEvent });
-            });
+          closeGesture.forEach(({ name, nativeEvent }) => {
+            handler[name]({ nativeEvent });
+          });
         });
       });
       jest.runAllTimers();
