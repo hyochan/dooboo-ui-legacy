@@ -35,7 +35,7 @@ const LoadingContainer = styled(Container)`
 
 const TitleContainer = styled.View<TitleContainerProps>`
   justify-content: ${(props): string =>
-    props.titleTextVertical ? 'flex-start' : 'center'};
+    props.hasSubTitle ? 'flex-start' : 'center'};
   padding: 5px 10px;
   display: flex;
   flex-direction: column;
@@ -86,7 +86,7 @@ interface Props {
 }
 
 interface TitleContainerProps extends ViewProps {
-  titleTextVertical?: boolean;
+  hasSubTitle?: boolean;
 }
 
 const Card: FC<Props> = (props) => {
@@ -108,7 +108,6 @@ const Card: FC<Props> = (props) => {
     raised,
   } = props;
 
-  const titleVertical = subTitle !== undefined && subTitle.length > 0;
   const renderTitle = title || subTitle;
 
   if (loading) {
@@ -125,11 +124,9 @@ const Card: FC<Props> = (props) => {
     <Container style={[outlined ? styles.border : shadowStyle, containerStyle]}>
       {image && <StlyedImage source={image} style={[imageStyle]} />}
       {renderTitle && (
-        <TitleContainer
-          style={[titleContainerStyle]}
-          titleTextVertical={titleVertical}>
+        <TitleContainer style={[titleContainerStyle]} hasSubTitle={!!subTitle}>
           <TitleText style={[titleStyle]}> {title} </TitleText>
-          {subTitle && subTitle.length > 0 ? (
+          {subTitle ? (
             <SubTitleText style={[subTitleStyle]}> {subTitle} </SubTitleText>
           ) : null}
         </TitleContainer>
