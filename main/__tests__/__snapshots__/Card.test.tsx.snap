@@ -6,11 +6,11 @@ exports[`[Card] should render without crashing 1`] = `
     Array [
       Object {
         "alignItems": "flex-start",
+        "backgroundColor": "#fff",
         "flexDirection": "column",
-        "paddingBottom": 12,
-        "paddingLeft": 16,
-        "paddingRight": 16,
-        "paddingTop": 12,
+      },
+      Object {
+        "elevation": 5,
         "shadowColor": "#000",
         "shadowOffset": Object {
           "height": 2,
