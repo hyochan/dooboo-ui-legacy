@@ -1,4 +1,3 @@
-import React, { FC, ReactNode, ReactNodeArray } from 'react';
 import {
   ActivityIndicator,
   ImageSourcePropType,
@@ -7,16 +6,16 @@ import {
   ViewProps,
   ViewStyle,
 } from 'react-native';
+import React, { FC, ReactNode, ReactNodeArray } from 'react';
 
 import styled from 'styled-components/native';
+
+import { styles } from './styles';
 
 const Container = styled.View`
   flex-direction: column;
   align-items: flex-start;
-  shadow-opacity: 0.25;
-  shadow-radius: 4px;
-  shadow-color: #000;
-  shadow-offset: 0px 2px;
+  background-color: #fff;
 `;
 
 const ContentsContainer = styled.View`
@@ -82,6 +81,8 @@ interface Props {
   subTitleStyle?: TextStyle;
   divider?: boolean;
   dividerStyle?: ViewStyle;
+  outlined?: boolean;
+  raised?:boolean;
 }
 
 interface TitleContainerProps extends ViewProps {
@@ -103,6 +104,8 @@ const Card: FC<Props> = (props) => {
     subTitleStyle,
     divider = true,
     dividerStyle,
+    outlined,
+    raised,
   } = props;
 
   const titleVertical = subTitle !== undefined && subTitle.length > 0;
@@ -116,8 +119,10 @@ const Card: FC<Props> = (props) => {
     );
   }
 
+  const shadowStyle = raised ? styles.raisedShadow : styles.shadow;
+
   return (
-    <Container style={[containerStyle]}>
+    <Container style={[outlined ? styles.border : shadowStyle, containerStyle]}>
       {image && <StlyedImage source={image} style={[imageStyle]} />}
 
       {renderTitle && (

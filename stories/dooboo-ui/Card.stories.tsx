@@ -43,6 +43,16 @@ function Default(): React.ReactElement {
 
       <Card
         containerStyle={{ marginBottom: 30 }}
+        image={{
+          uri:
+            'https://image.shutterstock.com/z/stock-vector-api-application-programming-interface-software-integration-vector-illustration-1079814893.jpg',
+        }}
+        imageStyle={{ width: 200 }}
+        raised>
+        <Text>{'I\'m raised'}</Text>
+      </Card>
+      <Card
+        containerStyle={{ marginBottom: 30 }}
         image={require('../assets/images/dummy_image_1.jpg')}
         titleContainerStyle={{
           width: '100%',
