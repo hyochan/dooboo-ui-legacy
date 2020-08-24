@@ -96,7 +96,7 @@ const Card: FC<Props> = (props) => {
     subTitleStyle,
   } = props;
   const titleVertical = subTitle !== undefined && subTitle.length > 0;
-  const renderTitle = (title?.length ?? 0) > 0 || (subTitle?.length ?? 0) > 0;
+  const renderTitle = title || subTitle;
 
   if (loading) {
     return (
