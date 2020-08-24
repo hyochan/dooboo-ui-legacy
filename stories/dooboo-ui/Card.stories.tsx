@@ -49,7 +49,7 @@ function Default(): React.ReactElement {
         }}
         imageStyle={{ width: 200 }}
         raised>
-        <Text>{'I\'m raised'}</Text>
+        <Text>{"I'm raised"}</Text>
       </Card>
       <Card
         containerStyle={{ marginBottom: 30 }}
@@ -77,7 +77,7 @@ function Default(): React.ReactElement {
         titleStyle={{ display: 'flex', flexDirection: 'column' }}
         subTitle={'This is subTitle'}
         subTitleStyle={{ width: '100%', color: '#e4e4e4' }}>
-        <Text>I don't have Image</Text>
+        <Text>{"I don't have Image"}</Text>
       </Card>
 
       <Card
@@ -89,7 +89,7 @@ function Default(): React.ReactElement {
         }}
         title={'This is title'}
         titleStyle={{ display: 'flex', flexDirection: 'column' }}>
-        <Text>I don't have Image</Text>
+        <Text>{"I don't have Image"}</Text>
       </Card>
 
       <Card
@@ -101,7 +101,7 @@ function Default(): React.ReactElement {
         }}
         subTitle={'This is subTitle'}
         subTitleStyle={{ width: '100%', color: '#e4e4e4' }}>
-        <Text>I don't have Image</Text>
+        <Text>{"I don't have Image"}</Text>
       </Card>
 
       <Card
@@ -111,7 +111,7 @@ function Default(): React.ReactElement {
           display: 'flex',
           flexDirection: 'column',
         }}>
-        <Text>I don't have Image</Text>
+        <Text>{"I don't have Image"}</Text>
       </Card>
       <Card
         titleContainerStyle={{
@@ -121,7 +121,7 @@ function Default(): React.ReactElement {
           flexDirection: 'column',
         }}
         loading={true}>
-        <Text>I don't have Image</Text>
+        <Text>{"I don't have Image"}</Text>
       </Card>
     </Container>
   );
@@ -144,19 +144,19 @@ function Divider(): React.ReactElement {
         <Text>I have Image</Text>
       </Card>
       <Card>
-        <Text>I don't have Image</Text>
+        <Text>{"I don't have Image"}</Text>
       </Card>
 
       <Card title="Title">
-        <Text>I don't have Image</Text>
+        <Text>{"I don't have Image"}</Text>
       </Card>
 
       <Card subTitle="subTitle">
-        <Text>I don't have Image</Text>
+        <Text>{"I don't have Image"}</Text>
       </Card>
 
       <Card title="title" subTitle="subTitle">
-        <Text>I don't have Image</Text>
+        <Text>{"I don't have Image"}</Text>
       </Card>
     </Container>
   );
