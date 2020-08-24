@@ -45,7 +45,7 @@ function ImageItem({ source, title, content }
   return <ItemContainer>
     <TitleText>{title}</TitleText>
     <ContentText>{content}</ContentText>
-    <ImageContainer>
+    <ImageContainer style={{ overflow: 'hidden'/** It may be important! */ }}>
       <PinchZoom style={{ width, height: 200 }}>
         <Image
           style={{ width, height: 200, backgroundColor: '#fff' }}
