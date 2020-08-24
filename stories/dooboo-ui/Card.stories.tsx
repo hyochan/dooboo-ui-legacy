@@ -28,12 +28,16 @@ function Default(): React.ReactElement {
             'https://image.shutterstock.com/z/stock-vector-api-application-programming-interface-software-integration-vector-illustration-1079814893.jpg',
         }}
         imageStyle={{ width: 200 }}
-        titleContainerStyle={{ width: '100%', height: '40px', display: 'flex', flexDirection: 'column' }}
+        titleContainerStyle={{
+          width: '100%',
+          height: '40px',
+          display: 'flex',
+          flexDirection: 'column',
+        }}
         title={'This is title'}
         titleStyle={{ display: 'flex', flexDirection: 'column' }}
         subTitle={'This is subTitle'}
-        subTitleStyle={{ width: '100%', color: '#e4e4e4' }}
-      >
+        subTitleStyle={{ width: '100%', color: '#e4e4e4' }}>
         <Text>I have Image</Text>
       </Card>
 
@@ -50,52 +54,110 @@ function Default(): React.ReactElement {
       <Card
         containerStyle={{ marginBottom: 30 }}
         image={require('../assets/images/dummy_image_1.jpg')}
-        titleContainerStyle={{ width: '100%', height: '40px', display: 'flex', flexDirection: 'column' }}
+        titleContainerStyle={{
+          width: '100%',
+          height: '40px',
+          display: 'flex',
+          flexDirection: 'column',
+        }}
         title={'This is title'}
         titleStyle={{ display: 'flex', flexDirection: 'column' }}
         subTitle={'This is subTitle'}
         subTitleStyle={{ width: '100%', color: '#e4e4e4' }}
-
       />
 
       <Card
-        titleContainerStyle={{ width: '100%', height: '40px', display: 'flex', flexDirection: 'column' }}
+        titleContainerStyle={{
+          width: '100%',
+          height: '40px',
+          display: 'flex',
+          flexDirection: 'column',
+        }}
         title={'This is title'}
         titleStyle={{ display: 'flex', flexDirection: 'column' }}
         subTitle={'This is subTitle'}
-        subTitleStyle={{ width: '100%', color: '#e4e4e4' }}
-      >
-        <Text>{'I don\'t have Image'}</Text>
+        subTitleStyle={{ width: '100%', color: '#e4e4e4' }}>
+        <Text>I don't have Image</Text>
       </Card>
 
       <Card
-        titleContainerStyle={{ width: '100%', height: '40px', display: 'flex', flexDirection: 'column' }}
+        titleContainerStyle={{
+          width: '100%',
+          height: '40px',
+          display: 'flex',
+          flexDirection: 'column',
+        }}
         title={'This is title'}
-        titleStyle={{ display: 'flex', flexDirection: 'column' }}
-      >
-        <Text>{'I don\'t have Image'}</Text>
+        titleStyle={{ display: 'flex', flexDirection: 'column' }}>
+        <Text>I don't have Image</Text>
       </Card>
 
       <Card
-        titleContainerStyle={{ width: '100%', height: '40px', display: 'flex', flexDirection: 'column' }}
+        titleContainerStyle={{
+          width: '100%',
+          height: '40px',
+          display: 'flex',
+          flexDirection: 'column',
+        }}
         subTitle={'This is subTitle'}
-        subTitleStyle={{ width: '100%', color: '#e4e4e4' }}
-      >
-        <Text>{'I don\'t have Image'}</Text>
+        subTitleStyle={{ width: '100%', color: '#e4e4e4' }}>
+        <Text>I don't have Image</Text>
       </Card>
 
       <Card
-        titleContainerStyle={{ width: '100%', height: '40px', display: 'flex', flexDirection: 'column' }}
-      >
-        <Text>{'I don\'t have Image'}</Text>
+        titleContainerStyle={{
+          width: '100%',
+          height: '40px',
+          display: 'flex',
+          flexDirection: 'column',
+        }}>
+        <Text>I don't have Image</Text>
       </Card>
       <Card
-        titleContainerStyle={{ width: '100%', height: '40px', display: 'flex', flexDirection: 'column' }}
-        loading={true}
-      >
-        <Text>{'I don\'t have Image'}</Text>
+        titleContainerStyle={{
+          width: '100%',
+          height: '40px',
+          display: 'flex',
+          flexDirection: 'column',
+        }}
+        loading={true}>
+        <Text>I don't have Image</Text>
+      </Card>
+    </Container>
+  );
+}
+
+function Divider(): React.ReactElement {
+  return (
+    <Container>
+      <Card
+        containerStyle={{ marginBottom: 30 }}
+        image={{
+          uri:
+            'https://image.shutterstock.com/z/stock-vector-api-application-programming-interface-software-integration-vector-illustration-1079814893.jpg',
+        }}
+        imageStyle={{
+          width: '200px',
+        }}
+        title="Title"
+        subTitle="subTitle">
+        <Text>I have Image</Text>
+      </Card>
+      <Card>
+        <Text>I don't have Image</Text>
       </Card>
 
+      <Card title="Title">
+        <Text>I don't have Image</Text>
+      </Card>
+
+      <Card subTitle="subTitle">
+        <Text>I don't have Image</Text>
+      </Card>
+
+      <Card title="title" subTitle="subTitle">
+        <Text>I don't have Image</Text>
+      </Card>
     </Container>
   );
 }
@@ -108,11 +170,15 @@ export default {
 };
 
 export const toStorybook = (): ReactElement => <Default />;
+export const toStorybook1 = (): ReactElement => <Divider />;
 
 toStorybook.story = {
   name: 'default',
 };
 
+toStorybook1.story = {
+  name: 'divider',
+};
 /**
  * Below are stories for app
  */
@@ -121,5 +187,10 @@ storiesOf('Card', module)
   .add('default', () => (
     <>
       <Default />
+    </>
+  ))
+  .add('divider', () => (
+    <>
+      <Divider />
     </>
   ));

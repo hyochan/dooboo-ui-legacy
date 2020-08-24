@@ -34,7 +34,8 @@ const LoadingContainer = styled(Container)`
 `;
 
 const TitleContainer = styled.View<TitleContainerProps>`
-  justify-content: ${(props):string => (props.titleTextVertical ? 'flex-start' : 'center')};
+  justify-content: ${(props) =>
+    props.titleTextVertical ? 'flex-start' : 'center'};
   padding: 5px 10px;
   display: flex;
   flex-direction: column;
@@ -56,7 +57,13 @@ const SubTitleText = styled.Text`
   background-color: transparent;
   color: #e4e4e4;
   height: 20px;
+`;
 
+const Divider = styled.View`
+  margin: 5px 0px;
+  width: 100%;
+  height: 0.7px;
+  background-color: lightgray;
 `;
 
 interface Props {
@@ -72,6 +79,8 @@ interface Props {
   titleStyle?: TextStyle;
   subTitle?: string;
   subTitleStyle?: TextStyle;
+  divider?: boolean;
+  dividerStyle?: ViewStyle;
   outlined?: boolean;
   raised?:boolean;
 }
@@ -93,9 +102,12 @@ const Card: FC<Props> = (props) => {
     titleStyle,
     subTitle,
     subTitleStyle,
+    divider = true,
+    dividerStyle,
     outlined,
     raised,
   } = props;
+
   const titleVertical = subTitle !== undefined && subTitle.length > 0;
   const renderTitle = title || subTitle;
 
@@ -113,15 +125,20 @@ const Card: FC<Props> = (props) => {
     <Container style={[outlined ? styles.border : shadowStyle, containerStyle]}>
       {image && <StlyedImage source={image} style={[imageStyle]} />}
 
-      { renderTitle && <TitleContainer style={[titleContainerStyle]} titleTextVertical={ titleVertical } >
-        <TitleText style={[titleStyle]} > {title} </TitleText>
-        { subTitle && subTitle.length > 0
-          ? <SubTitleText style={[subTitleStyle]}> {subTitle} </SubTitleText>
-          : null }
-      </TitleContainer>}
+      {renderTitle && (
+        <TitleContainer
+          style={[titleContainerStyle]}
+          titleTextVertical={titleVertical}>
+          <TitleText style={[titleStyle]}> {title} </TitleText>
+          {subTitle && subTitle.length > 0 ? (
+            <SubTitleText style={[subTitleStyle]}> {subTitle} </SubTitleText>
+          ) : null}
+        </TitleContainer>
+      )}
 
       {children && (
         <ContentsContainer style={[contentsStyle]}>
+          {renderTitle && divider && <Divider style={[dividerStyle]} />}
           {children}
         </ContentsContainer>
       )}
