@@ -56,6 +56,29 @@ function Default(): React.ReactElement {
       >
         <Text>I don't have Image</Text>
       </Card>
+
+      <Card
+        titleContainerStyle={{ width: '100%', height: '40px', display: 'flex', flexDirection: 'column' }}
+        title={'This is title'}
+        titleStyle={{ display: 'flex', flexDirection: 'column' }}
+      >
+        <Text>I don't have Image</Text>
+      </Card>
+
+      <Card
+        titleContainerStyle={{ width: '100%', height: '40px', display: 'flex', flexDirection: 'column' }}
+        subTitle={'This is subTitle'}
+        subTitleStyle={{ width: '100%', color: '#e4e4e4' }}
+      >
+        <Text>I don't have Image</Text>
+      </Card>
+
+      <Card
+        titleContainerStyle={{ width: '100%', height: '40px', display: 'flex', flexDirection: 'column' }}
+      >
+        <Text>I don't have Image</Text>
+      </Card>
+
     </Container>
   );
 }

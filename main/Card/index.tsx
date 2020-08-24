@@ -24,14 +24,27 @@ const StlyedImage = styled.Image`
 const TitleContainer = styled.View<TitleContainerProps>`
   justify-content: ${(props) => (props.titleTextVertical ? 'flex-start' : 'center')};
   padding: 5px 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  width: 100%;
+  height: auto;
+  background-color: transparent;
 `;
 
 const TitleText = styled.Text`
   font-size: 13px;
+  background-color: transparent;
+  color: #000000;
 `;
 
 const SubTitleText = styled.Text`
   font-size: 10px;
+  background-color: transparent;
+  color: #e4e4e4;
+  height: 20px;
+
 `;
 
 interface Props {
@@ -66,17 +79,19 @@ const Card: FC<Props> = (props) => {
     subTitle,
     subTitleStyle,
   } = props;
-  const titleVertical = !!(subTitle !== undefined && subTitle.length > 0);
+  const titleVertical = subTitle !== undefined && subTitle.length > 0;
+  const renderTitle = (title !== undefined && title.length > 0) || (subTitle !== undefined && subTitle.length > 0);
+  console.log('renderTitle : ', renderTitle);
   return (
     <Container style={[containerStyle]}>
       {image && <StlyedImage source={image} style={[imageStyle]} />}
 
-      <TitleContainer style={[titleContainerStyle]} titleTextVertical={ titleVertical } >
+      { renderTitle && <TitleContainer style={[titleContainerStyle]} titleTextVertical={ titleVertical } >
         <TitleText style={[titleStyle]} > {title} </TitleText>
         { subTitle && subTitle.length > 0
           ? <SubTitleText style={[subTitleStyle]}> {subTitle} </SubTitleText>
           : null }
-      </TitleContainer>
+      </TitleContainer>}
 
       {children && (
         <ContentsContainer style={[contentsStyle]}>
@@ -87,27 +102,6 @@ const Card: FC<Props> = (props) => {
   );
 };
 
-Card.defaultProps = {
-  titleContainerStyle: {
-    display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'flex-start',
-    justifyContent: 'center',
-    width: '100%',
-    height: 'auto',
-    backgroundColor: 'transparent',
-  },
-  titleStyle: {
-    backgroundColor: 'transparent',
-    color: '#000000',
-
-  },
-  subTitleStyle: {
-    backgroundColor: 'transparent',
-    color: '#e4e4e4',
-    height: 20,
-  },
-
-};
+Card.defaultProps = {};
 
 export { Card };
