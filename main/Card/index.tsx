@@ -79,7 +79,7 @@ interface Props {
   titleStyle?: TextStyle;
   subTitle?: string;
   subTitleStyle?: TextStyle;
-  divider?: boolean;
+  hasDivider?: boolean;
   dividerStyle?: ViewStyle;
   outlined?: boolean;
   raised?: boolean;
@@ -102,7 +102,7 @@ const Card: FC<Props> = (props) => {
     titleStyle,
     subTitle,
     subTitleStyle,
-    divider = true,
+    hasDivider = true,
     dividerStyle,
     outlined,
     raised,
@@ -133,7 +133,7 @@ const Card: FC<Props> = (props) => {
       )}
       {children && (
         <ContentsContainer style={[contentsStyle]}>
-          {renderTitle && divider && <Divider style={[dividerStyle]} />}
+          {renderTitle && hasDivider && <Divider style={[dividerStyle]} />}
           {children}
         </ContentsContainer>
       )}
