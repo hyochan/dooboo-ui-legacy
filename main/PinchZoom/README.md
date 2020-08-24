@@ -18,7 +18,7 @@ yarn add dooboo-ui
 
 | Property             |      Required      | Type                           | Default               |
 | -------------------- | :----------------: | ------------------------------ | --------------------- |
-| style                | :white_check_mark: | `ViewStyle`                    |                       |
+| style                |                    | `ViewStyle`                    |                       |
 | children             | :white_check_mark: | `ReactNode`                    |                       |
 | blockNativeResponder |                    | `boolean`                      | `true`                |
 
