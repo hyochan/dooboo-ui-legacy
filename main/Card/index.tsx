@@ -82,7 +82,7 @@ interface Props {
   divider?: boolean;
   dividerStyle?: ViewStyle;
   outlined?: boolean;
-  raised?:boolean;
+  raised?: boolean;
 }
 
 interface TitleContainerProps extends ViewProps {
@@ -124,7 +124,6 @@ const Card: FC<Props> = (props) => {
   return (
     <Container style={[outlined ? styles.border : shadowStyle, containerStyle]}>
       {image && <StlyedImage source={image} style={[imageStyle]} />}
-
       {renderTitle && (
         <TitleContainer
           style={[titleContainerStyle]}
@@ -135,7 +134,6 @@ const Card: FC<Props> = (props) => {
           ) : null}
         </TitleContainer>
       )}
-
       {children && (
         <ContentsContainer style={[contentsStyle]}>
           {renderTitle && divider && <Divider style={[dividerStyle]} />}
