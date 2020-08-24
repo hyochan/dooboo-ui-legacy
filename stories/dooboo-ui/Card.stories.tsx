@@ -27,17 +27,65 @@ function Default(): React.ReactElement {
           uri:
             'https://image.shutterstock.com/z/stock-vector-api-application-programming-interface-software-integration-vector-illustration-1079814893.jpg',
         }}
-        imageStyle={{ width: 200 }}>
+        imageStyle={{ width: 200 }}
+        titleContainerStyle={{ width: '100%', height: '40px', display: 'flex', flexDirection: 'column' }}
+        title={'This is title'}
+        titleStyle={{ display: 'flex', flexDirection: 'column' }}
+        subTitle={'This is subTitle'}
+        subTitleStyle={{ width: '100%', color: '#e4e4e4' }}
+      >
         <Text>I have Image</Text>
       </Card>
+
       <Card
         containerStyle={{ marginBottom: 30 }}
         image={require('../assets/images/dummy_image_1.jpg')}
+        titleContainerStyle={{ width: '100%', height: '40px', display: 'flex', flexDirection: 'column' }}
+        title={'This is title'}
+        titleStyle={{ display: 'flex', flexDirection: 'column' }}
+        subTitle={'This is subTitle'}
+        subTitleStyle={{ width: '100%', color: '#e4e4e4' }}
+
       />
-      <Card containerStyle={{ marginBottom: 30 }}>
+
+      <Card
+        titleContainerStyle={{ width: '100%', height: '40px', display: 'flex', flexDirection: 'column' }}
+        title={'This is title'}
+        titleStyle={{ display: 'flex', flexDirection: 'column' }}
+        subTitle={'This is subTitle'}
+        subTitleStyle={{ width: '100%', color: '#e4e4e4' }}
+      >
         <Text>I don't have Image</Text>
       </Card>
-      <Card loading />
+
+      <Card
+        titleContainerStyle={{ width: '100%', height: '40px', display: 'flex', flexDirection: 'column' }}
+        title={'This is title'}
+        titleStyle={{ display: 'flex', flexDirection: 'column' }}
+      >
+        <Text>I don't have Image</Text>
+      </Card>
+
+      <Card
+        titleContainerStyle={{ width: '100%', height: '40px', display: 'flex', flexDirection: 'column' }}
+        subTitle={'This is subTitle'}
+        subTitleStyle={{ width: '100%', color: '#e4e4e4' }}
+      >
+        <Text>I don't have Image</Text>
+      </Card>
+
+      <Card
+        titleContainerStyle={{ width: '100%', height: '40px', display: 'flex', flexDirection: 'column' }}
+      >
+        <Text>I don't have Image</Text>
+      </Card>
+      <Card
+        titleContainerStyle={{ width: '100%', height: '40px', display: 'flex', flexDirection: 'column' }}
+        loading={true}
+      >
+        <Text>I don't have Image</Text>
+      </Card>
+
     </Container>
   );
 }
