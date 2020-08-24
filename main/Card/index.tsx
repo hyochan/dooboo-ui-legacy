@@ -6,7 +6,6 @@ import {
   TextStyle,
   ViewProps,
   ViewStyle,
-
 } from 'react-native';
 
 import styled from 'styled-components/native';
@@ -36,7 +35,8 @@ const LoadingContainer = styled(Container)`
 `;
 
 const TitleContainer = styled.View<TitleContainerProps>`
-  justify-content: ${(props) => (props.titleTextVertical ? 'flex-start' : 'center')};
+  justify-content: ${(props) =>
+    props.titleTextVertical ? 'flex-start' : 'center'};
   padding: 5px 10px;
   display: flex;
   flex-direction: column;
@@ -58,7 +58,13 @@ const SubTitleText = styled.Text`
   background-color: transparent;
   color: #e4e4e4;
   height: 20px;
+`;
 
+const Divider = styled.View`
+  margin: 5px 0px;
+  width: 100%;
+  height: 0.7px;
+  background-color: lightgray;
 `;
 
 interface Props {
@@ -69,12 +75,13 @@ interface Props {
   imageStyle?: ImageStyle;
   contentsStyle?: ViewStyle;
   loading?: boolean;
-
   titleContainerStyle?: ViewStyle;
   title?: string;
   titleStyle?: TextStyle;
   subTitle?: string;
   subTitleStyle?: TextStyle;
+  divider?: boolean;
+  dividerStyle?: ViewStyle;
 }
 
 interface TitleContainerProps extends ViewProps {
@@ -94,7 +101,10 @@ const Card: FC<Props> = (props) => {
     titleStyle,
     subTitle,
     subTitleStyle,
+    divider = true,
+    dividerStyle,
   } = props;
+
   const titleVertical = subTitle !== undefined && subTitle.length > 0;
   const renderTitle = title || subTitle;
 
@@ -110,15 +120,20 @@ const Card: FC<Props> = (props) => {
     <Container style={[containerStyle]}>
       {image && <StlyedImage source={image} style={[imageStyle]} />}
 
-      { renderTitle && <TitleContainer style={[titleContainerStyle]} titleTextVertical={ titleVertical } >
-        <TitleText style={[titleStyle]} > {title} </TitleText>
-        { subTitle && subTitle.length > 0
-          ? <SubTitleText style={[subTitleStyle]}> {subTitle} </SubTitleText>
-          : null }
-      </TitleContainer>}
+      {renderTitle && (
+        <TitleContainer
+          style={[titleContainerStyle]}
+          titleTextVertical={titleVertical}>
+          <TitleText style={[titleStyle]}> {title} </TitleText>
+          {subTitle && subTitle.length > 0 ? (
+            <SubTitleText style={[subTitleStyle]}> {subTitle} </SubTitleText>
+          ) : null}
+        </TitleContainer>
+      )}
 
       {children && (
         <ContentsContainer style={[contentsStyle]}>
+          {renderTitle && divider && <Divider style={[dividerStyle]} />}
           {children}
         </ContentsContainer>
       )}
