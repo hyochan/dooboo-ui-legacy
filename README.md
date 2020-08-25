@@ -64,6 +64,7 @@ We aim to support `react-native` ui components in all platforms and we are curre
 - [Select](https://github.com/dooboolab/dooboo-ui/tree/master/main/Select)
 - [Slider](https://github.com/dooboolab/dooboo-ui/tree/master/main/Slider)
 - [SwitchToggle](https://github.com/dooboolab/dooboo-ui/tree/master/main/SwitchToggle)
+- [PinchZoom](https://github.com/dooboolab/dooboo-ui/tree/master/main/PinchZoom)(WIP)
 
 > You can use most light weight components in `dooboo-ui` by importing it which are listed above. However, we also support individual imports using seperate installation which are more UI heavy. Those packages start with `@dooboo-ui/*` like `@dooboo-ui/gifted-chat` and is listed below.
 
