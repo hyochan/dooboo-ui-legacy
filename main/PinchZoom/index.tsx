@@ -1,5 +1,6 @@
 import { Animated, PanResponder, PanResponderInstance, ViewStyle } from 'react-native';
 import React, { useRef } from 'react';
+import { TouchPosition, Vector } from './utils';
 
 interface Props {
   style?: ViewStyle,
@@ -7,71 +8,12 @@ interface Props {
   blockNativeResponder?: boolean,
 }
 
-interface VectorType {
-  x: number;
-  y: number;
-}
-
-class Vector implements VectorType {
-  x: number;
-  y: number;
-
-  constructor(vector: VectorType = { x: 0, y: 0 }) {
-    this.set(vector);
-  }
-
-  // istanbul ignore next
-  toString(): string {
-    return JSON.stringify({ x: this.x, y: this.y });
-  }
-
-  distance = (v1: Vector, v2: Vector = this): number => {
-    const diffX = v1.x - v2.x;
-    const diffY = v1.y - v2.y;
-    return Math.sqrt(diffX ** 2 + diffY ** 2);
-  }
-
-  set = (vector: VectorType): void => {
-    this.x = vector.x;
-    this.y = vector.y;
-  }
-
-  multiply = (n: number, b: VectorType = this): Vector => {
-    return new Vector({ x: n * b.x, y: n * b.y });
-  }
-
-  center = (a: VectorType, b: VectorType = this): Vector => {
-    return new Vector({ x: (a.x + b.x) / 2, y: (a.y + b.y) / 2 });
-  }
-
-  subtract = (a: VectorType): Vector => {
-    return new Vector({ x: this.x - a.x, y: this.y - a.y });
-  }
-}
-
-class TouchPosition {
-  offset: Vector;
-  current: Vector;
-  constructor({ offset = new Vector(), current = new Vector() }: {offset?: Vector, current?: Vector} = {}) {
-    this.offset = offset;
-    this.current = current;
-  }
-
-  setOffset = ({ x, y }: VectorType): void => {
-    this.offset.x = x;
-    this.offset.y = y;
-  }
-
-  setCurrent = ({ x, y }: VectorType): void => {
-    this.current.x = x;
-    this.current.y = y;
-  }
-}
-
 function PinchZoom({ children, style, blockNativeResponder = true }: Props): React.ReactElement {
   const touches = useRef([new TouchPosition(), new TouchPosition()]).current;
-  const touchCenter = useRef(new TouchPosition()).current;
+  const targetPosition = useRef(new Vector()).current;
   const layoutCenter = useRef(new Vector()).current;
+  const scaleValue = useRef({ offset: 1, current: 1 }).current;
+  const translateValue = useRef({ offset: new Vector(), current: new Vector() }).current;
   const scale = useRef(new Animated.Value(1)).current;
   const translate = useRef(new Animated.ValueXY(new Vector())).current;
   const release = (): void => {
@@ -94,26 +36,39 @@ function PinchZoom({ children, style, blockNativeResponder = true }: Props): Rea
         const [touch1, touch2] = touches;
         touch1.setOffset({ x: nativeEvent.locationX, y: nativeEvent.locationY });
         touch2.setOffset({ x: 0, y: 0 });
+        scaleValue.offset = scaleValue.current;
+        translateValue.offset.set(translateValue.current);
       },
-      onPanResponderMove: ({ nativeEvent }) => {
+      onPanResponderMove: ({ nativeEvent }, gestureState) => {
         const [touch1, touch2] = touches;
         touch1.setCurrent({ x: nativeEvent.locationX, y: nativeEvent.locationY });
         if (nativeEvent.touches.length === 2) {
           const secondEvent = nativeEvent.touches[1];
           if (touch2.offset.x === 0 && touch2.offset.y === 0) {
             touch2.setOffset({ x: secondEvent.locationX, y: secondEvent.locationY });
-            touchCenter.setOffset(touch1.offset.center(touch2.offset));
+            targetPosition.set(
+              layoutCenter.add(
+                (
+                  touch1.offset.center(touch2.offset)
+                    .subtract(layoutCenter)
+                    .subtract(translateValue.offset)
+                ).multiply(1 / scaleValue.offset)));
           }
           touch2.setCurrent({ x: secondEvent.locationX, y: secondEvent.locationY });
-          touchCenter.setCurrent(touch1.current.center(touch2.current));
-          const scaleValue = Math.max(
+          scaleValue.current = Math.max(
             1,
-            touch1.current.distance(touch2.current) / touch1.offset.distance(touch2.offset),
+            scaleValue.offset * touch1.current.distance(touch2.current) / touch1.offset.distance(touch2.offset),
           );
-          scale.setValue(scaleValue);
-          translate.setValue(layoutCenter.subtract(touchCenter.offset).multiply(scaleValue - 1));
+          scale.setValue(scaleValue.current);
+          translateValue.current = layoutCenter.subtract(targetPosition).multiply(scaleValue.current - 1);
+          translate.setValue(translateValue.current);
         } else {
-          touch2.offset = new Vector();
+          if (
+            touch2.offset.x === 0 && touch2.offset.y === 0 &&
+            nativeEvent.touches.length === 1 && scaleValue.offset > 1) {
+            translateValue.current = translateValue.offset.add({ x: gestureState.dx, y: gestureState.dy });
+            translate.setValue(translateValue.current);
+          }
         }
       },
       onPanResponderTerminationRequest: () => {
@@ -140,7 +95,12 @@ function PinchZoom({ children, style, blockNativeResponder = true }: Props): Rea
       style,
       {
         transform: [
-          { translateX: translate.x },
+          {
+            translateX: translate.x.interpolate({
+              inputRange: [0, 1],
+              outputRange: [0, 1],
+            }),
+          },
           { translateY: translate.y },
           { scale },
         ],
