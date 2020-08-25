@@ -83,7 +83,7 @@ import { CalendarCarousel } from 'dooboo-ui/lib/CalendarCarousel';
 
 ```
 ### CalendarCarousel
-The Calendar Carousel is a functional component that returns the function 'renderCalendars()' wrapped inside of a ScrollView.
+The Calendar Carousel is a functional component that returns three functions 'renderCalendar()' wrapped inside of a ScrollView.
 
 ```tsx
 <SafeAreaView
@@ -100,27 +100,13 @@ The Calendar Carousel is a functional component that returns the function 'rende
     ref={scrollRef}
     onMomentumScrollEnd={scrollEffect}
   >
-    {renderCalendars(currentDate)}
+    <Fragment>
+          {renderCalendar(prevMonth)}
+          {renderCalendar(currentDate)}
+          {renderCalendar(nextMonth)}
+    </Fragment>
   </ScrollView>
 </SafeAreaView>
-```
-
-### renderCalendars() 
-
-
-The function renderCalendars() renders three calendars representing the previous, current, and next month. Then scrollView wraps these three calendars and swipes through them horizontally.
-
-```tsx
-const renderCalendars = (currentDate: Date): ReactElement => {
-const prevMonth = new Date(currentDate.getFullYear(), currentDate.getMonth() - 1, currentDate.getDate());
-const currentMonth = new Date(currentDate.getFullYear(), currentDate.getMonth(), currentDate.getDate());
-const nextMonth = new Date(currentDate.getFullYear(), currentDate.getMonth() + 1, currentDate.getDate());
-return <Fragment>
-  {renderCalendar(prevMonth)}
-  {renderCalendar(currentMonth)}
-  {renderCalendar(nextMonth)}
-</Fragment>;
-};
 ```
 
 

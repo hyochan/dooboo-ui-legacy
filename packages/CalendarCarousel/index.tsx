@@ -344,8 +344,6 @@ function CalendarCarousel<T>({
   };
 
   const scrollEffect = (e: NativeSyntheticEvent<NativeScrollEvent>) : void => {
-    console.log(e);
-    console.log('inhere');
     const xValue = Math.floor(e.nativeEvent.contentOffset.x);
     const maxLayoutFloor = Math.floor(layoutWidth) * 2;
     if (!layoutWidth || layoutWidth === 1) return;
