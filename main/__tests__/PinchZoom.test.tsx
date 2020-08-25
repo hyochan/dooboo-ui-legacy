@@ -1,9 +1,15 @@
 import * as React from 'react';
-import { PanResponderCallbacks, PanResponderInstance } from 'react-native';
 import { RenderResult, act, fireEvent, render } from '@testing-library/react-native';
-import { closeGesture, getChangedDistanceRatio, getTwoFingerStartEndPositions, openGesture } from './capturedGesture';
+import {
+  closeGesture,
+  getChangedDistanceRatio,
+  getTwoFingerStartEndPositions,
+  moveGesture,
+  openGesture,
+} from './capturedGesture';
 
 import { ImageList } from '../PinchZoom/PinchZoom.example';
+import { PanResponderCallbacks } from 'react-native';
 import renderer from 'react-test-renderer';
 
 const TEST_CONTAINER_WIDTH = 300;
@@ -36,77 +42,128 @@ describe('[PinchZoom] of ImageList render', () => {
 
   describe('ImageList interaction test', () => {
     const rendered: RenderResult = render(<ImageList/>);
-    const pinchZoomContainerList = rendered.getAllByTestId('PINCH_ZOOM_CONTAINER');
+    const pinchZoomContainer = rendered.getAllByTestId('PINCH_ZOOM_CONTAINER')[Math.floor(Math.random() * 5)];
 
     it(' should set the center of layout position when onLayout called', () => {
-      pinchZoomContainerList.forEach((container) => {
-        act(() => {
-          fireEvent.layout(container, {
-            nativeEvent: {
-              layout: {
-                width: TEST_CONTAINER_WIDTH,
-                height: TEST_CONTAINER_HEIGHT,
-              },
+      act(() => {
+        fireEvent.layout(pinchZoomContainer, {
+          nativeEvent: {
+            layout: {
+              width: TEST_CONTAINER_WIDTH,
+              height: TEST_CONTAINER_HEIGHT,
             },
-          });
+          },
         });
       });
     });
 
     it(' should zoom in by openGesture', () => {
       act(() => {
-        pinchZoomContainerList.forEach((container) => {
-          const callBacks = container.props.responderCallback;
-          openGesture.forEach(({ name, nativeEvent, gestureState }) => {
-            callBacks[name] && callBacks[name]({ nativeEvent }, gestureState);
-          });
+        const callBacks = pinchZoomContainer.props.responderCallback;
+        openGesture.forEach(({ name, nativeEvent, gestureState }) => {
+          callBacks[name] && callBacks[name]({ nativeEvent }, gestureState);
         });
       });
-      pinchZoomContainerList.forEach((container) => {
-        const { transform } = container.props.style;
-        const scale = transform.find(({ scale }) => scale != null).scale;
-        const translateX = transform.find(({ translateX }) => translateX != null).translateX;
-        const translateY = transform.find(({ translateY }) => translateY != null).translateY;
 
-        const { start, end } = getTwoFingerStartEndPositions(openGesture);
-        const expectedScale = getChangedDistanceRatio({ start, end });
+      const { transform } = pinchZoomContainer.props.style;
+      const scale = transform.find(({ scale }) => scale != null).scale;
+      const translateX = transform.find(({ translateX }) => translateX != null).translateX;
+      const translateY = transform.find(({ translateY }) => translateY != null).translateY;
 
-        expect(scale).toBeCloseTo(expectedScale);
+      const { start, end } = getTwoFingerStartEndPositions(openGesture);
+      const expectedScale = getChangedDistanceRatio({ start, end });
 
-        const zoomInPosition = { x: (start.x1 + start.x2) / 2, y: (start.y1 + start.y2) / 2 };
+      expect(scale).toBeCloseTo(expectedScale);
 
-        expect((zoomInPosition.x - TEST_CONTAINER_CENTER.x) * scale)
-          .toBeCloseTo(zoomInPosition.x - TEST_CONTAINER_CENTER.x - translateX);
+      const zoomInPosition = { x: (start.x1 + start.x2) / 2, y: (start.y1 + start.y2) / 2 };
 
-        expect((zoomInPosition.y - TEST_CONTAINER_CENTER.y) * scale)
-          .toBeCloseTo(zoomInPosition.y - TEST_CONTAINER_CENTER.y - translateY);
+      expect((zoomInPosition.x - TEST_CONTAINER_CENTER.x) * scale)
+        .toBeCloseTo(zoomInPosition.x - TEST_CONTAINER_CENTER.x - translateX);
+
+      expect((zoomInPosition.y - TEST_CONTAINER_CENTER.y) * scale)
+        .toBeCloseTo(zoomInPosition.y - TEST_CONTAINER_CENTER.y - translateY);
+    });
+
+    it(' should be moved by moveGesture when it zoomed in', () => {
+      const { transform } = pinchZoomContainer.props.style;
+
+      const prevScale = transform.find(({ scale }) => scale != null).scale;
+      const prevTranslateX = transform.find(({ translateX }) => translateX != null).translateX;
+      const prevTranslateY = transform.find(({ translateY }) => translateY != null).translateY;
+
+      act(() => {
+        const callBacks = pinchZoomContainer.props.responderCallback;
+        moveGesture.forEach(({ name, nativeEvent, gestureState }) => {
+          callBacks[name] && callBacks[name]({ nativeEvent }, gestureState);
+        });
       });
+
+      const { transform: changedTransform } = pinchZoomContainer.props.style;
+
+      const scale = changedTransform.find(({ scale }) => scale != null).scale;
+      const translateX = changedTransform.find(({ translateX }) => translateX != null).translateX;
+      const translateY = changedTransform.find(({ translateY }) => translateY != null).translateY;
+
+      const moveGestureStateList = moveGesture.filter(({ name }) => name === 'onPanResponderMove')
+        .map(({ gestureState }) => gestureState);
+      const lastMoveGestureState = moveGestureStateList[moveGestureStateList.length - 1];
+      const maxMovableValue = {
+        x: (TEST_CONTAINER_WIDTH * scale - TEST_CONTAINER_WIDTH) / 2,
+        y: (TEST_CONTAINER_HEIGHT * scale - TEST_CONTAINER_HEIGHT) / 2,
+      };
+
+      expect(scale).toBeCloseTo(prevScale);
+      expect(translateX).toBeCloseTo(
+        Math.max(
+          Math.min(prevTranslateX + lastMoveGestureState.dx, maxMovableValue.x),
+          -maxMovableValue.x,
+        ),
+      );
+      expect(translateY).toBeCloseTo(
+        Math.max(
+          Math.min(prevTranslateY + lastMoveGestureState.dy, maxMovableValue.y),
+          -maxMovableValue.y,
+        ),
+      );
     });
 
     it(' should zoom out by closeGesture', () => {
       act(() => {
-        pinchZoomContainerList.forEach((container) => {
-          const callBacks = container.props.responderCallback;
-          closeGesture.forEach(({ name, nativeEvent, gestureState }) => {
-            callBacks[name] && callBacks[name]({ nativeEvent }, gestureState);
-          });
+        const callBacks = pinchZoomContainer.props.responderCallback;
+        closeGesture.forEach(({ name, nativeEvent, gestureState }) => {
+          callBacks[name] && callBacks[name]({ nativeEvent }, gestureState);
         });
       });
 
-      pinchZoomContainerList.forEach((container) => {
-        const { transform } = container.props.style;
-        const scale = transform.find(({ scale }) => scale != null).scale;
-        const translateX = transform.find(({ translateX }) => translateX != null).translateX;
-        const translateY = transform.find(({ translateY }) => translateY != null).translateY;
+      const { transform } = pinchZoomContainer.props.style;
+      const scale = transform.find(({ scale }) => scale != null).scale;
+      const translateX = transform.find(({ translateX }) => translateX != null).translateX;
+      const translateY = transform.find(({ translateY }) => translateY != null).translateY;
 
-        const openScale = getChangedDistanceRatio(getTwoFingerStartEndPositions(openGesture));
-        const closeScale = getChangedDistanceRatio(getTwoFingerStartEndPositions(closeGesture));
-        expect(openScale * closeScale).toBeLessThan(1);
+      const openScale = getChangedDistanceRatio(getTwoFingerStartEndPositions(openGesture));
+      const closeScale = getChangedDistanceRatio(getTwoFingerStartEndPositions(closeGesture));
+      expect(openScale * closeScale).toBeLessThan(1);
 
-        expect(scale).toEqual(1);
-        expect(translateX).toEqual(0);
-        expect(translateY).toEqual(0);
+      expect(scale).toEqual(1);
+      expect(translateX).toEqual(0);
+      expect(translateY).toEqual(0);
+    });
+
+    it(' should not be moved by moveGesture when its scale is 1', () => {
+      act(() => {
+        const callBacks = pinchZoomContainer.props.responderCallback;
+        moveGesture.forEach(({ name, nativeEvent, gestureState }) => {
+          callBacks[name] && callBacks[name]({ nativeEvent }, gestureState);
+        });
       });
+      const { transform } = pinchZoomContainer.props.style;
+      const scale = transform.find(({ scale }) => scale != null).scale;
+      const translateX = transform.find(({ translateX }) => translateX != null).translateX;
+      const translateY = transform.find(({ translateY }) => translateY != null).translateY;
+
+      expect(scale).toEqual(1);
+      expect(translateX).toEqual(0);
+      expect(translateY).toEqual(0);
     });
   });
 });
