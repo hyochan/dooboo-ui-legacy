@@ -206,9 +206,7 @@ function CalendarCarousel<T>({
   };
 
   const renderCalendar = (): ReactElement => {
-    const monthName = new Date(year, month, 1).toLocaleString('default', {
-      month: 'long',
-    });
+    const monthName = currentDate.toLocaleString('default', { month: 'long' });
     const lastDate = new Date(year, month + 1, 0).getDate();
     const firstWeekday = new Date(year, month, 1).getDay();
     const lastWeekday = new Date(year, month, lastDate).getDay();
@@ -379,14 +377,6 @@ function CalendarCarousel<T>({
     }
   };
 
-  const renderCalendars = (currentDate: Date): ReactElement => {
-    return <Fragment>
-      {renderCalendar()}
-      {renderCalendar()}
-      {renderCalendar()}
-    </Fragment>;
-  };
-
   return (
     <SafeAreaView
       style={styles.container}
@@ -402,7 +392,11 @@ function CalendarCarousel<T>({
         ref={scrollRef}
         onMomentumScrollEnd={scrollEffect}
       >
-        {renderCalendars(currentDate)}
+        <Fragment>
+          {renderCalendar()}
+          {renderCalendar()}
+          {renderCalendar()}
+        </Fragment>
       </ScrollView>
     </SafeAreaView>);
 }
