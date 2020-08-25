@@ -1,5 +1,5 @@
 import { Dimensions, FlatList, Image, ImageSourcePropType } from 'react-native';
-import PinchZoom from '.';
+import { PinchZoom } from '.';
 import React from 'react';
 import styled from 'styled-components/native';
 
@@ -50,7 +50,7 @@ function ImageItem({ source, title, content }
         <Image
           style={{ width, height: 200, backgroundColor: '#fff' }}
           onLoad={({ nativeEvent: { source } }): void => {
-            if (source.width && source.height) {
+            if (source && source.width && source.height) {
               setWidth(200 * source.width / source.height);
             }
           }}

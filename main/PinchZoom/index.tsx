@@ -120,4 +120,6 @@ function PinchZoom({ children, style, blockNativeResponder = true }: Props): Rea
   </Animated.View>;
 }
 
+export { PinchZoom };
+
 export default PinchZoom;
