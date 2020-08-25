@@ -126,9 +126,9 @@ const Card: FC<Props> = (props) => {
       {renderTitle && (
         <TitleContainer style={[titleContainerStyle]} hasSubTitle={!!subTitle}>
           <TitleText style={[titleStyle]}> {title} </TitleText>
-          {subTitle ? (
+          {subTitle && (
             <SubTitleText style={[subTitleStyle]}> {subTitle} </SubTitleText>
-          ) : null}
+          )}
         </TitleContainer>
       )}
       {children && (
