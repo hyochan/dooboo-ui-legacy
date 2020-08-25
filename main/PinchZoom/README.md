@@ -4,7 +4,7 @@
 
 ## Preview
 
-![Aug-24-2020 16-14-55](https://user-images.githubusercontent.com/17980230/91014922-3c6a4f80-e625-11ea-86a4-75e88d284b46.gif)
+![Aug-25-2020 00-01-58](https://user-images.githubusercontent.com/17980230/91060740-46f90900-e666-11ea-809c-e54899f97d75.gif)
 
 ## Installation
 It may included to next version of dooboo-ui.
