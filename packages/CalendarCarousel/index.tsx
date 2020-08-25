@@ -41,7 +41,7 @@ const styles = StyleSheet.create<Style>({
   wrapperContainer: {
     paddingTop: 40,
     width: 330,
-    height: 455,
+    height: 470,
     paddingBottom: 40,
   },
   calendarContainer: {
@@ -227,7 +227,7 @@ function CalendarCarousel<T>({
     const calendarDates = [...prevDates, ...dates, ...nextDates];
 
     return (
-      <View style={ { height: 370 }}>
+      <View style={styles.calendarContainer}>
         <View style={styles.headerStyle}>
           <TouchableOpacity onPress={(): void => changeMonth(true)}>
             <Text style={styles.arrowText}> &#8249;</Text>
