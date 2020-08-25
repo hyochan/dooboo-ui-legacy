@@ -1,6 +1,3 @@
-import 'intl';
-import 'intl/locale-data/jsonp/en';
-
 import {
   FlatList,
   NativeScrollEvent,
@@ -173,11 +170,10 @@ interface Props<T> {
   selectedDate?: Date;
   selectDate?: (date: Date) => void;
   markedDayEvents?: any;
-  monthFormatter?: {format: (date: Date) => string};
 }
 function CalendarCarousel<T>({
   date = new Date(), onDateChanged, selectDate, selectedDate,
-  markedDayEvents = [], monthFormatter = new Intl.DateTimeFormat('default', { month: 'long' }),
+  markedDayEvents = [],
 }: PropsWithChildren<Props<T>>): ReactElement {
   const [currentDate, setCurrentDate] = useState<Date>(date);
   const [layoutWidth, setLayoutWidth] = useState<number>(330);
@@ -209,8 +205,10 @@ function CalendarCarousel<T>({
     return onDateChanged?.(update);
   };
 
-  const renderCalendar = (currentDate: Date): ReactElement => {
-    const monthName = monthFormatter.format(currentDate);
+  const renderCalendar = (): ReactElement => {
+    const monthName = new Date(year, month, 1).toLocaleString('default', {
+      month: 'long',
+    });
     const lastDate = new Date(year, month + 1, 0).getDate();
     const firstWeekday = new Date(year, month, 1).getDay();
     const lastWeekday = new Date(year, month, lastDate).getDay();
@@ -383,9 +381,9 @@ function CalendarCarousel<T>({
 
   const renderCalendars = (currentDate: Date): ReactElement => {
     return <Fragment>
-      {renderCalendar(prevMonth)}
-      {renderCalendar(currentDate)}
-      {renderCalendar(nextMonth)}
+      {renderCalendar()}
+      {renderCalendar()}
+      {renderCalendar()}
     </Fragment>;
   };
 
