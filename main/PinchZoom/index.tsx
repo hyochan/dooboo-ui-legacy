@@ -26,25 +26,25 @@ function PinchZoom({ children, style, blockNativeResponder = true }: Props): Rea
       toValue: new Vector(),
     }).start();
   };
-  const createPanresponder = (): PanResponderInstance => {
+  const createPanResponder = (): PanResponderInstance => {
     return PanResponder.create({
       onStartShouldSetPanResponder: () => true,
       onStartShouldSetPanResponderCapture: () => true,
       onMoveShouldSetPanResponder: () => true,
       onMoveShouldSetPanResponderCapture: () => true,
-      onPanResponderGrant: ({ nativeEvent }) => {
+      onPanResponderGrant: () => {
         const [touch1, touch2] = touches;
-        touch1.setOffset({ x: nativeEvent.locationX, y: nativeEvent.locationY });
+        touch1.setOffset({ x: 0, y: 0 });
         touch2.setOffset({ x: 0, y: 0 });
         scaleValue.offset = scaleValue.current;
         translateValue.offset.set(translateValue.current);
       },
       onPanResponderMove: ({ nativeEvent }, gestureState) => {
         const [touch1, touch2] = touches;
-        touch1.setCurrent({ x: nativeEvent.locationX, y: nativeEvent.locationY });
         if (nativeEvent.touches.length === 2) {
           const secondEvent = nativeEvent.touches[1];
           if (touch2.offset.x === 0 && touch2.offset.y === 0) {
+            touch1.setOffset({ x: nativeEvent.locationX, y: nativeEvent.locationY });
             touch2.setOffset({ x: secondEvent.locationX, y: secondEvent.locationY });
             targetPosition.set(
               getOriginScaleTargetPosition({
@@ -55,31 +55,31 @@ function PinchZoom({ children, style, blockNativeResponder = true }: Props): Rea
               }),
             );
           }
+          touch1.setCurrent({ x: nativeEvent.locationX, y: nativeEvent.locationY });
           touch2.setCurrent({ x: secondEvent.locationX, y: secondEvent.locationY });
           scaleValue.current = Math.max(
             1,
             scaleValue.offset * touch1.current.distance(touch2.current) / touch1.offset.distance(touch2.offset),
           );
           scale.setValue(scaleValue.current);
+          // console.log(scaleValue);
           translateValue.current.set(getTranslate({
             targetPosition,
             layoutCenter,
             scale: scaleValue.current,
           }));
-          console.log(translateValue.current.toString());
           translate.setValue(translateValue.current);
-        } else {
-          if (
-            touch2.offset.x === 0 && touch2.offset.y === 0 &&
-            nativeEvent.touches.length === 1 && scaleValue.offset > 1) {
-            const maxValue = layoutCenter.multiply(scaleValue.current - 1);
-            translateValue.current = getClamppedVector({
-              vector: translateValue.offset.add({ x: gestureState.dx, y: gestureState.dy }),
-              max: maxValue,
-              min: maxValue.multiply(-1),
-            });
-            translate.setValue(translateValue.current);
-          }
+        } else if (
+          touch2.offset.x === 0 && touch2.offset.y === 0 &&
+            nativeEvent.touches.length === 1 && scaleValue.offset > 1
+        ) {
+          const maxValue = layoutCenter.multiply(scaleValue.current - 1);
+          translateValue.current = getClamppedVector({
+            vector: translateValue.offset.add({ x: gestureState.dx, y: gestureState.dy }),
+            max: maxValue,
+            min: maxValue.multiply(-1),
+          });
+          translate.setValue(translateValue.current);
         }
       },
       onPanResponderTerminationRequest: () => {
@@ -90,10 +90,10 @@ function PinchZoom({ children, style, blockNativeResponder = true }: Props): Rea
       },
     });
   };
-  const [panResponder, setPanResponder] = React.useState<PanResponderInstance>(createPanresponder());
+  const [panResponder, setPanResponder] = React.useState<PanResponderInstance>(createPanResponder());
   React.useEffect(() => {
     release();
-    setPanResponder(createPanresponder());
+    setPanResponder(createPanResponder());
   }, [blockNativeResponder]);
 
   return <Animated.View

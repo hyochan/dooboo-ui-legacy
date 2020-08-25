@@ -120,6 +120,18 @@ exports[`[PinchZoom] of ImageList render  should renders without crashing 1`] = 
         >
           <View
             onLayout={[Function]}
+            responderCallback={
+              Object {
+                "onMoveShouldSetPanResponder": [Function],
+                "onMoveShouldSetPanResponderCapture": [Function],
+                "onPanResponderGrant": [Function],
+                "onPanResponderMove": [Function],
+                "onPanResponderTerminationRequest": [Function],
+                "onShouldBlockNativeResponder": [Function],
+                "onStartShouldSetPanResponder": [Function],
+                "onStartShouldSetPanResponderCapture": [Function],
+              }
+            }
             style={
               Object {
                 "height": 200,
@@ -216,6 +228,18 @@ exports[`[PinchZoom] of ImageList render  should renders without crashing 1`] = 
         >
           <View
             onLayout={[Function]}
+            responderCallback={
+              Object {
+                "onMoveShouldSetPanResponder": [Function],
+                "onMoveShouldSetPanResponderCapture": [Function],
+                "onPanResponderGrant": [Function],
+                "onPanResponderMove": [Function],
+                "onPanResponderTerminationRequest": [Function],
+                "onShouldBlockNativeResponder": [Function],
+                "onStartShouldSetPanResponder": [Function],
+                "onStartShouldSetPanResponderCapture": [Function],
+              }
+            }
             style={
               Object {
                 "height": 200,
@@ -312,6 +336,18 @@ exports[`[PinchZoom] of ImageList render  should renders without crashing 1`] = 
         >
           <View
             onLayout={[Function]}
+            responderCallback={
+              Object {
+                "onMoveShouldSetPanResponder": [Function],
+                "onMoveShouldSetPanResponderCapture": [Function],
+                "onPanResponderGrant": [Function],
+                "onPanResponderMove": [Function],
+                "onPanResponderTerminationRequest": [Function],
+                "onShouldBlockNativeResponder": [Function],
+                "onStartShouldSetPanResponder": [Function],
+                "onStartShouldSetPanResponderCapture": [Function],
+              }
+            }
             style={
               Object {
                 "height": 200,
@@ -408,6 +444,18 @@ exports[`[PinchZoom] of ImageList render  should renders without crashing 1`] = 
         >
           <View
             onLayout={[Function]}
+            responderCallback={
+              Object {
+                "onMoveShouldSetPanResponder": [Function],
+                "onMoveShouldSetPanResponderCapture": [Function],
+                "onPanResponderGrant": [Function],
+                "onPanResponderMove": [Function],
+                "onPanResponderTerminationRequest": [Function],
+                "onShouldBlockNativeResponder": [Function],
+                "onStartShouldSetPanResponder": [Function],
+                "onStartShouldSetPanResponderCapture": [Function],
+              }
+            }
             style={
               Object {
                 "height": 200,
@@ -504,6 +552,18 @@ exports[`[PinchZoom] of ImageList render  should renders without crashing 1`] = 
         >
           <View
             onLayout={[Function]}
+            responderCallback={
+              Object {
+                "onMoveShouldSetPanResponder": [Function],
+                "onMoveShouldSetPanResponderCapture": [Function],
+                "onPanResponderGrant": [Function],
+                "onPanResponderMove": [Function],
+                "onPanResponderTerminationRequest": [Function],
+                "onShouldBlockNativeResponder": [Function],
+                "onStartShouldSetPanResponder": [Function],
+                "onStartShouldSetPanResponderCapture": [Function],
+              }
+            }
             style={
               Object {
                 "height": 200,
@@ -545,184 +605,4 @@ exports[`[PinchZoom] of ImageList render  should renders without crashing 1`] = 
     </View>
   </ScrollView>
 </View>
-`;
-
-exports[`[PinchZoom] of ImageList render ImageList interaction test  should be returned to its original size and location after close fingers 1`] = `
-Object {
-  "height": 200,
-  "transform": Array [
-    Object {
-      "translateX": 0,
-    },
-    Object {
-      "translateY": 0,
-    },
-    Object {
-      "scale": 1,
-    },
-  ],
-  "width": "100%",
-}
-`;
-
-exports[`[PinchZoom] of ImageList render ImageList interaction test  should be returned to its original size and location after close fingers 2`] = `
-Object {
-  "height": 200,
-  "transform": Array [
-    Object {
-      "translateX": 0,
-    },
-    Object {
-      "translateY": 0,
-    },
-    Object {
-      "scale": 1,
-    },
-  ],
-  "width": "100%",
-}
-`;
-
-exports[`[PinchZoom] of ImageList render ImageList interaction test  should be returned to its original size and location after close fingers 3`] = `
-Object {
-  "height": 200,
-  "transform": Array [
-    Object {
-      "translateX": 0,
-    },
-    Object {
-      "translateY": 0,
-    },
-    Object {
-      "scale": 1,
-    },
-  ],
-  "width": "100%",
-}
-`;
-
-exports[`[PinchZoom] of ImageList render ImageList interaction test  should be returned to its original size and location after close fingers 4`] = `
-Object {
-  "height": 200,
-  "transform": Array [
-    Object {
-      "translateX": 0,
-    },
-    Object {
-      "translateY": 0,
-    },
-    Object {
-      "scale": 1,
-    },
-  ],
-  "width": "100%",
-}
-`;
-
-exports[`[PinchZoom] of ImageList render ImageList interaction test  should be returned to its original size and location after close fingers 5`] = `
-Object {
-  "height": 200,
-  "transform": Array [
-    Object {
-      "translateX": 0,
-    },
-    Object {
-      "translateY": 0,
-    },
-    Object {
-      "scale": 1,
-    },
-  ],
-  "width": "100%",
-}
-`;
-
-exports[`[PinchZoom] of ImageList render ImageList interaction test  should zoom in by touch events 1`] = `
-Object {
-  "height": 200,
-  "transform": Array [
-    Object {
-      "translateX": -19.49948928192947,
-    },
-    Object {
-      "translateY": 13.453309714176148,
-    },
-    Object {
-      "scale": 2.1974050162854932,
-    },
-  ],
-  "width": "100%",
-}
-`;
-
-exports[`[PinchZoom] of ImageList render ImageList interaction test  should zoom in by touch events 2`] = `
-Object {
-  "height": 200,
-  "transform": Array [
-    Object {
-      "translateX": -19.49948928192947,
-    },
-    Object {
-      "translateY": 13.453309714176148,
-    },
-    Object {
-      "scale": 2.1974050162854932,
-    },
-  ],
-  "width": "100%",
-}
-`;
-
-exports[`[PinchZoom] of ImageList render ImageList interaction test  should zoom in by touch events 3`] = `
-Object {
-  "height": 200,
-  "transform": Array [
-    Object {
-      "translateX": -19.49948928192947,
-    },
-    Object {
-      "translateY": 13.453309714176148,
-    },
-    Object {
-      "scale": 2.1974050162854932,
-    },
-  ],
-  "width": "100%",
-}
-`;
-
-exports[`[PinchZoom] of ImageList render ImageList interaction test  should zoom in by touch events 4`] = `
-Object {
-  "height": 200,
-  "transform": Array [
-    Object {
-      "translateX": -19.49948928192947,
-    },
-    Object {
-      "translateY": 13.453309714176148,
-    },
-    Object {
-      "scale": 2.1974050162854932,
-    },
-  ],
-  "width": "100%",
-}
-`;
-
-exports[`[PinchZoom] of ImageList render ImageList interaction test  should zoom in by touch events 5`] = `
-Object {
-  "height": 200,
-  "transform": Array [
-    Object {
-      "translateX": -19.49948928192947,
-    },
-    Object {
-      "translateY": 13.453309714176148,
-    },
-    Object {
-      "scale": 2.1974050162854932,
-    },
-  ],
-  "width": "100%",
-}
 `;

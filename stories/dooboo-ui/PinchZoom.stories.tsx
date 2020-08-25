@@ -1,4 +1,4 @@
-import { Article, ImageList } from '../../main/PinchZoom/example';
+import { Article, ImageList } from '../../main/PinchZoom/PinchZoom.example';
 import { ContainerDeco } from '../../storybook/decorators';
 import { storiesOf } from '@storybook/react-native';
 
