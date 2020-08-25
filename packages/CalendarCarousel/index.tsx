@@ -21,7 +21,7 @@ interface Style {
   titleContainer: ViewStyle;
   titleText: TextStyle;
   yearText: TextStyle;
-  weekdayStyle: ViewStyle;
+  weekdayContainer: ViewStyle;
   weekdayText: TextStyle;
   dayContainer: ViewStyle;
   defaultView: ViewStyle;
@@ -75,7 +75,7 @@ const styles = StyleSheet.create<Style>({
     textAlign: 'center',
     justifyContent: 'center',
   },
-  weekdayStyle: {
+  weekdayContainer: {
     flexDirection: 'row',
   },
   weekdayText: {
@@ -240,7 +240,7 @@ function CalendarCarousel<T>({
             <Text style={styles.arrowText}>&#8250;</Text>
           </TouchableOpacity>
         </View>
-        <View style={styles.weekdayStyle}>{weekdays}</View>
+        <View style={styles.weekdayContainer}>{weekdays}</View>
         <FlatList
           style={styles.dayContainer}
           data={calendarDates}
@@ -344,6 +344,8 @@ function CalendarCarousel<T>({
   };
 
   const scrollEffect = (e: NativeSyntheticEvent<NativeScrollEvent>) : void => {
+    console.log(e);
+    console.log('inhere');
     const xValue = Math.floor(e.nativeEvent.contentOffset.x);
     const maxLayoutFloor = Math.floor(layoutWidth) * 2;
     if (!layoutWidth || layoutWidth === 1) return;
