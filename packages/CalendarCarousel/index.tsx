@@ -43,7 +43,7 @@ const styles = StyleSheet.create<Style>({
   container: {
     paddingTop: 40,
     width: 330,
-    height: 388,
+    height: 400,
   },
   headerStyle: {
     flexDirection: 'row',
@@ -264,6 +264,7 @@ function CalendarCarousel<T>({
           numColumns={7}
           renderItem ={({ item }): ReactElement => renderDates(item)}
           keyExtractor={(item, id): string => id.toString()}
+          scrollEnabled={false}
         />
         {renderEvent()}
       </View>
