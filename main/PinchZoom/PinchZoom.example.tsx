@@ -1,5 +1,5 @@
 import { Dimensions, FlatList, Image, ImageSourcePropType } from 'react-native';
-import PinchZoom from './';
+import PinchZoom from '.';
 import React from 'react';
 import styled from 'styled-components/native';
 

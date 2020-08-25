@@ -33,7 +33,7 @@ export function getFirstTouchOfTwoFinger(inputs: GestureHandlerInput[]): Gesture
 }
 
 export function getLastTouchOfTwofinger(inputs: GestureHandlerInput[]): GestureHandlerInput | null {
-  const reversed = inputs.reverse();
+  const reversed = inputs.map((i) => i).reverse();
   const firstTouchIndex = reversed.findIndex((input) => {
     const { nativeEvent } = input;
     return nativeEvent.touches.length === 2;
@@ -47,6 +47,12 @@ interface TwoPosition {
   x2: number;
   y1: number;
   y2: number;
+}
+
+export function getChangedDistanceRatio({ start, end }: { start: TwoPosition, end: TwoPosition }): number {
+  const startDist = Math.sqrt((start.x1 - start.x2) ** 2 + (start.y1 - start.y2) ** 2);
+  const endDist = Math.sqrt((end.x1 - end.x2) ** 2 + (end.y1 - end.y2) ** 2);
+  return endDist / startDist;
 }
 
 export function getTwoFingerStartEndPositions(inputs: GestureHandlerInput[]): {

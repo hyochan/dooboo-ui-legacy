@@ -1,24 +1,24 @@
 import * as React from 'react';
 import { PanResponderCallbacks, PanResponderInstance } from 'react-native';
 import { RenderResult, act, fireEvent, render } from '@testing-library/react-native';
-import { closeGesture, openGesture } from './capturedGesture';
+import { closeGesture, getChangedDistanceRatio, getTwoFingerStartEndPositions, openGesture } from './capturedGesture';
 
-import { ImageList } from '../PinchZoom/example';
+import { ImageList } from '../PinchZoom/PinchZoom.example';
 import renderer from 'react-test-renderer';
+
+const TEST_CONTAINER_WIDTH = 300;
+const TEST_CONTAINER_HEIGHT = 200;
+const TEST_CONTAINER_CENTER = { x: 150, y: 100 };
 
 jest.useFakeTimers();
 
-const testResponders: PanResponderCallbacks[] = [];
-const clearTestResponders = (): void => {
-  testResponders.splice(0, testResponders.length);
-};
-
 jest.mock('react-native/Libraries/Interaction/PanResponder', () => {
   return {
-    create: (responder: PanResponderCallbacks): PanResponderInstance => {
-      testResponders.push(responder);
+    create: (responderCallback: PanResponderCallbacks)
+    : { panHandlers : { responderCallback:PanResponderCallbacks } } => {
       return {
         panHandlers: {
+          responderCallback,
         },
       };
     },
@@ -26,9 +26,6 @@ jest.mock('react-native/Libraries/Interaction/PanResponder', () => {
 });
 
 describe('[PinchZoom] of ImageList render', () => {
-  afterAll(() => {
-    clearTestResponders();
-  });
   it(' should renders without crashing', () => {
     const rendered: renderer.ReactTestRendererJSON | null = renderer
       .create(<ImageList/>)
@@ -47,8 +44,8 @@ describe('[PinchZoom] of ImageList render', () => {
           fireEvent.layout(container, {
             nativeEvent: {
               layout: {
-                width: 300,
-                height: 200,
+                width: TEST_CONTAINER_WIDTH,
+                height: TEST_CONTAINER_HEIGHT,
               },
             },
           });
@@ -56,30 +53,59 @@ describe('[PinchZoom] of ImageList render', () => {
       });
     });
 
-    it(' should zoom in by touch events', () => {
+    it(' should zoom in by openGesture', () => {
       act(() => {
-        testResponders.forEach((handler) => {
-          openGesture.forEach(({ name, nativeEvent }) => {
-            handler[name]({ nativeEvent });
+        pinchZoomContainerList.forEach((container) => {
+          const callBacks = container.props.responderCallback;
+          openGesture.forEach(({ name, nativeEvent, gestureState }) => {
+            callBacks[name] && callBacks[name]({ nativeEvent }, gestureState);
           });
         });
       });
       pinchZoomContainerList.forEach((container) => {
-        expect(container.props.style).toMatchSnapshot();
+        const { transform } = container.props.style;
+        const scale = transform.find(({ scale }) => scale != null).scale;
+        const translateX = transform.find(({ translateX }) => translateX != null).translateX;
+        const translateY = transform.find(({ translateY }) => translateY != null).translateY;
+
+        const { start, end } = getTwoFingerStartEndPositions(openGesture);
+        const expectedScale = getChangedDistanceRatio({ start, end });
+
+        expect(scale).toBeCloseTo(expectedScale);
+
+        const zoomInPosition = { x: (start.x1 + start.x2) / 2, y: (start.y1 + start.y2) / 2 };
+
+        expect((zoomInPosition.x - TEST_CONTAINER_CENTER.x) * scale)
+          .toBeCloseTo(zoomInPosition.x - TEST_CONTAINER_CENTER.x - translateX);
+
+        expect((zoomInPosition.y - TEST_CONTAINER_CENTER.y) * scale)
+          .toBeCloseTo(zoomInPosition.y - TEST_CONTAINER_CENTER.y - translateY);
       });
     });
 
-    it(' should be returned to its original size and location after close fingers', () => {
+    it(' should zoom out by closeGesture', () => {
       act(() => {
-        testResponders.forEach((handler) => {
-          closeGesture.forEach(({ name, nativeEvent }) => {
-            handler[name]({ nativeEvent });
+        pinchZoomContainerList.forEach((container) => {
+          const callBacks = container.props.responderCallback;
+          closeGesture.forEach(({ name, nativeEvent, gestureState }) => {
+            callBacks[name] && callBacks[name]({ nativeEvent }, gestureState);
           });
         });
       });
-      jest.runAllTimers();
+
       pinchZoomContainerList.forEach((container) => {
-        expect(container.props.style).toMatchSnapshot();
+        const { transform } = container.props.style;
+        const scale = transform.find(({ scale }) => scale != null).scale;
+        const translateX = transform.find(({ translateX }) => translateX != null).translateX;
+        const translateY = transform.find(({ translateY }) => translateY != null).translateY;
+
+        const openScale = getChangedDistanceRatio(getTwoFingerStartEndPositions(openGesture));
+        const closeScale = getChangedDistanceRatio(getTwoFingerStartEndPositions(closeGesture));
+        expect(openScale * closeScale).toBeLessThan(1);
+
+        expect(scale).toEqual(1);
+        expect(translateX).toEqual(0);
+        expect(translateY).toEqual(0);
       });
     });
   });
