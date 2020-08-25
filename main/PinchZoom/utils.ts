@@ -63,3 +63,35 @@ export class TouchPosition {
     this.current.y = y;
   }
 }
+
+export function getOriginScaleTargetPosition(
+  { currentPosition, scale, translate, layoutCenter }:
+  { currentPosition: Vector, scale: number, translate: Vector, layoutCenter: Vector}): VectorType {
+  const relativeCurrentPosition = currentPosition.subtract(translate).subtract(layoutCenter);
+  const originalScaleRelativePosition = relativeCurrentPosition.multiply(1 / scale);
+  const originScaleTargetposition = layoutCenter.add(originalScaleRelativePosition);
+  return originScaleTargetposition;
+}
+
+export function getTranslate(
+  { targetPosition, scale, layoutCenter }:
+  { targetPosition: Vector, scale: number, layoutCenter: Vector},
+): Vector {
+  const relativePosition = targetPosition.subtract(layoutCenter);
+  const scaledRalativePosition = relativePosition.multiply(scale);
+  const translate = relativePosition.subtract(scaledRalativePosition);
+  return translate;
+}
+
+export function getClamppedVector({ vector, min, max }:{vector: Vector, min?: Vector, max?: Vector}):Vector {
+  const clampped = new Vector(vector);
+  if (max) {
+    if (clampped.x > max.x) clampped.x = max.x;
+    if (clampped.y > max.y) clampped.y = max.y;
+  }
+  if (min) {
+    if (clampped.x < min.x) clampped.x = min.x;
+    if (clampped.y < min.y) clampped.y = min.y;
+  }
+  return clampped;
+}

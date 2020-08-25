@@ -1,6 +1,6 @@
 import { Animated, PanResponder, PanResponderInstance, ViewStyle } from 'react-native';
 import React, { useRef } from 'react';
-import { TouchPosition, Vector } from './utils';
+import { TouchPosition, Vector, getClamppedVector, getOriginScaleTargetPosition, getTranslate } from './utils';
 
 interface Props {
   style?: ViewStyle,
@@ -47,12 +47,13 @@ function PinchZoom({ children, style, blockNativeResponder = true }: Props): Rea
           if (touch2.offset.x === 0 && touch2.offset.y === 0) {
             touch2.setOffset({ x: secondEvent.locationX, y: secondEvent.locationY });
             targetPosition.set(
-              layoutCenter.add(
-                (
-                  touch1.offset.center(touch2.offset)
-                    .subtract(layoutCenter)
-                    .subtract(translateValue.offset)
-                ).multiply(1 / scaleValue.offset)));
+              getOriginScaleTargetPosition({
+                currentPosition: touch1.offset.center(touch2.offset),
+                layoutCenter,
+                scale: scaleValue.offset,
+                translate: translateValue.offset,
+              }),
+            );
           }
           touch2.setCurrent({ x: secondEvent.locationX, y: secondEvent.locationY });
           scaleValue.current = Math.max(
@@ -60,13 +61,23 @@ function PinchZoom({ children, style, blockNativeResponder = true }: Props): Rea
             scaleValue.offset * touch1.current.distance(touch2.current) / touch1.offset.distance(touch2.offset),
           );
           scale.setValue(scaleValue.current);
-          translateValue.current = layoutCenter.subtract(targetPosition).multiply(scaleValue.current - 1);
+          translateValue.current.set(getTranslate({
+            targetPosition,
+            layoutCenter,
+            scale: scaleValue.current,
+          }));
+          console.log(translateValue.current.toString());
           translate.setValue(translateValue.current);
         } else {
           if (
             touch2.offset.x === 0 && touch2.offset.y === 0 &&
             nativeEvent.touches.length === 1 && scaleValue.offset > 1) {
-            translateValue.current = translateValue.offset.add({ x: gestureState.dx, y: gestureState.dy });
+            const maxValue = layoutCenter.multiply(scaleValue.current - 1);
+            translateValue.current = getClamppedVector({
+              vector: translateValue.offset.add({ x: gestureState.dx, y: gestureState.dy }),
+              max: maxValue,
+              min: maxValue.multiply(-1),
+            });
             translate.setValue(translateValue.current);
           }
         }
@@ -96,10 +107,7 @@ function PinchZoom({ children, style, blockNativeResponder = true }: Props): Rea
       {
         transform: [
           {
-            translateX: translate.x.interpolate({
-              inputRange: [0, 1],
-              outputRange: [0, 1],
-            }),
+            translateX: translate.x,
           },
           { translateY: translate.y },
           { scale },
