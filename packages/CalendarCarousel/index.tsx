@@ -14,7 +14,8 @@ import {
 import React, { Fragment, PropsWithChildren, ReactElement, useRef, useState } from 'react';
 
 interface Style {
-  container: ViewStyle;
+  wrapperContainer: ViewStyle;
+  calendarContainer: ViewStyle;
   headerStyle: ViewStyle;
   arrowText: TextStyle;
   titleContainer: ViewStyle;
@@ -23,27 +24,32 @@ interface Style {
   weekdayStyle: ViewStyle;
   weekdayText: TextStyle;
   dayContainer: ViewStyle;
-  otherDaysView: ViewStyle;
+  defaultView: ViewStyle;
   otherDaysText: TextStyle;
   currentDayView: ViewStyle;
   currentDayText: TextStyle;
-  notActiveView: ViewStyle;
   notActiveText: TextStyle;
   activeView: ViewStyle;
   activeText: TextStyle;
-  markView: ViewStyle;
   mark: ViewStyle;
   eventContainer: ViewStyle;
   eventText: TextStyle;
-  selectedMarkView: ViewStyle;
-  dayEvent: TextStyle;
+  eventDate: TextStyle;
 }
 
 const styles = StyleSheet.create<Style>({
-  container: {
+  wrapperContainer: {
     paddingTop: 40,
     width: 330,
-    height: 400,
+    height: 455,
+    paddingBottom: 40,
+  },
+  calendarContainer: {
+    height: 390,
+  },
+  dayContainer: {
+    width: 330,
+    height: 350,
   },
   headerStyle: {
     flexDirection: 'row',
@@ -73,61 +79,46 @@ const styles = StyleSheet.create<Style>({
     flexDirection: 'row',
   },
   weekdayText: {
+    textAlign: 'center',
     color: '#4F4F4F',
     fontSize: 20,
-    textAlign: 'center',
   },
-  dayContainer: {
-    width: 330,
-    height: 338,
-  },
-  otherDaysView: {
+  defaultView: {
     width: 47,
     height: 47,
-    paddingTop: 13.5,
+    justifyContent: 'center',
+    alignItems: 'center',
   },
   otherDaysText: {
     color: 'lightgray',
     textAlign: 'center',
   },
   currentDayView: {
-    borderRadius: 50,
-    backgroundColor: '#109CF1',
     width: 47,
     height: 47,
     alignItems: 'center',
-    paddingTop: 13.5,
+    justifyContent: 'center',
+    borderRadius: 50,
+    backgroundColor: '#109CF1',
+  },
+  activeView: {
+    width: 47,
+    height: 47,
+    justifyContent: 'center',
+    alignItems: 'center',
+    borderRadius: 50,
+    backgroundColor: '#F0F8FD',
   },
   currentDayText: {
     color: 'white',
     textAlign: 'center',
   },
-  notActiveView: {
-    width: 47,
-    height: 47,
-    paddingTop: 13.5,
-    alignItems: 'center',
-  },
   notActiveText: {
     textAlign: 'center',
   },
-  activeView: {
-    width: 47,
-    height: 47,
-    paddingTop: 13.5,
-    alignItems: 'center',
-    borderRadius: 50,
-    backgroundColor: '#F0F8FD',
-  },
   activeText: {
-    textAlign: 'center',
     color: '#109CF1',
-  },
-  markView: {
-    paddingTop: 13.5,
-    alignItems: 'center',
-    width: 47,
-    height: 47,
+    textAlign: 'center',
   },
   mark: {
     width: 4,
@@ -149,15 +140,7 @@ const styles = StyleSheet.create<Style>({
     paddingLeft: 30,
     fontSize: 14,
   },
-  selectedMarkView: {
-    width: 47,
-    height: 47,
-    paddingTop: 13.5,
-    alignItems: 'center',
-    borderRadius: 30,
-    backgroundColor: '#F0F8FD',
-  },
-  dayEvent: {
+  eventDate: {
     fontWeight: '900',
     paddingLeft: 25,
     color: 'white',
@@ -205,8 +188,8 @@ function CalendarCarousel<T>({
     return onDateChanged?.(update);
   };
 
-  const renderCalendar = (): ReactElement => {
-    const monthName = currentDate.toLocaleString('default', { month: 'long' });
+  const renderCalendar = (currentDate : Date): ReactElement => {
+    const monthName = new Date(year, month, 1).toLocaleString('default', { month: 'long' });
     const lastDate = new Date(year, month + 1, 0).getDate();
     const firstWeekday = new Date(year, month, 1).getDay();
     const lastWeekday = new Date(year, month, lastDate).getDay();
@@ -244,7 +227,7 @@ function CalendarCarousel<T>({
     const calendarDates = [...prevDates, ...dates, ...nextDates];
 
     return (
-      <View>
+      <View style={ { height: 370 }}>
         <View style={styles.headerStyle}>
           <TouchableOpacity onPress={(): void => changeMonth(true)}>
             <Text style={styles.arrowText}> &#8249;</Text>
@@ -281,7 +264,7 @@ function CalendarCarousel<T>({
       if (markedDates[i] === eventDay && markedMonths.includes(month) && markedYears.includes(year)) {
         return (
           <View style = {styles.eventContainer} key ={i}>
-            <Text style= {styles.dayEvent}>{markedDayEvents[i].selectedEventDate.getDate()}</Text>
+            <Text style= {styles.eventDate}>{markedDayEvents[i].selectedEventDate.getDate()}</Text>
             <Text style = {styles.eventText}>{markedDayEvents[i].events}</Text>
           </View>
         );
@@ -307,7 +290,7 @@ function CalendarCarousel<T>({
 
     if (itemMonth !== month) {
       return (
-        <View style={styles.otherDaysView} key={itemDay}>
+        <View style={styles.defaultView} key={itemDay}>
           <Text style={styles.otherDaysText}>{`${itemDay}`}</Text>
         </View>
       );
@@ -320,7 +303,7 @@ function CalendarCarousel<T>({
     } else if (hasEvent(itemDay) && isSelected(itemDay)) {
       return (
         <TouchableOpacity onPress={(): void => { selectDate(setItemDay); setEventDay(itemDay); }}>
-          <View style={styles.selectedMarkView} key ={itemDay}>
+          <View style={styles.activeView} key ={itemDay}>
             <Text style={styles.activeText}>{`${itemDay}`}</Text>
             <View style={styles.mark} key ={itemDay}></View>
           </View>
@@ -329,7 +312,7 @@ function CalendarCarousel<T>({
     } else if (hasEvent(itemDay)) {
       return (
         <TouchableOpacity onPress={(): void => selectDate(setItemDay)}>
-          <View style={styles.markView} key={itemDay}>
+          <View style={styles.defaultView} key={itemDay}>
             <Text style={styles.notActiveText}>{`${itemDay}`}</Text>
             <View style={styles.mark} key={itemDay}></View>
           </View>
@@ -346,7 +329,7 @@ function CalendarCarousel<T>({
     }
     return (
       <TouchableOpacity onPress={(): void => selectDate(setItemDay)}>
-        <View style={styles.notActiveView}>
+        <View style={styles.defaultView}>
           <Text style={styles.notActiveText}>{`${itemDay}`}</Text>
         </View>
       </TouchableOpacity>
@@ -380,7 +363,7 @@ function CalendarCarousel<T>({
 
   return (
     <SafeAreaView
-      style={styles.container}
+      style={styles.wrapperContainer}
       onLayout={(e): void => {
         setLayoutWidth(e.nativeEvent.layout.width);
         scrollToMiddleCalendar();
@@ -394,9 +377,9 @@ function CalendarCarousel<T>({
         onMomentumScrollEnd={scrollEffect}
       >
         <Fragment>
-          {renderCalendar()}
-          {renderCalendar()}
-          {renderCalendar()}
+          {renderCalendar(prevMonth)}
+          {renderCalendar(currentDate)}
+          {renderCalendar(nextMonth)}
         </Fragment>
       </ScrollView>
     </SafeAreaView>);
