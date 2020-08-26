@@ -160,7 +160,7 @@ interface Props<T> {
 }
 function CalendarCarousel<T>({
   date = new Date(), onDateChanged, selectDate, selectedDate,
-  markedDayEvents = [], monthFormatter = new Intl.DateTimeFormat('en', { month: 'full' }),
+  markedDayEvents = [], monthFormatter = new Intl.DateTimeFormat('en', { month: 'long' }),
 }: PropsWithChildren<Props<T>>): ReactElement {
   const [layoutWidth, setLayoutWidth] = useState<number>(330);
   const scrollRef = useRef<ScrollView>(null);
