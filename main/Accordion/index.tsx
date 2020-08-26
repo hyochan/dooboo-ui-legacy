@@ -1,7 +1,7 @@
-import React, { FC } from 'react';
+import { Animated, ViewStyle } from 'react-native';
+import React, { FC, useRef } from 'react';
 
 import AccrordionItem from './AccordionItem';
-import { ViewStyle } from 'react-native';
 import styled from 'styled-components/native';
 
 const Container = styled.View`
@@ -51,25 +51,35 @@ const Accordion: FC<Props> = (props) => {
     bodyStyle,
   } = props;
 
+  const dropDownAnimValueList = useRef(data.map(() => new Animated.Value(0))).current;
+
   return (
     <Container>
-      {data.map((datum, titleKey) => {
-        return (
-          <AccrordionItem
-            testID={`${titleKey}`}
-            key={titleKey}
-            datum={datum}
-            shouldAnimate={shouldAnimate}
-            collapseOnStart={collapseOnStart}
-            animDuration={animDuration}
-            activeOpacity={activeOpacity}
-            toggleElement={toggleElement}
-            accordionItemStyle={accordionItemStyle}
-            titleStyle={titleStyle}
-            bodyStyle={bodyStyle}
-          />
-        );
-      })}
+      {
+        data.map((datum, titleKey) => {
+          return (
+            <AccrordionItem
+              testID={`${titleKey}`}
+              key={titleKey}
+              datum={datum}
+              shouldAnimate={shouldAnimate}
+              collapseOnStart={collapseOnStart}
+              animDuration={animDuration}
+              activeOpacity={activeOpacity}
+              toggleElement={toggleElement}
+              accordionItemStyle={accordionItemStyle}
+              titleStyle={titleStyle}
+              bodyStyle={bodyStyle}
+              dropDownAnimValueList={dropDownAnimValueList[titleKey]}
+              sumOfPrecedingTranslateY={
+                dropDownAnimValueList
+                  .filter((item, idx) => idx < titleKey)
+                  .map((value) => ({ translateY: value }))
+              }
+            />
+          );
+        })
+      }
     </Container>
   );
 };

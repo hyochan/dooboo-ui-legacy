@@ -3,6 +3,7 @@ import React, { ReactElement } from 'react';
 
 import { Accordion } from '../../main';
 import { ContainerDeco } from '../../storybook/decorators';
+import { SafeAreaView } from 'react-native';
 import { storiesOf } from '@storybook/react-native';
 import styled from 'styled-components/native';
 
@@ -97,16 +98,18 @@ const Default = (): React.ReactElement => {
   ];
 
   return (
-    <Container>
-      <Accordion
-        data={data}
-        isAnimated={true}
-        collapseOnStart={true}
-        animDuration={400}
-        activeOpacity={1}
-        toggleElement={<ArrowDown />}
-      />
-    </Container>
+    <SafeAreaView>
+      <Container>
+        <Accordion
+          data={data}
+          isAnimated={true}
+          collapseOnStart={true}
+          animDuration={400}
+          activeOpacity={1}
+          toggleElement={<ArrowDown />}
+        />
+      </Container>
+    </SafeAreaView>
   );
 };
 
@@ -223,27 +226,29 @@ const CustomStyle = (): React.ReactElement => {
   ];
 
   return (
-    <Container>
-      <Accordion
-        data={customData}
-        isAnimated={true}
-        collapseOnStart={true}
-        animDuration={300}
-        activeOpacity={1}
-        accordionItemStyle={{
-          width: 400,
-        }}
-        titleStyle={{
-          backgroundColor: 'gray',
-        }}
-        bodyStyle={{
-          backgroundColor: 'lightgray',
-          borderBottomWidth: 1,
-          borderBottomColor: 'gray',
-        }}
-        toggleElement={<ArrowDown />}
-      />
-    </Container>
+    <SafeAreaView>
+      <Container>
+        <Accordion
+          data={customData}
+          isAnimated={true}
+          collapseOnStart={true}
+          animDuration={300}
+          activeOpacity={1}
+          accordionItemStyle={{
+            width: 400,
+          }}
+          titleStyle={{
+            backgroundColor: 'gray',
+          }}
+          bodyStyle={{
+            backgroundColor: 'lightgray',
+            borderBottomWidth: 1,
+            borderBottomColor: 'gray',
+          }}
+          toggleElement={<ArrowDown />}
+        />
+      </Container>
+    </SafeAreaView>
   );
 };
 
