@@ -33,6 +33,7 @@ ViewStyle,
 ```
 - The default javascript Date object is used to print out the dates, month titles, month, and year.
 - The arrow buttons are made with general HTML symbols.
+- Intl is used to print out the names of the months. 
 
 #### Preview
 
