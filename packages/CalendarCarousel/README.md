@@ -9,6 +9,9 @@ For an even closer description on how the CalendarCarousel was made, you can rea
 English : [CalendarCarousel](https://medium.com/@jessielee.shl/the-making-of-dooboo-uis-calendar-carousel-74bf8b0579a9)
 Korean : [CalendarCarousel](https://medium.com/@jessielee.shl/dooboo-ui-calendar-carousel-%EC%A0%9C%EC%9E%91%EA%B3%BC%EC%A0%95-43de8a9e5ad6)
 
+#### Preview
+![89981559-076a0e80-dcaf-11ea-96bf-f48433c518c6](https://user-images.githubusercontent.com/59305253/90607691-87a6eb80-e23c-11ea-8677-67a346911be6.gif)
+
 #### Features of this Calendar Include
 - Display Current Date with a blue circle
 - Display Selected Date with a light blue circle
