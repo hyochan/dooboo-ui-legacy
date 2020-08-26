@@ -215,11 +215,8 @@ function CalendarCarousel<T>({
       const lastDate = new Date(currentYear, currentMonth + 1, 0).getDate();
       const firstWeekday = new Date(currentYear, currentMonth, 1).getDay();
       const lastWeekday = new Date(currentYear, currentMonth, lastDate).getDay();
-      const weekdays = [];
-      const prevDates = [];
-      const dates = [];
-      const nextDates = [];
 
+      const weekdays = [];
       for (let idx = 0; idx <= 6; idx++) {
         const matchMonth = new Date(2020, 5, idx);
         const weekDay = matchMonth.toLocaleString('default', { weekday: 'narrow' });
@@ -230,16 +227,19 @@ function CalendarCarousel<T>({
         );
       }
 
+      const prevDates = [];
       for (let idx = 0; idx < firstWeekday; idx++) {
         const date = new Date(currentYear, currentMonth, 0);
         date.setDate(date.getDate() - idx);
         prevDates.unshift(date);
       }
 
+      const dates = [];
       for (let idx = 1; idx <= lastDate; idx++) {
         dates.push(new Date(currentYear, currentMonth, idx));
       }
 
+      const nextDates = [];
       if (6 - lastWeekday >= 1) {
         for (let idx = 1; idx <= 6 - lastWeekday; idx++) {
           nextDates.push(new Date(currentYear, currentMonth + 1, idx));
@@ -248,33 +248,30 @@ function CalendarCarousel<T>({
 
       const calendarDates = [...prevDates, ...dates, ...nextDates];
 
-      const isSelected = (dateItem: Date): boolean => {
-        return dateItem.getDate() === selectedDate?.getDate() &&
-        dateItem.getMonth() === selectedDate?.getMonth() &&
-        dateItem.getFullYear() === selectedDate?.getFullYear();
-      };
-
-      const hasEvent = (dateItem : Date) : boolean => {
-        const itemYear = dateItem.getFullYear();
-        const itemMonth = dateItem.getMonth();
-        const itemDay = dateItem.getDate();
-        return markedDates.includes(itemDay) && markedMonths.includes(itemMonth) && markedYears.includes(itemYear);
-      };
-
-      const isToday = (dateItem: Date): boolean => {
-        const today = new Date();
-        return dateItem.getDate() === today.getDate() &&
-            dateItem.getMonth() === today.getMonth() &&
-            dateItem.getFullYear() === today.getFullYear();
-      };
-
       const renderDates = (dateItem: Date):ReactElement => {
         const itemYear = dateItem.getFullYear();
         const itemMonth = dateItem.getMonth();
         const itemDay = dateItem.getDate();
         const setItemDay = new Date(itemYear, itemMonth, itemDay);
 
-        if (itemMonth !== currentDate.getMonth()) {
+        const hasEvent = () : boolean => {
+          return markedDates.includes(itemDay) && markedMonths.includes(itemMonth) && markedYears.includes(itemYear);
+        };
+
+        const isSelected = (dateItem: Date): boolean => {
+          return dateItem.getDate() === selectedDate?.getDate() &&
+          dateItem.getMonth() === selectedDate?.getMonth() &&
+          dateItem.getFullYear() === selectedDate?.getFullYear();
+        };
+
+        const isToday = (dateItem: Date): boolean => {
+          const today = new Date();
+          return dateItem.getDate() === today.getDate() &&
+              dateItem.getMonth() === today.getMonth() &&
+              dateItem.getFullYear() === today.getFullYear();
+        };
+
+        if (itemMonth !== currentMonth) {
           return (
             <View style={styles.defaultView} key={itemDay}>
               <Text style={styles.otherDaysText}>{`${itemDay}`}</Text>
@@ -286,7 +283,7 @@ function CalendarCarousel<T>({
               <Text style={styles.currentDayText}>{`${itemDay}`}</Text>
             </View>
           );
-        } else if (hasEvent(dateItem) && isSelected(dateItem)) {
+        } else if (hasEvent() && isSelected(dateItem)) {
           return (
             <TouchableOpacity onPress={(): void => { selectDate(setItemDay); setEventDay(itemDay); }}>
               <View style={styles.activeView} key ={itemDay}>
@@ -295,7 +292,7 @@ function CalendarCarousel<T>({
               </View>
             </TouchableOpacity>
           );
-        } else if (hasEvent(dateItem)) {
+        } else if (hasEvent()) {
           return (
             <TouchableOpacity onPress={(): void => selectDate(setItemDay)}>
               <View style={styles.defaultView} key={itemDay}>
@@ -330,8 +327,8 @@ function CalendarCarousel<T>({
       const renderEvent = (): ReactElement[] => {
         return markedDayEvents.map((markedDayEvent, i) => {
           if (markedDates[i] === eventDay &&
-            markedMonths.includes(currentDate.getMonth()) &&
-            markedYears.includes(currentDate.getFullYear())) {
+            markedMonths.includes(currentMonth) &&
+            markedYears.includes(currentYear)) {
             return (
               <View style = {styles.eventContainer} key ={i}>
                 <Text style= {styles.eventDate}>{markedDayEvents[i].selectedEventDate.getDate()}</Text>
