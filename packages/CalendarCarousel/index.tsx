@@ -14,7 +14,7 @@ import {
   View,
   ViewStyle,
 } from 'react-native';
-import React, { Fragment, PropsWithChildren, ReactElement, useRef, useState } from 'react';
+import React, { PropsWithChildren, ReactElement, useRef, useState } from 'react';
 
 interface Style {
   wrapperContainer: ViewStyle;
@@ -24,7 +24,7 @@ interface Style {
   titleContainer: ViewStyle;
   titleText: TextStyle;
   yearText: TextStyle;
-  weekdayContainer: ViewStyle;
+  rowContainer: ViewStyle;
   weekdayText: TextStyle;
   dayContainer: ViewStyle;
   defaultView: ViewStyle;
@@ -78,7 +78,7 @@ const styles = StyleSheet.create<Style>({
     textAlign: 'center',
     justifyContent: 'center',
   },
-  weekdayContainer: {
+  rowContainer: {
     flexDirection: 'row',
   },
   weekdayText: {
@@ -194,27 +194,28 @@ function CalendarCarousel<T>({
     }
   };
 
-  const renderCalendars = (date: Date): ReactElement => {
-    const changeMonth = (toPrevMonth?: boolean): void => {
-      if (toPrevMonth) {
-        const update = prevMonth;
-
-        setCurrentDate(update);
-        return onDateChanged?.(update);
-      }
-      const update = nextMonth;
+  const changeMonth = (toPrevMonth?: boolean): void => {
+    if (toPrevMonth) {
+      const update = prevMonth;
 
       setCurrentDate(update);
       return onDateChanged?.(update);
-    };
+    }
+    const update = nextMonth;
 
-    const renderCalendar = (currentDate : Date): ReactElement => {
-      const monthName = monthFormatter.format(currentDate);
-      const currentYear = currentDate.getFullYear();
-      const currentMonth = currentDate.getMonth();
-      const lastDate = new Date(currentYear, currentMonth + 1, 0).getDate();
-      const firstWeekday = new Date(currentYear, currentMonth, 1).getDay();
-      const lastWeekday = new Date(currentYear, currentMonth, lastDate).getDay();
+    setCurrentDate(update);
+    return onDateChanged?.(update);
+  };
+
+  const renderCalendars = (): ReactElement => {
+    const renderCalendar = (displayDate : Date): ReactElement => {
+      const monthName = monthFormatter.format(displayDate);
+      const year = displayDate.getFullYear();
+      const month = displayDate.getMonth();
+
+      const lastDate = new Date(year, month + 1, 0).getDate();
+      const firstWeekday = new Date(year, month, 1).getDay();
+      const lastWeekday = new Date(year, month, lastDate).getDay();
 
       const weekdays = [];
       for (let idx = 0; idx <= 6; idx++) {
@@ -229,20 +230,20 @@ function CalendarCarousel<T>({
 
       const prevDates = [];
       for (let idx = 0; idx < firstWeekday; idx++) {
-        const date = new Date(currentYear, currentMonth, 0);
+        const date = new Date(year, month, 0);
         date.setDate(date.getDate() - idx);
         prevDates.unshift(date);
       }
 
       const dates = [];
       for (let idx = 1; idx <= lastDate; idx++) {
-        dates.push(new Date(currentYear, currentMonth, idx));
+        dates.push(new Date(year, month, idx));
       }
 
       const nextDates = [];
       if (6 - lastWeekday >= 1) {
         for (let idx = 1; idx <= 6 - lastWeekday; idx++) {
-          nextDates.push(new Date(currentYear, currentMonth + 1, idx));
+          nextDates.push(new Date(year, month + 1, idx));
         }
       }
 
@@ -271,7 +272,7 @@ function CalendarCarousel<T>({
               dateItem.getFullYear() === today.getFullYear();
         };
 
-        if (itemMonth !== currentMonth) {
+        if (itemMonth !== month) {
           return (
             <View style={styles.defaultView} key={itemDay}>
               <Text style={styles.otherDaysText}>{`${itemDay}`}</Text>
@@ -327,8 +328,8 @@ function CalendarCarousel<T>({
       const renderEvent = (): ReactElement[] => {
         return markedDayEvents.map((markedDayEvent, i) => {
           if (markedDates[i] === eventDay &&
-            markedMonths.includes(currentMonth) &&
-            markedYears.includes(currentYear)) {
+            markedMonths.includes(month) &&
+            markedYears.includes(year)) {
             return (
               <View style = {styles.eventContainer} key ={i}>
                 <Text style= {styles.eventDate}>{markedDayEvents[i].selectedEventDate.getDate()}</Text>
@@ -347,13 +348,13 @@ function CalendarCarousel<T>({
             </TouchableOpacity>
             <View style={styles.titleContainer}>
               <Text style={styles.titleText}>{monthName}</Text>
-              <Text style={styles.yearText}>{currentYear}</Text>
+              <Text style={styles.yearText}>{year}</Text>
             </View>
             <TouchableOpacity onPress={(): void => changeMonth(false)}>
               <Text style={styles.arrowText}>&#8250;</Text>
             </TouchableOpacity>
           </View>
-          <View style={styles.weekdayContainer}>{weekdays}</View>
+          <View style={styles.rowContainer}>{weekdays}</View>
           <FlatList
             style={styles.dayContainer}
             data={calendarDates}
@@ -367,7 +368,7 @@ function CalendarCarousel<T>({
       );
     };
 
-    return <View style={styles.weekdayContainer}>
+    return <View style={styles.rowContainer}>
       {renderCalendar(prevMonth)}
       {renderCalendar(currentDate)}
       {renderCalendar(nextMonth)}
@@ -389,7 +390,7 @@ function CalendarCarousel<T>({
         ref={scrollRef}
         onMomentumScrollEnd={scrollEffect}
       >
-        {renderCalendars(date)}
+        {renderCalendars()}
       </ScrollView>
     </SafeAreaView>);
 }

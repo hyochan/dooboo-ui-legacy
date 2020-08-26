@@ -85,28 +85,38 @@ import { CalendarCarousel } from 'dooboo-ui/lib/CalendarCarousel';
 ### CalendarCarousel
 The Calendar Carousel is a functional component that returns three functions 'renderCalendar()' wrapped inside of a ScrollView.
 
+
 ```tsx
-<SafeAreaView
-  style={styles.container}
-  onLayout={(e): void => {
-    setLayoutWidth(e.nativeEvent.layout.width);
-    scrollToMiddleCalendar();
-  }}>
-  <ScrollView
-    horizontal
-    pagingEnabled
-    scrollEventThrottle={16}
-    contentOffset = {{ x: layoutWidth, y: 0 }}
-    ref={scrollRef}
-    onMomentumScrollEnd={scrollEffect}
-  >
-    <Fragment>
-          {renderCalendar(prevMonth)}
-          {renderCalendar(currentDate)}
-          {renderCalendar(nextMonth)}
-    </Fragment>
-  </ScrollView>
-</SafeAreaView>
+    <SafeAreaView
+      style={styles.wrapperContainer}
+      onLayout={(e): void => {
+        setLayoutWidth(e.nativeEvent.layout.width);
+        scrollToMiddleCalendar();
+      }}>
+      <ScrollView
+        horizontal
+        pagingEnabled
+        scrollEventThrottle={16}
+        contentOffset = {{ x: layoutWidth, y: 0 }}
+        ref={scrollRef}
+        onMomentumScrollEnd={scrollEffect}
+      >
+        {renderCalendars()}
+      </ScrollView>
+    </SafeAreaView>
+```
+
+### renderCalendars()
+
+The function renderCalendars() renders three calendars that will load the previous current and next month calendars.
+It also containes the function renderCalendar() which is described below. 
+
+```tsx
+<View style={styles.rowContainer}>
+      {renderCalendar(prevMonth)}
+      {renderCalendar(currentDate)}
+      {renderCalendar(nextMonth)}
+    </View>;
 ```
 
 
@@ -138,5 +148,92 @@ The Calendar Carousel is a functional component that returns three functions 're
   />
   {renderDayEvents()}
 </View>
+```
+
+In addition to rendering the calendar, renderCalendar() renders the dates and the events marked on the dates with the renderdates() function and the renderEvents() function. 
+
+### renderDates()
+
+#### Display Features
+- hasEvent() 
+
+  : checks if a date has a marked event within it and displays a small blue circle if it is. 
+
+  return value = boolean
+
+- isSelected() 
+
+  : checks if a date is selected by the user and displays a light blue circle if it is. 
+
+  return value = boolean
+
+- isToday() 
+  
+  : checks if a date rendered in the calendar is today's date and displays a blue circle if it is.
+
+  return value = boolean
+
+
+### renderEvent()
+
+Takes the data markedDayEvents that is recieved from the props and renders the events based on that. 
+
+```tsx
+      const renderEvent = (): ReactElement[] => {
+        return markedDayEvents.map((markedDayEvent, i) => {
+          if (markedDates[i] === eventDay &&
+            markedMonths.includes(month) &&
+            markedYears.includes(year)) {
+            return (
+              <View style = {styles.eventContainer} key ={i}>
+                <Text style= {styles.eventDate}>{markedDayEvents[i].selectedEventDate.getDate()}</Text>
+                <Text style = {styles.eventText}>{markedDayEvents[i].events}</Text>
+              </View>
+            );
+          }
+        });
+      }
+```
+### Changing Date Features
+
+There are to ways to scroll through this calendar. changeMonth() is called when the left/right button is pressed. ScrollView is what is called when the user scrolls to the next month.
+
+#### changeMonth()
+
+```tsx
+  const changeMonth = (toPrevMonth?: boolean): void => {
+    if (toPrevMonth) {
+      const update = prevMonth;
+
+      setCurrentDate(update);
+      return onDateChanged?.(update);
+    }
+    const update = nextMonth;
+
+    setCurrentDate(update);
+    return onDateChanged?.(update);
+  };
+```
+
+#### ScrollView - scrollEffect
+
+```tsx
+  const scrollEffect = (e: NativeSyntheticEvent<NativeScrollEvent>) : void => {
+    const xValue = Math.floor(e.nativeEvent.contentOffset.x);
+    const maxLayoutFloor = Math.floor(layoutWidth) * 2;
+    if (!layoutWidth || layoutWidth === 1) return;
+
+    if (xValue === 0) {
+      if (scrollRef && scrollRef.current) {
+        scrollToMiddleCalendar();
+        setCurrentDate(prevMonth);
+      }
+    } else if (xValue === maxLayoutFloor) {
+      if (scrollRef && scrollRef.current) {
+        scrollToMiddleCalendar();
+        setCurrentDate(nextMonth);
+      }
+    }
+  };
 ```
 
