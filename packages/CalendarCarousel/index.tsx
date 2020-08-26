@@ -255,6 +255,13 @@ function CalendarCarousel<T>({
         const itemDay = dateItem.getDate();
         const setItemDay = new Date(itemYear, itemMonth, itemDay);
 
+        const isToday = (dateItem: Date): boolean => {
+          const today = new Date();
+          return dateItem.getDate() === today.getDate() &&
+              dateItem.getMonth() === today.getMonth() &&
+              dateItem.getFullYear() === today.getFullYear();
+        };
+
         const hasEvent = () : boolean => {
           return markedDates.includes(itemDay) && markedMonths.includes(itemMonth) && markedYears.includes(itemYear);
         };
@@ -263,13 +270,6 @@ function CalendarCarousel<T>({
           return dateItem.getDate() === selectedDate?.getDate() &&
           dateItem.getMonth() === selectedDate?.getMonth() &&
           dateItem.getFullYear() === selectedDate?.getFullYear();
-        };
-
-        const isToday = (dateItem: Date): boolean => {
-          const today = new Date();
-          return dateItem.getDate() === today.getDate() &&
-              dateItem.getMonth() === today.getMonth() &&
-              dateItem.getFullYear() === today.getFullYear();
         };
 
         if (itemMonth !== month) {
