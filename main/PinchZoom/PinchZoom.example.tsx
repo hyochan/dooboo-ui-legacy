@@ -1,5 +1,4 @@
-import { Dimensions, FlatList, Image, ImageSourcePropType } from 'react-native';
-import { PinchZoom } from '.';
+import { Dimensions, FlatList, Image, ImageSourcePropType, ViewStyle } from 'react-native';
 import React from 'react';
 import styled from 'styled-components/native';
 
@@ -10,7 +9,7 @@ const Container = styled.View`
 
 const ItemContainer = styled.View`
   padding: 10px 0;
-  width: ${(): number => Dimensions.get('screen').width - 20}px;
+  max-width: ${(): number => Dimensions.get('screen').width - 20}px;
   min-height: 200px;
 `;
 
@@ -38,8 +37,17 @@ const images = [
   { uri: 'https://avatars2.githubusercontent.com/u/7970947?v=3&s=460' },
 ];
 
-function ImageItem({ source, title, content }
-:{ source: ImageSourcePropType, title: string, content: string }): React.ReactElement {
+interface PinchZoomProps {
+  PinchZoom: React.FC<{ style?: ViewStyle, blockNativeResponder?: boolean }>;
+}
+
+interface ImageItemProps extends PinchZoomProps {
+  source: ImageSourcePropType,
+  title: string,
+  content: string,
+}
+
+function ImageItem({ source, title, content, PinchZoom }: ImageItemProps): React.ReactElement {
   const [width, setWidth] = React.useState<string | number>('100%');
 
   return <ItemContainer>
@@ -62,7 +70,7 @@ function ImageItem({ source, title, content }
   </ItemContainer>;
 }
 
-function ImageList(): React.ReactElement {
+export function ImageList({ PinchZoom }: PinchZoomProps): React.ReactElement {
   return <Container>
     <FlatList
       data={images}
@@ -70,6 +78,7 @@ function ImageList(): React.ReactElement {
       keyExtractor={ (item):string => item.uri}
       renderItem={({ item, index }): React.ReactElement =>
         <ImageItem
+          PinchZoom={PinchZoom}
           source={item}
           title={`Image ${(index + 1)}`}
           content="This line is for the description of the image" />
@@ -77,7 +86,7 @@ function ImageList(): React.ReactElement {
   </Container>;
 }
 
-function Article(): React.ReactElement {
+export function Article({ PinchZoom }: PinchZoomProps): React.ReactElement {
   return <PinchZoom style={{ width: '100%', backgroundColor: '#eee', padding: 10 }}>
     <TitleText>Article Title</TitleText>
     <ContentText style={{ minHeight: 100, textAlignVertical: 'center' }}>
@@ -89,8 +98,3 @@ PinchZoom works at only Image but also other views. So, let's zoom in with your 
     </ContentText>
   </PinchZoom>;
 }
-
-export {
-  Article,
-  ImageList,
-};

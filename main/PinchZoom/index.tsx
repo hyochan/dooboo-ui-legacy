@@ -1,12 +1,11 @@
 import { Animated, PanResponder, PanResponderInstance, ViewStyle } from 'react-native';
-import React, { useRef } from 'react';
+import React, { PropsWithChildren, useRef } from 'react';
 import { TouchPosition, Vector, getClamppedVector, getOriginScaleTargetPosition, getTranslate } from './utils';
 
-interface Props {
+type Props = PropsWithChildren <{
   style?: ViewStyle,
-  children: React.ReactNode,
   blockNativeResponder?: boolean,
-}
+}>
 
 function PinchZoom({ children, style, blockNativeResponder = true }: Props): React.ReactElement {
   const touches = useRef([new TouchPosition(), new TouchPosition()]).current;

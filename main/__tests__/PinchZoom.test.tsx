@@ -10,6 +10,7 @@ import {
 
 import { ImageList } from '../PinchZoom/PinchZoom.example';
 import { PanResponderCallbacks } from 'react-native';
+import PinchZoom from '../PinchZoom';
 import renderer from 'react-test-renderer';
 
 const TEST_CONTAINER_WIDTH = 300;
@@ -34,14 +35,14 @@ jest.mock('react-native/Libraries/Interaction/PanResponder', () => {
 describe('[PinchZoom] of ImageList render', () => {
   it(' should renders without crashing', () => {
     const rendered: renderer.ReactTestRendererJSON | null = renderer
-      .create(<ImageList/>)
+      .create(<ImageList PinchZoom={PinchZoom}/>)
       .toJSON();
     expect(rendered).toMatchSnapshot();
     expect(rendered).toBeTruthy();
   });
 
   describe('ImageList interaction test', () => {
-    const rendered: RenderResult = render(<ImageList/>);
+    const rendered: RenderResult = render(<ImageList PinchZoom={PinchZoom}/>);
     const pinchZoomContainer = rendered.getAllByTestId('PINCH_ZOOM_CONTAINER')[Math.floor(Math.random() * 5)];
 
     it(' should set the center of layout position when onLayout called', () => {
