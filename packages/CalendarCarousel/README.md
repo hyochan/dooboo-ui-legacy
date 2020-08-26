@@ -36,6 +36,7 @@ ViewStyle,
 - Intl is used to print out the names of the months. 
 
 #### Preview
+![89981559-076a0e80-dcaf-11ea-96bf-f48433c518c6](https://user-images.githubusercontent.com/59305253/90607691-87a6eb80-e23c-11ea-8677-67a346911be6.gif)
 
 #### Language
 - React-Native : FlatList, StyleSheet, SafeAreaView, Text, Texstyle...
