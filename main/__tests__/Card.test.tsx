@@ -21,7 +21,13 @@ describe('[Card]', () => {
   });
 
   it('should render loading status', () => {
-    rendered = renderer.create(component({ loading: true }));
+    rendered = renderer.create(
+      component({
+        loading: true,
+        title: 'Card title',
+        subTitle: 'Card subTitle',
+      }),
+    );
     root = rendered.root;
 
     const texts = root.findAllByType(Text);
