@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import { Text, View } from 'react-native';
+import { Image, Text, View } from 'react-native';
 import { Card } from '..';
 // Note: test renderer must be required after react-native.
 import renderer from 'react-test-renderer';
@@ -32,6 +32,21 @@ describe('[Card]', () => {
 
     const texts = root.findAllByType(Text);
     expect(texts).toHaveLength(0);
+  });
+
+  it('should render image', () => {
+    rendered = renderer.create(
+      component({
+        image: {
+          uri:
+            'https://image.shutterstock.com/z/stock-vector-api-application-programming-interface-software-integration-vector-illustration-1079814893.jpg',
+        },
+      }),
+    );
+    root = rendered.root;
+
+    const images = root.findAllByType(Image);
+    expect(images).toHaveLength(1);
   });
 
   it('should render title and subtitle', () => {
