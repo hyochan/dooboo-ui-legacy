@@ -24,3 +24,72 @@ exports[`[Card] should render without crashing 1`] = `
   }
 />
 `;
+
+exports[`[Card] should simulate props 1`] = `
+<View
+  style={
+    Array [
+      Object {
+        "alignItems": "flex-start",
+        "backgroundColor": "#fff",
+        "flexDirection": "column",
+      },
+      Object {
+        "elevation": 5,
+        "shadowColor": "#000",
+        "shadowOffset": Object {
+          "height": 2,
+          "width": 0,
+        },
+        "shadowOpacity": 0.25,
+        "shadowRadius": 4,
+      },
+      undefined,
+    ]
+  }
+/>
+`;
+
+exports[`[Card] should simulate props 2`] = `
+<View
+  style={
+    Array [
+      Object {
+        "alignItems": "flex-start",
+        "backgroundColor": "#fff",
+        "flexDirection": "column",
+      },
+      Object {
+        "elevation": 10,
+        "shadowColor": "#000",
+        "shadowOffset": Object {
+          "height": 5,
+          "width": 0,
+        },
+        "shadowOpacity": 0.34,
+        "shadowRadius": 6.27,
+      },
+      undefined,
+    ]
+  }
+/>
+`;
+
+exports[`[Card] should simulate props 3`] = `
+<View
+  style={
+    Array [
+      Object {
+        "alignItems": "flex-start",
+        "backgroundColor": "#fff",
+        "flexDirection": "column",
+      },
+      Object {
+        "borderColor": "#ccc",
+        "borderWidth": 1,
+      },
+      undefined,
+    ]
+  }
+/>
+`;
