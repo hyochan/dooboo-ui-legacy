@@ -3,12 +3,7 @@ import { IC_ARR_DOWN } from '../../../icon';
 import React from 'react';
 import styled from 'styled-components/native';
 
-const Container = styled.View`
-  flex: 1;
-  flex-direction: column;
-  align-items: center;
-  min-height: 600px;
-`;
+import { Container } from '../../shared';
 
 const StyledTitle = styled.Text`
   font-weight: bold;
