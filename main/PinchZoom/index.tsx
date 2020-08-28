@@ -60,8 +60,8 @@ function PinchZoom({ children, style, blockNativeResponder = true }: Props): Rea
             1,
             scaleValue.offset * touch1.current.distance(touch2.current) / touch1.offset.distance(touch2.offset),
           );
+          scaleValue.current = Math.sqrt(scaleValue.current * scaleValue.offset);
           scale.setValue(scaleValue.current);
-          // console.log(scaleValue);
           translateValue.current.set(getTranslate({
             targetPosition,
             layoutCenter,

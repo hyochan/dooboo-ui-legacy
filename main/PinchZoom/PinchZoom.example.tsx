@@ -1,4 +1,5 @@
-import { Dimensions, FlatList, Image, ImageSourcePropType, ViewStyle } from 'react-native';
+import { Dimensions, FlatList, Image, ImageSourcePropType } from 'react-native';
+import PinchZoom from './';
 import React from 'react';
 import styled from 'styled-components/native';
 
@@ -37,17 +38,13 @@ const images = [
   { uri: 'https://avatars2.githubusercontent.com/u/7970947?v=3&s=460' },
 ];
 
-interface PinchZoomProps {
-  PinchZoom: React.FC<{ style?: ViewStyle, blockNativeResponder?: boolean }>;
-}
-
-interface ImageItemProps extends PinchZoomProps {
+interface ImageItemProps {
   source: ImageSourcePropType,
   title: string,
   content: string,
 }
 
-function ImageItem({ source, title, content, PinchZoom }: ImageItemProps): React.ReactElement {
+function ImageItem({ source, title, content }: ImageItemProps): React.ReactElement {
   const [width, setWidth] = React.useState<string | number>('100%');
 
   return <ItemContainer>
@@ -70,7 +67,7 @@ function ImageItem({ source, title, content, PinchZoom }: ImageItemProps): React
   </ItemContainer>;
 }
 
-export function ImageList({ PinchZoom }: PinchZoomProps): React.ReactElement {
+export function ImageList(): React.ReactElement {
   return <Container>
     <FlatList
       data={images}
@@ -78,7 +75,6 @@ export function ImageList({ PinchZoom }: PinchZoomProps): React.ReactElement {
       keyExtractor={ (item):string => item.uri}
       renderItem={({ item, index }): React.ReactElement =>
         <ImageItem
-          PinchZoom={PinchZoom}
           source={item}
           title={`Image ${(index + 1)}`}
           content="This line is for the description of the image" />
@@ -86,7 +82,7 @@ export function ImageList({ PinchZoom }: PinchZoomProps): React.ReactElement {
   </Container>;
 }
 
-export function Article({ PinchZoom }: PinchZoomProps): React.ReactElement {
+export function Article(): React.ReactElement {
   return <PinchZoom style={{ width: '100%', backgroundColor: '#eee', padding: 10 }}>
     <TitleText>Article Title</TitleText>
     <ContentText style={{ minHeight: 100, textAlignVertical: 'center' }}>
