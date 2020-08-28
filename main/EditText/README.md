@@ -119,7 +119,7 @@ const Default = (): React.ReactElement => {
             Sign in with Email
           </Text>
           <EditText
-            testID="email-input-Default"
+            testID="email-input-default"
             textStyle={{
               color: '#495057',
             }}

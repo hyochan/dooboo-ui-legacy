@@ -122,8 +122,8 @@ interface Props {
 export enum EditTextInputType {
   COLUMN = 'column',
   ROW = 'row',
-  COLUMN_BOXED = 'box',
-  ROW_BOXED = 'rowBox',
+  COLUMN_BOXED = 'column-boxed',
+  ROW_BOXED = 'row-boxed',
 }
 
 const EditText: FC<Props> = (props) => {
