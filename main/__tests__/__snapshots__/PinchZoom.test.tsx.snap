@@ -71,12 +71,12 @@ exports[`[PinchZoom] of ImageList render  should renders without crashing 1`] = 
         style={
           Array [
             Object {
+              "maxWidth": 730,
               "minHeight": 200,
               "paddingBottom": 10,
               "paddingLeft": 0,
               "paddingRight": 0,
               "paddingTop": 10,
-              "width": 730,
             },
           ]
         }
@@ -179,12 +179,12 @@ exports[`[PinchZoom] of ImageList render  should renders without crashing 1`] = 
         style={
           Array [
             Object {
+              "maxWidth": 730,
               "minHeight": 200,
               "paddingBottom": 10,
               "paddingLeft": 0,
               "paddingRight": 0,
               "paddingTop": 10,
-              "width": 730,
             },
           ]
         }
@@ -287,12 +287,12 @@ exports[`[PinchZoom] of ImageList render  should renders without crashing 1`] = 
         style={
           Array [
             Object {
+              "maxWidth": 730,
               "minHeight": 200,
               "paddingBottom": 10,
               "paddingLeft": 0,
               "paddingRight": 0,
               "paddingTop": 10,
-              "width": 730,
             },
           ]
         }
@@ -395,12 +395,12 @@ exports[`[PinchZoom] of ImageList render  should renders without crashing 1`] = 
         style={
           Array [
             Object {
+              "maxWidth": 730,
               "minHeight": 200,
               "paddingBottom": 10,
               "paddingLeft": 0,
               "paddingRight": 0,
               "paddingTop": 10,
-              "width": 730,
             },
           ]
         }
@@ -503,12 +503,12 @@ exports[`[PinchZoom] of ImageList render  should renders without crashing 1`] = 
         style={
           Array [
             Object {
+              "maxWidth": 730,
               "minHeight": 200,
               "paddingBottom": 10,
               "paddingLeft": 0,
               "paddingRight": 0,
               "paddingTop": 10,
-              "width": 730,
             },
           ]
         }
