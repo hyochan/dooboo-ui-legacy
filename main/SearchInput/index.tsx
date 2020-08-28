@@ -1,16 +1,24 @@
-import { Platform, StyleProp, TextInputProps, TextStyle, ViewStyle } from 'react-native';
+import {
+  NativeSyntheticEvent,
+  Platform,
+  StyleProp,
+  TextInputKeyPressEventData,
+  TextInputProps,
+  TextStyle,
+  ViewStyle,
+} from 'react-native';
 import React, { FC, useEffect, useState } from 'react';
 
 import styled from 'styled-components/native';
 
 const Container = styled.View`
-  height: 56px;
-  width: 335px;
+  height: 40px;
+  width: 381px;
   margin-left: 20px;
   margin-right: 20px;
-  border-radius: 8px;
+  border-radius: 6px;
   border-width: 1px;
-  border-color: #E0E0E0;
+  border-color: #e0e0e0;
   flex-direction: row;
   align-items: center;
 `;
@@ -18,25 +26,9 @@ const Container = styled.View`
 const Input = styled.TextInput`
   flex-grow: 1;
   align-self: center;
-  font-size: 16px;
+  font-size: 14px;
+  padding-left: 16px;
   ${Platform.OS === 'web' && { 'outline-style': 'none' }}
-`;
-
-const ResetContainer = styled.TouchableOpacity`
-  border-radius: 20px;
-  background-color: #BDBDBD;
-  width: 24px;
-  height: 24px;
-  margin-top: 18px;
-  margin-bottom: 18px;
-  margin-right: 11px;
-  justify-content: center;
-  align-items: center;
-`;
-
-const ResetText = styled.Text`
-  color: white;
-  font-weight: 800; 
 `;
 
 interface Props {
@@ -45,14 +37,16 @@ interface Props {
   inputStyle?: TextStyle;
   focusColor?: string;
   debounceDelay?: number;
-  customIcon?: React.ReactElement;
+  leftElement?: React.ReactElement;
   placeholder?: TextInputProps['placeholder'];
   placeholderTextColor?: TextInputProps['placeholderTextColor'];
   resetIndicator?: React.ReactElement;
   resetIndicatorStyle?: ViewStyle;
-  onFocus?: () => void
-  onBlur?: () => void
+  rightElement?: React.ReactElement;
+  onFocus?: () => void;
+  onBlur?: () => void;
   onDebounceOrOnReset?: (value: string) => void;
+  onKeyPress?: (e: NativeSyntheticEvent<TextInputKeyPressEventData>) => void;
 }
 
 // reference : https://dev.to/gabe_ragland/debouncing-with-react-hooks-jci
@@ -78,14 +72,14 @@ const SearchInput: FC<Props> = (props) => {
     inputStyle,
     focusColor = '#109CF1',
     debounceDelay = 400,
-    customIcon,
-    placeholder = 'Search for anything',
+    leftElement,
+    placeholder,
     placeholderTextColor = '#BDBDBD',
-    resetIndicator,
-    resetIndicatorStyle,
     onFocus,
+    rightElement,
     onBlur,
     onDebounceOrOnReset,
+    onKeyPress,
   } = props;
 
   const [focused, setFocus] = useState<boolean>(false);
@@ -105,12 +99,9 @@ const SearchInput: FC<Props> = (props) => {
   return (
     <Container
       testID={'SEARCH_CONTAINER'}
-      style={[
-        containerStyle,
-        focused && { borderColor: focusColor },
-      ]}
+      style={[containerStyle, focused && { borderColor: focusColor }]}
     >
-      {customIcon || null}
+      {leftElement || null}
       <Input
         testID={'SEARCH_INPUT'}
         value={inputValue}
@@ -128,22 +119,11 @@ const SearchInput: FC<Props> = (props) => {
           setFocus(false);
           onBlur && onBlur();
         }}
+        onKeyPress={
+          onKeyPress
+        }
       />
-      {
-        value !== '' &&
-          (
-            <ResetContainer
-              testID={'RESET_INDICATOR'}
-              style={resetIndicatorStyle}
-              activeOpacity={1}
-              onPress={(): void => {
-                setInputValue('');
-              }}
-            >
-              {resetIndicator ?? <ResetText>X</ResetText>}
-            </ResetContainer>
-          )
-      }
+      {rightElement || null}
     </Container>
   );
 };

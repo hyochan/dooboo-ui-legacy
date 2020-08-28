@@ -14,7 +14,7 @@ import { ContainerDeco } from '../../storybook/decorators';
 import { IC_CHECK } from '../Icon';
 import { storiesOf } from '@storybook/react-native';
 
-const Default = (): React.ReactElement => {
+const ColumnEditText = (): React.ReactElement => {
   const validateEmail = (email: string): boolean => {
     const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     return re.test(email);
@@ -39,14 +39,14 @@ const Default = (): React.ReactElement => {
   };
 
   return (
-    <SafeAreaView>
+    <SafeAreaView
+      style={{ width: '100%' }}
+    >
       <ScrollView
         contentContainerStyle={{
-          marginTop: 8,
           alignSelf: 'stretch',
-          paddingHorizontal: 20,
-          paddingVertical: 100,
-          display: 'flex',
+          paddingHorizontal: 40,
+          paddingVertical: 80,
           flexDirection: 'column',
           justifyContent: 'center',
           alignItems: 'center',
@@ -54,24 +54,22 @@ const Default = (): React.ReactElement => {
       >
         <View
           style={{
-            display: 'flex',
             flexDirection: 'column',
             justifyContent: 'center',
             alignItems: 'center',
             width: Platform.OS === 'web' ? 438 : '100%',
           }}
         >
-          <Text
-            style={{
-              fontWeight: 'bold',
-              fontSize: 24,
-              lineHeight: 35,
-              color: '#495057',
-            }}>
+          <Text style={{
+            fontWeight: 'bold',
+            fontSize: 24,
+            lineHeight: 35,
+            color: '#495057',
+          }}>
             Sign in with Email
           </Text>
           <EditText
-            testID="email-input-defualt"
+            testID="email-input-default"
             textStyle={{
               color: '#495057',
             }}
@@ -80,17 +78,12 @@ const Default = (): React.ReactElement => {
             placeholderTextColor="#ADB5BD"
             value={email}
             onChangeText={(text: string): void => onTextChanged('EMAIL', text)}
-            style={{
-              marginTop: 50,
-            }}
+            style={{ marginTop: 50 }}
             errorText={errorEmail}
             onSubmitEditing={onSignIn}
           />
           <EditText
             testID="password-input-default"
-            textStyle={{
-              color: '#ADB5BD',
-            }}
             secureTextEntry={true}
             label="Password"
             placeholder="Your password"
@@ -180,7 +173,6 @@ const RowEditText = (): React.ReactElement => {
           alignSelf: 'stretch',
           paddingHorizontal: 20,
           paddingVertical: 100,
-          display: 'flex',
           flexDirection: 'column',
           justifyContent: 'center',
           alignItems: 'center',
@@ -188,7 +180,6 @@ const RowEditText = (): React.ReactElement => {
       >
         <View
           style={{
-            display: 'flex',
             flexDirection: 'column',
             justifyContent: 'center',
             alignItems: 'center',
@@ -346,7 +337,6 @@ const BoxEditText = (): React.ReactElement => {
           alignSelf: 'stretch',
           paddingHorizontal: 20,
           paddingVertical: 100,
-          display: 'flex',
           flexDirection: 'column',
           justifyContent: 'center',
           alignItems: 'center',
@@ -354,7 +344,6 @@ const BoxEditText = (): React.ReactElement => {
       >
         <View
           style={{
-            display: 'flex',
             flexDirection: 'column',
             justifyContent: 'center',
             alignItems: 'center',
@@ -375,7 +364,7 @@ const BoxEditText = (): React.ReactElement => {
           </Text>
           <EditText
             testID="email-input-box"
-            type={EditTextInputType.BOX}
+            type={EditTextInputType.COLUMN_BOXED}
             labelTextStyle={{
               color: '#333333',
               fontSize: 14,
@@ -411,7 +400,7 @@ const BoxEditText = (): React.ReactElement => {
           />
           <EditText
             testID="password-input-box"
-            type={EditTextInputType.BOX}
+            type={EditTextInputType.COLUMN_BOXED}
             labelTextStyle={{
               color: '#333333',
               fontSize: 14,
@@ -447,7 +436,7 @@ const BoxEditText = (): React.ReactElement => {
           />
           <EditText
             testID="password-input-confirm"
-            type={EditTextInputType.BOX}
+            type={EditTextInputType.COLUMN_BOXED}
             labelTextStyle={{
               color: '#333333',
               fontSize: 14,
@@ -534,7 +523,6 @@ const BoxRowEditText = (): React.ReactElement => {
           alignSelf: 'stretch',
           paddingHorizontal: 20,
           paddingVertical: 100,
-          display: 'flex',
           flexDirection: 'column',
           justifyContent: 'center',
           alignItems: 'center',
@@ -542,7 +530,6 @@ const BoxRowEditText = (): React.ReactElement => {
       >
         <View
           style={{
-            display: 'flex',
             flexDirection: 'column',
             justifyContent: 'center',
             alignItems: 'center',
@@ -583,7 +570,7 @@ const BoxRowEditText = (): React.ReactElement => {
           />
           <EditText
             testID="password-input-boxrow"
-            type={EditTextInputType.ROW_BOX}
+            type={EditTextInputType.ROW_BOXED}
             inputContainerRadius={25}
             textStyle={{
               color: '#ADB5BD',
@@ -655,29 +642,29 @@ export default {
   title: 'EditText',
 };
 
-export const toStorybook1 = (): ReactElement => <Default />;
+export const toStorybook1 = (): ReactElement => <ColumnEditText />;
 export const toStorybook2 = (): ReactElement => <RowEditText />;
 export const toStorybook3 = (): ReactElement => <BoxEditText />;
 export const toStorybook4 = (): ReactElement => <BoxRowEditText />;
 
 toStorybook1.story = {
-  name: 'default',
-  notes: 'Simple explanation',
+  name: 'COLUMN (default)',
+  notes: 'Default [EditText] aligned in column.',
 };
 
 toStorybook2.story = {
-  name: 'row',
-  notes: 'EditText in row',
+  name: 'ROW',
+  notes: '[EditText] aligned in rows.',
 };
 
 toStorybook3.story = {
-  name: 'boxType',
-  notes: 'Box shape EditText',
+  name: 'COLUMN_BOXED',
+  notes: 'Boxed [EditText] aligned in column.',
 };
 
 toStorybook4.story = {
-  name: 'boxRowType',
-  notes: 'Box shape EditText in row',
+  name: 'ROW_BOXED',
+  notes: 'Default [EditText] aligned in row.',
 };
 
 /**
@@ -685,15 +672,15 @@ toStorybook4.story = {
  */
 storiesOf('EditText', module)
   .addDecorator(ContainerDeco)
-  .add('default', () => <Default />, {
-    notes: 'Simple explanation',
+  .add(toStorybook1.story.name, () => <ColumnEditText />, {
+    notes: toStorybook1.story.notes,
   })
-  .add('row', () => <RowEditText />, {
-    notes: 'EditText in row',
+  .add(toStorybook2.story.name, () => <RowEditText />, {
+    notes: toStorybook2.story.notes,
   })
-  .add('boxType', () => <BoxEditText />, {
-    notes: 'Box shape EditText',
+  .add(toStorybook3.story.name, () => <BoxEditText />, {
+    notes: toStorybook3.story.notes,
   })
-  .add('boxRowType', () => <BoxRowEditText />, {
-    notes: 'Box shape EditText in row',
+  .add(toStorybook4.story.name, () => <BoxRowEditText />, {
+    notes: toStorybook4.story.notes,
   });

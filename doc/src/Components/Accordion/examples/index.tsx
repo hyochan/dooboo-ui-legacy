@@ -1,8 +1,7 @@
-
-import React from 'react';
 import { Accordion } from 'dooboo-ui';
-import styled from 'styled-components/native';
 import { IC_ARR_DOWN } from '../../../icon';
+import React from 'react';
+import styled from 'styled-components/native';
 
 const Container = styled.View`
   flex: 1;
@@ -32,7 +31,7 @@ const Default = (): React.ReactElement => {
   const data = [
     {
       title: {
-        name: <StyledTitle>Defualt-title-01</StyledTitle>,
+        name: <StyledTitle>Default-title-01</StyledTitle>,
       },
       bodies: [
         {
@@ -45,7 +44,7 @@ const Default = (): React.ReactElement => {
     },
     {
       title: {
-        name: <StyledTitle>Defualt-title-02</StyledTitle>,
+        name: <StyledTitle>Default-title-02</StyledTitle>,
       },
       bodies: [
         {
@@ -58,7 +57,7 @@ const Default = (): React.ReactElement => {
     },
     {
       title: {
-        name: <StyledTitle>Defualt-title-03</StyledTitle>,
+        name: <StyledTitle>Default-title-03</StyledTitle>,
       },
       bodies: [
         {

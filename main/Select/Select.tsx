@@ -1,71 +1,63 @@
-import {
-  Animated,
-  Easing,
-  Image,
-  TextStyle,
-  ViewStyle,
-} from 'react-native';
-import React, { Fragment, ReactNode } from 'react';
+import { Animated, Easing, TextStyle, View, ViewStyle } from 'react-native';
+import React, { Fragment, ReactElement, ReactNode } from 'react';
 
-import IC_ARROW_DOWN from '../__assets__/arrow_down.png';
-import { LoadingIndicator } from '../LoadingIndicator';
+import Arrow from './Arrow';
+import { SelectItemProps } from './SelectItem';
 import styled from 'styled-components/native';
 
 interface Props {
   testID?: string;
   opened?: boolean;
-  loading?: boolean;
   disabled?: boolean;
   showArrow?: boolean;
-  bordered?: boolean;
-  activeOpacity?: number;
-  listHeight?: number;
   placeholder?: string | number;
-  value?: string | number;
-  defaultValue?: string | number;
-  onSelect?: (param: string | number) => void;
+  value: string;
+  onSelect: (param: any) => void;
   onOpen?: (param: boolean) => void;
   prefixIcon?: ReactNode;
-  suffixIcon?: ReactNode;
-  customLoader?: ReactNode;
-  customStyle?: ViewStyle
-  customTextStyle?: TextStyle;
+  customIcon?: ReactElement;
   children?: ReactNode;
+
+  renderSelectElement?: () => ReactElement;
+
+  style?: ViewStyle;
+  selectedElementStyle?: ViewStyle;
+  childrenElementStyle?: ViewStyle;
+  textStyle?: TextStyle;
+  activeOpacity?: number;
+
+  boxShadow?: string;
 }
 
 const Container = styled.View`
-  height: 100%;
-  width: 100%;
+  height: 40px;
 `;
 
-const SelectWrapper = styled.TouchableOpacity<{
-  disabled: boolean;
-  bordered: boolean;
-}>`
+type SelectPropsType = {
+  visible?: boolean;
+  disabled?: boolean;
+};
+
+const SelectWrapper = styled.TouchableOpacity<SelectPropsType>`
+  position: relative;
+  background-color: #ffffff;
+
   width: 100%;
   height: 100%;
   flex-direction: row;
   align-items: center;
+  justify-content: space-between;
   padding: 14px 12px;
-  background-color: #f7f7f7;
-  border-radius: ${({ bordered }): string => (bordered ? '5px' : '0')};
-  border-color: ${({ disabled }): string => disabled ? '#c8c8c8' : 'transparent'};
-  box-shadow: 0px 2px 4px rgba(212, 210, 212, 0.8);
-  opacity: 0.9;
+  border-radius: 5px;
+  border: ${({ disabled }): string => disabled ? 'none' : '1px solid #CBD7E5'};
+  border-radius: 6px;
 `;
 
-const SelectChildWrapper = styled.View<{
-  visible: boolean;
-  bordered: boolean;
-}>`
-  border-color: transparent;
-  background-color: #ffffff;
-  border-bottom-left-radius: ${({ bordered }): string =>
-    bordered ? '5px' : '0'};
-  border-bottom-right-radius: ${({ bordered }): string =>
-    bordered ? '5px' : '0'};
-  border-width: ${({ visible }): string => (visible ? '1px' : '0px')};
-  box-shadow: 0px 2px 4px rgba(212, 210, 212, 0.8);
+const SelectChildWrapper = styled.View<SelectPropsType>`
+  width: 100%;
+  margin-top: 1px;
+  display: ${({ visible }): string => (visible ? 'block' : 'none')};
+  overflow: hidden;
 `;
 
 const IconView = styled.View`
@@ -75,41 +67,51 @@ const IconView = styled.View`
   align-items: center;
 `;
 
-const StyledText = styled.Text<{disabled: boolean}>`
+const StyledText = styled.Text<{ disabled: boolean }>`
   align-self: center;
   font-size: 12px;
-  color: ${({ disabled }): string => disabled ? '#969696' : '#2b2b2b'};
+  color: ${({ disabled }): string => (disabled ? '#969696' : '#2b2b2b')};
 `;
 
-const Select : React.FC<Props> = (props): React.ReactElement => {
+const Select: React.FC<Props> = (props): React.ReactElement => {
   const {
     testID,
+    style,
     opened = false,
-    loading = false,
     disabled = false,
     showArrow = true,
-    bordered = true,
-    activeOpacity = 0.75,
-    listHeight,
+    activeOpacity = 0.9,
     placeholder,
-    value,
-    defaultValue,
-    onSelect = (value): string | number => value,
-    onOpen = (opened): boolean => opened,
+    onSelect,
+    onOpen,
     prefixIcon,
-    suffixIcon,
-    customLoader,
-    customStyle,
-    customTextStyle,
+    customIcon,
+    renderSelectElement = (): null => null,
+    selectedElementStyle,
+    childrenElementStyle,
+    textStyle,
+    boxShadow = '0px 2px 4px rgba(212, 210, 212, 0.8)',
     children,
   } = props;
 
-  const [containerHeight, setContainerHeight] = React.useState(10);
+  const [value, setValue] = React.useState<string>(props.value);
+  const [labelValue, setLabelValue] = React.useState<string>('');
+
+  const [isOpen, setOpen] = React.useState<boolean>(opened);
+  const [childrenHeight, setChildrenHeight] = React.useState(40);
   const rotateAnimValue = React.useRef(new Animated.Value(0)).current;
   const slideAnimValue = React.useRef(new Animated.Value(0)).current;
 
+  const handlePressItem = (): void => {
+    setOpen(!isOpen);
+  };
+
+  const handleBlurItem = (): void => {
+    setOpen(false);
+  };
+
   React.useEffect(() => {
-    const rotateValue = opened ? 1 : 0;
+    const rotateValue = isOpen ? 1 : 0;
     Animated.timing(rotateAnimValue, {
       toValue: rotateValue,
       duration: 120,
@@ -117,108 +119,117 @@ const Select : React.FC<Props> = (props): React.ReactElement => {
       useNativeDriver: true,
     }).start();
 
-    const slideValue = !disabled && opened ? 1 : 0;
+    const slideValue = !disabled && isOpen ? 1 : 0;
     Animated.timing(slideAnimValue, {
       toValue: slideValue,
       duration: 120,
       easing: Easing.linear,
       useNativeDriver: false,
     }).start();
-  }, [opened, disabled]);
+  }, [isOpen, disabled]);
 
   React.useEffect(() => {
-  }, [value, bordered, loading]);
+    onSelect(value);
+  }, [value]);
+
+  React.useEffect(() => {
+    if (onOpen) {
+      onOpen(isOpen);
+    }
+  }, [isOpen]);
+
+  React.useEffect(() => {
+    // This will set title of the first of child element to labelValue when the component mounted
+    React.Children.forEach(children, (child, index) => {
+      if (React.isValidElement(child) && index === 0) {
+        setLabelValue(child.props.children);
+      }
+    });
+  }, []);
 
   return (
-    <Container testID={testID}>
+    <Container testID={testID} style={style}>
       <SelectWrapper
         testID={'SELECT_WRAPPER'}
-        onLayout={(e): void => setContainerHeight(e.nativeEvent.layout.height)}
-        activeOpacity={0.95}
-        disabled={loading ? true : disabled}
-        bordered={bordered}
-        style={[
-          {
-            borderBottomLeftRadius: opened ? 0 : bordered ? 5 : 0,
-            borderBottomRightRadius: opened ? 0 : bordered ? 5 : 0,
-          },
-          customStyle,
-        ]}
-        onPress={(): void => onOpen(!opened)}>
+        activeOpacity={activeOpacity}
+        disabled={disabled}
+        style={selectedElementStyle}
+        onPress={handlePressItem}
+        onBlur={handleBlurItem}
+      >
         <Fragment>
-          {prefixIcon && <IconView>{prefixIcon}</IconView>}
-          {
-            <StyledText
-              disabled={loading}
-              style={[customTextStyle]}>
-              {defaultValue || value || placeholder}
-            </StyledText>
-          }
+          {renderSelectElement() || (
+            <Fragment>
+              {prefixIcon && <IconView>{prefixIcon}</IconView>}
+              {
+                <StyledText disabled={disabled} style={textStyle}>
+                  {placeholder || labelValue}
+                </StyledText>
+              }
+            </Fragment>
+          )}
+          <Animated.View
+            testID={'SELECT_SUFFIX'}
+            style={[
+              {
+                transform: [
+                  {
+                    rotate: rotateAnimValue.interpolate({
+                      inputRange: [0, 1],
+                      outputRange: ['0deg', '180deg'],
+                    }),
+                  },
+                ],
+              },
+            ]}
+          >
+            <IconView>
+              {customIcon ||
+              (showArrow && <Arrow customColor={textStyle} />)}
+            </IconView>
+          </Animated.View>
         </Fragment>
-        <Animated.View
-          testID={'SELECT_SUFFIX'}
-          style={[
-            {
-              position: 'absolute',
-              right: 10,
-              transform: [
-                {
-                  rotate: rotateAnimValue.interpolate({
-                    inputRange: [0, 1],
-                    outputRange: ['0deg', '180deg'],
-                  }),
-                },
-              ],
-            },
-            customStyle,
-          ]}>
-          <IconView>
-            {(loading && (customLoader || <LoadingIndicator size="small" />)) ||
-              suffixIcon ||
-              (showArrow && (
-                <Image
-                  style={{ width: 20, height: 20, tintColor: '#2b2b2b' }}
-                  source={IC_ARROW_DOWN}
-                />
-              ))}
-          </IconView>
-        </Animated.View>
       </SelectWrapper>
-      <SelectChildWrapper
-        visible={opened}
-        bordered={bordered}
-        style={[customStyle]}>
+      <SelectChildWrapper visible={isOpen}>
         <Animated.ScrollView
           testID={'SELECT_CHILD_SCROLLVIEW'}
           keyboardDismissMode={'on-drag'}
           style={[
             {
+              backgroundColor: '#ffffff',
+              border: disabled ? 'none' : '1px solid #CBD7E5',
+              borderRadius: 6,
+              boxShadow,
               height: slideAnimValue.interpolate({
                 inputRange: [0, 1],
                 outputRange: [
                   0,
-                  listHeight ||
-                    containerHeight * React.Children.count(children) + 1,
+                  childrenHeight,
                 ],
               }),
+              ...childrenElementStyle,
             },
-            customStyle,
-          ]}>
-          <Fragment>
-            {React.Children.map(children, (child) => {
+          ]}
+        >
+          <View onLayout={(e): void => setChildrenHeight(e.nativeEvent.layout.height + 5)}>
+            {React.Children.map(children, (child, index) => {
+              const firstElementStyle: ViewStyle = index === 0
+                ? {}
+                : { borderTopWidth: 1, borderTopColor: '#CBD7E5' };
+
               if (React.isValidElement(child)) {
-                return React.cloneElement(child, {
-                  onSelectItem: (value) => {
-                    onOpen(!opened);
-                    return onSelect(value);
+                return React.cloneElement<SelectItemProps>(child, {
+                  onSelectItem: (value): void => {
+                    setOpen(false);
+                    setLabelValue(child.props.children);
+                    setValue(value);
                   },
-                  activeOpacity,
-                  containerHeight,
+                  style: firstElementStyle,
+                  textStyle,
                 });
               }
-              return child;
             })}
-          </Fragment>
+          </View>
         </Animated.ScrollView>
       </SelectChildWrapper>
     </Container>
