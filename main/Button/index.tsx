@@ -64,7 +64,7 @@ interface Props {
   text?: string;
   outlined?: boolean;
   onPress?: () => void;
-  touchableOpacityProps?: TouchableOpacityProps;
+  touchableOpacityProps?: TouchableOpacityProps & any;
 }
 
 const hoveredStyle = {

@@ -1,35 +1,41 @@
-import * as React from 'react';
+import React, { ReactElement } from 'react';
 
-// Note: test renderer must be required after react-native.
+import {
+  RenderResult,
+} from '@testing-library/react-native';
 import { SwitchToggle } from '../../main';
 import { TouchableOpacity } from 'react-native';
 import renderer from 'react-test-renderer';
 
-const component = (props?): React.ReactElement => {
-  return <SwitchToggle {...props} />;
-};
+const createTestProps = (obj?: Record<string, unknown>): Record<string, unknown> => ({
+  ...obj,
+});
+
+let props;
+let component: ReactElement;
+let testingLib: RenderResult;
 
 describe('[SwitchToggle]', (): void => {
-  it('should render without crashing', (): void => {
-    const rendered = renderer.create(component());
-    expect(rendered).toMatchSnapshot();
-    expect(rendered).toBeTruthy();
+  props = createTestProps({
+    testID: 'SWITCH_ID',
+    onPress: jest.fn(),
   });
+  component = <SwitchToggle {...props}/>;
+
+  // it('should render without crashing', (): void => {
+  //   const rendered = renderer.create(component);
+  //   expect(rendered).toMatchSnapshot();
+  //   expect(rendered).toBeTruthy();
+  // });
 
   describe('[SwitchToggle] Interaction', (): void => {
     it('should simulate onPress', (): void => {
-      const handlePress = jest.fn();
-      const rendered = renderer.create(
-        component({
-          testID: 'SWITCH_ID',
-          onPress: handlePress,
-        }),
-      );
+      const rendered = renderer.create(component);
       const switchToggle = rendered.root.findByType(TouchableOpacity);
       renderer.act(() => {
         switchToggle.props.onPress();
       });
-      expect(handlePress).toHaveBeenCalled();
+      expect(props.onPress).toHaveBeenCalled();
     });
 
     it('should toggle switchOn on press', () => {
@@ -37,7 +43,8 @@ describe('[SwitchToggle]', (): void => {
         switchOn: false,
         onPress: jest.fn(),
       };
-      const rendered = renderer.create(component(props));
+      component = <SwitchToggle {...props}/>;
+      const rendered = renderer.create(component);
       const switchToggle = rendered.root.findByType(TouchableOpacity);
 
       renderer.act(() => {

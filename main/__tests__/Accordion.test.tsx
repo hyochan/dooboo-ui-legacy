@@ -12,6 +12,7 @@ import { Text } from 'react-native';
 let props: any;
 let component: ReactElement;
 let testingLib: RenderResult;
+
 const data = [
   {
     title: {
