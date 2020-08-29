@@ -13,7 +13,7 @@ const createTestProps = (obj?: Record<string, unknown>): Record<string, unknown>
 
 let props;
 let component: ReactElement;
-let testingLib: RenderResult;
+// let testingLib: RenderResult;
 
 describe('[SwitchToggle]', (): void => {
   props = createTestProps({
@@ -22,19 +22,23 @@ describe('[SwitchToggle]', (): void => {
   });
   component = <SwitchToggle {...props}/>;
 
-  // it('should render without crashing', (): void => {
-  //   const rendered = renderer.create(component);
-  //   expect(rendered).toMatchSnapshot();
-  //   expect(rendered).toBeTruthy();
-  // });
+  it('should render without crashing', (): void => {
+    const rendered = renderer.create(component);
+    expect(rendered).toMatchSnapshot();
+    expect(rendered).toBeTruthy();
+  });
 
   describe('[SwitchToggle] Interaction', (): void => {
     it('should simulate onPress', (): void => {
       const rendered = renderer.create(component);
       const switchToggle = rendered.root.findByType(TouchableOpacity);
+      jest.useFakeTimers();
+
       renderer.act(() => {
         switchToggle.props.onPress();
       });
+
+      jest.runAllTimers();
       expect(props.onPress).toHaveBeenCalled();
     });
 
@@ -46,10 +50,13 @@ describe('[SwitchToggle]', (): void => {
       component = <SwitchToggle {...props}/>;
       const rendered = renderer.create(component);
       const switchToggle = rendered.root.findByType(TouchableOpacity);
+      jest.useFakeTimers();
 
       renderer.act(() => {
         switchToggle.props.onPress();
       });
+
+      jest.runAllTimers();
       expect(props.switchOn).toBeFalsy();
 
       // renderer.act(() => {
