@@ -10,12 +10,12 @@ const Container = styled.View`
 
 const ImageSliderContainer = styled.View`
   flex: 1;
-  width: 300;
-  height: 400;
+  width: 300px;
+  height: 400px;
   justify-content: center;
   max-width: ${():number => Dimensions.get('screen').width};
   overflow: hidden;
-  background-color: #ededed;
+  background-color: #000;
 `;
 
 const ItemContainer = styled.View`
@@ -131,21 +131,36 @@ export function ImageSlider({ imageSources = images }:{ imageSources?: ImageSour
     prevImageTranslateX.setValue(animValues.prevTranslateX);
   }, []);
   const onRelease = React.useCallback(() => {
-    const moveNext = animValues.nextTranslateX < -WIDTH / 2 && currentIndex < imageSources.length - 1;
-    const movePrev = animValues.prevTranslateX > WIDTH / 2 && currentIndex > 0;
-    if (moveNext && pinchZoom.current) {
-      Animated.timing(pinchZoom.current.animatedValue.translate.x, {
+    const moveNext = animValues.nextTranslateX < -WIDTH / 2;
+    const movePrev = animValues.prevTranslateX > WIDTH / 2;
+    const targetTranslateX = pinchZoom.current?.animatedValue.translate.x;
+    if (moveNext && currentIndex < imageSources.length - 1 && targetTranslateX) {
+      Animated.timing(targetTranslateX, {
         toValue: -WIDTH,
         useNativeDriver: true,
       }).start(() => {
         setCurrentIndex(currentIndex + 1);
       });
-    } else if (movePrev && pinchZoom.current) {
-      Animated.timing(pinchZoom.current.animatedValue.translate.x, {
+    } else if (movePrev && currentIndex > 0 && targetTranslateX) {
+      Animated.timing(targetTranslateX, {
         toValue: WIDTH,
         useNativeDriver: true,
       }).start(() => {
         setCurrentIndex(currentIndex - 1);
+      });
+    } else if (animValues.nextTranslateX < 0 && targetTranslateX) {
+      Animated.timing(targetTranslateX, {
+        toValue: (1 - animValues.scale) * WIDTH / 2,
+        useNativeDriver: true,
+      }).start(() => {
+        pinchZoom.current?.setValues({ translate: { x: (1 - animValues.scale) * WIDTH / 2, y: animValues.y } });
+      });
+    } else if (animValues.prevTranslateX > 0 && targetTranslateX) {
+      Animated.timing(targetTranslateX, {
+        toValue: (animValues.scale - 1) * WIDTH / 2,
+        useNativeDriver: true,
+      }).start(() => {
+        pinchZoom.current?.setValues({ translate: { x: (animValues.scale - 1) * WIDTH / 2, y: animValues.y } });
       });
     }
   }, [currentIndex]);

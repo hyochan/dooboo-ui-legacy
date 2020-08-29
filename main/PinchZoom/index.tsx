@@ -20,7 +20,7 @@ type Props = PropsWithChildren <{
 
 export interface PinchZoomRef {
   animatedValue: { scale: Animated.Value, translate: Animated.ValueXY },
-  setOffsetValues(_:{ scale: number, translate: VectorType }): void,
+  setValues(_:{ scale?: number, translate?: VectorType }): void,
 }
 
 function PinchZoom(props: Props, ref: Ref<PinchZoomRef>): ReactElement {
@@ -136,20 +136,21 @@ function PinchZoom(props: Props, ref: Ref<PinchZoomRef>): ReactElement {
   useEffect(() => {
     release();
     setPanResponder(createPanResponder());
-  }, [blockNativeResponder]);
+  }, [blockNativeResponder, onRelease, onScaleChanged, onTranslateChanged]);
 
-  const setOffsetValues = useCallback(({ scale, translate }) => {
-    scaleValue.offset = scale;
-    translateValue.offset = new Vector(translate);
+  const setValues = useCallback(({ scale, translate }:{ scale?: number, translate?: VectorType }) => {
+    if (scale != null) { scaleValue.current = scale; }
+    if (translate != null) { translateValue.current = new Vector(translate); }
   }, [scaleValue, translateValue]);
 
   useEffect(() => {
-    setOffsetValues({ scale: 0, translate: { x: 0, y: 0 } });
+    scaleValue.offset = 1;
+    translateValue.offset = new Vector();
   }, [children]);
 
   useImperativeHandle(ref, () => ({
     animatedValue: { scale, translate },
-    setOffsetValues,
+    setValues,
   }));
 
   return <Animated.View
