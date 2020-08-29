@@ -8,7 +8,6 @@ import React, { useRef } from 'react';
 
 import styled from 'styled-components/native';
 import { useHover } from 'react-native-web-hooks';
-import { useThemeContext } from '@dooboo-ui/theme';
 
 const Container = styled.View`
   justify-content: center;
@@ -42,67 +41,70 @@ const StyledDisabledText = styled(StyledText)`
   color: #969696;
 `;
 
-type ButtonColor =
-  | 'primary'
-  | 'secondary'
-  | 'tertiary'
-  | 'google'
-  | 'facebook'
-  | 'gray';
-type ButtonType = 'secondary' | 'tertiary';
+interface ChildStyle {
+  style?: ViewStyle;
+  textStyle?: TextStyle;
+}
 
-export interface Props {
+type ColorType = 'decision' | 'idea' | 'emotion' | 'benefit' | 'facts' | 'criticism';
+
+interface Props {
   testID?: string;
-  isLoading?: boolean;
-  isDisabled?: boolean;
-  onPress?: () => void;
+  indicatorColor?: string;
+  color?: ColorType;
+  loading?: boolean;
+  disabled?: boolean;
   containerStyle?: ViewStyle;
   style?: ViewStyle;
-  disabledStyle?: ViewStyle;
   textStyle?: TextStyle;
-  disabledTextStyle?: TextStyle;
+  disabledStyle?: ChildStyle;
   leftElement?: React.ReactElement;
   rightElement?: React.ReactElement;
-  indicatorColor?: string;
   activeOpacity?: number;
   text?: string;
+  outlined?: boolean;
+  onPress?: () => void;
   touchableOpacityProps?: TouchableOpacityProps;
-  /** hover */
-  /** Secondary */
-  hoverStyle?: ViewStyle;
-  /** Tertiary */
-  hoverTextStyle?: TextStyle;
 }
+
+const hoveredStyle = {
+  shadowColor: 'black',
+  shadowOffset: {
+    width: 0,
+    height: 4,
+  },
+  shadowOpacity: 0.24,
+  shadowRadius: 16.0,
+  elevation: 10,
+  borderRadius: 4,
+};
 
 function Button(props: Props): React.ReactElement {
   const {
-    isDisabled,
     testID,
-    disabledStyle,
+    disabled,
+    loading,
     containerStyle,
-    isLoading,
+    disabledStyle,
     style,
     textStyle,
-    disabledTextStyle,
     indicatorColor,
-    text,
     leftElement,
     rightElement,
     activeOpacity,
+    text,
     onPress,
     touchableOpacityProps,
-    hoverStyle,
-    hoverTextStyle,
   } = props;
 
   const ref = useRef(null);
   const isHovered = useHover(ref);
 
-  if (isDisabled) {
+  if (disabled) {
     return (
       <Container testID={testID} style={containerStyle}>
-        <StyledDisabled disabled testID={testID} style={disabledStyle}>
-          <StyledDisabledText style={[textStyle, disabledTextStyle]}>
+        <StyledDisabled disabled testID={testID} style={disabledStyle?.style}>
+          <StyledDisabledText style={[textStyle, disabledStyle?.textStyle]}>
             {text}
           </StyledDisabledText>
         </StyledDisabled>
@@ -110,7 +112,7 @@ function Button(props: Props): React.ReactElement {
     );
   }
 
-  if (isLoading) {
+  if (loading) {
     return (
       <Container testID={testID} style={containerStyle}>
         <StyledButton testID={testID} style={style}>
@@ -122,107 +124,23 @@ function Button(props: Props): React.ReactElement {
   return (
     <Container testID={testID} style={containerStyle}>
       <StyledButton
-        activeOpacity={activeOpacity}
+        activeOpacity={activeOpacity || 0.7}
         onPress={onPress}
         delayPressIn={30}
         ref={ref}
-        style={isHovered && hoverStyle ? hoverStyle : style}
+        style={[style, (isHovered && hoveredStyle)]}
         {...touchableOpacityProps}
       >
-        {leftElement || null}
+        {leftElement}
         <StyledText
-          style={[isHovered && hoverTextStyle ? hoverTextStyle : textStyle]}
+          style={textStyle}
         >
           {text}
         </StyledText>
-        {rightElement || null}
+        {rightElement}
       </StyledButton>
     </Container>
   );
 }
-
-interface CustomProps extends Props {
-  customColor?: ButtonColor | string;
-
-  // prime use props
-  type?: ButtonType;
-}
-/** customButton  */
-export const CustomButtons = (props: CustomProps): React.ReactElement => {
-  const { theme } = useThemeContext();
-  const {
-    testID,
-    type,
-    containerStyle,
-    textStyle,
-    text,
-    onPress,
-    touchableOpacityProps,
-    customColor,
-    leftElement,
-    rightElement,
-    isLoading,
-    style,
-  } = props;
-
-  const colorSet = customColor || '#6DA6FC';
-  const buttonStyle = {
-    backgroundColor: props.customColor || '#609FFF',
-    width: 'auto',
-    height: 40,
-    ...style,
-  };
-
-  if (type === 'secondary') {
-    const secondaryStyle = {
-      backgroundColor: theme.whiteDark2,
-      borderColor: colorSet,
-      borderWidth: 1,
-      width: 'auto',
-      height: 40,
-      ...style,
-    };
-
-    const secondaryTextStyle = {
-      color: customColor || '#6DA6FC',
-      ...textStyle,
-    };
-    return (
-      <Button
-        testID={testID}
-        style={secondaryStyle}
-        containerStyle={containerStyle}
-        textStyle={secondaryTextStyle}
-        text={text}
-        leftElement={leftElement}
-        rightElement={rightElement}
-        onPress={onPress}
-        isLoading={isLoading}
-        isDisabled={props.isDisabled}
-        disabledTextStyle={props.disabledTextStyle}
-        touchableOpacityProps={touchableOpacityProps}
-      />
-    );
-  }
-  return (
-    <Button
-      testID={testID}
-      style={buttonStyle}
-      containerStyle={containerStyle}
-      textStyle={textStyle}
-      text={text}
-      leftElement={leftElement}
-      rightElement={rightElement}
-      disabledStyle={props.disabledStyle}
-      isDisabled={props.isDisabled}
-      disabledTextStyle={props.disabledTextStyle}
-      onPress={onPress}
-      isLoading={isLoading}
-      touchableOpacityProps={touchableOpacityProps}
-    />
-  );
-};
-
-Button.CustomType = CustomButtons;
 
 export { Button };

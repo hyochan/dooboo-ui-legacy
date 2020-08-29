@@ -414,9 +414,7 @@ const EditText: FC<Props> = (props) => {
                       ? [{ color: focusColor }, focusedLabelStyle]
                       : null,
                   { marginLeft: 15, width: labelWidth },
-                ]}>
-                {label}
-              </StyledRowLabel>
+                ]}>{label}</StyledRowLabel>
             ) : null}
             <StyledRowInput
               {...textInputProps}

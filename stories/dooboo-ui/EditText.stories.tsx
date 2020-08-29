@@ -70,9 +70,7 @@ const ColumnEditText = (): React.ReactElement => {
           </Text>
           <EditText
             testID="email-input-default"
-            textStyle={{
-              color: '#495057',
-            }}
+            textStyle={{ color: '#495057' }}
             label="Email"
             placeholder="Email address"
             placeholderTextColor="#ADB5BD"
@@ -550,12 +548,12 @@ const BoxRowEditText = (): React.ReactElement => {
           </Text>
           <EditText
             testID="email-input-boxrow"
-            type="rowBox"
+            type={EditTextInputType.ROW_BOXED}
             textStyle={{
               color: '#495057',
             }}
             label="Email"
-            placeholder="Eail address"
+            placeholder="Email address"
             placeholderTextColor="#ADB5BD"
             value={email}
             onChangeText={(text: string): void => onTextChanged('EMAIL', text)}
