@@ -1,13 +1,35 @@
 import { Animated, PanResponder, PanResponderInstance, ViewStyle } from 'react-native';
-import React, { PropsWithChildren, useRef } from 'react';
-import { TouchPosition, Vector, getClamppedVector, getOriginScaleTargetPosition, getTranslate } from './utils';
+import React, {
+  PropsWithChildren, ReactElement, Ref, forwardRef,
+  useCallback, useEffect, useImperativeHandle, useRef, useState,
+} from 'react';
+import {
+  TouchPosition, Vector, VectorType,
+  getClamppedVector,
+  getOriginScaleTargetPosition,
+  getTranslate,
+} from './utils';
 
 type Props = PropsWithChildren <{
   style?: ViewStyle,
   blockNativeResponder?: boolean,
+  onScaleChanged?(value: number): void,
+  onTranslateChanged?(valueXY: VectorType): void,
+  onRelease?(): void,
 }>
 
-function PinchZoom({ children, style, blockNativeResponder = true }: Props): React.ReactElement {
+export interface PinchZoomRef {
+  animatedValue: { scale: Animated.Value, translate: Animated.ValueXY },
+  setOffsetValues(_:{ scale: number, translate: VectorType }): void,
+}
+
+function PinchZoom(props: Props, ref: Ref<PinchZoomRef>): ReactElement {
+  const {
+    children,
+    style,
+    blockNativeResponder = true, onScaleChanged, onTranslateChanged,
+    onRelease,
+  } = props;
   const touches = useRef([new TouchPosition(), new TouchPosition()]).current;
   const targetPosition = useRef(new Vector()).current;
   const layoutCenter = useRef(new Vector()).current;
@@ -70,9 +92,9 @@ function PinchZoom({ children, style, blockNativeResponder = true }: Props): Rea
           translate.setValue(translateValue.current);
         } else if (
           touch2.offset.x === 0 && touch2.offset.y === 0 &&
-            nativeEvent.touches.length === 1 && scaleValue.offset > 1
+            nativeEvent.touches.length === 1
         ) {
-          const maxValue = layoutCenter.multiply(scaleValue.current - 1);
+          const maxValue = layoutCenter.multiply(scaleValue.current + 1);
           translateValue.current = getClamppedVector({
             vector: translateValue.offset.add({ x: gestureState.dx, y: gestureState.dy }),
             max: maxValue,
@@ -80,6 +102,9 @@ function PinchZoom({ children, style, blockNativeResponder = true }: Props): Rea
           });
           translate.setValue(translateValue.current);
         }
+      },
+      onPanResponderRelease: () => {
+        onRelease && onRelease();
       },
       onPanResponderTerminationRequest: () => {
         return true;
@@ -89,11 +114,43 @@ function PinchZoom({ children, style, blockNativeResponder = true }: Props): Rea
       },
     });
   };
-  const [panResponder, setPanResponder] = React.useState<PanResponderInstance>(createPanResponder());
-  React.useEffect(() => {
+
+  const [panResponder, setPanResponder] = useState<PanResponderInstance>(createPanResponder());
+
+  useEffect(() => {
+    if (!onTranslateChanged) return;
+    const id = translate.addListener(onTranslateChanged);
+    return ():void => {
+      translate.removeListener(id);
+    };
+  }, [onTranslateChanged]);
+
+  useEffect(() => {
+    if (!onScaleChanged) return;
+    const id = scale.addListener(({ value }) => onScaleChanged(value));
+    return ():void => {
+      scale.removeListener(id);
+    };
+  }, [onScaleChanged]);
+
+  useEffect(() => {
     release();
     setPanResponder(createPanResponder());
   }, [blockNativeResponder]);
+
+  const setOffsetValues = useCallback(({ scale, translate }) => {
+    scaleValue.offset = scale;
+    translateValue.offset = new Vector(translate);
+  }, [scaleValue, translateValue]);
+
+  useEffect(() => {
+    setOffsetValues({ scale: 0, translate: { x: 0, y: 0 } });
+  }, [children]);
+
+  useImperativeHandle(ref, () => ({
+    animatedValue: { scale, translate },
+    setOffsetValues,
+  }));
 
   return <Animated.View
     testID="PINCH_ZOOM_CONTAINER"
@@ -121,4 +178,4 @@ function PinchZoom({ children, style, blockNativeResponder = true }: Props): Rea
 
 export { PinchZoom };
 
-export default PinchZoom;
+export default forwardRef<PinchZoomRef, Props>(PinchZoom);
