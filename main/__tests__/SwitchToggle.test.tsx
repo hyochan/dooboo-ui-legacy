@@ -35,6 +35,7 @@ describe('[SwitchToggle]', (): void => {
     it('should toggle switchOn on press', () => {
       const props = {
         switchOn: false,
+        onPress: jest.fn(),
       };
       const rendered = renderer.create(component(props));
       const switchToggle = rendered.root.findByType(TouchableOpacity);

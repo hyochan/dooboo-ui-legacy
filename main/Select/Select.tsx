@@ -56,7 +56,6 @@ const SelectWrapper = styled.TouchableOpacity<SelectPropsType>`
 const SelectChildWrapper = styled.View<SelectPropsType>`
   width: 100%;
   margin-top: 1px;
-  display: ${({ visible }): string => (visible ? 'block' : 'none')};
   overflow: hidden;
 `;
 
@@ -212,7 +211,7 @@ const Select: React.FC<Props> = (props): React.ReactElement => {
           ]}
         >
           <View onLayout={(e): void => setChildrenHeight(e.nativeEvent.layout.height + 5)}>
-            {React.Children.map(children, (child, index) => {
+            {React.Children.map(children, (child, index): ReactElement | null => {
               const firstElementStyle: ViewStyle = index === 0
                 ? {}
                 : { borderTopWidth: 1, borderTopColor: '#CBD7E5' };
@@ -228,6 +227,7 @@ const Select: React.FC<Props> = (props): React.ReactElement => {
                   textStyle,
                 });
               }
+              return null;
             })}
           </View>
         </Animated.ScrollView>

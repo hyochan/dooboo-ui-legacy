@@ -18,7 +18,7 @@ const Container = styled.View`
   margin-right: 20px;
   border-radius: 6px;
   border-width: 1px;
-  border-color: #e0e0e0;
+  border-color: #E0E0E0;
   flex-direction: row;
   align-items: center;
 `;
