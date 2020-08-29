@@ -12,10 +12,11 @@ import { Text } from 'react-native';
 let props: any;
 let component: ReactElement;
 let testingLib: RenderResult;
+
 const data = [
   {
     title: {
-      name: <Text>Defualt-title-01</Text>,
+      name: <Text>Default-title-01</Text>,
     },
     bodies: [
       {
@@ -28,7 +29,7 @@ const data = [
   },
   {
     title: {
-      name: <Text>Defualt-title-02</Text>,
+      name: <Text>Default-title-02</Text>,
     },
     bodies: [
       {

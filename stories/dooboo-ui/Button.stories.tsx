@@ -31,65 +31,39 @@ function Default(): React.ReactElement {
     <ScrollContainer>
       <Container>
         <Button
-          isLoading={false}
+          loading={false}
           text="😀 😎 👍 💯"
           onPress={action('Clicked')}
           style={{
             marginVertical: 40,
+            borderWidth: 0.5,
           }}
         />
         <Button
           style={{
             backgroundColor: '#109CF1',
           }}
-          hoverStyle={{
-            backgroundColor: '#34AFF9',
-          }}
-          accentStyle={{
-            shadowColor: 'black',
-            shadowOffset: {
-              width: 0,
-              height: 4,
-            },
-            shadowOpacity: 0.24,
-            shadowRadius: 16.0,
-            elevation: 10,
-            borderRadius: 4,
-          }}
           textStyle={{ color: '#FFFFFF' }}
           onPress={action('Clicked')}
-          text={'Accent button '}
+          text={'Hovered button in web'}
         />
 
         <Button
-          hoverTextStyle={{
-            color: '#34AFF9',
-          }}
-          secondaryStyle={{
-            borderColor: '#109CF1',
-            borderWidth: 2,
-            shadowColor: 'black',
-            shadowOffset: {
-              width: 0,
-              height: 4,
-            },
-            shadowOpacity: 0.24,
-            shadowRadius: 16.0,
-            elevation: 10,
-            borderRadius: 4,
-          }}
           style={{
             marginVertical: 40,
+            borderWidth: 0.5,
           }}
+          outlined
+          color={'idea'}
           textStyle={{ color: '#109CF1' }}
           onPress={action('Clicked')}
-          text={'Secondary'}
+          text={'Outlined button'}
         />
         <Button
           style={{
             marginVertical: 40,
           }}
-          isDisabled={true}
+          disabled={true}
           text={text('button text', 'this is disabled')}
         />
         <Button
@@ -102,7 +76,7 @@ function Default(): React.ReactElement {
               <Image style={{ width: 20, height: 20 }} source={IC_GOOGLE} />
             </View>
           }
-          isLoading={googleLoading}
+          loading={googleLoading}
           indicatorColor="#023059"
           containerStyle={{
             marginTop: 32,
@@ -131,7 +105,7 @@ function Default(): React.ReactElement {
             </View>
           }
           indicatorColor="#023059"
-          isLoading={facebookLoading}
+          loading={facebookLoading}
           containerStyle={{
             marginTop: 32,
           }}
