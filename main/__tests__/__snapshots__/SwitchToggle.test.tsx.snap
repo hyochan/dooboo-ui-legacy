@@ -1,0 +1,50 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`[SwitchToggle] should render without crashing 1`] = `
+<
+  activeOpacity={0.5}
+  onPress={[MockFunction]}
+  testID="SWITCH_ID"
+>
+  <View
+    style={
+      Object {
+        "alignItems": "center",
+        "backgroundColor": undefined,
+        "flexDirection": "row",
+      }
+    }
+  >
+    <View>
+      <Text />
+    </View>
+    <View
+      style={
+        Object {
+          "backgroundColor": undefined,
+          "transform": Array [
+            Object {
+              "translateX": 0,
+            },
+          ],
+        }
+      }
+    >
+      <View>
+        <Text />
+      </View>
+    </View>
+    <View>
+      <Text />
+    </View>
+    <View
+      style={
+        Object {
+          "position": "absolute",
+          "right": 5,
+        }
+      }
+    />
+  </View>
+</>
+`;
