@@ -1,6 +1,6 @@
 import React, { ReactElement } from 'react';
 
-import { CheckBox } from '../../main';
+import { Checkbox } from '../../main';
 import { ContainerDeco } from '../../storybook/decorators';
 
 import { storiesOf } from '@storybook/react-native';
@@ -24,14 +24,14 @@ function Default(): React.ReactElement {
   return (
     <ScrollContainer>
       <Container>
-        <CheckBox/>
+        <Checkbox/>
       </Container>
     </ScrollContainer>
   );
 }
 
 export default {
-  title: 'CheckBox',
+  title: 'Checkbox',
 };
 
 export const toStorybook = (): ReactElement => <Default />;
@@ -39,7 +39,7 @@ export const toStorybook = (): ReactElement => <Default />;
 /**
  * Below are stories for app
  */
-storiesOf('CheckBox', module)
+storiesOf('Checkbox', module)
   .addDecorator(ContainerDeco)
   .add('default', () => (
     <>
