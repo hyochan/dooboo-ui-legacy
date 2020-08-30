@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { CheckBox } from '../../main';
+import { Checkbox } from '../Checkbox';
 
 import {
   render,
@@ -9,7 +9,7 @@ import {
 
 describe('[CheckBox]', () => {
   it('render without crashing', () => {
-    const rendered = render(<CheckBox/>);
+    const rendered = render(<Checkbox/>);
     expect(rendered).toMatchSnapshot();
   });
 });

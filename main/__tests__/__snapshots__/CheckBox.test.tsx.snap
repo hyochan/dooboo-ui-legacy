@@ -20,11 +20,73 @@ Object {
         }
       }
     >
-      <View>
-        <Text>
-          Checkbox
-        </Text>
-      </View>
+      <
+        style={
+          Object {
+            "marginVertical": 20,
+          }
+        }
+        underlayColor="transparent"
+      >
+        <View
+          style={
+            Array [
+              Object {
+                "alignItems": "center",
+                "flexDirection": "row",
+              },
+            ]
+          }
+        >
+          <View
+            boxColor="#cecece"
+            boxSize={20}
+            style={
+              Array [
+                Object {
+                  "backgroundColor": "#cecece",
+                  "height": 20,
+                  "paddingBottom": 3,
+                  "paddingLeft": 3,
+                  "paddingRight": 3,
+                  "paddingTop": 3,
+                  "width": 20,
+                },
+              ]
+            }
+          >
+            <View
+              isChecked={false}
+              style={
+                Array [
+                  Object {
+                    "alignItems": "center",
+                    "backgroundColor": "#ffffff",
+                    "flexBasis": 0,
+                    "flexGrow": 1,
+                    "flexShrink": 1,
+                    "justifyContent": "center",
+                  },
+                ]
+              }
+            />
+          </View>
+          <Text
+            labelColor="#000000"
+            style={
+              Array [
+                Object {
+                  "color": "#000000",
+                  "fontSize": 20,
+                  "paddingLeft": 10,
+                },
+              ]
+            }
+          >
+            default
+          </Text>
+        </View>
+      </>
     </View>
   </View>,
   "container": <View
@@ -36,11 +98,73 @@ Object {
       }
     }
   >
-    <View>
-      <Text>
-        Checkbox
-      </Text>
-    </View>
+    <
+      style={
+        Object {
+          "marginVertical": 20,
+        }
+      }
+      underlayColor="transparent"
+    >
+      <View
+        style={
+          Array [
+            Object {
+              "alignItems": "center",
+              "flexDirection": "row",
+            },
+          ]
+        }
+      >
+        <View
+          boxColor="#cecece"
+          boxSize={20}
+          style={
+            Array [
+              Object {
+                "backgroundColor": "#cecece",
+                "height": 20,
+                "paddingBottom": 3,
+                "paddingLeft": 3,
+                "paddingRight": 3,
+                "paddingTop": 3,
+                "width": 20,
+              },
+            ]
+          }
+        >
+          <View
+            isChecked={false}
+            style={
+              Array [
+                Object {
+                  "alignItems": "center",
+                  "backgroundColor": "#ffffff",
+                  "flexBasis": 0,
+                  "flexGrow": 1,
+                  "flexShrink": 1,
+                  "justifyContent": "center",
+                },
+              ]
+            }
+          />
+        </View>
+        <Text
+          labelColor="#000000"
+          style={
+            Array [
+              Object {
+                "color": "#000000",
+                "fontSize": 20,
+                "paddingLeft": 10,
+              },
+            ]
+          }
+        >
+          default
+        </Text>
+      </View>
+    </>
   </View>,
   "debug": [Function],
   "findAllByDisplayValue": [Function],
