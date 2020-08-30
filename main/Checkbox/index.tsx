@@ -5,17 +5,17 @@ import {
 
 import styled from 'styled-components/native';
 
-type MarkerContainerProps = {
+interface MarkerContainerProps {
   boxSize?: number
   boxColor?: string
 }
 
-type LabelProps = {
+interface LabelProps {
   labelColor?: string
   labelSize?: number
 }
 
-type MarkerProps = {
+interface MarkerProps {
   isChecked: boolean
 }
 
@@ -51,7 +51,7 @@ const Label = styled.Text<LabelProps>`
  color: ${({ labelColor }): string => labelColor || '#000000'};
 `;
 
-type Props = {
+interface Props {
   boxSize?: number
   boxColor?: string
   defaultChecked?: boolean
