@@ -6,60 +6,53 @@ import {
 } from 'react-native';
 import React, { FC, useEffect, useRef, useState } from 'react';
 
+import { Datum } from './index';
 import styled from 'styled-components/native';
 
 const TitleContainer = styled.TouchableOpacity`
   flex-direction: row;
   align-items: center;
+  justify-content: center;
   background-color: #141414;
   height: 50px;
-  border-bottom-width: 1px;
-  border-bottom-color: white;
   z-index: 10;
 `;
 
-const StyledItem = styled.View`
+const ItemContainer = styled.View`
   flex-direction: row;
   align-items: center;
   width: 100%;
   padding: 20px 40px;
-  border-bottom-width: 1px;
-  border-bottom-color: lightgray;
 `;
 
-type titleType = {
-  leftElement?: React.ReactElement;
-  name: React.ReactElement;
-  rightElement?: React.ReactElement;
-};
+const StyledTitle = styled.Text`
+  font-weight: bold;
+  color: #ffffff;
+`;
 
-type bodyType = {
-  leftElement?: React.ReactElement;
-  name: React.ReactElement;
-  rightElement?: React.ReactElement;
-};
+const StyledItem = styled.Text`
+  font-weight: bold;
+`;
 
-type datumType = {
-  title: titleType;
-  bodies: Array<bodyType>;
-};
+type toggleIndicatorType = React.ReactElement | undefined;
 
 interface TranslateYType {
   translateY: Animated.Value;
 }
 interface Props {
   testID: string;
-  datum: datumType;
+  datum: Datum;
   shouldAnimate?: boolean;
   collapseOnStart: boolean;
   animDuration?: number;
   activeOpacity?: number;
   toggleElement?: React.ReactElement;
-  accordionItemStyle?: ViewStyle;
-  titleStyle?: ViewStyle;
-  bodyStyle?: ViewStyle;
   dropDownAnimValueList: Animated.Value;
   sumOfPrecedingTranslateY: TranslateYType[];
+  renderCustomTitle?: (item: string) => React.ReactElement;
+  renderCustomBody?: (item: string) => React.ReactElement;
+  customTitleStyle?: ViewStyle;
+  customBodyStyle?: ViewStyle;
 }
 
 let layoutHeight = 0;
@@ -73,11 +66,12 @@ const AccordionItem: FC<Props> = (props) => {
     animDuration,
     activeOpacity,
     toggleElement,
-    accordionItemStyle,
-    titleStyle,
-    bodyStyle,
     dropDownAnimValueList,
     sumOfPrecedingTranslateY,
+    renderCustomTitle,
+    renderCustomBody,
+    customTitleStyle,
+    customBodyStyle,
   } = props;
 
   const rotateAnimValue = useRef(new Animated.Value(0)).current;
@@ -99,6 +93,42 @@ const AccordionItem: FC<Props> = (props) => {
   const handleAnimState = (): void => {
     setItemVisible(!opened);
     setRotateState(!opened);
+  };
+
+  const renderDefaultTitle = (title: string): React.ReactElement => {
+    return (
+      <StyledTitle>
+        {title}
+      </StyledTitle>
+    );
+  };
+
+  const renderDefaultBody = (body: string): React.ReactElement => {
+    return (
+      <StyledItem>
+        {body}
+      </StyledItem>
+    );
+  };
+
+  const renderIndicator = (toggleElement: toggleIndicatorType): React.ReactElement => {
+    return (
+      <Animated.View
+        style={{
+          position: 'absolute',
+          right: 20,
+          transform: [
+            {
+              rotate: rotateAnimValue.interpolate({
+                inputRange: [0, 1],
+                outputRange: ['0deg', '180deg'],
+              }),
+            },
+          ],
+        }}>
+        {toggleElement || null}
+      </Animated.View>
+    );
   };
 
   useEffect((): void => {
@@ -138,7 +168,6 @@ const AccordionItem: FC<Props> = (props) => {
       useNativeDriver: true,
     }).start();
   }, [rotateState]);
-  console.log('총합', sumOfPrecedingTranslateY);
 
   return (
     <Animated.View
@@ -147,42 +176,24 @@ const AccordionItem: FC<Props> = (props) => {
           backgroundColor: 'transparent',
           overflow: 'hidden',
           width: 300,
-        },
-        accordionItemStyle,
-        {
           transform: sumOfPrecedingTranslateY,
         },
-      ]
-      }
+      ]}
     >
       <TitleContainer
         testID={`title_${testID}`}
         onPress={handleAnimState}
         activeOpacity={activeOpacity}
-        style={titleStyle}
+        style={customTitleStyle}
       >
-        {datum.title.leftElement || null}
-        {datum.title.name}
         {
-          datum.title.rightElement
-            ? datum.title.rightElement
-            : <Animated.View
-              style={{
-                position: 'absolute',
-                right: 20,
-                transform: [
-                  {
-                    rotate: rotateAnimValue.interpolate({
-                      inputRange: [0, 1],
-                      outputRange: ['0deg', '180deg'],
-                    }),
-                  },
-                ],
-              }}>
-              {toggleElement || null}
-            </Animated.View>
+          renderCustomTitle
+            ? renderCustomTitle(datum.title)
+            : renderDefaultTitle(datum.title)
         }
+        {renderIndicator(toggleElement)}
       </TitleContainer>
+
       <Animated.View
         testID={`body_${testID}`}
         style={{
@@ -198,13 +209,18 @@ const AccordionItem: FC<Props> = (props) => {
         onLayout={handleBodyLayout}
       >
         {
-          datum.bodies.map((body, bodyKey) => {
+          datum.bodies.map((body, key) => {
             return (
-              <StyledItem key={bodyKey} style={bodyStyle}>
-                {body.leftElement || null}
-                {body.name}
-                {body.rightElement || null}
-              </StyledItem>
+              <ItemContainer
+                key={key}
+                style={customBodyStyle}
+              >
+                {
+                  renderCustomBody
+                    ? renderCustomBody(body)
+                    : renderDefaultBody(body)
+                }
+              </ItemContainer>
             );
           })
         }

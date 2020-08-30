@@ -9,46 +9,35 @@ const Container = styled.View`
   align-items: center;
 `;
 
-type TitleType = {
-  leftElement?: React.ReactElement;
-  name: React.ReactElement;
-  rightElement?: React.ReactElement;
-};
-
-type BodyType = {
-  leftElement?: React.ReactElement;
-  name: React.ReactElement;
-  rightElement?: React.ReactElement;
-};
-
-type DatumType = {
-  title: TitleType;
-  bodies: Array<BodyType>;
-};
-
+export interface Datum {
+  title: string;
+  bodies: string[];
+}
 interface Props {
-  data: Array<DatumType>;
-  isAnimated?: boolean;
+  data: Datum[];
+  shouldAnimate?: boolean;
   collapseOnStart: boolean;
   animDuration?: number;
   activeOpacity?: number;
   toggleElement?: React.ReactElement;
-  accordionItemStyle?: ViewStyle;
-  titleStyle?: ViewStyle;
-  bodyStyle?: ViewStyle;
+  renderCustomTitle?: (item: string) => React.ReactElement;
+  renderCustomBody?: (item: string) => React.ReactElement;
+  customTitleStyle?: ViewStyle;
+  customBodyStyle?: ViewStyle;
 }
 
 const Accordion: FC<Props> = (props) => {
   const {
     data,
-    isAnimated: shouldAnimate,
+    shouldAnimate,
     collapseOnStart,
     animDuration,
     activeOpacity,
     toggleElement,
-    accordionItemStyle,
-    titleStyle,
-    bodyStyle,
+    renderCustomTitle,
+    renderCustomBody,
+    customTitleStyle,
+    customBodyStyle,
   } = props;
 
   const dropDownAnimValueList = useRef(data.map(() => new Animated.Value(0))).current;
@@ -67,9 +56,10 @@ const Accordion: FC<Props> = (props) => {
               animDuration={animDuration}
               activeOpacity={activeOpacity}
               toggleElement={toggleElement}
-              accordionItemStyle={accordionItemStyle}
-              titleStyle={titleStyle}
-              bodyStyle={bodyStyle}
+              renderCustomTitle={renderCustomTitle}
+              renderCustomBody={renderCustomBody}
+              customTitleStyle={customTitleStyle}
+              customBodyStyle={customBodyStyle}
               dropDownAnimValueList={dropDownAnimValueList[titleKey]}
               sumOfPrecedingTranslateY={
                 dropDownAnimValueList
