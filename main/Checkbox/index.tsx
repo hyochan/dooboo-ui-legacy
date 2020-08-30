@@ -66,7 +66,7 @@ const Checkbox: FC<Props> = ({
   boxSize = 20,
   boxColor = '#cecece',
   labelText = 'default',
-  labelSize,
+  labelSize = 20,
   labelColor = '#000000',
   defaultChecked = false,
   onStateChange = ():void => {},
