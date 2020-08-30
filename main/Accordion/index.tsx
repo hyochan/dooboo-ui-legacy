@@ -20,10 +20,10 @@ interface Props {
   animDuration?: number;
   activeOpacity?: number;
   toggleElement?: React.ReactElement;
-  renderCustomTitle?: (item: string) => React.ReactElement;
-  renderCustomBody?: (item: string) => React.ReactElement;
-  customTitleStyle?: ViewStyle;
-  customBodyStyle?: ViewStyle;
+  renderTitle?: (item: string) => React.ReactElement;
+  renderBody?: (item: string) => React.ReactElement;
+  titleContainerStyle?: ViewStyle;
+  bodyContainerStyle?: ViewStyle;
 }
 
 const Accordion: FC<Props> = (props) => {
@@ -34,10 +34,10 @@ const Accordion: FC<Props> = (props) => {
     animDuration,
     activeOpacity,
     toggleElement,
-    renderCustomTitle,
-    renderCustomBody,
-    customTitleStyle,
-    customBodyStyle,
+    renderTitle,
+    renderBody,
+    titleContainerStyle,
+    bodyContainerStyle,
   } = props;
 
   const dropDownAnimValueList = useRef(data.map(() => new Animated.Value(0))).current;
@@ -56,10 +56,10 @@ const Accordion: FC<Props> = (props) => {
               animDuration={animDuration}
               activeOpacity={activeOpacity}
               toggleElement={toggleElement}
-              renderCustomTitle={renderCustomTitle}
-              renderCustomBody={renderCustomBody}
-              customTitleStyle={customTitleStyle}
-              customBodyStyle={customBodyStyle}
+              renderTitle={renderTitle}
+              renderBody={renderBody}
+              titleContainerStyle={titleContainerStyle}
+              bodyContainerStyle={bodyContainerStyle}
               dropDownAnimValueList={dropDownAnimValueList[titleKey]}
               sumOfPrecedingTranslateY={
                 dropDownAnimValueList

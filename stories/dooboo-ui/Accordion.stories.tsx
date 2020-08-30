@@ -65,9 +65,7 @@ const data = [
 
 const Default = (): ReactElement => {
   return (
-    <SafeAreaView
-      style={{ top: 200 }}
-    >
+    <SafeAreaView style={{ top: 200 }}>
       <Container>
         <Accordion
           data={data}
@@ -84,9 +82,7 @@ const Default = (): ReactElement => {
 
 const CustomStyle = (): React.ReactElement => {
   return (
-    <SafeAreaView
-      style={{ top: 200 }}
-    >
+    <SafeAreaView style={{ top: 200 }}>
       <Container>
         <Accordion
           data={data}
@@ -94,13 +90,13 @@ const CustomStyle = (): React.ReactElement => {
           collapseOnStart={true}
           animDuration={300}
           activeOpacity={1}
-          renderCustomTitle = {(item): React.ReactElement =>
+          renderTitle = {(item): React.ReactElement =>
             <CustomStyledTitle>
               <LeftElement source={IC_FACEBOOK} />
               {item}
             </CustomStyledTitle>
           }
-          renderCustomBody = {(item): React.ReactElement =>
+          renderBody = {(item): React.ReactElement =>
             <CustomStyledItem>
               <LeftElement source={IC_GOOGLE}/>
               {item}
@@ -108,10 +104,10 @@ const CustomStyle = (): React.ReactElement => {
             </CustomStyledItem>
           }
           toggleElement={<ArrowDown />}
-          customTitleStyle={{
+          titleContainerStyle={{
             backgroundColor: 'gray',
           }}
-          customBodyStyle={{
+          bodyContainerStyle={{
             backgroundColor: 'lightgray',
           }}
         />

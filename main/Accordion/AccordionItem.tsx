@@ -49,10 +49,10 @@ interface Props {
   toggleElement?: React.ReactElement;
   dropDownAnimValueList: Animated.Value;
   sumOfPrecedingTranslateY: TranslateYType[];
-  renderCustomTitle?: (item: string) => React.ReactElement;
-  renderCustomBody?: (item: string) => React.ReactElement;
-  customTitleStyle?: ViewStyle;
-  customBodyStyle?: ViewStyle;
+  renderTitle?: (item: string) => React.ReactElement;
+  renderBody?: (item: string) => React.ReactElement;
+  titleContainerStyle?: ViewStyle;
+  bodyContainerStyle?: ViewStyle;
 }
 
 let layoutHeight = 0;
@@ -60,7 +60,7 @@ let layoutHeight = 0;
 const AccordionItem: FC<Props> = (props) => {
   const {
     testID,
-    datum,
+    datum: item,
     shouldAnimate,
     collapseOnStart,
     animDuration,
@@ -68,10 +68,10 @@ const AccordionItem: FC<Props> = (props) => {
     toggleElement,
     dropDownAnimValueList,
     sumOfPrecedingTranslateY,
-    renderCustomTitle,
-    renderCustomBody,
-    customTitleStyle,
-    customBodyStyle,
+    renderTitle,
+    renderBody,
+    titleContainerStyle,
+    bodyContainerStyle,
   } = props;
 
   const rotateAnimValue = useRef(new Animated.Value(0)).current;
@@ -97,17 +97,13 @@ const AccordionItem: FC<Props> = (props) => {
 
   const renderDefaultTitle = (title: string): React.ReactElement => {
     return (
-      <StyledTitle>
-        {title}
-      </StyledTitle>
+      <StyledTitle>{title}</StyledTitle>
     );
   };
 
   const renderDefaultBody = (body: string): React.ReactElement => {
     return (
-      <StyledItem>
-        {body}
-      </StyledItem>
+      <StyledItem>{body}</StyledItem>
     );
   };
 
@@ -184,12 +180,12 @@ const AccordionItem: FC<Props> = (props) => {
         testID={`title_${testID}`}
         onPress={handleAnimState}
         activeOpacity={activeOpacity}
-        style={customTitleStyle}
+        style={titleContainerStyle}
       >
         {
-          renderCustomTitle
-            ? renderCustomTitle(datum.title)
-            : renderDefaultTitle(datum.title)
+          renderTitle
+            ? renderTitle(item.title)
+            : renderDefaultTitle(item.title)
         }
         {renderIndicator(toggleElement)}
       </TitleContainer>
@@ -209,15 +205,15 @@ const AccordionItem: FC<Props> = (props) => {
         onLayout={handleBodyLayout}
       >
         {
-          datum.bodies.map((body, key) => {
+          item.bodies.map((body, key) => {
             return (
               <ItemContainer
                 key={key}
-                style={customBodyStyle}
+                style={bodyContainerStyle}
               >
                 {
-                  renderCustomBody
-                    ? renderCustomBody(body)
+                  renderBody
+                    ? renderBody(body)
                     : renderDefaultBody(body)
                 }
               </ItemContainer>
