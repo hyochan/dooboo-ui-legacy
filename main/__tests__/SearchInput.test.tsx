@@ -71,13 +71,6 @@ describe('[SearchInput] ResetIndicator test', () => {
     testingLib = render(<SearchInput {...props} value={inputValue} />);
   });
 
-  it('should set inputValue to empty whened clicked', () => {
-    const resetIndicator = testingLib.getByTestId('RESET_INDICATOR');
-
-    act(() => {
-      fireEvent.keyPress(resetIndicator);
-    });
-  });
   afterAll((done) => {
     cleanup();
     done();

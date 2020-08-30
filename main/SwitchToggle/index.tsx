@@ -5,6 +5,7 @@ import {
   Text,
   TextStyle,
   TouchableOpacity,
+  View,
   ViewStyle,
 } from 'react-native';
 import React, { useEffect, useRef, useState } from 'react';
@@ -17,6 +18,8 @@ interface Props {
   circleStyle?: ViewStyle;
   backgroundColorOn?: string;
   backgroundColorOff?: string;
+  backgroundImageOn?: React.ReactElement;
+  backgroundImageOff?: React.ReactElement;
   circleColorOff?: string;
   circleColorOn?: string;
   duration?: number;
@@ -28,9 +31,10 @@ interface Props {
   textRightStyle?: StyleProp<TextStyle>;
   textLeftStyle?: StyleProp<TextStyle>;
   buttonStyle?: StyleProp<ViewStyle>;
-  buttonContainerStyle?: Animated.WithAnimatedValue<StyleProp<ViewStyle>>;
-  rightContainerStyle?: Animated.WithAnimatedValue<StyleProp<ViewStyle>>;
-  leftContainerStyle?: Animated.WithAnimatedValue<StyleProp<ViewStyle>>;
+  // limitation: https://github.com/DefinitelyTyped/DefinitelyTyped/issues/12202
+  buttonContainerStyle?: StyleProp<ViewStyle> | any;
+  rightContainerStyle?: StyleProp<ViewStyle> | any;
+  leftContainerStyle?: StyleProp<ViewStyle> | any;
   RTL?: boolean;
 }
 
@@ -41,7 +45,7 @@ const styles = StyleSheet.create({
   },
 });
 
-const SwitchToggle: React.FC<Props> = (props) => {
+function SwitchToggle(props: Props): React.ReactElement {
   const [animXValue] = useState(new Animated.Value(props.switchOn ? 1 : 0));
   const getStart = (): number | Record<string, unknown> | undefined => {
     // prettier-ignore
@@ -98,6 +102,22 @@ const SwitchToggle: React.FC<Props> = (props) => {
     );
   };
 
+  const generateLeftIcon = (): React.ReactElement => {
+    return (
+      <View style={{ position: 'absolute', left: 5 }}>
+        {props.backgroundImageOn}
+      </View>
+    );
+  };
+
+  const generateRightIcon = (): React.ReactElement => {
+    return (
+      <View style={{ position: 'absolute', right: 5 }}>
+        {props.backgroundImageOff}
+      </View>
+    );
+  };
+
   return (
     <TouchableOpacity
       testID={props.testID}
@@ -120,6 +140,7 @@ const SwitchToggle: React.FC<Props> = (props) => {
         ]}
       >
         {generateLeftText()}
+        {props.switchOn && generateLeftIcon()}
         <Animated.View
           style={[
             props.circleStyle,
@@ -153,32 +174,10 @@ const SwitchToggle: React.FC<Props> = (props) => {
           </Animated.View>
         </Animated.View>
         {generateRightText()}
+        {!props.switchOn && generateRightIcon()}
       </Animated.View>
     </TouchableOpacity>
   );
-};
-
-SwitchToggle.defaultProps = {
-  switchOn: false,
-  onPress: (): void => {},
-  containerStyle: {
-    width: 72,
-    height: 36,
-    borderRadius: 18,
-    backgroundColor: 'rgb(227,227,227)',
-    padding: 3,
-  },
-  circleStyle: {
-    width: 30,
-    height: 30,
-    borderRadius: 15,
-    backgroundColor: 'white', // rgb(102,134,205)
-  },
-  backgroundColorOn: 'rgb(227,227,227)',
-  backgroundColorOff: 'rgb(215,215,215)',
-  circleColorOff: 'white',
-  circleColorOn: 'rgb(102,134,205)',
-  duration: 300,
-};
+}
 
 export { SwitchToggle };

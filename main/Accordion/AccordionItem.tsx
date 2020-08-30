@@ -8,12 +8,6 @@ import React, { FC, useEffect, useRef, useState } from 'react';
 
 import styled from 'styled-components/native';
 
-const Container = styled.View`
-  background-color: transparent;
-  overflow: hidden;
-  width: 300px;
-`;
-
 const TitleContainer = styled.TouchableOpacity`
   flex-direction: row;
   align-items: center;
@@ -49,6 +43,10 @@ type datumType = {
   title: titleType;
   bodies: Array<bodyType>;
 };
+
+interface TranslateYType {
+  translateY: Animated.Value;
+}
 interface Props {
   testID: string;
   datum: datumType;
@@ -60,6 +58,8 @@ interface Props {
   accordionItemStyle?: ViewStyle;
   titleStyle?: ViewStyle;
   bodyStyle?: ViewStyle;
+  dropDownAnimValueList: Animated.Value;
+  sumOfPrecedingTranslateY: TranslateYType[];
 }
 
 let layoutHeight = 0;
@@ -76,9 +76,10 @@ const AccordionItem: FC<Props> = (props) => {
     accordionItemStyle,
     titleStyle,
     bodyStyle,
+    dropDownAnimValueList,
+    sumOfPrecedingTranslateY,
   } = props;
 
-  const dropDownAnimValue = useRef(new Animated.Value(0)).current;
   const rotateAnimValue = useRef(new Animated.Value(0)).current;
 
   const [opened, setItemVisible] = useState<boolean>(collapseOnStart);
@@ -102,38 +103,29 @@ const AccordionItem: FC<Props> = (props) => {
 
   useEffect((): void => {
     if (bodyMounted) {
-      dropDownAnimValue.setValue(opened ? layoutHeight : 0);
+      dropDownAnimValueList.setValue(opened ? -layoutHeight : 0);
     }
   }, [bodyMounted]);
 
   useEffect((): void => {
-    if (bodyHeight === layoutHeight) {
-      Animated.timing(dropDownAnimValue, {
-        toValue: 0,
-        duration: animDuration || 300,
-        useNativeDriver: true,
-        delay: 10,
-      }).start();
-    }
-  }, [bodyHeight]);
-
-  useEffect((): void => {
     if (shouldAnimate) {
       if (!opened) {
-        setBodyHeight(layoutHeight);
+        Animated.timing(dropDownAnimValueList, {
+          toValue: 0,
+          duration: animDuration || 300,
+          useNativeDriver: true,
+        }).start();
         return;
       }
 
-      Animated.timing(dropDownAnimValue, {
-        toValue: 1,
+      Animated.timing(dropDownAnimValueList, {
+        toValue: -bodyHeight,
         duration: animDuration || 300,
         useNativeDriver: true,
-      }).start(() => {
-        setBodyHeight(0);
-      });
+      }).start();
     } else {
-      const targetValue = opened ? 1 : 0;
-      dropDownAnimValue.setValue(targetValue);
+      const targetValue = opened ? -bodyHeight : 0;
+      dropDownAnimValueList.setValue(targetValue);
     }
   }, [opened]);
 
@@ -146,10 +138,22 @@ const AccordionItem: FC<Props> = (props) => {
       useNativeDriver: true,
     }).start();
   }, [rotateState]);
+  console.log('총합', sumOfPrecedingTranslateY);
 
   return (
-    <Container
-      style={accordionItemStyle}
+    <Animated.View
+      style={[
+        {
+          backgroundColor: 'transparent',
+          overflow: 'hidden',
+          width: 300,
+        },
+        accordionItemStyle,
+        {
+          transform: sumOfPrecedingTranslateY,
+        },
+      ]
+      }
     >
       <TitleContainer
         testID={`title_${testID}`}
@@ -157,27 +161,27 @@ const AccordionItem: FC<Props> = (props) => {
         activeOpacity={activeOpacity}
         style={titleStyle}
       >
-        {datum.title.leftElement && datum.title.leftElement}
+        {datum.title.leftElement || null}
         {datum.title.name}
-        {datum.title.rightElement ? (
+        {
           datum.title.rightElement
-        ) : (
-          <Animated.View
-            style={{
-              position: 'absolute',
-              right: 20,
-              transform: [
-                {
-                  rotate: rotateAnimValue.interpolate({
-                    inputRange: [0, 1],
-                    outputRange: ['0deg', '180deg'],
-                  }),
-                },
-              ],
-            }}>
-            {toggleElement || null}
-          </Animated.View>
-        )}
+            ? datum.title.rightElement
+            : <Animated.View
+              style={{
+                position: 'absolute',
+                right: 20,
+                transform: [
+                  {
+                    rotate: rotateAnimValue.interpolate({
+                      inputRange: [0, 1],
+                      outputRange: ['0deg', '180deg'],
+                    }),
+                  },
+                ],
+              }}>
+              {toggleElement || null}
+            </Animated.View>
+        }
       </TitleContainer>
       <Animated.View
         testID={`body_${testID}`}
@@ -187,26 +191,25 @@ const AccordionItem: FC<Props> = (props) => {
             : bodyHeight,
           transform: [
             {
-              translateY: dropDownAnimValue.interpolate({
-                inputRange: [0, 1],
-                outputRange: [0, -bodyHeight],
-              }),
+              translateY: dropDownAnimValueList,
             },
           ],
         }}
         onLayout={handleBodyLayout}
       >
-        {datum.bodies.map((body, bodyKey) => {
-          return (
-            <StyledItem key={bodyKey} style={bodyStyle}>
-              {body.leftElement && body.leftElement}
-              {body.name}
-              {body.rightElement && body.rightElement}
-            </StyledItem>
-          );
-        })}
+        {
+          datum.bodies.map((body, bodyKey) => {
+            return (
+              <StyledItem key={bodyKey} style={bodyStyle}>
+                {body.leftElement || null}
+                {body.name}
+                {body.rightElement || null}
+              </StyledItem>
+            );
+          })
+        }
       </Animated.View>
-    </Container>
+    </Animated.View>
   );
 };
 

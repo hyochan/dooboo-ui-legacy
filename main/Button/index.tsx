@@ -1,16 +1,20 @@
 import {
   ActivityIndicator,
   TextStyle,
-  TouchableOpacity,
   TouchableOpacityProps,
   ViewStyle,
 } from 'react-native';
-import React, { FC, useRef } from 'react';
+import React, { useRef } from 'react';
 
 import styled from 'styled-components/native';
-import { useHover } from './hooks';
+import { useHover } from 'react-native-web-hooks';
 
-const StyledButton = styled.View`
+const Container = styled.View`
+  justify-content: center;
+  align-items: center;
+`;
+
+const StyledButton = styled.TouchableOpacity`
   align-self: center;
   width: 320px;
   height: 52px;
@@ -18,6 +22,9 @@ const StyledButton = styled.View`
   align-items: center;
   justify-content: center;
   flex-direction: row;
+  padding-left: 16px;
+  padding-right: 16px;
+  border-radius: 6px;
 `;
 
 const StyledDisabled = styled(StyledButton)`
@@ -26,7 +33,7 @@ const StyledDisabled = styled(StyledButton)`
 `;
 
 const StyledText = styled.Text`
-  font-size: 16px;
+  font-size: 14px;
   color: #069ccd;
 `;
 
@@ -34,98 +41,106 @@ const StyledDisabledText = styled(StyledText)`
   color: #969696;
 `;
 
-interface Props {
-  testID?: string;
-  isLoading?: boolean;
-  isDisabled?: boolean;
-  onPress?: () => void;
-  containerStyle?: ViewStyle;
+interface ChildStyle {
   style?: ViewStyle;
-  disabledStyle?: ViewStyle;
   textStyle?: TextStyle;
-  disabledTextStyle?: TextStyle;
-  leftElement?: React.ReactElement;
-  rightElement?: React.ReactElement;
-  indicatorColor?: string;
-  activeOpacity?: number;
-  text?: string;
-  touchableOpacityProps?: TouchableOpacityProps;
-  /** hover */
-  /** Accent */
-  hoverStyle?: ViewStyle;
-  accentStyle?: ViewStyle;
-  /** Secondary */
-  hoverTextStyle?: TextStyle;
-  secondaryStyle?: ViewStyle;
 }
 
-const Button: FC<Props> = (props) => {
+type ColorType = 'decision' | 'idea' | 'emotion' | 'benefit' | 'facts' | 'criticism';
+
+interface Props {
+  testID?: string;
+  indicatorColor?: string;
+  color?: ColorType;
+  loading?: boolean;
+  disabled?: boolean;
+  containerStyle?: ViewStyle;
+  style?: ViewStyle;
+  textStyle?: TextStyle;
+  disabledStyle?: ChildStyle;
+  leftElement?: React.ReactElement;
+  rightElement?: React.ReactElement;
+  activeOpacity?: number;
+  text?: string;
+  outlined?: boolean;
+  onPress?: () => void;
+  touchableOpacityProps?: TouchableOpacityProps & any;
+}
+
+const hoveredStyle = {
+  shadowColor: 'black',
+  shadowOffset: {
+    width: 0,
+    height: 4,
+  },
+  shadowOpacity: 0.24,
+  shadowRadius: 16.0,
+  elevation: 10,
+  borderRadius: 4,
+};
+
+function Button(props: Props): React.ReactElement {
   const {
-    isDisabled,
     testID,
-    disabledStyle,
+    disabled,
+    loading,
     containerStyle,
-    isLoading,
+    disabledStyle,
     style,
     textStyle,
-    disabledTextStyle,
     indicatorColor,
-    text,
     leftElement,
     rightElement,
     activeOpacity,
+    text,
     onPress,
     touchableOpacityProps,
-    hoverStyle,
-    accentStyle,
-    secondaryStyle,
-    hoverTextStyle,
   } = props;
 
   const ref = useRef(null);
   const isHovered = useHover(ref);
 
-  if (isDisabled) {
+  if (disabled) {
     return (
-      <StyledDisabled testID={testID} style={[containerStyle, disabledStyle]}>
-        <StyledDisabledText style={[textStyle, disabledTextStyle]}>
-          {text}
-        </StyledDisabledText>
-      </StyledDisabled>
+      <Container testID={testID} style={containerStyle}>
+        <StyledDisabled disabled testID={testID} style={disabledStyle?.style}>
+          <StyledDisabledText style={[textStyle, disabledStyle?.textStyle]}>
+            {text}
+          </StyledDisabledText>
+        </StyledDisabled>
+      </Container>
     );
   }
-  if (isLoading) {
+
+  if (loading) {
     return (
-      <StyledButton testID={testID} style={[containerStyle, style]}>
-        <ActivityIndicator size="small" color={indicatorColor} />
-      </StyledButton>
+      <Container testID={testID} style={containerStyle}>
+        <StyledButton testID={testID} style={style}>
+          <ActivityIndicator size="small" color={indicatorColor} />
+        </StyledButton>
+      </Container>
     );
   }
   return (
-    <TouchableOpacity
-      testID={testID}
-      activeOpacity={activeOpacity}
-      onPress={onPress}
-      style={containerStyle}
-      delayPressIn={30}
-      {...touchableOpacityProps}>
+    <Container testID={testID} style={containerStyle}>
       <StyledButton
+        activeOpacity={activeOpacity || 0.7}
+        onPress={onPress}
+        delayPressIn={30}
         ref={ref}
-        style={[
-          containerStyle,
-          accentStyle,
-          secondaryStyle,
-          isHovered && hoverStyle ? hoverStyle : style,
-        ]}>
-        {leftElement || null}
+        style={[style, (isHovered && hoveredStyle)]}
+        {...touchableOpacityProps}
+      >
+        {leftElement}
         <StyledText
-          style={[isHovered && hoverTextStyle ? hoverTextStyle : textStyle]}>
+          style={textStyle}
+        >
           {text}
         </StyledText>
-        {rightElement || null}
+        {rightElement}
       </StyledButton>
-    </TouchableOpacity>
+    </Container>
   );
-};
+}
 
 export { Button };

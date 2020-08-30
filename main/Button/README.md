@@ -14,8 +14,8 @@
 | disabledStyle         |          | ViewStyle             |           |
 | textStyle             |          | TextStyle             |           |
 | didsabledTextStyle    |          | TextStyle             |           |
-| isLoading             |          | boolean               |           |
-| isDisabled            |          | boolean               |           |
+| loading               |          | boolean               |           |
+| disabled              |          | boolean               |           |
 | leftElement           |          | ReactElement          |           |
 | rightElement          |          | ReactElement          |           |
 | indicatorColor        |          | string                | '#ffffff' |
@@ -118,7 +118,7 @@ yarn add dooboo-ui
   function Page(props: Props) {
     return (
       <Container>
-        <Button testID="btn" isLoading={false} onPress={() => {}}>
+        <Button testID="btn" loading={false} onPress={() => {}}>
           😀 😎 👍 💯
         </Button>
         {/* Button Style Accent  */}
@@ -173,14 +173,14 @@ yarn add dooboo-ui
           style={{
             marginVertical: 40,
           }}
-          isDisabled={true}
+          disabled={true}
           onPress={() => {}}>
           This is disabled!!
         </Button>
         <Button
           testID="btnGoogle"
           iconLeft={<Image source={IC_GOOGLE} />}
-          isLoading={googleLoading}
+          loading={googleLoading}
           indicatorColor="#023059"
           onPress={() => {
             setGoogleLoading(true);
@@ -195,7 +195,7 @@ yarn add dooboo-ui
           testID="btnFacebook"
           iconLeft={<Image source={IC_FACEBOOK} />}
           indicatorColor="#023059"
-          isLoading={facebookLoading}
+          loading={facebookLoading}
           style={{
             marginTop: 40,
             backgroundColor: '#ccc',

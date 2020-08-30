@@ -3,18 +3,15 @@
 exports[`[SwitchToggle] should render without crashing 1`] = `
 <
   activeOpacity={0.5}
-  onPress={[Function]}
+  onPress={[MockFunction]}
+  testID="SWITCH_ID"
 >
   <View
     style={
       Object {
         "alignItems": "center",
-        "backgroundColor": "rgba(215, 215, 215, 1)",
-        "borderRadius": 18,
+        "backgroundColor": undefined,
         "flexDirection": "row",
-        "height": 36,
-        "padding": 3,
-        "width": 72,
       }
     }
   >
@@ -24,15 +21,12 @@ exports[`[SwitchToggle] should render without crashing 1`] = `
     <View
       style={
         Object {
-          "backgroundColor": "rgba(255, 255, 255, 1)",
-          "borderRadius": 15,
-          "height": 30,
+          "backgroundColor": undefined,
           "transform": Array [
             Object {
               "translateX": 0,
             },
           ],
-          "width": 30,
         }
       }
     >
@@ -43,6 +37,14 @@ exports[`[SwitchToggle] should render without crashing 1`] = `
     <View>
       <Text />
     </View>
+    <View
+      style={
+        Object {
+          "position": "absolute",
+          "right": 5,
+        }
+      }
+    />
   </View>
 </>
 `;

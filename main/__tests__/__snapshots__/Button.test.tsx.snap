@@ -1,25 +1,35 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`[Button] should render without crashing 1`] = `
-<
-  delayPressIn={30}
+<View
+  style={
+    Array [
+      Object {
+        "alignItems": "center",
+        "justifyContent": "center",
+      },
+    ]
+  }
 >
-  <View
+  <
+    activeOpacity={0.7}
+    delayPressIn={30}
     style={
       Array [
         Object {
           "alignItems": "center",
           "alignSelf": "center",
           "borderColor": "blue",
+          "borderRadius": 6,
           "flexDirection": "row",
           "height": 52,
           "justifyContent": "center",
+          "paddingLeft": 16,
+          "paddingRight": 16,
           "width": 320,
         },
         undefined,
-        undefined,
-        undefined,
-        undefined,
+        false,
       ]
     }
   >
@@ -28,12 +38,11 @@ exports[`[Button] should render without crashing 1`] = `
         Array [
           Object {
             "color": "#069ccd",
-            "fontSize": 16,
+            "fontSize": 14,
           },
-          undefined,
         ]
       }
     />
-  </View>
-</>
+  </>
+</View>
 `;

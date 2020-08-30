@@ -3,6 +3,7 @@ import React, { ReactElement } from 'react';
 
 import { Accordion } from '../../main';
 import { ContainerDeco } from '../../storybook/decorators';
+import { SafeAreaView } from 'react-native';
 import { storiesOf } from '@storybook/react-native';
 import styled from 'styled-components/native';
 
@@ -57,7 +58,7 @@ const Default = (): React.ReactElement => {
   const data = [
     {
       title: {
-        name: <StyledTitle>Defualt-title-01</StyledTitle>,
+        name: <StyledTitle>Default-title-01</StyledTitle>,
       },
       bodies: [
         {
@@ -70,7 +71,7 @@ const Default = (): React.ReactElement => {
     },
     {
       title: {
-        name: <StyledTitle>Defualt-title-02</StyledTitle>,
+        name: <StyledTitle>Default-title-02</StyledTitle>,
       },
       bodies: [
         {
@@ -83,7 +84,7 @@ const Default = (): React.ReactElement => {
     },
     {
       title: {
-        name: <StyledTitle>Defualt-title-03</StyledTitle>,
+        name: <StyledTitle>Default-title-03</StyledTitle>,
       },
       bodies: [
         {
@@ -97,16 +98,18 @@ const Default = (): React.ReactElement => {
   ];
 
   return (
-    <Container>
-      <Accordion
-        data={data}
-        isAnimated={true}
-        collapseOnStart={true}
-        animDuration={400}
-        activeOpacity={1}
-        toggleElement={<ArrowDown />}
-      />
-    </Container>
+    <SafeAreaView>
+      <Container>
+        <Accordion
+          data={data}
+          isAnimated={true}
+          collapseOnStart={true}
+          animDuration={400}
+          activeOpacity={1}
+          toggleElement={<ArrowDown />}
+        />
+      </Container>
+    </SafeAreaView>
   );
 };
 
@@ -223,27 +226,29 @@ const CustomStyle = (): React.ReactElement => {
   ];
 
   return (
-    <Container>
-      <Accordion
-        data={customData}
-        isAnimated={true}
-        collapseOnStart={true}
-        animDuration={300}
-        activeOpacity={1}
-        accordionItemStyle={{
-          width: 400,
-        }}
-        titleStyle={{
-          backgroundColor: 'gray',
-        }}
-        bodyStyle={{
-          backgroundColor: 'lightgray',
-          borderBottomWidth: 1,
-          borderBottomColor: 'gray',
-        }}
-        toggleElement={<ArrowDown />}
-      />
-    </Container>
+    <SafeAreaView>
+      <Container>
+        <Accordion
+          data={customData}
+          isAnimated={true}
+          collapseOnStart={true}
+          animDuration={300}
+          activeOpacity={1}
+          accordionItemStyle={{
+            width: 400,
+          }}
+          titleStyle={{
+            backgroundColor: 'gray',
+          }}
+          bodyStyle={{
+            backgroundColor: 'lightgray',
+            borderBottomWidth: 1,
+            borderBottomColor: 'gray',
+          }}
+          toggleElement={<ArrowDown />}
+        />
+      </Container>
+    </SafeAreaView>
   );
 };
 

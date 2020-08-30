@@ -2,7 +2,7 @@
 
 > Simple drop down item component for react-native. This component supports drop down toggle with animation.<br/>
 
-![image](https://user-images.githubusercontent.com/58724686/87262058-81ae4400-c4f3-11ea-8c56-216c101ef218.gif)
+![image](https://user-images.githubusercontent.com/58724686/91258142-9fcfbb00-e7a6-11ea-8ab3-af03760ed8c9.gif)
 
 ## Props
 
@@ -32,7 +32,7 @@ const Default = (): React.ReactElement => {
   const data = [
     {
       title: {
-        name: <StyledTitle>Defualt-title-01</StyledTitle>,
+        name: <StyledTitle>Default-title-01</StyledTitle>,
       },
       bodies: [
         {
@@ -45,7 +45,7 @@ const Default = (): React.ReactElement => {
     },
     {
       title: {
-        name: <StyledTitle>Defualt-title-02</StyledTitle>,
+        name: <StyledTitle>Default-title-02</StyledTitle>,
       },
       bodies: [
         {
@@ -58,7 +58,7 @@ const Default = (): React.ReactElement => {
     },
     {
       title: {
-        name: <StyledTitle>Defualt-title-03</StyledTitle>,
+        name: <StyledTitle>Default-title-03</StyledTitle>,
       },
       bodies: [
         {

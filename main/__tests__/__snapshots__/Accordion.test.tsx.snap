@@ -30,13 +30,12 @@ exports[`[Accordion] render test should adjust duration of animation depends on 
     >
       <View
         style={
-          Array [
-            Object {
-              "backgroundColor": "transparent",
-              "overflow": "hidden",
-              "width": 300,
-            },
-          ]
+          Object {
+            "backgroundColor": "transparent",
+            "overflow": "hidden",
+            "transform": Array [],
+            "width": 300,
+          }
         }
       >
         <
@@ -56,7 +55,7 @@ exports[`[Accordion] render test should adjust duration of animation depends on 
           testID="title_0"
         >
           <Text>
-            Defualt-title-01
+            Default-title-01
           </Text>
           <View
             style={
@@ -131,13 +130,16 @@ exports[`[Accordion] render test should adjust duration of animation depends on 
       </View>
       <View
         style={
-          Array [
-            Object {
-              "backgroundColor": "transparent",
-              "overflow": "hidden",
-              "width": 300,
-            },
-          ]
+          Object {
+            "backgroundColor": "transparent",
+            "overflow": "hidden",
+            "transform": Array [
+              Object {
+                "translateY": 0,
+              },
+            ],
+            "width": 300,
+          }
         }
       >
         <
@@ -157,7 +159,7 @@ exports[`[Accordion] render test should adjust duration of animation depends on 
           testID="title_1"
         >
           <Text>
-            Defualt-title-02
+            Default-title-02
           </Text>
           <View
             style={
@@ -265,13 +267,12 @@ exports[`[Accordion] render test should operate animation when isAnimated props 
     >
       <View
         style={
-          Array [
-            Object {
-              "backgroundColor": "transparent",
-              "overflow": "hidden",
-              "width": 300,
-            },
-          ]
+          Object {
+            "backgroundColor": "transparent",
+            "overflow": "hidden",
+            "transform": Array [],
+            "width": 300,
+          }
         }
       >
         <
@@ -291,7 +292,7 @@ exports[`[Accordion] render test should operate animation when isAnimated props 
           testID="title_0"
         >
           <Text>
-            Defualt-title-01
+            Default-title-01
           </Text>
           <View
             style={
@@ -366,13 +367,16 @@ exports[`[Accordion] render test should operate animation when isAnimated props 
       </View>
       <View
         style={
-          Array [
-            Object {
-              "backgroundColor": "transparent",
-              "overflow": "hidden",
-              "width": 300,
-            },
-          ]
+          Object {
+            "backgroundColor": "transparent",
+            "overflow": "hidden",
+            "transform": Array [
+              Object {
+                "translateY": 0,
+              },
+            ],
+            "width": 300,
+          }
         }
       >
         <
@@ -392,7 +396,7 @@ exports[`[Accordion] render test should operate animation when isAnimated props 
           testID="title_1"
         >
           <Text>
-            Defualt-title-02
+            Default-title-02
           </Text>
           <View
             style={
@@ -500,13 +504,12 @@ exports[`[Accordion] render test should render collapsed when collapseOnStart pr
     >
       <View
         style={
-          Array [
-            Object {
-              "backgroundColor": "transparent",
-              "overflow": "hidden",
-              "width": 300,
-            },
-          ]
+          Object {
+            "backgroundColor": "transparent",
+            "overflow": "hidden",
+            "transform": Array [],
+            "width": 300,
+          }
         }
       >
         <
@@ -526,7 +529,7 @@ exports[`[Accordion] render test should render collapsed when collapseOnStart pr
           testID="title_0"
         >
           <Text>
-            Defualt-title-01
+            Default-title-01
           </Text>
           <View
             style={
@@ -601,13 +604,16 @@ exports[`[Accordion] render test should render collapsed when collapseOnStart pr
       </View>
       <View
         style={
-          Array [
-            Object {
-              "backgroundColor": "transparent",
-              "overflow": "hidden",
-              "width": 300,
-            },
-          ]
+          Object {
+            "backgroundColor": "transparent",
+            "overflow": "hidden",
+            "transform": Array [
+              Object {
+                "translateY": -1,
+              },
+            ],
+            "width": 300,
+          }
         }
       >
         <
@@ -627,7 +633,7 @@ exports[`[Accordion] render test should render collapsed when collapseOnStart pr
           testID="title_1"
         >
           <Text>
-            Defualt-title-02
+            Default-title-02
           </Text>
           <View
             style={
@@ -735,13 +741,12 @@ exports[`[Accordion] render test should render without crasing 1`] = `
     >
       <View
         style={
-          Array [
-            Object {
-              "backgroundColor": "transparent",
-              "overflow": "hidden",
-              "width": 300,
-            },
-          ]
+          Object {
+            "backgroundColor": "transparent",
+            "overflow": "hidden",
+            "transform": Array [],
+            "width": 300,
+          }
         }
       >
         <
@@ -761,7 +766,7 @@ exports[`[Accordion] render test should render without crasing 1`] = `
           testID="title_0"
         >
           <Text>
-            Defualt-title-01
+            Default-title-01
           </Text>
           <View
             style={
@@ -836,13 +841,16 @@ exports[`[Accordion] render test should render without crasing 1`] = `
       </View>
       <View
         style={
-          Array [
-            Object {
-              "backgroundColor": "transparent",
-              "overflow": "hidden",
-              "width": 300,
-            },
-          ]
+          Object {
+            "backgroundColor": "transparent",
+            "overflow": "hidden",
+            "transform": Array [
+              Object {
+                "translateY": 0,
+              },
+            ],
+            "width": 300,
+          }
         }
       >
         <
@@ -862,7 +870,7 @@ exports[`[Accordion] render test should render without crasing 1`] = `
           testID="title_1"
         >
           <Text>
-            Defualt-title-02
+            Default-title-02
           </Text>
           <View
             style={
