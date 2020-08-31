@@ -13,7 +13,7 @@ const ImageSliderContainer = styled.View`
   width: 300px;
   height: 400px;
   justify-content: center;
-  max-width: ${():number => Dimensions.get('screen').width};
+  max-width: ${():number => Dimensions.get('screen').width}px;
   overflow: hidden;
   background-color: #000;
 `;
@@ -92,21 +92,16 @@ export function ImageList(): React.ReactElement {
   </Container>;
 }
 
-function AutoHeightImage(props: ImageProps): React.ReactElement {
-  const { style = {} } = props;
-  const [heightPerWidth, setHightPerWidth] = React.useState(1);
-  const [layoutWidth, setLayoutWidth] = React.useState(1);
-
+function AutoHeightImage(props: ImageProps & { style: { width: number }}): React.ReactElement {
+  const { style } = props;
+  const [heightPerWidth, setHightPerWidth] = React.useState(0);
   return <Image
     {...props}
-    style={[style, { height: heightPerWidth * layoutWidth }]}
+    style={[style, { height: heightPerWidth * style.width || style.width }]}
     onLoad={({ nativeEvent: { source } }): void => {
       if (source && source.width && source.height) {
         setHightPerWidth(source.height / source.width);
       }
-    }}
-    onLayout={({ nativeEvent }): void => {
-      setLayoutWidth(nativeEvent.layout.width);
     }}/>;
 }
 
@@ -133,32 +128,36 @@ export function ImageSlider({ imageSources = images }:{ imageSources?: ImageSour
   const onRelease = React.useCallback(() => {
     const moveNext = animValues.nextTranslateX < -WIDTH / 2;
     const movePrev = animValues.prevTranslateX > WIDTH / 2;
-    const targetTranslateX = pinchZoom.current?.animatedValue.translate.x;
-    if (moveNext && currentIndex < imageSources.length - 1 && targetTranslateX) {
-      Animated.timing(targetTranslateX, {
-        toValue: -WIDTH,
+    const targetTranslate = pinchZoom.current?.animatedValue.translate;
+    if (moveNext && currentIndex < imageSources.length - 1 && targetTranslate) {
+      Animated.timing(targetTranslate, {
+        toValue: { x: -WIDTH, y: animValues.y },
         useNativeDriver: true,
+        duration: 300,
       }).start(() => {
         setCurrentIndex(currentIndex + 1);
       });
-    } else if (movePrev && currentIndex > 0 && targetTranslateX) {
-      Animated.timing(targetTranslateX, {
-        toValue: WIDTH,
+    } else if (movePrev && currentIndex > 0 && targetTranslate) {
+      Animated.timing(targetTranslate, {
+        toValue: { x: WIDTH, y: animValues.y },
         useNativeDriver: true,
+        duration: 300,
       }).start(() => {
         setCurrentIndex(currentIndex - 1);
       });
-    } else if (animValues.nextTranslateX < 0 && targetTranslateX) {
-      Animated.timing(targetTranslateX, {
-        toValue: (1 - animValues.scale) * WIDTH / 2,
+    } else if (animValues.nextTranslateX < 0 && targetTranslate) {
+      Animated.timing(targetTranslate, {
+        toValue: { x: (1 - animValues.scale) * WIDTH / 2, y: animValues.y },
         useNativeDriver: true,
+        duration: 300,
       }).start(() => {
         pinchZoom.current?.setValues({ translate: { x: (1 - animValues.scale) * WIDTH / 2, y: animValues.y } });
       });
-    } else if (animValues.prevTranslateX > 0 && targetTranslateX) {
-      Animated.timing(targetTranslateX, {
-        toValue: (animValues.scale - 1) * WIDTH / 2,
+    } else if (animValues.prevTranslateX > 0 && targetTranslate) {
+      Animated.timing(targetTranslate, {
+        toValue: { x: (animValues.scale - 1) * WIDTH / 2, y: animValues.y },
         useNativeDriver: true,
+        duration: 300,
       }).start(() => {
         pinchZoom.current?.setValues({ translate: { x: (animValues.scale - 1) * WIDTH / 2, y: animValues.y } });
       });
@@ -169,8 +168,8 @@ export function ImageSlider({ imageSources = images }:{ imageSources?: ImageSour
       { currentIndex > 0
         ? <Animated.View
           style={{
-            width: WIDTH,
             position: 'absolute',
+            width: WIDTH,
             left: -WIDTH,
             top: 0,
             bottom: 0,
@@ -194,14 +193,12 @@ export function ImageSlider({ imageSources = images }:{ imageSources?: ImageSour
         }}
         onTranslateChanged={(value):void => {
           animValues.x = value.x;
+          animValues.y = value.y;
           translateOtherImages();
         }}
         onRelease={onRelease}
         style={{
           width: WIDTH,
-          position: 'absolute',
-          top: 0,
-          bottom: 0,
           justifyContent: 'center',
         }}>
         <AutoHeightImage
@@ -223,7 +220,7 @@ export function ImageSlider({ imageSources = images }:{ imageSources?: ImageSour
             }}>
             <AutoHeightImage
               source={imageSources[currentIndex + 1]}
-              style={{ width: WIDTH, bottom: 0 }}
+              style={{ width: WIDTH }}
               resizeMode="contain"/>
           </Animated.View>
           : null

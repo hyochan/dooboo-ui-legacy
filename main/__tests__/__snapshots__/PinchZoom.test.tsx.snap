@@ -26,7 +26,7 @@ exports[`[PinchZoom] of ImageList render  should renders without crashing 1`] = 
           "uri": "https://www.housingwire.com/wp-content/uploads/2019/09/Purple-technology-data-internet-3.jpg",
         },
         Object {
-          "uri": "https://images.unsplash.com/photo-1543007354-0bc99b7d096b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80",
+          "uri": "https://images.unsplash.com/photo-1587628736664-fdc50efb57b7?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=668&q=80",
         },
         Object {
           "uri": "https://p.bigstockphoto.com/eIdTXLbqQilMs9xbjvcs_bigstock-Aerial-View-Of-Sandy-Beach-Wit-256330393.jpg",
@@ -126,6 +126,7 @@ exports[`[PinchZoom] of ImageList render  should renders without crashing 1`] = 
                 "onMoveShouldSetPanResponderCapture": [Function],
                 "onPanResponderGrant": [Function],
                 "onPanResponderMove": [Function],
+                "onPanResponderRelease": [Function],
                 "onPanResponderTerminationRequest": [Function],
                 "onShouldBlockNativeResponder": [Function],
                 "onStartShouldSetPanResponder": [Function],
@@ -234,6 +235,7 @@ exports[`[PinchZoom] of ImageList render  should renders without crashing 1`] = 
                 "onMoveShouldSetPanResponderCapture": [Function],
                 "onPanResponderGrant": [Function],
                 "onPanResponderMove": [Function],
+                "onPanResponderRelease": [Function],
                 "onPanResponderTerminationRequest": [Function],
                 "onShouldBlockNativeResponder": [Function],
                 "onStartShouldSetPanResponder": [Function],
@@ -342,6 +344,7 @@ exports[`[PinchZoom] of ImageList render  should renders without crashing 1`] = 
                 "onMoveShouldSetPanResponderCapture": [Function],
                 "onPanResponderGrant": [Function],
                 "onPanResponderMove": [Function],
+                "onPanResponderRelease": [Function],
                 "onPanResponderTerminationRequest": [Function],
                 "onShouldBlockNativeResponder": [Function],
                 "onStartShouldSetPanResponder": [Function],
@@ -372,7 +375,7 @@ exports[`[PinchZoom] of ImageList render  should renders without crashing 1`] = 
               resizeMode="contain"
               source={
                 Object {
-                  "uri": "https://images.unsplash.com/photo-1543007354-0bc99b7d096b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80",
+                  "uri": "https://images.unsplash.com/photo-1587628736664-fdc50efb57b7?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=668&q=80",
                 }
               }
               style={
@@ -450,6 +453,7 @@ exports[`[PinchZoom] of ImageList render  should renders without crashing 1`] = 
                 "onMoveShouldSetPanResponderCapture": [Function],
                 "onPanResponderGrant": [Function],
                 "onPanResponderMove": [Function],
+                "onPanResponderRelease": [Function],
                 "onPanResponderTerminationRequest": [Function],
                 "onShouldBlockNativeResponder": [Function],
                 "onStartShouldSetPanResponder": [Function],
@@ -558,6 +562,7 @@ exports[`[PinchZoom] of ImageList render  should renders without crashing 1`] = 
                 "onMoveShouldSetPanResponderCapture": [Function],
                 "onPanResponderGrant": [Function],
                 "onPanResponderMove": [Function],
+                "onPanResponderRelease": [Function],
                 "onPanResponderTerminationRequest": [Function],
                 "onShouldBlockNativeResponder": [Function],
                 "onStartShouldSetPanResponder": [Function],
