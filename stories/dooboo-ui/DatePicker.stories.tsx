@@ -36,6 +36,16 @@ function Default(): React.ReactElement {
   );
 }
 
+function DateInput(): React.ReactElement {
+  return (
+    <ScrollContainer>
+      <Container>
+        <DatePicker />
+      </Container>
+    </ScrollContainer>
+  );
+}
+
 /**
  * Below are stories for web
  */
@@ -43,10 +53,13 @@ export default {
   title: 'DatePicker',
 };
 
-export const toStorybook = (): ReactElement => <Default />;
-
-toStorybook.story = {
+export const toStorybook1 = (): ReactElement => <Default />;
+export const toStorybook2 = (): ReactElement => <DateInput />;
+toStorybook1.story = {
   name: 'default',
+};
+toStorybook2.story = {
+  name: 'input',
 };
 
 /**
@@ -58,4 +71,7 @@ storiesOf('DatePicker', module)
     <>
       <Default />
     </>
-  ));
+  ))
+  .add('input', () => <DateInput />, {
+    notes: 'Datapicker Input',
+  });
