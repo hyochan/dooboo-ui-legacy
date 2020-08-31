@@ -43,7 +43,7 @@ interface TranslateYType {
 interface Props {
   testID: string;
   datum: Datum;
-  shouldAnimate?: boolean;
+  shouldAnimate: boolean;
   collapseOnStart: boolean;
   animDuration?: number;
   activeOpacity?: number;
@@ -77,11 +77,9 @@ const AccordionItem: FC<Props> = (props) => {
 
   const rotateAnimValue = useRef(new Animated.Value(0)).current;
 
-  const [opened, setItemVisible] = useState<boolean>(collapseOnStart);
-  const [rotateState, setRotateState] = useState<boolean>(true);
+  const [opened, setAnimState] = useState<boolean>(collapseOnStart);
   const [bodyMounted, setBodyMounted] = useState<boolean>(false);
-
-  const [bodyHeight, setBodyHeight] = useState<number>(1);
+  const [bodyHeight, setBodyHeight] = useState<number>(0);
 
   const handleBodyLayout = (e: LayoutChangeEvent): void => {
     if (bodyMounted) return;
@@ -92,8 +90,7 @@ const AccordionItem: FC<Props> = (props) => {
   };
 
   const handleAnimState = (): void => {
-    setItemVisible(!opened);
-    setRotateState(!opened);
+    setAnimState(!opened);
   };
 
   const renderDefaultTitle = (title: string): React.ReactElement => {
@@ -158,13 +155,17 @@ const AccordionItem: FC<Props> = (props) => {
 
   useEffect(() => {
     const targetValue = opened ? 0 : 1;
-    Animated.timing(rotateAnimValue, {
-      toValue: targetValue,
-      duration: 200,
-      easing: Easing.linear,
-      useNativeDriver: true,
-    }).start();
-  }, [rotateState]);
+    if (shouldAnimate) {
+      Animated.timing(rotateAnimValue, {
+        toValue: targetValue,
+        duration: 200,
+        easing: Easing.linear,
+        useNativeDriver: true,
+      }).start();
+    } else {
+      rotateAnimValue.setValue(targetValue);
+    }
+  }, [opened]);
 
   return (
     <Animated.View

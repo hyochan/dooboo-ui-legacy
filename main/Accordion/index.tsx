@@ -15,7 +15,7 @@ export interface Datum {
 }
 interface Props {
   data: Datum[];
-  shouldAnimate?: boolean;
+  shouldAnimate: boolean;
   collapseOnStart: boolean;
   animDuration?: number;
   activeOpacity?: number;

@@ -8,9 +8,9 @@
 
 |                      | necessary | types                                | default               |
 | -------------------- | --------- | ------------------------------------ | ----------------------|
-| data                 | ✓         | array                                | `Default Data`        |
-| isAnimated           |           | boolean                              | `true`                |
-| collapseOnStart      | ✓         | boolean                              | `false`               |
+| data                 | ✓         | array                                | ``                    |
+| isAnimated           | ✓         | boolean                              | ``                    |
+| collapseOnStart      | ✓         | boolean                              | ``                    |
 | animDuration         |           | number                               | `300`                 |
 | activeOpacity        |           | number                               | `1`                   |
 | toggleElement        |           | React.ReactElement                   | `default arrow image` |
