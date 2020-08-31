@@ -56,3 +56,6 @@ function PinchZoomImage(): React.ReactElement {
   </PinchZoom>
 }
 ```
+
+## Caution
+Be careful with setting the PinchZoom style. It using onLayout of the View to get layout width and height. Some styling options make it not correct(Ex: setting both top and bottom options). Incorrect layout values make the incorrect zooming center. 
