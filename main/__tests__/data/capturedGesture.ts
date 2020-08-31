@@ -474,7 +474,25 @@ const openGesture: GestureHandlerInput[] = [
       ],
     },
   },
-
+  {
+    name: 'onPanResponderRelease',
+    gestureState: {
+      dx: 2.9631729125976562,
+      dy: 2.5809326171875,
+    },
+    nativeEvent: {
+      changedTouches: [
+        null,
+      ],
+      identifier: 1,
+      locationX: 272.3207092285156,
+      locationY: 150.7286376953125,
+      timestamp: 928292020,
+      touches: [
+        null,
+      ],
+    },
+  },
 ].map(replaceFirstTouchToThis);
 const closeGesture: GestureHandlerInput[] = [
   {
@@ -887,7 +905,25 @@ const closeGesture: GestureHandlerInput[] = [
       ],
     },
   },
-
+  {
+    name: 'onPanResponderRelease',
+    gestureState: {
+      dx: 0.6184005737304688,
+      dy: 2.9014053344726562,
+    },
+    nativeEvent: {
+      changedTouches: [
+        null,
+      ],
+      identifier: 0,
+      locationX: 50.07897186279297,
+      locationY: 101.55281829833984,
+      timestamp: 928379408,
+      touches: [
+        null,
+      ],
+    },
+  },
 ].map(replaceFirstTouchToThis);
 const moveGesture: GestureHandlerInput[] = [
   {
@@ -1213,7 +1249,25 @@ const moveGesture: GestureHandlerInput[] = [
       ],
     },
   },
-
+  {
+    name: 'onPanResponderRelease',
+    gestureState: {
+      dx: -25.254959106445312,
+      dy: 23.8526611328125,
+    },
+    nativeEvent: {
+      changedTouches: [
+        null,
+      ],
+      identifier: 0,
+      locationX: 146.15576171875,
+      locationY: 86.66927337646484,
+      timestamp: 928421948,
+      touches: [
+        null,
+      ],
+    },
+  },
 ].map(replaceFirstTouchToThis);
 export {
   openGesture,
