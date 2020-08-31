@@ -135,6 +135,8 @@ export function ImageSlider({ imageSources = images }:{ imageSources?: ImageSour
         useNativeDriver: true,
         duration: 300,
       }).start(() => {
+        nextImageTranslateX.setValue(0);
+        prevImageTranslateX.setValue(0);
         setCurrentIndex(currentIndex + 1);
       });
     } else if (movePrev && currentIndex > 0 && targetTranslate) {
@@ -143,6 +145,8 @@ export function ImageSlider({ imageSources = images }:{ imageSources?: ImageSour
         useNativeDriver: true,
         duration: 300,
       }).start(() => {
+        nextImageTranslateX.setValue(0);
+        prevImageTranslateX.setValue(0);
         setCurrentIndex(currentIndex - 1);
       });
     } else if (animValues.nextTranslateX < 0 && targetTranslate) {
