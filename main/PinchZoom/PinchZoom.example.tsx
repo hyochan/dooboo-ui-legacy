@@ -138,6 +138,7 @@ export function ImageSlider({ imageSources = images }:{ imageSources?: ImageSour
         nextImageTranslateX.setValue(0);
         prevImageTranslateX.setValue(0);
         setCurrentIndex(currentIndex + 1);
+        pinchZoom.current?.setValues({ scale: 1, translate: { x: 0, y: 0 } });
       });
     } else if (movePrev && currentIndex > 0 && targetTranslate) {
       Animated.timing(targetTranslate, {
@@ -148,6 +149,7 @@ export function ImageSlider({ imageSources = images }:{ imageSources?: ImageSour
         nextImageTranslateX.setValue(0);
         prevImageTranslateX.setValue(0);
         setCurrentIndex(currentIndex - 1);
+        pinchZoom.current?.setValues({ scale: 1, translate: { x: 0, y: 0 } });
       });
     } else if (animValues.nextTranslateX < 0 && targetTranslate) {
       Animated.timing(targetTranslate, {
@@ -170,7 +172,8 @@ export function ImageSlider({ imageSources = images }:{ imageSources?: ImageSour
   return <Container style={{ backgroundColor: '#000' }}>
     <ImageSliderContainer>
       { currentIndex > 0
-        ? <Animated.View
+        ? <PinchZoom
+          key={`${currentIndex - 1}`}
           style={{
             position: 'absolute',
             width: WIDTH,
@@ -185,7 +188,7 @@ export function ImageSlider({ imageSources = images }:{ imageSources?: ImageSour
             source={imageSources[currentIndex - 1]}
             style={{ width: WIDTH, bottom: 0 }}
             resizeMode="contain"/>
-        </Animated.View>
+        </PinchZoom>
         : null
       }
       <PinchZoom
@@ -212,7 +215,8 @@ export function ImageSlider({ imageSources = images }:{ imageSources?: ImageSour
       </PinchZoom>
       {
         currentIndex < imageSources.length - 1
-          ? <Animated.View
+          ? <PinchZoom
+            key={`${currentIndex + 1}`}
             style={{
               width: WIDTH,
               position: 'absolute',
@@ -226,7 +230,7 @@ export function ImageSlider({ imageSources = images }:{ imageSources?: ImageSour
               source={imageSources[currentIndex + 1]}
               style={{ width: WIDTH }}
               resizeMode="contain"/>
-          </Animated.View>
+          </PinchZoom>
           : null
       }
     </ImageSliderContainer>

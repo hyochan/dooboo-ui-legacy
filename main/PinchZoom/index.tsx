@@ -1,4 +1,4 @@
-import { Animated, PanResponder, PanResponderInstance, ViewStyle } from 'react-native';
+import { Animated, PanResponder, PanResponderInstance, TransformsStyle, ViewStyle } from 'react-native';
 import React, {
   PropsWithChildren, ReactElement, Ref, forwardRef,
   useCallback, useEffect, useImperativeHandle, useRef, useState,
@@ -11,7 +11,7 @@ import {
 } from './utils';
 
 type Props = PropsWithChildren <{
-  style?: ViewStyle,
+  style?: ViewStyle | { transform: Animated.WithAnimatedValue<TransformsStyle> },
   blockNativeResponder?: boolean,
   onScaleChanged?(value: number): void,
   onTranslateChanged?(valueXY: VectorType): void,
