@@ -20,11 +20,50 @@ const Container = styled.View`
   flex-direction: column;
 `;
 
+const Selected = styled.Text`
+  padding: 10px;
+  font-size: 13px;
+  font-weight: bold;
+`;
+
 function Default(): React.ReactElement {
+  const [selected, setSelected] = React.useState<Array<string|number>>([]);
+
+  const onPressItem = (value : string): void => {
+    if (selected.indexOf(value) > -1) { setSelected(selected.filter((item) => item !== value)); } else {
+      setSelected((prevArray) => [...prevArray, value]);
+    }
+  };
+
   return (
     <ScrollContainer>
       <Container>
-        <Checkbox/>
+
+        <Selected>Selected: {selected}</Selected>
+
+        <Checkbox
+          value={'female'}
+          labelText={'Female'}
+          boxColor={'orange'}
+          selectedValue={selected}
+          onPress={(value: string): void => onPressItem(value)}
+        />
+
+        <Checkbox
+          value={'male'}
+          labelText={'male'}
+          boxColor={'orange'}
+          selectedValue={selected}
+          onPress={(value: string): void => onPressItem(value)}
+        />
+
+        <Checkbox
+          value={'animal'}
+          labelText={'animal'}
+          boxColor={'orange'}
+          selectedValue={selected}
+          onPress={(value: string): void => onPressItem(value)}
+        />
       </Container>
     </ScrollContainer>
   );

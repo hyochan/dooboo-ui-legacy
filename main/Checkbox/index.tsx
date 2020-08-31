@@ -1,4 +1,4 @@
-import React, { FC, useCallback, useState } from 'react';
+import React, { FC } from 'react';
 import {
   TouchableHighlight,
 } from 'react-native';
@@ -16,7 +16,7 @@ interface LabelProps {
 }
 
 interface MarkerProps {
-  isChecked: boolean
+  isSelected: boolean
 }
 
 const Container = styled.View`
@@ -35,7 +35,7 @@ const Marker = styled.View<MarkerProps>`
  flex: 1;
  justify-content: center;
  align-items: center;
- background-color: ${({ isChecked }): string => isChecked ? 'transparent' : '#ffffff'};
+ background-color: ${({ isSelected }): string => isSelected ? 'transparent' : '#ffffff'};
 `;
 
 const MarkerImg = styled.Image`
@@ -52,35 +52,38 @@ const Label = styled.Text<LabelProps>`
 `;
 
 interface Props {
-  boxSize?: number
-  boxColor?: string
-  defaultChecked?: boolean
-  disabled?: boolean
-  onStateChange?(): void
-  labelText?: string
-  labelSize?: number
-  labelColor?: string
+  boxSize?: number;
+  boxColor?: string;
+  defaultChecked?: boolean;
+  disabled?: boolean;
+  onPress?: (value: string) => void;
+  labelText?: string;
+  labelSize?: number;
+  labelColor?: string;
+  selectedValue: Array<string | number>;
+  value: string;
+  selected?: boolean;
 }
 
 const Checkbox: FC<Props> = ({
   boxSize = 20,
   boxColor = '#cecece',
+  defaultChecked = false,
   labelText = 'default',
   labelSize = 20,
   labelColor = '#000000',
-  defaultChecked = false,
-  onStateChange = ():void => {},
+  onPress,
+  selectedValue = [],
+  value,
+  selected = false,
   /* TODO  */
   // disabled = false,
 }) => {
-  const [isChecked, setIstChecked] = useState<boolean>(defaultChecked);
-  const onPress = useCallback(() => {
-    setIstChecked((prevIsChecked) => !prevIsChecked);
-    onStateChange();
-  }, [onStateChange]);
+  const isSelected = selected || defaultChecked || selectedValue.indexOf(value) > -1;
+
   return (
     <TouchableHighlight
-      onPress={onPress}
+      onPress={(): void => onPress?.(value)}
       underlayColor="transparent"
       style={{ marginVertical: 20 }}>
       <Container>
@@ -88,8 +91,8 @@ const Checkbox: FC<Props> = ({
           boxSize={boxSize}
           boxColor={boxColor}
         >
-          <Marker isChecked={isChecked}>
-            {isChecked && <MarkerImg
+          <Marker isSelected={isSelected}>
+            {isSelected && <MarkerImg
               source={require('../__assets__/check_tick.png')}
             />}
           </Marker>
