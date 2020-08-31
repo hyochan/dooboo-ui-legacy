@@ -1,5 +1,5 @@
-import { ArrowDown, IC_FACEBOOK, IC_GOOGLE } from '../Icon';
-import React, { ReactElement } from 'react';
+import { ArrowDown, IC_MAGNIFIER } from '../Icon';
+import React, { Fragment, ReactElement } from 'react';
 
 import { Accordion } from '../../main';
 import { ContainerDeco } from '../../storybook/decorators';
@@ -14,12 +14,15 @@ const Container = styled.View`
 `;
 
 const CustomStyledTitle = styled.Text`
-  font-weight: bold;
+  position: absolute;
+  left: 60px;
 `;
 
 const CustomStyledItem = styled.Text`
   padding-left: 10px;
   font-weight: bold;
+  position: absolute;
+  left: 40px;
 `;
 
 const LeftElement = styled.Image`
@@ -29,43 +32,35 @@ const LeftElement = styled.Image`
   left: 20px;
 `;
 
-const RightElement = styled.Image`
-  width: 22px;
-  height: 22px;
-  position: absolute;
-  right: 20px;
-`;
-
 const data = [
   {
-    title: 'title1',
+    title: 'Lists',
     bodies: [
-      'body1',
-      'body2',
-      'body3',
+      'user',
+      'mail',
+      'plan',
     ],
   },
   {
-    title: 'title2',
+    title: 'mail',
     bodies: [
-      'body1',
-      'body2',
-      'body3',
+      'mail list',
+      'category',
+      'bin',
     ],
   },
   {
-    title: 'title3',
+    title: 'Reports',
     bodies: [
-      'body1',
-      'body2',
-      'body3',
+      'report list',
+      'statistics',
     ],
   },
 ];
 
 const Default = (): ReactElement => {
   return (
-    <SafeAreaView style={{ top: 200 }}>
+    <SafeAreaView style={{ top: 100 }}>
       <Container>
         <Accordion
           data={data}
@@ -82,7 +77,7 @@ const Default = (): ReactElement => {
 
 const CustomStyle = (): React.ReactElement => {
   return (
-    <SafeAreaView style={{ top: 200 }}>
+    <SafeAreaView style={{ top: 100 }}>
       <Container>
         <Accordion
           data={data}
@@ -90,19 +85,25 @@ const CustomStyle = (): React.ReactElement => {
           collapseOnStart={true}
           animDuration={300}
           activeOpacity={1}
-          renderTitle = {(item): React.ReactElement =>
-            <CustomStyledTitle>
-              <LeftElement source={IC_FACEBOOK} />
-              {item}
-            </CustomStyledTitle>
-          }
-          renderBody = {(item): React.ReactElement =>
-            <CustomStyledItem>
-              <LeftElement source={IC_GOOGLE}/>
-              {item}
-              <RightElement source={IC_GOOGLE}/>
-            </CustomStyledItem>
-          }
+          renderTitle = {(item): React.ReactElement => {
+            return (
+              <Fragment>
+                <LeftElement source={IC_MAGNIFIER} />
+                <CustomStyledTitle>
+                  {item}
+                </CustomStyledTitle>
+              </Fragment>
+            );
+          }}
+          renderBody = {(item): React.ReactElement => {
+            return (
+              <Fragment>
+                <CustomStyledItem>
+                  {item}
+                </CustomStyledItem>
+              </Fragment>
+            );
+          }}
           toggleElement={<ArrowDown />}
           titleContainerStyle={{
             backgroundColor: 'gray',
