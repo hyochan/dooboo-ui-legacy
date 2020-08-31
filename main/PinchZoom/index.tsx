@@ -49,10 +49,10 @@ function PinchZoom(props: Props, ref: Ref<PinchZoomRef>): ReactElement {
   };
   const createPanResponder = (): PanResponderInstance => {
     return PanResponder.create({
-      onStartShouldSetPanResponder: () => true,
-      onStartShouldSetPanResponderCapture: () => true,
-      onMoveShouldSetPanResponder: () => true,
-      onMoveShouldSetPanResponderCapture: () => true,
+      onStartShouldSetPanResponder: /* istanbul ignore next */ () => true,
+      onStartShouldSetPanResponderCapture: /* istanbul ignore next */ () => true,
+      onMoveShouldSetPanResponder: /* istanbul ignore next */ () => true,
+      onMoveShouldSetPanResponderCapture: /* istanbul ignore next */ () => true,
       onPanResponderGrant: () => {
         const [touch1, touch2] = touches;
         touch1.setOffset({ x: 0, y: 0 });
@@ -105,10 +105,10 @@ function PinchZoom(props: Props, ref: Ref<PinchZoomRef>): ReactElement {
       onPanResponderRelease: () => {
         onRelease && onRelease();
       },
-      onPanResponderTerminationRequest: () => {
+      onPanResponderTerminationRequest: /* istanbul ignore next */ () => {
         return true;
       },
-      onShouldBlockNativeResponder: () => {
+      onShouldBlockNativeResponder: /* istanbul ignore next */ () => {
         return blockNativeResponder;
       },
     });

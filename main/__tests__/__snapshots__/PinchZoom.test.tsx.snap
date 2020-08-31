@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`[PinchZoom] of ImageList render  should renders without crashing 1`] = `
+exports[`PinchZoom of ImageSlider should renders without crashing 1`] = `
 <View
   style={
     Array [
@@ -13,601 +13,136 @@ exports[`[PinchZoom] of ImageList render  should renders without crashing 1`] = 
         "paddingRight": 10,
         "paddingTop": 10,
       },
+      Object {
+        "backgroundColor": "#000",
+      },
     ]
   }
 >
-  <ScrollView
-    data={
+  <View
+    style={
       Array [
         Object {
-          "uri": "https://images.unsplash.com/photo-1519335337423-a3357c2cd12e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2168&q=80",
-        },
-        Object {
-          "uri": "https://www.housingwire.com/wp-content/uploads/2019/09/Purple-technology-data-internet-3.jpg",
-        },
-        Object {
-          "uri": "https://images.unsplash.com/photo-1587628736664-fdc50efb57b7?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=668&q=80",
-        },
-        Object {
-          "uri": "https://p.bigstockphoto.com/eIdTXLbqQilMs9xbjvcs_bigstock-Aerial-View-Of-Sandy-Beach-Wit-256330393.jpg",
-        },
-        Object {
-          "uri": "https://avatars2.githubusercontent.com/u/7970947?v=3&s=460",
+          "backgroundColor": "#000",
+          "flexBasis": 0,
+          "flexGrow": 1,
+          "flexShrink": 1,
+          "height": 400,
+          "justifyContent": "center",
+          "maxWidth": 750,
+          "overflow": "hidden",
+          "width": 300,
         },
       ]
     }
-    disableVirtualization={false}
-    getItem={[Function]}
-    getItemCount={[Function]}
-    horizontal={false}
-    initialNumToRender={10}
-    keyExtractor={[Function]}
-    maxToRenderPerBatch={10}
-    onContentSizeChange={[Function]}
-    onEndReachedThreshold={2}
-    onLayout={[Function]}
-    onMomentumScrollEnd={[Function]}
-    onScroll={[Function]}
-    onScrollBeginDrag={[Function]}
-    onScrollEndDrag={[Function]}
-    removeClippedSubviews={false}
-    renderItem={[Function]}
-    scrollEventThrottle={50}
-    stickyHeaderIndices={Array []}
-    style={
-      Object {
-        "flex": 1,
-      }
-    }
-    updateCellsBatchingPeriod={50}
-    viewabilityConfigCallbackPairs={Array []}
-    windowSize={21}
   >
     <View
       onLayout={[Function]}
-      style={null}
+      responderCallback={
+        Object {
+          "onMoveShouldSetPanResponder": [Function],
+          "onMoveShouldSetPanResponderCapture": [Function],
+          "onPanResponderGrant": [Function],
+          "onPanResponderMove": [Function],
+          "onPanResponderRelease": [Function],
+          "onPanResponderTerminationRequest": [Function],
+          "onShouldBlockNativeResponder": [Function],
+          "onStartShouldSetPanResponder": [Function],
+          "onStartShouldSetPanResponderCapture": [Function],
+        }
+      }
+      style={
+        Object {
+          "justifyContent": "center",
+          "transform": Array [
+            Object {
+              "translateX": 0,
+            },
+            Object {
+              "translateY": 0,
+            },
+            Object {
+              "scale": 1,
+            },
+          ],
+          "width": 300,
+        }
+      }
+      testID="PINCH_ZOOM_CONTAINER"
     >
-      <View
+      <Image
+        onLoad={[Function]}
+        resizeMode="contain"
+        source={
+          Object {
+            "uri": "https://images.unsplash.com/photo-1519335337423-a3357c2cd12e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2168&q=80",
+          }
+        }
         style={
           Array [
             Object {
-              "maxWidth": 730,
-              "minHeight": 200,
-              "paddingBottom": 10,
-              "paddingLeft": 0,
-              "paddingRight": 0,
-              "paddingTop": 10,
+              "bottom": 0,
+              "width": 300,
+            },
+            Object {
+              "height": 300,
             },
           ]
         }
-      >
-        <Text
-          style={
-            Array [
-              Object {
-                "fontSize": 16,
-              },
-            ]
-          }
-        >
-          Image 1
-        </Text>
-        <Text
-          style={
-            Array [
-              Object {
-                "fontSize": 14,
-              },
-            ]
-          }
-        >
-          This line is for the description of the image
-        </Text>
-        <View
-          style={
-            Array [
-              Object {
-                "alignItems": "center",
-                "backgroundColor": "#CCC",
-                "height": 200,
-                "width": "100%",
-              },
-              Object {
-                "overflow": "hidden",
-              },
-            ]
-          }
-        >
-          <View
-            onLayout={[Function]}
-            responderCallback={
-              Object {
-                "onMoveShouldSetPanResponder": [Function],
-                "onMoveShouldSetPanResponderCapture": [Function],
-                "onPanResponderGrant": [Function],
-                "onPanResponderMove": [Function],
-                "onPanResponderRelease": [Function],
-                "onPanResponderTerminationRequest": [Function],
-                "onShouldBlockNativeResponder": [Function],
-                "onStartShouldSetPanResponder": [Function],
-                "onStartShouldSetPanResponderCapture": [Function],
-              }
-            }
-            style={
-              Object {
-                "height": 200,
-                "transform": Array [
-                  Object {
-                    "translateX": 0,
-                  },
-                  Object {
-                    "translateY": 0,
-                  },
-                  Object {
-                    "scale": 1,
-                  },
-                ],
-                "width": "100%",
-              }
-            }
-            testID="PINCH_ZOOM_CONTAINER"
-          >
-            <Image
-              onLoad={[Function]}
-              resizeMode="contain"
-              source={
-                Object {
-                  "uri": "https://images.unsplash.com/photo-1519335337423-a3357c2cd12e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2168&q=80",
-                }
-              }
-              style={
-                Object {
-                  "backgroundColor": "#fff",
-                  "height": 200,
-                  "width": "100%",
-                }
-              }
-            />
-          </View>
-        </View>
-      </View>
+      />
     </View>
     <View
       onLayout={[Function]}
-      style={null}
+      responderCallback={
+        Object {
+          "onMoveShouldSetPanResponder": [Function],
+          "onMoveShouldSetPanResponderCapture": [Function],
+          "onPanResponderGrant": [Function],
+          "onPanResponderMove": [Function],
+          "onPanResponderRelease": [Function],
+          "onPanResponderTerminationRequest": [Function],
+          "onShouldBlockNativeResponder": [Function],
+          "onStartShouldSetPanResponder": [Function],
+          "onStartShouldSetPanResponderCapture": [Function],
+        }
+      }
+      style={
+        Object {
+          "bottom": 0,
+          "justifyContent": "center",
+          "left": 300,
+          "position": "absolute",
+          "top": 0,
+          "transform": Array [
+            Object {
+              "translateX": 0,
+            },
+          ],
+          "width": 300,
+        }
+      }
+      testID="PINCH_ZOOM_CONTAINER"
     >
-      <View
+      <Image
+        onLoad={[Function]}
+        resizeMode="contain"
+        source={
+          Object {
+            "uri": "https://www.housingwire.com/wp-content/uploads/2019/09/Purple-technology-data-internet-3.jpg",
+          }
+        }
         style={
           Array [
             Object {
-              "maxWidth": 730,
-              "minHeight": 200,
-              "paddingBottom": 10,
-              "paddingLeft": 0,
-              "paddingRight": 0,
-              "paddingTop": 10,
+              "width": 300,
             },
-          ]
-        }
-      >
-        <Text
-          style={
-            Array [
-              Object {
-                "fontSize": 16,
-              },
-            ]
-          }
-        >
-          Image 2
-        </Text>
-        <Text
-          style={
-            Array [
-              Object {
-                "fontSize": 14,
-              },
-            ]
-          }
-        >
-          This line is for the description of the image
-        </Text>
-        <View
-          style={
-            Array [
-              Object {
-                "alignItems": "center",
-                "backgroundColor": "#CCC",
-                "height": 200,
-                "width": "100%",
-              },
-              Object {
-                "overflow": "hidden",
-              },
-            ]
-          }
-        >
-          <View
-            onLayout={[Function]}
-            responderCallback={
-              Object {
-                "onMoveShouldSetPanResponder": [Function],
-                "onMoveShouldSetPanResponderCapture": [Function],
-                "onPanResponderGrant": [Function],
-                "onPanResponderMove": [Function],
-                "onPanResponderRelease": [Function],
-                "onPanResponderTerminationRequest": [Function],
-                "onShouldBlockNativeResponder": [Function],
-                "onStartShouldSetPanResponder": [Function],
-                "onStartShouldSetPanResponderCapture": [Function],
-              }
-            }
-            style={
-              Object {
-                "height": 200,
-                "transform": Array [
-                  Object {
-                    "translateX": 0,
-                  },
-                  Object {
-                    "translateY": 0,
-                  },
-                  Object {
-                    "scale": 1,
-                  },
-                ],
-                "width": "100%",
-              }
-            }
-            testID="PINCH_ZOOM_CONTAINER"
-          >
-            <Image
-              onLoad={[Function]}
-              resizeMode="contain"
-              source={
-                Object {
-                  "uri": "https://www.housingwire.com/wp-content/uploads/2019/09/Purple-technology-data-internet-3.jpg",
-                }
-              }
-              style={
-                Object {
-                  "backgroundColor": "#fff",
-                  "height": 200,
-                  "width": "100%",
-                }
-              }
-            />
-          </View>
-        </View>
-      </View>
-    </View>
-    <View
-      onLayout={[Function]}
-      style={null}
-    >
-      <View
-        style={
-          Array [
             Object {
-              "maxWidth": 730,
-              "minHeight": 200,
-              "paddingBottom": 10,
-              "paddingLeft": 0,
-              "paddingRight": 0,
-              "paddingTop": 10,
+              "height": 300,
             },
           ]
         }
-      >
-        <Text
-          style={
-            Array [
-              Object {
-                "fontSize": 16,
-              },
-            ]
-          }
-        >
-          Image 3
-        </Text>
-        <Text
-          style={
-            Array [
-              Object {
-                "fontSize": 14,
-              },
-            ]
-          }
-        >
-          This line is for the description of the image
-        </Text>
-        <View
-          style={
-            Array [
-              Object {
-                "alignItems": "center",
-                "backgroundColor": "#CCC",
-                "height": 200,
-                "width": "100%",
-              },
-              Object {
-                "overflow": "hidden",
-              },
-            ]
-          }
-        >
-          <View
-            onLayout={[Function]}
-            responderCallback={
-              Object {
-                "onMoveShouldSetPanResponder": [Function],
-                "onMoveShouldSetPanResponderCapture": [Function],
-                "onPanResponderGrant": [Function],
-                "onPanResponderMove": [Function],
-                "onPanResponderRelease": [Function],
-                "onPanResponderTerminationRequest": [Function],
-                "onShouldBlockNativeResponder": [Function],
-                "onStartShouldSetPanResponder": [Function],
-                "onStartShouldSetPanResponderCapture": [Function],
-              }
-            }
-            style={
-              Object {
-                "height": 200,
-                "transform": Array [
-                  Object {
-                    "translateX": 0,
-                  },
-                  Object {
-                    "translateY": 0,
-                  },
-                  Object {
-                    "scale": 1,
-                  },
-                ],
-                "width": "100%",
-              }
-            }
-            testID="PINCH_ZOOM_CONTAINER"
-          >
-            <Image
-              onLoad={[Function]}
-              resizeMode="contain"
-              source={
-                Object {
-                  "uri": "https://images.unsplash.com/photo-1587628736664-fdc50efb57b7?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=668&q=80",
-                }
-              }
-              style={
-                Object {
-                  "backgroundColor": "#fff",
-                  "height": 200,
-                  "width": "100%",
-                }
-              }
-            />
-          </View>
-        </View>
-      </View>
+      />
     </View>
-    <View
-      onLayout={[Function]}
-      style={null}
-    >
-      <View
-        style={
-          Array [
-            Object {
-              "maxWidth": 730,
-              "minHeight": 200,
-              "paddingBottom": 10,
-              "paddingLeft": 0,
-              "paddingRight": 0,
-              "paddingTop": 10,
-            },
-          ]
-        }
-      >
-        <Text
-          style={
-            Array [
-              Object {
-                "fontSize": 16,
-              },
-            ]
-          }
-        >
-          Image 4
-        </Text>
-        <Text
-          style={
-            Array [
-              Object {
-                "fontSize": 14,
-              },
-            ]
-          }
-        >
-          This line is for the description of the image
-        </Text>
-        <View
-          style={
-            Array [
-              Object {
-                "alignItems": "center",
-                "backgroundColor": "#CCC",
-                "height": 200,
-                "width": "100%",
-              },
-              Object {
-                "overflow": "hidden",
-              },
-            ]
-          }
-        >
-          <View
-            onLayout={[Function]}
-            responderCallback={
-              Object {
-                "onMoveShouldSetPanResponder": [Function],
-                "onMoveShouldSetPanResponderCapture": [Function],
-                "onPanResponderGrant": [Function],
-                "onPanResponderMove": [Function],
-                "onPanResponderRelease": [Function],
-                "onPanResponderTerminationRequest": [Function],
-                "onShouldBlockNativeResponder": [Function],
-                "onStartShouldSetPanResponder": [Function],
-                "onStartShouldSetPanResponderCapture": [Function],
-              }
-            }
-            style={
-              Object {
-                "height": 200,
-                "transform": Array [
-                  Object {
-                    "translateX": 0,
-                  },
-                  Object {
-                    "translateY": 0,
-                  },
-                  Object {
-                    "scale": 1,
-                  },
-                ],
-                "width": "100%",
-              }
-            }
-            testID="PINCH_ZOOM_CONTAINER"
-          >
-            <Image
-              onLoad={[Function]}
-              resizeMode="contain"
-              source={
-                Object {
-                  "uri": "https://p.bigstockphoto.com/eIdTXLbqQilMs9xbjvcs_bigstock-Aerial-View-Of-Sandy-Beach-Wit-256330393.jpg",
-                }
-              }
-              style={
-                Object {
-                  "backgroundColor": "#fff",
-                  "height": 200,
-                  "width": "100%",
-                }
-              }
-            />
-          </View>
-        </View>
-      </View>
-    </View>
-    <View
-      onLayout={[Function]}
-      style={null}
-    >
-      <View
-        style={
-          Array [
-            Object {
-              "maxWidth": 730,
-              "minHeight": 200,
-              "paddingBottom": 10,
-              "paddingLeft": 0,
-              "paddingRight": 0,
-              "paddingTop": 10,
-            },
-          ]
-        }
-      >
-        <Text
-          style={
-            Array [
-              Object {
-                "fontSize": 16,
-              },
-            ]
-          }
-        >
-          Image 5
-        </Text>
-        <Text
-          style={
-            Array [
-              Object {
-                "fontSize": 14,
-              },
-            ]
-          }
-        >
-          This line is for the description of the image
-        </Text>
-        <View
-          style={
-            Array [
-              Object {
-                "alignItems": "center",
-                "backgroundColor": "#CCC",
-                "height": 200,
-                "width": "100%",
-              },
-              Object {
-                "overflow": "hidden",
-              },
-            ]
-          }
-        >
-          <View
-            onLayout={[Function]}
-            responderCallback={
-              Object {
-                "onMoveShouldSetPanResponder": [Function],
-                "onMoveShouldSetPanResponderCapture": [Function],
-                "onPanResponderGrant": [Function],
-                "onPanResponderMove": [Function],
-                "onPanResponderRelease": [Function],
-                "onPanResponderTerminationRequest": [Function],
-                "onShouldBlockNativeResponder": [Function],
-                "onStartShouldSetPanResponder": [Function],
-                "onStartShouldSetPanResponderCapture": [Function],
-              }
-            }
-            style={
-              Object {
-                "height": 200,
-                "transform": Array [
-                  Object {
-                    "translateX": 0,
-                  },
-                  Object {
-                    "translateY": 0,
-                  },
-                  Object {
-                    "scale": 1,
-                  },
-                ],
-                "width": "100%",
-              }
-            }
-            testID="PINCH_ZOOM_CONTAINER"
-          >
-            <Image
-              onLoad={[Function]}
-              resizeMode="contain"
-              source={
-                Object {
-                  "uri": "https://avatars2.githubusercontent.com/u/7970947?v=3&s=460",
-                }
-              }
-              style={
-                Object {
-                  "backgroundColor": "#fff",
-                  "height": 200,
-                  "width": "100%",
-                }
-              }
-            />
-          </View>
-        </View>
-      </View>
-    </View>
-  </ScrollView>
+  </View>
 </View>
 `;

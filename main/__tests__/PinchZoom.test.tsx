@@ -8,7 +8,7 @@ import {
   openGesture,
 } from './data/capturedGesture';
 
-import { ImageList } from '../PinchZoom/PinchZoom.example';
+import { ImageSlider } from '../PinchZoom/PinchZoom.example';
 import { PanResponderCallbacks } from 'react-native';
 import renderer from 'react-test-renderer';
 
@@ -31,20 +31,20 @@ jest.mock('react-native/Libraries/Interaction/PanResponder', () => {
   };
 });
 
-describe('[PinchZoom] of ImageList render', () => {
-  it(' should renders without crashing', () => {
-    const rendered: renderer.ReactTestRendererJSON | null = renderer
-      .create(<ImageList />)
+describe('PinchZoom of ImageSlider', () => {
+  it('should renders without crashing', () => {
+    const renderedJSON: renderer.ReactTestRendererJSON | null = renderer
+      .create(<ImageSlider />)
       .toJSON();
-    expect(rendered).toMatchSnapshot();
-    expect(rendered).toBeTruthy();
+    expect(renderedJSON).toMatchSnapshot();
+    expect(renderedJSON).toBeTruthy();
   });
 
-  describe('ImageList interaction test', () => {
-    const rendered: RenderResult = render(<ImageList />);
-    const pinchZoomContainer = rendered.getAllByTestId('PINCH_ZOOM_CONTAINER')[Math.floor(Math.random() * 5)];
+  describe('Interactions', () => {
+    const rendered: RenderResult = render(<ImageSlider />);
+    const pinchZoomContainer = rendered.getAllByTestId('PINCH_ZOOM_CONTAINER')[0];
 
-    it(' should set the center of layout position when onLayout called', () => {
+    it('should set the center of layout position when onLayout called', () => {
       act(() => {
         fireEvent.layout(pinchZoomContainer, {
           nativeEvent: {
@@ -57,7 +57,7 @@ describe('[PinchZoom] of ImageList render', () => {
       });
     });
 
-    it(' should zoom in by openGesture', () => {
+    it('should zoom in by openGesture', () => {
       act(() => {
         const callBacks = pinchZoomContainer.props.responderCallback;
         openGesture.forEach(({ name, nativeEvent, gestureState }) => {
@@ -84,7 +84,7 @@ describe('[PinchZoom] of ImageList render', () => {
         .toBeCloseTo(zoomInPosition.y - TEST_CONTAINER_CENTER.y - translateY);
     });
 
-    it(' should be moved by moveGesture when it zoomed in', () => {
+    it('should be moved by moveGesture when it zoomed in', () => {
       const { transform } = pinchZoomContainer.props.style;
 
       const prevScale = transform.find(({ scale }) => scale != null).scale;
@@ -113,7 +113,7 @@ describe('[PinchZoom] of ImageList render', () => {
       expect(translateY).toBeCloseTo(prevTranslateY + lastMoveGestureState.dy);
     });
 
-    it(' should zoom out by closeGesture', () => {
+    it('should zoom out by closeGesture', () => {
       act(() => {
         const callBacks = pinchZoomContainer.props.responderCallback;
         closeGesture.forEach(({ name, nativeEvent, gestureState }) => {
@@ -133,6 +133,49 @@ describe('[PinchZoom] of ImageList render', () => {
       expect(scale).toEqual(1);
       expect(translateX).toEqual(0);
       expect(translateY).toEqual(0);
+    });
+
+    it('should release onTranslateChanged function if the property changed.', () => {
+      const callBacks = pinchZoomContainer.props.responderCallback;
+      act(() => {
+        callBacks.onPanResponderGrant();
+        callBacks.onPanResponderMove({
+          nativeEvent: {
+            identifier: 0,
+            locationX: 247,
+            locationY: 95,
+            touches: [
+              'Self',
+            ],
+          },
+        }, { dx: 0, dy: 0 });
+        callBacks.onPanResponderMove({
+          nativeEvent: {
+            identifier: 0,
+            locationX: 47,
+            locationY: 95,
+            touches: [
+              'Self',
+            ],
+          },
+        }, { dx: -200, dy: 0 });
+      });
+
+      const { transform } = pinchZoomContainer.props.style;
+      const scale = transform.find(({ scale }) => scale != null).scale;
+      const translateX = transform.find(({ translateX }) => translateX != null).translateX;
+      const translateY = transform.find(({ translateY }) => translateY != null).translateY;
+
+      expect(scale).toEqual(1);
+      expect(translateX).toEqual(-200);
+      expect(translateY).toEqual(0);
+
+      act(() => {
+        // Call onRelease and the pinchzoom move to -300
+        callBacks.onPanResponderRelease();
+      });
+      jest.runAllTimers();
+      expect(pinchZoomContainer.props.style.left).toEqual(-300);
     });
   });
 });
