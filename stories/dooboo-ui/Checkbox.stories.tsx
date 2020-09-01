@@ -1,6 +1,7 @@
 import React, { ReactElement } from 'react';
 
-import { Checkbox } from '../../main';
+// eslint-disable-next-line sort-imports
+import { CheckboxGroup } from '../../main';
 import { ContainerDeco } from '../../storybook/decorators';
 
 import { storiesOf } from '@storybook/react-native';
@@ -21,48 +22,40 @@ const Container = styled.View`
 `;
 
 const Selected = styled.Text`
-  padding: 10px;
+  padding: 20px;
   font-size: 13px;
   font-weight: bold;
 `;
 
 function Default(): React.ReactElement {
-  const [selected, setSelected] = React.useState<Array<string|number>>([]);
-
-  const onPressItem = (value : string): void => {
-    if (selected.indexOf(value) > -1) { setSelected(selected.filter((item) => item !== value)); } else {
-      setSelected((prevArray) => [...prevArray, value]);
-    }
-  };
-
   return (
     <ScrollContainer>
       <Container>
 
-        <Selected>Selected: {selected}</Selected>
+        <Selected>Selected: {1}</Selected>
 
-        <Checkbox
-          value={'female'}
-          labelText={'Female'}
+        <CheckboxGroup
+          boxSize={20}
           boxColor={'orange'}
-          selectedValue={selected}
-          onPress={(value: string): void => onPressItem(value)}
-        />
-
-        <Checkbox
-          value={'male'}
-          labelText={'male'}
-          boxColor={'orange'}
-          selectedValue={selected}
-          onPress={(value: string): void => onPressItem(value)}
-        />
-
-        <Checkbox
-          value={'animal'}
-          labelText={'animal'}
-          boxColor={'orange'}
-          selectedValue={selected}
-          onPress={(value: string): void => onPressItem(value)}
+          labelSize={20}
+          labelColor={'#000000'}
+          selectedValue={[
+            {
+              label: 'first',
+              value: 1,
+              selected: true,
+            },
+            {
+              label: 'second',
+              value: 2,
+              selected: false,
+            },
+            {
+              label: 'third',
+              value: 3,
+              selected: false,
+            },
+          ]}
         />
       </Container>
     </ScrollContainer>

@@ -1,48 +1,27 @@
 import * as React from 'react';
-import { Checkbox } from '../Checkbox';
+
+import { CheckboxGroup } from '../Checkbox';
+
 import renderer from 'react-test-renderer';
 
-// Note: test renderer must be required after react-native.
-jest.useFakeTimers();
-
-let props: unknown;
-// let component: React.ReactElement;
-// let testingLib: RenderResult;
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+let props: any;
+let component: React.ReactElement;
 
 const createTestProps = (obj: Record<string, unknown>): Record<string, unknown> => ({
-  navigation: {
-    navigate: jest.fn(),
-  },
   ...obj,
 });
 
-const component = (props?): React.ReactElement => {
-  return <Checkbox {...props} />;
-};
-
-describe('[Checkbox] render', () => {
+describe('[CheckboxGroup] render', () => {
   beforeEach(() => {
     props = createTestProps({});
+    component = <CheckboxGroup {...props} />;
   });
-
   it('renders without crashing', () => {
     const rendered: renderer.ReactTestRendererJSON | null = renderer
-      .create(component(props))
+      .create(component)
       .toJSON();
     expect(rendered).toMatchSnapshot();
     expect(rendered).toBeTruthy();
-  });
-
-  describe('[Checkbox] Interaction', (): void => {
-    it('should simulate props', (): void => {
-      const rendered = renderer.create(
-        component({
-          testID: 'RADIOBUTTON_ID',
-        }),
-      );
-
-      expect(rendered).toMatchSnapshot();
-      expect(rendered).toBeTruthy();
-    });
   });
 });
