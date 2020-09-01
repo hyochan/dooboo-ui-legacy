@@ -1,4 +1,4 @@
-import React, { FC, useCallback, useState } from 'react';
+import React, { FC, useState } from 'react';
 import {
   TouchableHighlight,
 } from 'react-native';
@@ -16,7 +16,7 @@ interface LabelProps {
 }
 
 interface MarkerProps {
-  isChecked: boolean
+  isSelected: boolean
 }
 
 const Container = styled.View`
@@ -35,7 +35,7 @@ const Marker = styled.View<MarkerProps>`
  flex: 1;
  justify-content: center;
  align-items: center;
- background-color: ${({ isChecked }): string => isChecked ? 'transparent' : '#ffffff'};
+ background-color: ${({ isSelected }): string => isSelected ? 'transparent' : '#ffffff'};
 `;
 
 const MarkerImg = styled.Image`
@@ -51,55 +51,94 @@ const Label = styled.Text<LabelProps>`
  color: ${({ labelColor }): string => labelColor || '#000000'};
 `;
 
-interface Props {
-  boxSize?: number
-  boxColor?: string
-  defaultChecked?: boolean
-  disabled?: boolean
-  onStateChange?(): void
-  labelText?: string
-  labelSize?: number
-  labelColor?: string
+interface CheckboxGroupProps {
+  selectedValue: { label: string; value: string | number; selected: boolean; }[];
+  boxSize?: number;
+  boxColor?: string;
+  labelSize?: number;
+  labelColor?: string;
 }
 
-const Checkbox: FC<Props> = ({
-  boxSize = 20,
-  boxColor = '#cecece',
-  labelText = 'default',
-  labelSize = 20,
-  labelColor = '#000000',
-  defaultChecked = false,
-  onStateChange = ():void => {},
+interface CheckboxProps {
+  boxSize?: number;
+  boxColor?: string;
+  defaultChecked?: boolean;
+  disabled?: boolean;
+  onPress?: (value: string | number) => void;
+  labelSize?: number;
+  labelColor?: string;
+  item: { label: string; value: string | number; selected: boolean; }
+}
+
+const CheckboxGroup: FC<CheckboxGroupProps> = ({
+  selectedValue = [],
+  boxSize,
+  boxColor,
+  labelSize,
+  labelColor,
+}) => {
+  const [selected, setSelected] = useState(selectedValue);
+
+  const onSelect = (item) : void => {
+    setSelected(selected.map((i) => i.value === item ? { ...i, selected: !i.selected } : i));
+  };
+
+  return (
+    <Container>
+      {selected.map((value, index) => {
+        return (
+          <Checkbox
+            key={index}
+            boxSize={boxSize}
+            boxColor = {boxColor}
+            defaultChecked = {false}
+            disabled = {false}
+            labelSize = {labelSize}
+            onPress = {onSelect}
+            labelColor = {labelColor}
+            item = {value}
+          />
+        );
+      })}
+    </Container>
+  );
+};
+
+const Checkbox: FC<CheckboxProps> = ({
+  boxSize,
+  boxColor,
+  labelSize,
+  labelColor,
+  onPress,
+  item,
   /* TODO  */
+  defaultChecked = false,
   // disabled = false,
 }) => {
-  const [isChecked, setIstChecked] = useState<boolean>(defaultChecked);
-  const onPress = useCallback(() => {
-    setIstChecked((prevIsChecked) => !prevIsChecked);
-    onStateChange();
-  }, [onStateChange]);
+  const isSelected = item.selected || defaultChecked;
+
   return (
     <TouchableHighlight
-      onPress={onPress}
+      onPress={(): void => onPress?.(item.value)}
       underlayColor="transparent"
-      style={{ marginVertical: 20 }}>
+      style={{ marginHorizontal: 20 }}>
       <Container>
         <MarkerContainer
           boxSize={boxSize}
           boxColor={boxColor}
         >
-          <Marker isChecked={isChecked}>
-            {isChecked && <MarkerImg
+          <Marker isSelected={isSelected}>
+            {isSelected && <MarkerImg
               source={require('../__assets__/check_tick.png')}
             />}
           </Marker>
         </MarkerContainer>
         <Label labelSize={labelSize} labelColor={labelColor}>
-          {labelText}
+          {item.label}
         </Label>
       </Container>
     </TouchableHighlight>
   );
 };
 
-export { Checkbox };
+export { CheckboxGroup, Checkbox };

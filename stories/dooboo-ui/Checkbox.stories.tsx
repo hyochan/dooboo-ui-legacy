@@ -1,6 +1,7 @@
 import React, { ReactElement } from 'react';
 
-import { Checkbox } from '../../main';
+// eslint-disable-next-line sort-imports
+import { CheckboxGroup } from '../../main';
 import { ContainerDeco } from '../../storybook/decorators';
 
 import { storiesOf } from '@storybook/react-native';
@@ -20,11 +21,42 @@ const Container = styled.View`
   flex-direction: column;
 `;
 
+const Selected = styled.Text`
+  padding: 20px;
+  font-size: 13px;
+  font-weight: bold;
+`;
+
 function Default(): React.ReactElement {
   return (
     <ScrollContainer>
       <Container>
-        <Checkbox/>
+
+        <Selected>Selected: {1}</Selected>
+
+        <CheckboxGroup
+          boxSize={20}
+          boxColor={'orange'}
+          labelSize={20}
+          labelColor={'#000000'}
+          selectedValue={[
+            {
+              label: 'first',
+              value: 1,
+              selected: true,
+            },
+            {
+              label: 'second',
+              value: 2,
+              selected: false,
+            },
+            {
+              label: 'third',
+              value: 3,
+              selected: false,
+            },
+          ]}
+        />
       </Container>
     </ScrollContainer>
   );
