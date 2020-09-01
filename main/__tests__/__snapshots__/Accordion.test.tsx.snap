@@ -43,7 +43,6 @@ exports[`[Accordion] render test should adjust duration of animation depends on 
             Array [
               Object {
                 "backgroundColor": "#141414",
-                "display": "flex",
                 "height": 50,
                 "justifyContent": "center",
                 "zIndex": 10,
@@ -195,7 +194,6 @@ exports[`[Accordion] render test should adjust duration of animation depends on 
             Array [
               Object {
                 "backgroundColor": "#141414",
-                "display": "flex",
                 "height": 50,
                 "justifyContent": "center",
                 "zIndex": 10,
@@ -350,7 +348,6 @@ exports[`[Accordion] render test should adjust duration of animation depends on 
             Array [
               Object {
                 "backgroundColor": "#141414",
-                "display": "flex",
                 "height": 50,
                 "justifyContent": "center",
                 "zIndex": 10,
@@ -531,7 +528,6 @@ exports[`[Accordion] render test should operate animation when isAnimated props 
             Array [
               Object {
                 "backgroundColor": "#141414",
-                "display": "flex",
                 "height": 50,
                 "justifyContent": "center",
                 "zIndex": 10,
@@ -683,7 +679,6 @@ exports[`[Accordion] render test should operate animation when isAnimated props 
             Array [
               Object {
                 "backgroundColor": "#141414",
-                "display": "flex",
                 "height": 50,
                 "justifyContent": "center",
                 "zIndex": 10,
@@ -838,7 +833,6 @@ exports[`[Accordion] render test should operate animation when isAnimated props 
             Array [
               Object {
                 "backgroundColor": "#141414",
-                "display": "flex",
                 "height": 50,
                 "justifyContent": "center",
                 "zIndex": 10,
@@ -1019,7 +1013,6 @@ exports[`[Accordion] render test should render collapsed when collapseOnStart pr
             Array [
               Object {
                 "backgroundColor": "#141414",
-                "display": "flex",
                 "height": 50,
                 "justifyContent": "center",
                 "zIndex": 10,
@@ -1171,7 +1164,6 @@ exports[`[Accordion] render test should render collapsed when collapseOnStart pr
             Array [
               Object {
                 "backgroundColor": "#141414",
-                "display": "flex",
                 "height": 50,
                 "justifyContent": "center",
                 "zIndex": 10,
@@ -1326,7 +1318,6 @@ exports[`[Accordion] render test should render collapsed when collapseOnStart pr
             Array [
               Object {
                 "backgroundColor": "#141414",
-                "display": "flex",
                 "height": 50,
                 "justifyContent": "center",
                 "zIndex": 10,
@@ -1507,7 +1498,6 @@ exports[`[Accordion] render test should render without crasing 1`] = `
             Array [
               Object {
                 "backgroundColor": "#141414",
-                "display": "flex",
                 "height": 50,
                 "justifyContent": "center",
                 "zIndex": 10,
@@ -1659,7 +1649,6 @@ exports[`[Accordion] render test should render without crasing 1`] = `
             Array [
               Object {
                 "backgroundColor": "#141414",
-                "display": "flex",
                 "height": 50,
                 "justifyContent": "center",
                 "zIndex": 10,
@@ -1814,7 +1803,6 @@ exports[`[Accordion] render test should render without crasing 1`] = `
             Array [
               Object {
                 "backgroundColor": "#141414",
-                "display": "flex",
                 "height": 50,
                 "justifyContent": "center",
                 "zIndex": 10,
