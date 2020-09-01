@@ -1,4 +1,6 @@
 ## Changelogs
+= **[0.0.16]**
+  * Major refactor [Accordion], Add `renderTitle`, `renderBody`, `titleContainerStyle`, `bodyContainerStyle` and etc [#321](https://github.com/dooboolab/dooboo-ui/pull/321)
 - **[0.0.15]**
   * Add `contentStyle` to [EditText] [#264](https://github.com/dooboolab/dooboo-ui/pull/264)
   * Types fixes
