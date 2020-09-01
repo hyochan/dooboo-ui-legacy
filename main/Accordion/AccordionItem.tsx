@@ -10,7 +10,6 @@ import { Datum } from './index';
 import styled from 'styled-components/native';
 
 const TitleContainer = styled.TouchableOpacity`
-  display: flex;
   justify-content: center;
   background-color: #141414;
   height: 50px;
@@ -35,7 +34,7 @@ const StyledItem = styled.Text`
   font-weight: bold;
 `;
 
-type toggleIndicatorType = React.ReactElement | undefined;
+type ToggleIndicatorType = React.ReactElement | undefined;
 
 interface TranslateYType {
   translateY: Animated.Value;
@@ -105,7 +104,7 @@ const AccordionItem: FC<Props> = (props) => {
     );
   };
 
-  const renderIndicator = (toggleElement: toggleIndicatorType): React.ReactElement => {
+  const renderIndicator = (toggleElement: ToggleIndicatorType): React.ReactElement => {
     return (
       <Animated.View
         style={{
