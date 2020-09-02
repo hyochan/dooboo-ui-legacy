@@ -43,10 +43,10 @@ const Badge1 = (): React.ReactElement => {
         <Container>
           <View style={{ marginTop: 50 }}>
             <StyledTitle>
-              Badge (maximumValue)
+              Badge (default)
             </StyledTitle>
             <StyledView>
-              <Badge color="red" count={1000} maximumValue={999} />
+              <Badge />
             </StyledView>
           </View>
 
