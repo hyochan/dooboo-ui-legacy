@@ -63,6 +63,7 @@ const DatePicker = (props: Props): React.ReactElement => {
         onBackdropPress={(): void => {
           setCalendarVisible(false);
         }}
+        containerStyle={{ width: 300, height: 450 }}
       />
       {/* <TouchableOpacity
         onPress={(): void => {

@@ -48,6 +48,8 @@ function CalendarMonth<T>(props: PropsWithChildren<Props<T>>): ReactElement {
   const sMonth = startDate.getMonth();
   const sDate = startDate.getDate();
 
+  props.today.getMonth() === thisMonth &&
+    console.log('>> startDate = ', startDate.toLocaleString());
   const datesOfMonth: Date[] = []; // Dates to be displayed on this month's calendar
   for (let i = 0; i < 42; i++) {
     const date = new Date(sYear, sMonth, sDate + i);
@@ -55,9 +57,11 @@ function CalendarMonth<T>(props: PropsWithChildren<Props<T>>): ReactElement {
   }
   // 1 주 렌더링
   const renderWeek = (dates: Date[], key): React.ReactElement => {
-    // console.log(days);
+    props.today.getMonth() === thisMonth &&
+      console.log('>> startDate = ', dates);
     const week = dates.map((date, index) => {
-      const isCurMonth = date.getMonth() === thisMonth;
+      const isCurMonth =
+        date.getFullYear() === thisYear && date.getMonth() === thisMonth;
       return props.dayComponent({
         date: date,
         dailyData:
@@ -65,6 +69,10 @@ function CalendarMonth<T>(props: PropsWithChildren<Props<T>>): ReactElement {
           props.dailyCalData[`${convertDateString(date)}`],
         isCurMonth: isCurMonth,
         isToday: convertDateString(props.today) === convertDateString(date),
+        style: {
+          width: props.calendarWidth / 7,
+          height: '100%',
+        },
       });
     });
     return (
@@ -72,10 +80,12 @@ function CalendarMonth<T>(props: PropsWithChildren<Props<T>>): ReactElement {
         key={key}
         style={{
           flexDirection: 'row',
-          width: '100%',
-          // height: props.calendarHeight / 6,
+          width: props.calendarWidth,
+          height: props.calendarHeight / 6,
           justifyContent: 'space-between',
-          paddingHorizontal: 2,
+          paddingHorizontal: 0,
+          borderWidth: 0,
+          borderColor: 'blue',
         }}>
         {week}
       </View>
@@ -89,7 +99,6 @@ function CalendarMonth<T>(props: PropsWithChildren<Props<T>>): ReactElement {
   }
   return (
     <>
-      {/** 요일 표시 */}
       <View
         style={{
           ...props.style,

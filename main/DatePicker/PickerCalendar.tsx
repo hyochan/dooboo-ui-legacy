@@ -1,17 +1,8 @@
-import {
-  Modal,
-  SafeAreaView,
-  TextStyle,
-  TouchableOpacity,
-  TouchableWithoutFeedback,
-  View,
-  ViewStyle,
-} from 'react-native';
+import { Modal, TouchableOpacity, ViewStyle } from 'react-native';
 import React, { FC } from 'react';
 
 import Calendar from './Calendar/Calendar';
 import CalendarDate from './Calendar/CalendarDate';
-import DateInput from './DateInput';
 import styled from 'styled-components/native';
 
 const ModalContainer = styled.TouchableWithoutFeedback`
@@ -27,7 +18,7 @@ const ModalContentsWrapper = styled.View`
   align-items: center;
   justify-content: center;
   background-color: 'rgba(0,0,0,0.4)';
-  border-width: 5px;
+  border-width: 0px;
   border-color: blue;
 `;
 const CalendarContainer = styled.TouchableWithoutFeedback``;
@@ -36,10 +27,10 @@ const CalendarContentsWrapper = styled.View`
   border-radius: 10px;
   align-items: center;
   padding: 10px;
-  border-width: 1px;
+  border-width: 0px;
   border-color: red;
-  width: 300;
-  height: 300;
+  width: 210px;
+  height: 250px;
 `;
 const TempText = styled.Text``;
 
@@ -54,18 +45,22 @@ interface Props {
 const PickerCalendar: FC<Props> = (props) => {
   const [selectedDate, setSelectedDate] = React.useState<Date>();
   const [pickerOpen, setPickerOpen] = React.useState<boolean>(false);
-
+  const [contentWidth, setContentWidth] = React.useState<number>(210);
+  const [contentHeight, setContentHeight] = React.useState<number>(210);
   return (
     <Modal visible={props.visible} transparent={true} animationType={'fade'}>
-      <ModalContainer
-        style={props.containerStyle}
-        onPress={props.onBackdropPress}>
+      <ModalContainer onPress={props.onBackdropPress}>
         <ModalContentsWrapper pointerEvents={'auto'}>
           <CalendarContainer>
-            <CalendarContentsWrapper>
+            <CalendarContentsWrapper
+              style={props.containerStyle}
+              onLayout={(e): void => {
+                setContentWidth(e.nativeEvent.layout.width);
+                setContentHeight(e.nativeEvent.layout.height);
+              }}>
               <Calendar
-                calendarHeight={210}
-                calendarWidth={210}
+                calendarWidth={contentWidth}
+                calendarHeight={contentHeight}
                 onChangeMonth={(month): void => {
                   console.log('Changed Month : ', month);
                 }}
@@ -74,7 +69,7 @@ const PickerCalendar: FC<Props> = (props) => {
                   // width: screenWidth,
                   // height: calendarHeight,
                   overflow: 'hidden',
-                  borderWidth: 1,
+                  borderWidth: 0,
                   borderColor: 'red',
                 }}
                 dayComponent={({
@@ -82,11 +77,13 @@ const PickerCalendar: FC<Props> = (props) => {
                   dailyData,
                   isCurMonth,
                   isToday,
+                  style,
                 }: {
                   date: Date;
                   dailyData: { [key: string]: any };
                   isCurMonth: boolean;
                   isToday: boolean;
+                  style: ViewStyle;
                 }): React.ReactElement => {
                   return (
                     <CalendarDate
@@ -95,9 +92,10 @@ const PickerCalendar: FC<Props> = (props) => {
                       }}
                       date={date}
                       style={{
-                        width: 40,
+                        ...style,
+                        // width: 30,
                         // flex: 1,
-                        height: 35,
+                        // height: 35,
                         borderBottomWidth: 1,
                         borderBottomColor: '#efefef',
                       }}
@@ -109,10 +107,10 @@ const PickerCalendar: FC<Props> = (props) => {
                   );
                 }}
               />
-              <TempText>{'가나다라..'}</TempText>
+              {/* <TempText>{'가나다라..'}</TempText>
               <TouchableOpacity>
                 <TempText>{'123123123'}</TempText>
-              </TouchableOpacity>
+              </TouchableOpacity> */}
             </CalendarContentsWrapper>
           </CalendarContainer>
         </ModalContentsWrapper>

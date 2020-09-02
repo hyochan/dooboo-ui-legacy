@@ -84,17 +84,13 @@ function Calendar<T>(props: Props<T>): React.ReactElement {
         <MemoizedCalendarMonth
           monthDate={item}
           dayComponent={props.dayComponent}
-          calendarHeight={props.calendarHeight}
+          calendarHeight={props.calendarHeight - 22}
           calendarWidth={props.calendarWidth}
           style={{
-            flexDirection: 'row',
             width: props.calendarWidth,
-            height: props.calendarHeight,
+            height: props.calendarHeight - 22,
             borderWidth: 0,
             borderColor: 'black',
-            flexWrap: 'wrap',
-            alignItems: 'center',
-            justifyContent: 'center',
           }}
           today={initDate}
         />
@@ -110,22 +106,15 @@ function Calendar<T>(props: Props<T>): React.ReactElement {
     },
     [],
   );
-  // const onViewRef = React.useRef(({ viewableItems, changed }) => {
-  //   if (viewableItems.length === 0) return; // 없는 경우 있음. 그냥 무시
-  //   const { index, isViewable, item, key } = viewableItems[0];
-  //   props.onChangeMonth && props.onChangeMonth(item.toDate());
-  // });
-  // const viewConfigRef = React.useRef({
-  //   viewAreaCoveragePercentThreshold: 50 /* , minimumViewTime: 1500  */,
-  // });
   return (
     <View
       style={{
         ...props.containerStyle,
+        borderWidth: 0,
+        borderColor: 'yellow',
       }}>
       {/** 요일 표시 */}
       <CalendarDaysRow style={{ height: 22 }} />
-
       <FlatList
         // onLayout={onLayout}
         // ref={(c) => this.listView = c}
@@ -133,13 +122,15 @@ function Calendar<T>(props: Props<T>): React.ReactElement {
         style={{
           width: props.calendarWidth,
           height: props.calendarHeight - 22,
+          borderColor: 'black',
+          borderWidth: 0,
         }}
         data={monthList}
         // snapToAlignment='start'
         // snapToInterval={this.calendarHeight}
         removeClippedSubviews={true}
         initialNumToRender={1}
-        windowSize={3}
+        windowSize={2}
         horizontal={true}
         pagingEnabled={true}
         onViewableItemsChanged={onViewableItemsChanged} // onViewableItemsChanged}

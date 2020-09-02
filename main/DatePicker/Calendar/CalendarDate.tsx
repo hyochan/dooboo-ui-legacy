@@ -4,14 +4,14 @@ import React from 'react';
 import styled from 'styled-components/native';
 
 const DateRound = styled.View`
-  width: 20;
-  height: 20;
+  width: 20px;
+  height: 20px;
   align-items: center;
   justify-content: center;
 `;
 const DateText = styled.Text`
   /* font-family: NotoSansCJKkr-Regular; */
-  font-size: 12;
+  font-size: 12px;
   color: #565656;
   /* line-height: 16; */
 `;
@@ -20,7 +20,7 @@ const StyledTouchable = styled.TouchableOpacity``;
 // 날짜 영역
 const DateRow = styled.View`
   width: 100%;
-  height: 25;
+  height: 25px;
   align-items: center;
   justify-content: center;
 `;
