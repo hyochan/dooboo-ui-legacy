@@ -1,5 +1,5 @@
 import React, { ReactElement } from 'react';
-import { Text, ScrollView } from 'react-native';
+import { Text } from 'react-native';
 
 // @TODO
 // eslint-disable-next-line sort-imports
@@ -7,6 +7,10 @@ import { Card } from '../../main';
 import { ContainerDeco } from '../../storybook/decorators';
 import { storiesOf } from '@storybook/react-native';
 import styled from 'styled-components/native';
+
+const ScrollContainer = styled.ScrollView`
+  width: 100%;
+`;
 
 const Container = styled.View`
   background-color: transparent;
@@ -26,7 +30,7 @@ const Title = styled.Text`
 
 function Default(): React.ReactElement {
   return (
-    <ScrollView style={{ width: '100%' }}>
+    <ScrollContainer>
       <Container>
         <Title>{'Image & Title & SubTitle & Children'}</Title>
         <Card
@@ -69,13 +73,13 @@ function Default(): React.ReactElement {
           <Text>{'children'}</Text>
         </Card>
       </Container>
-    </ScrollView>
+    </ScrollContainer>
   );
 }
 
 function Style(): React.ReactElement {
   return (
-    <ScrollView style={{ width: '100%' }}>
+    <ScrollContainer>
       <Container>
         <Title>{'default'}</Title>
         <Card
@@ -113,7 +117,7 @@ function Style(): React.ReactElement {
           <Text>{'children'}</Text>
         </Card>
       </Container>
-    </ScrollView>
+    </ScrollContainer>
   );
 }
 
