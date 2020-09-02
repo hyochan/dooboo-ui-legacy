@@ -63,7 +63,7 @@ const Badge: FC<badgeProps> = (props) => {
   );
 };
 
-// TODO: 기존 코드들인데 삭제하기 아까워서..! ㅈㄴ 감성적이네;;
+// TODO: 기존 코드들인데 삭제하기 아까워서..!
 // const Badge = ({
 //   maximumValue = 0,
 //   count = 0,
