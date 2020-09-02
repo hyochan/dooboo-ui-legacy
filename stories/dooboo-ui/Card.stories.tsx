@@ -1,5 +1,5 @@
 import React, { ReactElement } from 'react';
-import { Text } from 'react-native';
+import { Text, ScrollView } from 'react-native';
 
 // @TODO
 // eslint-disable-next-line sort-imports
@@ -18,147 +18,102 @@ const Container = styled.View`
   flex-direction: column;
 `;
 
+const Title = styled.Text`
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 12px;
+`;
+
 function Default(): React.ReactElement {
   return (
-    <Container>
-      <Card
-        containerStyle={{ marginBottom: 30 }}
-        image={{
-          uri:
-            'https://image.shutterstock.com/z/stock-vector-api-application-programming-interface-software-integration-vector-illustration-1079814893.jpg',
-        }}
-        imageStyle={{ width: 200 }}
-        titleContainerStyle={{
-          width: '100%',
-          height: '40px',
-          display: 'flex',
-          flexDirection: 'column',
-        }}
-        title={'This is title'}
-        titleStyle={{ display: 'flex', flexDirection: 'column' }}
-        subTitle={'This is subTitle'}
-        subTitleStyle={{ width: '100%', color: '#e4e4e4' }}>
-        <Text>I have Image</Text>
-      </Card>
-
-      <Card
-        containerStyle={{ marginBottom: 30 }}
-        image={{
-          uri:
-            'https://image.shutterstock.com/z/stock-vector-api-application-programming-interface-software-integration-vector-illustration-1079814893.jpg',
-        }}
-        imageStyle={{ width: 200 }}
-        raised>
-        <Text>{"I'm raised"}</Text>
-      </Card>
-      <Card
-        containerStyle={{ marginBottom: 30 }}
-        image={require('../assets/images/dummy_image_1.jpg')}
-        titleContainerStyle={{
-          width: '100%',
-          height: '40px',
-          display: 'flex',
-          flexDirection: 'column',
-        }}
-        title={'This is title'}
-        titleStyle={{ display: 'flex', flexDirection: 'column' }}
-        subTitle={'This is subTitle'}
-        subTitleStyle={{ width: '100%', color: '#e4e4e4' }}
-      />
-
-      <Card
-        titleContainerStyle={{
-          width: '100%',
-          height: '40px',
-          display: 'flex',
-          flexDirection: 'column',
-        }}
-        title={'This is title'}
-        titleStyle={{ display: 'flex', flexDirection: 'column' }}
-        subTitle={'This is subTitle'}
-        subTitleStyle={{ width: '100%', color: '#e4e4e4' }}>
-        <Text>{"I don't have Image"}</Text>
-      </Card>
-
-      <Card
-        titleContainerStyle={{
-          width: '100%',
-          height: '40px',
-          display: 'flex',
-          flexDirection: 'column',
-        }}
-        title={'This is title'}
-        titleStyle={{ display: 'flex', flexDirection: 'column' }}>
-        <Text>{"I don't have Image"}</Text>
-      </Card>
-
-      <Card
-        titleContainerStyle={{
-          width: '100%',
-          height: '40px',
-          display: 'flex',
-          flexDirection: 'column',
-        }}
-        subTitle={'This is subTitle'}
-        subTitleStyle={{ width: '100%', color: '#e4e4e4' }}>
-        <Text>{"I don't have Image"}</Text>
-      </Card>
-
-      <Card
-        titleContainerStyle={{
-          width: '100%',
-          height: '40px',
-          display: 'flex',
-          flexDirection: 'column',
-        }}>
-        <Text>{"I don't have Image"}</Text>
-      </Card>
-      <Card
-        titleContainerStyle={{
-          width: '100%',
-          height: '40px',
-          display: 'flex',
-          flexDirection: 'column',
-        }}
-        loading={true}>
-        <Text>{"I don't have Image"}</Text>
-      </Card>
-    </Container>
+    <ScrollView style={{ width: '100%' }}>
+      <Container>
+        <Title>{'Image & Title & SubTitle & Children'}</Title>
+        <Card
+          containerStyle={{ marginBottom: 30 }}
+          image={{
+            uri:
+              'https://gw.alipayobjects.com/zos/rmsportal/JiqGstEfoWAOHiTxclqi.png',
+          }}
+          title="Title"
+          subTitle="subTitle">
+          <Text>{'children'}</Text>
+        </Card>
+        <Title>{'Image'}</Title>
+        <Card
+          containerStyle={{ marginBottom: 30 }}
+          image={{
+            uri:
+              'https://gw.alipayobjects.com/zos/rmsportal/JiqGstEfoWAOHiTxclqi.png',
+          }}
+        />
+        <Title>{'Title'}</Title>
+        <Card containerStyle={{ marginBottom: 30 }} title="Title" />
+        <Title>{'SubTitle'}</Title>
+        <Card containerStyle={{ marginBottom: 30 }} subTitle="subTitle" />
+        <Title>{'Title & SubTitle'}</Title>
+        <Card
+          containerStyle={{ marginBottom: 30 }}
+          title="Title"
+          subTitle="subTitle"
+        />
+        <Title>{'Children'}</Title>
+        <Card containerStyle={{ marginBottom: 30 }}>
+          <Text>{'children'}</Text>
+        </Card>
+        <Title>{'Title & SubTitle & Children'}</Title>
+        <Card
+          containerStyle={{ marginBottom: 30 }}
+          title="Title"
+          subTitle="subTitle">
+          <Text>{'children'}</Text>
+        </Card>
+      </Container>
+    </ScrollView>
   );
 }
 
-function Divider(): React.ReactElement {
+function Style(): React.ReactElement {
   return (
-    <Container>
-      <Card
-        containerStyle={{ marginBottom: 30 }}
-        image={{
-          uri:
-            'https://image.shutterstock.com/z/stock-vector-api-application-programming-interface-software-integration-vector-illustration-1079814893.jpg',
-        }}
-        imageStyle={{
-          width: '200px',
-        }}
-        title="Title"
-        subTitle="subTitle">
-        <Text>I have Image</Text>
-      </Card>
-      <Card>
-        <Text>{"I don't have Image"}</Text>
-      </Card>
-
-      <Card title="Title">
-        <Text>{"I don't have Image"}</Text>
-      </Card>
-
-      <Card subTitle="subTitle">
-        <Text>{"I don't have Image"}</Text>
-      </Card>
-
-      <Card title="title" subTitle="subTitle">
-        <Text>{"I don't have Image"}</Text>
-      </Card>
-    </Container>
+    <ScrollView style={{ width: '100%' }}>
+      <Container>
+        <Title>{'default'}</Title>
+        <Card
+          containerStyle={{ marginBottom: 30 }}
+          image={{
+            uri:
+              'https://gw.alipayobjects.com/zos/rmsportal/JiqGstEfoWAOHiTxclqi.png',
+          }}
+          title="Title"
+          subTitle="subTitle">
+          <Text>{'children'}</Text>
+        </Card>
+        <Title>{'raised'}</Title>
+        <Card
+          containerStyle={{ marginBottom: 30 }}
+          image={{
+            uri:
+              'https://gw.alipayobjects.com/zos/rmsportal/JiqGstEfoWAOHiTxclqi.png',
+          }}
+          title="Title"
+          subTitle="subTitle"
+          raised={true}>
+          <Text>{'children'}</Text>
+        </Card>
+        <Title>{'outlined'}</Title>
+        <Card
+          containerStyle={{ marginBottom: 30 }}
+          image={{
+            uri:
+              'https://gw.alipayobjects.com/zos/rmsportal/JiqGstEfoWAOHiTxclqi.png',
+          }}
+          title="Title"
+          subTitle="subTitle"
+          outlined={true}>
+          <Text>{'children'}</Text>
+        </Card>
+      </Container>
+    </ScrollView>
   );
 }
 
@@ -170,14 +125,14 @@ export default {
 };
 
 export const toStorybook = (): ReactElement => <Default />;
-export const toStorybook1 = (): ReactElement => <Divider />;
+export const toStorybook1 = (): ReactElement => <Style />;
 
 toStorybook.story = {
   name: 'default',
 };
 
 toStorybook1.story = {
-  name: 'divider',
+  name: 'Style',
 };
 /**
  * Below are stories for app
@@ -189,8 +144,8 @@ storiesOf('Card', module)
       <Default />
     </>
   ))
-  .add('divider', () => (
+  .add('Style', () => (
     <>
-      <Divider />
+      <Style />
     </>
   ));
