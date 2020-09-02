@@ -6,9 +6,11 @@ interface badgeProps {
   color?: string;
   maximumValue?: number;
   showZero?: boolean;
-};
+  opacityVisible?: boolean;
+}
 
 // TODO: Android , IOS 스타일 매기는 기준이 달라서 조사하는 것도 좋을듯!
+
 const StyledView = styled.View`
   position: absolute;
   top: -10px;
@@ -20,8 +22,12 @@ const StyledView = styled.View`
   border-radius: 50;
   justify-content: center;
   align-items: center;
-  opacity: ${(props: badgeProps): any =>
-    props.count === 0 || props.count! <= props.maximumValue! ? 1 : 0.6};
+  opacity: ${(props: badgeProps): number =>
+    props.count === 0 ||
+    props.count! <= props.maximumValue! ||
+    !props.opacityVisible
+      ? 1
+      : 0.6};
 `;
 
 const StyledText = styled.Text`
@@ -37,6 +43,7 @@ const Badge: FC<badgeProps> = (props) => {
     color = 'red',
     maximumValue = 300,
     showZero,
+    opacityVisible = true,
   } = props;
 
   if (!showZero) {
@@ -44,7 +51,11 @@ const Badge: FC<badgeProps> = (props) => {
   }
 
   return (
-    <StyledView count={count} maximumValue={maximumValue} color={color}>
+    <StyledView
+      count={count}
+      maximumValue={maximumValue}
+      color={color}
+      opacityVisible={opacityVisible}>
       <StyledText>
         {count! <= maximumValue! ? count : maximumValue + '+'}
       </StyledText>
@@ -52,7 +63,7 @@ const Badge: FC<badgeProps> = (props) => {
   );
 };
 
-//TODO: 기존 코드들인데 삭제하기 아까워서..!
+// TODO: 기존 코드들인데 삭제하기 아까워서..! ㅈㄴ 감성적이네;;
 // const Badge = ({
 //   maximumValue = 0,
 //   count = 0,

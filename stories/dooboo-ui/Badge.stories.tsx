@@ -23,10 +23,10 @@ const StyledTitle = styled.Text`
 `;
 
 const StyledView: any = styled.View`
-  margin : 20px;
-  width : 100px;
-  height : 100px;
-  background-color : gray;
+  margin: 20px;
+  width: 100px;
+  height: 100px;
+  background-color: gray;
 `;
 
 const Badge1 = (): React.ReactElement => {
@@ -38,25 +38,25 @@ const Badge1 = (): React.ReactElement => {
           alignSelf: 'stretch',
           paddingHorizontal: 20,
           paddingVertical: 100,
-        }}
-      >
+        }}>
         <Container>
           <View style={{ marginTop: 50 }}>
-            <StyledTitle>
-              Badge (default)
-            </StyledTitle>
+            <StyledTitle>Badge (default)</StyledTitle>
             <StyledView>
               <Badge />
             </StyledView>
           </View>
 
           <View>
-            <StyledTitle>
-              Badge (showZero)
-            </StyledTitle>
+            <StyledTitle>Badge (showZero,opacityVisible)</StyledTitle>
             <ShowContainer>
               <StyledView>
-                <Badge color="blue" count={0} maximumValue={0} />
+                <Badge
+                  opacityVisible={false}
+                  color="blue"
+                  count={3000}
+                  maximumValue={100}
+                />
               </StyledView>
               <StyledView>
                 <Badge color="pink" count={0} maximumValue={0} showZero />
@@ -78,27 +78,21 @@ const Badge2 = (): React.ReactElement => {
           alignSelf: 'stretch',
           paddingHorizontal: 20,
           paddingVertical: 100,
-        }}
-      >
+        }}>
         <Container>
           <View>
-            <StyledTitle>
-              Badge 3
-            </StyledTitle>
+            <StyledTitle>Badge 3</StyledTitle>
             <StyledView>
               <Badge color="blue" count={0} maximumValue={0} />
             </StyledView>
           </View>
           <View style={{ marginTop: 50 }}>
-            <StyledTitle style={{ marginBottom: 10 }}>
-              Badge 4
-            </StyledTitle>
+            <StyledTitle style={{ marginBottom: 10 }}>Badge 4</StyledTitle>
             <StyledView>
               <Badge color="red" count={0} maximumValue={0} showZero />
             </StyledView>
           </View>
         </Container>
-
       </ScrollView>
     </SafeAreaView>
   );
