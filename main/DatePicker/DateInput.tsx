@@ -1,13 +1,12 @@
-import { EditText, EditTextInputType } from '../EditText';
 import {
   Image,
   Modal,
   Platform,
   Text,
-  TextInput,
   TextStyle,
   TouchableHighlight,
   ViewStyle,
+  TouchableOpacity,
 } from 'react-native';
 import React, { FC, useEffect, useState } from 'react';
 
@@ -15,7 +14,6 @@ import styled from 'styled-components/native';
 
 const Container = styled.View`
   flex-direction: column;
-  align-items: center;
 `;
 
 const StyledLabelContainer = styled.View`
@@ -23,11 +21,9 @@ const StyledLabelContainer = styled.View`
   align-items: center;
   justify-content: space-between;
   width: 100%;
-  margin: 2px 0;
 `;
 
 const StyledLabel = styled.Text`
-  margin-bottom: 5px;
   font-size: 14px;
   font-weight: 500;
 `;
@@ -35,16 +31,16 @@ const StyledLabel = styled.Text`
 const StyledRowContainer = styled.View`
   flex-direction: row;
   align-items: center;
+  justify-content: space-between;
   border-bottom-color: #79b3f5;
   border-bottom-width: 2px;
   margin: 0 0 2px 0;
   padding: 2px;
-  width: 70%;
+  width: 200px;
 `;
 
 const StyledRowContent = styled.View`
-  align-items: center;
-  width: 80%;
+  align-items: flex-start;
 `;
 
 const StyledDateInput = styled.TextInput`
@@ -54,10 +50,6 @@ const StyledDateInput = styled.TextInput`
   font-weight: 500;
   flex: 1;
   ${Platform.OS === 'web' && { 'outline-style': 'none' }}
-`;
-
-const StyledIcon = styled.TouchableHighlight`
-  width: 20%;
 `;
 
 const StyledErrorContainer = styled.View`
@@ -95,11 +87,11 @@ const DateInput: FC<Props> = (props) => {
   const {
     style,
     label = 'Date picker',
-    labelTextStyle = { color: '#79B3F5', textAlign: 'left' },
+    labelTextStyle = { color: '#000', textAlign: 'left' },
     labelStyle,
     placeholder = 'YYYY-MM-DD',
     placeholderTextColor,
-    underlineColor = { borderBottomColor: '#79B3F5' },
+    underlineColor = { borderBottomColor: '#000' },
     errorText = 'Invalid Date',
     errorTextStyle,
     textStyle,
@@ -143,12 +135,12 @@ const DateInput: FC<Props> = (props) => {
             editable={Platform.OS === 'web'}
           />
         </StyledRowContent>
-        <StyledIcon onPress={props.onPressCalendar}>
+        <TouchableOpacity onPress={props.onPressCalendar}>
           <Image
-            style={{ width: 40, height: 40 }}
+            style={{ width: 20, height: 20 }}
             source={require('../__assets__/calendar.png')}
           />
-        </StyledIcon>
+        </TouchableOpacity>
       </StyledRowContainer>
 
       {error && (
