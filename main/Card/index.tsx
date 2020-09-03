@@ -16,14 +16,15 @@ const Container = styled.View`
   flex-direction: column;
   align-items: flex-start;
   background-color: #fff;
+  width: 200px;
 `;
 
 const ContentsContainer = styled.View`
-  padding: 16px 24px;
+  padding: 5px 10px;
 `;
 
 const StlyedImage = styled.Image`
-  width: 100px;
+  width: 100%;
   height: 100px;
 `;
 
