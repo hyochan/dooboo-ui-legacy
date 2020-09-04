@@ -54,9 +54,43 @@ function Default(): React.ReactElement {
               label: 'third',
               value: 3,
               selected: false,
+            },            
+          ]}
+        />
+      
+      <Selected>checkbox disabled</Selected>
+
+      <CheckboxGroup
+          boxSize={20}
+          boxColor={'orange'}
+          labelSize={20}
+          labelColor={'#000000'}
+          selectedValue={[
+            {
+              label: 'first',
+              value: 1,
+              selected: true,
+            },       
+            {
+              label: 'second',
+              value: 2,
+              selected: false,
+            },
+            {
+              label: 'checked disabled value',
+              value: 3,
+              selected: true,
+              disabled: true,
+            },
+            {
+              label: 'unchecked disabled value',
+              value: 4,
+              selected: false,
+              disabled: true,
             },
           ]}
         />
+
       </Container>
     </ScrollContainer>
   );

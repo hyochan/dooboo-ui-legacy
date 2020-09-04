@@ -19,6 +19,14 @@ interface MarkerProps {
   isSelected: boolean
 }
 
+const COLOR: {
+  [key: string]: string;
+} = {
+  LIGHTGRAY: '#E0E0E0',
+  GRAY59: '#969696',
+  BLACK: '#000000',
+};
+
 const Container = styled.View`
  flex-direction: row;
  align-items: center;
@@ -63,11 +71,10 @@ interface CheckboxProps {
   boxSize?: number;
   boxColor?: string;
   defaultChecked?: boolean;
-  disabled?: boolean;
   onPress?: (value: string | number) => void;
   labelSize?: number;
   labelColor?: string;
-  item: { label: string; value: string | number; selected: boolean; }
+  item: { label: string; value: string | number; selected: boolean; disabled?: boolean;}
 }
 
 const CheckboxGroup: FC<CheckboxGroupProps> = ({
@@ -84,7 +91,7 @@ const CheckboxGroup: FC<CheckboxGroupProps> = ({
   };
 
   return (
-    <Container>
+    <Container style={{flexWrap:"wrap"}}>
       {selected.map((value, index) => {
         return (
           <Checkbox
@@ -92,7 +99,6 @@ const CheckboxGroup: FC<CheckboxGroupProps> = ({
             boxSize={boxSize}
             boxColor = {boxColor}
             defaultChecked = {false}
-            disabled = {false}
             labelSize = {labelSize}
             onPress = {onSelect}
             labelColor = {labelColor}
@@ -111,21 +117,20 @@ const Checkbox: FC<CheckboxProps> = ({
   labelColor,
   onPress,
   item,
-  /* TODO  */
   defaultChecked = false,
-  // disabled = false,
 }) => {
   const isSelected = item.selected || defaultChecked;
-
+  const isDisabled = item.disabled;
   return (
     <TouchableHighlight
       onPress={(): void => onPress?.(item.value)}
       underlayColor="transparent"
-      style={{ marginHorizontal: 20 }}>
+      style={{ marginHorizontal: 20, paddingBottom: 20 }}
+      disabled={isDisabled}>
       <Container>
         <MarkerContainer
           boxSize={boxSize}
-          boxColor={boxColor}
+          boxColor={isDisabled?COLOR.LIGHTGRAY:boxColor}
         >
           <Marker isSelected={isSelected}>
             {isSelected && <MarkerImg
@@ -133,7 +138,7 @@ const Checkbox: FC<CheckboxProps> = ({
             />}
           </Marker>
         </MarkerContainer>
-        <Label labelSize={labelSize} labelColor={labelColor}>
+        <Label labelSize={labelSize} labelColor={isDisabled?COLOR.LIGHTGRAY:labelColor}>
           {item.label}
         </Label>
       </Container>
