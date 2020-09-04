@@ -91,7 +91,7 @@ const CheckboxGroup: FC<CheckboxGroupProps> = ({
   };
 
   return (
-    <Container style={{flexWrap:"wrap"}}>
+    <Container style={{ flexWrap: 'wrap' }}>
       {selected.map((value, index) => {
         return (
           <Checkbox
@@ -130,7 +130,7 @@ const Checkbox: FC<CheckboxProps> = ({
       <Container>
         <MarkerContainer
           boxSize={boxSize}
-          boxColor={isDisabled?COLOR.LIGHTGRAY:boxColor}
+          boxColor={isDisabled ? COLOR.LIGHTGRAY : boxColor}
         >
           <Marker isSelected={isSelected}>
             {isSelected && <MarkerImg
@@ -138,7 +138,7 @@ const Checkbox: FC<CheckboxProps> = ({
             />}
           </Marker>
         </MarkerContainer>
-        <Label labelSize={labelSize} labelColor={isDisabled?COLOR.LIGHTGRAY:labelColor}>
+        <Label labelSize={labelSize} labelColor={isDisabled ? COLOR.LIGHTGRAY : labelColor}>
           {item.label}
         </Label>
       </Container>

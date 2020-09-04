@@ -54,13 +54,13 @@ function Default(): React.ReactElement {
               label: 'third',
               value: 3,
               selected: false,
-            },            
+            },
           ]}
         />
-      
-      <Selected>checkbox disabled</Selected>
 
-      <CheckboxGroup
+        <Selected>checkbox disabled</Selected>
+
+        <CheckboxGroup
           boxSize={20}
           boxColor={'orange'}
           labelSize={20}
@@ -70,7 +70,7 @@ function Default(): React.ReactElement {
               label: 'first',
               value: 1,
               selected: true,
-            },       
+            },
             {
               label: 'second',
               value: 2,
