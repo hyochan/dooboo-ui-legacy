@@ -138,8 +138,7 @@ const Checkbox: FC<CheckboxProps> = ({
             />}
           </Marker>
         </MarkerContainer>
-        <Label labelSize={labelSize} labelColor={isDisabled ? COLOR.LIGHTGRAY : labelColor}>
-          {item.label}
+        <Label labelSize={labelSize} labelColor={isDisabled ? COLOR.LIGHTGRAY : labelColor}>          {item.label}
         </Label>
       </Container>
     </TouchableHighlight>
