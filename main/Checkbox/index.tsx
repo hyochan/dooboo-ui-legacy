@@ -30,6 +30,7 @@ const COLOR: {
 const Container = styled.View`
  flex-direction: row;
  align-items: center;
+ flew-wrap: wrap;
 `;
 
 const MarkerContainer = styled.View<MarkerContainerProps>`
@@ -91,7 +92,7 @@ const CheckboxGroup: FC<CheckboxGroupProps> = ({
   };
 
   return (
-    <Container style={{ flexWrap: 'wrap' }}>
+    <Container>
       {selected.map((value, index) => {
         return (
           <Checkbox
