@@ -30,7 +30,7 @@ const COLOR: {
 const Container = styled.View`
  flex-direction: row;
  align-items: center;
- flew-wrap: wrap;
+ flex-wrap: wrap;
 `;
 
 const MarkerContainer = styled.View<MarkerContainerProps>`
@@ -139,7 +139,8 @@ const Checkbox: FC<CheckboxProps> = ({
             />}
           </Marker>
         </MarkerContainer>
-        <Label labelSize={labelSize} labelColor={isDisabled ? COLOR.LIGHTGRAY : labelColor}>          {item.label}
+        <Label labelSize={labelSize} labelColor={isDisabled ? COLOR.LIGHTGRAY : labelColor}>          
+          {item.label}
         </Label>
       </Container>
     </TouchableHighlight>
