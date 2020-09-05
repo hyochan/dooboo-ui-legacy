@@ -1,15 +1,29 @@
 # Card
 
-> hello i'm card
+> [Card] component that can be used inside product.
+
+[image]
 
 ## Props
 
-|           | required | types                  | default                  |
-| --------- | -------- | ---------------------- | ------------------------ |
-| propName1 |          | string                 |                          |
-| propName2 |          | `StyleProp<ViewStyle>` |                          |
-| propName3 |          | string[]               | ['Option 1', 'Option 2'] |
-| propName4 |          | (i: number) => void    |                          |
+|                        | required | types                     | default |
+| ---------------------- | -------- | ------------------------- | ------- |
+| testID                 |          | string                    |         |
+| containerStyle         |          | ViewStyle                 |         |
+| children               |          | ReactNode, ReactNodeArray |         |
+| image                  |          | ImageSourcePropType       |         |
+| imageStyle             |          | ImageStyle                |         |
+| contentsContainerStyle |          | ViewStyle                 |         |
+| loading                |          | boolean                   |         |
+| title                  |          | string                    |         |
+| titleStyle             |          | TextStyle                 |         |
+| subTitle               |          | string                    |         |
+| subTitleStyle          |          | TextStyle                 |         |
+| hasDivider             |          | boolean                   | `true`  |
+| dividerStyle           |          | ViewStyle                 |         |
+| outlined               |          | boolean                   |         |
+| raised                 |          | boolean                   |         |
+| disabled               |          | boolean                   |         |
 
 ## Installation
 
@@ -31,7 +45,17 @@ yarn add dooboo-ui
   function Page(props: Props) {
     return (
       <Container>
-        <Card testID="CARD" />
+        <Card
+          testID="CARD"
+          containerStyle={{ marginBottom: 30 }}
+          image={{
+            uri:
+              'https://gw.alipayobjects.com/zos/rmsportal/JiqGstEfoWAOHiTxclqi.png',
+          }}
+          title="Title"
+          subTitle="subTitle">
+          <Text>{'children'}</Text>
+        </Card>
       </Container>
     );
   }
