@@ -63,24 +63,4 @@ const Badge: FC<badgeProps> = (props) => {
   );
 };
 
-// TODO: 기존 코드들인데 삭제하기 아까워서..!
-// const Badge = ({
-//   maximumValue = 0,
-//   count = 0,
-//   color = 'red',
-//   showZero = true,
-// }: badgeProps): React.ReactElement => {
-//   if (!showZero) {
-//     if (count == 0) return null;
-//   }
-
-//   return (
-//     <StyledView count={count} maximumValue={maximumValue} color={color}>
-//       <StyledText>
-//         {count <= maximumValue ? count : maximumValue + '+'}
-//       </StyledText>
-//     </StyledView>
-//   );
-// };
-
 export { Badge };
