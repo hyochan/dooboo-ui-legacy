@@ -93,7 +93,7 @@ const Card: FC<Props> = (props) => {
 
   if (loading) {
     return (
-      <LoadingContainer style={[containerStyle]}>
+      <LoadingContainer style={containerStyle}>
         <ActivityIndicator />
       </LoadingContainer>
     );
@@ -102,16 +102,16 @@ const Card: FC<Props> = (props) => {
   const shadowStyle = raised ? styles.raisedShadow : styles.shadow;
 
   return (
-    <Container style={[outlined ? styles.border : shadowStyle, containerStyle]}>
-      {image && <StlyedImage source={image} style={[imageStyle]} />}
+    <Container style={outlined ? styles.border : [shadowStyle, containerStyle]}>
+      {image && <StlyedImage source={image} style={imageStyle} />}
       {(renderTitle || children) && (
-        <ContentsContainer style={[contentsContainerStyle]}>
-          <TitleText style={[titleStyle]}> {title} </TitleText>
+        <ContentsContainer style={contentsContainerStyle}>
+          <TitleText style={titleStyle}> {title} </TitleText>
           {subTitle && (
-            <SubTitleText style={[subTitleStyle]}> {subTitle} </SubTitleText>
+            <SubTitleText style={subTitleStyle}> {subTitle} </SubTitleText>
           )}
           {renderTitle && hasDivider && children && (
-            <Divider style={[dividerStyle]} />
+            <Divider style={dividerStyle} />
           )}
           {children}
         </ContentsContainer>
