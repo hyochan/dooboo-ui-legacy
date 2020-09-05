@@ -18,7 +18,7 @@ interface onChangeEvent {
 }
 
 interface CheckboxProps {
-  label: string;
+  label: string | number;
   checked?: boolean
   defaultChecked?: boolean;
   disabled?: boolean
