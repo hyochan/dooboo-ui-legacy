@@ -27,6 +27,50 @@ const Selected = styled.Text`
   font-weight: bold;
 `;
 
+let defaultCheckboxData: any[] = [
+  {
+    label: 'first',
+    value: 1,
+    selected: true,
+  },
+  {
+    label: 'second',
+    value: 2,
+    selected: false,
+  },
+  {
+    label: 'third',
+    value: 3,
+    selected: false,
+  },
+];
+
+let disabledCheckboxData: any[] = [
+  {
+    label: 'first',
+    value: 1,
+    selected: true,
+  },
+  {
+    label: 'second',
+    value: 2,
+    selected: false,
+  },
+  {
+    label: 'checked disabled value',
+    value: 3,
+    selected: true,
+    disabled: true,
+  },
+  {
+    label: 'unchecked disabled value',
+    value: 4,
+    selected: false,
+    disabled: true,
+  },
+];
+
+
 function Default(): React.ReactElement {
   return (
     <ScrollContainer>
@@ -39,23 +83,7 @@ function Default(): React.ReactElement {
           boxColor={'orange'}
           labelSize={20}
           labelColor={'#000000'}
-          selectedValue={[
-            {
-              label: 'first',
-              value: 1,
-              selected: true,
-            },
-            {
-              label: 'second',
-              value: 2,
-              selected: false,
-            },
-            {
-              label: 'third',
-              value: 3,
-              selected: false,
-            },
-          ]}
+          selectedValue={defaultCheckboxData}
         />
 
         <Selected>checkbox disabled</Selected>
@@ -65,30 +93,7 @@ function Default(): React.ReactElement {
           boxColor={'orange'}
           labelSize={20}
           labelColor={'#000000'}
-          selectedValue={[
-            {
-              label: 'first',
-              value: 1,
-              selected: true,
-            },
-            {
-              label: 'second',
-              value: 2,
-              selected: false,
-            },
-            {
-              label: 'checked disabled value',
-              value: 3,
-              selected: true,
-              disabled: true,
-            },
-            {
-              label: 'unchecked disabled value',
-              value: 4,
-              selected: false,
-              disabled: true,
-            },
-          ]}
+          selectedValue={disabledCheckboxData}
         />
 
       </Container>
