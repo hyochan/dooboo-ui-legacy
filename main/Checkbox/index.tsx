@@ -139,7 +139,7 @@ const Checkbox: FC<CheckboxProps> = ({
             />}
           </Marker>
         </MarkerContainer>
-        <Label labelSize={labelSize} labelColor={isDisabled ? COLOR.LIGHTGRAY : labelColor}>          
+        <Label labelSize={labelSize} labelColor={isDisabled ? COLOR.LIGHTGRAY : labelColor}>
           {item.label}
         </Label>
       </Container>

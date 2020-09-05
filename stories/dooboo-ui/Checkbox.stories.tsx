@@ -27,7 +27,7 @@ const Selected = styled.Text`
   font-weight: bold;
 `;
 
-let defaultCheckboxData: any[] = [
+const defaultCheckboxData: any[] = [
   {
     label: 'first',
     value: 1,
@@ -45,7 +45,7 @@ let defaultCheckboxData: any[] = [
   },
 ];
 
-let disabledCheckboxData: any[] = [
+const disabledCheckboxData: any[] = [
   {
     label: 'first',
     value: 1,
@@ -69,7 +69,6 @@ let disabledCheckboxData: any[] = [
     disabled: true,
   },
 ];
-
 
 function Default(): React.ReactElement {
   return (
