@@ -90,6 +90,7 @@ const Card: FC<Props> = (props) => {
   } = props;
 
   const renderTitle = title || subTitle;
+  const renderDivider = hasDivider && renderTitle && children;
 
   if (loading) {
     return (
@@ -106,13 +107,15 @@ const Card: FC<Props> = (props) => {
       {image && <StlyedImage source={image} style={imageStyle} />}
       {(renderTitle || children) && (
         <ContentsContainer style={contentsContainerStyle}>
-          <TitleText style={titleStyle}> {title} </TitleText>
-          {subTitle && (
-            <SubTitleText style={subTitleStyle}> {subTitle} </SubTitleText>
+          {renderTitle && (
+            <>
+              {title && <TitleText style={titleStyle}> {title} </TitleText>}
+              {subTitle && (
+                <SubTitleText style={subTitleStyle}> {subTitle} </SubTitleText>
+              )}
+            </>
           )}
-          {renderTitle && hasDivider && children && (
-            <Divider style={dividerStyle} />
-          )}
+          {renderDivider && <Divider style={dividerStyle} />}
           {children}
         </ContentsContainer>
       )}
