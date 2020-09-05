@@ -120,6 +120,4 @@ const Card: FC<Props> = (props) => {
   );
 };
 
-Card.defaultProps = {};
-
 export { Card };
