@@ -59,7 +59,7 @@ interface Props {
   children?: ReactNode | ReactNodeArray;
   image?: ImageSourcePropType;
   imageStyle?: ImageStyle;
-  contentsStyle?: ViewStyle;
+  contentsContainerStyle?: ViewStyle;
   loading?: boolean;
   title?: string;
   titleStyle?: TextStyle;
@@ -77,7 +77,7 @@ const Card: FC<Props> = (props) => {
     children,
     image,
     imageStyle,
-    contentsStyle,
+    contentsContainerStyle,
     loading,
     title,
     titleStyle,
@@ -105,7 +105,7 @@ const Card: FC<Props> = (props) => {
     <Container style={[outlined ? styles.border : shadowStyle, containerStyle]}>
       {image && <StlyedImage source={image} style={[imageStyle]} />}
       {(renderTitle || children) && (
-        <ContentsContainer style={[contentsStyle]}>
+        <ContentsContainer style={[contentsContainerStyle]}>
           <TitleText style={[titleStyle]}> {title} </TitleText>
           {subTitle && (
             <SubTitleText style={[subTitleStyle]}> {subTitle} </SubTitleText>
