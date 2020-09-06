@@ -2,7 +2,7 @@
 
 > [Card] component that can be used inside product.
 
-[image]
+![Card](https://user-images.githubusercontent.com/48555121/92322267-3f286400-f06b-11ea-9831-39fdb70a1d34.png)
 
 ## Props
 
