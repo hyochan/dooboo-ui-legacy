@@ -1,5 +1,5 @@
 
-import React, { FC, useCallback, useState } from 'react';
+import React, { FC, useCallback, useEffect, useRef, useState } from 'react';
 import Checkbox_ from './Checkbox_';
 import styled from 'styled-components/native';
 
@@ -31,9 +31,8 @@ export interface CheckboxGroupState {
 }
 
 export interface CheckboxGroupContext {
-  cancelValue?: (value: CheckboxValueType) => void;
   registerValue?:(value: CheckboxValueType) => void;
-  toggleOption?: () => void;
+  toggleOption?: (option: CheckboxOptionType) => void;
   value?: any;
   disabled?: boolean;
 }
@@ -50,8 +49,18 @@ interface CheckboxGroupProps {
 export const GroupCheckboxContext = React.createContext<CheckboxGroupContext | null>(null);
 
 const CheckboxGroup_: FC<CheckboxGroupProps> = (props) => {
+  const isMounted = useRef(false);
   const [values, setValues] = useState<CheckboxValueType[]>(props.values || props.defaultValues || []);
   const [registeredValues, setRegisteredValues] = useState<CheckboxValueType[]>([]);
+
+  useEffect(() => {
+    // for only componenUpdate not in mount
+    if (isMounted.current) {
+      setValues(props.values);
+    } else {
+      isMounted.current = true;
+    }
+  }, [props.values]);
 
   const getOptions = useCallback((): Array<CheckboxOptionType> => {
     const { options } = props;
@@ -68,42 +77,42 @@ const CheckboxGroup_: FC<CheckboxGroupProps> = (props) => {
     });
   }, [props.options]);
 
-  const cancelValue = useCallback((value: string) : void => {
-    setRegisteredValues((prevRegisteredValues) => {
-      return prevRegisteredValues.filter((val) => val !== value);
-    });
-  }, [setRegisteredValues]);
-
   const registerValue = useCallback((value : string): void => {
     setRegisteredValues((prevRegisteredValues) => {
       return [...prevRegisteredValues, value];
     });
   }, [setRegisteredValues]);
 
-  const toggleOption = useCallback((): void => {
-    // const optionIndex = values.indexOf(option.value);
-    // const _values = [...values];
-    // if (optionIndex === -1) {
-    //  _values.push(option.value);
-    // } else {
-    //  _values.splice(optionIndex, 1);
-    // }
-    // if (!('values' in props)) {
-    //  setValues(_values);
-    // }
+  const toggleOption = (option: CheckboxOptionType): void => {
+    const optionIndex = values.indexOf(option.value);
+    const _values = [...values];
+    if (optionIndex === -1) {
+      _values.push(option.value);
+    } else {
+      _values.splice(optionIndex, 1);
+    }
+    if (!('values' in props)) {
+      setValues(_values);
+    }
 
-    const _registerdValues = [...registeredValues];
     const { onChange } = props;
     if (onChange) {
-      // const options = getOptions();
-      onChange(_registerdValues);
+      const options = getOptions();
+      const filterdValues = _values
+        .filter((val) => registeredValues.indexOf(val) !== -1)
+        .sort((a, b) => {
+          const indexA = options.findIndex((opt) => opt.value === a);
+          const indexB = options.findIndex((opt) => opt.value === b);
+          return indexA - indexB;
+        });
+
+      onChange(filterdValues);
     }
-  }, [registeredValues, props.onChange]);
+  };
 
   const context = {
     toggleOption,
     registerValue,
-    cancelValue,
     values,
     disabled: props.disabled,
   };

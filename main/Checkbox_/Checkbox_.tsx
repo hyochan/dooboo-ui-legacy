@@ -1,4 +1,4 @@
-import React, { FC, useCallback, useContext, useEffect, useState } from 'react';
+import React, { FC, useCallback, useContext, useEffect, useRef, useState } from 'react';
 import { GroupCheckboxContext } from './CheckboxGroup_';
 import {
   TouchableHighlight,
@@ -11,6 +11,7 @@ interface customStyle {
   labelColor?: string;
   boxSize?: number;
   boxColor?: string;
+  labelLeft?: boolean;
 }
 
 interface onChangeEvent {
@@ -43,37 +44,32 @@ const Checkbox_: FC<CheckboxProps> = ({
 }) => {
   const groupCheckboxContext = useContext(GroupCheckboxContext);
 
-  const [isChecked, setIsChecked] = useState(checked || defaultChecked);
+  const isMounted = useRef(false);
+
+  const [isChecked, setIsChecked] = useState(defaultChecked || checked);
 
   const handleChange = useCallback(() => {
     setIsChecked((prevChecked) => {
       onChange && onChange({ checked: !prevChecked, label });
-      if (value && prevChecked && groupCheckboxContext?.cancelValue) {
-        groupCheckboxContext.cancelValue(value);
-      }
-
-      if (value && !prevChecked && groupCheckboxContext?.registerValue) {
-        groupCheckboxContext.registerValue(value);
-      }
       return !prevChecked;
     });
-
-    // if (groupCheckboxContext?.toggleOption) {
-    //  groupCheckboxContext.toggleOption({ label, value: value || label });
-    // }
-  }, [onChange, setIsChecked, label]);
+    groupCheckboxContext?.toggleOption({ label, value });
+  }, [onChange, setIsChecked, label, groupCheckboxContext?.toggleOption]);
 
   useEffect(() => {
-    if (isChecked && value && groupCheckboxContext?.registerValue) {
+    // for only componenUpdate not in mount
+    if (isMounted.current) {
+      setIsChecked(checked);
+    } else {
+      isMounted.current = true;
+    }
+  }, [checked]);
+
+  useEffect(() => {
+    if (value && groupCheckboxContext?.registerValue) {
       groupCheckboxContext.registerValue(value);
     }
   }, []);
-
-  useEffect(() => {
-    if (groupCheckboxContext?.toggleOption) {
-      groupCheckboxContext.toggleOption();
-    }
-  }, [isChecked]);
 
   const labelColor = disabled ? COLOR.LIGHTGRAY : customStyle?.labelColor;
 
@@ -83,7 +79,7 @@ const Checkbox_: FC<CheckboxProps> = ({
       underlayColor="transparent"
       style={{ marginHorizontal: 20, paddingBottom: 20 }}
       disabled={disabled}>
-      <Container>
+      <Container labelLeft={customStyle?.labelLeft}>
         <MarkerContainer
           boxSize={customStyle?.boxSize}
           boxColor={disabled ? COLOR.LIGHTGRAY : customStyle?.boxColor}
@@ -99,7 +95,7 @@ const Checkbox_: FC<CheckboxProps> = ({
             }
           </Marker>
         </MarkerContainer>
-        <Label labelColor={labelColor} labelSize={customStyle?.labelSize}>
+        <Label labelColor={labelColor} labelSize={customStyle?.labelSize} labelLeft={customStyle?.labelLeft}>
           {label}
         </Label>
       </Container>
@@ -107,6 +103,9 @@ const Checkbox_: FC<CheckboxProps> = ({
   );
 };
 
+interface ContainerProps {
+  labelLeft?: boolean;
+}
 interface MarkerContainerProps {
   boxSize?: number
   boxColor?: string
@@ -116,6 +115,7 @@ interface LabelProps {
   disabled?: boolean;
   labelSize?: number;
   labelColor?: string;
+  labelLeft?: boolean;
 }
 
 interface MarkerProps {
@@ -135,8 +135,8 @@ const COLOR: {
   BLACK: '#000000',
 };
 
-const Container = styled.View`
- flex-direction: row;
+const Container = styled.View<ContainerProps>`
+ flex-direction: ${({ labelLeft }): string => labelLeft ? 'row-reverse' : 'row'};
  justify-content: center;
  align-items: center;
 `;
@@ -170,7 +170,8 @@ const Markerindeterminate = styled.View<MarkerindeterminateProps>`
 
 const Label = styled.Text<LabelProps>`
  font-size: 20px;
- padding-left: 10px;
+ padding-left:  ${({ labelLeft }): number => labelLeft ? 0 : 10}px;
+ padding-right: ${({ labelLeft }): number => labelLeft ? 10 : 0}px;
  color: ${({ labelColor }): string => labelColor || COLOR.BLACK};
 `;
 

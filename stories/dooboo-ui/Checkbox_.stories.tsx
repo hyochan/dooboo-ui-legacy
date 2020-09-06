@@ -34,6 +34,9 @@ const Seperator = styled.View`
 `;
 
 function DefaultCheckbox(): React.ReactElement {
+  const customStyle = {
+    labelLeft: true,
+  };
   return (
     <ScrollContainer>
 
@@ -51,6 +54,11 @@ function DefaultCheckbox(): React.ReactElement {
       <Container>
         <Title>indeterminate</Title>
         <Checkbox_ label="indeterminate" indeterminate />
+      </Container>
+
+      <Container>
+        <Title>labelLeft</Title>
+        <Checkbox_ label="labelLeft" customStyle={customStyle} />
       </Container>
 
     </ScrollContainer>
@@ -108,13 +116,13 @@ function CheckAll(): React.ReactElement {
   const [indeterminate, setIndeterminate] = useState(defaultCheckedList.length > 0);
   const [checkAll, setCheckAll] = useState(false);
 
-  const onChange = (checkedList) => {
+  const onChange = (checkedList): void => {
     setCheckedList(checkedList);
     setIndeterminate(!!checkedList.length && checkedList.length < plainOptions.length);
     setCheckAll(checkedList.length === plainOptions.length);
   };
 
-  const onCheckAllChange = (e) => {
+  const onCheckAllChange = (e) : void => {
     setCheckedList(e.checked ? plainOptions : []);
     setIndeterminate(false);
     setCheckAll(e.checked);
