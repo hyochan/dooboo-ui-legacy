@@ -7,15 +7,23 @@ import {
 } from 'react-native';
 import React, { FC, ReactNode, ReactNodeArray } from 'react';
 
+import { FlattenSimpleInterpolation } from 'styled-components';
 import styled from 'styled-components/native';
 
-import { styles } from './styles';
+import styles from './styles';
 
-const Container = styled.View`
+interface IContainerProps {
+  raised?: boolean;
+  outlined?: boolean;
+}
+
+const Container = styled.View<IContainerProps>`
   flex-direction: column;
   align-items: flex-start;
   background-color: #fff;
   width: 200px;
+  ${({ outlined, raised }): FlattenSimpleInterpolation =>
+    outlined ? styles.border : raised ? styles.raisedShadow : styles.shadow}
 `;
 
 const ContentsContainer = styled.View`
@@ -53,7 +61,7 @@ const Divider = styled.View`
   background-color: lightgray;
 `;
 
-interface Props {
+interface Props extends IContainerProps {
   testID?: string;
   containerStyle?: ViewStyle;
   children?: ReactNode | ReactNodeArray;
@@ -67,8 +75,6 @@ interface Props {
   subTitleStyle?: TextStyle;
   hasDivider?: boolean;
   dividerStyle?: ViewStyle;
-  outlined?: boolean;
-  raised?: boolean;
 }
 
 const Card: FC<Props> = (props) => {
@@ -100,10 +106,8 @@ const Card: FC<Props> = (props) => {
     );
   }
 
-  const shadowStyle = raised ? styles.raisedShadow : styles.shadow;
-
   return (
-    <Container style={outlined ? styles.border : [shadowStyle, containerStyle]}>
+    <Container {...{ outlined, raised }}>
       {image && <StlyedImage source={image} style={imageStyle} />}
       {(renderTitle || children) && (
         <ContentsContainer style={contentsContainerStyle}>
