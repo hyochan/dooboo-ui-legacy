@@ -1,7 +1,7 @@
 import React, { FC, useRef } from 'react';
 import styled from 'styled-components/native';
 
-interface badgeProps {
+interface BadgeProps {
   count?: number;
   color?: string;
   maximumValue?: number;
@@ -18,11 +18,11 @@ const StyledView = styled.View`
   width: auto;
   min-width: 20px;
   height: 20px;
-  background-color: ${(props: badgeProps): string => props.color!};
+  background-color: ${(props: BadgeProps): string => props.color!};
   border-radius: 50;
   justify-content: center;
   align-items: center;
-  opacity: ${(props: badgeProps): number =>
+  opacity: ${(props: BadgeProps): number =>
     props.count === 0 ||
     props.count! <= props.maximumValue! ||
     !props.opacityVisible
@@ -37,7 +37,7 @@ const StyledText = styled.Text`
   text-align: center;
 `;
 
-const Badge: FC<badgeProps> = (props) => {
+const Badge: FC<BadgeProps> = (props) => {
   const {
     count = 10,
     color = 'red',
@@ -47,9 +47,8 @@ const Badge: FC<badgeProps> = (props) => {
   } = props;
 
   if (!showZero) {
-    if (count == 0) return null;
+    if (count === 0) return null;
   }
-
   return (
     <StyledView
       count={count}

@@ -46,15 +46,14 @@ const Badge1 = (): React.ReactElement => {
               <Badge />
             </StyledView>
           </View>
-
           <View>
             <StyledTitle>Badge (showZero,opacityVisible)</StyledTitle>
             <ShowContainer>
               <StyledView>
                 <Badge
-                  opacityVisible={false}
+                  opacityVisible={true}
                   color="blue"
-                  count={3000}
+                  count={150}
                   maximumValue={100}
                 />
               </StyledView>
