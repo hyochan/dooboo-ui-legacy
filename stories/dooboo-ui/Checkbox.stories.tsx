@@ -1,7 +1,7 @@
 import React, { ReactElement } from 'react';
 
 // eslint-disable-next-line sort-imports
-import { CheckboxGroup } from '../../main';
+import { CheckboxGroup, CheckboxItem } from '../../main';
 import { ContainerDeco } from '../../storybook/decorators';
 
 import { storiesOf } from '@storybook/react-native';
@@ -27,7 +27,7 @@ const Selected = styled.Text`
   font-weight: bold;
 `;
 
-const defaultCheckboxData: any[] = [
+const defaultCheckboxData: CheckboxItem[] = [
   {
     label: 'first',
     value: 1,
@@ -45,7 +45,7 @@ const defaultCheckboxData: any[] = [
   },
 ];
 
-const disabledCheckboxData: any[] = [
+const disabledCheckboxData: CheckboxItem[] = [
   {
     label: 'first',
     value: 1,
@@ -82,7 +82,7 @@ function Default(): React.ReactElement {
           boxColor={'orange'}
           labelSize={20}
           labelColor={'#000000'}
-          selectedValue={defaultCheckboxData}
+          items={defaultCheckboxData}
         />
 
         <Selected>checkbox disabled</Selected>
@@ -92,7 +92,7 @@ function Default(): React.ReactElement {
           boxColor={'orange'}
           labelSize={20}
           labelColor={'#000000'}
-          selectedValue={disabledCheckboxData}
+          items={disabledCheckboxData}
         />
 
       </Container>

@@ -19,6 +19,13 @@ interface MarkerProps {
   isSelected: boolean
 }
 
+interface CheckboxItem {
+  label: string,
+  value: string | number,
+  selected: boolean,
+  disabled?: boolean
+}
+
 const COLOR: {
   [key: string]: string;
 } = {
@@ -61,7 +68,7 @@ const Label = styled.Text<LabelProps>`
 `;
 
 interface CheckboxGroupProps {
-  selectedValue: { label: string; value: string | number; selected: boolean; }[];
+  items: CheckboxItem[];
   boxSize?: number;
   boxColor?: string;
   labelSize?: number;
@@ -75,17 +82,16 @@ interface CheckboxProps {
   onPress?: (value: string | number) => void;
   labelSize?: number;
   labelColor?: string;
-  item: { label: string; value: string | number; selected: boolean; disabled?: boolean;}
+  item: CheckboxItem
 }
-
 const CheckboxGroup: FC<CheckboxGroupProps> = ({
-  selectedValue = [],
+  items = [],
   boxSize,
   boxColor,
   labelSize,
   labelColor,
 }) => {
-  const [selected, setSelected] = useState(selectedValue);
+  const [selected, setSelected] = useState(items);
 
   const onSelect = (item) : void => {
     setSelected(selected.map((i) => i.value === item ? { ...i, selected: !i.selected } : i));
@@ -147,4 +153,4 @@ const Checkbox: FC<CheckboxProps> = ({
   );
 };
 
-export { CheckboxGroup, Checkbox };
+export { CheckboxGroup, Checkbox, CheckboxItem };
