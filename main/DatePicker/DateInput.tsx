@@ -79,7 +79,7 @@ interface Props {
 
 const DateInput: FC<Props> = (props) => {
   const [error, setError] = useState<boolean>(false);
-  const [value, setValue] = useState<string>(props.selectedDate ? props.selectedDate.getFullYear() + '-' + ('0' + (props.selectedDate.getMonth() + 1)).slice(-2) + '-' + ('0' + props.selectedDate.getDate()).slice(-2) : '');
+  const [value, setValue] = useState<string>('');
 
   const {
     style,
@@ -92,9 +92,11 @@ const DateInput: FC<Props> = (props) => {
     errorText = 'Invalid Date',
     errorTextColor = '#f00',
     // textStyle,
+    selectedDate,
   } = props;
 
   useEffect(() => {
+    setValue(convertDateString(selectedDate || new Date(0)));
     validateDate(value);
   });
 
@@ -107,11 +109,11 @@ const DateInput: FC<Props> = (props) => {
     }
   };
 
-  const handleChangeText = (input: string): void => {
-    const validNum = /^[0-9]+$/;
-    if (validNum.test(input) || input === '') {
-      setValue(input);
-    }
+  const convertDateString = (date: Date): string => {
+    const dateString = new Date(date.getTime() - date.getTimezoneOffset() * 60000)
+      .toISOString()
+      .split('T')[0];
+    return dateString;
   };
 
   return (
@@ -124,9 +126,6 @@ const DateInput: FC<Props> = (props) => {
         <StyledRowContent>
           <StyledDateInput
             value={value}
-            onChangeText={(input: string): void => {
-              handleChangeText(input);
-            }}
             placeholder={placeholder}
             placeholderTextColor={placeholderTextColor}
             editable={false}
