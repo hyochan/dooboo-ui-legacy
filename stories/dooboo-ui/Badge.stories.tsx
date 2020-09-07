@@ -46,19 +46,40 @@ const Badge1 = (): React.ReactElement => {
               <Badge />
             </StyledView>
           </View>
+
+          <View style={{ marginTop: 50 }}>
+            <StyledTitle>Badge (dot)</StyledTitle>
+            <ShowContainer>
+              <StyledView>
+                <Badge color="blue" />
+              </StyledView>
+              <StyledView>
+                <Badge variant="dot" color="blue" />
+              </StyledView>
+            </ShowContainer>
+          </View>
+
           <View>
             <StyledTitle>Badge (showZero,opacityVisible)</StyledTitle>
             <ShowContainer>
               <StyledView>
                 <Badge
-                  opacityVisible={true}
-                  color="blue"
-                  count={150}
+                  opacityVisible={false}
+                  color="green"
+                  count={3000}
                   maximumValue={100}
                 />
               </StyledView>
               <StyledView>
                 <Badge color="pink" count={0} maximumValue={0} showZero />
+              </StyledView>
+              <StyledView>
+                <Badge
+                  opacityVisible={true}
+                  color="midnightblue"
+                  count={3000}
+                  maximumValue={100}
+                />
               </StyledView>
             </ShowContainer>
           </View>
