@@ -1,6 +1,6 @@
 
 import React, { FC, useCallback, useEffect, useRef, useState } from 'react';
-import Checkbox_ from './Checkbox_';
+import Checkbox from './Checkbox';
 import styled from 'styled-components/native';
 
 interface customStyle {
@@ -48,7 +48,7 @@ interface CheckboxGroupProps {
 
 export const GroupCheckboxContext = React.createContext<CheckboxGroupContext | null>(null);
 
-const CheckboxGroup_: FC<CheckboxGroupProps> = (props) => {
+const CheckboxGroup: FC<CheckboxGroupProps> = (props) => {
   const isMounted = useRef(false);
   const [values, setValues] = useState<CheckboxValueType[]>(props.values || props.defaultValues || []);
   const [registeredValues, setRegisteredValues] = useState<CheckboxValueType[]>([]);
@@ -121,7 +121,7 @@ const CheckboxGroup_: FC<CheckboxGroupProps> = (props) => {
     <Container>
       <GroupCheckboxContext.Provider value={context}>
         {getOptions().map((option) => (
-          <Checkbox_
+          <Checkbox
             key={option.value.toString()}
             label={option.label}
             disabled={'disabled' in option ? option.disabled : props.disabled}
@@ -131,7 +131,7 @@ const CheckboxGroup_: FC<CheckboxGroupProps> = (props) => {
             customStyle={ 'customStyle' in option ? option.customStyle : props.commonCustomStyle}
           >
             {option.label}
-          </Checkbox_>
+          </Checkbox>
         ))}
       </GroupCheckboxContext.Provider>
     </Container>
@@ -144,4 +144,4 @@ const Container = styled.View`
  flex-wrap: wrap;
 `;
 
-export default CheckboxGroup_;
+export default CheckboxGroup;

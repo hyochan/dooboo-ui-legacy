@@ -9,5 +9,4 @@ export { Rating } from './Rating';
 export { SearchInput } from './SearchInput';
 export { SwitchToggle } from './SwitchToggle';
 export { Select, SelectItem } from './Select';
-export { Checkbox, CheckboxGroup, CheckboxItem } from './Checkbox';
-export { Checkbox_, CheckboxGroup_ } from './Checkbox_';
+export { Checkbox, CheckboxGroup } from './Checkbox';

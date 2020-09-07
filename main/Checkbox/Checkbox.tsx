@@ -1,5 +1,5 @@
 import React, { FC, useCallback, useContext, useEffect, useRef, useState } from 'react';
-import { GroupCheckboxContext } from './CheckboxGroup_';
+import { GroupCheckboxContext } from './CheckboxGroup';
 import {
   TouchableHighlight,
 } from 'react-native';
@@ -31,7 +31,7 @@ export interface CheckboxProps {
   customStyle?: customStyle;
 }
 
-const Checkbox_: FC<CheckboxProps> = ({
+const Checkbox: FC<CheckboxProps> = ({
   label,
   value,
   checked = false,
@@ -175,4 +175,4 @@ const Label = styled.Text<LabelProps>`
  color: ${({ labelColor }): string => labelColor || COLOR.BLACK};
 `;
 
-export default Checkbox_;
+export default Checkbox;
