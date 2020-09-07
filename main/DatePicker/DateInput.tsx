@@ -1,12 +1,9 @@
 import {
   Image,
-  Modal,
   Platform,
-  Text,
   TextStyle,
-  TouchableHighlight,
-  ViewStyle,
   TouchableOpacity,
+  ViewStyle,
 } from 'react-native';
 import React, { FC, useEffect, useState } from 'react';
 
@@ -32,7 +29,7 @@ const StyledRowContainer = styled.View`
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  border-bottom-color: #79b3f5;
+  border-bottom-color: #000000;
   border-bottom-width: 2px;
   margin: 0 0 2px 0;
   padding: 2px;
@@ -68,43 +65,41 @@ interface Props {
   style?: ViewStyle;
   label?: string;
   labelTextStyle?: TextStyle;
-  labelStyle?: void;
+  // labelStyle?: ViewStyle;
   placeholder?: string;
-  placeholderTextColor?: void;
-  underlineColor?: void;
+  placeholderTextColor?: string;
   errorText?: string;
-  errorTextStyle?: void;
-  textStyle?: void;
+  // errorTextStyle?: TextStyle;
+  errorTextColor?: string;
+  textStyle?: TextStyle;
   value?: string;
   onPressCalendar: () => void;
+  selectedDate?:Date;
 }
 
 const DateInput: FC<Props> = (props) => {
-  const [error, setError] = useState(false);
-  const [date, setDate] = useState<string>('');
-  const [show, setShow] = useState(false);
+  const [error, setError] = useState<boolean>(false);
+  const [value, setValue] = useState<string>(props.selectedDate ? props.selectedDate.getFullYear() + '-' + ('0' + (props.selectedDate.getMonth() + 1)).slice(-2) + '-' + ('0' + props.selectedDate.getDate()).slice(-2) : '');
 
   const {
     style,
     label = 'Date picker',
     labelTextStyle = { color: '#000', textAlign: 'left' },
-    labelStyle,
+    // labelStyle,
     placeholder = 'YYYY-MM-DD',
     placeholderTextColor,
-    underlineColor = { borderBottomColor: '#000' },
+    // underlineColor = { borderBottomColor: '#000' },
     errorText = 'Invalid Date',
-    errorTextStyle,
-    textStyle,
-    value = '2020-08-29',
+    errorTextColor = '#f00',
+    // textStyle,
   } = props;
 
   useEffect(() => {
-    validateDate(date);
+    validateDate(value);
   });
 
   const validateDate = (input: string): void => {
     const validDate = /^(19|20)\d{2}-(0[1-9]|1[012])-(0[1-9]|[12][0-9]|3[0-1])$/;
-
     if (validDate.test(input) || input === '') {
       setError(false);
     } else {
@@ -112,27 +107,29 @@ const DateInput: FC<Props> = (props) => {
     }
   };
 
-  const handleInput = (input: string): void => {
+  const handleChangeText = (input: string): void => {
     const validNum = /^[0-9]+$/;
     if (validNum.test(input) || input === '') {
-      setDate(input);
+      setValue(input);
     }
   };
 
   return (
     <Container style={style}>
-      <Text>{date}</Text>
       <StyledLabelContainer>
         <StyledLabel style={labelTextStyle}>{label}</StyledLabel>
       </StyledLabelContainer>
 
-      <StyledRowContainer style={underlineColor}>
+      <StyledRowContainer>
         <StyledRowContent>
           <StyledDateInput
-            value={date}
-            onChangeText={(input: string): void => handleInput(input)}
+            value={value}
+            onChangeText={(input: string): void => {
+              handleChangeText(input);
+            }}
             placeholder={placeholder}
-            editable={Platform.OS === 'web'}
+            placeholderTextColor={placeholderTextColor}
+            editable={false}
           />
         </StyledRowContent>
         <TouchableOpacity onPress={props.onPressCalendar}>
@@ -145,21 +142,13 @@ const DateInput: FC<Props> = (props) => {
 
       {error && (
         <StyledErrorContainer>
-          <StyledError>{errorText}</StyledError>
+          <StyledError
+            style={[
+              { color: errorTextColor },
+            ]}
+          >{errorText}</StyledError>
         </StyledErrorContainer>
       )}
-      {/*
-      <Modal visible={show} animationType="slide" transparent={true}>
-        <Container style={{ backgroundColor: '#79B3F5' }}>
-          <Text>Calendar</Text>
-          <TouchableHighlight
-            onPress={(): void => {
-              setShow(false);
-            }}>
-            <Text>Hide Modal</Text>
-          </TouchableHighlight>
-        </Container>
-      </Modal> */}
     </Container>
   );
 };
