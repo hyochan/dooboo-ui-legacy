@@ -88,7 +88,8 @@ const PickerCalendar: FC<Props> = (props) => {
                   return (
                     <CalendarDate
                       onPress={(date: Date): void => {
-                        console.log('Pressed a Date : ', date.toLocaleString());
+                        console.log('Pressed a Datehhh : ', date.toLocaleString());
+                        props.onSelectDate(date);
                       }}
                       date={date}
                       style={{

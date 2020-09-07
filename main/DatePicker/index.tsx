@@ -37,7 +37,7 @@ interface Props {
 const { width, height } = Dimensions.get('window');
 
 const DatePicker = (props: Props): React.ReactElement => {
-  const [selectedDate, setSelectedDate] = React.useState<Date>();
+  const [selectedDate, setSelectedDate] = React.useState<Date>(new Date());
   const [calendarVisible, setCalendarVisible] = React.useState<boolean>(false);
 
   const onSelectDate = (newDate: Date): void => {
