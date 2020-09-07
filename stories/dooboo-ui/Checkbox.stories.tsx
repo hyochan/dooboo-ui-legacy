@@ -1,8 +1,6 @@
-import React, { ReactElement, useState } from 'react';
-import { Text } from 'react-native';
-
-// eslint-disable-next-line sort-imports
 import { Checkbox, CheckboxGroup } from '../../main';
+import React, { ReactElement, useState } from 'react';
+
 import { ContainerDeco } from '../../storybook/decorators';
 
 import { storiesOf } from '@storybook/react-native';
