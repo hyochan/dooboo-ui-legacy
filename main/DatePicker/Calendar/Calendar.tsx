@@ -5,6 +5,15 @@ import CalendarDaysRow from './CalendarDaysRow';
 import CalendarMonth from './CalendarMonth';
 import styled from 'styled-components/native';
 
+const convertDateString = (date: Date): string => {
+  const dateString = new Date(date.getTime() - date.getTimezoneOffset() * 60000)
+    .toISOString()
+    .split('T')[0];
+  return dateString;
+};
+
+const StyledText = styled.Text``;
+
 // 월 데이터 배열 구하기
 const getMonthList = (
   initMonthDate: Date,
@@ -25,7 +34,7 @@ interface Props<T> {
   onChangeMonth?: (month: Date) => void; // 스와이프 하여 달 변경시 호출
   initDate?: Date; // initial date, if undefined, it's today
   containerStyle?: ViewStyle; // Calendar 컨테이너 스타일
-  dayComponent?: ({
+  dayComponent: ({
     date,
     dailyData,
     isCurMonth,
@@ -43,6 +52,7 @@ interface Props<T> {
   calendarHeight: number;
   // daysRowHeight: number;
   // monthData: MonthData;
+  yearMonthComponent?: (monthFirst: Date) => React.ReactElement;
 }
 /**
  * Pure Calendar
@@ -64,6 +74,7 @@ function Calendar<T>(props: Props<T>): React.ReactElement {
   const [monthList] = React.useState<Date[]>(
     getMonthList(initDate, pastRange, futureRange),
   );
+  const [curMonthFirst, setCurMonthFirst] = React.useState<Date>(initDate);
 
   // getItemLayout
   const getItemLayout = React.useCallback((data, index) => {
@@ -103,6 +114,18 @@ function Calendar<T>(props: Props<T>): React.ReactElement {
       if (viewableItems.length === 0) return; // 없는 경우 있음. 그냥 무시
       const { index, isViewable, item, key } = viewableItems[0];
       props.onChangeMonth && props.onChangeMonth(item);
+      setCurMonthFirst(item);
+    },
+    [],
+  );
+  const renderYearMonth = React.useCallback(
+    (monthFirst): React.ReactElement => {
+      console.log('>> monthFirst = ', monthFirst);
+      if (props.yearMonthComponent) {
+        return props.yearMonthComponent(monthFirst);
+      } else {
+        return <StyledText>{`${convertDateString(monthFirst)}`}</StyledText>;
+      }
     },
     [],
   );
@@ -113,7 +136,9 @@ function Calendar<T>(props: Props<T>): React.ReactElement {
         borderWidth: 0,
         borderColor: 'yellow',
       }}>
-      {/** 요일 표시 */}
+      {/** Year & Month */}
+      <View>{renderYearMonth(curMonthFirst)}</View>
+      {/** Days of Calendar */}
       <CalendarDaysRow style={{ height: 22 }} />
       <FlatList
         // onLayout={onLayout}

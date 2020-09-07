@@ -1,4 +1,4 @@
-import { Modal, TouchableOpacity, ViewStyle } from 'react-native';
+import { Modal, Text, TouchableOpacity, View, ViewStyle } from 'react-native';
 import React, { FC } from 'react';
 
 import Calendar from './Calendar/Calendar';
@@ -63,6 +63,21 @@ const PickerCalendar: FC<Props> = (props) => {
                 calendarHeight={contentHeight}
                 onChangeMonth={(month): void => {
                   console.log('Changed Month : ', month);
+                }}
+                yearMonthComponent={(monthFirst: Date): React.ReactElement => {
+                  return (
+                    <View
+                      style={{
+                        height: 50,
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        backgroundColor: 'yellow',
+                      }}>
+                      <Text>{`${monthFirst.getFullYear()}년 ${
+                        monthFirst.getMonth() + 1
+                      }월`}</Text>
+                    </View>
+                  );
                 }}
                 initDate={new Date()}
                 containerStyle={{
