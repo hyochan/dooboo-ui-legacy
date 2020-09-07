@@ -1,4 +1,4 @@
-import React, { FC, useRef } from 'react';
+import React, { FC } from 'react';
 import styled from 'styled-components/native';
 
 interface BadgeProps {
@@ -84,20 +84,6 @@ const Badge: FC<BadgeProps> = (props) => {
         </StyledView>
       );
   }
-
-  // return variant === 'dot' ? (
-
-  // ) : (
-  //   <StyledView
-  //     count={count}
-  //     maximumValue={maximumValue}
-  //     color={color}
-  //     opacityVisible={opacityVisible}>
-  //     <StyledText>
-  //       {count}
-  //     </StyledText>
-  //   </StyledView>
-  // );
 };
 
 export { Badge };
