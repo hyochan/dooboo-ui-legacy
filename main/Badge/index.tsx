@@ -7,6 +7,7 @@ interface badgeProps {
   maximumValue?: number;
   showZero?: boolean;
   opacityVisible?: boolean;
+  variant?: string;
 }
 
 // TODO: Android , IOS 스타일 매기는 기준이 달라서 조사하는 것도 좋을듯!
@@ -24,8 +25,8 @@ const StyledView = styled.View`
   align-items: center;
   opacity: ${(props: badgeProps): number =>
     props.count === 0 ||
-    props.count! <= props.maximumValue! ||
-    !props.opacityVisible
+      props.count! <= props.maximumValue! ||
+      !props.opacityVisible
       ? 1
       : 0.6};
 `;
@@ -37,6 +38,18 @@ const StyledText = styled.Text`
   text-align: center;
 `;
 
+const StyledDotView = styled.View`
+  position: absolute;
+  top: -5px;
+  right: -5px;
+  width: 10px;
+  height: 10px;
+  background-color: ${(props: badgeProps): string => props.color!};
+  border-radius: 50;
+  justify-content: center;
+  align-items: center;
+`;
+
 const Badge: FC<badgeProps> = (props) => {
   const {
     count = 10,
@@ -44,6 +57,7 @@ const Badge: FC<badgeProps> = (props) => {
     maximumValue = 300,
     showZero,
     opacityVisible = true,
+    variant = 'standard'
   } = props;
 
   if (!showZero) {
@@ -51,36 +65,19 @@ const Badge: FC<badgeProps> = (props) => {
   }
 
   return (
-    <StyledView
-      count={count}
-      maximumValue={maximumValue}
-      color={color}
-      opacityVisible={opacityVisible}>
-      <StyledText>
-        {count! <= maximumValue! ? count : maximumValue + '+'}
-      </StyledText>
-    </StyledView>
+    variant == 'dot' ?
+      <StyledDotView color={color} /> //TODO: position 추가 필요
+      :
+      <StyledView
+        count={count}
+        maximumValue={maximumValue}
+        color={color}
+        opacityVisible={opacityVisible}>
+        <StyledText>
+          {count! <= maximumValue! ? count : maximumValue + '+'}
+        </StyledText>
+      </StyledView>
   );
 };
-
-// TODO: 기존 코드들인데 삭제하기 아까워서..!
-// const Badge = ({
-//   maximumValue = 0,
-//   count = 0,
-//   color = 'red',
-//   showZero = true,
-// }: badgeProps): React.ReactElement => {
-//   if (!showZero) {
-//     if (count == 0) return null;
-//   }
-
-//   return (
-//     <StyledView count={count} maximumValue={maximumValue} color={color}>
-//       <StyledText>
-//         {count <= maximumValue ? count : maximumValue + '+'}
-//       </StyledText>
-//     </StyledView>
-//   );
-// };
 
 export { Badge };
