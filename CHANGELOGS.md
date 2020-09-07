@@ -1,6 +1,9 @@
 ## Changelogs
-= **[0.0.16]**
+- **[0.0.18]**
   * Major refactor [Accordion], Add `renderTitle`, `renderBody`, `titleContainerStyle`, `bodyContainerStyle` and etc [#321](https://github.com/dooboolab/dooboo-ui/pull/321)
+  * Fixed [Button] to render correctly. Fixed wrongly placed `testID`.
+  * [EditText] doesn't need default type any more. `Column` is default.
+
 - **[0.0.15]**
   * Add `contentStyle` to [EditText] [#264](https://github.com/dooboolab/dooboo-ui/pull/264)
   * Types fixes
