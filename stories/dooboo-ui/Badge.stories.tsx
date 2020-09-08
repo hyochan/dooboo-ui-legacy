@@ -24,7 +24,7 @@ const StyledTitle = styled.Text`
 
 const StyledView: any = styled.View`
   margin: 20px;
-  width: 100px;
+  width: 200px;
   height: 100px;
   background-color: gray;
 `;
@@ -43,7 +43,7 @@ const Badge1 = (): React.ReactElement => {
           <View style={{ marginTop: 50 }}>
             <StyledTitle>Badge (default)</StyledTitle>
             <StyledView>
-              <Badge />
+              <Badge position="left" border="#34c88a" />
             </StyledView>
           </View>
 
@@ -67,18 +67,18 @@ const Badge1 = (): React.ReactElement => {
                   opacityVisible={false}
                   color="green"
                   count={3000}
-                  maximumValue={100}
+                  maximumCount={100}
                 />
               </StyledView>
               <StyledView>
-                <Badge color="pink" count={0} maximumValue={0} showZero />
+                <Badge color="pink" count={0} maximumCount={0} showZero />
               </StyledView>
               <StyledView>
                 <Badge
                   opacityVisible={true}
                   color="midnightblue"
                   count={3000}
-                  maximumValue={100}
+                  maximumCount={100}
                 />
               </StyledView>
             </ShowContainer>
@@ -103,13 +103,13 @@ const Badge2 = (): React.ReactElement => {
           <View>
             <StyledTitle>Badge 3</StyledTitle>
             <StyledView>
-              <Badge color="blue" count={0} maximumValue={0} />
+              <Badge color="blue" count={0} maximumCount={0} />
             </StyledView>
           </View>
           <View style={{ marginTop: 50 }}>
             <StyledTitle style={{ marginBottom: 10 }}>Badge 4</StyledTitle>
             <StyledView>
-              <Badge color="red" count={0} maximumValue={0} showZero />
+              <Badge color="red" count={0} maximumCount={0} showZero />
             </StyledView>
           </View>
         </Container>
