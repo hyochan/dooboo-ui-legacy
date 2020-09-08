@@ -51,10 +51,10 @@ const Badge1 = (): React.ReactElement => {
             <StyledTitle>Badge (dot)</StyledTitle>
             <ShowContainer>
               <StyledView>
-                <Badge color='blue' />
+                <Badge color="blue" />
               </StyledView>
               <StyledView>
-                <Badge variant='dot' color='blue' />
+                <Badge variant="dot" color="blue" />
               </StyledView>
             </ShowContainer>
           </View>

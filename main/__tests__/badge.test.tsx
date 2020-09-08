@@ -1,30 +1,46 @@
 // Library Import
 import React, { ReactElement } from 'react';
-import {
-  render
-} from '@testing-library/react-native';
+import { RenderResult, render } from '@testing-library/react-native';
 import renderer from 'react-test-renderer';
 // Test 대상 import
-import Badge from '../components/pureComponent/badge';
+import { Badge } from '../Badge';
 
-type badgeProps ={
-  count? : number,
-  color? : string,
+interface BadgeProps {
+  count?: number;
+  color?: string;
+  maximumValue?: number;
+  showZero?: boolean;
+  opacityVisible?: boolean;
 }
 
-let props: badgeProps;
+let props: BadgeProps;
 let component: ReactElement;
+let testingLib: RenderResult;
 
-function getTempComponent({count,color}:badgeProps) {
-   return <Badge count={10} color="white" />;
-}
+const createTestProps = (
+  obj?: Record<string, unknown>,
+): Record<string, unknown> => ({
+  ...obj,
+});
 
 describe('[Badge] render', () => {
-  props = {count:10,color:"white"};
-  component = getTempComponent(props);
-  it('renders without crashing', () => {
-    const rendered = renderer.create(component).toJSON();
-    expect(rendered).toMatchSnapshot();
-    expect(rendered).toBeTruthy();
+  it('should render without crashing', () => {
+    props = createTestProps();
+    component = <Badge {...props} />;
+    testingLib = render(component);
+
+    expect(testingLib.baseElement).toMatchSnapshot();
+  });
+
+  it('should render when count is over than max count', () => {
+    props = createTestProps({
+      maximumValue: 300,
+      count: 500,
+    });
+
+    component = <Badge {...props} />;
+    testingLib = render(component);
+
+    expect(testingLib.baseElement).toMatchSnapshot();
   });
 });
