@@ -1,14 +1,14 @@
+import React from 'react';
 import {
   Dimensions,
   TextStyle,
   TouchableOpacity,
   ViewStyle,
 } from 'react-native';
-import React, { FC } from 'react';
+import styled from 'styled-components/native';
 
 import DateInput from './DateInput';
 import PickerCalendar from './PickerCalendar';
-import styled from 'styled-components/native';
 
 const Container = styled.View`
   flex-direction: column;

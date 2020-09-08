@@ -1,23 +1,19 @@
-import { View, ViewStyle } from 'react-native';
-
 import React from 'react';
+import { TouchableOpacity, View, ViewStyle } from 'react-native';
 import styled from 'styled-components/native';
 
 const DateRound = styled.View`
-  width: 20px;
-  height: 20px;
+  width: 24px;
+  height: 24px;
   align-items: center;
   justify-content: center;
 `;
+
 const DateText = styled.Text`
-  /* font-family: NotoSansCJKkr-Regular; */
   font-size: 12px;
   color: #565656;
-  /* line-height: 16; */
 `;
 
-const StyledTouchable = styled.TouchableOpacity``;
-// 날짜 영역
 const DateRow = styled.View`
   width: 100%;
   height: 25px;
@@ -42,7 +38,7 @@ function CalendarDate<T>(props: Props<T>): React.ReactElement {
     ? { borderRadius: 12, backgroundColor: '#efefef' }
     : { borderRadius: 0, backgroundColor: 'white' };
   return (
-    <StyledTouchable
+    <TouchableOpacity
       onPress={(): void => {
         props.onPress && props.onPress(props.date);
       }}>
@@ -62,7 +58,7 @@ function CalendarDate<T>(props: Props<T>): React.ReactElement {
         </DateRow>
         {/* DateData Area */}
       </View>
-    </StyledTouchable>
+    </TouchableOpacity>
   );
 }
 // export default React.memo(CalendarDate);

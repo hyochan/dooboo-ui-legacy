@@ -1,5 +1,4 @@
 import React from 'react';
-
 import { ViewStyle } from 'react-native';
 import styled from 'styled-components/native';
 
@@ -9,19 +8,19 @@ const DaysRow = styled.View`
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  border-bottom-width: 1;
+  border-bottom-width: 1px;
   border-bottom-color: #efefef;
 `;
 const DayColumn = styled.View`
-  width: 30;
+  width: 30px;
   height: 100%;
   align-items: center;
+  justify-content: center;
 `;
 const DayTitle = styled.Text`
-  /* font-family: NotoSansCJKkr-Medium; */
-  font-size: 12;
+  font-size: 12px;
   color: #565656;
-  line-height: 16;
+  line-height: 16px;
 `;
 interface Props {
   style?: ViewStyle;
