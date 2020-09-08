@@ -83,7 +83,11 @@ function Calendar<T>(props: Props<T>): React.ReactElement {
   }, []);
 
   const MemoizedCalendarMonth = React.memo(CalendarMonth, (prev, next) => {
-    return true;
+    // return true;
+    return (
+      prev.calendarWidth === next.calendarWidth &&
+      prev.calendarHeight === next.calendarHeight
+    );
   });
   // 월 달력 그리기
   const renderMonthCalendar = React.useCallback(

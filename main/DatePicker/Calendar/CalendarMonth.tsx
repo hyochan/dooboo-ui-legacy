@@ -35,7 +35,7 @@ function CalendarMonth<T>(props: PropsWithChildren<Props<T>>): ReactElement {
   // 금월 (시작월) 날짜
   // const monthDate = props.monthDate ? moment(props.monthDate) : moment();
   // 금월 달력의 시작 날짜 (= 금월 1일의 요일 수 만큼 뺌)
-
+  console.log('>>>> calendar width in CalendarMonth = ', props.calendarWidth);
   const thisYear = props.monthDate.getFullYear(); // year number of this month's calendar
   const thisMonth = props.monthDate.getMonth(); // month number of this month's calendar
   const startDate = new Date(
@@ -48,8 +48,8 @@ function CalendarMonth<T>(props: PropsWithChildren<Props<T>>): ReactElement {
   const sMonth = startDate.getMonth();
   const sDate = startDate.getDate();
 
-  props.today.getMonth() === thisMonth &&
-    console.log('>> startDate = ', startDate.toLocaleString());
+  // props.today.getMonth() === thisMonth &&
+  // console.log('>> startDate = ', startDate.toLocaleString());
   const datesOfMonth: Date[] = []; // Dates to be displayed on this month's calendar
   for (let i = 0; i < 42; i++) {
     const date = new Date(sYear, sMonth, sDate + i);
@@ -57,8 +57,8 @@ function CalendarMonth<T>(props: PropsWithChildren<Props<T>>): ReactElement {
   }
   // 1 주 렌더링
   const renderWeek = (dates: Date[], key): React.ReactElement => {
-    props.today.getMonth() === thisMonth &&
-      console.log('>> startDate = ', dates);
+    // props.today.getMonth() === thisMonth &&
+    //   console.log('>> startDate = ', dates);
     const week = dates.map((date, index) => {
       const isCurMonth =
         date.getFullYear() === thisYear && date.getMonth() === thisMonth;

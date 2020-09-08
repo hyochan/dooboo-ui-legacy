@@ -64,6 +64,8 @@ const DatePicker = (props: Props): React.ReactElement => {
           setCalendarVisible(false);
         }}
         containerStyle={{ width: 300, height: 450 }}
+        // calendarWidth={300}
+        // calendarHeight={450}
       />
       {/* <TouchableOpacity
         onPress={(): void => {

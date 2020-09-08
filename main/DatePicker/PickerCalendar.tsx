@@ -1,12 +1,11 @@
-import React, { FC } from 'react';
 import { Modal, Text, View, ViewStyle } from 'react-native';
-import styled from 'styled-components/native';
+import React, { FC } from 'react';
 
 import Calendar from './Calendar/Calendar';
 import CalendarDate from './Calendar/CalendarDate';
+import styled from 'styled-components/native';
 
-const ModalContainer = styled.TouchableWithoutFeedback`
-`;
+const ModalContainer = styled.TouchableWithoutFeedback``;
 const ModalContentsWrapper = styled.View`
   flex: 1;
   align-items: center;
@@ -27,27 +26,25 @@ interface Props {
   onSelectDate: (date: Date) => void;
   containerStyle?: ViewStyle;
   onBackdropPress?: () => void;
+  calendarWidth?: number;
+  calendarHeight?: number;
 }
 
 const PickerCalendar: FC<Props> = (props) => {
-  const [selectedDate, setSelectedDate] = React.useState<Date>();
-  const [pickerOpen, setPickerOpen] = React.useState<boolean>(false);
-  const [contentWidth, setContentWidth] = React.useState<number>(210);
-  const [contentHeight, setContentHeight] = React.useState<number>(210);
+  // const [selectedDate, setSelectedDate] = React.useState<Date>();
+  // const [pickerOpen, setPickerOpen] = React.useState<boolean>(false);
+  // const [contentWidth, setContentWidth] = React.useState<number>(210);
+  // const [contentHeight, setContentHeight] = React.useState<number>(210);
+  const { calendarWidth = 300, calendarHeight = 450 } = props;
   return (
     <Modal visible={props.visible} transparent={true} animationType={'fade'}>
       <ModalContainer onPress={props.onBackdropPress}>
         <ModalContentsWrapper pointerEvents={'auto'}>
           <CalendarContainer>
-            <CalendarContentsWrapper
-              style={props.containerStyle}
-              onLayout={(e): void => {
-                setContentWidth(e.nativeEvent.layout.width);
-                setContentHeight(e.nativeEvent.layout.height);
-              }}>
+            <CalendarContentsWrapper style={props.containerStyle}>
               <Calendar
-                calendarWidth={contentWidth}
-                calendarHeight={contentHeight}
+                calendarWidth={calendarWidth}
+                calendarHeight={calendarHeight}
                 onChangeMonth={(month): void => {
                   console.log('Changed Month : ', month);
                 }}
