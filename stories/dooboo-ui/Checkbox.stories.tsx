@@ -78,6 +78,7 @@ function DefaultCheckboxGroup(): React.ReactElement {
   ];
 
   const onChange = (checkedValues): void => {
+    // eslint-disable-next-line no-console
     console.log('checked = ', checkedValues);
   };
   return (
