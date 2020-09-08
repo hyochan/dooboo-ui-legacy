@@ -2,11 +2,11 @@ import React from 'react';
 import { TouchableOpacity, View, ViewStyle } from 'react-native';
 import styled from 'styled-components/native';
 
-const DateRound = styled.View`
-  width: 24px;
-  height: 24px;
-  align-items: center;
-  justify-content: center;
+const SelectedDate = styled.View`
+  position: absolute;
+  width: 32px;
+  height: 32px;
+  border-radius: 12px;
 `;
 
 const DateText = styled.Text`
@@ -32,10 +32,10 @@ interface Props<T> {
 
 function CalendarDate<T>(props: Props<T>): React.ReactElement {
   const dateColor = props.date.getDay() === 0 ? 'red' : 'black';
-  const dateOpacity = props.isCurMonth ? 1 : 0.6;
+  const dateOpacity = props.isCurMonth ? 1 : 0.2;
 
   const todayStyle = props.isToday
-    ? { borderRadius: 12, backgroundColor: '#efefef' }
+    ? { borderRadius: 16, backgroundColor: '#efefef' }
     : { borderRadius: 0, backgroundColor: 'white' };
   return (
     <TouchableOpacity
@@ -49,14 +49,16 @@ function CalendarDate<T>(props: Props<T>): React.ReactElement {
             justifyContent: 'center',
             alignItems: 'center',
           }}>
-          <DateRound
-            style={{ ...props.style, opacity: dateOpacity, ...todayStyle }}>
-            <DateText style={{ alignSelf: 'center', color: dateColor }}>
-              {props.date.getDate()}
-            </DateText>
-          </DateRound>
+          <SelectedDate style={{ opacity: dateOpacity, ...todayStyle }} />
+          <DateText
+            style={{
+              alignSelf: 'center',
+              color: dateColor,
+              opacity: dateOpacity,
+            }}>
+            {props.date.getDate()}
+          </DateText>
         </DateRow>
-        {/* DateData Area */}
       </View>
     </TouchableOpacity>
   );

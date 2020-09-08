@@ -31,7 +31,6 @@ interface Props {
 }
 
 const PickerCalendar: FC<Props> = (props) => {
-  // const [selectedDate, setSelectedDate] = React.useState<Date>();
   // const [pickerOpen, setPickerOpen] = React.useState<boolean>(false);
   // const [contentWidth, setContentWidth] = React.useState<number>(210);
   // const [contentHeight, setContentHeight] = React.useState<number>(210);
@@ -63,7 +62,7 @@ const PickerCalendar: FC<Props> = (props) => {
                     </View>
                   );
                 }}
-                initDate={new Date()}
+                initDate={props.selectedDate}
                 containerStyle={{
                   // width: screenWidth,
                   // height: calendarHeight,
