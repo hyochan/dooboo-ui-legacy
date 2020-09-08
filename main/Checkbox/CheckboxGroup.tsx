@@ -56,7 +56,7 @@ const CheckboxGroup: FC<CheckboxGroupProps> = (props) => {
   useEffect(() => {
     // for only componenUpdate not in mount
     if (isMounted.current) {
-      setValues(props.values);
+      setValues(props.values || []);
     } else {
       isMounted.current = true;
     }
@@ -66,7 +66,6 @@ const CheckboxGroup: FC<CheckboxGroupProps> = (props) => {
     const { options } = props;
 
     return (options as Array<CheckboxOptionType>).map((option) => {
-      // for CASE: ['Orange', 'Apple', 'Banna']
       if (typeof option === 'string') {
         return {
           label: option,
