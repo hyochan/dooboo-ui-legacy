@@ -24,6 +24,7 @@ const DayTitle = styled.Text`
 `;
 interface Props {
   style?: ViewStyle;
+  calendarWidth: number;
 }
 /**
  * 캘린더 요일 row
@@ -31,11 +32,11 @@ interface Props {
 const weekDays = ['일', '월', '화', '수', '목', '금', '토'];
 function CalendarDaysRow(props: Props): React.ReactElement {
   return (
-    <DaysRow style={{ width: '100%', ...props.style }}>
+    <DaysRow style={{ ...props.style }}>
       {weekDays.map((day, index) => {
         const textColor = index === 0 ? '#ff424c' : '#565656';
         return (
-          <DayColumn key={index}>
+          <DayColumn style={{ width: props.calendarWidth / 7 }} key={index}>
             <DayTitle style={{ color: textColor }}>{day}</DayTitle>
           </DayColumn>
         );

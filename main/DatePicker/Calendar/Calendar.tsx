@@ -46,7 +46,7 @@ interface Props<T> {
   futureRange?: number; // 미래 월 개월 수
 
   calendarWidth: number; // 달 표시 width
-  calendarHeight: number;
+  // calendarHeight: number;
   // daysRowHeight: number;
   // monthData: MonthData;
   yearMonthComponent?: (monthFirst: Date) => React.ReactElement;
@@ -83,11 +83,7 @@ function Calendar<T>(props: Props<T>): React.ReactElement {
   }, []);
 
   const MemoizedCalendarMonth = React.memo(CalendarMonth, (prev, next) => {
-    // return true;
-    return (
-      prev.calendarWidth === next.calendarWidth &&
-      prev.calendarHeight === next.calendarHeight
-    );
+    return true;
   });
   // 월 달력 그리기
   const renderMonthCalendar = React.useCallback(
@@ -96,13 +92,10 @@ function Calendar<T>(props: Props<T>): React.ReactElement {
         <MemoizedCalendarMonth
           monthDate={item}
           dayComponent={props.dayComponent}
-          calendarHeight={props.calendarHeight - 22}
+          // calendarHeight={props.calendarHeight - 22}
           calendarWidth={props.calendarWidth}
           style={{
             width: props.calendarWidth,
-            height: props.calendarHeight - 22,
-            borderWidth: 0,
-            borderColor: 'black',
           }}
           today={initDate}
         />
@@ -134,22 +127,23 @@ function Calendar<T>(props: Props<T>): React.ReactElement {
     <View
       style={{
         ...props.containerStyle,
-        borderWidth: 0,
-        borderColor: 'yellow',
       }}>
       {/** Year & Month */}
       <View>{renderYearMonth(curMonthFirst)}</View>
       {/** Days of Calendar */}
-      <CalendarDaysRow style={{ height: 22 }} />
+      <CalendarDaysRow
+        calendarWidth={props.calendarWidth}
+        style={{
+          width: props.calendarWidth,
+          height: 22,
+        }}
+      />
       <FlatList
         // onLayout={onLayout}
         // ref={(c) => this.listView = c}
         // scrollEventThrottle={1000}
         style={{
           width: props.calendarWidth,
-          height: props.calendarHeight - 22,
-          borderColor: 'black',
-          borderWidth: 0,
         }}
         data={monthList}
         // snapToAlignment='start'

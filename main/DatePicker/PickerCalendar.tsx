@@ -27,14 +27,13 @@ interface Props {
   containerStyle?: ViewStyle;
   onBackdropPress?: () => void;
   calendarWidth?: number;
-  calendarHeight?: number;
 }
 
 const PickerCalendar: FC<Props> = (props) => {
   // const [pickerOpen, setPickerOpen] = React.useState<boolean>(false);
   // const [contentWidth, setContentWidth] = React.useState<number>(210);
   // const [contentHeight, setContentHeight] = React.useState<number>(210);
-  const { calendarWidth = 300, calendarHeight = 450 } = props;
+  const { calendarWidth = 300 } = props;
   return (
     <Modal visible={props.visible} transparent={true} animationType={'fade'}>
       <ModalContainer onPress={props.onBackdropPress}>
@@ -43,7 +42,7 @@ const PickerCalendar: FC<Props> = (props) => {
             <CalendarContentsWrapper style={props.containerStyle}>
               <Calendar
                 calendarWidth={calendarWidth}
-                calendarHeight={calendarHeight}
+                // calendarHeight={calendarHeight - 40}
                 onChangeMonth={(month): void => {
                   console.log('Changed Month : ', month);
                 }}
@@ -51,7 +50,7 @@ const PickerCalendar: FC<Props> = (props) => {
                   return (
                     <View
                       style={{
-                        height: 50,
+                        height: 40,
                         alignItems: 'center',
                         justifyContent: 'center',
                         backgroundColor: 'white',
@@ -64,11 +63,7 @@ const PickerCalendar: FC<Props> = (props) => {
                 }}
                 initDate={props.selectedDate}
                 containerStyle={{
-                  // width: screenWidth,
-                  // height: calendarHeight,
                   overflow: 'hidden',
-                  borderWidth: 0,
-                  borderColor: 'red',
                 }}
                 dayComponent={({
                   date,

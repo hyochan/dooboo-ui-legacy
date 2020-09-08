@@ -23,7 +23,6 @@ interface Props<T> {
     isToday: boolean;
   }) => React.ReactElement;
   calendarWidth: number; // 달력 표시 width
-  calendarHeight: number;
   today: Date; // init Date
   dailyCalData?: { [key: string]: T }; // key format : YYYY-MM-DD
 }
@@ -71,7 +70,7 @@ function CalendarMonth<T>(props: PropsWithChildren<Props<T>>): ReactElement {
         isToday: convertDateString(props.today) === convertDateString(date),
         style: {
           width: props.calendarWidth / 7,
-          height: '100%',
+          height: props.calendarWidth / 7,
         },
       });
     });
@@ -81,11 +80,8 @@ function CalendarMonth<T>(props: PropsWithChildren<Props<T>>): ReactElement {
         style={{
           flexDirection: 'row',
           width: props.calendarWidth,
-          height: props.calendarHeight / 6,
           justifyContent: 'space-between',
           paddingHorizontal: 0,
-          borderWidth: 0,
-          borderColor: 'blue',
         }}>
         {week}
       </View>
