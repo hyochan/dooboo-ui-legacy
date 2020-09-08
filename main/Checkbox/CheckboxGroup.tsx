@@ -1,4 +1,3 @@
-
 import React, { FC, useCallback, useEffect, useRef, useState } from 'react';
 import Checkbox from './Checkbox';
 import styled from 'styled-components/native';
