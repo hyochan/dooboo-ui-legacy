@@ -1,9 +1,8 @@
-import { FlatList, Platform, Text, View, ViewStyle } from 'react-native';
-import React, { useEffect, useState } from 'react';
+import { FlatList, Text, View, ViewStyle } from 'react-native';
+import React from 'react';
 
 import CalendarDaysRow from './CalendarDaysRow';
 import CalendarMonth from './CalendarMonth';
-import styled from 'styled-components/native';
 
 const convertDateString = (date: Date): string => {
   const dateString = new Date(date.getTime() - date.getTimezoneOffset() * 60000)
@@ -11,8 +10,6 @@ const convertDateString = (date: Date): string => {
     .split('T')[0];
   return dateString;
 };
-
-const StyledText = styled.Text``;
 
 // 월 데이터 배열 구하기
 const getMonthList = (
@@ -124,7 +121,7 @@ function Calendar<T>(props: Props<T>): React.ReactElement {
       if (props.yearMonthComponent) {
         return props.yearMonthComponent(monthFirst);
       } else {
-        return <StyledText>{`${convertDateString(monthFirst)}`}</StyledText>;
+        return <Text>{`${convertDateString(monthFirst)}`}</Text>;
       }
     },
     [],
