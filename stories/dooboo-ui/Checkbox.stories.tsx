@@ -28,7 +28,7 @@ const Title = styled.Text`
 
 const Seperator = styled.View`
  border-bottom-color: black;
- border-bottom-width: 1;
+ border-bottom-width: 1px;
 `;
 
 function DefaultCheckbox(): React.ReactElement {
