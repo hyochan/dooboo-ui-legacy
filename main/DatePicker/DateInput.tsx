@@ -69,8 +69,8 @@ interface Props {
   placeholderTextColor?: string;
   errorText?: string;
   // errorTextStyle?: TextStyle;
-  errorTextColor?: string;
-  textStyle?: TextStyle;
+  errorTextStyle?: TextStyle;
+  dateTextStyle?: TextStyle;
   value?: string;
   onPressCalendar: () => void;
   selectedDate?:Date;
@@ -89,13 +89,16 @@ const DateInput: FC<Props> = (props) => {
     placeholderTextColor,
     // underlineColor = { borderBottomColor: '#000' },
     errorText = 'Invalid Date',
-    errorTextColor = '#f00',
-    // textStyle,
+    errorTextStyle = { color: '#F00', textAlign: 'left' },
+    dateTextStyle,
     selectedDate,
   } = props;
 
   useEffect(() => {
-    setValue(convertDateString(selectedDate || new Date(0)));
+    setValue(convertDateString(props.selectedDate || new Date()));
+  }, [props.selectedDate]);
+
+  useEffect(() => {
     validateDate(value);
   });
 
@@ -127,7 +130,10 @@ const DateInput: FC<Props> = (props) => {
             value={value}
             placeholder={placeholder}
             placeholderTextColor={placeholderTextColor}
-            editable={false}
+            onChangeText={(input:string):void => {
+              setValue(input);
+            }}
+            style={dateTextStyle}
           />
         </StyledRowContent>
         <TouchableOpacity onPress={props.onPressCalendar}>
@@ -141,9 +147,7 @@ const DateInput: FC<Props> = (props) => {
       {error && (
         <StyledErrorContainer>
           <StyledError
-            style={[
-              { color: errorTextColor },
-            ]}
+            style={errorTextStyle}
           >{errorText}</StyledError>
         </StyledErrorContainer>
       )}
