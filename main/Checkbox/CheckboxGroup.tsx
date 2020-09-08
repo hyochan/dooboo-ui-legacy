@@ -32,7 +32,7 @@ export interface CheckboxGroupState {
 
 export interface CheckboxGroupContext {
   registerValue?:(value: CheckboxValueType) => void;
-  toggleOption?: (option: CheckboxOptionType) => void;
+  toggleOption: (option: CheckboxOptionType) => void;
   value?: CheckboxValueType[];
   disabled?: boolean;
 }
