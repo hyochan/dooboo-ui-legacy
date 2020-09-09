@@ -5,6 +5,9 @@
 
 ## Preview
 
+| Checkbox | CheckboxGroup | CheckAll |   
+|---------|-------------|------------|
+| ![Checkbox](https://user-images.githubusercontent.com/45163013/92544089-fdc0d000-f287-11ea-9b46-1843566faad9.png) | ![CheckboxGroup](hhttps://user-images.githubusercontent.com/45163013/92544095-00bbc080-f288-11ea-8d1d-cf95ab21bd22.png) | ![CheckAll](https://user-images.githubusercontent.com/45163013/92544100-01eced80-f288-11ea-8a29-557670e06c1d.png) |   
 
 ## Installation
 
@@ -13,7 +16,8 @@ yarn add dooboo-ui
 ```
 
 ## Props
-### Checkbox
+
+### Common
 
 ```ts
 interface customStyle {
@@ -27,8 +31,13 @@ interface onChangeEvent {
   checked: boolean;
   label: string | number;
 }
+```
 
-export interface CheckboxProps {
+### Checkbox
+
+```ts
+
+interface CheckboxProps {
   id?: string;
   label: string | number;
   value?: string | number | boolean;
@@ -41,23 +50,12 @@ export interface CheckboxProps {
 }
 ```
 
-### CheckboxGrop
+### CheckboxGroup
 ```ts
-interface customStyle {
-  labelSize?: number;
-  labelColor?: string;
-  boxSize?: number;
-  boxColor?: string;
-}
 
-interface onChangeEvent {
-  checked: boolean;
-  label: string;
-}
+type CheckboxValueType = string | number | boolean;
 
-export type CheckboxValueType = string | number | boolean;
-
-export interface CheckboxOptionType {
+interface CheckboxOptionType {
   label: string | number;
   value: CheckboxValueType;
   disabled?: boolean;
@@ -65,17 +63,9 @@ export interface CheckboxOptionType {
   customStyle?: customStyle;
 }
 
-export interface CheckboxGroupState {
+interface CheckboxGroupState {
   value: CheckboxValueType[];
   registeredValues: CheckboxValueType[];
-}
-
-export interface CheckboxGroupContext {
-  cancelValue?: (value: CheckboxValueType) => void;
-  registerValue?:(value: CheckboxValueType) => void;
-  toggleOption?: () => void;
-  value?: any;
-  disabled?: boolean;
 }
 
 interface CheckboxGroupProps {
@@ -100,7 +90,7 @@ interface CheckboxGroupProps {
 | indeterminate  |                    | `boolean`                         | `false` |
 | disabled       |                    | `boolean`                         | `false` |
 | onChange       |                    | `(event: onChangeEvent) => void;` |         |
-| customStyle    |                    | `customStyle type` look below     |         |
+| customStyle    |                    | `customStyle type`                |         |
 
 
 #### customStyle 
@@ -119,39 +109,49 @@ interface CheckboxGroupProps {
 | defaultValues     |          | `Array<CheckboxValueType>`                          |         |
 | options           |          | `Array<CheckboxOptionType | string>`                |         |
 | disabled          |          | `boolean`                                           |         |
-| onChange          |          | `(checkedValue: Array<CheckboxValueType>) => void;` |         |
-| commonCustomStyle |          | `boolean`                                           |         |
 | onChange          |          | `(event: onChangeEvent) => void;`                   |         |
-| commonCustomStyle |          | `customStyle` look upside                           |         |
+| commonCustomStyle |          | `customStyle`                                       |         |
 
 
 ## Getting started
 
 ### Import
 
+```tsx
+import { Checkbox, CheckboxGroup } from 'dooboo-ui';
+```
+
 ### Usage
 
-#### Checkbox_
+#### Checkbox
 
 ```tsx
 function DefaultCheckbox(): React.ReactElement {
+  const customStyle = {
+    labelLeft: true,
+  };
   return (
     <ScrollContainer>
 
       <Container>
         <Title>default</Title>
-        <Checkbox_ label="defaultChecked" defaultChecked ></Checkbox_>
+        <Checkbox label="defaultChecked" defaultChecked ></Checkbox>
 
       </Container>
 
       <Container>
         <Title>disabled</Title>
-        <Checkbox_ label="disabled" disabled />
+        <Checkbox label="disabled" disabled />
       </Container>
 
       <Container>
         <Title>indeterminate</Title>
-        <Checkbox_ label="indeterminate" indeterminate />
+        <Checkbox label="indeterminate" indeterminate />
+      </Container>
+
+      <Container>
+        <Title>labelLeft</Title>
+        <Checkbox label="labelLeft" customStyle={customStyle} />
       </Container>
 
     </ScrollContainer>
@@ -159,7 +159,7 @@ function DefaultCheckbox(): React.ReactElement {
 }
 ```
 
-#### CheckboxGroup_
+#### CheckboxGroup
 
 ```tsx
 function DefaultCheckboxGroup(): React.ReactElement {
@@ -184,21 +184,21 @@ function DefaultCheckboxGroup(): React.ReactElement {
 
       <Container>
         <Title>plainOption</Title>
-        <CheckboxGroup_ options={plainOptions} onChange={onChange} />
+        <CheckboxGroup options={plainOptions} onChange={onChange} />
       </Container>
       <Container>
         <Title>Default</Title>
-        <CheckboxGroup_ options={options} onChange={onChange} />
+        <CheckboxGroup options={options} onChange={onChange} />
       </Container>
 
       <Container>
         <Title>option with disabled</Title>
-        <CheckboxGroup_ options={optionsWithDisabled} onChange={onChange} />
+        <CheckboxGroup options={optionsWithDisabled} onChange={onChange} />
       </Container>
 
       <Container>
         <Title>with disabled props</Title>
-        <CheckboxGroup_ options={options} disabled onChange={onChange} />
+        <CheckboxGroup options={options} disabled onChange={onChange} />
       </Container>
 
     </ScrollContainer>
