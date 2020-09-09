@@ -2,7 +2,7 @@ import React, { FC } from 'react';
 import styled from 'styled-components/native';
 import { StyleSheet } from 'react-native';
 
-interface BadgeProps {
+export interface BadgeProps {
   count?: number;
   color?: string;
   maximumCount?: number;
@@ -29,7 +29,7 @@ const StyledView = styled.View`
   width: auto;
   min-width : 45px;
   height: 45px;
-  border-color: ${(props: StyleProps) => props.border ? props.border : "#00ff0000"};
+  border-color: ${(props: StyleProps) => props.border ? props.border : '#00ff0000'};
   border-width: 3px;
   background-color: ${(props: StyleProps): string => props.color!};
   border-radius: 100;
@@ -60,10 +60,10 @@ const StyledDotView = styled.View`
 
 const styles = StyleSheet.create({
   fontDesign: {
-    fontWeight: "500",
+    fontWeight: '500',
     fontSize: 20,
   },
-})
+});
 
 const Badge: FC<BadgeProps> = (props) => {
   const {
