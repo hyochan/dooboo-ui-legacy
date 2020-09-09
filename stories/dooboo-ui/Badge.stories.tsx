@@ -37,21 +37,22 @@ const Badge1 = (): React.ReactElement => {
     <SafeAreaView>
       <ScrollView
         contentContainerStyle={{
-          marginTop: 8,
           alignSelf: 'stretch',
           paddingHorizontal: 20,
-          paddingVertical: 100,
+          paddingVertical: 30,
         }}>
         <Container>
-          <View style={{ marginTop: 50 }}>
+          <View>
             <StyledTitle>Badge (default)</StyledTitle>
             <StyledView>
               <Badge />
             </StyledView>
           </View>
 
-          <View>
-            <StyledTitle>Badge (color, count, showZero)</StyledTitle>
+          <View style={{ marginTop: 20 }}>
+            <Container>
+              <StyledTitle>Badge (color, count, showZero)</StyledTitle>
+            </Container>
             <ShowContainer>
               <StyledView>
                 <Badge color="#6B98F2" count={17} />
@@ -62,8 +63,10 @@ const Badge1 = (): React.ReactElement => {
             </ShowContainer>
           </View>
 
-          <View>
-            <StyledTitle>Badge (variant, position)</StyledTitle>
+          <View style={{ marginTop: 20 }}>
+            <Container>
+              <StyledTitle>Badge (variant, position)</StyledTitle>
+            </Container>
             <ShowContainer>
               <StyledView>
                 <Badge variant="dot" color="#ED2939" />
@@ -74,8 +77,10 @@ const Badge1 = (): React.ReactElement => {
             </ShowContainer>
           </View>
 
-          <View>
-            <StyledTitle>Badge (maximumCount, opacityVisible)</StyledTitle>
+          <View style={{ marginTop: 20 }} >
+            <Container>
+              <StyledTitle>Badge (maximumCount, opacityVisible)</StyledTitle>
+            </Container>
             <ShowContainer>
               <StyledView>
                 <Badge
@@ -96,8 +101,10 @@ const Badge1 = (): React.ReactElement => {
             </ShowContainer>
           </View>
 
-          <View>
-            <StyledTitle>Badge (border, textColor)</StyledTitle>
+          <View style={{ marginTop: 20 }}>
+            <Container>
+              <StyledTitle>Badge (border, textColor)</StyledTitle>
+            </Container>
             <ShowContainer>
               <StyledView>
                 <Badge color="#91AAF2" border="#F2B9AC" count={37} />
