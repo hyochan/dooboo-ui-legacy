@@ -1,5 +1,6 @@
 import React, { FC } from 'react';
 import styled from 'styled-components/native';
+import { StyleSheet } from 'react-native';
 
 interface BadgeProps {
   count?: number;
@@ -8,46 +9,59 @@ interface BadgeProps {
   showZero?: boolean;
   opacityVisible?: boolean;
   variant?: string;
+  position?: string;
+  border?: string;
+  textColor?: string;
 }
 
 interface StyleProps {
   color?: string;
   opacity?: number;
+  position?: string;
+  border?: string;
+  textColor?: string;
 }
 
-// TODO: Border 스타일 추가바람!
 const StyledView = styled.View`
   position: absolute;
-  top: -10px;
-  right: -10px;
+  top: -15px;
+  ${(props: StyleProps) => props.position}: -10px;
   width: auto;
-  min-width: 20px;
-  height: 20px;
+  min-width : 20px;
+  height: 30px;
+  border-color: ${(props: StyleProps) => props.border ? props.border : "#00ff0000"};
+  border-width: 3px;
   background-color: ${(props: StyleProps): string => props.color!};
-  border-radius: 50;
+  border-radius: 100;
   justify-content: center;
   align-items: center;
   opacity: ${(props: StyleProps): number => props.opacity!};
 `;
 
 const StyledText = styled.Text`
-  margin-left: 3px;
-  margin-right: 3px;
-  color: whitesmoke;
+  color :${(props: StyleProps) => props.textColor};
   text-align: center;
+  padding: 8px;
 `;
 
 const StyledDotView = styled.View`
   position: absolute;
   top: -5px;
-  right: -5px;
+  ${(props: StyleProps) => props.position}: -5px;
   width: 10px;
   height: 10px;
   background-color: ${(props: StyleProps): string => props.color!};
-  border-radius: 50;
+  border-radius: 100;
   justify-content: center;
   align-items: center;
 `;
+
+const styles = StyleSheet.create({
+  fontDesign: {
+    fontWeight: "500",
+    fontSize: 14,
+  },
+})
 
 const Badge: FC<BadgeProps> = (props) => {
   const {
@@ -57,6 +71,9 @@ const Badge: FC<BadgeProps> = (props) => {
     showZero,
     opacityVisible = true,
     variant = 'standard',
+    position = 'right',
+    border,
+    textColor = '#FFFFFF',
   } = props;
 
   if (!showZero) {
@@ -64,23 +81,29 @@ const Badge: FC<BadgeProps> = (props) => {
   }
   switch (true) {
     case variant === 'dot':
-      return <StyledDotView color={color} />; // TODO: position 추가 필요
+      return <StyledDotView color={color} position={position} />;
     case maximumCount >= count:
       return (
-        <StyledView color={color}>
-          <StyledText>{count}</StyledText>
+        <StyledView color={color} opacity={1} position={position} border={border}>
+          <StyledText textColor={textColor} style={styles.fontDesign}>{count}</StyledText>
         </StyledView>
       );
     case maximumCount < count && opacityVisible:
       return (
-        <StyledView color={color} opacity={0.6}>
-          <StyledText>{count + '+'}</StyledText>
+        <StyledView color={color} opacity={0.6} position={position} border={border}>
+          <StyledText textColor={textColor} style={styles.fontDesign}>{count + '+'}</StyledText>
         </StyledView>
       );
     case maximumCount < count && !opacityVisible:
       return (
-        <StyledView color={color} opacity={1}>
-          <StyledText>{count + '+'}</StyledText>
+        <StyledView color={color} opacity={1} position={position} border={border}>
+          <StyledText textColor={textColor} style={styles.fontDesign}>{count + '+'}</StyledText>
+        </StyledView>
+      );
+    default:
+      return (
+        <StyledView color={color} opacity={1} position={position} border={border}>
+          <StyledText textColor={textColor} style={styles.fontDesign}>{count}</StyledText>
         </StyledView>
       );
   }
