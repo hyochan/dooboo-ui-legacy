@@ -1,33 +1,38 @@
 # Slider
 
-<img src="https://user-images.githubusercontent.com/11019960/73301465-2d215000-4256-11ea-974f-e45be574a4a4.png" width="400" />
+> Simple slider item component for react-native. This component supports visualization of the numeric data with animation and label text.<br/>
+
+## Preview
+
+<img src="https://user-images.githubusercontent.com/48340711/89746952-6553f600-daf7-11ea-8595-e1dfc50b8492.png" width="400" />
+<img src="https://user-images.githubusercontent.com/48340711/89746953-67b65000-daf7-11ea-891a-e49019c553d9.png" width="400" />
 <img src="https://user-images.githubusercontent.com/11019960/73301499-3c080280-4256-11ea-9095-80c40703191f.png" width="400" />
 
 ## Props
 
-|                      | necessary | types                   | default |
-| -------------------- | --------- | ----------------------- | ------- |
-| hideMark             |           | boolean                 |false    |
-| hideLabel            |           | boolean                 |true     |
-| autoLabel            |           | boolean                 |false    |
-| step                 |           | number                  |1        |
-| defaultValue         |           | number                  |0        |
-| minValue             |           | number                  |0        |
-| maxValue             |           | number                  |100      |
-| thumb                |           | React.ReactElement      |         |
-| thumbSize            |           | number                  |         |
-| mark                 |           | React.ReactElement      |         |
-| customMarkWidth      |           | number                  |         |
-| startMark            |           | boolean                 |true     |
-| endMark              |           | boolean                 |true     |
-| markStyle            |           | StyleProp<ViewStyle>    |         |
-| railStyle            |           | StyleProp<ViewStyle>    |         |
-| trackStyle           |           | StyleProp<ViewStyle>    |         |
-| thumbStyle           |           | StyleProp<ViewStyle>    |         |
-| labelSize            |           | number                  |         |
-| labelStyle           |           | StyleProp<ViewStyle>    |         |
-| labelTextStyle       |           | StyleProp<TextStyle>    |         |
-| onChange             |           | (value: number) => void |         |
+|                 | necessary | types                   | default |
+| --------------- | --------- | ----------------------- | ------- |
+| hideMark        |           | boolean                 | false   |
+| hideLabel       |           | boolean                 | true    |
+| autoLabel       |           | boolean                 | false   |
+| step            |           | number                  | 1       |
+| defaultValue    |           | number                  | 0       |
+| minValue        |           | number                  | 0       |
+| maxValue        |           | number                  | 100     |
+| thumb           |           | React.ReactElement      |         |
+| thumbSize       |           | number                  |         |
+| mark            |           | React.ReactElement      |         |
+| customMarkWidth |           | number                  |         |
+| startMark       |           | boolean                 | true    |
+| endMark         |           | boolean                 | true    |
+| markStyle       |           | StyleProp<ViewStyle>    |         |
+| railStyle       |           | StyleProp<ViewStyle>    |         |
+| trackStyle      |           | StyleProp<ViewStyle>    |         |
+| thumbStyle      |           | StyleProp<ViewStyle>    |         |
+| labelSize       |           | number                  |         |
+| labelStyle      |           | StyleProp<ViewStyle>    |         |
+| labelTextStyle  |           | StyleProp<TextStyle>    |         |
+| onChange        |           | (value: number) => void |         |
 
 ## Installation
 
@@ -50,12 +55,7 @@ function Page(): ReactElement {
 
   return (
     <Container>
-      <Slider
-        step={10}
-        defaultValue={20}
-        minValue={0}
-        maxValue={100}
-      />
+      <Slider step={10} defaultValue={20} minValue={0} maxValue={100} />
 
       <Slider
         minValue={0}
@@ -87,4 +87,3 @@ function Page(): ReactElement {
 
 export default Page;
 ```
-
