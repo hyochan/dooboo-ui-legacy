@@ -23,7 +23,7 @@ const StyledTitle = styled.Text`
 `;
 
 const StyledView: any = styled.View`
-  margin: 25px;
+  margin: 20px;
   width: 100px;
   height: 100px;
   background-color:#BFBFBF
