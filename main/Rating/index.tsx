@@ -22,7 +22,7 @@ interface StarProps {
 }
 
 const ContainerWrapper = styled.View<ContainerWrapperProps>`
-  width: ${({ total }): number => total * 30};
+  width: ${({ total }): number => total * 30}px;
   height: 30px;
   flex-direction: row;
   justify-content: center;
