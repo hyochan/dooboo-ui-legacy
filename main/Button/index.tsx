@@ -102,8 +102,8 @@ function Button(props: Props): React.ReactElement {
 
   if (disabled) {
     return (
-      <Container testID={testID} style={containerStyle}>
-        <StyledDisabled disabled testID={testID} style={disabledStyle?.style}>
+      <Container style={containerStyle}>
+        <StyledDisabled style={disabledStyle?.style}>
           <StyledDisabledText style={[textStyle, disabledStyle?.textStyle]}>
             {text}
           </StyledDisabledText>
@@ -114,16 +114,17 @@ function Button(props: Props): React.ReactElement {
 
   if (loading) {
     return (
-      <Container testID={testID} style={containerStyle}>
-        <StyledButton testID={testID} style={style}>
+      <Container style={containerStyle}>
+        <StyledButton style={style}>
           <ActivityIndicator size="small" color={indicatorColor} />
         </StyledButton>
       </Container>
     );
   }
   return (
-    <Container testID={testID} style={containerStyle}>
+    <Container style={containerStyle}>
       <StyledButton
+        testID={testID}
         activeOpacity={activeOpacity || 0.7}
         onPress={onPress}
         delayPressIn={30}

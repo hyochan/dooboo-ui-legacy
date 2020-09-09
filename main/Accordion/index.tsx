@@ -9,46 +9,35 @@ const Container = styled.View`
   align-items: center;
 `;
 
-type TitleType = {
-  leftElement?: React.ReactElement;
-  name: React.ReactElement;
-  rightElement?: React.ReactElement;
-};
-
-type BodyType = {
-  leftElement?: React.ReactElement;
-  name: React.ReactElement;
-  rightElement?: React.ReactElement;
-};
-
-type DatumType = {
-  title: TitleType;
-  bodies: Array<BodyType>;
-};
-
+export interface Datum {
+  title: string;
+  bodies: string[];
+}
 interface Props {
-  data: Array<DatumType>;
-  isAnimated?: boolean;
+  data: Datum[];
+  shouldAnimate: boolean;
   collapseOnStart: boolean;
   animDuration?: number;
   activeOpacity?: number;
   toggleElement?: React.ReactElement;
-  accordionItemStyle?: ViewStyle;
-  titleStyle?: ViewStyle;
-  bodyStyle?: ViewStyle;
+  renderTitle?: (item: string) => React.ReactElement;
+  renderBody?: (item: string) => React.ReactElement;
+  titleContainerStyle?: ViewStyle;
+  bodyContainerStyle?: ViewStyle;
 }
 
 const Accordion: FC<Props> = (props) => {
   const {
     data,
-    isAnimated: shouldAnimate,
+    shouldAnimate,
     collapseOnStart,
     animDuration,
     activeOpacity,
     toggleElement,
-    accordionItemStyle,
-    titleStyle,
-    bodyStyle,
+    renderTitle,
+    renderBody,
+    titleContainerStyle,
+    bodyContainerStyle,
   } = props;
 
   const dropDownAnimValueList = useRef(data.map(() => new Animated.Value(0))).current;
@@ -67,9 +56,10 @@ const Accordion: FC<Props> = (props) => {
               animDuration={animDuration}
               activeOpacity={activeOpacity}
               toggleElement={toggleElement}
-              accordionItemStyle={accordionItemStyle}
-              titleStyle={titleStyle}
-              bodyStyle={bodyStyle}
+              renderTitle={renderTitle}
+              renderBody={renderBody}
+              titleContainerStyle={titleContainerStyle}
+              bodyContainerStyle={bodyContainerStyle}
               dropDownAnimValueList={dropDownAnimValueList[titleKey]}
               sumOfPrecedingTranslateY={
                 dropDownAnimValueList

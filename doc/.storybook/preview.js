@@ -1,4 +1,7 @@
-import { addParameters } from '@storybook/react';
+import { addParameters, addDecorator } from '@storybook/react';
+import {createElement} from 'react';
+
+addDecorator(createElement);
 
 // Option defaults:
 addParameters({
