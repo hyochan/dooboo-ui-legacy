@@ -4,9 +4,8 @@
 
 ## Preview
 
-<img src="https://user-images.githubusercontent.com/48340711/89746952-6553f600-daf7-11ea-8595-e1dfc50b8492.png" width="400" />
-<img src="https://user-images.githubusercontent.com/48340711/89746953-67b65000-daf7-11ea-891a-e49019c553d9.png" width="400" />
-<img src="https://user-images.githubusercontent.com/11019960/73301499-3c080280-4256-11ea-9095-80c40703191f.png" width="400" />
+<img width="400" alt="image" src="https://user-images.githubusercontent.com/216363/92616942-ca1e8e00-f2f9-11ea-9007-919a71b7c415.png">
+<img width="400" alt="image" src="https://user-images.githubusercontent.com/216363/92617007-d9054080-f2f9-11ea-9863-4c4ab5af205e.png">
 
 ## Props
 
