@@ -27,8 +27,8 @@ const StyledView = styled.View`
   top: -15px;
   ${(props: StyleProps) => props.position}: -10px;
   width: auto;
-  min-width : 20px;
-  height: 30px;
+  min-width : 45px;
+  height: 45px;
   border-color: ${(props: StyleProps) => props.border ? props.border : "#00ff0000"};
   border-width: 3px;
   background-color: ${(props: StyleProps): string => props.color!};
@@ -41,15 +41,17 @@ const StyledView = styled.View`
 const StyledText = styled.Text`
   color :${(props: StyleProps) => props.textColor};
   text-align: center;
-  padding: 8px;
+  padding: 5px;
+  margin-left : 3px;
+  margin-right : 3px;
 `;
 
 const StyledDotView = styled.View`
   position: absolute;
   top: -5px;
   ${(props: StyleProps) => props.position}: -5px;
-  width: 10px;
-  height: 10px;
+  width: 20px;
+  height: 20px;
   background-color: ${(props: StyleProps): string => props.color!};
   border-radius: 100;
   justify-content: center;
@@ -59,7 +61,7 @@ const StyledDotView = styled.View`
 const styles = StyleSheet.create({
   fontDesign: {
     fontWeight: "500",
-    fontSize: 14,
+    fontSize: 20,
   },
 })
 
