@@ -26,9 +26,10 @@ const StyledView: any = styled.View`
   margin: 20px;
   width: 100px;
   height: 100px;
-  background-color:#BFBFBF
-  border-radius:12;
+  background-color: #BFBFBF
+  border-radius: 12;
   box-shadow: 3px 3px 2px rgba(0, 0, 0, 0.5);
+  elevation: 1;
 `;
 
 const Badge1 = (): React.ReactElement => {
@@ -138,4 +139,4 @@ storiesOf('Badge', module)
   .addDecorator(ContainerDeco)
   .add('default', () => <Badge1 />, {
     notes: 'Basic Badge style',
-  })
+  });
