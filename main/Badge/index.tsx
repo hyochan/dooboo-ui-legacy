@@ -68,7 +68,7 @@ const styles = StyleSheet.create({
 const Badge: FC<BadgeProps> = (props) => {
   const {
     count = 1,
-    color = 'red',
+    color = '#34AFF9',
     maximumCount = 300,
     showZero,
     opacityVisible = true,

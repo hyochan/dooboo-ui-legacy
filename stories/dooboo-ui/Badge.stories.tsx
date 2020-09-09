@@ -23,10 +23,10 @@ const StyledTitle = styled.Text`
 `;
 
 const StyledView: any = styled.View`
-  margin: 20px;
+  margin: 25px;
   width: 100px;
   height: 100px;
-  background-color: black;
+  background-color:#BFBFBF
   border-radius:12;
   box-shadow: 3px 3px 2px rgba(0, 0, 0, 0.5);
 `;
@@ -53,10 +53,10 @@ const Badge1 = (): React.ReactElement => {
             <StyledTitle>Badge (color, count, showZero)</StyledTitle>
             <ShowContainer>
               <StyledView>
-                <Badge color="blue" count={17} />
+                <Badge color="#6B98F2" count={17} />
               </StyledView>
               <StyledView>
-                <Badge color="pink" count={0} showZero />
+                <Badge color="#6B98F2" count={0} showZero />
               </StyledView>
             </ShowContainer>
           </View>
@@ -65,10 +65,10 @@ const Badge1 = (): React.ReactElement => {
             <StyledTitle>Badge (variant, position)</StyledTitle>
             <ShowContainer>
               <StyledView>
-                <Badge variant="dot" color="green" />
+                <Badge variant="dot" color="#ED2939" />
               </StyledView>
               <StyledView>
-                <Badge color="midnightblue" count={100} position="left" />
+                <Badge color="#F2B9AC" count={100} position="left" />
               </StyledView>
             </ShowContainer>
           </View>
@@ -79,7 +79,7 @@ const Badge1 = (): React.ReactElement => {
               <StyledView>
                 <Badge
                   opacityVisible={false}
-                  color="purple"
+                  color="#34AFF9"
                   count={300}
                   maximumCount={100}
                 />
@@ -87,7 +87,7 @@ const Badge1 = (): React.ReactElement => {
               <StyledView>
                 <Badge
                   opacityVisible={true}
-                  color="orange"
+                  color="#34AFF9"
                   count={300}
                   maximumCount={100}
                 />
@@ -99,10 +99,10 @@ const Badge1 = (): React.ReactElement => {
             <StyledTitle>Badge (border, textColor)</StyledTitle>
             <ShowContainer>
               <StyledView>
-                <Badge color="brown" border="skyblue" count={35} />
+                <Badge color="#F2B9AC" border="#91AAF2" count={35} />
               </StyledView>
               <StyledView>
-                <Badge color="white" border="red" textColor="red" count={50} />
+                <Badge color="white" border="#F2B9AC" textColor="#F2B9AC" count={50} />
               </StyledView>
             </ShowContainer>
           </View>
