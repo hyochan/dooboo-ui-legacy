@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
-import styled from 'styled-components/native';
 import { StyleSheet } from 'react-native';
+import styled from 'styled-components/native';
 
 export interface BadgeProps {
   count?: number;
@@ -25,11 +25,12 @@ interface StyleProps {
 const StyledView = styled.View`
   position: absolute;
   top: -15px;
-  ${(props: StyleProps) => props.position}: -10px;
+  ${(props: StyleProps): string => props.position!}: -10px;
   width: auto;
-  min-width : 45px;
+  min-width: 45px;
   height: 45px;
-  border-color: ${(props: StyleProps) => props.border ? props.border : '#00ff0000'};
+  border-color: ${(props: StyleProps): string =>
+    props.border ? props.border : '#00ff0000'};
   border-width: 3px;
   background-color: ${(props: StyleProps): string => props.color!};
   border-radius: 100;
@@ -39,17 +40,17 @@ const StyledView = styled.View`
 `;
 
 const StyledText = styled.Text`
-  color :${(props: StyleProps) => props.textColor};
+  color: ${(props: StyleProps): string => props.textColor!};
   text-align: center;
   padding: 5px;
-  margin-left : 3px;
-  margin-right : 3px;
+  margin-left: 3px;
+  margin-right: 3px;
 `;
 
 const StyledDotView = styled.View`
   position: absolute;
   top: -5px;
-  ${(props: StyleProps) => props.position}: -5px;
+  ${(props: StyleProps): string => props.position!}: -5px;
   width: 20px;
   height: 20px;
   background-color: ${(props: StyleProps): string => props.color!};
@@ -86,26 +87,50 @@ const Badge: FC<BadgeProps> = (props) => {
       return <StyledDotView color={color} position={position} />;
     case maximumCount >= count:
       return (
-        <StyledView color={color} opacity={1} position={position} border={border}>
-          <StyledText textColor={textColor} style={styles.fontDesign}>{count}</StyledText>
+        <StyledView
+          color={color}
+          opacity={1}
+          position={position}
+          border={border}>
+          <StyledText textColor={textColor} style={styles.fontDesign}>
+            {count}
+          </StyledText>
         </StyledView>
       );
     case maximumCount < count && opacityVisible:
       return (
-        <StyledView color={color} opacity={0.6} position={position} border={border}>
-          <StyledText textColor={textColor} style={styles.fontDesign}>{count + '+'}</StyledText>
+        <StyledView
+          color={color}
+          opacity={0.6}
+          position={position}
+          border={border}>
+          <StyledText textColor={textColor} style={styles.fontDesign}>
+            {count + '+'}
+          </StyledText>
         </StyledView>
       );
     case maximumCount < count && !opacityVisible:
       return (
-        <StyledView color={color} opacity={1} position={position} border={border}>
-          <StyledText textColor={textColor} style={styles.fontDesign}>{count + '+'}</StyledText>
+        <StyledView
+          color={color}
+          opacity={1}
+          position={position}
+          border={border}>
+          <StyledText textColor={textColor} style={styles.fontDesign}>
+            {count + '+'}
+          </StyledText>
         </StyledView>
       );
     default:
       return (
-        <StyledView color={color} opacity={1} position={position} border={border}>
-          <StyledText textColor={textColor} style={styles.fontDesign}>{count}</StyledText>
+        <StyledView
+          color={color}
+          opacity={1}
+          position={position}
+          border={border}>
+          <StyledText textColor={textColor} style={styles.fontDesign}>
+            {count}
+          </StyledText>
         </StyledView>
       );
   }

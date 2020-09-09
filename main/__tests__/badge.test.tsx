@@ -2,9 +2,9 @@
 import React, { ReactElement } from 'react';
 import { RenderResult, render } from '@testing-library/react-native';
 import renderer from 'react-test-renderer';
-// Test 대상 import
-import { Badge } from '../Badge';
-import { BadgeProps } from '../Badge/index';
+
+// eslint-disable-next-line sort-imports
+import { Badge, BadgeProps } from '../../main/Badge';
 
 let props: BadgeProps;
 let component: ReactElement;
