@@ -1,6 +1,5 @@
-import * as React from 'react';
-
-import { Animated, View } from 'react-native';
+import { Animated, MeasureOnSuccessCallback, PanResponderCallbacks, PanResponderInstance, View } from 'react-native';
+import React, { useRef } from 'react';
 import { fireEvent, render } from '@testing-library/react-native';
 import {
   getNearestPercentByValue,
@@ -17,6 +16,7 @@ import Rail from '../Slider/Rail';
 import { Slider } from '../../main';
 import Thumb from '../Slider/Thumb';
 import Track from '../Slider/Track';
+import { act } from 'react-test-renderer';
 
 const TEST_ID = {
   RAIL: 'rail-test-id',
@@ -25,7 +25,23 @@ const TEST_ID = {
   THUMB: 'thumb-test-id',
   LABEL: 'label-test-id',
   THUMBPOSITIONER: 'thumb-positioner-test-id',
+  THUMB_ANIMATED: 'thumb-animated',
 };
+
+let testResponder: PanResponderCallbacks = null;
+
+jest.mock('react-native/Libraries/Interaction/PanResponder', () => {
+  return {
+    create: (responder: PanResponderCallbacks): PanResponderInstance => {
+      testResponder = responder;
+      return {
+        panHandlers: {
+
+        },
+      };
+    },
+  };
+});
 
 describe('[Slider] render', () => {
   it('renders without crashing', () => {
@@ -41,6 +57,51 @@ describe('[Slider] render', () => {
     ).asJSON();
     expect(rendered).toMatchSnapshot();
     expect(rendered).toBeTruthy();
+  });
+
+  describe('[Slider] slider.current.measure', () => {
+    const measure = jest.fn();
+    beforeEach(() => {
+      jest.restoreAllMocks();
+      jest.resetAllMocks();
+    });
+
+    it('Should not have slider.current.measure called when current does not exist', () => {
+      const useRefSpy = jest.spyOn(React, 'useRef').mockReturnValueOnce({ current: null });
+      render(
+        <Slider />,
+      );
+      expect(useRefSpy).toBeCalledTimes(1);
+      expect(measure).not.toBeCalled();
+    });
+
+    it('Should have slider.current.measure called when current exist', () => {
+      const useRefSpy = jest.spyOn(React, 'useRef').mockReturnValueOnce({ current: { measure } });
+      render(
+        <Slider />,
+      );
+      expect(useRefSpy).toBeCalledTimes(1);
+      expect(measure).toBeCalledTimes(1);
+    });
+
+    it('Should have slider position updated if measure callback called', () => {
+      const mockRef : { current: any, callback: MeasureOnSuccessCallback | null } = {
+        current: {
+          measure: (callback: MeasureOnSuccessCallback): void => {
+            mockRef.callback = callback;
+          },
+        },
+        callback: null,
+      };
+      jest.spyOn(React, 'useRef').mockReturnValueOnce(mockRef);
+      render(
+        <Slider />,
+      );
+      jest.spyOn(React, 'useRef').mockReturnValueOnce(mockRef);
+      act(() => {
+        mockRef.callback(0, 0, 100, 100, 0, 0);
+      });
+    });
   });
 
   describe('required components', () => {
@@ -132,6 +193,48 @@ describe('[Slider] render', () => {
     const marks = queryByTestId(TEST_ID.MARKS);
 
     expect(marks).toBeNull();
+  });
+
+  it('should respond to the touch and move of the user.', () => {
+    const rendered = render(
+      <Slider
+        onChange={(): void => {}}
+      />,
+    );
+    const thumb = rendered.getByTestId(TEST_ID.THUMB_ANIMATED);
+    jest.useFakeTimers();
+    expect(thumb.props.style.transform[0].scale).toEqual(0.01);
+    rendered.rerender(
+      <Slider
+        hideLabel={false}
+        autoLabel
+        onChange={(): void => {}}
+      />,
+    );
+    act(
+      () => {
+        if (testResponder && testResponder.onStartShouldSetPanResponder(null, null)) {
+          testResponder.onPanResponderGrant(null, null);
+        }
+      },
+    );
+    jest.runAllTimers();
+    expect(thumb.props.style.transform[0].scale).toEqual(1);
+    act(
+      () => {
+        if (
+          testResponder &&
+          testResponder.onStartShouldSetPanResponder(null, null) &&
+          testResponder.onMoveShouldSetPanResponder(null, null)
+        ) {
+          testResponder.onPanResponderMove(null, { moveX: 10 });
+          testResponder.onPanResponderRelease(null, null);
+        }
+        testResponder.onPanResponderTerminationRequest(null, null);
+      },
+    );
+    jest.runAllTimers();
+    expect(thumb.props.style.transform[0].scale).toEqual(0);
   });
 });
 

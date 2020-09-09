@@ -24,6 +24,7 @@ exports[`[Snackbar] using provider renders TestElement using whole screen view w
   style={
     Object {
       "flex": 1,
+      "width": "100%",
     }
   }
 >
@@ -51,6 +52,7 @@ exports[`[Snackbar] using provider renders TestElement without crashing 1`] = `
   style={
     Object {
       "flex": 1,
+      "width": "100%",
     }
   }
 >

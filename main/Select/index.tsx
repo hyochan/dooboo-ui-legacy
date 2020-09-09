@@ -1,4 +1,4 @@
-import Item from './Item';
 import Select from './Select';
+import SelectItem from './SelectItem';
 
-export { Select, Item as SelectItem };
+export { Select, SelectItem };

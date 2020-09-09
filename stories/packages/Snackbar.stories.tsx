@@ -18,7 +18,7 @@ const Container = styled.View`
   align-items: center;
   justify-content: center;
   flex: 1;
-  margin-top: 28;
+  margin-top: 28px;
   flex-direction: column;
 `;
 
@@ -55,8 +55,6 @@ function Default(): React.ReactElement {
         timer: shortOrLong ? Timer.LONG : Timer.SHORT,
         containerStyle: {
           backgroundColor: containerColor,
-          top: 200,
-          height: 40,
         },
         messageStyle: {
           color: messageColor,

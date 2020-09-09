@@ -1,0 +1,148 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`PinchZoom of ImageSlider should renders without crashing 1`] = `
+<View
+  style={
+    Array [
+      Object {
+        "flexBasis": 0,
+        "flexGrow": 1,
+        "flexShrink": 1,
+        "paddingBottom": 10,
+        "paddingLeft": 10,
+        "paddingRight": 10,
+        "paddingTop": 10,
+      },
+      Object {
+        "backgroundColor": "#000",
+      },
+    ]
+  }
+>
+  <View
+    style={
+      Array [
+        Object {
+          "backgroundColor": "#000",
+          "flexBasis": 0,
+          "flexGrow": 1,
+          "flexShrink": 1,
+          "height": 400,
+          "justifyContent": "center",
+          "maxWidth": 750,
+          "overflow": "hidden",
+          "width": 300,
+        },
+      ]
+    }
+  >
+    <View
+      onLayout={[Function]}
+      responderCallback={
+        Object {
+          "onMoveShouldSetPanResponder": [Function],
+          "onMoveShouldSetPanResponderCapture": [Function],
+          "onPanResponderGrant": [Function],
+          "onPanResponderMove": [Function],
+          "onPanResponderRelease": [Function],
+          "onPanResponderTerminationRequest": [Function],
+          "onShouldBlockNativeResponder": [Function],
+          "onStartShouldSetPanResponder": [Function],
+          "onStartShouldSetPanResponderCapture": [Function],
+        }
+      }
+      style={
+        Object {
+          "justifyContent": "center",
+          "transform": Array [
+            Object {
+              "translateX": 0,
+            },
+            Object {
+              "translateY": 0,
+            },
+            Object {
+              "scale": 1,
+            },
+          ],
+          "width": 300,
+        }
+      }
+      testID="PINCH_ZOOM_CONTAINER"
+    >
+      <Image
+        onLoad={[Function]}
+        resizeMode="contain"
+        source={
+          Object {
+            "uri": "https://images.unsplash.com/photo-1519335337423-a3357c2cd12e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2168&q=80",
+          }
+        }
+        style={
+          Array [
+            Object {
+              "bottom": 0,
+              "width": 300,
+            },
+            Object {
+              "height": 300,
+            },
+          ]
+        }
+      />
+    </View>
+    <View
+      onLayout={[Function]}
+      responderCallback={
+        Object {
+          "onMoveShouldSetPanResponder": [Function],
+          "onMoveShouldSetPanResponderCapture": [Function],
+          "onPanResponderGrant": [Function],
+          "onPanResponderMove": [Function],
+          "onPanResponderRelease": [Function],
+          "onPanResponderTerminationRequest": [Function],
+          "onShouldBlockNativeResponder": [Function],
+          "onStartShouldSetPanResponder": [Function],
+          "onStartShouldSetPanResponderCapture": [Function],
+        }
+      }
+      style={
+        Object {
+          "bottom": 0,
+          "justifyContent": "center",
+          "left": 300,
+          "position": "absolute",
+          "top": 0,
+          "transform": Array [
+            Object {
+              "translateX": 0,
+            },
+          ],
+          "width": 300,
+        }
+      }
+      testID="PINCH_ZOOM_CONTAINER"
+    >
+      <Image
+        onLoad={[Function]}
+        resizeMode="contain"
+        source={
+          Object {
+            "uri": "https://www.housingwire.com/wp-content/uploads/2019/09/Purple-technology-data-internet-3.jpg",
+          }
+        }
+        style={
+          Array [
+            Object {
+              "width": 300,
+            },
+            Object {
+              "height": 300,
+            },
+          ]
+        }
+      />
+    </View>
+  </View>
+</View>
+`;

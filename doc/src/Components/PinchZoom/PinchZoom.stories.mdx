@@ -1,0 +1,47 @@
+import { Meta, Canvas } from '@storybook/addon-docs/blocks';
+import { PinchZoom } from 'dooboo-ui';
+import { Container } from '../shared';
+import { View, Image, Text } from 'react-native';
+
+
+<Meta title="Components/PinchZoom" />
+
+# PinchZoom
+This Component is a component which makes child components zoomable.
+
+## Props
+
+| Property             |      Required      | Type                           | Default               |
+| -------------------- | :----------------: | ------------------------------ | --------------------- |
+| style                |                    | `ViewStyle`                    | {}                    |
+| children             |                    | `ReactNode`                    | null                  |
+| blockNativeResponder |                    | `boolean`                      | `true`                |
+
+### style
+The PinchZoom is an Animated.View using panResponder to react for touch events. So, it need a style like common View component.
+
+### children
+It's just ReactNode type.
+
+
+### blockNativeResponder
+If this value is false, then some gesture handler of parent view can terminate this panResponder.
+It would be useful at inside of ScrollView or FlatList.
+
+## Usage
+Currently, I only checked that it works at the chrome browser at the Android platform.
+At other browsers, the `pinch-zoom` gestures worked for the whole screen.
+You can check the source code of the below screen by clicking `Show code` at bottom of it. 
+
+<Canvas>
+  <Container style={{ justifyContent: 'center' }}>    
+    <Text>PinchZoom</Text>
+    <PinchZoom style={{ width: 300, height: 200, backgroundColor: '#ededed' }}>
+      <Image
+        style={{ width: 300, height: 200}}
+        source={{ uri: 'https://avatars2.githubusercontent.com/u/7970947?v=3&s=460' }}
+        resizeMode={'contain'}
+      />
+    </PinchZoom>
+  </Container>
+</Canvas>

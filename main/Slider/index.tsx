@@ -1,5 +1,5 @@
 import { Animated, Easing, PanResponder, Platform, StyleProp, TextStyle, ViewStyle } from 'react-native';
-import React, { FC, useEffect, useMemo, useRef, useState } from 'react';
+import React, { FC, useEffect, useMemo, useState } from 'react';
 import {
   getNearestPercentByValue,
   getPercentByPositionX,
@@ -68,7 +68,7 @@ const Slider: FC<Props> = ({
   labelTextStyle,
   onChange,
 }) => {
-  const sliderRef = useRef<any>();
+  const sliderRef = React.useRef<any>();
   const [sliderWidth, setSliderWidth] = useState<number>(0);
   const [sliderPositionX, setSliderPositionX] = useState(0);
   const [percent, setPercent] = useState(
@@ -158,18 +158,18 @@ const Slider: FC<Props> = ({
       }),
     [sliderPositionX, sliderWidth, onChange],
   );
+
+  if (sliderRef.current) {
+    sliderRef.current.measure((x, y, width, height, pageX) => {
+      setSliderPositionX(pageX);
+      setSliderWidth(width);
+    });
+  }
+
   return (
     <Container
       ref={sliderRef}
       {...panResponder.panHandlers}
-      onLayout={(): void => {
-        if (sliderRef) {
-          sliderRef.current.measure((x, y, width, height, pageX) => {
-            setSliderPositionX(pageX);
-            setSliderWidth(width);
-          });
-        }
-      }}
     >
       <Rail testID="rail-test-id" style={railStyle}/>
       <Track testID="track-test-id" percent={percent} style={trackStyle}/>

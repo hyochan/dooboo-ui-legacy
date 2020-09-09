@@ -1,15 +1,9 @@
-
-import React from 'react';
 import { Accordion } from 'dooboo-ui';
+import { IC_ARR_DOWN } from '../../../icon';
+import React from 'react';
 import styled from 'styled-components/native';
-import Arrow from 'dooboo-ui/Accordion/Arrow';
 
-const Container = styled.View`
-  flex: 1;
-  flex-direction: column;
-  align-items: center;
-  min-height: 600px;
-`;
+import { Container } from '../../shared';
 
 const StyledTitle = styled.Text`
   font-weight: bold;
@@ -23,11 +17,16 @@ const StyledItem = styled.Text`
   color: black;
 `;
 
+const Arrow = styled.Image`
+  width: 20px;
+  height: 20px;
+`;
+
 const Default = (): React.ReactElement => {
   const data = [
     {
       title: {
-        name: <StyledTitle>Defualt-title-01</StyledTitle>,
+        name: <StyledTitle>Default-title-01</StyledTitle>,
       },
       bodies: [
         {
@@ -40,7 +39,7 @@ const Default = (): React.ReactElement => {
     },
     {
       title: {
-        name: <StyledTitle>Defualt-title-02</StyledTitle>,
+        name: <StyledTitle>Default-title-02</StyledTitle>,
       },
       bodies: [
         {
@@ -53,7 +52,7 @@ const Default = (): React.ReactElement => {
     },
     {
       title: {
-        name: <StyledTitle>Defualt-title-03</StyledTitle>,
+        name: <StyledTitle>Default-title-03</StyledTitle>,
       },
       bodies: [
         {
@@ -74,7 +73,7 @@ const Default = (): React.ReactElement => {
         collapseOnStart={true}
         animDuration={400}
         activeOpacity={1}
-        toggleElement={<Arrow />}
+        toggleElement={<Arrow style={{ tintColor: 'white' }} source={IC_ARR_DOWN} />}
       />
     </Container>
   );

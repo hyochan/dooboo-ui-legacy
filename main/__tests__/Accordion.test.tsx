@@ -7,36 +7,34 @@ import {
 } from '@testing-library/react-native';
 
 import { Accordion } from '../../main';
-import { Text } from 'react-native';
 
 let props: any;
 let component: ReactElement;
 let testingLib: RenderResult;
+
 const data = [
   {
-    title: {
-      name: <Text>Defualt-title-01</Text>,
-    },
+    title: 'title1',
     bodies: [
-      {
-        name: <Text>Default body01</Text>,
-      },
-      {
-        name: <Text>Default body02</Text>,
-      },
+      'body1',
+      'body2',
+      'body3',
     ],
   },
   {
-    title: {
-      name: <Text>Defualt-title-02</Text>,
-    },
+    title: 'title2',
     bodies: [
-      {
-        name: <Text>Default body01</Text>,
-      },
-      {
-        name: <Text>Default body02</Text>,
-      },
+      'body1',
+      'body2',
+      'body3',
+    ],
+  },
+  {
+    title: 'title3',
+    bodies: [
+      'body1',
+      'body2',
+      'body3',
     ],
   },
 ];

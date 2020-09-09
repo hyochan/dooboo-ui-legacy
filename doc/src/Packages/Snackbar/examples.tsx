@@ -56,7 +56,7 @@ function getExample(param: Partial<Content>) {
 
 export const StyleChanged = getExample({
   containerStyle: {
-    alignSelf: 'flex-start',
+    alignSelf: 'center',
     backgroundColor: '#0008',
     bottom: undefined,
     top: 10,

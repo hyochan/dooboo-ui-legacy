@@ -1,250 +1,119 @@
-import { IC_FACEBOOK, IC_GOOGLE } from '../Icon';
-import React, { ReactElement } from 'react';
+import { ArrowDown, IC_MAGNIFIER } from '../Icon';
+import React, { Fragment, ReactElement } from 'react';
 
 import { Accordion } from '../../main';
-import Arrow from '../../main/Accordion/Arrow';
 import { ContainerDeco } from '../../storybook/decorators';
+import { SafeAreaView } from 'react-native';
 import { storiesOf } from '@storybook/react-native';
 import styled from 'styled-components/native';
 
 const Container = styled.View`
   flex: 1;
-  flex-direction: column;
-  align-items: center;
+  align-items: flex-start;
   justify-content: center;
 `;
 
-const StyledTitle = styled.Text`
-  font-weight: bold;
-  color: #ffffff;
-  padding-left: 20px;
-  padding-right: 20px;
-`;
-
-const StyledItem = styled.Text`
-  font-weight: bold;
-  color: black;
-`;
-
 const CustomStyledTitle = styled.Text`
-  font-weight: bold;
-  color: #ffffff;
   position: absolute;
-  left: 50px;
+  left: 60px;
 `;
 
 const CustomStyledItem = styled.Text`
+  padding-left: 10px;
   font-weight: bold;
-  color: black;
   position: absolute;
-  left: 50px;
+  left: 40px;
 `;
 
 const LeftElement = styled.Image`
-  width: 20px;
-  height: 20px;
+  width: 22px;
+  height: 22px;
   position: absolute;
   left: 20px;
 `;
 
-const RightElement = styled.Image`
-  width: 20px;
-  height: 20px;
-  position: absolute;
-  right: 20px;
-`;
+const data = [
+  {
+    title: 'Lists',
+    bodies: [
+      'user',
+      'mail',
+      'plan',
+    ],
+  },
+  {
+    title: 'mail',
+    bodies: [
+      'mail list',
+      'category',
+      'bin',
+    ],
+  },
+  {
+    title: 'Reports',
+    bodies: [
+      'report list',
+      'statistics',
+    ],
+  },
+];
 
-const Default = (): React.ReactElement => {
-  const data = [
-    {
-      title: {
-        name: <StyledTitle>Defualt-title-01</StyledTitle>,
-      },
-      bodies: [
-        {
-          name: <StyledItem>Default body01</StyledItem>,
-        },
-        {
-          name: <StyledItem>Default body02</StyledItem>,
-        },
-      ],
-    },
-    {
-      title: {
-        name: <StyledTitle>Defualt-title-02</StyledTitle>,
-      },
-      bodies: [
-        {
-          name: <StyledItem>Default body01</StyledItem>,
-        },
-        {
-          name: <StyledItem>Default body02</StyledItem>,
-        },
-      ],
-    },
-    {
-      title: {
-        name: <StyledTitle>Defualt-title-03</StyledTitle>,
-      },
-      bodies: [
-        {
-          name: <StyledItem>Default body01</StyledItem>,
-        },
-        {
-          name: <StyledItem>Default body02</StyledItem>,
-        },
-      ],
-    },
-  ];
-
+const Default = (): ReactElement => {
   return (
-    <Container>
-      <Accordion
-        data={data}
-        isAnimated={true}
-        collapseOnStart={true}
-        animDuration={400}
-        activeOpacity={1}
-        toggleElement={<Arrow />}
-      />
-    </Container>
+    <SafeAreaView style={{ top: 100 }}>
+      <Container>
+        <Accordion
+          data={data}
+          shouldAnimate={true}
+          collapseOnStart={true}
+          animDuration={400}
+          activeOpacity={1}
+          toggleElement={<ArrowDown />}
+        />
+      </Container>
+    </SafeAreaView>
   );
 };
 
 const CustomStyle = (): React.ReactElement => {
-  const customData = [
-    {
-      title: {
-        leftElement: <LeftElement source={IC_FACEBOOK} />,
-        name: <CustomStyledTitle>Title with both element</CustomStyledTitle>,
-        rightElement: <RightElement source={IC_GOOGLE} />,
-      },
-      bodies: [
-        {
-          leftElement: <LeftElement source={IC_FACEBOOK} />,
-          name: <CustomStyledItem>body with both element</CustomStyledItem>,
-          rightElement: <RightElement source={IC_GOOGLE} />,
-        },
-        {
-          leftElement: <LeftElement source={IC_FACEBOOK} />,
-          name: <CustomStyledItem>body with left element</CustomStyledItem>,
-        },
-        {
-          name: (
-            <CustomStyledItem style={{ left: 20 }}>
-              body with right element
-            </CustomStyledItem>
-          ),
-          rightElement: <RightElement source={IC_GOOGLE} />,
-        },
-      ],
-    },
-    {
-      title: {
-        name: (
-          <CustomStyledTitle style={{ left: 20 }}>
-            Title with right element
-          </CustomStyledTitle>
-        ),
-        rightElement: <RightElement source={IC_GOOGLE} />,
-      },
-      bodies: [
-        {
-          leftElement: <LeftElement source={IC_FACEBOOK} />,
-          name: <CustomStyledItem>body with both element</CustomStyledItem>,
-          rightElement: <RightElement source={IC_GOOGLE} />,
-        },
-        {
-          leftElement: <LeftElement source={IC_FACEBOOK} />,
-          name: <CustomStyledItem>body with left element</CustomStyledItem>,
-        },
-        {
-          name: (
-            <CustomStyledItem style={{ left: 20 }}>
-              body with right element
-            </CustomStyledItem>
-          ),
-          rightElement: <RightElement source={IC_GOOGLE} />,
-        },
-      ],
-    },
-    {
-      title: {
-        leftElement: <LeftElement source={IC_FACEBOOK} />,
-        name: <CustomStyledTitle>Title with left element</CustomStyledTitle>,
-      },
-      bodies: [
-        {
-          leftElement: <LeftElement source={IC_FACEBOOK} />,
-          name: <CustomStyledItem>body with both element</CustomStyledItem>,
-          rightElement: <RightElement source={IC_GOOGLE} />,
-        },
-        {
-          leftElement: <LeftElement source={IC_FACEBOOK} />,
-          name: <CustomStyledItem>body with left element</CustomStyledItem>,
-        },
-        {
-          name: (
-            <CustomStyledItem style={{ left: 20 }}>
-              body with right element
-            </CustomStyledItem>
-          ),
-          rightElement: <RightElement source={IC_GOOGLE} />,
-        },
-      ],
-    },
-    {
-      title: {
-        name: (
-          <CustomStyledTitle style={{ left: 20 }}>
-            Custom title
-          </CustomStyledTitle>
-        ),
-      },
-      bodies: [
-        {
-          leftElement: <LeftElement source={IC_FACEBOOK} />,
-          name: <CustomStyledItem>body with both element</CustomStyledItem>,
-          rightElement: <RightElement source={IC_GOOGLE} />,
-        },
-        {
-          leftElement: <LeftElement source={IC_FACEBOOK} />,
-          name: <CustomStyledItem>body with left element</CustomStyledItem>,
-        },
-        {
-          name: (
-            <CustomStyledItem style={{ left: 20 }}>
-              body with right element
-            </CustomStyledItem>
-          ),
-          rightElement: <RightElement source={IC_GOOGLE} />,
-        },
-      ],
-    },
-  ];
-
   return (
-    <Container>
-      <Accordion
-        data={customData}
-        isAnimated={true}
-        collapseOnStart={true}
-        animDuration={300}
-        activeOpacity={1}
-        accordionItemStyle={{
-          width: 400,
-        }}
-        titleStyle={{
-          backgroundColor: 'gray',
-        }}
-        bodyStyle={{
-          backgroundColor: 'lightgray',
-          borderBottomWidth: 1,
-          borderBottomColor: 'gray',
-        }}
-        toggleElement={<Arrow />}
-      />
-    </Container>
+    <SafeAreaView style={{ top: 100 }}>
+      <Container>
+        <Accordion
+          data={data}
+          shouldAnimate={true}
+          collapseOnStart={true}
+          animDuration={300}
+          activeOpacity={1}
+          renderTitle = {(item): React.ReactElement => {
+            return (
+              <Fragment>
+                <LeftElement source={IC_MAGNIFIER} />
+                <CustomStyledTitle>
+                  {item}
+                </CustomStyledTitle>
+              </Fragment>
+            );
+          }}
+          renderBody = {(item): React.ReactElement => {
+            return (
+              <Fragment>
+                <CustomStyledItem>
+                  {item}
+                </CustomStyledItem>
+              </Fragment>
+            );
+          }}
+          toggleElement={<ArrowDown />}
+          titleContainerStyle={{
+            backgroundColor: 'gray',
+          }}
+          bodyContainerStyle={{
+            backgroundColor: 'lightgray',
+          }}
+        />
+      </Container>
+    </SafeAreaView>
   );
 };
 

@@ -11,11 +11,6 @@ import React, { FC, ReactElement, useState } from 'react';
 
 import styled from 'styled-components/native';
 
-const RowContainer = styled.View`
-  flex-direction: column;
-  align-self: stretch;
-`;
-
 const StyledRowContent = styled.View`
   flex-direction: row;
   align-items: center;
@@ -40,8 +35,7 @@ const StyledRowInput = styled.TextInput`
   ${Platform.OS === 'web' && { 'outline-style': 'none' }}
 `;
 
-const ColumnContainer = styled.View`
-  display: flex;
+const Container = styled.View`
   flex-direction: column;
   align-self: stretch;
 `;
@@ -69,14 +63,14 @@ const StyledTextInput = styled.TextInput`
   padding-bottom: 15px;
   font-size: 15px;
   font-weight: 500;
+  min-height: 44px;
   ${Platform.OS === 'web' && { 'outline-style': 'none' }}
 `;
 
 const StyledInvalidText = styled.Text`
-  margin: 0px 2px;
-  font-size: 12px;
+  font-size: 14px;
   font-weight: 500;
-  margin-top: 5px;
+  margin-top: 8px;
   color: #ff8989;
 `;
 
@@ -122,13 +116,14 @@ interface Props {
   keyboardType?: KeyboardTypeOptions;
   numberOfLines?: number;
   multiline?: boolean;
+  disabled?: boolean;
 }
 
 export enum EditTextInputType {
-  DEFAULT = 'default',
+  COLUMN = 'column',
   ROW = 'row',
-  BOX = 'box',
-  ROW_BOX = 'rowBox',
+  COLUMN_BOXED = 'column-boxed',
+  ROW_BOXED = 'row-boxed',
 }
 
 const EditText: FC<Props> = (props) => {
@@ -137,7 +132,7 @@ const EditText: FC<Props> = (props) => {
   const {
     testID,
     errorTestID,
-    type = EditTextInputType.DEFAULT,
+    type = EditTextInputType.COLUMN,
     style,
     label,
     labelTextStyle,
@@ -175,13 +170,14 @@ const EditText: FC<Props> = (props) => {
     keyboardType,
     numberOfLines,
     multiline = false,
+    disabled = false,
   } = props;
 
   switch (type) {
-    case EditTextInputType.DEFAULT:
+    case EditTextInputType.COLUMN:
     default:
       return (
-        <ColumnContainer style={style}>
+        <Container style={style}>
           <StyledLabel
             style={[
               labelTextStyle,
@@ -189,7 +185,7 @@ const EditText: FC<Props> = (props) => {
                 ? { color: errorColor }
                 : focused && [
                   { color: focusColor },
-                  focusedLabelStyle,
+                  !disabled && focusedLabelStyle,
                 ],
             ]}
           >
@@ -222,27 +218,24 @@ const EditText: FC<Props> = (props) => {
               style={[
                 borderStyle,
                 { borderBottomWidth: borderWidth, borderColor: borderColor },
-                errorText
-                  ? { borderColor: errorColor }
-                  : focused && [
-                    { borderColor: focusColor },
-                    { borderBottomWidth: focusedBorderWidth },
-                  ],
+                focused &&
+                  { borderColor: errorText ? errorColor : focusColor },
               ]}
             />
           }
           {errorText ? (
             <StyledInvalidText
               testID={errorTestID}
-              style={[{ color: errorColor }, errorTextStyle]}>
+              style={errorTextStyle}
+            >
               {`${errorText}`}
             </StyledInvalidText>
           ) : null}
-        </ColumnContainer>
+        </Container>
       );
     case EditTextInputType.ROW:
       return (
-        <RowContainer style={style}>
+        <Container style={style}>
           <StyledRowContent
             style={[
               { borderColor: borderColor, borderBottomWidth: borderWidth },
@@ -265,7 +258,7 @@ const EditText: FC<Props> = (props) => {
                   labelTextStyle,
                   errorText
                     ? [{ color: errorColor }, focusedLabelStyle]
-                    : focused && [
+                    : focused && !disabled && [
                       { color: focusColor },
                       focusedLabelStyle,
                     ],
@@ -308,12 +301,12 @@ const EditText: FC<Props> = (props) => {
               {errorText}
             </StyledInvalidText>
           ) : null}
-        </RowContainer>
+        </Container>
       );
 
-    case EditTextInputType.BOX:
+    case EditTextInputType.COLUMN_BOXED:
       return (
-        <ColumnContainer style={style}>
+        <Container style={style}>
           <StyledLabel
             style={[
               labelTextStyle,
@@ -348,7 +341,7 @@ const EditText: FC<Props> = (props) => {
               testID={testID}
               autoCapitalize={autoCapitalize}
               onFocus={(): void => {
-                setFocus(true);
+                setFocus(true && !disabled);
                 if (onFocus) {
                   onFocus();
                 }
@@ -367,6 +360,8 @@ const EditText: FC<Props> = (props) => {
               secureTextEntry={secureTextEntry}
               onSubmitEditing={onSubmitEditing}
               multiline={multiline}
+              editable={!disabled}
+              contextMenuHidden={disabled}
             />
             {rightElement && (
               <StyledIcon style={[{ width: 40 }, rightElementStyle]}>
@@ -388,12 +383,12 @@ const EditText: FC<Props> = (props) => {
               {`${errorText}`}
             </StyledInvalidText>
           ) : null}
-        </ColumnContainer>
+        </Container>
       );
 
-    case EditTextInputType.ROW_BOX:
+    case EditTextInputType.ROW_BOXED:
       return (
-        <RowContainer style={style}>
+        <Container style={style}>
           <StyledRowContent
             style={[
               {
@@ -419,9 +414,7 @@ const EditText: FC<Props> = (props) => {
                       ? [{ color: focusColor }, focusedLabelStyle]
                       : null,
                   { marginLeft: 15, width: labelWidth },
-                ]}>
-                {label}
-              </StyledRowLabel>
+                ]}>{label}</StyledRowLabel>
             ) : null}
             <StyledRowInput
               {...textInputProps}
@@ -456,7 +449,7 @@ const EditText: FC<Props> = (props) => {
               {errorText}
             </StyledInvalidText>
           ) : null}
-        </RowContainer>
+        </Container>
       );
   }
 };

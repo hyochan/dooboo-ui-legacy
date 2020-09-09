@@ -60,7 +60,7 @@ const Default = (): React.ReactElement => {
             focusColor="#109CF1"
             placeholder={text('placeholder', 'Search for anything')}
             placeholderTextColor={'#BDBDBD'}
-            customIcon={
+            leftElement={
               <MagContainer>
                 <Magnifier source={IC_MAGNIFIER} />
               </MagContainer>

@@ -10,3 +10,4 @@ export { SearchInput } from './SearchInput';
 export { SwitchToggle } from './SwitchToggle';
 export { Select, SelectItem } from './Select';
 export { Card } from './Card';
+export { PinchZoom } from './PinchZoom';

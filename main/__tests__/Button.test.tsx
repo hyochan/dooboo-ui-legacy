@@ -21,7 +21,7 @@ describe('[Button]', () => {
   });
 
   it('should render loading status', () => {
-    rendered = renderer.create(component({ isLoading: true }));
+    rendered = renderer.create(component({ loading: true }));
     root = rendered.root;
 
     const texts = root.findAllByType(Text);
@@ -29,7 +29,7 @@ describe('[Button]', () => {
   });
 
   it('should render disabled status', () => {
-    rendered = renderer.create(component({ isDisabled: true }));
+    rendered = renderer.create(component({ disabled: true }));
     root = rendered.root;
 
     const texts = root.findAllByType(Text);

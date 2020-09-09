@@ -1,5 +1,5 @@
 import { Meta, Story, Canvas } from '@storybook/addon-docs/blocks';
-import Example from './examples';
+import Example from './examples/Accordion.examples';
 
 <Meta title="Components/Accordion" />
 
@@ -37,7 +37,7 @@ const Default = (): React.ReactElement => {
   const data = [
     {
       title: {
-        name: <StyledTitle>Defualt-title-01</StyledTitle>,
+        name: <StyledTitle>Default-title-01</StyledTitle>,
       },
       bodies: [
         {
@@ -50,7 +50,7 @@ const Default = (): React.ReactElement => {
     },
     {
       title: {
-        name: <StyledTitle>Defualt-title-02</StyledTitle>,
+        name: <StyledTitle>Default-title-02</StyledTitle>,
       },
       bodies: [
         {
@@ -63,7 +63,7 @@ const Default = (): React.ReactElement => {
     },
     {
       title: {
-        name: <StyledTitle>Defualt-title-03</StyledTitle>,
+        name: <StyledTitle>Default-title-03</StyledTitle>,
       },
       bodies: [
         {
@@ -92,7 +92,5 @@ const Default = (): React.ReactElement => {
 ```
 
 <Canvas withSource="none">
-  <Story name="example">
-    <Example />
-  </Story>
+  <Example />
 </Canvas>

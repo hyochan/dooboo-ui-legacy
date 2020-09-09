@@ -11,8 +11,7 @@ import renderer from 'react-test-renderer';
  */
 jest.useFakeTimers();
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-let props: any;
+let props: unknown;
 // let component: React.ReactElement;
 // let testingLib: RenderResult;
 

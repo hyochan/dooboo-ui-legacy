@@ -81,7 +81,7 @@ yarn add @dooboo-ui/gifted-chat
   }
 
   interface State {
-    isLoading: boolean;
+    loading: boolean;
     showMenu: boolean;
     message: string;
     chats: Chat[];
@@ -228,7 +228,7 @@ yarn add @dooboo-ui/gifted-chat
             <Button
               testID="btn_chat"
               height={Platform.OS === 'android' ? 40 : undefined}
-              isLoading={isSending}
+              loading={isSending}
               onPress={onSubmit}
             >
               {getString('SEND')}

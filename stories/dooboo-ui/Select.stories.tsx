@@ -1,6 +1,6 @@
 import { Image, View } from 'react-native';
-import { LoadingIndicator, Select, SelectItem } from '../../main';
 import React, { ReactElement } from 'react';
+import { Select, SelectItem } from '../../main';
 
 import { ContainerDeco } from '../../storybook/decorators';
 import { storiesOf } from '@storybook/react-native';
@@ -45,9 +45,7 @@ const CustomText = styled.Text`
 
 const Default = (): React.ReactElement => {
   // [Select] states
-  const [selectedValue, onSelectedValue] = React.useState<
-    string | number
-  >();
+  const [selectedValue, onSelectedValue] = React.useState<string>('');
   const [isOpen, toggleSelect] = React.useState<
     boolean
   >(false);
@@ -77,16 +75,11 @@ const ChangeProps = (): React.ReactElement => {
   const [showArrow, setShowArrow] = React.useState<boolean>(true);
   const [disabled, setDisabled] = React.useState<boolean>(false);
 
-  const [selectedValue, onSelectedValue] = React.useState<string | number>();
+  const [selectedValue, onSelectedValue] = React.useState<string>('');
   const [isOpen, toggleSelect] = React.useState<boolean>(false);
-  const [isLoading, setLoading] = React.useState<boolean>(false);
 
   const delaySelect = (selectedItem): void => {
-    setLoading(true);
-    setTimeout(() => {
-      setLoading(false);
-      onSelectedValue(selectedItem);
-    }, 700);
+    onSelectedValue(selectedItem);
   };
 
   return (
@@ -118,10 +111,8 @@ const ChangeProps = (): React.ReactElement => {
       <CustomSelectContainer>
         <Select
           opened={isOpen}
-          loading={isLoading}
           disabled={disabled}
           showArrow={showArrow}
-          bordered={borderless}
           activeOpacity={0.5}
           placeholder={'New fancy select'}
           value={selectedValue}
@@ -145,22 +136,11 @@ const Customized = (): React.ReactElement => {
     'https://user-images.githubusercontent.com/50701501/88151403-9dc18c00-cc3d-11ea-95c0-447162f8465e.png',
   );
 
-  const [selectedValue, onSelectedValue] = React.useState<
-    string | number
-  >();
-  const [isOpen, toggleSelect] = React.useState<
-    boolean
-  >(false);
-  const [isLoading, setLoading] = React.useState<
-    boolean
-  >(false);
+  const [selectedValue, onSelectedValue] = React.useState<string>('');
+  const [isOpen, toggleSelect] = React.useState<boolean>(false);
 
   const delaySelect = (selectedItem) : void => {
-    setLoading(true);
-    setTimeout(() => {
-      setLoading(false);
-      onSelectedValue(selectedItem);
-    }, 700);
+    onSelectedValue(selectedItem);
   };
 
   return (
@@ -190,12 +170,9 @@ const Customized = (): React.ReactElement => {
       <CustomSelectContainer style={{ height: 60, width: 200 }}>
         <Select
           opened={isOpen}
-          loading={isLoading}
           activeOpacity={0.9}
-          listHeight={Number(listHeightValue)}
           placeholder={'My placeholder'}
           value={selectedValue}
-          defaultValue={undefined}
           onSelect={(value): void => delaySelect(value)}
           onOpen={(isOpen): void => toggleSelect(isOpen)}
           prefixIcon={
@@ -206,30 +183,8 @@ const Customized = (): React.ReactElement => {
               }}
             />
           }
-          suffixIcon={
-            <Image
-              style={{ width: 15, height: 15 }}
-              source={{
-                uri: customSuffix,
-              }}
-            />
-          }
-          customLoader={
-            <LoadingIndicator
-              size="small"
-              imgSource="https://user-images.githubusercontent.com/50701501/88150309-2f2ffe80-cc3c-11ea-8507-a4b45487eec5.gif"
-            />
-          }
-          customStyle={{
-            backgroundColor: '#ede682',
-          }}
-          customTextStyle={{ color: '#e84a5f', fontSize: 18 }}>
-          <SelectItem
-            value={'Banana'}
-            customStyle={{
-              backgroundColor: '#e84a5f',
-            }}
-            customTextStyle={{ color: '#ede682' }}>
+        >
+          <SelectItem value={'Banana'}>
             {'Banana'}
           </SelectItem>
           <SelectItem value={'Apple'}>{'Apple'}</SelectItem>
