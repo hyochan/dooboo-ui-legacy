@@ -24,13 +24,13 @@ interface StyleProps {
 
 const StyledView = styled.View`
   position: absolute;
-  top: -10px;
-  ${(props: StyleProps) => props.position}: -18px;
+  top: -15px;
+  ${(props: StyleProps) => props.position}: -10px;
   width: auto;
-  min-width : 10px;
-  height: 20px;
+  min-width : 20px;
+  height: 30px;
   border-color: ${(props: StyleProps) => props.border ? props.border : "#00ff0000"};
-  border-width: 5px;
+  border-width: 3px;
   background-color: ${(props: StyleProps): string => props.color!};
   border-radius: 100;
   justify-content: center;
@@ -41,7 +41,7 @@ const StyledView = styled.View`
 const StyledText = styled.Text`
   color :${(props: StyleProps) => props.textColor};
   text-align: center;
-  padding: 5px;
+  padding: 8px;
 `;
 
 const StyledDotView = styled.View`
@@ -51,7 +51,7 @@ const StyledDotView = styled.View`
   width: 10px;
   height: 10px;
   background-color: ${(props: StyleProps): string => props.color!};
-  border-radius: 50;
+  border-radius: 100;
   justify-content: center;
   align-items: center;
 `;
@@ -59,7 +59,7 @@ const StyledDotView = styled.View`
 const styles = StyleSheet.create({
   fontDesign: {
     fontWeight: "500",
-    fontSize: 15,
+    fontSize: 14,
   },
 })
 
@@ -84,7 +84,7 @@ const Badge: FC<BadgeProps> = (props) => {
       return <StyledDotView color={color} position={position} />;
     case maximumCount >= count:
       return (
-        <StyledView color={color} position={position} border={border}>
+        <StyledView color={color} opacity={1} position={position} border={border}>
           <StyledText textColor={textColor} style={styles.fontDesign}>{count}</StyledText>
         </StyledView>
       );
@@ -102,7 +102,7 @@ const Badge: FC<BadgeProps> = (props) => {
       );
     default:
       return (
-        <StyledView color={color} position={position} border={border}>
+        <StyledView color={color} opacity={1} position={position} border={border}>
           <StyledText textColor={textColor} style={styles.fontDesign}>{count}</StyledText>
         </StyledView>
       );
