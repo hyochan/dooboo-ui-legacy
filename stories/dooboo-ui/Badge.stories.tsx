@@ -99,7 +99,7 @@ const Badge1 = (): React.ReactElement => {
             <StyledTitle>Badge (border, textColor)</StyledTitle>
             <ShowContainer>
               <StyledView>
-                <Badge color="#F2B9AC" border="#91AAF2" count={35} />
+                <Badge color="#91AAF2" border="#F2B9AC" count={37} />
               </StyledView>
               <StyledView>
                 <Badge color="white" border="#F2B9AC" textColor="#F2B9AC" count={50} />
