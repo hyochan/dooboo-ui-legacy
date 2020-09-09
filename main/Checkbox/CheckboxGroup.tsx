@@ -1,4 +1,3 @@
-
 import React, { FC, useCallback, useEffect, useRef, useState } from 'react';
 import Checkbox from './Checkbox';
 import styled from 'styled-components/native';
@@ -32,8 +31,8 @@ export interface CheckboxGroupState {
 
 export interface CheckboxGroupContext {
   registerValue?:(value: CheckboxValueType) => void;
-  toggleOption?: (option: CheckboxOptionType) => void;
-  value?: any;
+  toggleOption: (option: CheckboxOptionType) => void;
+  value?: CheckboxValueType[];
   disabled?: boolean;
 }
 
@@ -48,23 +47,28 @@ interface CheckboxGroupProps {
 
 export const GroupCheckboxContext = React.createContext<CheckboxGroupContext | null>(null);
 
-const CheckboxGroup: FC<CheckboxGroupProps> = (props) => {
+const CheckboxGroup: FC<CheckboxGroupProps> = ({
+  defaultValues,
+  values,
+  options,
+  disabled,
+  onChange,
+  commonCustomStyle,
+}) => {
   const isMounted = useRef(false);
-  const [values, setValues] = useState<CheckboxValueType[]>(props.values || props.defaultValues || []);
+  const [groupValues, setGroupValues] = useState<CheckboxValueType[]>(values || defaultValues || []);
   const [registeredValues, setRegisteredValues] = useState<CheckboxValueType[]>([]);
 
   useEffect(() => {
     // for only componenUpdate not in mount
     if (isMounted.current) {
-      setValues(props.values || []);
+      setGroupValues(values || []);
     } else {
       isMounted.current = true;
     }
-  }, [props.values]);
+  }, [values]);
 
   const getOptions = useCallback((): Array<CheckboxOptionType> => {
-    const { options } = props;
-
     return (options as Array<CheckboxOptionType>).map((option) => {
       if (typeof option === 'string') {
         return {
@@ -74,7 +78,7 @@ const CheckboxGroup: FC<CheckboxGroupProps> = (props) => {
       }
       return option;
     });
-  }, [props.options]);
+  }, [options]);
 
   const registerValue = useCallback((value : string): void => {
     setRegisteredValues((prevRegisteredValues) => {
@@ -83,18 +87,17 @@ const CheckboxGroup: FC<CheckboxGroupProps> = (props) => {
   }, [setRegisteredValues]);
 
   const toggleOption = (option: CheckboxOptionType): void => {
-    const optionIndex = values.indexOf(option.value);
-    const _values = [...values];
+    const optionIndex = groupValues.indexOf(option.value);
+    const _values = [...groupValues];
     if (optionIndex === -1) {
       _values.push(option.value);
     } else {
       _values.splice(optionIndex, 1);
     }
-    if (!('values' in props)) {
-      setValues(_values);
+    if (!(values)) {
+      setGroupValues(_values);
     }
 
-    const { onChange } = props;
     if (onChange) {
       const options = getOptions();
       const filterdValues = _values
@@ -113,7 +116,7 @@ const CheckboxGroup: FC<CheckboxGroupProps> = (props) => {
     toggleOption,
     registerValue,
     values,
-    disabled: props.disabled,
+    disabled: disabled,
   };
 
   return (
@@ -123,11 +126,11 @@ const CheckboxGroup: FC<CheckboxGroupProps> = (props) => {
           <Checkbox
             key={option.value.toString()}
             label={option.label}
-            disabled={'disabled' in option ? option.disabled : props.disabled}
+            disabled={'disabled' in option ? option.disabled : disabled}
             value={option.value}
-            checked={values.indexOf(option.value) !== -1}
+            checked={groupValues.indexOf(option.value) !== -1}
             onChange={option.onChange}
-            customStyle={ 'customStyle' in option ? option.customStyle : props.commonCustomStyle}
+            customStyle={ 'customStyle' in option ? option.customStyle : commonCustomStyle}
           >
             {option.label}
           </Checkbox>

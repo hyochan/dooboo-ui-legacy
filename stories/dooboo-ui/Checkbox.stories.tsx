@@ -28,7 +28,7 @@ const Title = styled.Text`
 
 const Seperator = styled.View`
  border-bottom-color: black;
- border-bottom-width: 1;
+ border-bottom-width: 1px;
 `;
 
 function DefaultCheckbox(): React.ReactElement {
@@ -78,6 +78,7 @@ function DefaultCheckboxGroup(): React.ReactElement {
   ];
 
   const onChange = (checkedValues): void => {
+    // eslint-disable-next-line no-console
     console.log('checked = ', checkedValues);
   };
   return (

@@ -1,9 +1,6 @@
 import React, { FC, useCallback, useContext, useEffect, useRef, useState } from 'react';
 import { GroupCheckboxContext } from './CheckboxGroup';
-import {
-  TouchableHighlight,
-} from 'react-native';
-
+import { TouchableHighlight } from 'react-native';
 import styled from 'styled-components/native';
 
 interface customStyle {
@@ -45,7 +42,7 @@ const Checkbox: FC<CheckboxProps> = ({
   const groupCheckboxContext = useContext(GroupCheckboxContext);
 
   const isMounted = useRef(false);
-
+  const checkboxImg = 'https://i.imgur.com/tC6YqOV.png';
   const [isChecked, setIsChecked] = useState(defaultChecked || checked);
 
   const handleChange = useCallback(() => {
@@ -53,7 +50,7 @@ const Checkbox: FC<CheckboxProps> = ({
       onChange && onChange({ checked: !prevChecked, label });
       return !prevChecked;
     });
-    groupCheckboxContext?.toggleOption({ label, value });
+    groupCheckboxContext?.toggleOption({ label, value: value || '' });
   }, [onChange, setIsChecked, label, groupCheckboxContext?.toggleOption]);
 
   useEffect(() => {
@@ -86,7 +83,7 @@ const Checkbox: FC<CheckboxProps> = ({
         >
           <Marker isChecked={isChecked}>
             {!indeterminate && isChecked && <MarkerImg
-              source={require('../__assets__/check_tick.png')}
+              source={{ uri: checkboxImg }}
             />}
             {
               indeterminate && <Markerindeterminate
