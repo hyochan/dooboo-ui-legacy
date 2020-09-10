@@ -82,7 +82,7 @@ const DateInput: FC<Props> = (props) => {
 
   const {
     style,
-    label = 'Date picker',
+    label = '',
     labelTextStyle = { color: '#000', textAlign: 'left' },
     // labelStyle,
     placeholder = 'YYYY-MM-DD',
