@@ -1,11 +1,7 @@
 import {
-  DatePickerAndroidOpenOptions,
-  Dimensions,
   TextStyle,
-  TouchableOpacity,
   ViewStyle,
 } from 'react-native';
-
 import DateInput from './DateInput';
 import PickerCalendar from './PickerCalendar';
 import React from 'react';
@@ -15,7 +11,6 @@ const Container = styled.View`
   flex-direction: column;
   align-items: center;
 `;
-const DateText = styled.Text``;
 
 interface Props {
   onChangeDate?: (date: Date) => void;
@@ -32,8 +27,6 @@ interface Props {
   weekdayFormat?: 'narrow' | 'short';
   yearMonthComponent?: (monthFirstDate: Date) => React.ReactElement;
 }
-
-const { width, height } = Dimensions.get('window');
 
 const DatePicker = (props: Props): React.ReactElement => {
   const [selectedDate, setSelectedDate] = React.useState<Date>(
@@ -69,8 +62,6 @@ const DatePicker = (props: Props): React.ReactElement => {
         }}
         containerStyle={{ width: 300, height: 350 }}
         weekdayFormat={props.weekdayFormat}
-        // calendarWidth={300}
-        // calendarHeight={450}
         yearMonthComponent={props.yearMonthComponent}
       />
     </Container>

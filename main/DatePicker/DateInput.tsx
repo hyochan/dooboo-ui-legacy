@@ -6,7 +6,6 @@ import {
   ViewStyle,
 } from 'react-native';
 import React, { FC, useEffect, useState } from 'react';
-
 import styled from 'styled-components/native';
 
 const Container = styled.View`
@@ -65,11 +64,9 @@ interface Props {
   style?: ViewStyle;
   label?: string;
   labelTextStyle?: TextStyle;
-  // labelStyle?: ViewStyle;
   placeholder?: string;
   placeholderTextColor?: string;
   errorText?: string;
-  // errorTextStyle?: TextStyle;
   errorTextStyle?: TextStyle;
   dateTextStyle?: TextStyle;
   value?: string;
@@ -84,19 +81,18 @@ const DateInput: FC<Props> = (props) => {
   const {
     label = '',
     labelTextStyle = { color: '#000', textAlign: 'left' },
-    // labelStyle,
     placeholder = 'YYYY-MM-DD',
     placeholderTextColor,
-    // underlineColor = { borderBottomColor: '#000' },
     errorText = 'Invalid Date',
     errorTextStyle = { color: '#F00', textAlign: 'left' },
     dateTextStyle,
     selectedDate,
+    onPressCalendar,
   } = props;
 
   useEffect(() => {
-    setValue(convertDateString(props.selectedDate || new Date()));
-  }, [props.selectedDate]);
+    setValue(convertDateString(selectedDate || new Date()));
+  }, [selectedDate]);
 
   useEffect(() => {
     validateDate(value);
@@ -138,7 +134,7 @@ const DateInput: FC<Props> = (props) => {
             style={dateTextStyle}
           />
         </StyledRowContent>
-        <TouchableOpacity onPress={props.onPressCalendar}>
+        <TouchableOpacity onPress={onPressCalendar}>
           <Image
             style={{ width: 20, height: 20 }}
             source={require('../__assets__/calendar.png')}
