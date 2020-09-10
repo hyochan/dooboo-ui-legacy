@@ -1,4 +1,3 @@
-import React, { FC, useEffect, useState } from 'react';
 import {
   Image,
   Platform,
@@ -6,6 +5,8 @@ import {
   TouchableOpacity,
   ViewStyle,
 } from 'react-native';
+import React, { FC, useEffect, useState } from 'react';
+
 import styled from 'styled-components/native';
 
 const Container = styled.View`

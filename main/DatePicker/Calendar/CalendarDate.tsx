@@ -1,5 +1,6 @@
-import React from 'react';
 import { TouchableOpacity, View, ViewStyle } from 'react-native';
+
+import React from 'react';
 import styled from 'styled-components/native';
 
 const SelectedDate = styled.View`
