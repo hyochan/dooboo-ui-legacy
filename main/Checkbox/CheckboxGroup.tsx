@@ -2,14 +2,14 @@ import React, { FC, useCallback, useEffect, useRef, useState } from 'react';
 import Checkbox from './Checkbox';
 import styled from 'styled-components/native';
 
-interface customStyle {
+interface CustomStyle {
   labelSize?: number;
   labelColor?: string;
   boxSize?: number;
   boxColor?: string;
 }
 
-interface onChangeEvent {
+interface OnChangeEvent {
   checked: boolean;
   label: string;
 }
@@ -20,8 +20,8 @@ export interface CheckboxOptionType {
   label: string | number;
   value: CheckboxValueType;
   disabled?: boolean;
-  onChange?: (e: onChangeEvent) => void;
-  customStyle?: customStyle;
+  onChange?: (e: OnChangeEvent) => void;
+  customStyle?: CustomStyle;
 }
 
 export interface CheckboxGroupState {
@@ -42,7 +42,7 @@ interface CheckboxGroupProps {
   options?: Array<CheckboxOptionType | string>;
   disabled?: boolean;
   onChange?: (checkedValue: Array<CheckboxValueType>) => void;
-  commonCustomStyle?: customStyle;
+  commonCustomStyle?: CustomStyle;
 }
 
 export const GroupCheckboxContext = React.createContext<CheckboxGroupContext | null>(null);
@@ -142,8 +142,8 @@ const CheckboxGroup: FC<CheckboxGroupProps> = ({
 };
 
 const Container = styled.View`
- flex-direction: row;
- flex-wrap: wrap;
+  flex-direction: row;
+  flex-wrap: wrap;
 `;
 
 export default CheckboxGroup;

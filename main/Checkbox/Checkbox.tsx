@@ -3,7 +3,7 @@ import { GroupCheckboxContext } from './CheckboxGroup';
 import { TouchableHighlight } from 'react-native';
 import styled from 'styled-components/native';
 
-interface customStyle {
+interface CustomStyle {
   labelSize?: number;
   labelColor?: string;
   boxSize?: number;
@@ -11,7 +11,7 @@ interface customStyle {
   labelLeft?: boolean;
 }
 
-interface onChangeEvent {
+interface OnChangeEvent {
   checked: boolean;
   label: string | number;
 }
@@ -24,8 +24,8 @@ export interface CheckboxProps {
   defaultChecked?: boolean;
   indeterminate?: boolean;
   disabled?: boolean
-  onChange?: (event: onChangeEvent) => void;
-  customStyle?: customStyle;
+  onChange?: (event: OnChangeEvent) => void;
+  customStyle?: CustomStyle;
 }
 
 const Checkbox: FC<CheckboxProps> = ({
@@ -40,7 +40,6 @@ const Checkbox: FC<CheckboxProps> = ({
 
 }) => {
   const groupCheckboxContext = useContext(GroupCheckboxContext);
-
   const isMounted = useRef(false);
   const checkboxImg = 'https://i.imgur.com/tC6YqOV.png';
   const [isChecked, setIsChecked] = useState(defaultChecked || checked);
@@ -92,7 +91,11 @@ const Checkbox: FC<CheckboxProps> = ({
             }
           </Marker>
         </MarkerContainer>
-        <Label labelColor={labelColor} labelSize={customStyle?.labelSize} labelLeft={customStyle?.labelLeft}>
+        <Label
+          labelColor={labelColor}
+          labelSize={customStyle?.labelSize}
+          labelLeft={customStyle?.labelLeft}
+        >
           {label}
         </Label>
       </Container>
@@ -103,6 +106,7 @@ const Checkbox: FC<CheckboxProps> = ({
 interface ContainerProps {
   labelLeft?: boolean;
 }
+
 interface MarkerContainerProps {
   boxSize?: number
   boxColor?: string
@@ -133,43 +137,43 @@ const COLOR: {
 };
 
 const Container = styled.View<ContainerProps>`
- flex-direction: ${({ labelLeft }): string => labelLeft ? 'row-reverse' : 'row'};
- justify-content: center;
- align-items: center;
+  flex-direction: ${({ labelLeft }): string => labelLeft ? 'row-reverse' : 'row'};
+  justify-content: center;
+  align-items: center;
 `;
 
 const MarkerContainer = styled.View<MarkerContainerProps>`
- padding: 1.5px;
- width: ${({ boxSize }):number => boxSize || 20}px;
- height: ${({ boxSize }):number => boxSize || 20}px;
- background-color: ${({ boxColor }): string => boxColor || COLOR.BLUE_SKY};
+  padding: 1.5px;
+  width: ${({ boxSize }):number => boxSize || 20}px;
+  height: ${({ boxSize }):number => boxSize || 20}px;
+  background-color: ${({ boxColor }): string => boxColor || COLOR.BLUE_SKY};
 `;
 
 const Marker = styled.View<MarkerProps>`
- flex: 1;
- justify-content: center;
- align-items: center;
- background-color: ${({ isChecked }): string => isChecked ? 'transparent' : '#ffffff'};
+  flex: 1;
+  justify-content: center;
+  align-items: center;
+  background-color: ${({ isChecked }): string => isChecked ? 'transparent' : '#ffffff'};
 `;
 
 const MarkerImg = styled.Image`
- width: 85%;
- height: 85%;
- tint-color: #ffffff;
- resize-mode: contain;
+  width: 85%;
+  height: 85%;
+  tint-color: #ffffff;
+  resize-mode: contain;
 `;
 
 const Markerindeterminate = styled.View<MarkerindeterminateProps>`
- width: 55%;
- height: 55%;
- background-color: ${({ boxColor }): string => boxColor || COLOR.BLUE_SKY};
+  width: 55%;
+  height: 55%;
+  background-color: ${({ boxColor }): string => boxColor || COLOR.BLUE_SKY};
 `;
 
 const Label = styled.Text<LabelProps>`
- font-size: 20px;
- padding-left:  ${({ labelLeft }): number => labelLeft ? 0 : 10}px;
- padding-right: ${({ labelLeft }): number => labelLeft ? 10 : 0}px;
- color: ${({ labelColor }): string => labelColor || COLOR.BLACK};
+  font-size: 20px;
+  padding-left:  ${({ labelLeft }): number => labelLeft ? 0 : 10}px;
+  padding-right: ${({ labelLeft }): number => labelLeft ? 10 : 0}px;
+  color: ${({ labelColor }): string => labelColor || COLOR.BLACK};
 `;
 
 export default Checkbox;

@@ -1,8 +1,6 @@
 import { Checkbox, CheckboxGroup } from '../../main';
 import React, { ReactElement, useState } from 'react';
-
 import { ContainerDeco } from '../../storybook/decorators';
-
 import { storiesOf } from '@storybook/react-native';
 import styled from 'styled-components/native';
 
@@ -27,8 +25,8 @@ const Title = styled.Text`
 `;
 
 const Seperator = styled.View`
- border-bottom-color: black;
- border-bottom-width: 1px;
+  border-bottom-color: black;
+  border-bottom-width: 1px;
 `;
 
 function DefaultCheckbox(): React.ReactElement {
@@ -37,28 +35,22 @@ function DefaultCheckbox(): React.ReactElement {
   };
   return (
     <ScrollContainer>
-
       <Container>
         <Title>default</Title>
         <Checkbox label="defaultChecked" defaultChecked ></Checkbox>
-
       </Container>
-
       <Container>
         <Title>disabled</Title>
         <Checkbox label="disabled" disabled />
       </Container>
-
       <Container>
         <Title>indeterminate</Title>
         <Checkbox label="indeterminate" indeterminate />
       </Container>
-
       <Container>
         <Title>labelLeft</Title>
         <Checkbox label="labelLeft" customStyle={customStyle} />
       </Container>
-
     </ScrollContainer>
   );
 }
@@ -83,7 +75,6 @@ function DefaultCheckboxGroup(): React.ReactElement {
   };
   return (
     <ScrollContainer>
-
       <Container>
         <Title>plainOption</Title>
         <CheckboxGroup options={plainOptions} onChange={onChange} />
@@ -92,17 +83,14 @@ function DefaultCheckboxGroup(): React.ReactElement {
         <Title>Default</Title>
         <CheckboxGroup options={options} onChange={onChange} />
       </Container>
-
       <Container>
         <Title>option with disabled</Title>
         <CheckboxGroup options={optionsWithDisabled} onChange={onChange} />
       </Container>
-
       <Container>
         <Title>with disabled props</Title>
         <CheckboxGroup options={options} disabled onChange={onChange} />
       </Container>
-
     </ScrollContainer>
   );
 }
@@ -129,7 +117,6 @@ function CheckAll(): React.ReactElement {
 
   return (
     <ScrollContainer>
-
       <Container>
         <Title>Check All</Title>
         <Checkbox
