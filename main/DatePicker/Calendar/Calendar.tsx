@@ -50,6 +50,7 @@ interface Props<T> {
   // daysRowHeight: number;
   // monthData: MonthData;
   yearMonthComponent?: (monthFirst: Date) => React.ReactElement;
+  weekdayFormat?: 'narrow' | 'short';
 }
 /**
  * Pure Calendar
@@ -137,6 +138,7 @@ function Calendar<T>(props: Props<T>): React.ReactElement {
           width: props.calendarWidth,
           height: 22,
         }}
+        weekdayFormat={props.weekdayFormat}
       />
       <FlatList
         // onLayout={onLayout}

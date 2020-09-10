@@ -1,4 +1,3 @@
-import React from 'react';
 import {
   DatePickerAndroidOpenOptions,
   Dimensions,
@@ -6,10 +5,11 @@ import {
   TouchableOpacity,
   ViewStyle,
 } from 'react-native';
-import styled from 'styled-components/native';
 
 import DateInput from './DateInput';
 import PickerCalendar from './PickerCalendar';
+import React from 'react';
+import styled from 'styled-components/native';
 
 const Container = styled.View`
   flex-direction: column;
@@ -26,15 +26,18 @@ interface Props {
   label?: string;
   labelTextStyle?: TextStyle;
   errorText?: string;
-  errorTextStyle?:TextStyle;
+  errorTextStyle?: TextStyle;
   dateTextStyle?: TextStyle;
-  selectedDate?:Date;
+  selectedDate?: Date;
+  weekdayFormat?: 'narrow' | 'short';
 }
 
 const { width, height } = Dimensions.get('window');
 
 const DatePicker = (props: Props): React.ReactElement => {
-  const [selectedDate, setSelectedDate] = React.useState<Date>(props.selectedDate || new Date());
+  const [selectedDate, setSelectedDate] = React.useState<Date>(
+    props.selectedDate || new Date(),
+  );
   const [calendarVisible, setCalendarVisible] = React.useState<boolean>(false);
 
   const onSelectDate = (newDate: Date): void => {
@@ -64,6 +67,7 @@ const DatePicker = (props: Props): React.ReactElement => {
           setCalendarVisible(false);
         }}
         containerStyle={{ width: 300, height: 350 }}
+        weekdayFormat={props.weekdayFormat}
         // calendarWidth={300}
         // calendarHeight={450}
       />

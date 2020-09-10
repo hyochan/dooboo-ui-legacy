@@ -27,6 +27,7 @@ interface Props {
   containerStyle?: ViewStyle;
   onBackdropPress?: () => void;
   calendarWidth?: number;
+  weekdayFormat?: 'narrow' | 'short';
 }
 
 const PickerCalendar: FC<Props> = (props) => {
@@ -94,6 +95,7 @@ const PickerCalendar: FC<Props> = (props) => {
                     />
                   );
                 }}
+                weekdayFormat={props.weekdayFormat}
               />
             </CalendarContentsWrapper>
           </CalendarContainer>

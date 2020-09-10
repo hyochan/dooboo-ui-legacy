@@ -25,12 +25,22 @@ const DayTitle = styled.Text`
 interface Props {
   style?: ViewStyle;
   calendarWidth: number;
+  weekdayFormat?: 'narrow' | 'short';
 }
 /**
  * 캘린더 요일 row
  */
-const weekDays = ['일', '월', '화', '수', '목', '금', '토'];
+// const weekDays = ['일', '월', '화', '수', '목', '금', '토'];
+
 function CalendarDaysRow(props: Props): React.ReactElement {
+  const weekDays: string[] = [];
+  for (let idx = 0; idx <= 6; idx++) {
+    const matchMonth = new Date(2020, 8, 6 + idx);
+    const weekDay = matchMonth.toLocaleString('default', {
+      weekday: props.weekdayFormat || 'narrow', // 'narrow',
+    });
+    weekDays.push(weekDay);
+  }
   return (
     <DaysRow style={{ ...props.style }}>
       {weekDays.map((day, index) => {
