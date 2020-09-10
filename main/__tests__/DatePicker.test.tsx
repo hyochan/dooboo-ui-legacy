@@ -1,20 +1,42 @@
 import * as React from 'react';
 
+import DateInput from '../DatePicker/DateInput';
 import { DatePicker } from '../DatePicker';
-// Note: test renderer must be required after react-native.
-import renderer from 'react-test-renderer';
+import PickerCalendar from '../DatePicker/PickerCalendar';
 
-// eslint-disable-next-line
-const component = (props?: any): React.ReactElement => {
-  return <DatePicker {...props} />;
-};
+import { render } from '@testing-library/react-native';
 
-describe('[DatePicker]', () => {
-  let rendered: renderer.ReactTestRenderer;
+describe('[DateInput] render', () => {
+  it('should render without crashing', () => {
+    const rendered = render(
+      <DateInput
+        onPressCalendar={(): void => {}}
+      />,
+    ).asJSON();
+    expect(rendered).toMatchSnapshot();
+    expect(rendered).toBeTruthy();
+  });
+});
 
-  it('should render without crasing', () => {
-    rendered = renderer.create(component());
-    expect(rendered.toJSON()).toMatchSnapshot();
-    expect(rendered.toJSON()).toBeTruthy();
+describe('[DatePicker] render', () => {
+  it('should render without crashing', () => {
+    const rendered = render(
+      <DatePicker />,
+    ).asJSON();
+    expect(rendered).toMatchSnapshot();
+    expect(rendered).toBeTruthy();
+  });
+});
+
+describe('[PickerCalendar] render', () => {
+  it('should render without crashing', () => {
+    const rendered = render(
+      <PickerCalendar
+        visible={false}
+        onSelectDate={(): void => {}}
+      />,
+    ).asJSON();
+    expect(rendered).toMatchSnapshot();
+    expect(rendered).toBeTruthy();
   });
 });
