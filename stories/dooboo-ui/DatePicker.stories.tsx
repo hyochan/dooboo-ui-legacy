@@ -58,10 +58,22 @@ function DatePickerYearMonth(): React.ReactElement {
         <DatePicker
           yearMonthComponent={(monthFirstDate): React.ReactElement => {
             return (
-              <View style={{ width: '100%', alignItems: 'center' }}>
-                <Text>{`${monthFirstDate.getFullYear()}년도 / ${
-                  monthFirstDate.getMonth() + 1
-                }월`}</Text>
+              <View
+                style={{
+                  width: '100%',
+                  height: 40,
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  backgroundColor: '#efefef',
+                  marginBottom: 10,
+                }}>
+                <Text>{`${monthFirstDate.toLocaleString('default', {
+                  month: 'long',
+                })}`}</Text>
+                <Text
+                  style={{
+                    fontSize: 10,
+                  }}>{`${monthFirstDate.getFullYear()}`}</Text>
               </View>
             );
           }}
