@@ -30,6 +30,7 @@ interface Props {
   dateTextStyle?: TextStyle;
   selectedDate?: Date;
   weekdayFormat?: 'narrow' | 'short';
+  yearMonthComponent?: (monthFirstDate: Date) => React.ReactElement;
 }
 
 const { width, height } = Dimensions.get('window');
@@ -70,6 +71,7 @@ const DatePicker = (props: Props): React.ReactElement => {
         weekdayFormat={props.weekdayFormat}
         // calendarWidth={300}
         // calendarHeight={450}
+        yearMonthComponent={props.yearMonthComponent}
       />
     </Container>
   );

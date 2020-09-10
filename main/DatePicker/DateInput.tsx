@@ -73,7 +73,7 @@ interface Props {
   dateTextStyle?: TextStyle;
   value?: string;
   onPressCalendar: () => void;
-  selectedDate?:Date;
+  selectedDate?: Date;
 }
 
 const DateInput: FC<Props> = (props) => {
@@ -112,7 +112,9 @@ const DateInput: FC<Props> = (props) => {
   };
 
   const convertDateString = (date: Date): string => {
-    const dateString = new Date(date.getTime() - date.getTimezoneOffset() * 60000)
+    const dateString = new Date(
+      date.getTime() - date.getTimezoneOffset() * 60000,
+    )
       .toISOString()
       .split('T')[0];
     return dateString;
@@ -130,7 +132,7 @@ const DateInput: FC<Props> = (props) => {
             value={value}
             placeholder={placeholder}
             placeholderTextColor={placeholderTextColor}
-            onChangeText={(input:string):void => {
+            onChangeText={(input: string): void => {
               setValue(input);
             }}
             style={dateTextStyle}
@@ -146,9 +148,7 @@ const DateInput: FC<Props> = (props) => {
 
       {error && (
         <StyledErrorContainer>
-          <StyledError
-            style={errorTextStyle}
-          >{errorText}</StyledError>
+          <StyledError style={errorTextStyle}>{errorText}</StyledError>
         </StyledErrorContainer>
       )}
     </Container>

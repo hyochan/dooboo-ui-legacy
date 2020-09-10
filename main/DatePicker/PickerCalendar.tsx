@@ -28,6 +28,7 @@ interface Props {
   onBackdropPress?: () => void;
   calendarWidth?: number;
   weekdayFormat?: 'narrow' | 'short';
+  yearMonthComponent?: (monthFirstDate: Date) => React.ReactElement;
 }
 
 const PickerCalendar: FC<Props> = (props) => {
@@ -48,7 +49,9 @@ const PickerCalendar: FC<Props> = (props) => {
                   console.log('Changed Month : ', month);
                 }}
                 yearMonthComponent={(monthFirst: Date): React.ReactElement => {
-                  return (
+                  return props.yearMonthComponent ? (
+                    props.yearMonthComponent(monthFirst)
+                  ) : (
                     <View
                       style={{
                         height: 40,

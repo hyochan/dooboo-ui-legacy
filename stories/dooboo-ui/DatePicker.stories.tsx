@@ -1,5 +1,5 @@
 import { IC_FACEBOOK, IC_GOOGLE } from '../Icon';
-import { Image, View } from 'react-native';
+import { Image, Text, View } from 'react-native';
 import React, { ReactElement, useState } from 'react';
 
 import { ContainerDeco } from '../../storybook/decorators';
@@ -36,16 +36,62 @@ function Default(): React.ReactElement {
   );
 }
 
-function DateInput(): React.ReactElement {
+function DatePickerWeekday(): React.ReactElement {
   return (
     <ScrollContainer>
       <Container>
-        <DatePicker />
+        <DatePicker label={''} />
+      </Container>
+      <Container>
+        <DatePicker weekdayFormat={'short'} label={'Short weekday format'} />
+      </Container>
+      <Container>
+        <DatePicker weekdayFormat={'narrow'} label={'Narrow weekday format'} />
       </Container>
     </ScrollContainer>
   );
 }
-
+function DatePickerYearMonth(): React.ReactElement {
+  return (
+    <ScrollContainer>
+      <Container>
+        <DatePicker
+          yearMonthComponent={(monthFirstDate): React.ReactElement => {
+            return (
+              <View style={{ width: '100%', alignItems: 'center' }}>
+                <Text>{`${monthFirstDate.getFullYear()}년도 / ${
+                  monthFirstDate.getMonth() + 1
+                }월`}</Text>
+              </View>
+            );
+          }}
+        />
+      </Container>
+      <Container>
+        <DatePicker
+          yearMonthComponent={(monthFirstDate): React.ReactElement => {
+            return (
+              <View
+                style={{
+                  width: '100%',
+                  height: 30,
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  backgroundColor: '#efefef',
+                  marginBottom: 10,
+                }}>
+                <Text>{`${monthFirstDate.toLocaleString('default', {
+                  year: 'numeric',
+                  month: 'long',
+                })}`}</Text>
+              </View>
+            );
+          }}
+        />
+      </Container>
+    </ScrollContainer>
+  );
+}
 /**
  * Below are stories for web
  */
@@ -54,14 +100,17 @@ export default {
 };
 
 export const toStorybook1 = (): ReactElement => <Default />;
-export const toStorybook2 = (): ReactElement => <DateInput />;
+export const toStorybook2 = (): ReactElement => <DatePickerWeekday />;
+export const toStorybook3 = (): ReactElement => <DatePickerYearMonth />;
 toStorybook1.story = {
   name: 'default',
 };
 toStorybook2.story = {
-  name: 'input',
+  name: 'weekday format',
 };
-
+toStorybook3.story = {
+  name: 'custom year/month',
+};
 /**
  * Below are stories for app
  */
@@ -72,6 +121,9 @@ storiesOf('DatePicker', module)
       <Default />
     </>
   ))
-  .add('input', () => <DateInput />, {
+  .add('weekday format', () => <DatePickerWeekday />, {
+    notes: 'Datapicker Input',
+  })
+  .add('custom year/month', () => <DatePickerYearMonth />, {
     notes: 'Datapicker Input',
   });
