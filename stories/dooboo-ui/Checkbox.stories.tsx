@@ -95,7 +95,7 @@ function DefaultCheckboxGroup(): React.ReactElement {
   );
 }
 
-function CheckAll(): React.ReactElement {
+function CheckAllExample(): React.ReactElement {
   const plainOptions = ['Apple', 'Pear', 'Orange'];
   const defaultCheckedList = ['Apple', 'Orange'];
 
@@ -118,7 +118,7 @@ function CheckAll(): React.ReactElement {
   return (
     <ScrollContainer>
       <Container>
-        <Title>Check All</Title>
+        <Title>Check All Example</Title>
         <Checkbox
           label={'Check All'}
           indeterminate={indeterminate}
@@ -142,7 +142,7 @@ export default {
 
 export const DefaultCheckbox_ = (): ReactElement => <DefaultCheckbox />;
 export const DefaultCheckboxGroup_ = (): ReactElement => <DefaultCheckboxGroup/>;
-export const ReactElement_ = (): ReactElement => <CheckAll/>;
+export const ReactElement_ = (): ReactElement => <CheckAllExample/>;
 
 /**
  * Below are stories for app
@@ -159,8 +159,8 @@ storiesOf('Checkbox', module)
       <DefaultCheckboxGroup />
     </>
   ))
-  .add('CheckAll', () => (
+  .add('ㄴ Check All Eaxample', () => (
     <>
-      <CheckAll />
+      <CheckAllExample />
     </>
   ));
