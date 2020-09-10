@@ -81,7 +81,6 @@ const DateInput: FC<Props> = (props) => {
   const [value, setValue] = useState<string>('');
 
   const {
-    style,
     label = '',
     labelTextStyle = { color: '#000', textAlign: 'left' },
     // labelStyle,
