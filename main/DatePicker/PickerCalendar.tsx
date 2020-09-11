@@ -29,6 +29,7 @@ interface Props {
   calendarWidth?: number;
   weekdayFormat?: 'narrow' | 'short';
   titleContent?: (monthFirstDate: Date) => React.ReactElement;
+  onChangeMonth?: (month: Date) => void; // month is first date of changed month
 }
 
 const PickerCalendar: FC<Props> = (props) => {
@@ -44,9 +45,8 @@ const PickerCalendar: FC<Props> = (props) => {
             <CalendarContentsWrapper style={props.containerStyle}>
               <Calendar
                 calendarWidth={calendarWidth}
-                // calendarHeight={calendarHeight - 40}
                 onChangeMonth={(month): void => {
-                  console.log('Changed Month : ', month);
+                  props.onChangeMonth?.(month);
                 }}
                 titleContent={(monthFirst: Date): React.ReactElement => {
                   return props.titleContent ? (
