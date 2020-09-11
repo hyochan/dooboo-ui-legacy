@@ -52,7 +52,7 @@ function DatePickerYearMonth(): React.ReactElement {
     <ScrollContainer>
       <Container>
         <DatePicker
-          yearMonthComponent={(monthFirstDate): React.ReactElement => {
+          titleContent={(monthFirstDate): React.ReactElement => {
             return (
               <View
                 style={{
@@ -77,7 +77,7 @@ function DatePickerYearMonth(): React.ReactElement {
       </Container>
       <Container>
         <DatePicker
-          yearMonthComponent={(monthFirstDate): React.ReactElement => {
+          titleContent={(monthFirstDate): React.ReactElement => {
             return (
               <View
                 style={{

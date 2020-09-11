@@ -30,16 +30,16 @@ interface Props<T> {
   onChangeMonth?: (month: Date) => void; // called when changed month
   initDate?: Date; // initial date, if undefined, it's today
   containerStyle?: ViewStyle;
-  dayComponent: ({
+  renderDay: ({
     date,
     dailyData,
-    isCurMonth,
+    isCurrentMonth,
     isToday,
     style,
   }: {
     date: Date;
     dailyData: T; // [YYYY-MM-DD]: dailyData
-    isCurMonth: boolean;
+    isCurrentMonth: boolean;
     isToday: boolean;
     style?: ViewStyle;
   }) => React.ReactElement;
@@ -49,7 +49,7 @@ interface Props<T> {
   // calendarHeight: number;
   // daysRowHeight: number;
   // monthData: MonthData;
-  yearMonthComponent?: (monthFirst: Date) => React.ReactElement;
+  titleContent?: (monthFirst: Date) => React.ReactElement;
   weekdayFormat?: 'narrow' | 'short';
 }
 
@@ -58,7 +58,7 @@ interface Props<T> {
  * - using FlatList
  * - infinite months
  * - render a month view in renderItem of Flatlist
- * - dayComponent(function) render a day of month
+ * - renderDay(function) render a day of month
  */
 function Calendar<T>(props: Props<T>): React.ReactElement {
   // init date for calendar
@@ -89,7 +89,7 @@ function Calendar<T>(props: Props<T>): React.ReactElement {
       return (
         <MemoizedCalendarMonth
           monthDate={item}
-          dayComponent={props.dayComponent}
+          renderDay={props.renderDay}
           // calendarHeight={props.calendarHeight - 22}
           calendarWidth={props.calendarWidth}
           style={{
@@ -114,8 +114,8 @@ function Calendar<T>(props: Props<T>): React.ReactElement {
 
   const renderYearMonth = React.useCallback(
     (monthFirst): React.ReactElement => {
-      if (props.yearMonthComponent) {
-        return props.yearMonthComponent(monthFirst);
+      if (props.titleContent) {
+        return props.titleContent(monthFirst);
       } else {
         return <Text>{`${convertDateString(monthFirst)}`}</Text>;
       }

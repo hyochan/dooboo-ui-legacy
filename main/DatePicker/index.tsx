@@ -1,7 +1,4 @@
-import {
-  TextStyle,
-  ViewStyle,
-} from 'react-native';
+import { TextStyle, ViewStyle } from 'react-native';
 import DateInput from './DateInput';
 import PickerCalendar from './PickerCalendar';
 import React from 'react';
@@ -25,7 +22,7 @@ interface Props {
   dateTextStyle?: TextStyle;
   selectedDate?: Date;
   weekdayFormat?: 'narrow' | 'short';
-  yearMonthComponent?: (monthFirstDate: Date) => React.ReactElement;
+  titleContent?: (monthFirstDate: Date) => React.ReactElement;
 }
 
 const DatePicker = (props: Props): React.ReactElement => {
@@ -62,7 +59,7 @@ const DatePicker = (props: Props): React.ReactElement => {
         }}
         containerStyle={{ width: 300, height: 350 }}
         weekdayFormat={props.weekdayFormat}
-        yearMonthComponent={props.yearMonthComponent}
+        titleContent={props.titleContent}
       />
     </Container>
   );

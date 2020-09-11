@@ -11,16 +11,16 @@ const convertDateString = (date: Date): string => {
 interface Props<T> {
   monthDate: Date; // 렌더링 할 월의 날짜 (매월 1일)
   style?: ViewStyle; // 스타일
-  dayComponent: ({
+  renderDay: ({
     date,
     dailyData,
-    isCurMonth,
+    isCurrentMonth,
     isToday,
     style,
   }: {
     date: Date;
     dailyData?: T;
-    isCurMonth: boolean;
+    isCurrentMonth: boolean;
     isToday: boolean;
     style?: ViewStyle;
   }) => React.ReactElement;
@@ -63,12 +63,12 @@ function CalendarMonth<T>(props: PropsWithChildren<Props<T>>): ReactElement {
     const week = dates.map((date, index) => {
       const isCurMonth =
         date.getFullYear() === thisYear && date.getMonth() === thisMonth;
-      return props.dayComponent({
+      return props.renderDay({
         date: date,
         dailyData:
           props.dailyCalData &&
           props.dailyCalData[`${convertDateString(date)}`],
-        isCurMonth: isCurMonth,
+        isCurrentMonth: isCurMonth,
         isToday: convertDateString(props.today) === convertDateString(date),
         style: {
           width: props.calendarWidth / 7,

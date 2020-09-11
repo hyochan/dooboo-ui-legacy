@@ -28,7 +28,7 @@ interface Props {
   onBackdropPress?: () => void;
   calendarWidth?: number;
   weekdayFormat?: 'narrow' | 'short';
-  yearMonthComponent?: (monthFirstDate: Date) => React.ReactElement;
+  titleContent?: (monthFirstDate: Date) => React.ReactElement;
 }
 
 const PickerCalendar: FC<Props> = (props) => {
@@ -48,9 +48,9 @@ const PickerCalendar: FC<Props> = (props) => {
                 onChangeMonth={(month): void => {
                   console.log('Changed Month : ', month);
                 }}
-                yearMonthComponent={(monthFirst: Date): React.ReactElement => {
-                  return props.yearMonthComponent ? (
-                    props.yearMonthComponent(monthFirst)
+                titleContent={(monthFirst: Date): React.ReactElement => {
+                  return props.titleContent ? (
+                    props.titleContent(monthFirst)
                   ) : (
                     <View
                       style={{
@@ -69,16 +69,16 @@ const PickerCalendar: FC<Props> = (props) => {
                 containerStyle={{
                   overflow: 'hidden',
                 }}
-                dayComponent={({
+                renderDay={({
                   date,
                   dailyData,
-                  isCurMonth,
+                  isCurrentMonth,
                   isToday,
                   style,
                 }: {
                   date: Date;
                   dailyData: { [key: string]: any };
-                  isCurMonth: boolean;
+                  isCurrentMonth: boolean;
                   isToday: boolean;
                   style: ViewStyle;
                 }): React.ReactElement => {
@@ -93,7 +93,7 @@ const PickerCalendar: FC<Props> = (props) => {
                         ...style,
                       }}
                       dailyData={dailyData}
-                      isCurMonth={isCurMonth}
+                      isCurMonth={isCurrentMonth}
                       isToday={isToday}
                     />
                   );
