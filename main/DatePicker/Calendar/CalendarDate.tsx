@@ -41,7 +41,7 @@ function CalendarDate<T>(props: Props<T>): React.ReactElement {
   return (
     <TouchableOpacity
       onPress={(): void => {
-        props.onPress && props.onPress(props.date);
+        props.onPress?.(props.date);
       }}>
       <View style={{ ...props.style }}>
         <DateRow
@@ -64,5 +64,5 @@ function CalendarDate<T>(props: Props<T>): React.ReactElement {
     </TouchableOpacity>
   );
 }
-// export default React.memo(CalendarDate);
+
 export default CalendarDate;
