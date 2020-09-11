@@ -38,6 +38,7 @@ function CalendarDate<T>(props: Props<T>): React.ReactElement {
   const todayStyle = props.isToday
     ? { borderRadius: 16, backgroundColor: '#efefef' }
     : { borderRadius: 0, backgroundColor: 'white' };
+
   return (
     <TouchableOpacity
       onPress={(): void => {

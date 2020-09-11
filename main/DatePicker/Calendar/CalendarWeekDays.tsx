@@ -11,29 +11,32 @@ const DaysRow = styled.View`
   border-bottom-width: 1px;
   border-bottom-color: #efefef;
 `;
+
 const DayColumn = styled.View`
   width: 30px;
   height: 100%;
   align-items: center;
   justify-content: center;
 `;
+
 const DayTitle = styled.Text`
   font-size: 12px;
   color: #565656;
   line-height: 16px;
 `;
+
 interface Props {
   style?: ViewStyle;
   calendarWidth: number;
   weekdayFormat?: 'narrow' | 'short';
 }
-/**
- * 캘린더 요일 row
- */
-// const weekDays = ['일', '월', '화', '수', '목', '금', '토'];
 
-function CalendarDaysRow(props: Props): React.ReactElement {
+/**
+ * render weekdays
+ */
+function CalendarWeekDays(props: Props): React.ReactElement {
   const weekDays: string[] = [];
+
   for (let idx = 0; idx <= 6; idx++) {
     const matchMonth = new Date(2020, 8, 6 + idx);
     const weekDay = matchMonth.toLocaleString('default', {
@@ -41,6 +44,7 @@ function CalendarDaysRow(props: Props): React.ReactElement {
     });
     weekDays.push(weekDay);
   }
+
   return (
     <DaysRow style={{ ...props.style }}>
       {weekDays.map((day, index) => {
@@ -55,4 +59,4 @@ function CalendarDaysRow(props: Props): React.ReactElement {
   );
 }
 
-export default CalendarDaysRow;
+export default CalendarWeekDays;

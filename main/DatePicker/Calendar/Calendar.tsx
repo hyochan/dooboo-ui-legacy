@@ -1,7 +1,7 @@
 import { FlatList, Text, View, ViewStyle } from 'react-native';
 
-import CalendarDaysRow from './CalendarDaysRow';
 import CalendarMonth from './CalendarMonth';
+import CalendarWeekDays from './CalendarWeekDays';
 import React from 'react';
 
 const convertDateString = (date: Date): string => {
@@ -131,7 +131,7 @@ function Calendar<T>(props: Props<T>): React.ReactElement {
       {/** Year & Month */}
       <View>{renderYearMonth(curMonthFirst)}</View>
       {/** Days of Calendar */}
-      <CalendarDaysRow
+      <CalendarWeekDays
         calendarWidth={props.calendarWidth}
         style={{
           width: props.calendarWidth,
