@@ -1,12 +1,10 @@
-import { Image, Text, View } from 'react-native';
-import React, { ReactElement, useState } from 'react';
+import React, { ReactElement } from 'react';
+import { Text, View } from 'react-native';
 
 import { ContainerDeco } from '../../storybook/decorators';
 import { DatePicker } from '../../main';
-import { action } from '@storybook/addon-actions';
 import { storiesOf } from '@storybook/react-native';
 import styled from 'styled-components/native';
-import { text } from '@storybook/addon-knobs';
 
 const ScrollContainer = styled.ScrollView`
   width: 100%;
@@ -47,6 +45,7 @@ function DatePickerWeekday(): React.ReactElement {
     </ScrollContainer>
   );
 }
+
 function DatePickerYearMonth(): React.ReactElement {
   return (
     <ScrollContainer>
@@ -100,6 +99,7 @@ function DatePickerYearMonth(): React.ReactElement {
     </ScrollContainer>
   );
 }
+
 /**
  * Below are stories for web
  */
@@ -110,6 +110,7 @@ export default {
 export const toStorybook1 = (): ReactElement => <Default />;
 export const toStorybook2 = (): ReactElement => <DatePickerWeekday />;
 export const toStorybook3 = (): ReactElement => <DatePickerYearMonth />;
+
 toStorybook1.story = {
   name: 'default',
 };
@@ -119,6 +120,7 @@ toStorybook2.story = {
 toStorybook3.story = {
   name: 'custom year/month',
 };
+
 /**
  * Below are stories for app
  */

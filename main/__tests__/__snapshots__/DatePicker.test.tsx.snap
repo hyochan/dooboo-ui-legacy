@@ -320,7 +320,7 @@ exports[`[DatePicker] render should render without crashing 1`] = `
                     }
                   >
                     <Text>
-                      2020년 9월
+                      2020 / 9
                     </Text>
                   </View>
                 </View>
@@ -3516,7 +3516,7 @@ exports[`[PickerCalendar] render should render without crashing 1`] = `
                   }
                 >
                   <Text>
-                    2020년 9월
+                    2020 / 9
                   </Text>
                 </View>
               </View>
