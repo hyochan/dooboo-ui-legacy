@@ -6,13 +6,16 @@ import CalendarDate from './Calendar/CalendarDate';
 import styled from 'styled-components/native';
 
 const ModalContainer = styled.TouchableWithoutFeedback``;
+
 const ModalContentsWrapper = styled.View`
   flex: 1;
   align-items: center;
   justify-content: center;
   background-color: 'rgba(0,0,0,0.4)';
 `;
+
 const CalendarContainer = styled.TouchableWithoutFeedback``;
+
 const CalendarContentsWrapper = styled.View`
   background-color: white;
   border-radius: 6px;
@@ -33,9 +36,6 @@ interface Props {
 }
 
 const PickerCalendar: FC<Props> = (props) => {
-  // const [pickerOpen, setPickerOpen] = React.useState<boolean>(false);
-  // const [contentWidth, setContentWidth] = React.useState<number>(210);
-  // const [contentHeight, setContentHeight] = React.useState<number>(210);
   const { calendarWidth = 300 } = props;
   return (
     <Modal visible={props.visible} transparent={true} animationType={'fade'}>
