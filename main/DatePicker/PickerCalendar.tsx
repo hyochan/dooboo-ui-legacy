@@ -59,9 +59,9 @@ const PickerCalendar: FC<Props> = (props) => {
                         justifyContent: 'center',
                         backgroundColor: 'white',
                       }}>
-                      <Text>{`${monthFirst.getFullYear()}년 ${
+                      <Text>{`${monthFirst.getFullYear()} / ${
                         monthFirst.getMonth() + 1
-                      }월`}</Text>
+                      }`}</Text>
                     </View>
                   );
                 }}
