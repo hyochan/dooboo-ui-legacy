@@ -36,11 +36,13 @@ interface Props<T> {
     dailyData,
     isCurMonth,
     isToday,
+    style,
   }: {
     date: Date;
     dailyData: T; // [YYYY-MM-DD]: dailyData
     isCurMonth: boolean;
     isToday: boolean;
+    style?: ViewStyle;
   }) => React.ReactElement;
   pastRange?: number; // 과거 월 개월 수
   futureRange?: number; // 미래 월 개월 수

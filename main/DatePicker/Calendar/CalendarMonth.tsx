@@ -16,11 +16,13 @@ interface Props<T> {
     dailyData,
     isCurMonth,
     isToday,
+    style,
   }: {
     date: Date;
-    dailyData: T;
+    dailyData?: T;
     isCurMonth: boolean;
     isToday: boolean;
+    style?: ViewStyle;
   }) => React.ReactElement;
   calendarWidth: number; // 달력 표시 width
   today: Date; // init Date
