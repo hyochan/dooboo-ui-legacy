@@ -11,7 +11,6 @@ const convertDateString = (date: Date): string => {
   return dateString;
 };
 
-// 월 데이터 배열 구하기
 const getMonthList = (
   initMonthDate: Date,
   pastRange = 36,
@@ -28,9 +27,9 @@ const getMonthList = (
 };
 
 interface Props<T> {
-  onChangeMonth?: (month: Date) => void; // 스와이프 하여 달 변경시 호출
+  onChangeMonth?: (month: Date) => void; // called when changed month
   initDate?: Date; // initial date, if undefined, it's today
-  containerStyle?: ViewStyle; // Calendar 컨테이너 스타일
+  containerStyle?: ViewStyle;
   dayComponent: ({
     date,
     dailyData,
@@ -44,31 +43,26 @@ interface Props<T> {
     isToday: boolean;
     style?: ViewStyle;
   }) => React.ReactElement;
-  pastRange?: number; // 과거 월 개월 수
-  futureRange?: number; // 미래 월 개월 수
-
-  calendarWidth: number; // 달 표시 width
+  pastRange?: number; // Number of past months displayed on the calendar
+  futureRange?: number; // Number of future months displayed on the calendar
+  calendarWidth: number; // calendar width
   // calendarHeight: number;
   // daysRowHeight: number;
   // monthData: MonthData;
   yearMonthComponent?: (monthFirst: Date) => React.ReactElement;
   weekdayFormat?: 'narrow' | 'short';
 }
+
 /**
  * Pure Calendar
  * - using FlatList
  * - infinite months
  * - render a month view in renderItem of Flatlist
- * - 일 컴포넌트는 dayComponent(function). props로 받음
+ * - dayComponent(function) render a day of month
  */
-
 function Calendar<T>(props: Props<T>): React.ReactElement {
-  // 요일 row height
-  // const daysRowHeight = 22;
-  // 금월 (시작월) 날짜
+  // init date for calendar
   const { initDate = new Date(), pastRange = 36, futureRange = 36 } = props;
-  // const [initDate] = React.useState<Date>(props.initDate || new Date());
-  // const initMonth = initDate.getMonth() - 1;
 
   // init month list (data for FlatList)
   const [monthList] = React.useState<Date[]>(
@@ -88,7 +82,8 @@ function Calendar<T>(props: Props<T>): React.ReactElement {
   const MemoizedCalendarMonth = React.memo(CalendarMonth, (prev, next) => {
     return true;
   });
-  // 월 달력 그리기
+
+  // render a month
   const renderMonthCalendar = React.useCallback(
     ({ item, index }): React.ReactElement => {
       return (
@@ -106,18 +101,19 @@ function Calendar<T>(props: Props<T>): React.ReactElement {
     },
     [],
   );
+
   const onViewableItemsChanged = React.useCallback(
     ({ viewableItems, changed }) => {
       if (viewableItems.length === 0) return; // 없는 경우 있음. 그냥 무시
-      const { index, isViewable, item, key } = viewableItems[0];
+      const { item } = viewableItems[0];
       props.onChangeMonth && props.onChangeMonth(item);
       setCurMonthFirst(item);
     },
     [],
   );
+
   const renderYearMonth = React.useCallback(
     (monthFirst): React.ReactElement => {
-      console.log('>> monthFirst = ', monthFirst);
       if (props.yearMonthComponent) {
         return props.yearMonthComponent(monthFirst);
       } else {
@@ -126,6 +122,7 @@ function Calendar<T>(props: Props<T>): React.ReactElement {
     },
     [],
   );
+
   return (
     <View
       style={{
@@ -143,22 +140,16 @@ function Calendar<T>(props: Props<T>): React.ReactElement {
         weekdayFormat={props.weekdayFormat}
       />
       <FlatList
-        // onLayout={onLayout}
-        // ref={(c) => this.listView = c}
-        // scrollEventThrottle={1000}
         style={{
           width: props.calendarWidth,
         }}
         data={monthList}
-        // snapToAlignment='start'
-        // snapToInterval={this.calendarHeight}
         removeClippedSubviews={true}
         initialNumToRender={1}
         windowSize={2}
         horizontal={true}
         pagingEnabled={true}
-        onViewableItemsChanged={onViewableItemsChanged} // onViewableItemsChanged}
-        // viewabilityConfig={viewConfigRef.current}
+        onViewableItemsChanged={onViewableItemsChanged}
         viewabilityConfig={{ viewAreaCoveragePercentThreshold: 50 }}
         renderItem={renderMonthCalendar}
         showsVerticalScrollIndicator={false}
@@ -168,12 +159,9 @@ function Calendar<T>(props: Props<T>): React.ReactElement {
         }}
         initialScrollIndex={pastRange}
         getItemLayout={getItemLayout}
-        // onEndReachedThreshold={this.props.onEndReachedThreshold}
-        // onEndReached={this.props.onEndReached}
-        // keyboardShouldPersistTaps={this.props.keyboardShouldPersistTaps}
       />
-      {/* {this.renderStaticHeader()} */}
     </View>
   );
 }
+
 export default Calendar;
