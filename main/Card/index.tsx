@@ -12,12 +12,12 @@ import styled from 'styled-components/native';
 
 import styles from './styles';
 
-interface IContainerProps {
+interface ContainerProps {
   raised?: boolean;
   outlined?: boolean;
 }
 
-const Container = styled.View<IContainerProps>`
+const Container = styled.View<ContainerProps>`
   flex-direction: column;
   align-items: flex-start;
   background-color: #fff;
@@ -67,7 +67,7 @@ const Divider = styled.View`
   background-color: #eee;
 `;
 
-interface Props extends IContainerProps {
+interface Props extends ContainerProps {
   testID?: string;
   containerStyle?: ViewStyle;
   children?: ReactNode | ReactNodeArray;
