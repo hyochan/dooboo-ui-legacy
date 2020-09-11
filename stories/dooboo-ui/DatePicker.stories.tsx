@@ -1,4 +1,3 @@
-import { IC_FACEBOOK, IC_GOOGLE } from '../Icon';
 import { Image, Text, View } from 'react-native';
 import React, { ReactElement, useState } from 'react';
 
@@ -24,9 +23,6 @@ const Container = styled.View`
 `;
 
 function Default(): React.ReactElement {
-  const [facebookLoading, setFacebookLoading] = useState<boolean>(false);
-  const [googleLoading, setGoogleLoading] = useState<boolean>(false);
-
   return (
     <ScrollContainer>
       <Container>
