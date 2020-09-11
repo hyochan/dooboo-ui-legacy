@@ -36,6 +36,7 @@ const DatePicker = (props: Props): React.ReactElement => {
     setCalendarVisible(false);
     props.onChangeDate && props.onChangeDate(newDate);
   };
+
   return (
     <Container style={props.dateInputStyle}>
       <DateInput
