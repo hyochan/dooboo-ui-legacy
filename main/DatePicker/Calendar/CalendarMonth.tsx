@@ -9,8 +9,8 @@ const convertDateString = (date: Date): string => {
 };
 
 interface Props<T> {
-  monthDate: Date; // 렌더링 할 월의 날짜 (매월 1일)
-  style?: ViewStyle; // 스타일
+  monthDate: Date; // first Date of month
+  style?: ViewStyle;
   renderDay: ({
     date,
     dailyData,
@@ -24,19 +24,15 @@ interface Props<T> {
     isToday: boolean;
     style?: ViewStyle;
   }) => React.ReactElement;
-  calendarWidth: number; // 달력 표시 width
+  calendarWidth: number;
   today: Date; // init Date
   dailyCalData?: { [key: string]: T }; // key format : YYYY-MM-DD
 }
+
 /**
  * Month component
  */
-
 function CalendarMonth<T>(props: PropsWithChildren<Props<T>>): ReactElement {
-  // 금월 (시작월) 날짜
-  // const monthDate = props.monthDate ? moment(props.monthDate) : moment();
-  // 금월 달력의 시작 날짜 (= 금월 1일의 요일 수 만큼 뺌)
-  console.log('>>>> calendar width in CalendarMonth = ', props.calendarWidth);
   const thisYear = props.monthDate.getFullYear(); // year number of this month's calendar
   const thisMonth = props.monthDate.getMonth(); // month number of this month's calendar
   const startDate = new Date(
@@ -49,18 +45,16 @@ function CalendarMonth<T>(props: PropsWithChildren<Props<T>>): ReactElement {
   const sMonth = startDate.getMonth();
   const sDate = startDate.getDate();
 
-  // props.today.getMonth() === thisMonth &&
-  // console.log('>> startDate = ', startDate.toLocaleString());
   const datesOfMonth: Date[] = []; // Dates to be displayed on this month's calendar
+
   for (let i = 0; i < 42; i++) {
     const date = new Date(sYear, sMonth, sDate + i);
     datesOfMonth.push(date);
   }
-  // 1 주 렌더링
+
+  // render a week
   const renderWeek = (dates: Date[], key): React.ReactElement => {
-    // props.today.getMonth() === thisMonth &&
-    //   console.log('>> startDate = ', dates);
-    const week = dates.map((date, index) => {
+    const week = dates.map((date) => {
       const isCurMonth =
         date.getFullYear() === thisYear && date.getMonth() === thisMonth;
       return props.renderDay({
@@ -76,6 +70,7 @@ function CalendarMonth<T>(props: PropsWithChildren<Props<T>>): ReactElement {
         },
       });
     });
+
     return (
       <View
         key={key}
@@ -91,10 +86,12 @@ function CalendarMonth<T>(props: PropsWithChildren<Props<T>>): ReactElement {
   };
 
   const weeks: React.ReactElement[] = [];
+
   for (let week = 0; week < 6; week++) {
     const week = renderWeek(datesOfMonth.splice(0, 7), weeks.length);
     weeks.push(week);
   }
+
   return (
     <>
       <View
@@ -107,4 +104,5 @@ function CalendarMonth<T>(props: PropsWithChildren<Props<T>>): ReactElement {
     </>
   );
 }
+
 export default CalendarMonth;
