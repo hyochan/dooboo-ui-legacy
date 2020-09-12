@@ -169,7 +169,7 @@ exports[`[Badge] render should not render opacity when count is over than max co
                     "column": 12,
                     "file": "/Users/kimdaehyun/Desktop/dooboo-badge/dooboo-ui/node_modules/react-native/Libraries/YellowBox/YellowBox.js",
                     "lineNumber": 66,
-                    "methodName": "BufferedConsole.warn",
+                    "methodName": "CustomConsole.warn",
                   },
                   Object {
                     "arguments": Array [],
@@ -252,7 +252,7 @@ exports[`[Badge] render should not render opacity when count is over than max co
                     "column": 12,
                     "file": "/Users/kimdaehyun/Desktop/dooboo-badge/dooboo-ui/node_modules/react-native/Libraries/YellowBox/YellowBox.js",
                     "lineNumber": 66,
-                    "methodName": "BufferedConsole.warn",
+                    "methodName": "CustomConsole.warn",
                   },
                   Object {
                     "arguments": Array [],
@@ -567,7 +567,7 @@ exports[`[Badge] render should render badge when wrong variant 1`] = `
                     "column": 12,
                     "file": "/Users/kimdaehyun/Desktop/dooboo-badge/dooboo-ui/node_modules/react-native/Libraries/YellowBox/YellowBox.js",
                     "lineNumber": 66,
-                    "methodName": "BufferedConsole.warn",
+                    "methodName": "CustomConsole.warn",
                   },
                   Object {
                     "arguments": Array [],
@@ -650,7 +650,7 @@ exports[`[Badge] render should render badge when wrong variant 1`] = `
                     "column": 12,
                     "file": "/Users/kimdaehyun/Desktop/dooboo-badge/dooboo-ui/node_modules/react-native/Libraries/YellowBox/YellowBox.js",
                     "lineNumber": 66,
-                    "methodName": "BufferedConsole.warn",
+                    "methodName": "CustomConsole.warn",
                   },
                   Object {
                     "arguments": Array [],
@@ -733,7 +733,7 @@ exports[`[Badge] render should render badge when wrong variant 1`] = `
                     "column": 12,
                     "file": "/Users/kimdaehyun/Desktop/dooboo-badge/dooboo-ui/node_modules/react-native/Libraries/YellowBox/YellowBox.js",
                     "lineNumber": 66,
-                    "methodName": "BufferedConsole.warn",
+                    "methodName": "CustomConsole.warn",
                   },
                   Object {
                     "arguments": Array [],
@@ -816,7 +816,7 @@ exports[`[Badge] render should render badge when wrong variant 1`] = `
                     "column": 12,
                     "file": "/Users/kimdaehyun/Desktop/dooboo-badge/dooboo-ui/node_modules/react-native/Libraries/YellowBox/YellowBox.js",
                     "lineNumber": 66,
-                    "methodName": "BufferedConsole.warn",
+                    "methodName": "CustomConsole.warn",
                   },
                   Object {
                     "arguments": Array [],
@@ -1102,7 +1102,7 @@ exports[`[Badge] render should render dot badge 1`] = `
                     "column": 12,
                     "file": "/Users/kimdaehyun/Desktop/dooboo-badge/dooboo-ui/node_modules/react-native/Libraries/YellowBox/YellowBox.js",
                     "lineNumber": 66,
-                    "methodName": "BufferedConsole.warn",
+                    "methodName": "CustomConsole.warn",
                   },
                   Object {
                     "arguments": Array [],
@@ -1185,7 +1185,7 @@ exports[`[Badge] render should render dot badge 1`] = `
                     "column": 12,
                     "file": "/Users/kimdaehyun/Desktop/dooboo-badge/dooboo-ui/node_modules/react-native/Libraries/YellowBox/YellowBox.js",
                     "lineNumber": 66,
-                    "methodName": "BufferedConsole.warn",
+                    "methodName": "CustomConsole.warn",
                   },
                   Object {
                     "arguments": Array [],
@@ -1268,7 +1268,7 @@ exports[`[Badge] render should render dot badge 1`] = `
                     "column": 12,
                     "file": "/Users/kimdaehyun/Desktop/dooboo-badge/dooboo-ui/node_modules/react-native/Libraries/YellowBox/YellowBox.js",
                     "lineNumber": 66,
-                    "methodName": "BufferedConsole.warn",
+                    "methodName": "CustomConsole.warn",
                   },
                   Object {
                     "arguments": Array [],
@@ -1583,7 +1583,7 @@ exports[`[Badge] render should render left badge 1`] = `
                     "column": 12,
                     "file": "/Users/kimdaehyun/Desktop/dooboo-badge/dooboo-ui/node_modules/react-native/Libraries/YellowBox/YellowBox.js",
                     "lineNumber": 66,
-                    "methodName": "BufferedConsole.warn",
+                    "methodName": "CustomConsole.warn",
                   },
                   Object {
                     "arguments": Array [],
@@ -1666,7 +1666,7 @@ exports[`[Badge] render should render left badge 1`] = `
                     "column": 12,
                     "file": "/Users/kimdaehyun/Desktop/dooboo-badge/dooboo-ui/node_modules/react-native/Libraries/YellowBox/YellowBox.js",
                     "lineNumber": 66,
-                    "methodName": "BufferedConsole.warn",
+                    "methodName": "CustomConsole.warn",
                   },
                   Object {
                     "arguments": Array [],
@@ -1749,7 +1749,7 @@ exports[`[Badge] render should render left badge 1`] = `
                     "column": 12,
                     "file": "/Users/kimdaehyun/Desktop/dooboo-badge/dooboo-ui/node_modules/react-native/Libraries/YellowBox/YellowBox.js",
                     "lineNumber": 66,
-                    "methodName": "BufferedConsole.warn",
+                    "methodName": "CustomConsole.warn",
                   },
                   Object {
                     "arguments": Array [],
@@ -1832,7 +1832,7 @@ exports[`[Badge] render should render left badge 1`] = `
                     "column": 12,
                     "file": "/Users/kimdaehyun/Desktop/dooboo-badge/dooboo-ui/node_modules/react-native/Libraries/YellowBox/YellowBox.js",
                     "lineNumber": 66,
-                    "methodName": "BufferedConsole.warn",
+                    "methodName": "CustomConsole.warn",
                   },
                   Object {
                     "arguments": Array [],
@@ -2147,7 +2147,7 @@ exports[`[Badge] render should render with + when count is over than max count 1
                     "column": 12,
                     "file": "/Users/kimdaehyun/Desktop/dooboo-badge/dooboo-ui/node_modules/react-native/Libraries/YellowBox/YellowBox.js",
                     "lineNumber": 66,
-                    "methodName": "BufferedConsole.warn",
+                    "methodName": "CustomConsole.warn",
                   },
                   Object {
                     "arguments": Array [],
@@ -2230,7 +2230,7 @@ exports[`[Badge] render should render with + when count is over than max count 1
                     "column": 12,
                     "file": "/Users/kimdaehyun/Desktop/dooboo-badge/dooboo-ui/node_modules/react-native/Libraries/YellowBox/YellowBox.js",
                     "lineNumber": 66,
-                    "methodName": "BufferedConsole.warn",
+                    "methodName": "CustomConsole.warn",
                   },
                   Object {
                     "arguments": Array [],
@@ -2545,7 +2545,7 @@ exports[`[Badge] render should render without crashing 1`] = `
                     "column": 12,
                     "file": "/Users/kimdaehyun/Desktop/dooboo-badge/dooboo-ui/node_modules/react-native/Libraries/YellowBox/YellowBox.js",
                     "lineNumber": 66,
-                    "methodName": "BufferedConsole.warn",
+                    "methodName": "CustomConsole.warn",
                   },
                   Object {
                     "arguments": Array [],
