@@ -1,147 +1,5 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`[CheckBox] [CheckBox] Interaction should simulate props 1`] = `
-<
-  disabled={true}
-  onPress={[Function]}
-  style={
-    Object {
-      "marginHorizontal": 20,
-      "paddingBottom": 20,
-    }
-  }
-  underlayColor="transparent"
->
-  <View
-    style={
-      Array [
-        Object {
-          "alignItems": "center",
-          "flexDirection": "row",
-          "justifyContent": "center",
-        },
-      ]
-    }
-  >
-    <View
-      boxColor="#E0E0E0"
-      style={
-        Array [
-          Object {
-            "backgroundColor": "#E0E0E0",
-            "height": 20,
-            "paddingBottom": 1.5,
-            "paddingLeft": 1.5,
-            "paddingRight": 1.5,
-            "paddingTop": 1.5,
-            "width": 20,
-          },
-        ]
-      }
-    >
-      <View
-        isChecked={false}
-        style={
-          Array [
-            Object {
-              "alignItems": "center",
-              "backgroundColor": "#ffffff",
-              "flexBasis": 0,
-              "flexGrow": 1,
-              "flexShrink": 1,
-              "justifyContent": "center",
-            },
-          ]
-        }
-      />
-    </View>
-    <Text
-      labelColor="#E0E0E0"
-      style={
-        Array [
-          Object {
-            "color": "#E0E0E0",
-            "fontSize": 20,
-            "paddingLeft": 10,
-            "paddingRight": 0,
-          },
-        ]
-      }
-    />
-  </View>
-</>
-`;
-
-exports[`[CheckBox] render without crashing 1`] = `
-<
-  disabled={false}
-  onPress={[Function]}
-  style={
-    Object {
-      "marginHorizontal": 20,
-      "paddingBottom": 20,
-    }
-  }
-  underlayColor="transparent"
->
-  <View
-    style={
-      Array [
-        Object {
-          "alignItems": "center",
-          "flexDirection": "row",
-          "justifyContent": "center",
-        },
-      ]
-    }
-  >
-    <View
-      style={
-        Array [
-          Object {
-            "backgroundColor": "#1890FF",
-            "height": 20,
-            "paddingBottom": 1.5,
-            "paddingLeft": 1.5,
-            "paddingRight": 1.5,
-            "paddingTop": 1.5,
-            "width": 20,
-          },
-        ]
-      }
-    >
-      <View
-        isChecked={false}
-        style={
-          Array [
-            Object {
-              "alignItems": "center",
-              "backgroundColor": "#ffffff",
-              "flexBasis": 0,
-              "flexGrow": 1,
-              "flexShrink": 1,
-              "justifyContent": "center",
-            },
-          ]
-        }
-      />
-    </View>
-    <Text
-      style={
-        Array [
-          Object {
-            "color": "#000000",
-            "fontSize": 20,
-            "paddingLeft": 10,
-            "paddingRight": 0,
-          },
-        ]
-      }
-    />
-  </View>
-</>
-`;
-
 exports[`[Checkbox] [Checkbox] Interaction should simulate props 1`] = `
 <
   disabled={true}
@@ -858,6 +716,616 @@ exports[`[CheckboxGroup] render test should render checkall when values is not u
               Array [
                 Object {
                   "color": "#E0E0E0",
+                  "fontSize": 20,
+                  "paddingLeft": 10,
+                  "paddingRight": 0,
+                },
+              ]
+            }
+          >
+            Mango
+          </Text>
+        </View>
+      </>
+    </View>
+  </View>
+</View>
+`;
+
+exports[`[CheckboxGroup] render test should render customStyle in Options 1`] = `
+<View
+  pointerEvents="box-none"
+  style={
+    Object {
+      "flex": 1,
+    }
+  }
+>
+  <View
+    collapsable={true}
+    pointerEvents="box-none"
+    style={
+      Object {
+        "flex": 1,
+      }
+    }
+  >
+    <View
+      style={
+        Array [
+          Object {
+            "flexDirection": "row",
+            "flexWrap": "wrap",
+          },
+        ]
+      }
+    >
+      <
+        disabled={false}
+        style={
+          Object {
+            "marginHorizontal": 20,
+            "paddingBottom": 20,
+          }
+        }
+        underlayColor="transparent"
+      >
+        <View
+          style={
+            Array [
+              Object {
+                "alignItems": "center",
+                "flexDirection": "row",
+                "justifyContent": "center",
+              },
+            ]
+          }
+        >
+          <View
+            style={
+              Array [
+                Object {
+                  "backgroundColor": "#1890FF",
+                  "height": 20,
+                  "paddingBottom": 1.5,
+                  "paddingLeft": 1.5,
+                  "paddingRight": 1.5,
+                  "paddingTop": 1.5,
+                  "width": 20,
+                },
+              ]
+            }
+          >
+            <View
+              isChecked={false}
+              style={
+                Array [
+                  Object {
+                    "alignItems": "center",
+                    "backgroundColor": "#ffffff",
+                    "flexBasis": 0,
+                    "flexGrow": 1,
+                    "flexShrink": 1,
+                    "justifyContent": "center",
+                  },
+                ]
+              }
+            />
+          </View>
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "#000000",
+                  "fontSize": 20,
+                  "paddingLeft": 10,
+                  "paddingRight": 0,
+                },
+              ]
+            }
+          >
+            Apple
+          </Text>
+        </View>
+      </>
+      <
+        disabled={false}
+        style={
+          Object {
+            "marginHorizontal": 20,
+            "paddingBottom": 20,
+          }
+        }
+        underlayColor="transparent"
+      >
+        <View
+          style={
+            Array [
+              Object {
+                "alignItems": "center",
+                "flexDirection": "row",
+                "justifyContent": "center",
+              },
+            ]
+          }
+        >
+          <View
+            style={
+              Array [
+                Object {
+                  "backgroundColor": "#1890FF",
+                  "height": 20,
+                  "paddingBottom": 1.5,
+                  "paddingLeft": 1.5,
+                  "paddingRight": 1.5,
+                  "paddingTop": 1.5,
+                  "width": 20,
+                },
+              ]
+            }
+          >
+            <View
+              isChecked={false}
+              style={
+                Array [
+                  Object {
+                    "alignItems": "center",
+                    "backgroundColor": "#ffffff",
+                    "flexBasis": 0,
+                    "flexGrow": 1,
+                    "flexShrink": 1,
+                    "justifyContent": "center",
+                  },
+                ]
+              }
+            />
+          </View>
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "#000000",
+                  "fontSize": 20,
+                  "paddingLeft": 10,
+                  "paddingRight": 0,
+                },
+              ]
+            }
+          >
+            Pear
+          </Text>
+        </View>
+      </>
+      <
+        disabled={false}
+        style={
+          Object {
+            "marginHorizontal": 20,
+            "paddingBottom": 20,
+          }
+        }
+        underlayColor="transparent"
+      >
+        <View
+          style={
+            Array [
+              Object {
+                "alignItems": "center",
+                "flexDirection": "row",
+                "justifyContent": "center",
+              },
+            ]
+          }
+        >
+          <View
+            style={
+              Array [
+                Object {
+                  "backgroundColor": "#1890FF",
+                  "height": 20,
+                  "paddingBottom": 1.5,
+                  "paddingLeft": 1.5,
+                  "paddingRight": 1.5,
+                  "paddingTop": 1.5,
+                  "width": 20,
+                },
+              ]
+            }
+          >
+            <View
+              isChecked={false}
+              style={
+                Array [
+                  Object {
+                    "alignItems": "center",
+                    "backgroundColor": "#ffffff",
+                    "flexBasis": 0,
+                    "flexGrow": 1,
+                    "flexShrink": 1,
+                    "justifyContent": "center",
+                  },
+                ]
+              }
+            />
+          </View>
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "#000000",
+                  "fontSize": 20,
+                  "paddingLeft": 10,
+                  "paddingRight": 0,
+                },
+              ]
+            }
+          >
+            Orange
+          </Text>
+        </View>
+      </>
+      <
+        disabled={false}
+        style={
+          Object {
+            "marginHorizontal": 20,
+            "paddingBottom": 20,
+          }
+        }
+        underlayColor="transparent"
+      >
+        <View
+          style={
+            Array [
+              Object {
+                "alignItems": "center",
+                "flexDirection": "row",
+                "justifyContent": "center",
+              },
+            ]
+          }
+        >
+          <View
+            style={
+              Array [
+                Object {
+                  "backgroundColor": "#1890FF",
+                  "height": 20,
+                  "paddingBottom": 1.5,
+                  "paddingLeft": 1.5,
+                  "paddingRight": 1.5,
+                  "paddingTop": 1.5,
+                  "width": 20,
+                },
+              ]
+            }
+          >
+            <View
+              isChecked={false}
+              style={
+                Array [
+                  Object {
+                    "alignItems": "center",
+                    "backgroundColor": "#ffffff",
+                    "flexBasis": 0,
+                    "flexGrow": 1,
+                    "flexShrink": 1,
+                    "justifyContent": "center",
+                  },
+                ]
+              }
+            />
+          </View>
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "#000000",
+                  "fontSize": 20,
+                  "paddingLeft": 10,
+                  "paddingRight": 0,
+                },
+              ]
+            }
+          >
+            Mango
+          </Text>
+        </View>
+      </>
+    </View>
+  </View>
+</View>
+`;
+
+exports[`[CheckboxGroup] render test should render disabled in Options 1`] = `
+<View
+  pointerEvents="box-none"
+  style={
+    Object {
+      "flex": 1,
+    }
+  }
+>
+  <View
+    collapsable={true}
+    pointerEvents="box-none"
+    style={
+      Object {
+        "flex": 1,
+      }
+    }
+  >
+    <View
+      style={
+        Array [
+          Object {
+            "flexDirection": "row",
+            "flexWrap": "wrap",
+          },
+        ]
+      }
+    >
+      <
+        disabled={false}
+        style={
+          Object {
+            "marginHorizontal": 20,
+            "paddingBottom": 20,
+          }
+        }
+        underlayColor="transparent"
+      >
+        <View
+          style={
+            Array [
+              Object {
+                "alignItems": "center",
+                "flexDirection": "row",
+                "justifyContent": "center",
+              },
+            ]
+          }
+        >
+          <View
+            style={
+              Array [
+                Object {
+                  "backgroundColor": "#1890FF",
+                  "height": 20,
+                  "paddingBottom": 1.5,
+                  "paddingLeft": 1.5,
+                  "paddingRight": 1.5,
+                  "paddingTop": 1.5,
+                  "width": 20,
+                },
+              ]
+            }
+          >
+            <View
+              isChecked={false}
+              style={
+                Array [
+                  Object {
+                    "alignItems": "center",
+                    "backgroundColor": "#ffffff",
+                    "flexBasis": 0,
+                    "flexGrow": 1,
+                    "flexShrink": 1,
+                    "justifyContent": "center",
+                  },
+                ]
+              }
+            />
+          </View>
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "#000000",
+                  "fontSize": 20,
+                  "paddingLeft": 10,
+                  "paddingRight": 0,
+                },
+              ]
+            }
+          >
+            Apple
+          </Text>
+        </View>
+      </>
+      <
+        disabled={false}
+        style={
+          Object {
+            "marginHorizontal": 20,
+            "paddingBottom": 20,
+          }
+        }
+        underlayColor="transparent"
+      >
+        <View
+          style={
+            Array [
+              Object {
+                "alignItems": "center",
+                "flexDirection": "row",
+                "justifyContent": "center",
+              },
+            ]
+          }
+        >
+          <View
+            style={
+              Array [
+                Object {
+                  "backgroundColor": "#1890FF",
+                  "height": 20,
+                  "paddingBottom": 1.5,
+                  "paddingLeft": 1.5,
+                  "paddingRight": 1.5,
+                  "paddingTop": 1.5,
+                  "width": 20,
+                },
+              ]
+            }
+          >
+            <View
+              isChecked={false}
+              style={
+                Array [
+                  Object {
+                    "alignItems": "center",
+                    "backgroundColor": "#ffffff",
+                    "flexBasis": 0,
+                    "flexGrow": 1,
+                    "flexShrink": 1,
+                    "justifyContent": "center",
+                  },
+                ]
+              }
+            />
+          </View>
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "#000000",
+                  "fontSize": 20,
+                  "paddingLeft": 10,
+                  "paddingRight": 0,
+                },
+              ]
+            }
+          >
+            Pear
+          </Text>
+        </View>
+      </>
+      <
+        disabled={false}
+        style={
+          Object {
+            "marginHorizontal": 20,
+            "paddingBottom": 20,
+          }
+        }
+        underlayColor="transparent"
+      >
+        <View
+          style={
+            Array [
+              Object {
+                "alignItems": "center",
+                "flexDirection": "row",
+                "justifyContent": "center",
+              },
+            ]
+          }
+        >
+          <View
+            style={
+              Array [
+                Object {
+                  "backgroundColor": "#1890FF",
+                  "height": 20,
+                  "paddingBottom": 1.5,
+                  "paddingLeft": 1.5,
+                  "paddingRight": 1.5,
+                  "paddingTop": 1.5,
+                  "width": 20,
+                },
+              ]
+            }
+          >
+            <View
+              isChecked={false}
+              style={
+                Array [
+                  Object {
+                    "alignItems": "center",
+                    "backgroundColor": "#ffffff",
+                    "flexBasis": 0,
+                    "flexGrow": 1,
+                    "flexShrink": 1,
+                    "justifyContent": "center",
+                  },
+                ]
+              }
+            />
+          </View>
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "#000000",
+                  "fontSize": 20,
+                  "paddingLeft": 10,
+                  "paddingRight": 0,
+                },
+              ]
+            }
+          >
+            Orange
+          </Text>
+        </View>
+      </>
+      <
+        disabled={false}
+        style={
+          Object {
+            "marginHorizontal": 20,
+            "paddingBottom": 20,
+          }
+        }
+        underlayColor="transparent"
+      >
+        <View
+          style={
+            Array [
+              Object {
+                "alignItems": "center",
+                "flexDirection": "row",
+                "justifyContent": "center",
+              },
+            ]
+          }
+        >
+          <View
+            style={
+              Array [
+                Object {
+                  "backgroundColor": "#1890FF",
+                  "height": 20,
+                  "paddingBottom": 1.5,
+                  "paddingLeft": 1.5,
+                  "paddingRight": 1.5,
+                  "paddingTop": 1.5,
+                  "width": 20,
+                },
+              ]
+            }
+          >
+            <View
+              isChecked={false}
+              style={
+                Array [
+                  Object {
+                    "alignItems": "center",
+                    "backgroundColor": "#ffffff",
+                    "flexBasis": 0,
+                    "flexGrow": 1,
+                    "flexShrink": 1,
+                    "justifyContent": "center",
+                  },
+                ]
+              }
+            />
+          </View>
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "#000000",
                   "fontSize": 20,
                   "paddingLeft": 10,
                   "paddingRight": 0,
