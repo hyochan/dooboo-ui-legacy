@@ -1,0 +1,77 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`[Card] should render without crashing 1`] = `
+<View
+  style={
+    Array [
+      Object {
+        "alignItems": "flex-start",
+        "backgroundColor": "#fff",
+        "elevation": 5,
+        "flexDirection": "column",
+        "shadowColor": "#000",
+        "shadowOpacity": 0.25,
+        "shadowRadius": 4,
+        "width": 256,
+      },
+    ]
+  }
+/>
+`;
+
+exports[`[Card] should simulate props 1`] = `
+<View
+  style={
+    Array [
+      Object {
+        "alignItems": "flex-start",
+        "backgroundColor": "#fff",
+        "elevation": 5,
+        "flexDirection": "column",
+        "shadowColor": "#000",
+        "shadowOpacity": 0.25,
+        "shadowRadius": 4,
+        "width": 256,
+      },
+    ]
+  }
+/>
+`;
+
+exports[`[Card] should simulate props 2`] = `
+<View
+  raised={true}
+  style={
+    Array [
+      Object {
+        "alignItems": "flex-start",
+        "backgroundColor": "#fff",
+        "elevation": 10,
+        "flexDirection": "column",
+        "shadowColor": "#000",
+        "shadowOpacity": 0.34,
+        "shadowRadius": 6.27,
+        "width": 256,
+      },
+    ]
+  }
+/>
+`;
+
+exports[`[Card] should simulate props 3`] = `
+<View
+  outlined={true}
+  style={
+    Array [
+      Object {
+        "alignItems": "flex-start",
+        "backgroundColor": "#fff",
+        "borderColor": "#ccc",
+        "borderWidth": 1,
+        "flexDirection": "column",
+        "width": 256,
+      },
+    ]
+  }
+/>
+`;
