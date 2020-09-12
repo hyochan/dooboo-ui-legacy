@@ -11,12 +11,14 @@ import renderer from 'react-test-renderer';
 
 let props: unknown;
 // Note: test renderer must be required after react-native.
-const createTestProps = (obj: Record<string, unknown>): Record<string, unknown> => ({
+const createTestProps = (
+  obj: Record<string, unknown>,
+): Record<string, unknown> => ({
   ...obj,
 });
 
 const component = (props?): React.ReactElement => {
-  return <Checkbox {...props}/>;
+  return <Checkbox {...props} />;
 };
 
 describe('[Checkbox]', () => {
@@ -93,14 +95,19 @@ let groupProps: unknown;
 let groupComponent: ReactElement;
 let testingLib: RenderResult;
 
-const createTestGroupProps = (obj: Record<string, unknown>): Record<string, unknown> => ({
+const createTestGroupProps = (
+  obj: Record<string, unknown>,
+): Record<string, unknown> => ({
   ...obj,
 });
 
 describe('[CheckboxGroup] render test', () => {
   it('should render without crashing', () => {
-    groupProps = createTestGroupProps({ options: checkboxGroupData, values: defaultCheckedList });
-    groupComponent = <CheckboxGroup {...groupProps}/>;
+    groupProps = createTestGroupProps({
+      options: checkboxGroupData,
+      values: defaultCheckedList,
+    });
+    groupComponent = <CheckboxGroup {...groupProps} />;
     testingLib = render(groupComponent);
 
     expect(testingLib.baseElement).toMatchSnapshot();
@@ -113,7 +120,7 @@ describe('[CheckboxGroup] render test', () => {
       options: checkboxGroupData,
       values: [],
     });
-    groupComponent = <CheckboxGroup {...groupProps}/>;
+    groupComponent = <CheckboxGroup {...groupProps} />;
     testingLib = render(groupComponent);
 
     expect(testingLib.baseElement).toMatchSnapshot();
@@ -126,7 +133,7 @@ describe('[CheckboxGroup] render test', () => {
       options: checkboxGroupDataStr,
       values: [],
     });
-    groupComponent = <CheckboxGroup {...groupProps}/>;
+    groupComponent = <CheckboxGroup {...groupProps} />;
     testingLib = render(groupComponent);
 
     expect(testingLib.baseElement).toMatchSnapshot();
@@ -139,7 +146,7 @@ describe('[CheckboxGroup] render test', () => {
       options: checkboxGroupData,
       values: defaultCheckedList,
     });
-    groupComponent = <CheckboxGroup {...groupProps}/>;
+    groupComponent = <CheckboxGroup {...groupProps} />;
     testingLib = render(groupComponent);
 
     expect(testingLib.baseElement).toMatchSnapshot();
@@ -156,7 +163,7 @@ describe('[CheckboxGroup] render test', () => {
     groupProps = createTestProps({
       options: checkboxGroupDataDisabled,
     });
-    groupComponent = <CheckboxGroup {...groupProps}/>;
+    groupComponent = <CheckboxGroup {...groupProps} />;
     testingLib = render(groupComponent);
 
     expect(testingLib.baseElement).toMatchSnapshot();
@@ -173,10 +180,35 @@ describe('[CheckboxGroup] render test', () => {
     groupProps = createTestProps({
       options: checkboxGroupDataCustom,
     });
-    groupComponent = <CheckboxGroup {...groupProps}/>;
+    groupComponent = <CheckboxGroup {...groupProps} />;
     testingLib = render(groupComponent);
 
     expect(testingLib.baseElement).toMatchSnapshot();
     expect(testingLib.baseElement).toBeTruthy();
+  });
+
+  it('should reRender without creashing when value props change', () => {
+    groupProps = createTestProps({
+      options: checkboxGroupDataStr,
+      values: [],
+    });
+
+    const { rerender } = render(<CheckboxGroup {...groupProps} />);
+
+    const updatedValue = ['Apples'];
+
+    groupProps = createTestProps({
+      options: checkboxGroupDataStr,
+      values: updatedValue,
+    });
+
+    rerender(<CheckboxGroup {...groupProps} />);
+
+    groupProps = createTestProps({
+      options: checkboxGroupDataStr,
+      values: null,
+    });
+
+    rerender(<CheckboxGroup {...groupProps} />);
   });
 });
