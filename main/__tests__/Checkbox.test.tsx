@@ -12,9 +12,6 @@ import renderer from 'react-test-renderer';
 let props: unknown;
 // Note: test renderer must be required after react-native.
 const createTestProps = (obj: Record<string, unknown>): Record<string, unknown> => ({
-  navigation: {
-    navigate: jest.fn(),
-  },
   ...obj,
 });
 
@@ -97,9 +94,6 @@ let groupComponent: ReactElement;
 let testingLib: RenderResult;
 
 const createTestGroupProps = (obj: Record<string, unknown>): Record<string, unknown> => ({
-  navigation: {
-    navigate: jest.fn(),
-  },
   ...obj,
 });
 
@@ -110,6 +104,7 @@ describe('[CheckboxGroup] render test', () => {
     testingLib = render(groupComponent);
 
     expect(testingLib.baseElement).toMatchSnapshot();
+    expect(testingLib.baseElement).toBeTruthy();
   });
 
   it('should render disabled when CheckboxGroup props is true', () => {
@@ -122,6 +117,7 @@ describe('[CheckboxGroup] render test', () => {
     testingLib = render(groupComponent);
 
     expect(testingLib.baseElement).toMatchSnapshot();
+    expect(testingLib.baseElement).toBeTruthy();
   });
 
   it('should render options when CheckboxGroup props is string of Array', () => {
@@ -134,6 +130,7 @@ describe('[CheckboxGroup] render test', () => {
     testingLib = render(groupComponent);
 
     expect(testingLib.baseElement).toMatchSnapshot();
+    expect(testingLib.baseElement).toBeTruthy();
   });
 
   it('should render checkall when values is not undefined', () => {
@@ -146,20 +143,40 @@ describe('[CheckboxGroup] render test', () => {
     testingLib = render(groupComponent);
 
     expect(testingLib.baseElement).toMatchSnapshot();
+    expect(testingLib.baseElement).toBeTruthy();
   });
 
-  it('should render customStyle in Options', () => {
-    // checkboxGroupData.map((item) => {
-    //   ...item,
-    //   customStyle
-    // })
+  it('should render disabled in Options', () => {
+    const checkboxGroupDataDisabled = checkboxGroupData.map((item) => {
+      return {
+        ...item,
+        disabled: false,
+      };
+    });
     groupProps = createTestProps({
-      options: checkboxGroupData,
+      options: checkboxGroupDataDisabled,
     });
     groupComponent = <CheckboxGroup {...groupProps}/>;
     testingLib = render(groupComponent);
 
     expect(testingLib.baseElement).toMatchSnapshot();
+    expect(testingLib.baseElement).toBeTruthy();
   });
 
+  it('should render customStyle in Options', () => {
+    const checkboxGroupDataCustom = checkboxGroupData.map((item) => {
+      return {
+        ...item,
+        customStyle: {},
+      };
+    });
+    groupProps = createTestProps({
+      options: checkboxGroupDataCustom,
+    });
+    groupComponent = <CheckboxGroup {...groupProps}/>;
+    testingLib = render(groupComponent);
+
+    expect(testingLib.baseElement).toMatchSnapshot();
+    expect(testingLib.baseElement).toBeTruthy();
+  });
 });
