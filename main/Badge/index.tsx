@@ -33,7 +33,7 @@ const StyledView = styled.View`
     props.border ? props.border : '#00ff0000'};
   border-width: 3px;
   background-color: ${(props: StyleProps): string => props.color!};
-  border-radius: 100;
+  border-radius: 50px;
   justify-content: center;
   align-items: center;
   opacity: ${(props: StyleProps): number => props.opacity!};
@@ -54,7 +54,7 @@ const StyledDotView = styled.View`
   width: 20px;
   height: 20px;
   background-color: ${(props: StyleProps): string => props.color!};
-  border-radius: 100;
+  border-radius: 50px;
   justify-content: center;
   align-items: center;
 `;
