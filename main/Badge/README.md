@@ -22,7 +22,7 @@
 | **count**             |          | number                |    1      | Proportionally controls opacity of badge color |
 | **color**             |          | string                | '34AFF9'  | Set badge color |
 | **maximumValue**      |          | number                |     300   | Set maximum limit where opacity stay 1.0, and if count exceeds maximumValue, badge color opacity sets to 0.6 | 
-| **showZero**          |          | boolean               |           | Set whether to show '0' count number in badge or not |
+| **showZero**          |          | boolean               |    true   | Set whether to show '0' count number in badge or not |
 | **opacityVisible**    |          | boolean               |    true   | Set application of change in color opacity |
 | **variant**           |          | string                |'standard' | Set shape of the badge. Available choices are 'dot' and 'standard' |
 | **position**          |          | string                |  'right'  | Set position of the badge. Available choices are 'left', 'right' , 'top', 'down'. |
