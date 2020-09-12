@@ -1,5 +1,330 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`[CalendarDate] render should render without crashing 1`] = `
+<View
+  collapsable={true}
+  pointerEvents="box-none"
+  style={
+    Object {
+      "flex": 1,
+    }
+  }
+>
+  <>
+    <View
+      style={Object {}}
+    >
+      <View
+        style={
+          Array [
+            Object {
+              "alignItems": "center",
+              "height": 25,
+              "justifyContent": "center",
+              "width": "100%",
+            },
+            Object {
+              "alignItems": "center",
+              "flex": 1,
+              "justifyContent": "center",
+            },
+          ]
+        }
+      >
+        <View
+          style={
+            Array [
+              Object {
+                "borderRadius": 12,
+                "height": 32,
+                "position": "absolute",
+                "width": 32,
+              },
+              Object {
+                "backgroundColor": "white",
+                "borderRadius": 0,
+                "opacity": 0.2,
+              },
+            ]
+          }
+        />
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#565656",
+                "fontSize": 12,
+              },
+              Object {
+                "alignSelf": "center",
+                "color": "black",
+                "opacity": 0.2,
+              },
+            ]
+          }
+        >
+          12
+        </Text>
+      </View>
+    </View>
+  </>
+</View>
+`;
+
+exports[`[CalendarWeekDays] render should render without crashing 1`] = `
+<View
+  collapsable={true}
+  pointerEvents="box-none"
+  style={
+    Object {
+      "flex": 1,
+    }
+  }
+>
+  <View
+    style={
+      Array [
+        Object {
+          "alignItems": "center",
+          "borderBottomColor": "#efefef",
+          "borderBottomWidth": 1,
+          "flexDirection": "row",
+          "height": 30,
+          "justifyContent": "space-between",
+          "width": "100%",
+        },
+        Object {},
+      ]
+    }
+  >
+    <View
+      style={
+        Array [
+          Object {
+            "alignItems": "center",
+            "height": "100%",
+            "justifyContent": "center",
+            "width": 30,
+          },
+          Object {
+            "width": 42.857142857142854,
+          },
+        ]
+      }
+    >
+      <Text
+        style={
+          Array [
+            Object {
+              "color": "#565656",
+              "fontSize": 12,
+              "lineHeight": 16,
+            },
+            Object {
+              "color": "#ff424c",
+            },
+          ]
+        }
+      >
+        S
+      </Text>
+    </View>
+    <View
+      style={
+        Array [
+          Object {
+            "alignItems": "center",
+            "height": "100%",
+            "justifyContent": "center",
+            "width": 30,
+          },
+          Object {
+            "width": 42.857142857142854,
+          },
+        ]
+      }
+    >
+      <Text
+        style={
+          Array [
+            Object {
+              "color": "#565656",
+              "fontSize": 12,
+              "lineHeight": 16,
+            },
+            Object {
+              "color": "#565656",
+            },
+          ]
+        }
+      >
+        M
+      </Text>
+    </View>
+    <View
+      style={
+        Array [
+          Object {
+            "alignItems": "center",
+            "height": "100%",
+            "justifyContent": "center",
+            "width": 30,
+          },
+          Object {
+            "width": 42.857142857142854,
+          },
+        ]
+      }
+    >
+      <Text
+        style={
+          Array [
+            Object {
+              "color": "#565656",
+              "fontSize": 12,
+              "lineHeight": 16,
+            },
+            Object {
+              "color": "#565656",
+            },
+          ]
+        }
+      >
+        T
+      </Text>
+    </View>
+    <View
+      style={
+        Array [
+          Object {
+            "alignItems": "center",
+            "height": "100%",
+            "justifyContent": "center",
+            "width": 30,
+          },
+          Object {
+            "width": 42.857142857142854,
+          },
+        ]
+      }
+    >
+      <Text
+        style={
+          Array [
+            Object {
+              "color": "#565656",
+              "fontSize": 12,
+              "lineHeight": 16,
+            },
+            Object {
+              "color": "#565656",
+            },
+          ]
+        }
+      >
+        W
+      </Text>
+    </View>
+    <View
+      style={
+        Array [
+          Object {
+            "alignItems": "center",
+            "height": "100%",
+            "justifyContent": "center",
+            "width": 30,
+          },
+          Object {
+            "width": 42.857142857142854,
+          },
+        ]
+      }
+    >
+      <Text
+        style={
+          Array [
+            Object {
+              "color": "#565656",
+              "fontSize": 12,
+              "lineHeight": 16,
+            },
+            Object {
+              "color": "#565656",
+            },
+          ]
+        }
+      >
+        T
+      </Text>
+    </View>
+    <View
+      style={
+        Array [
+          Object {
+            "alignItems": "center",
+            "height": "100%",
+            "justifyContent": "center",
+            "width": 30,
+          },
+          Object {
+            "width": 42.857142857142854,
+          },
+        ]
+      }
+    >
+      <Text
+        style={
+          Array [
+            Object {
+              "color": "#565656",
+              "fontSize": 12,
+              "lineHeight": 16,
+            },
+            Object {
+              "color": "#565656",
+            },
+          ]
+        }
+      >
+        F
+      </Text>
+    </View>
+    <View
+      style={
+        Array [
+          Object {
+            "alignItems": "center",
+            "height": "100%",
+            "justifyContent": "center",
+            "width": 30,
+          },
+          Object {
+            "width": 42.857142857142854,
+          },
+        ]
+      }
+    >
+      <Text
+        style={
+          Array [
+            Object {
+              "color": "#565656",
+              "fontSize": 12,
+              "lineHeight": 16,
+            },
+            Object {
+              "color": "#565656",
+            },
+          ]
+        }
+      >
+        S
+      </Text>
+    </View>
+  </View>
+</View>
+`;
+
 exports[`[DateInput] render should render without crashing 1`] = `
 <View
   collapsable={true}
