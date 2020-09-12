@@ -53,22 +53,26 @@ function CalendarMonth<T>(props: PropsWithChildren<Props<T>>): ReactElement {
   }
 
   // render a week
-  const renderWeek = (dates: Date[], key): React.ReactElement => {
+  const renderWeek = (dates: Date[], key: number): React.ReactElement => {
     const week = dates.map((date) => {
       const isCurMonth =
         date.getFullYear() === thisYear && date.getMonth() === thisMonth;
-      return props.renderDay({
-        date: date,
-        dailyData:
-          props.dailyCalData &&
-          props.dailyCalData[`${convertDateString(date)}`],
-        isCurrentMonth: isCurMonth,
-        isToday: convertDateString(props.today) === convertDateString(date),
-        style: {
-          width: props.calendarWidth / 7,
-          height: props.calendarWidth / 7,
-        },
-      });
+      return (
+        <View key={date.getDate()}>
+          {props.renderDay({
+            date: date,
+            dailyData:
+              props.dailyCalData &&
+              props.dailyCalData[`${convertDateString(date)}`],
+            isCurrentMonth: isCurMonth,
+            isToday: convertDateString(props.today) === convertDateString(date),
+            style: {
+              width: props.calendarWidth / 7,
+              height: props.calendarWidth / 7,
+            },
+          })}
+        </View>
+      );
     });
 
     return (
@@ -99,7 +103,6 @@ function CalendarMonth<T>(props: PropsWithChildren<Props<T>>): ReactElement {
           ...props.style,
         }}>
         {weeks}
-        {/* {this.renderStaticHeader()} */}
       </View>
     </>
   );

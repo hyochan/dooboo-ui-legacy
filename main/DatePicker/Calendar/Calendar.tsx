@@ -26,7 +26,7 @@ const getMonthList = (
   return tmpRows;
 };
 
-interface Props<T> {
+interface Props {
   onChangeMonth?: (month: Date) => void; // called when changed month
   initDate?: Date; // initial date, if undefined, it's today
   containerStyle?: ViewStyle;
@@ -44,9 +44,6 @@ interface Props<T> {
   pastRange?: number; // Number of past months displayed on the calendar
   futureRange?: number; // Number of future months displayed on the calendar
   calendarWidth: number; // calendar width
-  // calendarHeight: number;
-  // daysRowHeight: number;
-  // monthData: MonthData;
   titleContent?: (monthFirst: Date) => React.ReactElement;
   weekdayFormat?: 'narrow' | 'short';
 }
@@ -58,7 +55,7 @@ interface Props<T> {
  * - render a month view in renderItem of Flatlist
  * - renderDay(function) render a day of month
  */
-function Calendar<T>(props: Props<T>): React.ReactElement {
+function Calendar(props: Props): React.ReactElement {
   // init date for calendar
   const { initDate = new Date(), pastRange = 36, futureRange = 36 } = props;
 
@@ -88,7 +85,6 @@ function Calendar<T>(props: Props<T>): React.ReactElement {
         <MemoizedCalendarMonth
           monthDate={item}
           renderDay={props.renderDay}
-          // calendarHeight={props.calendarHeight - 22}
           calendarWidth={props.calendarWidth}
           style={{
             width: props.calendarWidth,

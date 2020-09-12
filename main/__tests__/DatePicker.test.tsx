@@ -1,5 +1,7 @@
 import * as React from 'react';
+import Calendar from '../DatePicker/Calendar/Calendar';
 import CalendarDate from '../DatePicker/Calendar/CalendarDate';
+import CalendarMonth from '../DatePicker/Calendar/CalendarMonth';
 import CalendarWeekDays from '../DatePicker/Calendar/CalendarWeekDays';
 import DateInput from '../DatePicker/DateInput';
 import { DatePicker } from '../DatePicker';
@@ -58,6 +60,19 @@ describe('[PickerCalendar] render', () => {
   });
 });
 
+describe('[Calendar]', () => {
+  it('should render without crashing', () => {
+    const rendered = render(
+      <Calendar
+        calendarWidth={300}
+        renderDay={() => <CalendarDate date={new Date()}></CalendarDate>}
+      />,
+    ).asJSON();
+    expect(rendered).toMatchSnapshot();
+    expect(rendered).toBeTruthy();
+  });
+});
+
 describe('[CalendarDate] render', () => {
   it('should render without crashing', () => {
     const rendered = render(
@@ -88,6 +103,21 @@ describe('[CalendarDate] render', () => {
       });
       expect(onSelectDate).toHaveBeenCalled();
     });
+  });
+});
+
+describe('[CalendarMonth] render', () => {
+  it('should render without crashing', () => {
+    const rendered = render(
+      <CalendarMonth
+        monthDate={new Date()}
+        calendarWidth={300}
+        renderDay={() => <CalendarDate date={new Date()}></CalendarDate>}
+        today={new Date()}
+      />,
+    ).asJSON();
+    expect(rendered).toMatchSnapshot();
+    expect(rendered).toBeTruthy();
   });
 });
 
