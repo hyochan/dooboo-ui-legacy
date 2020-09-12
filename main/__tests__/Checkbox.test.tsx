@@ -1,10 +1,15 @@
-import * as React from 'react';
-import { Checkbox } from '../Checkbox';
+import { Checkbox, CheckboxGroup } from '../Checkbox';
+import React, { ReactElement } from 'react';
+import {
+  RenderResult,
+  act,
+  fireEvent,
+  render,
+} from '@testing-library/react-native';
 import { TouchableHighlight } from 'react-native';
 import renderer from 'react-test-renderer';
 
 let props: unknown;
-
 // Note: test renderer must be required after react-native.
 const createTestProps = (obj: Record<string, unknown>): Record<string, unknown> => ({
   navigation: {
@@ -17,7 +22,7 @@ const component = (props?): React.ReactElement => {
   return <Checkbox {...props}/>;
 };
 
-describe('[CheckBox]', () => {
+describe('[Checkbox]', () => {
   beforeEach(() => {
     props = createTestProps({});
   });
@@ -29,7 +34,7 @@ describe('[CheckBox]', () => {
     expect(rendered).toMatchSnapshot();
   });
 
-  describe('[CheckBox] Interaction', (): void => {
+  describe('[Checkbox] Interaction', (): void => {
     it('should simulate onPress', (): void => {
       const handlePress = jest.fn();
       const rendered = renderer.create(
@@ -55,6 +60,106 @@ describe('[CheckBox]', () => {
       rendered.update(component({ disabled: true }));
       expect(rendered).toMatchSnapshot();
       expect(rendered).toBeTruthy();
+
+      rendered.update(component({ checked: true }));
+      expect(rendered).toMatchSnapshot();
+      expect(rendered).toBeTruthy();
+
+      rendered.update(
+        component({ disabled: false, customStyle: { boxColor: '#FF0000' } }),
+      );
+      expect(rendered).toMatchSnapshot();
+      expect(rendered).toBeTruthy();
+
+      rendered.update(
+        component({ disabled: false, checked: false, indeterminate: true }),
+      );
+      expect(rendered).toMatchSnapshot();
+      expect(rendered).toBeTruthy();
     });
   });
+});
+
+// ##### CheckboxGroup TestCode #####
+
+const checkboxGroupData = [
+  { label: 'Apple', value: 'Apple' },
+  { label: 'Pear', value: 'Pear' },
+  { label: 'Orange', value: 'Orange' },
+  { label: 'Mango', value: 'Mango' },
+];
+
+const checkboxGroupDataStr = ['Apple', 'Pear', 'Orange'];
+const defaultCheckedList = ['Apple', 'Orange'];
+
+let groupProps: unknown;
+let groupComponent: ReactElement;
+let testingLib: RenderResult;
+
+const createTestGroupProps = (obj: Record<string, unknown>): Record<string, unknown> => ({
+  navigation: {
+    navigate: jest.fn(),
+  },
+  ...obj,
+});
+
+describe('[CheckboxGroup] render test', () => {
+  it('should render without crashing', () => {
+    groupProps = createTestGroupProps({ options: checkboxGroupData, values: defaultCheckedList });
+    groupComponent = <CheckboxGroup {...groupProps}/>;
+    testingLib = render(groupComponent);
+
+    expect(testingLib.baseElement).toMatchSnapshot();
+  });
+
+  it('should render disabled when CheckboxGroup props is true', () => {
+    groupProps = createTestProps({
+      disabled: true,
+      options: checkboxGroupData,
+      values: [],
+    });
+    groupComponent = <CheckboxGroup {...groupProps}/>;
+    testingLib = render(groupComponent);
+
+    expect(testingLib.baseElement).toMatchSnapshot();
+  });
+
+  it('should render options when CheckboxGroup props is string of Array', () => {
+    groupProps = createTestProps({
+      disabled: true,
+      options: checkboxGroupDataStr,
+      values: [],
+    });
+    groupComponent = <CheckboxGroup {...groupProps}/>;
+    testingLib = render(groupComponent);
+
+    expect(testingLib.baseElement).toMatchSnapshot();
+  });
+
+  it('should render checkall when values is not undefined', () => {
+    groupProps = createTestProps({
+      disabled: true,
+      options: checkboxGroupData,
+      values: defaultCheckedList,
+    });
+    groupComponent = <CheckboxGroup {...groupProps}/>;
+    testingLib = render(groupComponent);
+
+    expect(testingLib.baseElement).toMatchSnapshot();
+  });
+
+  it('should render customStyle in Options', () => {
+    // checkboxGroupData.map((item) => {
+    //   ...item,
+    //   customStyle
+    // })
+    groupProps = createTestProps({
+      options: checkboxGroupData,
+    });
+    groupComponent = <CheckboxGroup {...groupProps}/>;
+    testingLib = render(groupComponent);
+
+    expect(testingLib.baseElement).toMatchSnapshot();
+  });
+
 });
