@@ -23,6 +23,7 @@ describe('[Badge] render', () => {
     testingLib = render(component);
 
     expect(testingLib.baseElement).toMatchSnapshot();
+    expect(testingLib.baseElement).toBeTruthy();
   });
 
   it('should render with + when count is over than max count', () => {
@@ -35,6 +36,7 @@ describe('[Badge] render', () => {
     testingLib = render(component);
 
     expect(testingLib.baseElement).toMatchSnapshot();
+    expect(testingLib.baseElement).toBeTruthy();
   });
 
   it('should not render opacity when count is over than max count', () => {
@@ -48,6 +50,7 @@ describe('[Badge] render', () => {
     testingLib = render(component);
 
     expect(testingLib.baseElement).toMatchSnapshot();
+    expect(testingLib.baseElement).toBeTruthy();
   });
 
   it('should render dot badge', () => {
@@ -59,6 +62,7 @@ describe('[Badge] render', () => {
     testingLib = render(component);
 
     expect(testingLib.baseElement).toMatchSnapshot();
+    expect(testingLib.baseElement).toBeTruthy();
   });
 
   it('should render left badge', () => {
@@ -70,6 +74,7 @@ describe('[Badge] render', () => {
     testingLib = render(component);
 
     expect(testingLib.baseElement).toMatchSnapshot();
+    expect(testingLib.baseElement).toBeTruthy();
   });
 
   it('should render badge when wrong variant', () => {
@@ -81,5 +86,6 @@ describe('[Badge] render', () => {
     testingLib = render(component);
 
     expect(testingLib.baseElement).toMatchSnapshot();
+    expect(testingLib.baseElement).toBeTruthy();
   });
 });

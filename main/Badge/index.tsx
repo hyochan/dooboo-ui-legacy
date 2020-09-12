@@ -82,6 +82,7 @@ const Badge: FC<BadgeProps> = (props) => {
   if (!showZero) {
     if (count === 0) return null;
   }
+
   switch (true) {
     case variant === 'dot':
       return <StyledDotView color={color} position={position} />;
