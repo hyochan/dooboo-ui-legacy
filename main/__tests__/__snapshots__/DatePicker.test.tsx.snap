@@ -97,7 +97,7 @@ exports[`[DateInput] render should render without crashing 1`] = `
             ]
           }
           underlineColorAndroid="transparent"
-          value="2020-09-11"
+          value="2020-09-12"
         />
       </View>
       <>
@@ -227,7 +227,7 @@ exports[`[DatePicker] render should render without crashing 1`] = `
               ]
             }
             underlineColorAndroid="transparent"
-            value="2020-09-11"
+            value="2020-09-12"
           />
         </View>
         <>
@@ -1518,8 +1518,8 @@ exports[`[DatePicker] render should render without crashing 1`] = `
                                       "width": 32,
                                     },
                                     Object {
-                                      "backgroundColor": "#efefef",
-                                      "borderRadius": 16,
+                                      "backgroundColor": "white",
+                                      "borderRadius": 0,
                                       "opacity": 1,
                                     },
                                   ]
@@ -1581,8 +1581,8 @@ exports[`[DatePicker] render should render without crashing 1`] = `
                                       "width": 32,
                                     },
                                     Object {
-                                      "backgroundColor": "white",
-                                      "borderRadius": 0,
+                                      "backgroundColor": "#efefef",
+                                      "borderRadius": 16,
                                       "opacity": 1,
                                     },
                                   ]
@@ -4714,8 +4714,8 @@ exports[`[PickerCalendar] render should render without crashing 1`] = `
                                     "width": 32,
                                   },
                                   Object {
-                                    "backgroundColor": "#efefef",
-                                    "borderRadius": 16,
+                                    "backgroundColor": "white",
+                                    "borderRadius": 0,
                                     "opacity": 1,
                                   },
                                 ]
@@ -4777,8 +4777,8 @@ exports[`[PickerCalendar] render should render without crashing 1`] = `
                                     "width": 32,
                                   },
                                   Object {
-                                    "backgroundColor": "white",
-                                    "borderRadius": 0,
+                                    "backgroundColor": "#efefef",
+                                    "borderRadius": 16,
                                     "opacity": 1,
                                   },
                                 ]

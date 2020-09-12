@@ -27,7 +27,6 @@ interface Props<T> {
   style?: ViewStyle;
   date: Date;
   isCurMonth?: boolean;
-  dailyData?: T;
   isToday?: boolean;
 }
 

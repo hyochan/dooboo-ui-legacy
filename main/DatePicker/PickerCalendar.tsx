@@ -71,13 +71,11 @@ const PickerCalendar: FC<Props> = (props) => {
                 }}
                 renderDay={({
                   date,
-                  dailyData,
                   isCurrentMonth,
                   isToday,
                   style,
                 }: {
                   date: Date;
-                  dailyData: { [key: string]: any };
                   isCurrentMonth: boolean;
                   isToday: boolean;
                   style: ViewStyle;
@@ -92,7 +90,6 @@ const PickerCalendar: FC<Props> = (props) => {
                       style={{
                         ...style,
                       }}
-                      dailyData={dailyData}
                       isCurMonth={isCurrentMonth}
                       isToday={isToday}
                     />

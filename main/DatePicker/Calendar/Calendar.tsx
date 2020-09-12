@@ -32,13 +32,11 @@ interface Props<T> {
   containerStyle?: ViewStyle;
   renderDay: ({
     date,
-    dailyData,
     isCurrentMonth,
     isToday,
     style,
   }: {
     date: Date;
-    dailyData: T; // [YYYY-MM-DD]: dailyData
     isCurrentMonth: boolean;
     isToday: boolean;
     style?: ViewStyle;
@@ -79,13 +77,13 @@ function Calendar<T>(props: Props<T>): React.ReactElement {
     };
   }, []);
 
-  const MemoizedCalendarMonth = React.memo(CalendarMonth, (prev, next) => {
+  const MemoizedCalendarMonth = React.memo(CalendarMonth, () => {
     return true;
   });
 
   // render a month
   const renderMonthCalendar = React.useCallback(
-    ({ item, index }): React.ReactElement => {
+    ({ item }): React.ReactElement => {
       return (
         <MemoizedCalendarMonth
           monthDate={item}
@@ -102,15 +100,12 @@ function Calendar<T>(props: Props<T>): React.ReactElement {
     [],
   );
 
-  const onViewableItemsChanged = React.useCallback(
-    ({ viewableItems, changed }) => {
-      if (viewableItems.length === 0) return; // 없는 경우 있음. 그냥 무시
-      const { item } = viewableItems[0];
-      props.onChangeMonth && props.onChangeMonth(item);
-      setCurMonthFirst(item);
-    },
-    [],
-  );
+  const onViewableItemsChanged = React.useCallback(({ viewableItems }) => {
+    if (viewableItems.length === 0) return; // 없는 경우 있음. 그냥 무시
+    const { item } = viewableItems[0];
+    props.onChangeMonth && props.onChangeMonth(item);
+    setCurMonthFirst(item);
+  }, []);
 
   const renderYearMonth = React.useCallback(
     (monthFirst): React.ReactElement => {
@@ -154,7 +149,7 @@ function Calendar<T>(props: Props<T>): React.ReactElement {
         renderItem={renderMonthCalendar}
         showsVerticalScrollIndicator={false}
         showsHorizontalScrollIndicator={false}
-        keyExtractor={(item, index): string => {
+        keyExtractor={(item): string => {
           return `${item.getFullYear()} + ${item.getMonth()}`;
         }}
         initialScrollIndex={pastRange}
