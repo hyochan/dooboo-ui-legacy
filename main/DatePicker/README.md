@@ -8,19 +8,48 @@
 
 ## Props
 
-|                      | necessary | types             | default                                |
-| -------------------- | --------- | ----------------- | -------------------------------------- |
-| onChangeDate         |           | (date:Date)=>void |                                        |
-| selectedDate         |           | Date              | `new Date()`                           |
-| dateInputStyle       |           | ViewStyle         | `true`                                 |
-| style                |           | ViewStyle         |                                        |
-| label                |           | string            | `default arrow image`                  |
-| labelTextStyle       |           | TextStyle         | ``                                     |
-| errorText            |           | string            | `Invalid Date`                         |
-| errorTextStyle       |           | TextStyle         | `{ color: '#F00', textAlign: 'left' }` |
-| dateTextStyle        |           | TextStyle         |
-| placeholder          |           | string            | `YYYY-MM-DD`                           |
-| placeholderTextColor |           | string            |                                        |
+|                      | necessary | types                                         | default                                |
+| -------------------- | --------- | --------------------------------------------- | -------------------------------------- |
+| onChangeDate         |           | (date:Date)=>void                             |                                        |
+| selectedDate         |           | Date                                          | `new Date()`                           |
+| dateInputStyle       |           | ViewStyle                                     | `true`                                 |
+| style                |           | ViewStyle                                     |                                        |
+| label                |           | string                                        | `default arrow image`                  |
+| labelTextStyle       |           | TextStyle                                     | ``                                     |
+| errorText            |           | string                                        | `Invalid Date`                         |
+| errorTextStyle       |           | TextStyle                                     | `{ color: '#F00', textAlign: 'left' }` |
+| dateTextStyle        |           | TextStyle                                     |
+| placeholder          |           | string                                        | `YYYY-MM-DD`                           |
+| placeholderTextColor |           | string                                        |                                        |
+| titleContent         |           | (monthFirstDate: Date) => React.ReactElement; |                                        |
+| weekdayFormat        |           | 'narrow' \| 'short'                           | 'narrow'                               |
+
+## Selecting weekday format
+
+> There are two types of weekday format.
+
+- short : Sun, Mon, Tue, ...
+- narrow : S, M, T, ...
+
+## Custom titleContent
+
+> You can render titleContent in your own style
+
+```tsx
+titleContent={(monthFirst: Date): React.ReactElement => {
+  return (
+    <View
+      style={{
+        height: 40,
+        alignItems: 'center',
+        justifyContent: 'center',
+        backgroundColor: 'white',
+      }}>
+      <Text>{`${monthFirstDate.toLocaleString('default', {year: 'numeric',month: 'long',})}`}</Text>
+    </View>
+  );
+}}
+```
 
 ## Installation
 
