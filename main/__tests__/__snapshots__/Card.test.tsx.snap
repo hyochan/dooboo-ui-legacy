@@ -10,6 +10,10 @@ exports[`[Card] should render without crashing 1`] = `
         "elevation": 5,
         "flexDirection": "column",
         "shadowColor": "#000",
+        "shadowOffset": Object {
+          "height": 2,
+          "width": 0,
+        },
         "shadowOpacity": 0.25,
         "shadowRadius": 4,
         "width": 256,
@@ -29,6 +33,10 @@ exports[`[Card] should simulate props 1`] = `
         "elevation": 5,
         "flexDirection": "column",
         "shadowColor": "#000",
+        "shadowOffset": Object {
+          "height": 2,
+          "width": 0,
+        },
         "shadowOpacity": 0.25,
         "shadowRadius": 4,
         "width": 256,
@@ -49,8 +57,12 @@ exports[`[Card] should simulate props 2`] = `
         "elevation": 10,
         "flexDirection": "column",
         "shadowColor": "#000",
-        "shadowOpacity": 0.34,
-        "shadowRadius": 6.27,
+        "shadowOffset": Object {
+          "height": 6,
+          "width": 0,
+        },
+        "shadowOpacity": 0.35,
+        "shadowRadius": 6.25,
         "width": 256,
       },
     ]
