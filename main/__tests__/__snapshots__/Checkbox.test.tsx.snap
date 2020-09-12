@@ -1,223 +1,143 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`[CheckBox] render without crashing 1`] = `
-Object {
-  "asJSON": [Function],
-  "baseElement": <View
-    pointerEvents="box-none"
+exports[`[CheckBox] [CheckBox] Interaction should simulate props 1`] = `
+<
+  disabled={true}
+  onPress={[Function]}
+  style={
+    Object {
+      "marginHorizontal": 20,
+      "paddingBottom": 20,
+    }
+  }
+  underlayColor="transparent"
+>
+  <View
     style={
-      Object {
-        "flex": 1,
-      }
+      Array [
+        Object {
+          "alignItems": "center",
+          "flexDirection": "row",
+          "justifyContent": "center",
+        },
+      ]
     }
   >
     <View
-      collapsable={true}
-      pointerEvents="box-none"
+      boxColor="#E0E0E0"
       style={
-        Object {
-          "flex": 1,
-        }
-      }
-    >
-      <
-        disabled={false}
-        style={
+        Array [
           Object {
-            "marginHorizontal": 20,
-            "paddingBottom": 20,
-          }
-        }
-        underlayColor="transparent"
-      >
-        <View
-          style={
-            Array [
-              Object {
-                "alignItems": "center",
-                "flexDirection": "row",
-                "justifyContent": "center",
-              },
-            ]
-          }
-        >
-          <View
-            style={
-              Array [
-                Object {
-                  "backgroundColor": "#1890FF",
-                  "height": 20,
-                  "paddingBottom": 1.5,
-                  "paddingLeft": 1.5,
-                  "paddingRight": 1.5,
-                  "paddingTop": 1.5,
-                  "width": 20,
-                },
-              ]
-            }
-          >
-            <View
-              isChecked={false}
-              style={
-                Array [
-                  Object {
-                    "alignItems": "center",
-                    "backgroundColor": "#ffffff",
-                    "flexBasis": 0,
-                    "flexGrow": 1,
-                    "flexShrink": 1,
-                    "justifyContent": "center",
-                  },
-                ]
-              }
-            />
-          </View>
-          <Text
-            style={
-              Array [
-                Object {
-                  "color": "#000000",
-                  "fontSize": 20,
-                  "paddingLeft": 10,
-                  "paddingRight": 0,
-                },
-              ]
-            }
-          >
-            testProps
-          </Text>
-        </View>
-      </>
-    </View>
-  </View>,
-  "container": <View
-    collapsable={true}
-    pointerEvents="box-none"
-    style={
-      Object {
-        "flex": 1,
+            "backgroundColor": "#E0E0E0",
+            "height": 20,
+            "paddingBottom": 1.5,
+            "paddingLeft": 1.5,
+            "paddingRight": 1.5,
+            "paddingTop": 1.5,
+            "width": 20,
+          },
+        ]
       }
-    }
-  >
-    <
-      disabled={false}
-      style={
-        Object {
-          "marginHorizontal": 20,
-          "paddingBottom": 20,
-        }
-      }
-      underlayColor="transparent"
     >
       <View
+        isChecked={false}
         style={
           Array [
             Object {
               "alignItems": "center",
-              "flexDirection": "row",
+              "backgroundColor": "#ffffff",
+              "flexBasis": 0,
+              "flexGrow": 1,
+              "flexShrink": 1,
               "justifyContent": "center",
             },
           ]
         }
-      >
-        <View
-          style={
-            Array [
-              Object {
-                "backgroundColor": "#1890FF",
-                "height": 20,
-                "paddingBottom": 1.5,
-                "paddingLeft": 1.5,
-                "paddingRight": 1.5,
-                "paddingTop": 1.5,
-                "width": 20,
-              },
-            ]
-          }
-        >
-          <View
-            isChecked={false}
-            style={
-              Array [
-                Object {
-                  "alignItems": "center",
-                  "backgroundColor": "#ffffff",
-                  "flexBasis": 0,
-                  "flexGrow": 1,
-                  "flexShrink": 1,
-                  "justifyContent": "center",
-                },
-              ]
-            }
-          />
-        </View>
-        <Text
-          style={
-            Array [
-              Object {
-                "color": "#000000",
-                "fontSize": 20,
-                "paddingLeft": 10,
-                "paddingRight": 0,
-              },
-            ]
-          }
-        >
-          testProps
-        </Text>
-      </View>
-    </>
-  </View>,
-  "debug": [Function],
-  "findAllByDisplayValue": [Function],
-  "findAllByHintText": [Function],
-  "findAllByLabelText": [Function],
-  "findAllByPlaceholderText": [Function],
-  "findAllByRole": [Function],
-  "findAllByTestId": [Function],
-  "findAllByText": [Function],
-  "findAllByTitle": [Function],
-  "findByDisplayValue": [Function],
-  "findByHintText": [Function],
-  "findByLabelText": [Function],
-  "findByPlaceholderText": [Function],
-  "findByRole": [Function],
-  "findByTestId": [Function],
-  "findByText": [Function],
-  "findByTitle": [Function],
-  "getAllByDisplayValue": [Function],
-  "getAllByHintText": [Function],
-  "getAllByLabelText": [Function],
-  "getAllByPlaceholderText": [Function],
-  "getAllByRole": [Function],
-  "getAllByTestId": [Function],
-  "getAllByText": [Function],
-  "getAllByTitle": [Function],
-  "getByDisplayValue": [Function],
-  "getByHintText": [Function],
-  "getByLabelText": [Function],
-  "getByPlaceholderText": [Function],
-  "getByRole": [Function],
-  "getByTestId": [Function],
-  "getByText": [Function],
-  "getByTitle": [Function],
-  "queryAllByDisplayValue": [Function],
-  "queryAllByHintText": [Function],
-  "queryAllByLabelText": [Function],
-  "queryAllByPlaceholderText": [Function],
-  "queryAllByRole": [Function],
-  "queryAllByTestId": [Function],
-  "queryAllByText": [Function],
-  "queryAllByTitle": [Function],
-  "queryByDisplayValue": [Function],
-  "queryByHintText": [Function],
-  "queryByLabelText": [Function],
-  "queryByPlaceholderText": [Function],
-  "queryByRole": [Function],
-  "queryByTestId": [Function],
-  "queryByText": [Function],
-  "queryByTitle": [Function],
-  "rerender": [Function],
-  "unmount": [Function],
-}
+      />
+    </View>
+    <Text
+      labelColor="#E0E0E0"
+      style={
+        Array [
+          Object {
+            "color": "#E0E0E0",
+            "fontSize": 20,
+            "paddingLeft": 10,
+            "paddingRight": 0,
+          },
+        ]
+      }
+    />
+  </View>
+</>
+`;
+
+exports[`[CheckBox] render without crashing 1`] = `
+<
+  disabled={false}
+  onPress={[Function]}
+  style={
+    Object {
+      "marginHorizontal": 20,
+      "paddingBottom": 20,
+    }
+  }
+  underlayColor="transparent"
+>
+  <View
+    style={
+      Array [
+        Object {
+          "alignItems": "center",
+          "flexDirection": "row",
+          "justifyContent": "center",
+        },
+      ]
+    }
+  >
+    <View
+      style={
+        Array [
+          Object {
+            "backgroundColor": "#1890FF",
+            "height": 20,
+            "paddingBottom": 1.5,
+            "paddingLeft": 1.5,
+            "paddingRight": 1.5,
+            "paddingTop": 1.5,
+            "width": 20,
+          },
+        ]
+      }
+    >
+      <View
+        isChecked={false}
+        style={
+          Array [
+            Object {
+              "alignItems": "center",
+              "backgroundColor": "#ffffff",
+              "flexBasis": 0,
+              "flexGrow": 1,
+              "flexShrink": 1,
+              "justifyContent": "center",
+            },
+          ]
+        }
+      />
+    </View>
+    <Text
+      style={
+        Array [
+          Object {
+            "color": "#000000",
+            "fontSize": 20,
+            "paddingLeft": 10,
+            "paddingRight": 0,
+          },
+        ]
+      }
+    />
+  </View>
+</>
 `;
