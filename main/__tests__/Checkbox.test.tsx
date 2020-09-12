@@ -211,4 +211,25 @@ describe('[CheckboxGroup] render test', () => {
 
     rerender(<CheckboxGroup {...groupProps} />);
   });
+
+  it('should simulate onChange', () => {
+    const component = (props?): React.ReactElement => {
+      return <CheckboxGroup {...props} />;
+    };
+
+    const onChangeMock = jest.fn();
+    groupProps = createTestProps({
+      options: checkboxGroupData,
+      values: defaultCheckedList,
+      onChange: onChangeMock,
+    });
+
+    const rendered = renderer.create(component(groupProps));
+    const checkboxClick = rendered.root.findAllByType(TouchableHighlight);
+    renderer.act(() => {
+      checkboxClick[1].props.onPress();
+    });
+
+    expect(onChangeMock).toHaveBeenCalled();
+  });
 });
