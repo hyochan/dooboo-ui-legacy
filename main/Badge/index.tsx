@@ -2,58 +2,54 @@ import React, { FC } from 'react';
 import { StyleSheet } from 'react-native';
 import styled from 'styled-components/native';
 
-export interface BadgeProps {
-  count?: number;
+interface StyleProps {
   color?: string;
+  opacity?: number;
+  badgePlacement?: 'left' | 'top' | 'bottom' | 'right';
+  border?: string;
+  textColor?: string;
+}
+
+export interface BadgeProps extends StyleProps{
+  count?: number;
   maximumCount?: number;
   showZero?: boolean;
   opacityVisible?: boolean;
   variant?: string;
-  position?: string;
-  border?: string;
-  textColor?: string;
 }
 
-interface StyleProps {
-  color?: string;
-  opacity?: number;
-  position?: string;
-  border?: string;
-  textColor?: string;
-}
-
-const StyledView = styled.View`
+const StyledView = styled.View<StyleProps>`
   position: absolute;
   top: -15px;
-  ${(props: StyleProps): string => props.position!}: -10px;
+  ${(props) => props.badgePlacement}: -10px;
   width: auto;
   min-width: 45px;
   height: 45px;
-  border-color: ${(props: StyleProps): string =>
+  border-color: ${(props) =>
     props.border ? props.border : '#00ff0000'};
   border-width: 3px;
-  background-color: ${(props: StyleProps): string => props.color!};
+  background-color: ${(props) => props.color};
   border-radius: 50px;
   justify-content: center;
   align-items: center;
-  opacity: ${(props: StyleProps): number => props.opacity!};
+  opacity: ${(props) => props.opacity};
 `;
 
-const StyledText = styled.Text`
-  color: ${(props: StyleProps): string => props.textColor!};
+const StyledText = styled.Text<StyleProps>`
+  color: ${(props) => props.textColor};
   text-align: center;
   padding: 5px;
   margin-left: 3px;
   margin-right: 3px;
 `;
 
-const StyledDotView = styled.View`
+const StyledDotView = styled.View<StyleProps>`
   position: absolute;
   top: -5px;
-  ${(props: StyleProps): string => props.position!}: -5px;
+  ${(props) => props.badgePlacement}: -5px;
   width: 20px;
   height: 20px;
-  background-color: ${(props: StyleProps): string => props.color!};
+  background-color: ${(props) => props.color};
   border-radius: 50px;
   justify-content: center;
   align-items: center;
@@ -74,7 +70,7 @@ const Badge: FC<BadgeProps> = (props) => {
     showZero,
     opacityVisible = true,
     variant = 'standard',
-    position = 'right',
+    badgePlacement: position = 'right',
     border,
     textColor = '#FFFFFF',
   } = props;
@@ -85,49 +81,53 @@ const Badge: FC<BadgeProps> = (props) => {
 
   switch (true) {
     case variant === 'dot':
-      return <StyledDotView color={color} position={position} />;
+      return <StyledDotView color={color} badgePlacement={position} />;
+
     case maximumCount >= count:
       return (
         <StyledView
           color={color}
           opacity={1}
-          position={position}
+          badgePlacement={position}
           border={border}>
           <StyledText textColor={textColor} style={styles.fontDesign}>
             {count}
           </StyledText>
         </StyledView>
       );
+
     case maximumCount < count && opacityVisible:
       return (
         <StyledView
           color={color}
           opacity={0.6}
-          position={position}
+          badgePlacement={position}
           border={border}>
           <StyledText textColor={textColor} style={styles.fontDesign}>
             {count + '+'}
           </StyledText>
         </StyledView>
       );
+
     case maximumCount < count && !opacityVisible:
       return (
         <StyledView
           color={color}
           opacity={1}
-          position={position}
+          badgePlacement={position}
           border={border}>
           <StyledText textColor={textColor} style={styles.fontDesign}>
             {count + '+'}
           </StyledText>
         </StyledView>
       );
+
     default:
       return (
         <StyledView
           color={color}
           opacity={1}
-          position={position}
+          badgePlacement={position}
           border={border}>
           <StyledText textColor={textColor} style={styles.fontDesign}>
             {count}

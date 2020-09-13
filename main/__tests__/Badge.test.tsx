@@ -1,10 +1,6 @@
-// Library Import
+import { Badge, BadgeProps } from '../Badge';
 import React, { ReactElement } from 'react';
 import { RenderResult, render } from '@testing-library/react-native';
-import renderer from 'react-test-renderer';
-
-// eslint-disable-next-line sort-imports
-import { Badge, BadgeProps } from '../../main/Badge';
 
 let props: BadgeProps;
 let component: ReactElement;
