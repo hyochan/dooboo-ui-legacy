@@ -1,4 +1,11 @@
-import React, { FC, useCallback, useContext, useEffect, useRef, useState } from 'react';
+import React, {
+  FC,
+  useCallback,
+  useContext,
+  useEffect,
+  useRef,
+  useState,
+} from 'react';
 import { GroupCheckboxContext } from './CheckboxGroup';
 import { TouchableHighlight } from 'react-native';
 import styled from 'styled-components/native';
@@ -20,10 +27,10 @@ export interface CheckboxProps {
   id?: string;
   label: string | number;
   value?: string | number | boolean;
-  checked?: boolean
+  checked?: boolean;
   defaultChecked?: boolean;
   indeterminate?: boolean;
-  disabled?: boolean
+  disabled?: boolean;
   onChange?: (event: OnChangeEvent) => void;
   customStyle?: CustomStyle;
 }
@@ -37,7 +44,6 @@ const Checkbox: FC<CheckboxProps> = ({
   disabled = false,
   onChange,
   customStyle,
-
 }) => {
   const groupCheckboxContext = useContext(GroupCheckboxContext);
   const isMounted = useRef(false);
@@ -78,24 +84,22 @@ const Checkbox: FC<CheckboxProps> = ({
       <Container labelLeft={customStyle?.labelLeft}>
         <MarkerContainer
           boxSize={customStyle?.boxSize}
-          boxColor={disabled ? COLOR.LIGHTGRAY : customStyle?.boxColor}
-        >
+          boxColor={disabled ? COLOR.LIGHTGRAY : customStyle?.boxColor}>
           <Marker isChecked={isChecked}>
-            {!indeterminate && isChecked && <MarkerImg
-              source={{ uri: checkboxImg }}
-            />}
-            {
-              indeterminate && <Markerindeterminate
+            {!indeterminate && isChecked && (
+              <MarkerImg source={{ uri: checkboxImg }} />
+            )}
+            {indeterminate && (
+              <MarkerIndeterminate
                 boxColor={disabled ? COLOR.LIGHTGRAY : customStyle?.boxColor}
               />
-            }
+            )}
           </Marker>
         </MarkerContainer>
         <Label
           labelColor={labelColor}
           labelSize={customStyle?.labelSize}
-          labelLeft={customStyle?.labelLeft}
-        >
+          labelLeft={customStyle?.labelLeft}>
           {label}
         </Label>
       </Container>
@@ -108,8 +112,8 @@ interface ContainerProps {
 }
 
 interface MarkerContainerProps {
-  boxSize?: number
-  boxColor?: string
+  boxSize?: number;
+  boxColor?: string;
 }
 
 interface LabelProps {
@@ -120,11 +124,11 @@ interface LabelProps {
 }
 
 interface MarkerProps {
-  isChecked: boolean
+  isChecked: boolean;
 }
 
-interface MarkerindeterminateProps {
-  boxColor?: string
+interface MarkerIndeterminateProps {
+  boxColor?: string;
 }
 
 const COLOR: {
@@ -137,15 +141,16 @@ const COLOR: {
 };
 
 const Container = styled.View<ContainerProps>`
-  flex-direction: ${({ labelLeft }): string => labelLeft ? 'row-reverse' : 'row'};
+  flex-direction: ${({ labelLeft }): string =>
+    labelLeft ? 'row-reverse' : 'row'};
   justify-content: center;
   align-items: center;
 `;
 
 const MarkerContainer = styled.View<MarkerContainerProps>`
-  padding: 1.5px;
-  width: ${({ boxSize }):number => boxSize || 20}px;
-  height: ${({ boxSize }):number => boxSize || 20}px;
+  padding: 1px;
+  width: ${({ boxSize }): number => boxSize || 20}px;
+  height: ${({ boxSize }): number => boxSize || 20}px;
   background-color: ${({ boxColor }): string => boxColor || COLOR.BLUE_SKY};
 `;
 
@@ -153,7 +158,8 @@ const Marker = styled.View<MarkerProps>`
   flex: 1;
   justify-content: center;
   align-items: center;
-  background-color: ${({ isChecked }): string => isChecked ? 'transparent' : '#ffffff'};
+  background-color: ${({ isChecked }): string =>
+    isChecked ? 'transparent' : '#ffffff'};
 `;
 
 const MarkerImg = styled.Image`
@@ -163,7 +169,7 @@ const MarkerImg = styled.Image`
   resize-mode: contain;
 `;
 
-const Markerindeterminate = styled.View<MarkerindeterminateProps>`
+const MarkerIndeterminate = styled.View<MarkerIndeterminateProps>`
   width: 55%;
   height: 55%;
   background-color: ${({ boxColor }): string => boxColor || COLOR.BLUE_SKY};
@@ -171,8 +177,8 @@ const Markerindeterminate = styled.View<MarkerindeterminateProps>`
 
 const Label = styled.Text<LabelProps>`
   font-size: 20px;
-  padding-left:  ${({ labelLeft }): number => labelLeft ? 0 : 10}px;
-  padding-right: ${({ labelLeft }): number => labelLeft ? 10 : 0}px;
+  padding-left: ${({ labelLeft }): number => (labelLeft ? 0 : 10)}px;
+  padding-right: ${({ labelLeft }): number => (labelLeft ? 10 : 0)}px;
   color: ${({ labelColor }): string => labelColor || COLOR.BLACK};
 `;
 
