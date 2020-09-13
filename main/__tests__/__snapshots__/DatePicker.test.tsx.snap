@@ -15,7 +15,7 @@ exports[`[Calendar] should render without crashing 1`] = `
   >
     <View>
       <Text>
-        2020-09-12
+        2020-09-13
       </Text>
     </View>
     <View
@@ -463,7 +463,7 @@ exports[`[Calendar] should render without crashing 1`] = `
                         ]
                       }
                     >
-                      12
+                      13
                     </Text>
                   </View>
                 </View>
@@ -523,7 +523,7 @@ exports[`[Calendar] should render without crashing 1`] = `
                         ]
                       }
                     >
-                      12
+                      13
                     </Text>
                   </View>
                 </View>
@@ -583,7 +583,7 @@ exports[`[Calendar] should render without crashing 1`] = `
                         ]
                       }
                     >
-                      12
+                      13
                     </Text>
                   </View>
                 </View>
@@ -643,7 +643,7 @@ exports[`[Calendar] should render without crashing 1`] = `
                         ]
                       }
                     >
-                      12
+                      13
                     </Text>
                   </View>
                 </View>
@@ -703,7 +703,7 @@ exports[`[Calendar] should render without crashing 1`] = `
                         ]
                       }
                     >
-                      12
+                      13
                     </Text>
                   </View>
                 </View>
@@ -763,7 +763,7 @@ exports[`[Calendar] should render without crashing 1`] = `
                         ]
                       }
                     >
-                      12
+                      13
                     </Text>
                   </View>
                 </View>
@@ -823,438 +823,7 @@ exports[`[Calendar] should render without crashing 1`] = `
                         ]
                       }
                     >
-                      12
-                    </Text>
-                  </View>
-                </View>
-              </>
-            </View>
-          </View>
-          <View
-            style={
-              Object {
-                "flexDirection": "row",
-                "justifyContent": "space-between",
-                "paddingHorizontal": 0,
-                "width": 300,
-              }
-            }
-          >
-            <View>
-              <>
-                <View
-                  style={Object {}}
-                >
-                  <View
-                    style={
-                      Array [
-                        Object {
-                          "alignItems": "center",
-                          "height": 25,
-                          "justifyContent": "center",
-                          "width": "100%",
-                        },
-                        Object {
-                          "alignItems": "center",
-                          "flex": 1,
-                          "justifyContent": "center",
-                        },
-                      ]
-                    }
-                  >
-                    <View
-                      style={
-                        Array [
-                          Object {
-                            "borderRadius": 12,
-                            "height": 32,
-                            "position": "absolute",
-                            "width": 32,
-                          },
-                          Object {
-                            "backgroundColor": "white",
-                            "borderRadius": 0,
-                            "opacity": 0.2,
-                          },
-                        ]
-                      }
-                    />
-                    <Text
-                      style={
-                        Array [
-                          Object {
-                            "color": "#565656",
-                            "fontSize": 12,
-                          },
-                          Object {
-                            "alignSelf": "center",
-                            "color": "black",
-                            "opacity": 0.2,
-                          },
-                        ]
-                      }
-                    >
-                      12
-                    </Text>
-                  </View>
-                </View>
-              </>
-            </View>
-            <View>
-              <>
-                <View
-                  style={Object {}}
-                >
-                  <View
-                    style={
-                      Array [
-                        Object {
-                          "alignItems": "center",
-                          "height": 25,
-                          "justifyContent": "center",
-                          "width": "100%",
-                        },
-                        Object {
-                          "alignItems": "center",
-                          "flex": 1,
-                          "justifyContent": "center",
-                        },
-                      ]
-                    }
-                  >
-                    <View
-                      style={
-                        Array [
-                          Object {
-                            "borderRadius": 12,
-                            "height": 32,
-                            "position": "absolute",
-                            "width": 32,
-                          },
-                          Object {
-                            "backgroundColor": "white",
-                            "borderRadius": 0,
-                            "opacity": 0.2,
-                          },
-                        ]
-                      }
-                    />
-                    <Text
-                      style={
-                        Array [
-                          Object {
-                            "color": "#565656",
-                            "fontSize": 12,
-                          },
-                          Object {
-                            "alignSelf": "center",
-                            "color": "black",
-                            "opacity": 0.2,
-                          },
-                        ]
-                      }
-                    >
-                      12
-                    </Text>
-                  </View>
-                </View>
-              </>
-            </View>
-            <View>
-              <>
-                <View
-                  style={Object {}}
-                >
-                  <View
-                    style={
-                      Array [
-                        Object {
-                          "alignItems": "center",
-                          "height": 25,
-                          "justifyContent": "center",
-                          "width": "100%",
-                        },
-                        Object {
-                          "alignItems": "center",
-                          "flex": 1,
-                          "justifyContent": "center",
-                        },
-                      ]
-                    }
-                  >
-                    <View
-                      style={
-                        Array [
-                          Object {
-                            "borderRadius": 12,
-                            "height": 32,
-                            "position": "absolute",
-                            "width": 32,
-                          },
-                          Object {
-                            "backgroundColor": "white",
-                            "borderRadius": 0,
-                            "opacity": 0.2,
-                          },
-                        ]
-                      }
-                    />
-                    <Text
-                      style={
-                        Array [
-                          Object {
-                            "color": "#565656",
-                            "fontSize": 12,
-                          },
-                          Object {
-                            "alignSelf": "center",
-                            "color": "black",
-                            "opacity": 0.2,
-                          },
-                        ]
-                      }
-                    >
-                      12
-                    </Text>
-                  </View>
-                </View>
-              </>
-            </View>
-            <View>
-              <>
-                <View
-                  style={Object {}}
-                >
-                  <View
-                    style={
-                      Array [
-                        Object {
-                          "alignItems": "center",
-                          "height": 25,
-                          "justifyContent": "center",
-                          "width": "100%",
-                        },
-                        Object {
-                          "alignItems": "center",
-                          "flex": 1,
-                          "justifyContent": "center",
-                        },
-                      ]
-                    }
-                  >
-                    <View
-                      style={
-                        Array [
-                          Object {
-                            "borderRadius": 12,
-                            "height": 32,
-                            "position": "absolute",
-                            "width": 32,
-                          },
-                          Object {
-                            "backgroundColor": "white",
-                            "borderRadius": 0,
-                            "opacity": 0.2,
-                          },
-                        ]
-                      }
-                    />
-                    <Text
-                      style={
-                        Array [
-                          Object {
-                            "color": "#565656",
-                            "fontSize": 12,
-                          },
-                          Object {
-                            "alignSelf": "center",
-                            "color": "black",
-                            "opacity": 0.2,
-                          },
-                        ]
-                      }
-                    >
-                      12
-                    </Text>
-                  </View>
-                </View>
-              </>
-            </View>
-            <View>
-              <>
-                <View
-                  style={Object {}}
-                >
-                  <View
-                    style={
-                      Array [
-                        Object {
-                          "alignItems": "center",
-                          "height": 25,
-                          "justifyContent": "center",
-                          "width": "100%",
-                        },
-                        Object {
-                          "alignItems": "center",
-                          "flex": 1,
-                          "justifyContent": "center",
-                        },
-                      ]
-                    }
-                  >
-                    <View
-                      style={
-                        Array [
-                          Object {
-                            "borderRadius": 12,
-                            "height": 32,
-                            "position": "absolute",
-                            "width": 32,
-                          },
-                          Object {
-                            "backgroundColor": "white",
-                            "borderRadius": 0,
-                            "opacity": 0.2,
-                          },
-                        ]
-                      }
-                    />
-                    <Text
-                      style={
-                        Array [
-                          Object {
-                            "color": "#565656",
-                            "fontSize": 12,
-                          },
-                          Object {
-                            "alignSelf": "center",
-                            "color": "black",
-                            "opacity": 0.2,
-                          },
-                        ]
-                      }
-                    >
-                      12
-                    </Text>
-                  </View>
-                </View>
-              </>
-            </View>
-            <View>
-              <>
-                <View
-                  style={Object {}}
-                >
-                  <View
-                    style={
-                      Array [
-                        Object {
-                          "alignItems": "center",
-                          "height": 25,
-                          "justifyContent": "center",
-                          "width": "100%",
-                        },
-                        Object {
-                          "alignItems": "center",
-                          "flex": 1,
-                          "justifyContent": "center",
-                        },
-                      ]
-                    }
-                  >
-                    <View
-                      style={
-                        Array [
-                          Object {
-                            "borderRadius": 12,
-                            "height": 32,
-                            "position": "absolute",
-                            "width": 32,
-                          },
-                          Object {
-                            "backgroundColor": "white",
-                            "borderRadius": 0,
-                            "opacity": 0.2,
-                          },
-                        ]
-                      }
-                    />
-                    <Text
-                      style={
-                        Array [
-                          Object {
-                            "color": "#565656",
-                            "fontSize": 12,
-                          },
-                          Object {
-                            "alignSelf": "center",
-                            "color": "black",
-                            "opacity": 0.2,
-                          },
-                        ]
-                      }
-                    >
-                      12
-                    </Text>
-                  </View>
-                </View>
-              </>
-            </View>
-            <View>
-              <>
-                <View
-                  style={Object {}}
-                >
-                  <View
-                    style={
-                      Array [
-                        Object {
-                          "alignItems": "center",
-                          "height": 25,
-                          "justifyContent": "center",
-                          "width": "100%",
-                        },
-                        Object {
-                          "alignItems": "center",
-                          "flex": 1,
-                          "justifyContent": "center",
-                        },
-                      ]
-                    }
-                  >
-                    <View
-                      style={
-                        Array [
-                          Object {
-                            "borderRadius": 12,
-                            "height": 32,
-                            "position": "absolute",
-                            "width": 32,
-                          },
-                          Object {
-                            "backgroundColor": "white",
-                            "borderRadius": 0,
-                            "opacity": 0.2,
-                          },
-                        ]
-                      }
-                    />
-                    <Text
-                      style={
-                        Array [
-                          Object {
-                            "color": "#565656",
-                            "fontSize": 12,
-                          },
-                          Object {
-                            "alignSelf": "center",
-                            "color": "black",
-                            "opacity": 0.2,
-                          },
-                        ]
-                      }
-                    >
-                      12
+                      13
                     </Text>
                   </View>
                 </View>
@@ -1325,7 +894,7 @@ exports[`[Calendar] should render without crashing 1`] = `
                         ]
                       }
                     >
-                      12
+                      13
                     </Text>
                   </View>
                 </View>
@@ -1385,7 +954,7 @@ exports[`[Calendar] should render without crashing 1`] = `
                         ]
                       }
                     >
-                      12
+                      13
                     </Text>
                   </View>
                 </View>
@@ -1445,7 +1014,7 @@ exports[`[Calendar] should render without crashing 1`] = `
                         ]
                       }
                     >
-                      12
+                      13
                     </Text>
                   </View>
                 </View>
@@ -1505,7 +1074,7 @@ exports[`[Calendar] should render without crashing 1`] = `
                         ]
                       }
                     >
-                      12
+                      13
                     </Text>
                   </View>
                 </View>
@@ -1565,7 +1134,7 @@ exports[`[Calendar] should render without crashing 1`] = `
                         ]
                       }
                     >
-                      12
+                      13
                     </Text>
                   </View>
                 </View>
@@ -1625,7 +1194,7 @@ exports[`[Calendar] should render without crashing 1`] = `
                         ]
                       }
                     >
-                      12
+                      13
                     </Text>
                   </View>
                 </View>
@@ -1685,438 +1254,7 @@ exports[`[Calendar] should render without crashing 1`] = `
                         ]
                       }
                     >
-                      12
-                    </Text>
-                  </View>
-                </View>
-              </>
-            </View>
-          </View>
-          <View
-            style={
-              Object {
-                "flexDirection": "row",
-                "justifyContent": "space-between",
-                "paddingHorizontal": 0,
-                "width": 300,
-              }
-            }
-          >
-            <View>
-              <>
-                <View
-                  style={Object {}}
-                >
-                  <View
-                    style={
-                      Array [
-                        Object {
-                          "alignItems": "center",
-                          "height": 25,
-                          "justifyContent": "center",
-                          "width": "100%",
-                        },
-                        Object {
-                          "alignItems": "center",
-                          "flex": 1,
-                          "justifyContent": "center",
-                        },
-                      ]
-                    }
-                  >
-                    <View
-                      style={
-                        Array [
-                          Object {
-                            "borderRadius": 12,
-                            "height": 32,
-                            "position": "absolute",
-                            "width": 32,
-                          },
-                          Object {
-                            "backgroundColor": "white",
-                            "borderRadius": 0,
-                            "opacity": 0.2,
-                          },
-                        ]
-                      }
-                    />
-                    <Text
-                      style={
-                        Array [
-                          Object {
-                            "color": "#565656",
-                            "fontSize": 12,
-                          },
-                          Object {
-                            "alignSelf": "center",
-                            "color": "black",
-                            "opacity": 0.2,
-                          },
-                        ]
-                      }
-                    >
-                      12
-                    </Text>
-                  </View>
-                </View>
-              </>
-            </View>
-            <View>
-              <>
-                <View
-                  style={Object {}}
-                >
-                  <View
-                    style={
-                      Array [
-                        Object {
-                          "alignItems": "center",
-                          "height": 25,
-                          "justifyContent": "center",
-                          "width": "100%",
-                        },
-                        Object {
-                          "alignItems": "center",
-                          "flex": 1,
-                          "justifyContent": "center",
-                        },
-                      ]
-                    }
-                  >
-                    <View
-                      style={
-                        Array [
-                          Object {
-                            "borderRadius": 12,
-                            "height": 32,
-                            "position": "absolute",
-                            "width": 32,
-                          },
-                          Object {
-                            "backgroundColor": "white",
-                            "borderRadius": 0,
-                            "opacity": 0.2,
-                          },
-                        ]
-                      }
-                    />
-                    <Text
-                      style={
-                        Array [
-                          Object {
-                            "color": "#565656",
-                            "fontSize": 12,
-                          },
-                          Object {
-                            "alignSelf": "center",
-                            "color": "black",
-                            "opacity": 0.2,
-                          },
-                        ]
-                      }
-                    >
-                      12
-                    </Text>
-                  </View>
-                </View>
-              </>
-            </View>
-            <View>
-              <>
-                <View
-                  style={Object {}}
-                >
-                  <View
-                    style={
-                      Array [
-                        Object {
-                          "alignItems": "center",
-                          "height": 25,
-                          "justifyContent": "center",
-                          "width": "100%",
-                        },
-                        Object {
-                          "alignItems": "center",
-                          "flex": 1,
-                          "justifyContent": "center",
-                        },
-                      ]
-                    }
-                  >
-                    <View
-                      style={
-                        Array [
-                          Object {
-                            "borderRadius": 12,
-                            "height": 32,
-                            "position": "absolute",
-                            "width": 32,
-                          },
-                          Object {
-                            "backgroundColor": "white",
-                            "borderRadius": 0,
-                            "opacity": 0.2,
-                          },
-                        ]
-                      }
-                    />
-                    <Text
-                      style={
-                        Array [
-                          Object {
-                            "color": "#565656",
-                            "fontSize": 12,
-                          },
-                          Object {
-                            "alignSelf": "center",
-                            "color": "black",
-                            "opacity": 0.2,
-                          },
-                        ]
-                      }
-                    >
-                      12
-                    </Text>
-                  </View>
-                </View>
-              </>
-            </View>
-            <View>
-              <>
-                <View
-                  style={Object {}}
-                >
-                  <View
-                    style={
-                      Array [
-                        Object {
-                          "alignItems": "center",
-                          "height": 25,
-                          "justifyContent": "center",
-                          "width": "100%",
-                        },
-                        Object {
-                          "alignItems": "center",
-                          "flex": 1,
-                          "justifyContent": "center",
-                        },
-                      ]
-                    }
-                  >
-                    <View
-                      style={
-                        Array [
-                          Object {
-                            "borderRadius": 12,
-                            "height": 32,
-                            "position": "absolute",
-                            "width": 32,
-                          },
-                          Object {
-                            "backgroundColor": "white",
-                            "borderRadius": 0,
-                            "opacity": 0.2,
-                          },
-                        ]
-                      }
-                    />
-                    <Text
-                      style={
-                        Array [
-                          Object {
-                            "color": "#565656",
-                            "fontSize": 12,
-                          },
-                          Object {
-                            "alignSelf": "center",
-                            "color": "black",
-                            "opacity": 0.2,
-                          },
-                        ]
-                      }
-                    >
-                      12
-                    </Text>
-                  </View>
-                </View>
-              </>
-            </View>
-            <View>
-              <>
-                <View
-                  style={Object {}}
-                >
-                  <View
-                    style={
-                      Array [
-                        Object {
-                          "alignItems": "center",
-                          "height": 25,
-                          "justifyContent": "center",
-                          "width": "100%",
-                        },
-                        Object {
-                          "alignItems": "center",
-                          "flex": 1,
-                          "justifyContent": "center",
-                        },
-                      ]
-                    }
-                  >
-                    <View
-                      style={
-                        Array [
-                          Object {
-                            "borderRadius": 12,
-                            "height": 32,
-                            "position": "absolute",
-                            "width": 32,
-                          },
-                          Object {
-                            "backgroundColor": "white",
-                            "borderRadius": 0,
-                            "opacity": 0.2,
-                          },
-                        ]
-                      }
-                    />
-                    <Text
-                      style={
-                        Array [
-                          Object {
-                            "color": "#565656",
-                            "fontSize": 12,
-                          },
-                          Object {
-                            "alignSelf": "center",
-                            "color": "black",
-                            "opacity": 0.2,
-                          },
-                        ]
-                      }
-                    >
-                      12
-                    </Text>
-                  </View>
-                </View>
-              </>
-            </View>
-            <View>
-              <>
-                <View
-                  style={Object {}}
-                >
-                  <View
-                    style={
-                      Array [
-                        Object {
-                          "alignItems": "center",
-                          "height": 25,
-                          "justifyContent": "center",
-                          "width": "100%",
-                        },
-                        Object {
-                          "alignItems": "center",
-                          "flex": 1,
-                          "justifyContent": "center",
-                        },
-                      ]
-                    }
-                  >
-                    <View
-                      style={
-                        Array [
-                          Object {
-                            "borderRadius": 12,
-                            "height": 32,
-                            "position": "absolute",
-                            "width": 32,
-                          },
-                          Object {
-                            "backgroundColor": "white",
-                            "borderRadius": 0,
-                            "opacity": 0.2,
-                          },
-                        ]
-                      }
-                    />
-                    <Text
-                      style={
-                        Array [
-                          Object {
-                            "color": "#565656",
-                            "fontSize": 12,
-                          },
-                          Object {
-                            "alignSelf": "center",
-                            "color": "black",
-                            "opacity": 0.2,
-                          },
-                        ]
-                      }
-                    >
-                      12
-                    </Text>
-                  </View>
-                </View>
-              </>
-            </View>
-            <View>
-              <>
-                <View
-                  style={Object {}}
-                >
-                  <View
-                    style={
-                      Array [
-                        Object {
-                          "alignItems": "center",
-                          "height": 25,
-                          "justifyContent": "center",
-                          "width": "100%",
-                        },
-                        Object {
-                          "alignItems": "center",
-                          "flex": 1,
-                          "justifyContent": "center",
-                        },
-                      ]
-                    }
-                  >
-                    <View
-                      style={
-                        Array [
-                          Object {
-                            "borderRadius": 12,
-                            "height": 32,
-                            "position": "absolute",
-                            "width": 32,
-                          },
-                          Object {
-                            "backgroundColor": "white",
-                            "borderRadius": 0,
-                            "opacity": 0.2,
-                          },
-                        ]
-                      }
-                    />
-                    <Text
-                      style={
-                        Array [
-                          Object {
-                            "color": "#565656",
-                            "fontSize": 12,
-                          },
-                          Object {
-                            "alignSelf": "center",
-                            "color": "black",
-                            "opacity": 0.2,
-                          },
-                        ]
-                      }
-                    >
-                      12
+                      13
                     </Text>
                   </View>
                 </View>
@@ -2187,7 +1325,7 @@ exports[`[Calendar] should render without crashing 1`] = `
                         ]
                       }
                     >
-                      12
+                      13
                     </Text>
                   </View>
                 </View>
@@ -2247,7 +1385,7 @@ exports[`[Calendar] should render without crashing 1`] = `
                         ]
                       }
                     >
-                      12
+                      13
                     </Text>
                   </View>
                 </View>
@@ -2307,7 +1445,7 @@ exports[`[Calendar] should render without crashing 1`] = `
                         ]
                       }
                     >
-                      12
+                      13
                     </Text>
                   </View>
                 </View>
@@ -2367,7 +1505,7 @@ exports[`[Calendar] should render without crashing 1`] = `
                         ]
                       }
                     >
-                      12
+                      13
                     </Text>
                   </View>
                 </View>
@@ -2427,7 +1565,7 @@ exports[`[Calendar] should render without crashing 1`] = `
                         ]
                       }
                     >
-                      12
+                      13
                     </Text>
                   </View>
                 </View>
@@ -2487,7 +1625,7 @@ exports[`[Calendar] should render without crashing 1`] = `
                         ]
                       }
                     >
-                      12
+                      13
                     </Text>
                   </View>
                 </View>
@@ -2547,7 +1685,7 @@ exports[`[Calendar] should render without crashing 1`] = `
                         ]
                       }
                     >
-                      12
+                      13
                     </Text>
                   </View>
                 </View>
@@ -2618,7 +1756,7 @@ exports[`[Calendar] should render without crashing 1`] = `
                         ]
                       }
                     >
-                      12
+                      13
                     </Text>
                   </View>
                 </View>
@@ -2678,7 +1816,7 @@ exports[`[Calendar] should render without crashing 1`] = `
                         ]
                       }
                     >
-                      12
+                      13
                     </Text>
                   </View>
                 </View>
@@ -2738,7 +1876,7 @@ exports[`[Calendar] should render without crashing 1`] = `
                         ]
                       }
                     >
-                      12
+                      13
                     </Text>
                   </View>
                 </View>
@@ -2798,7 +1936,7 @@ exports[`[Calendar] should render without crashing 1`] = `
                         ]
                       }
                     >
-                      12
+                      13
                     </Text>
                   </View>
                 </View>
@@ -2858,7 +1996,7 @@ exports[`[Calendar] should render without crashing 1`] = `
                         ]
                       }
                     >
-                      12
+                      13
                     </Text>
                   </View>
                 </View>
@@ -2918,7 +2056,7 @@ exports[`[Calendar] should render without crashing 1`] = `
                         ]
                       }
                     >
-                      12
+                      13
                     </Text>
                   </View>
                 </View>
@@ -2978,7 +2116,869 @@ exports[`[Calendar] should render without crashing 1`] = `
                         ]
                       }
                     >
-                      12
+                      13
+                    </Text>
+                  </View>
+                </View>
+              </>
+            </View>
+          </View>
+          <View
+            style={
+              Object {
+                "flexDirection": "row",
+                "justifyContent": "space-between",
+                "paddingHorizontal": 0,
+                "width": 300,
+              }
+            }
+          >
+            <View>
+              <>
+                <View
+                  style={Object {}}
+                >
+                  <View
+                    style={
+                      Array [
+                        Object {
+                          "alignItems": "center",
+                          "height": 25,
+                          "justifyContent": "center",
+                          "width": "100%",
+                        },
+                        Object {
+                          "alignItems": "center",
+                          "flex": 1,
+                          "justifyContent": "center",
+                        },
+                      ]
+                    }
+                  >
+                    <View
+                      style={
+                        Array [
+                          Object {
+                            "borderRadius": 12,
+                            "height": 32,
+                            "position": "absolute",
+                            "width": 32,
+                          },
+                          Object {
+                            "backgroundColor": "white",
+                            "borderRadius": 0,
+                            "opacity": 0.2,
+                          },
+                        ]
+                      }
+                    />
+                    <Text
+                      style={
+                        Array [
+                          Object {
+                            "color": "#565656",
+                            "fontSize": 12,
+                          },
+                          Object {
+                            "alignSelf": "center",
+                            "color": "black",
+                            "opacity": 0.2,
+                          },
+                        ]
+                      }
+                    >
+                      13
+                    </Text>
+                  </View>
+                </View>
+              </>
+            </View>
+            <View>
+              <>
+                <View
+                  style={Object {}}
+                >
+                  <View
+                    style={
+                      Array [
+                        Object {
+                          "alignItems": "center",
+                          "height": 25,
+                          "justifyContent": "center",
+                          "width": "100%",
+                        },
+                        Object {
+                          "alignItems": "center",
+                          "flex": 1,
+                          "justifyContent": "center",
+                        },
+                      ]
+                    }
+                  >
+                    <View
+                      style={
+                        Array [
+                          Object {
+                            "borderRadius": 12,
+                            "height": 32,
+                            "position": "absolute",
+                            "width": 32,
+                          },
+                          Object {
+                            "backgroundColor": "white",
+                            "borderRadius": 0,
+                            "opacity": 0.2,
+                          },
+                        ]
+                      }
+                    />
+                    <Text
+                      style={
+                        Array [
+                          Object {
+                            "color": "#565656",
+                            "fontSize": 12,
+                          },
+                          Object {
+                            "alignSelf": "center",
+                            "color": "black",
+                            "opacity": 0.2,
+                          },
+                        ]
+                      }
+                    >
+                      13
+                    </Text>
+                  </View>
+                </View>
+              </>
+            </View>
+            <View>
+              <>
+                <View
+                  style={Object {}}
+                >
+                  <View
+                    style={
+                      Array [
+                        Object {
+                          "alignItems": "center",
+                          "height": 25,
+                          "justifyContent": "center",
+                          "width": "100%",
+                        },
+                        Object {
+                          "alignItems": "center",
+                          "flex": 1,
+                          "justifyContent": "center",
+                        },
+                      ]
+                    }
+                  >
+                    <View
+                      style={
+                        Array [
+                          Object {
+                            "borderRadius": 12,
+                            "height": 32,
+                            "position": "absolute",
+                            "width": 32,
+                          },
+                          Object {
+                            "backgroundColor": "white",
+                            "borderRadius": 0,
+                            "opacity": 0.2,
+                          },
+                        ]
+                      }
+                    />
+                    <Text
+                      style={
+                        Array [
+                          Object {
+                            "color": "#565656",
+                            "fontSize": 12,
+                          },
+                          Object {
+                            "alignSelf": "center",
+                            "color": "black",
+                            "opacity": 0.2,
+                          },
+                        ]
+                      }
+                    >
+                      13
+                    </Text>
+                  </View>
+                </View>
+              </>
+            </View>
+            <View>
+              <>
+                <View
+                  style={Object {}}
+                >
+                  <View
+                    style={
+                      Array [
+                        Object {
+                          "alignItems": "center",
+                          "height": 25,
+                          "justifyContent": "center",
+                          "width": "100%",
+                        },
+                        Object {
+                          "alignItems": "center",
+                          "flex": 1,
+                          "justifyContent": "center",
+                        },
+                      ]
+                    }
+                  >
+                    <View
+                      style={
+                        Array [
+                          Object {
+                            "borderRadius": 12,
+                            "height": 32,
+                            "position": "absolute",
+                            "width": 32,
+                          },
+                          Object {
+                            "backgroundColor": "white",
+                            "borderRadius": 0,
+                            "opacity": 0.2,
+                          },
+                        ]
+                      }
+                    />
+                    <Text
+                      style={
+                        Array [
+                          Object {
+                            "color": "#565656",
+                            "fontSize": 12,
+                          },
+                          Object {
+                            "alignSelf": "center",
+                            "color": "black",
+                            "opacity": 0.2,
+                          },
+                        ]
+                      }
+                    >
+                      13
+                    </Text>
+                  </View>
+                </View>
+              </>
+            </View>
+            <View>
+              <>
+                <View
+                  style={Object {}}
+                >
+                  <View
+                    style={
+                      Array [
+                        Object {
+                          "alignItems": "center",
+                          "height": 25,
+                          "justifyContent": "center",
+                          "width": "100%",
+                        },
+                        Object {
+                          "alignItems": "center",
+                          "flex": 1,
+                          "justifyContent": "center",
+                        },
+                      ]
+                    }
+                  >
+                    <View
+                      style={
+                        Array [
+                          Object {
+                            "borderRadius": 12,
+                            "height": 32,
+                            "position": "absolute",
+                            "width": 32,
+                          },
+                          Object {
+                            "backgroundColor": "white",
+                            "borderRadius": 0,
+                            "opacity": 0.2,
+                          },
+                        ]
+                      }
+                    />
+                    <Text
+                      style={
+                        Array [
+                          Object {
+                            "color": "#565656",
+                            "fontSize": 12,
+                          },
+                          Object {
+                            "alignSelf": "center",
+                            "color": "black",
+                            "opacity": 0.2,
+                          },
+                        ]
+                      }
+                    >
+                      13
+                    </Text>
+                  </View>
+                </View>
+              </>
+            </View>
+            <View>
+              <>
+                <View
+                  style={Object {}}
+                >
+                  <View
+                    style={
+                      Array [
+                        Object {
+                          "alignItems": "center",
+                          "height": 25,
+                          "justifyContent": "center",
+                          "width": "100%",
+                        },
+                        Object {
+                          "alignItems": "center",
+                          "flex": 1,
+                          "justifyContent": "center",
+                        },
+                      ]
+                    }
+                  >
+                    <View
+                      style={
+                        Array [
+                          Object {
+                            "borderRadius": 12,
+                            "height": 32,
+                            "position": "absolute",
+                            "width": 32,
+                          },
+                          Object {
+                            "backgroundColor": "white",
+                            "borderRadius": 0,
+                            "opacity": 0.2,
+                          },
+                        ]
+                      }
+                    />
+                    <Text
+                      style={
+                        Array [
+                          Object {
+                            "color": "#565656",
+                            "fontSize": 12,
+                          },
+                          Object {
+                            "alignSelf": "center",
+                            "color": "black",
+                            "opacity": 0.2,
+                          },
+                        ]
+                      }
+                    >
+                      13
+                    </Text>
+                  </View>
+                </View>
+              </>
+            </View>
+            <View>
+              <>
+                <View
+                  style={Object {}}
+                >
+                  <View
+                    style={
+                      Array [
+                        Object {
+                          "alignItems": "center",
+                          "height": 25,
+                          "justifyContent": "center",
+                          "width": "100%",
+                        },
+                        Object {
+                          "alignItems": "center",
+                          "flex": 1,
+                          "justifyContent": "center",
+                        },
+                      ]
+                    }
+                  >
+                    <View
+                      style={
+                        Array [
+                          Object {
+                            "borderRadius": 12,
+                            "height": 32,
+                            "position": "absolute",
+                            "width": 32,
+                          },
+                          Object {
+                            "backgroundColor": "white",
+                            "borderRadius": 0,
+                            "opacity": 0.2,
+                          },
+                        ]
+                      }
+                    />
+                    <Text
+                      style={
+                        Array [
+                          Object {
+                            "color": "#565656",
+                            "fontSize": 12,
+                          },
+                          Object {
+                            "alignSelf": "center",
+                            "color": "black",
+                            "opacity": 0.2,
+                          },
+                        ]
+                      }
+                    >
+                      13
+                    </Text>
+                  </View>
+                </View>
+              </>
+            </View>
+          </View>
+          <View
+            style={
+              Object {
+                "flexDirection": "row",
+                "justifyContent": "space-between",
+                "paddingHorizontal": 0,
+                "width": 300,
+              }
+            }
+          >
+            <View>
+              <>
+                <View
+                  style={Object {}}
+                >
+                  <View
+                    style={
+                      Array [
+                        Object {
+                          "alignItems": "center",
+                          "height": 25,
+                          "justifyContent": "center",
+                          "width": "100%",
+                        },
+                        Object {
+                          "alignItems": "center",
+                          "flex": 1,
+                          "justifyContent": "center",
+                        },
+                      ]
+                    }
+                  >
+                    <View
+                      style={
+                        Array [
+                          Object {
+                            "borderRadius": 12,
+                            "height": 32,
+                            "position": "absolute",
+                            "width": 32,
+                          },
+                          Object {
+                            "backgroundColor": "white",
+                            "borderRadius": 0,
+                            "opacity": 0.2,
+                          },
+                        ]
+                      }
+                    />
+                    <Text
+                      style={
+                        Array [
+                          Object {
+                            "color": "#565656",
+                            "fontSize": 12,
+                          },
+                          Object {
+                            "alignSelf": "center",
+                            "color": "black",
+                            "opacity": 0.2,
+                          },
+                        ]
+                      }
+                    >
+                      13
+                    </Text>
+                  </View>
+                </View>
+              </>
+            </View>
+            <View>
+              <>
+                <View
+                  style={Object {}}
+                >
+                  <View
+                    style={
+                      Array [
+                        Object {
+                          "alignItems": "center",
+                          "height": 25,
+                          "justifyContent": "center",
+                          "width": "100%",
+                        },
+                        Object {
+                          "alignItems": "center",
+                          "flex": 1,
+                          "justifyContent": "center",
+                        },
+                      ]
+                    }
+                  >
+                    <View
+                      style={
+                        Array [
+                          Object {
+                            "borderRadius": 12,
+                            "height": 32,
+                            "position": "absolute",
+                            "width": 32,
+                          },
+                          Object {
+                            "backgroundColor": "white",
+                            "borderRadius": 0,
+                            "opacity": 0.2,
+                          },
+                        ]
+                      }
+                    />
+                    <Text
+                      style={
+                        Array [
+                          Object {
+                            "color": "#565656",
+                            "fontSize": 12,
+                          },
+                          Object {
+                            "alignSelf": "center",
+                            "color": "black",
+                            "opacity": 0.2,
+                          },
+                        ]
+                      }
+                    >
+                      13
+                    </Text>
+                  </View>
+                </View>
+              </>
+            </View>
+            <View>
+              <>
+                <View
+                  style={Object {}}
+                >
+                  <View
+                    style={
+                      Array [
+                        Object {
+                          "alignItems": "center",
+                          "height": 25,
+                          "justifyContent": "center",
+                          "width": "100%",
+                        },
+                        Object {
+                          "alignItems": "center",
+                          "flex": 1,
+                          "justifyContent": "center",
+                        },
+                      ]
+                    }
+                  >
+                    <View
+                      style={
+                        Array [
+                          Object {
+                            "borderRadius": 12,
+                            "height": 32,
+                            "position": "absolute",
+                            "width": 32,
+                          },
+                          Object {
+                            "backgroundColor": "white",
+                            "borderRadius": 0,
+                            "opacity": 0.2,
+                          },
+                        ]
+                      }
+                    />
+                    <Text
+                      style={
+                        Array [
+                          Object {
+                            "color": "#565656",
+                            "fontSize": 12,
+                          },
+                          Object {
+                            "alignSelf": "center",
+                            "color": "black",
+                            "opacity": 0.2,
+                          },
+                        ]
+                      }
+                    >
+                      13
+                    </Text>
+                  </View>
+                </View>
+              </>
+            </View>
+            <View>
+              <>
+                <View
+                  style={Object {}}
+                >
+                  <View
+                    style={
+                      Array [
+                        Object {
+                          "alignItems": "center",
+                          "height": 25,
+                          "justifyContent": "center",
+                          "width": "100%",
+                        },
+                        Object {
+                          "alignItems": "center",
+                          "flex": 1,
+                          "justifyContent": "center",
+                        },
+                      ]
+                    }
+                  >
+                    <View
+                      style={
+                        Array [
+                          Object {
+                            "borderRadius": 12,
+                            "height": 32,
+                            "position": "absolute",
+                            "width": 32,
+                          },
+                          Object {
+                            "backgroundColor": "white",
+                            "borderRadius": 0,
+                            "opacity": 0.2,
+                          },
+                        ]
+                      }
+                    />
+                    <Text
+                      style={
+                        Array [
+                          Object {
+                            "color": "#565656",
+                            "fontSize": 12,
+                          },
+                          Object {
+                            "alignSelf": "center",
+                            "color": "black",
+                            "opacity": 0.2,
+                          },
+                        ]
+                      }
+                    >
+                      13
+                    </Text>
+                  </View>
+                </View>
+              </>
+            </View>
+            <View>
+              <>
+                <View
+                  style={Object {}}
+                >
+                  <View
+                    style={
+                      Array [
+                        Object {
+                          "alignItems": "center",
+                          "height": 25,
+                          "justifyContent": "center",
+                          "width": "100%",
+                        },
+                        Object {
+                          "alignItems": "center",
+                          "flex": 1,
+                          "justifyContent": "center",
+                        },
+                      ]
+                    }
+                  >
+                    <View
+                      style={
+                        Array [
+                          Object {
+                            "borderRadius": 12,
+                            "height": 32,
+                            "position": "absolute",
+                            "width": 32,
+                          },
+                          Object {
+                            "backgroundColor": "white",
+                            "borderRadius": 0,
+                            "opacity": 0.2,
+                          },
+                        ]
+                      }
+                    />
+                    <Text
+                      style={
+                        Array [
+                          Object {
+                            "color": "#565656",
+                            "fontSize": 12,
+                          },
+                          Object {
+                            "alignSelf": "center",
+                            "color": "black",
+                            "opacity": 0.2,
+                          },
+                        ]
+                      }
+                    >
+                      13
+                    </Text>
+                  </View>
+                </View>
+              </>
+            </View>
+            <View>
+              <>
+                <View
+                  style={Object {}}
+                >
+                  <View
+                    style={
+                      Array [
+                        Object {
+                          "alignItems": "center",
+                          "height": 25,
+                          "justifyContent": "center",
+                          "width": "100%",
+                        },
+                        Object {
+                          "alignItems": "center",
+                          "flex": 1,
+                          "justifyContent": "center",
+                        },
+                      ]
+                    }
+                  >
+                    <View
+                      style={
+                        Array [
+                          Object {
+                            "borderRadius": 12,
+                            "height": 32,
+                            "position": "absolute",
+                            "width": 32,
+                          },
+                          Object {
+                            "backgroundColor": "white",
+                            "borderRadius": 0,
+                            "opacity": 0.2,
+                          },
+                        ]
+                      }
+                    />
+                    <Text
+                      style={
+                        Array [
+                          Object {
+                            "color": "#565656",
+                            "fontSize": 12,
+                          },
+                          Object {
+                            "alignSelf": "center",
+                            "color": "black",
+                            "opacity": 0.2,
+                          },
+                        ]
+                      }
+                    >
+                      13
+                    </Text>
+                  </View>
+                </View>
+              </>
+            </View>
+            <View>
+              <>
+                <View
+                  style={Object {}}
+                >
+                  <View
+                    style={
+                      Array [
+                        Object {
+                          "alignItems": "center",
+                          "height": 25,
+                          "justifyContent": "center",
+                          "width": "100%",
+                        },
+                        Object {
+                          "alignItems": "center",
+                          "flex": 1,
+                          "justifyContent": "center",
+                        },
+                      ]
+                    }
+                  >
+                    <View
+                      style={
+                        Array [
+                          Object {
+                            "borderRadius": 12,
+                            "height": 32,
+                            "position": "absolute",
+                            "width": 32,
+                          },
+                          Object {
+                            "backgroundColor": "white",
+                            "borderRadius": 0,
+                            "opacity": 0.2,
+                          },
+                        ]
+                      }
+                    />
+                    <Text
+                      style={
+                        Array [
+                          Object {
+                            "color": "#565656",
+                            "fontSize": 12,
+                          },
+                          Object {
+                            "alignSelf": "center",
+                            "color": "black",
+                            "opacity": 0.2,
+                          },
+                        ]
+                      }
+                    >
+                      13
                     </Text>
                   </View>
                 </View>
@@ -3062,7 +3062,7 @@ exports[`[CalendarDate] render should render without crashing 1`] = `
             ]
           }
         >
-          12
+          13
         </Text>
       </View>
     </View>
@@ -3147,7 +3147,7 @@ exports[`[CalendarMonth] render should render without crashing 1`] = `
                   ]
                 }
               >
-                12
+                13
               </Text>
             </View>
           </View>
@@ -3207,7 +3207,7 @@ exports[`[CalendarMonth] render should render without crashing 1`] = `
                   ]
                 }
               >
-                12
+                13
               </Text>
             </View>
           </View>
@@ -3267,7 +3267,7 @@ exports[`[CalendarMonth] render should render without crashing 1`] = `
                   ]
                 }
               >
-                12
+                13
               </Text>
             </View>
           </View>
@@ -3327,7 +3327,7 @@ exports[`[CalendarMonth] render should render without crashing 1`] = `
                   ]
                 }
               >
-                12
+                13
               </Text>
             </View>
           </View>
@@ -3387,7 +3387,7 @@ exports[`[CalendarMonth] render should render without crashing 1`] = `
                   ]
                 }
               >
-                12
+                13
               </Text>
             </View>
           </View>
@@ -3447,7 +3447,7 @@ exports[`[CalendarMonth] render should render without crashing 1`] = `
                   ]
                 }
               >
-                12
+                13
               </Text>
             </View>
           </View>
@@ -3507,438 +3507,7 @@ exports[`[CalendarMonth] render should render without crashing 1`] = `
                   ]
                 }
               >
-                12
-              </Text>
-            </View>
-          </View>
-        </>
-      </View>
-    </View>
-    <View
-      style={
-        Object {
-          "flexDirection": "row",
-          "justifyContent": "space-between",
-          "paddingHorizontal": 0,
-          "width": 300,
-        }
-      }
-    >
-      <View>
-        <>
-          <View
-            style={Object {}}
-          >
-            <View
-              style={
-                Array [
-                  Object {
-                    "alignItems": "center",
-                    "height": 25,
-                    "justifyContent": "center",
-                    "width": "100%",
-                  },
-                  Object {
-                    "alignItems": "center",
-                    "flex": 1,
-                    "justifyContent": "center",
-                  },
-                ]
-              }
-            >
-              <View
-                style={
-                  Array [
-                    Object {
-                      "borderRadius": 12,
-                      "height": 32,
-                      "position": "absolute",
-                      "width": 32,
-                    },
-                    Object {
-                      "backgroundColor": "white",
-                      "borderRadius": 0,
-                      "opacity": 0.2,
-                    },
-                  ]
-                }
-              />
-              <Text
-                style={
-                  Array [
-                    Object {
-                      "color": "#565656",
-                      "fontSize": 12,
-                    },
-                    Object {
-                      "alignSelf": "center",
-                      "color": "black",
-                      "opacity": 0.2,
-                    },
-                  ]
-                }
-              >
-                12
-              </Text>
-            </View>
-          </View>
-        </>
-      </View>
-      <View>
-        <>
-          <View
-            style={Object {}}
-          >
-            <View
-              style={
-                Array [
-                  Object {
-                    "alignItems": "center",
-                    "height": 25,
-                    "justifyContent": "center",
-                    "width": "100%",
-                  },
-                  Object {
-                    "alignItems": "center",
-                    "flex": 1,
-                    "justifyContent": "center",
-                  },
-                ]
-              }
-            >
-              <View
-                style={
-                  Array [
-                    Object {
-                      "borderRadius": 12,
-                      "height": 32,
-                      "position": "absolute",
-                      "width": 32,
-                    },
-                    Object {
-                      "backgroundColor": "white",
-                      "borderRadius": 0,
-                      "opacity": 0.2,
-                    },
-                  ]
-                }
-              />
-              <Text
-                style={
-                  Array [
-                    Object {
-                      "color": "#565656",
-                      "fontSize": 12,
-                    },
-                    Object {
-                      "alignSelf": "center",
-                      "color": "black",
-                      "opacity": 0.2,
-                    },
-                  ]
-                }
-              >
-                12
-              </Text>
-            </View>
-          </View>
-        </>
-      </View>
-      <View>
-        <>
-          <View
-            style={Object {}}
-          >
-            <View
-              style={
-                Array [
-                  Object {
-                    "alignItems": "center",
-                    "height": 25,
-                    "justifyContent": "center",
-                    "width": "100%",
-                  },
-                  Object {
-                    "alignItems": "center",
-                    "flex": 1,
-                    "justifyContent": "center",
-                  },
-                ]
-              }
-            >
-              <View
-                style={
-                  Array [
-                    Object {
-                      "borderRadius": 12,
-                      "height": 32,
-                      "position": "absolute",
-                      "width": 32,
-                    },
-                    Object {
-                      "backgroundColor": "white",
-                      "borderRadius": 0,
-                      "opacity": 0.2,
-                    },
-                  ]
-                }
-              />
-              <Text
-                style={
-                  Array [
-                    Object {
-                      "color": "#565656",
-                      "fontSize": 12,
-                    },
-                    Object {
-                      "alignSelf": "center",
-                      "color": "black",
-                      "opacity": 0.2,
-                    },
-                  ]
-                }
-              >
-                12
-              </Text>
-            </View>
-          </View>
-        </>
-      </View>
-      <View>
-        <>
-          <View
-            style={Object {}}
-          >
-            <View
-              style={
-                Array [
-                  Object {
-                    "alignItems": "center",
-                    "height": 25,
-                    "justifyContent": "center",
-                    "width": "100%",
-                  },
-                  Object {
-                    "alignItems": "center",
-                    "flex": 1,
-                    "justifyContent": "center",
-                  },
-                ]
-              }
-            >
-              <View
-                style={
-                  Array [
-                    Object {
-                      "borderRadius": 12,
-                      "height": 32,
-                      "position": "absolute",
-                      "width": 32,
-                    },
-                    Object {
-                      "backgroundColor": "white",
-                      "borderRadius": 0,
-                      "opacity": 0.2,
-                    },
-                  ]
-                }
-              />
-              <Text
-                style={
-                  Array [
-                    Object {
-                      "color": "#565656",
-                      "fontSize": 12,
-                    },
-                    Object {
-                      "alignSelf": "center",
-                      "color": "black",
-                      "opacity": 0.2,
-                    },
-                  ]
-                }
-              >
-                12
-              </Text>
-            </View>
-          </View>
-        </>
-      </View>
-      <View>
-        <>
-          <View
-            style={Object {}}
-          >
-            <View
-              style={
-                Array [
-                  Object {
-                    "alignItems": "center",
-                    "height": 25,
-                    "justifyContent": "center",
-                    "width": "100%",
-                  },
-                  Object {
-                    "alignItems": "center",
-                    "flex": 1,
-                    "justifyContent": "center",
-                  },
-                ]
-              }
-            >
-              <View
-                style={
-                  Array [
-                    Object {
-                      "borderRadius": 12,
-                      "height": 32,
-                      "position": "absolute",
-                      "width": 32,
-                    },
-                    Object {
-                      "backgroundColor": "white",
-                      "borderRadius": 0,
-                      "opacity": 0.2,
-                    },
-                  ]
-                }
-              />
-              <Text
-                style={
-                  Array [
-                    Object {
-                      "color": "#565656",
-                      "fontSize": 12,
-                    },
-                    Object {
-                      "alignSelf": "center",
-                      "color": "black",
-                      "opacity": 0.2,
-                    },
-                  ]
-                }
-              >
-                12
-              </Text>
-            </View>
-          </View>
-        </>
-      </View>
-      <View>
-        <>
-          <View
-            style={Object {}}
-          >
-            <View
-              style={
-                Array [
-                  Object {
-                    "alignItems": "center",
-                    "height": 25,
-                    "justifyContent": "center",
-                    "width": "100%",
-                  },
-                  Object {
-                    "alignItems": "center",
-                    "flex": 1,
-                    "justifyContent": "center",
-                  },
-                ]
-              }
-            >
-              <View
-                style={
-                  Array [
-                    Object {
-                      "borderRadius": 12,
-                      "height": 32,
-                      "position": "absolute",
-                      "width": 32,
-                    },
-                    Object {
-                      "backgroundColor": "white",
-                      "borderRadius": 0,
-                      "opacity": 0.2,
-                    },
-                  ]
-                }
-              />
-              <Text
-                style={
-                  Array [
-                    Object {
-                      "color": "#565656",
-                      "fontSize": 12,
-                    },
-                    Object {
-                      "alignSelf": "center",
-                      "color": "black",
-                      "opacity": 0.2,
-                    },
-                  ]
-                }
-              >
-                12
-              </Text>
-            </View>
-          </View>
-        </>
-      </View>
-      <View>
-        <>
-          <View
-            style={Object {}}
-          >
-            <View
-              style={
-                Array [
-                  Object {
-                    "alignItems": "center",
-                    "height": 25,
-                    "justifyContent": "center",
-                    "width": "100%",
-                  },
-                  Object {
-                    "alignItems": "center",
-                    "flex": 1,
-                    "justifyContent": "center",
-                  },
-                ]
-              }
-            >
-              <View
-                style={
-                  Array [
-                    Object {
-                      "borderRadius": 12,
-                      "height": 32,
-                      "position": "absolute",
-                      "width": 32,
-                    },
-                    Object {
-                      "backgroundColor": "white",
-                      "borderRadius": 0,
-                      "opacity": 0.2,
-                    },
-                  ]
-                }
-              />
-              <Text
-                style={
-                  Array [
-                    Object {
-                      "color": "#565656",
-                      "fontSize": 12,
-                    },
-                    Object {
-                      "alignSelf": "center",
-                      "color": "black",
-                      "opacity": 0.2,
-                    },
-                  ]
-                }
-              >
-                12
+                13
               </Text>
             </View>
           </View>
@@ -4009,7 +3578,7 @@ exports[`[CalendarMonth] render should render without crashing 1`] = `
                   ]
                 }
               >
-                12
+                13
               </Text>
             </View>
           </View>
@@ -4069,7 +3638,7 @@ exports[`[CalendarMonth] render should render without crashing 1`] = `
                   ]
                 }
               >
-                12
+                13
               </Text>
             </View>
           </View>
@@ -4129,7 +3698,7 @@ exports[`[CalendarMonth] render should render without crashing 1`] = `
                   ]
                 }
               >
-                12
+                13
               </Text>
             </View>
           </View>
@@ -4189,7 +3758,7 @@ exports[`[CalendarMonth] render should render without crashing 1`] = `
                   ]
                 }
               >
-                12
+                13
               </Text>
             </View>
           </View>
@@ -4249,7 +3818,7 @@ exports[`[CalendarMonth] render should render without crashing 1`] = `
                   ]
                 }
               >
-                12
+                13
               </Text>
             </View>
           </View>
@@ -4309,7 +3878,7 @@ exports[`[CalendarMonth] render should render without crashing 1`] = `
                   ]
                 }
               >
-                12
+                13
               </Text>
             </View>
           </View>
@@ -4369,438 +3938,7 @@ exports[`[CalendarMonth] render should render without crashing 1`] = `
                   ]
                 }
               >
-                12
-              </Text>
-            </View>
-          </View>
-        </>
-      </View>
-    </View>
-    <View
-      style={
-        Object {
-          "flexDirection": "row",
-          "justifyContent": "space-between",
-          "paddingHorizontal": 0,
-          "width": 300,
-        }
-      }
-    >
-      <View>
-        <>
-          <View
-            style={Object {}}
-          >
-            <View
-              style={
-                Array [
-                  Object {
-                    "alignItems": "center",
-                    "height": 25,
-                    "justifyContent": "center",
-                    "width": "100%",
-                  },
-                  Object {
-                    "alignItems": "center",
-                    "flex": 1,
-                    "justifyContent": "center",
-                  },
-                ]
-              }
-            >
-              <View
-                style={
-                  Array [
-                    Object {
-                      "borderRadius": 12,
-                      "height": 32,
-                      "position": "absolute",
-                      "width": 32,
-                    },
-                    Object {
-                      "backgroundColor": "white",
-                      "borderRadius": 0,
-                      "opacity": 0.2,
-                    },
-                  ]
-                }
-              />
-              <Text
-                style={
-                  Array [
-                    Object {
-                      "color": "#565656",
-                      "fontSize": 12,
-                    },
-                    Object {
-                      "alignSelf": "center",
-                      "color": "black",
-                      "opacity": 0.2,
-                    },
-                  ]
-                }
-              >
-                12
-              </Text>
-            </View>
-          </View>
-        </>
-      </View>
-      <View>
-        <>
-          <View
-            style={Object {}}
-          >
-            <View
-              style={
-                Array [
-                  Object {
-                    "alignItems": "center",
-                    "height": 25,
-                    "justifyContent": "center",
-                    "width": "100%",
-                  },
-                  Object {
-                    "alignItems": "center",
-                    "flex": 1,
-                    "justifyContent": "center",
-                  },
-                ]
-              }
-            >
-              <View
-                style={
-                  Array [
-                    Object {
-                      "borderRadius": 12,
-                      "height": 32,
-                      "position": "absolute",
-                      "width": 32,
-                    },
-                    Object {
-                      "backgroundColor": "white",
-                      "borderRadius": 0,
-                      "opacity": 0.2,
-                    },
-                  ]
-                }
-              />
-              <Text
-                style={
-                  Array [
-                    Object {
-                      "color": "#565656",
-                      "fontSize": 12,
-                    },
-                    Object {
-                      "alignSelf": "center",
-                      "color": "black",
-                      "opacity": 0.2,
-                    },
-                  ]
-                }
-              >
-                12
-              </Text>
-            </View>
-          </View>
-        </>
-      </View>
-      <View>
-        <>
-          <View
-            style={Object {}}
-          >
-            <View
-              style={
-                Array [
-                  Object {
-                    "alignItems": "center",
-                    "height": 25,
-                    "justifyContent": "center",
-                    "width": "100%",
-                  },
-                  Object {
-                    "alignItems": "center",
-                    "flex": 1,
-                    "justifyContent": "center",
-                  },
-                ]
-              }
-            >
-              <View
-                style={
-                  Array [
-                    Object {
-                      "borderRadius": 12,
-                      "height": 32,
-                      "position": "absolute",
-                      "width": 32,
-                    },
-                    Object {
-                      "backgroundColor": "white",
-                      "borderRadius": 0,
-                      "opacity": 0.2,
-                    },
-                  ]
-                }
-              />
-              <Text
-                style={
-                  Array [
-                    Object {
-                      "color": "#565656",
-                      "fontSize": 12,
-                    },
-                    Object {
-                      "alignSelf": "center",
-                      "color": "black",
-                      "opacity": 0.2,
-                    },
-                  ]
-                }
-              >
-                12
-              </Text>
-            </View>
-          </View>
-        </>
-      </View>
-      <View>
-        <>
-          <View
-            style={Object {}}
-          >
-            <View
-              style={
-                Array [
-                  Object {
-                    "alignItems": "center",
-                    "height": 25,
-                    "justifyContent": "center",
-                    "width": "100%",
-                  },
-                  Object {
-                    "alignItems": "center",
-                    "flex": 1,
-                    "justifyContent": "center",
-                  },
-                ]
-              }
-            >
-              <View
-                style={
-                  Array [
-                    Object {
-                      "borderRadius": 12,
-                      "height": 32,
-                      "position": "absolute",
-                      "width": 32,
-                    },
-                    Object {
-                      "backgroundColor": "white",
-                      "borderRadius": 0,
-                      "opacity": 0.2,
-                    },
-                  ]
-                }
-              />
-              <Text
-                style={
-                  Array [
-                    Object {
-                      "color": "#565656",
-                      "fontSize": 12,
-                    },
-                    Object {
-                      "alignSelf": "center",
-                      "color": "black",
-                      "opacity": 0.2,
-                    },
-                  ]
-                }
-              >
-                12
-              </Text>
-            </View>
-          </View>
-        </>
-      </View>
-      <View>
-        <>
-          <View
-            style={Object {}}
-          >
-            <View
-              style={
-                Array [
-                  Object {
-                    "alignItems": "center",
-                    "height": 25,
-                    "justifyContent": "center",
-                    "width": "100%",
-                  },
-                  Object {
-                    "alignItems": "center",
-                    "flex": 1,
-                    "justifyContent": "center",
-                  },
-                ]
-              }
-            >
-              <View
-                style={
-                  Array [
-                    Object {
-                      "borderRadius": 12,
-                      "height": 32,
-                      "position": "absolute",
-                      "width": 32,
-                    },
-                    Object {
-                      "backgroundColor": "white",
-                      "borderRadius": 0,
-                      "opacity": 0.2,
-                    },
-                  ]
-                }
-              />
-              <Text
-                style={
-                  Array [
-                    Object {
-                      "color": "#565656",
-                      "fontSize": 12,
-                    },
-                    Object {
-                      "alignSelf": "center",
-                      "color": "black",
-                      "opacity": 0.2,
-                    },
-                  ]
-                }
-              >
-                12
-              </Text>
-            </View>
-          </View>
-        </>
-      </View>
-      <View>
-        <>
-          <View
-            style={Object {}}
-          >
-            <View
-              style={
-                Array [
-                  Object {
-                    "alignItems": "center",
-                    "height": 25,
-                    "justifyContent": "center",
-                    "width": "100%",
-                  },
-                  Object {
-                    "alignItems": "center",
-                    "flex": 1,
-                    "justifyContent": "center",
-                  },
-                ]
-              }
-            >
-              <View
-                style={
-                  Array [
-                    Object {
-                      "borderRadius": 12,
-                      "height": 32,
-                      "position": "absolute",
-                      "width": 32,
-                    },
-                    Object {
-                      "backgroundColor": "white",
-                      "borderRadius": 0,
-                      "opacity": 0.2,
-                    },
-                  ]
-                }
-              />
-              <Text
-                style={
-                  Array [
-                    Object {
-                      "color": "#565656",
-                      "fontSize": 12,
-                    },
-                    Object {
-                      "alignSelf": "center",
-                      "color": "black",
-                      "opacity": 0.2,
-                    },
-                  ]
-                }
-              >
-                12
-              </Text>
-            </View>
-          </View>
-        </>
-      </View>
-      <View>
-        <>
-          <View
-            style={Object {}}
-          >
-            <View
-              style={
-                Array [
-                  Object {
-                    "alignItems": "center",
-                    "height": 25,
-                    "justifyContent": "center",
-                    "width": "100%",
-                  },
-                  Object {
-                    "alignItems": "center",
-                    "flex": 1,
-                    "justifyContent": "center",
-                  },
-                ]
-              }
-            >
-              <View
-                style={
-                  Array [
-                    Object {
-                      "borderRadius": 12,
-                      "height": 32,
-                      "position": "absolute",
-                      "width": 32,
-                    },
-                    Object {
-                      "backgroundColor": "white",
-                      "borderRadius": 0,
-                      "opacity": 0.2,
-                    },
-                  ]
-                }
-              />
-              <Text
-                style={
-                  Array [
-                    Object {
-                      "color": "#565656",
-                      "fontSize": 12,
-                    },
-                    Object {
-                      "alignSelf": "center",
-                      "color": "black",
-                      "opacity": 0.2,
-                    },
-                  ]
-                }
-              >
-                12
+                13
               </Text>
             </View>
           </View>
@@ -4871,7 +4009,7 @@ exports[`[CalendarMonth] render should render without crashing 1`] = `
                   ]
                 }
               >
-                12
+                13
               </Text>
             </View>
           </View>
@@ -4931,7 +4069,7 @@ exports[`[CalendarMonth] render should render without crashing 1`] = `
                   ]
                 }
               >
-                12
+                13
               </Text>
             </View>
           </View>
@@ -4991,7 +4129,7 @@ exports[`[CalendarMonth] render should render without crashing 1`] = `
                   ]
                 }
               >
-                12
+                13
               </Text>
             </View>
           </View>
@@ -5051,7 +4189,7 @@ exports[`[CalendarMonth] render should render without crashing 1`] = `
                   ]
                 }
               >
-                12
+                13
               </Text>
             </View>
           </View>
@@ -5111,7 +4249,7 @@ exports[`[CalendarMonth] render should render without crashing 1`] = `
                   ]
                 }
               >
-                12
+                13
               </Text>
             </View>
           </View>
@@ -5171,7 +4309,7 @@ exports[`[CalendarMonth] render should render without crashing 1`] = `
                   ]
                 }
               >
-                12
+                13
               </Text>
             </View>
           </View>
@@ -5231,7 +4369,7 @@ exports[`[CalendarMonth] render should render without crashing 1`] = `
                   ]
                 }
               >
-                12
+                13
               </Text>
             </View>
           </View>
@@ -5302,7 +4440,7 @@ exports[`[CalendarMonth] render should render without crashing 1`] = `
                   ]
                 }
               >
-                12
+                13
               </Text>
             </View>
           </View>
@@ -5362,7 +4500,7 @@ exports[`[CalendarMonth] render should render without crashing 1`] = `
                   ]
                 }
               >
-                12
+                13
               </Text>
             </View>
           </View>
@@ -5422,7 +4560,7 @@ exports[`[CalendarMonth] render should render without crashing 1`] = `
                   ]
                 }
               >
-                12
+                13
               </Text>
             </View>
           </View>
@@ -5482,7 +4620,7 @@ exports[`[CalendarMonth] render should render without crashing 1`] = `
                   ]
                 }
               >
-                12
+                13
               </Text>
             </View>
           </View>
@@ -5542,7 +4680,7 @@ exports[`[CalendarMonth] render should render without crashing 1`] = `
                   ]
                 }
               >
-                12
+                13
               </Text>
             </View>
           </View>
@@ -5602,7 +4740,7 @@ exports[`[CalendarMonth] render should render without crashing 1`] = `
                   ]
                 }
               >
-                12
+                13
               </Text>
             </View>
           </View>
@@ -5662,7 +4800,869 @@ exports[`[CalendarMonth] render should render without crashing 1`] = `
                   ]
                 }
               >
-                12
+                13
+              </Text>
+            </View>
+          </View>
+        </>
+      </View>
+    </View>
+    <View
+      style={
+        Object {
+          "flexDirection": "row",
+          "justifyContent": "space-between",
+          "paddingHorizontal": 0,
+          "width": 300,
+        }
+      }
+    >
+      <View>
+        <>
+          <View
+            style={Object {}}
+          >
+            <View
+              style={
+                Array [
+                  Object {
+                    "alignItems": "center",
+                    "height": 25,
+                    "justifyContent": "center",
+                    "width": "100%",
+                  },
+                  Object {
+                    "alignItems": "center",
+                    "flex": 1,
+                    "justifyContent": "center",
+                  },
+                ]
+              }
+            >
+              <View
+                style={
+                  Array [
+                    Object {
+                      "borderRadius": 12,
+                      "height": 32,
+                      "position": "absolute",
+                      "width": 32,
+                    },
+                    Object {
+                      "backgroundColor": "white",
+                      "borderRadius": 0,
+                      "opacity": 0.2,
+                    },
+                  ]
+                }
+              />
+              <Text
+                style={
+                  Array [
+                    Object {
+                      "color": "#565656",
+                      "fontSize": 12,
+                    },
+                    Object {
+                      "alignSelf": "center",
+                      "color": "black",
+                      "opacity": 0.2,
+                    },
+                  ]
+                }
+              >
+                13
+              </Text>
+            </View>
+          </View>
+        </>
+      </View>
+      <View>
+        <>
+          <View
+            style={Object {}}
+          >
+            <View
+              style={
+                Array [
+                  Object {
+                    "alignItems": "center",
+                    "height": 25,
+                    "justifyContent": "center",
+                    "width": "100%",
+                  },
+                  Object {
+                    "alignItems": "center",
+                    "flex": 1,
+                    "justifyContent": "center",
+                  },
+                ]
+              }
+            >
+              <View
+                style={
+                  Array [
+                    Object {
+                      "borderRadius": 12,
+                      "height": 32,
+                      "position": "absolute",
+                      "width": 32,
+                    },
+                    Object {
+                      "backgroundColor": "white",
+                      "borderRadius": 0,
+                      "opacity": 0.2,
+                    },
+                  ]
+                }
+              />
+              <Text
+                style={
+                  Array [
+                    Object {
+                      "color": "#565656",
+                      "fontSize": 12,
+                    },
+                    Object {
+                      "alignSelf": "center",
+                      "color": "black",
+                      "opacity": 0.2,
+                    },
+                  ]
+                }
+              >
+                13
+              </Text>
+            </View>
+          </View>
+        </>
+      </View>
+      <View>
+        <>
+          <View
+            style={Object {}}
+          >
+            <View
+              style={
+                Array [
+                  Object {
+                    "alignItems": "center",
+                    "height": 25,
+                    "justifyContent": "center",
+                    "width": "100%",
+                  },
+                  Object {
+                    "alignItems": "center",
+                    "flex": 1,
+                    "justifyContent": "center",
+                  },
+                ]
+              }
+            >
+              <View
+                style={
+                  Array [
+                    Object {
+                      "borderRadius": 12,
+                      "height": 32,
+                      "position": "absolute",
+                      "width": 32,
+                    },
+                    Object {
+                      "backgroundColor": "white",
+                      "borderRadius": 0,
+                      "opacity": 0.2,
+                    },
+                  ]
+                }
+              />
+              <Text
+                style={
+                  Array [
+                    Object {
+                      "color": "#565656",
+                      "fontSize": 12,
+                    },
+                    Object {
+                      "alignSelf": "center",
+                      "color": "black",
+                      "opacity": 0.2,
+                    },
+                  ]
+                }
+              >
+                13
+              </Text>
+            </View>
+          </View>
+        </>
+      </View>
+      <View>
+        <>
+          <View
+            style={Object {}}
+          >
+            <View
+              style={
+                Array [
+                  Object {
+                    "alignItems": "center",
+                    "height": 25,
+                    "justifyContent": "center",
+                    "width": "100%",
+                  },
+                  Object {
+                    "alignItems": "center",
+                    "flex": 1,
+                    "justifyContent": "center",
+                  },
+                ]
+              }
+            >
+              <View
+                style={
+                  Array [
+                    Object {
+                      "borderRadius": 12,
+                      "height": 32,
+                      "position": "absolute",
+                      "width": 32,
+                    },
+                    Object {
+                      "backgroundColor": "white",
+                      "borderRadius": 0,
+                      "opacity": 0.2,
+                    },
+                  ]
+                }
+              />
+              <Text
+                style={
+                  Array [
+                    Object {
+                      "color": "#565656",
+                      "fontSize": 12,
+                    },
+                    Object {
+                      "alignSelf": "center",
+                      "color": "black",
+                      "opacity": 0.2,
+                    },
+                  ]
+                }
+              >
+                13
+              </Text>
+            </View>
+          </View>
+        </>
+      </View>
+      <View>
+        <>
+          <View
+            style={Object {}}
+          >
+            <View
+              style={
+                Array [
+                  Object {
+                    "alignItems": "center",
+                    "height": 25,
+                    "justifyContent": "center",
+                    "width": "100%",
+                  },
+                  Object {
+                    "alignItems": "center",
+                    "flex": 1,
+                    "justifyContent": "center",
+                  },
+                ]
+              }
+            >
+              <View
+                style={
+                  Array [
+                    Object {
+                      "borderRadius": 12,
+                      "height": 32,
+                      "position": "absolute",
+                      "width": 32,
+                    },
+                    Object {
+                      "backgroundColor": "white",
+                      "borderRadius": 0,
+                      "opacity": 0.2,
+                    },
+                  ]
+                }
+              />
+              <Text
+                style={
+                  Array [
+                    Object {
+                      "color": "#565656",
+                      "fontSize": 12,
+                    },
+                    Object {
+                      "alignSelf": "center",
+                      "color": "black",
+                      "opacity": 0.2,
+                    },
+                  ]
+                }
+              >
+                13
+              </Text>
+            </View>
+          </View>
+        </>
+      </View>
+      <View>
+        <>
+          <View
+            style={Object {}}
+          >
+            <View
+              style={
+                Array [
+                  Object {
+                    "alignItems": "center",
+                    "height": 25,
+                    "justifyContent": "center",
+                    "width": "100%",
+                  },
+                  Object {
+                    "alignItems": "center",
+                    "flex": 1,
+                    "justifyContent": "center",
+                  },
+                ]
+              }
+            >
+              <View
+                style={
+                  Array [
+                    Object {
+                      "borderRadius": 12,
+                      "height": 32,
+                      "position": "absolute",
+                      "width": 32,
+                    },
+                    Object {
+                      "backgroundColor": "white",
+                      "borderRadius": 0,
+                      "opacity": 0.2,
+                    },
+                  ]
+                }
+              />
+              <Text
+                style={
+                  Array [
+                    Object {
+                      "color": "#565656",
+                      "fontSize": 12,
+                    },
+                    Object {
+                      "alignSelf": "center",
+                      "color": "black",
+                      "opacity": 0.2,
+                    },
+                  ]
+                }
+              >
+                13
+              </Text>
+            </View>
+          </View>
+        </>
+      </View>
+      <View>
+        <>
+          <View
+            style={Object {}}
+          >
+            <View
+              style={
+                Array [
+                  Object {
+                    "alignItems": "center",
+                    "height": 25,
+                    "justifyContent": "center",
+                    "width": "100%",
+                  },
+                  Object {
+                    "alignItems": "center",
+                    "flex": 1,
+                    "justifyContent": "center",
+                  },
+                ]
+              }
+            >
+              <View
+                style={
+                  Array [
+                    Object {
+                      "borderRadius": 12,
+                      "height": 32,
+                      "position": "absolute",
+                      "width": 32,
+                    },
+                    Object {
+                      "backgroundColor": "white",
+                      "borderRadius": 0,
+                      "opacity": 0.2,
+                    },
+                  ]
+                }
+              />
+              <Text
+                style={
+                  Array [
+                    Object {
+                      "color": "#565656",
+                      "fontSize": 12,
+                    },
+                    Object {
+                      "alignSelf": "center",
+                      "color": "black",
+                      "opacity": 0.2,
+                    },
+                  ]
+                }
+              >
+                13
+              </Text>
+            </View>
+          </View>
+        </>
+      </View>
+    </View>
+    <View
+      style={
+        Object {
+          "flexDirection": "row",
+          "justifyContent": "space-between",
+          "paddingHorizontal": 0,
+          "width": 300,
+        }
+      }
+    >
+      <View>
+        <>
+          <View
+            style={Object {}}
+          >
+            <View
+              style={
+                Array [
+                  Object {
+                    "alignItems": "center",
+                    "height": 25,
+                    "justifyContent": "center",
+                    "width": "100%",
+                  },
+                  Object {
+                    "alignItems": "center",
+                    "flex": 1,
+                    "justifyContent": "center",
+                  },
+                ]
+              }
+            >
+              <View
+                style={
+                  Array [
+                    Object {
+                      "borderRadius": 12,
+                      "height": 32,
+                      "position": "absolute",
+                      "width": 32,
+                    },
+                    Object {
+                      "backgroundColor": "white",
+                      "borderRadius": 0,
+                      "opacity": 0.2,
+                    },
+                  ]
+                }
+              />
+              <Text
+                style={
+                  Array [
+                    Object {
+                      "color": "#565656",
+                      "fontSize": 12,
+                    },
+                    Object {
+                      "alignSelf": "center",
+                      "color": "black",
+                      "opacity": 0.2,
+                    },
+                  ]
+                }
+              >
+                13
+              </Text>
+            </View>
+          </View>
+        </>
+      </View>
+      <View>
+        <>
+          <View
+            style={Object {}}
+          >
+            <View
+              style={
+                Array [
+                  Object {
+                    "alignItems": "center",
+                    "height": 25,
+                    "justifyContent": "center",
+                    "width": "100%",
+                  },
+                  Object {
+                    "alignItems": "center",
+                    "flex": 1,
+                    "justifyContent": "center",
+                  },
+                ]
+              }
+            >
+              <View
+                style={
+                  Array [
+                    Object {
+                      "borderRadius": 12,
+                      "height": 32,
+                      "position": "absolute",
+                      "width": 32,
+                    },
+                    Object {
+                      "backgroundColor": "white",
+                      "borderRadius": 0,
+                      "opacity": 0.2,
+                    },
+                  ]
+                }
+              />
+              <Text
+                style={
+                  Array [
+                    Object {
+                      "color": "#565656",
+                      "fontSize": 12,
+                    },
+                    Object {
+                      "alignSelf": "center",
+                      "color": "black",
+                      "opacity": 0.2,
+                    },
+                  ]
+                }
+              >
+                13
+              </Text>
+            </View>
+          </View>
+        </>
+      </View>
+      <View>
+        <>
+          <View
+            style={Object {}}
+          >
+            <View
+              style={
+                Array [
+                  Object {
+                    "alignItems": "center",
+                    "height": 25,
+                    "justifyContent": "center",
+                    "width": "100%",
+                  },
+                  Object {
+                    "alignItems": "center",
+                    "flex": 1,
+                    "justifyContent": "center",
+                  },
+                ]
+              }
+            >
+              <View
+                style={
+                  Array [
+                    Object {
+                      "borderRadius": 12,
+                      "height": 32,
+                      "position": "absolute",
+                      "width": 32,
+                    },
+                    Object {
+                      "backgroundColor": "white",
+                      "borderRadius": 0,
+                      "opacity": 0.2,
+                    },
+                  ]
+                }
+              />
+              <Text
+                style={
+                  Array [
+                    Object {
+                      "color": "#565656",
+                      "fontSize": 12,
+                    },
+                    Object {
+                      "alignSelf": "center",
+                      "color": "black",
+                      "opacity": 0.2,
+                    },
+                  ]
+                }
+              >
+                13
+              </Text>
+            </View>
+          </View>
+        </>
+      </View>
+      <View>
+        <>
+          <View
+            style={Object {}}
+          >
+            <View
+              style={
+                Array [
+                  Object {
+                    "alignItems": "center",
+                    "height": 25,
+                    "justifyContent": "center",
+                    "width": "100%",
+                  },
+                  Object {
+                    "alignItems": "center",
+                    "flex": 1,
+                    "justifyContent": "center",
+                  },
+                ]
+              }
+            >
+              <View
+                style={
+                  Array [
+                    Object {
+                      "borderRadius": 12,
+                      "height": 32,
+                      "position": "absolute",
+                      "width": 32,
+                    },
+                    Object {
+                      "backgroundColor": "white",
+                      "borderRadius": 0,
+                      "opacity": 0.2,
+                    },
+                  ]
+                }
+              />
+              <Text
+                style={
+                  Array [
+                    Object {
+                      "color": "#565656",
+                      "fontSize": 12,
+                    },
+                    Object {
+                      "alignSelf": "center",
+                      "color": "black",
+                      "opacity": 0.2,
+                    },
+                  ]
+                }
+              >
+                13
+              </Text>
+            </View>
+          </View>
+        </>
+      </View>
+      <View>
+        <>
+          <View
+            style={Object {}}
+          >
+            <View
+              style={
+                Array [
+                  Object {
+                    "alignItems": "center",
+                    "height": 25,
+                    "justifyContent": "center",
+                    "width": "100%",
+                  },
+                  Object {
+                    "alignItems": "center",
+                    "flex": 1,
+                    "justifyContent": "center",
+                  },
+                ]
+              }
+            >
+              <View
+                style={
+                  Array [
+                    Object {
+                      "borderRadius": 12,
+                      "height": 32,
+                      "position": "absolute",
+                      "width": 32,
+                    },
+                    Object {
+                      "backgroundColor": "white",
+                      "borderRadius": 0,
+                      "opacity": 0.2,
+                    },
+                  ]
+                }
+              />
+              <Text
+                style={
+                  Array [
+                    Object {
+                      "color": "#565656",
+                      "fontSize": 12,
+                    },
+                    Object {
+                      "alignSelf": "center",
+                      "color": "black",
+                      "opacity": 0.2,
+                    },
+                  ]
+                }
+              >
+                13
+              </Text>
+            </View>
+          </View>
+        </>
+      </View>
+      <View>
+        <>
+          <View
+            style={Object {}}
+          >
+            <View
+              style={
+                Array [
+                  Object {
+                    "alignItems": "center",
+                    "height": 25,
+                    "justifyContent": "center",
+                    "width": "100%",
+                  },
+                  Object {
+                    "alignItems": "center",
+                    "flex": 1,
+                    "justifyContent": "center",
+                  },
+                ]
+              }
+            >
+              <View
+                style={
+                  Array [
+                    Object {
+                      "borderRadius": 12,
+                      "height": 32,
+                      "position": "absolute",
+                      "width": 32,
+                    },
+                    Object {
+                      "backgroundColor": "white",
+                      "borderRadius": 0,
+                      "opacity": 0.2,
+                    },
+                  ]
+                }
+              />
+              <Text
+                style={
+                  Array [
+                    Object {
+                      "color": "#565656",
+                      "fontSize": 12,
+                    },
+                    Object {
+                      "alignSelf": "center",
+                      "color": "black",
+                      "opacity": 0.2,
+                    },
+                  ]
+                }
+              >
+                13
+              </Text>
+            </View>
+          </View>
+        </>
+      </View>
+      <View>
+        <>
+          <View
+            style={Object {}}
+          >
+            <View
+              style={
+                Array [
+                  Object {
+                    "alignItems": "center",
+                    "height": 25,
+                    "justifyContent": "center",
+                    "width": "100%",
+                  },
+                  Object {
+                    "alignItems": "center",
+                    "flex": 1,
+                    "justifyContent": "center",
+                  },
+                ]
+              }
+            >
+              <View
+                style={
+                  Array [
+                    Object {
+                      "borderRadius": 12,
+                      "height": 32,
+                      "position": "absolute",
+                      "width": 32,
+                    },
+                    Object {
+                      "backgroundColor": "white",
+                      "borderRadius": 0,
+                      "opacity": 0.2,
+                    },
+                  ]
+                }
+              />
+              <Text
+                style={
+                  Array [
+                    Object {
+                      "color": "#565656",
+                      "fontSize": 12,
+                    },
+                    Object {
+                      "alignSelf": "center",
+                      "color": "black",
+                      "opacity": 0.2,
+                    },
+                  ]
+                }
+              >
+                13
               </Text>
             </View>
           </View>
@@ -6024,7 +6024,7 @@ exports[`[DateInput] render should render without crashing 1`] = `
             ]
           }
           underlineColorAndroid="transparent"
-          value="2020-09-12"
+          value="2020-09-13"
         />
       </View>
       <>
@@ -6154,7 +6154,7 @@ exports[`[DatePicker] render should render without crashing 1`] = `
               ]
             }
             underlineColorAndroid="transparent"
-            value="2020-09-12"
+            value="2020-09-13"
           />
         </View>
         <>
@@ -7535,8 +7535,8 @@ exports[`[DatePicker] render should render without crashing 1`] = `
                                         "width": 32,
                                       },
                                       Object {
-                                        "backgroundColor": "#efefef",
-                                        "borderRadius": 16,
+                                        "backgroundColor": "white",
+                                        "borderRadius": 0,
                                         "opacity": 1,
                                       },
                                     ]
@@ -7611,8 +7611,8 @@ exports[`[DatePicker] render should render without crashing 1`] = `
                                         "width": 32,
                                       },
                                       Object {
-                                        "backgroundColor": "white",
-                                        "borderRadius": 0,
+                                        "backgroundColor": "#efefef",
+                                        "borderRadius": 16,
                                         "opacity": 1,
                                       },
                                     ]
@@ -10815,8 +10815,8 @@ exports[`[PickerCalendar] render should render without crashing 1`] = `
                                       "width": 32,
                                     },
                                     Object {
-                                      "backgroundColor": "#efefef",
-                                      "borderRadius": 16,
+                                      "backgroundColor": "white",
+                                      "borderRadius": 0,
                                       "opacity": 1,
                                     },
                                   ]
@@ -10891,8 +10891,8 @@ exports[`[PickerCalendar] render should render without crashing 1`] = `
                                       "width": 32,
                                     },
                                     Object {
-                                      "backgroundColor": "white",
-                                      "borderRadius": 0,
+                                      "backgroundColor": "#efefef",
+                                      "borderRadius": 16,
                                       "opacity": 1,
                                     },
                                   ]
