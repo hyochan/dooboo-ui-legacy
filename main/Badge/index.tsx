@@ -1,5 +1,4 @@
 import React, { FC } from 'react';
-
 import styled, { css } from 'styled-components/native';
 import { FlattenSimpleInterpolation } from 'styled-components';
 
@@ -24,7 +23,6 @@ export interface BadgeProps extends StyleProps {
 const StyledView = styled.View<StyleProps>`
   position: absolute;
   top: -15px;
-  
   width: auto;
   min-width: 45px;
   height: 45px;
