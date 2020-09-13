@@ -24,7 +24,7 @@ describe('[Badge] render', () => {
 
   it('should render with + when count is over than max count', () => {
     props = createTestProps({
-      maximumValue: 300,
+      maximumCount: 300,
       count: 500,
     });
 
@@ -37,7 +37,7 @@ describe('[Badge] render', () => {
 
   it('should not render opacity when count is over than max count', () => {
     props = createTestProps({
-      maximumValue: 300,
+      maximumCount: 300,
       count: 500,
       opacityVisible: false,
     });

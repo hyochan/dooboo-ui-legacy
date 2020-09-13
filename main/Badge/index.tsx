@@ -1,4 +1,5 @@
 import React, { FC } from 'react';
+
 import { StyleSheet } from 'react-native';
 import styled from 'styled-components/native';
 
@@ -66,7 +67,7 @@ const Badge: FC<BadgeProps> = (props) => {
   const {
     count = 1,
     color = '#34AFF9',
-    maximumCount = 300,
+    maximumCount = 99,
     showZero,
     opacityVisible = true,
     variant = 'standard',
@@ -79,61 +80,23 @@ const Badge: FC<BadgeProps> = (props) => {
     if (count === 0) return null;
   }
 
-  switch (true) {
-    case variant === 'dot':
-      return <StyledDotView color={color} badgePlacement={position} />;
+  if (variant === 'dot') {
+    return <StyledDotView color={color} badgePlacement={position} />;
+  } else {
+    const opacity = (maximumCount < count && opacityVisible) ? 0.6 : 1;
+    const countText = (maximumCount < count) ? count + '+' : count;
 
-    case maximumCount >= count:
-      return (
-        <StyledView
-          color={color}
-          opacity={1}
-          badgePlacement={position}
-          border={border}>
-          <StyledText textColor={textColor} style={styles.fontDesign}>
-            {count}
-          </StyledText>
-        </StyledView>
-      );
-
-    case maximumCount < count && opacityVisible:
-      return (
-        <StyledView
-          color={color}
-          opacity={0.6}
-          badgePlacement={position}
-          border={border}>
-          <StyledText textColor={textColor} style={styles.fontDesign}>
-            {count + '+'}
-          </StyledText>
-        </StyledView>
-      );
-
-    case maximumCount < count && !opacityVisible:
-      return (
-        <StyledView
-          color={color}
-          opacity={1}
-          badgePlacement={position}
-          border={border}>
-          <StyledText textColor={textColor} style={styles.fontDesign}>
-            {count + '+'}
-          </StyledText>
-        </StyledView>
-      );
-
-    default:
-      return (
-        <StyledView
-          color={color}
-          opacity={1}
-          badgePlacement={position}
-          border={border}>
-          <StyledText textColor={textColor} style={styles.fontDesign}>
-            {count}
-          </StyledText>
-        </StyledView>
-      );
+    return (
+      <StyledView
+        color={color}
+        opacity={opacity}
+        badgePlacement={position}
+        border={border}>
+        <StyledText textColor={textColor} style={styles.fontDesign}>
+          {countText}
+        </StyledText>
+      </StyledView>
+    );
   }
 };
 
