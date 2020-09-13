@@ -1,4 +1,5 @@
 import './dooboo-ui/Accordion.stories';
+import './dooboo-ui/Badge.stories';
 import './dooboo-ui/Button.stories';
 import './dooboo-ui/ButtonGroup.stories';
 import './dooboo-ui/EditText.stories';

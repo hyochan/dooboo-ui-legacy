@@ -1,0 +1,392 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`[Badge] render should not render opacity when count is over than max count 1`] = `
+<View
+  pointerEvents="box-none"
+  style={
+    Object {
+      "flex": 1,
+    }
+  }
+>
+  <View
+    collapsable={true}
+    pointerEvents="box-none"
+    style={
+      Object {
+        "flex": 1,
+      }
+    }
+  >
+    <View
+      color="#34AFF9"
+      opacity={1}
+      position="right"
+      style={
+        Array [
+          Object {
+            "alignItems": "center",
+            "backgroundColor": "#34AFF9",
+            "borderColor": "#00ff0000",
+            "borderRadius": 50,
+            "borderWidth": 3,
+            "height": 45,
+            "justifyContent": "center",
+            "minWidth": 45,
+            "opacity": 1,
+            "position": "absolute",
+            "right": -10,
+            "top": -15,
+            "width": "auto",
+          },
+        ]
+      }
+    >
+      <Text
+        style={
+          Array [
+            Object {
+              "color": "#FFFFFF",
+              "marginLeft": 3,
+              "marginRight": 3,
+              "paddingBottom": 5,
+              "paddingLeft": 5,
+              "paddingRight": 5,
+              "paddingTop": 5,
+              "textAlign": "center",
+            },
+            Object {
+              "fontSize": 20,
+              "fontWeight": "500",
+            },
+          ]
+        }
+        textColor="#FFFFFF"
+      >
+        500+
+      </Text>
+    </View>
+  </View>
+</View>
+`;
+
+exports[`[Badge] render should render badge when wrong variant 1`] = `
+<View
+  pointerEvents="box-none"
+  style={
+    Object {
+      "flex": 1,
+    }
+  }
+>
+  <View
+    collapsable={true}
+    pointerEvents="box-none"
+    style={
+      Object {
+        "flex": 1,
+      }
+    }
+  >
+    <View
+      color="#34AFF9"
+      opacity={1}
+      position="right"
+      style={
+        Array [
+          Object {
+            "alignItems": "center",
+            "backgroundColor": "#34AFF9",
+            "borderColor": "#00ff0000",
+            "borderRadius": 50,
+            "borderWidth": 3,
+            "height": 45,
+            "justifyContent": "center",
+            "minWidth": 45,
+            "opacity": 1,
+            "position": "absolute",
+            "right": -10,
+            "top": -15,
+            "width": "auto",
+          },
+        ]
+      }
+    >
+      <Text
+        style={
+          Array [
+            Object {
+              "color": "#FFFFFF",
+              "marginLeft": 3,
+              "marginRight": 3,
+              "paddingBottom": 5,
+              "paddingLeft": 5,
+              "paddingRight": 5,
+              "paddingTop": 5,
+              "textAlign": "center",
+            },
+            Object {
+              "fontSize": 20,
+              "fontWeight": "500",
+            },
+          ]
+        }
+        textColor="#FFFFFF"
+      >
+        1
+      </Text>
+    </View>
+  </View>
+</View>
+`;
+
+exports[`[Badge] render should render dot badge 1`] = `
+<View
+  pointerEvents="box-none"
+  style={
+    Object {
+      "flex": 1,
+    }
+  }
+>
+  <View
+    collapsable={true}
+    pointerEvents="box-none"
+    style={
+      Object {
+        "flex": 1,
+      }
+    }
+  >
+    <View
+      color="#34AFF9"
+      position="right"
+      style={
+        Array [
+          Object {
+            "alignItems": "center",
+            "backgroundColor": "#34AFF9",
+            "borderRadius": 50,
+            "height": 20,
+            "justifyContent": "center",
+            "position": "absolute",
+            "right": -5,
+            "top": -5,
+            "width": 20,
+          },
+        ]
+      }
+    />
+  </View>
+</View>
+`;
+
+exports[`[Badge] render should render left badge 1`] = `
+<View
+  pointerEvents="box-none"
+  style={
+    Object {
+      "flex": 1,
+    }
+  }
+>
+  <View
+    collapsable={true}
+    pointerEvents="box-none"
+    style={
+      Object {
+        "flex": 1,
+      }
+    }
+  >
+    <View
+      color="#34AFF9"
+      opacity={1}
+      position="left"
+      style={
+        Array [
+          Object {
+            "alignItems": "center",
+            "backgroundColor": "#34AFF9",
+            "borderColor": "#00ff0000",
+            "borderRadius": 50,
+            "borderWidth": 3,
+            "height": 45,
+            "justifyContent": "center",
+            "left": -10,
+            "minWidth": 45,
+            "opacity": 1,
+            "position": "absolute",
+            "top": -15,
+            "width": "auto",
+          },
+        ]
+      }
+    >
+      <Text
+        style={
+          Array [
+            Object {
+              "color": "#FFFFFF",
+              "marginLeft": 3,
+              "marginRight": 3,
+              "paddingBottom": 5,
+              "paddingLeft": 5,
+              "paddingRight": 5,
+              "paddingTop": 5,
+              "textAlign": "center",
+            },
+            Object {
+              "fontSize": 20,
+              "fontWeight": "500",
+            },
+          ]
+        }
+        textColor="#FFFFFF"
+      >
+        1
+      </Text>
+    </View>
+  </View>
+</View>
+`;
+
+exports[`[Badge] render should render with + when count is over than max count 1`] = `
+<View
+  pointerEvents="box-none"
+  style={
+    Object {
+      "flex": 1,
+    }
+  }
+>
+  <View
+    collapsable={true}
+    pointerEvents="box-none"
+    style={
+      Object {
+        "flex": 1,
+      }
+    }
+  >
+    <View
+      color="#34AFF9"
+      opacity={0.6}
+      position="right"
+      style={
+        Array [
+          Object {
+            "alignItems": "center",
+            "backgroundColor": "#34AFF9",
+            "borderColor": "#00ff0000",
+            "borderRadius": 50,
+            "borderWidth": 3,
+            "height": 45,
+            "justifyContent": "center",
+            "minWidth": 45,
+            "opacity": 0.6,
+            "position": "absolute",
+            "right": -10,
+            "top": -15,
+            "width": "auto",
+          },
+        ]
+      }
+    >
+      <Text
+        style={
+          Array [
+            Object {
+              "color": "#FFFFFF",
+              "marginLeft": 3,
+              "marginRight": 3,
+              "paddingBottom": 5,
+              "paddingLeft": 5,
+              "paddingRight": 5,
+              "paddingTop": 5,
+              "textAlign": "center",
+            },
+            Object {
+              "fontSize": 20,
+              "fontWeight": "500",
+            },
+          ]
+        }
+        textColor="#FFFFFF"
+      >
+        500+
+      </Text>
+    </View>
+  </View>
+</View>
+`;
+
+exports[`[Badge] render should render without crashing 1`] = `
+<View
+  pointerEvents="box-none"
+  style={
+    Object {
+      "flex": 1,
+    }
+  }
+>
+  <View
+    collapsable={true}
+    pointerEvents="box-none"
+    style={
+      Object {
+        "flex": 1,
+      }
+    }
+  >
+    <View
+      color="#34AFF9"
+      opacity={1}
+      position="right"
+      style={
+        Array [
+          Object {
+            "alignItems": "center",
+            "backgroundColor": "#34AFF9",
+            "borderColor": "#00ff0000",
+            "borderRadius": 50,
+            "borderWidth": 3,
+            "height": 45,
+            "justifyContent": "center",
+            "minWidth": 45,
+            "opacity": 1,
+            "position": "absolute",
+            "right": -10,
+            "top": -15,
+            "width": "auto",
+          },
+        ]
+      }
+    >
+      <Text
+        style={
+          Array [
+            Object {
+              "color": "#FFFFFF",
+              "marginLeft": 3,
+              "marginRight": 3,
+              "paddingBottom": 5,
+              "paddingLeft": 5,
+              "paddingRight": 5,
+              "paddingTop": 5,
+              "textAlign": "center",
+            },
+            Object {
+              "fontSize": 20,
+              "fontWeight": "500",
+            },
+          ]
+        }
+        textColor="#FFFFFF"
+      >
+        1
+      </Text>
+    </View>
+  </View>
+</View>
+`;
