@@ -30,10 +30,10 @@ exports[`[Checkbox] [Checkbox] Interaction should simulate props 1`] = `
           Object {
             "backgroundColor": "#E0E0E0",
             "height": 20,
-            "paddingBottom": 1.5,
-            "paddingLeft": 1.5,
-            "paddingRight": 1.5,
-            "paddingTop": 1.5,
+            "paddingBottom": 1,
+            "paddingLeft": 1,
+            "paddingRight": 1,
+            "paddingTop": 1,
             "width": 20,
           },
         ]
@@ -101,10 +101,10 @@ exports[`[Checkbox] [Checkbox] Interaction should simulate props 2`] = `
           Object {
             "backgroundColor": "#1890FF",
             "height": 20,
-            "paddingBottom": 1.5,
-            "paddingLeft": 1.5,
-            "paddingRight": 1.5,
-            "paddingTop": 1.5,
+            "paddingBottom": 1,
+            "paddingLeft": 1,
+            "paddingRight": 1,
+            "paddingTop": 1,
             "width": 20,
           },
         ]
@@ -172,10 +172,10 @@ exports[`[Checkbox] [Checkbox] Interaction should simulate props 3`] = `
           Object {
             "backgroundColor": "#FF0000",
             "height": 20,
-            "paddingBottom": 1.5,
-            "paddingLeft": 1.5,
-            "paddingRight": 1.5,
-            "paddingTop": 1.5,
+            "paddingBottom": 1,
+            "paddingLeft": 1,
+            "paddingRight": 1,
+            "paddingTop": 1,
             "width": 20,
           },
         ]
@@ -260,10 +260,10 @@ exports[`[Checkbox] [Checkbox] Interaction should simulate props 4`] = `
           Object {
             "backgroundColor": "#1890FF",
             "height": 20,
-            "paddingBottom": 1.5,
-            "paddingLeft": 1.5,
-            "paddingRight": 1.5,
-            "paddingTop": 1.5,
+            "paddingBottom": 1,
+            "paddingLeft": 1,
+            "paddingRight": 1,
+            "paddingTop": 1,
             "width": 20,
           },
         ]
@@ -342,10 +342,10 @@ exports[`[Checkbox] render without crashing 1`] = `
           Object {
             "backgroundColor": "#1890FF",
             "height": 20,
-            "paddingBottom": 1.5,
-            "paddingLeft": 1.5,
-            "paddingRight": 1.5,
-            "paddingTop": 1.5,
+            "paddingBottom": 1,
+            "paddingLeft": 1,
+            "paddingRight": 1,
+            "paddingTop": 1,
             "width": 20,
           },
         ]
@@ -439,10 +439,10 @@ exports[`[CheckboxGroup] render test should render checkall when values is not u
                 Object {
                   "backgroundColor": "#E0E0E0",
                   "height": 20,
-                  "paddingBottom": 1.5,
-                  "paddingLeft": 1.5,
-                  "paddingRight": 1.5,
-                  "paddingTop": 1.5,
+                  "paddingBottom": 1,
+                  "paddingLeft": 1,
+                  "paddingRight": 1,
+                  "paddingTop": 1,
                   "width": 20,
                 },
               ]
@@ -527,10 +527,10 @@ exports[`[CheckboxGroup] render test should render checkall when values is not u
                 Object {
                   "backgroundColor": "#E0E0E0",
                   "height": 20,
-                  "paddingBottom": 1.5,
-                  "paddingLeft": 1.5,
-                  "paddingRight": 1.5,
-                  "paddingTop": 1.5,
+                  "paddingBottom": 1,
+                  "paddingLeft": 1,
+                  "paddingRight": 1,
+                  "paddingTop": 1,
                   "width": 20,
                 },
               ]
@@ -597,10 +597,10 @@ exports[`[CheckboxGroup] render test should render checkall when values is not u
                 Object {
                   "backgroundColor": "#E0E0E0",
                   "height": 20,
-                  "paddingBottom": 1.5,
-                  "paddingLeft": 1.5,
-                  "paddingRight": 1.5,
-                  "paddingTop": 1.5,
+                  "paddingBottom": 1,
+                  "paddingLeft": 1,
+                  "paddingRight": 1,
+                  "paddingTop": 1,
                   "width": 20,
                 },
               ]
@@ -685,10 +685,10 @@ exports[`[CheckboxGroup] render test should render checkall when values is not u
                 Object {
                   "backgroundColor": "#E0E0E0",
                   "height": 20,
-                  "paddingBottom": 1.5,
-                  "paddingLeft": 1.5,
-                  "paddingRight": 1.5,
-                  "paddingTop": 1.5,
+                  "paddingBottom": 1,
+                  "paddingLeft": 1,
+                  "paddingRight": 1,
+                  "paddingTop": 1,
                   "width": 20,
                 },
               ]
@@ -787,10 +787,10 @@ exports[`[CheckboxGroup] render test should render customStyle in Options 1`] = 
                 Object {
                   "backgroundColor": "#1890FF",
                   "height": 20,
-                  "paddingBottom": 1.5,
-                  "paddingLeft": 1.5,
-                  "paddingRight": 1.5,
-                  "paddingTop": 1.5,
+                  "paddingBottom": 1,
+                  "paddingLeft": 1,
+                  "paddingRight": 1,
+                  "paddingTop": 1,
                   "width": 20,
                 },
               ]
@@ -855,10 +855,10 @@ exports[`[CheckboxGroup] render test should render customStyle in Options 1`] = 
                 Object {
                   "backgroundColor": "#1890FF",
                   "height": 20,
-                  "paddingBottom": 1.5,
-                  "paddingLeft": 1.5,
-                  "paddingRight": 1.5,
-                  "paddingTop": 1.5,
+                  "paddingBottom": 1,
+                  "paddingLeft": 1,
+                  "paddingRight": 1,
+                  "paddingTop": 1,
                   "width": 20,
                 },
               ]
@@ -923,10 +923,10 @@ exports[`[CheckboxGroup] render test should render customStyle in Options 1`] = 
                 Object {
                   "backgroundColor": "#1890FF",
                   "height": 20,
-                  "paddingBottom": 1.5,
-                  "paddingLeft": 1.5,
-                  "paddingRight": 1.5,
-                  "paddingTop": 1.5,
+                  "paddingBottom": 1,
+                  "paddingLeft": 1,
+                  "paddingRight": 1,
+                  "paddingTop": 1,
                   "width": 20,
                 },
               ]
@@ -991,10 +991,10 @@ exports[`[CheckboxGroup] render test should render customStyle in Options 1`] = 
                 Object {
                   "backgroundColor": "#1890FF",
                   "height": 20,
-                  "paddingBottom": 1.5,
-                  "paddingLeft": 1.5,
-                  "paddingRight": 1.5,
-                  "paddingTop": 1.5,
+                  "paddingBottom": 1,
+                  "paddingLeft": 1,
+                  "paddingRight": 1,
+                  "paddingTop": 1,
                   "width": 20,
                 },
               ]
@@ -1092,10 +1092,10 @@ exports[`[CheckboxGroup] render test should render disabled in Options 1`] = `
                 Object {
                   "backgroundColor": "#1890FF",
                   "height": 20,
-                  "paddingBottom": 1.5,
-                  "paddingLeft": 1.5,
-                  "paddingRight": 1.5,
-                  "paddingTop": 1.5,
+                  "paddingBottom": 1,
+                  "paddingLeft": 1,
+                  "paddingRight": 1,
+                  "paddingTop": 1,
                   "width": 20,
                 },
               ]
@@ -1160,10 +1160,10 @@ exports[`[CheckboxGroup] render test should render disabled in Options 1`] = `
                 Object {
                   "backgroundColor": "#1890FF",
                   "height": 20,
-                  "paddingBottom": 1.5,
-                  "paddingLeft": 1.5,
-                  "paddingRight": 1.5,
-                  "paddingTop": 1.5,
+                  "paddingBottom": 1,
+                  "paddingLeft": 1,
+                  "paddingRight": 1,
+                  "paddingTop": 1,
                   "width": 20,
                 },
               ]
@@ -1228,10 +1228,10 @@ exports[`[CheckboxGroup] render test should render disabled in Options 1`] = `
                 Object {
                   "backgroundColor": "#1890FF",
                   "height": 20,
-                  "paddingBottom": 1.5,
-                  "paddingLeft": 1.5,
-                  "paddingRight": 1.5,
-                  "paddingTop": 1.5,
+                  "paddingBottom": 1,
+                  "paddingLeft": 1,
+                  "paddingRight": 1,
+                  "paddingTop": 1,
                   "width": 20,
                 },
               ]
@@ -1296,10 +1296,10 @@ exports[`[CheckboxGroup] render test should render disabled in Options 1`] = `
                 Object {
                   "backgroundColor": "#1890FF",
                   "height": 20,
-                  "paddingBottom": 1.5,
-                  "paddingLeft": 1.5,
-                  "paddingRight": 1.5,
-                  "paddingTop": 1.5,
+                  "paddingBottom": 1,
+                  "paddingLeft": 1,
+                  "paddingRight": 1,
+                  "paddingTop": 1,
                   "width": 20,
                 },
               ]
@@ -1398,10 +1398,10 @@ exports[`[CheckboxGroup] render test should render disabled when CheckboxGroup p
                 Object {
                   "backgroundColor": "#E0E0E0",
                   "height": 20,
-                  "paddingBottom": 1.5,
-                  "paddingLeft": 1.5,
-                  "paddingRight": 1.5,
-                  "paddingTop": 1.5,
+                  "paddingBottom": 1,
+                  "paddingLeft": 1,
+                  "paddingRight": 1,
+                  "paddingTop": 1,
                   "width": 20,
                 },
               ]
@@ -1468,10 +1468,10 @@ exports[`[CheckboxGroup] render test should render disabled when CheckboxGroup p
                 Object {
                   "backgroundColor": "#E0E0E0",
                   "height": 20,
-                  "paddingBottom": 1.5,
-                  "paddingLeft": 1.5,
-                  "paddingRight": 1.5,
-                  "paddingTop": 1.5,
+                  "paddingBottom": 1,
+                  "paddingLeft": 1,
+                  "paddingRight": 1,
+                  "paddingTop": 1,
                   "width": 20,
                 },
               ]
@@ -1538,10 +1538,10 @@ exports[`[CheckboxGroup] render test should render disabled when CheckboxGroup p
                 Object {
                   "backgroundColor": "#E0E0E0",
                   "height": 20,
-                  "paddingBottom": 1.5,
-                  "paddingLeft": 1.5,
-                  "paddingRight": 1.5,
-                  "paddingTop": 1.5,
+                  "paddingBottom": 1,
+                  "paddingLeft": 1,
+                  "paddingRight": 1,
+                  "paddingTop": 1,
                   "width": 20,
                 },
               ]
@@ -1608,10 +1608,10 @@ exports[`[CheckboxGroup] render test should render disabled when CheckboxGroup p
                 Object {
                   "backgroundColor": "#E0E0E0",
                   "height": 20,
-                  "paddingBottom": 1.5,
-                  "paddingLeft": 1.5,
-                  "paddingRight": 1.5,
-                  "paddingTop": 1.5,
+                  "paddingBottom": 1,
+                  "paddingLeft": 1,
+                  "paddingRight": 1,
+                  "paddingTop": 1,
                   "width": 20,
                 },
               ]
@@ -1711,10 +1711,10 @@ exports[`[CheckboxGroup] render test should render options when CheckboxGroup pr
                 Object {
                   "backgroundColor": "#E0E0E0",
                   "height": 20,
-                  "paddingBottom": 1.5,
-                  "paddingLeft": 1.5,
-                  "paddingRight": 1.5,
-                  "paddingTop": 1.5,
+                  "paddingBottom": 1,
+                  "paddingLeft": 1,
+                  "paddingRight": 1,
+                  "paddingTop": 1,
                   "width": 20,
                 },
               ]
@@ -1781,10 +1781,10 @@ exports[`[CheckboxGroup] render test should render options when CheckboxGroup pr
                 Object {
                   "backgroundColor": "#E0E0E0",
                   "height": 20,
-                  "paddingBottom": 1.5,
-                  "paddingLeft": 1.5,
-                  "paddingRight": 1.5,
-                  "paddingTop": 1.5,
+                  "paddingBottom": 1,
+                  "paddingLeft": 1,
+                  "paddingRight": 1,
+                  "paddingTop": 1,
                   "width": 20,
                 },
               ]
@@ -1851,10 +1851,10 @@ exports[`[CheckboxGroup] render test should render options when CheckboxGroup pr
                 Object {
                   "backgroundColor": "#E0E0E0",
                   "height": 20,
-                  "paddingBottom": 1.5,
-                  "paddingLeft": 1.5,
-                  "paddingRight": 1.5,
-                  "paddingTop": 1.5,
+                  "paddingBottom": 1,
+                  "paddingLeft": 1,
+                  "paddingRight": 1,
+                  "paddingTop": 1,
                   "width": 20,
                 },
               ]
@@ -1953,10 +1953,10 @@ exports[`[CheckboxGroup] render test should render without crashing 1`] = `
                 Object {
                   "backgroundColor": "#1890FF",
                   "height": 20,
-                  "paddingBottom": 1.5,
-                  "paddingLeft": 1.5,
-                  "paddingRight": 1.5,
-                  "paddingTop": 1.5,
+                  "paddingBottom": 1,
+                  "paddingLeft": 1,
+                  "paddingRight": 1,
+                  "paddingTop": 1,
                   "width": 20,
                 },
               ]
@@ -2039,10 +2039,10 @@ exports[`[CheckboxGroup] render test should render without crashing 1`] = `
                 Object {
                   "backgroundColor": "#1890FF",
                   "height": 20,
-                  "paddingBottom": 1.5,
-                  "paddingLeft": 1.5,
-                  "paddingRight": 1.5,
-                  "paddingTop": 1.5,
+                  "paddingBottom": 1,
+                  "paddingLeft": 1,
+                  "paddingRight": 1,
+                  "paddingTop": 1,
                   "width": 20,
                 },
               ]
@@ -2107,10 +2107,10 @@ exports[`[CheckboxGroup] render test should render without crashing 1`] = `
                 Object {
                   "backgroundColor": "#1890FF",
                   "height": 20,
-                  "paddingBottom": 1.5,
-                  "paddingLeft": 1.5,
-                  "paddingRight": 1.5,
-                  "paddingTop": 1.5,
+                  "paddingBottom": 1,
+                  "paddingLeft": 1,
+                  "paddingRight": 1,
+                  "paddingTop": 1,
                   "width": 20,
                 },
               ]
@@ -2193,10 +2193,10 @@ exports[`[CheckboxGroup] render test should render without crashing 1`] = `
                 Object {
                   "backgroundColor": "#1890FF",
                   "height": 20,
-                  "paddingBottom": 1.5,
-                  "paddingLeft": 1.5,
-                  "paddingRight": 1.5,
-                  "paddingTop": 1.5,
+                  "paddingBottom": 1,
+                  "paddingLeft": 1,
+                  "paddingRight": 1,
+                  "paddingTop": 1,
                   "width": 20,
                 },
               ]
