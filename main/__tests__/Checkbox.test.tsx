@@ -30,6 +30,7 @@ describe('[Checkbox]', () => {
     const rendered: renderer.ReactTestRendererJSON | null = renderer
       .create(component(props))
       .toJSON();
+
     expect(rendered).toMatchSnapshot();
   });
 
@@ -44,6 +45,7 @@ describe('[Checkbox]', () => {
       );
 
       const checkboxClick = rendered.root.findByType(TouchableHighlight);
+
       renderer.act(() => {
         checkboxClick.props.onPress();
       });
@@ -160,6 +162,7 @@ describe('[CheckboxGroup] render test', () => {
         disabled: false,
       };
     });
+
     groupProps = createTestProps({
       options: checkboxGroupDataDisabled,
     });
@@ -177,6 +180,7 @@ describe('[CheckboxGroup] render test', () => {
         customStyle: {},
       };
     });
+
     groupProps = createTestProps({
       options: checkboxGroupDataCustom,
     });
@@ -212,24 +216,39 @@ describe('[CheckboxGroup] render test', () => {
     rerender(<CheckboxGroup {...groupProps} />);
   });
 
-  it('should simulate onChange', () => {
-    const component = (props?): React.ReactElement => {
+  it('should be toggleOption triggered by checkbox', () => {
+    const handlePress = jest.fn();
+    const defaultProps = {
+      options: checkboxGroupData,
+      values: defaultCheckedList,
+      onChange: handlePress,
+    };
+
+    const groupComponent = (props?): React.ReactElement => {
       return <CheckboxGroup {...props} />;
     };
 
-    const onChangeMock = jest.fn();
-    groupProps = createTestProps({
-      options: checkboxGroupData,
-      values: defaultCheckedList,
-      onChange: onChangeMock,
-    });
+    const rendered = renderer.create(groupComponent(defaultProps));
+    const checkbox = rendered.root.findAllByType(Checkbox)[0];
 
-    const rendered = renderer.create(component(groupProps));
-    const checkboxClick = rendered.root.findAllByType(TouchableHighlight);
     renderer.act(() => {
-      checkboxClick[1].props.onPress();
+      checkbox.findByType(TouchableHighlight).props.onPress();
     });
 
-    expect(onChangeMock).toHaveBeenCalled();
+    expect(rendered.toJSON()).toMatchSnapshot();
+
+    renderer.act(() => {
+      rendered.update(groupComponent({ ...defaultProps, values: [] }));
+      checkbox.findByType(TouchableHighlight).props.onPress();
+    });
+
+    expect(rendered.toJSON()).toMatchSnapshot();
+
+    renderer.act(() => {
+      rendered.update(groupComponent({ ...defaultProps, values: undefined }));
+      checkbox.findByType(TouchableHighlight).props.onPress();
+    });
+
+    expect(rendered.toJSON()).toMatchSnapshot();
   });
 });
