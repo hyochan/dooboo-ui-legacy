@@ -10,6 +10,8 @@ import { TouchableOpacity } from 'react-native';
 import { render } from '@testing-library/react-native';
 import renderer from 'react-test-renderer';
 
+const standardDate = new Date(2020, 9, 13);
+
 describe('[DatePicker] render', () => {
   it('should render without crashing', () => {
     const rendered = render(<DatePicker />).asJSON();
@@ -65,7 +67,7 @@ describe('[Calendar]', () => {
     const rendered = render(
       <Calendar
         calendarWidth={300}
-        renderDay={() => <CalendarDate date={new Date()}></CalendarDate>}
+        renderDay={() => <CalendarDate date={standardDate}></CalendarDate>}
       />,
     ).asJSON();
     expect(rendered).toMatchSnapshot();
@@ -76,7 +78,7 @@ describe('[Calendar]', () => {
 describe('[CalendarDate] render', () => {
   it('should render without crashing', () => {
     const rendered = render(
-      <CalendarDate onPress={(): void => {}} date={new Date()} />,
+      <CalendarDate onPress={(): void => {}} date={standardDate} />,
     ).asJSON();
     expect(rendered).toMatchSnapshot();
     expect(rendered).toBeTruthy();
@@ -86,7 +88,7 @@ describe('[CalendarDate] render', () => {
     it('should simulate onPress', () => {
       const onSelectDate = jest.fn();
       const rendered = renderer.create(
-        <CalendarDate onPress={onSelectDate} date={new Date()} />,
+        <CalendarDate onPress={onSelectDate} date={standardDate} />,
         {
           createNodeMock: () => {
             return {
@@ -110,10 +112,10 @@ describe('[CalendarMonth] render', () => {
   it('should render without crashing', () => {
     const rendered = render(
       <CalendarMonth
-        monthDate={new Date()}
+        monthDate={standardDate}
         calendarWidth={300}
-        renderDay={() => <CalendarDate date={new Date()}></CalendarDate>}
-        today={new Date()}
+        renderDay={() => <CalendarDate date={standardDate}></CalendarDate>}
+        today={new Date(standardDate)}
       />,
     ).asJSON();
     expect(rendered).toMatchSnapshot();
