@@ -20,6 +20,7 @@ export class Vector implements VectorType {
   distance = (v1: Vector, v2: Vector = this): number => {
     const diffX = v1.x - v2.x;
     const diffY = v1.y - v2.y;
+
     return Math.sqrt(diffX ** 2 + diffY ** 2);
   }
 
@@ -70,6 +71,7 @@ export function getOriginScaleTargetPosition(
   const relativeCurrentPosition = currentPosition.subtract(translate).subtract(layoutCenter);
   const originalScaleRelativePosition = relativeCurrentPosition.multiply(1 / scale);
   const originScaleTargetposition = layoutCenter.add(originalScaleRelativePosition);
+
   return originScaleTargetposition;
 }
 
@@ -80,18 +82,24 @@ export function getTranslate(
   const relativePosition = targetPosition.subtract(layoutCenter);
   const scaledRalativePosition = relativePosition.multiply(scale);
   const translate = relativePosition.subtract(scaledRalativePosition);
+
   return translate;
 }
 
 export function getClamppedVector({ vector, min, max }:{vector: Vector, min?: Vector, max?: Vector}):Vector {
   const clampped = new Vector(vector);
+
   if (max) {
     if (clampped.x > max.x) clampped.x = max.x;
+
     if (clampped.y > max.y) clampped.y = max.y;
   }
+
   if (min) {
     if (clampped.x < min.x) clampped.x = min.x;
+
     if (clampped.y < min.y) clampped.y = min.y;
   }
+
   return clampped;
 }

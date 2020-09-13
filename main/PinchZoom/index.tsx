@@ -55,6 +55,7 @@ function PinchZoom(props: Props, ref: Ref<PinchZoomRef>): ReactElement {
       onMoveShouldSetPanResponderCapture: /* istanbul ignore next */ () => true,
       onPanResponderGrant: () => {
         const [touch1, touch2] = touches;
+
         touch1.setOffset({ x: 0, y: 0 });
         touch2.setOffset({ x: 0, y: 0 });
         scaleValue.offset = scaleValue.current;
@@ -62,8 +63,10 @@ function PinchZoom(props: Props, ref: Ref<PinchZoomRef>): ReactElement {
       },
       onPanResponderMove: ({ nativeEvent }, gestureState) => {
         const [touch1, touch2] = touches;
+
         if (nativeEvent.touches.length === 2) {
           const secondEvent = nativeEvent.touches[1];
+
           if (touch2.offset.x === 0 && touch2.offset.y === 0) {
             touch1.setOffset({ x: nativeEvent.locationX, y: nativeEvent.locationY });
             touch2.setOffset({ x: secondEvent.locationX, y: secondEvent.locationY });
@@ -76,6 +79,7 @@ function PinchZoom(props: Props, ref: Ref<PinchZoomRef>): ReactElement {
               }),
             );
           }
+
           touch1.setCurrent({ x: nativeEvent.locationX, y: nativeEvent.locationY });
           touch2.setCurrent({ x: secondEvent.locationX, y: secondEvent.locationY });
           scaleValue.current = scaleValue.offset *
@@ -94,6 +98,7 @@ function PinchZoom(props: Props, ref: Ref<PinchZoomRef>): ReactElement {
             nativeEvent.touches.length === 1
         ) {
           const maxValue = layoutCenter.multiply(scaleValue.current + 1);
+
           translateValue.current = getClamppedVector({
             vector: translateValue.offset.add({ x: gestureState.dx, y: gestureState.dy }),
             max: maxValue,
@@ -118,7 +123,9 @@ function PinchZoom(props: Props, ref: Ref<PinchZoomRef>): ReactElement {
 
   useEffect(() => {
     if (!onTranslateChanged) return;
+
     const id = translate.addListener(onTranslateChanged);
+
     return ():void => {
       translate.removeListener(id);
     };
@@ -126,7 +133,9 @@ function PinchZoom(props: Props, ref: Ref<PinchZoomRef>): ReactElement {
 
   useEffect(() => {
     if (!onScaleChanged) return;
+
     const id = scale.addListener(({ value }) => onScaleChanged(value));
+
     return ():void => {
       scale.removeListener(id);
     };
@@ -139,6 +148,7 @@ function PinchZoom(props: Props, ref: Ref<PinchZoomRef>): ReactElement {
 
   const setValues = useCallback(({ scale, translate }:{ scale?: number, translate?: VectorType }) => {
     if (scale != null) { scaleValue.current = scale; }
+
     if (translate != null) { translateValue.current = new Vector(translate); }
   }, [scaleValue, translateValue]);
 

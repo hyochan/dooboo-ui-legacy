@@ -34,6 +34,7 @@ jest.mock('react-native/Libraries/Interaction/PanResponder', () => {
   return {
     create: (responder: PanResponderCallbacks): PanResponderInstance => {
       testResponder = responder;
+
       return {
         panHandlers: {
 
@@ -55,12 +56,14 @@ describe('[Slider] render', () => {
         onChange={(): void => {}}
       />,
     ).asJSON();
+
     expect(rendered).toMatchSnapshot();
     expect(rendered).toBeTruthy();
   });
 
   describe('[Slider] slider.current.measure', () => {
     const measure = jest.fn();
+
     beforeEach(() => {
       jest.restoreAllMocks();
       jest.resetAllMocks();
@@ -68,6 +71,7 @@ describe('[Slider] render', () => {
 
     it('Should not have slider.current.measure called when current does not exist', () => {
       const useRefSpy = jest.spyOn(React, 'useRef').mockReturnValueOnce({ current: null });
+
       render(
         <Slider />,
       );
@@ -77,6 +81,7 @@ describe('[Slider] render', () => {
 
     it('Should have slider.current.measure called when current exist', () => {
       const useRefSpy = jest.spyOn(React, 'useRef').mockReturnValueOnce({ current: { measure } });
+
       render(
         <Slider />,
       );
@@ -93,6 +98,7 @@ describe('[Slider] render', () => {
         },
         callback: null,
       };
+
       jest.spyOn(React, 'useRef').mockReturnValueOnce(mockRef);
       render(
         <Slider />,
@@ -202,6 +208,7 @@ describe('[Slider] render', () => {
       />,
     );
     const thumb = rendered.getByTestId(TEST_ID.THUMB_ANIMATED);
+
     jest.useFakeTimers();
     expect(thumb.props.style.transform[0].scale).toEqual(0.01);
     rendered.rerender(
@@ -230,6 +237,7 @@ describe('[Slider] render', () => {
           testResponder.onPanResponderMove(null, { moveX: 10 });
           testResponder.onPanResponderRelease(null, null);
         }
+
         testResponder.onPanResponderTerminationRequest(null, null);
       },
     );
@@ -254,6 +262,7 @@ describe('[Marks]', () => {
         maxValue={100}
       />,
     ).asJSON();
+
     expect(rendered).toMatchSnapshot();
     expect(rendered).toBeTruthy();
   });
@@ -275,11 +284,14 @@ describe('[Marks]', () => {
       />,
     );
     const marks = getAllByTestId(TEST_ID.MARKS);
+
     for (let i = 0; i < MARK_COUNT; i += 1) {
       fireEvent.press(marks[i]);
     }
+
     for (let i = 0; i < MARK_COUNT; i += 1) {
       const [value, position, index] = handleMarkPress.mock.calls[i];
+
       expect(value).toBe(i * STEP);
       expect(index).toBe(i);
     }
@@ -305,6 +317,7 @@ describe('[Marks]', () => {
       />,
     );
     expect(onInit).toHaveBeenCalledTimes(1);
+
     const expectedArgumentForOnInit = Array.from({
       length: MARK_COUNT + 1,
     }).map((_, idx) => STEP * idx);
@@ -319,6 +332,7 @@ describe('[Rail]', () => {
     const rendered = render(
       <Rail testID="RailTestID" style={{ backgroundColor: 'red' }} />,
     ).asJSON();
+
     expect(rendered).toMatchSnapshot();
     expect(rendered).toBeTruthy();
   });
@@ -333,6 +347,7 @@ describe('[Label]', () => {
         value={0}
       />,
     ).asJSON();
+
     expect(rendered).toMatchSnapshot();
     expect(rendered).toBeTruthy();
   });
@@ -347,6 +362,7 @@ describe('[Track]', () => {
         percent={50}
       />,
     ).asJSON();
+
     expect(rendered).toMatchSnapshot();
     expect(rendered).toBeTruthy();
   });
@@ -375,6 +391,7 @@ describe('[Track]', () => {
           percent={50}
         />,
       ).asJSON();
+
       expect(rendered).toMatchSnapshot();
       expect(rendered).toBeTruthy();
     });
@@ -406,6 +423,7 @@ describe('[Track]', () => {
           size={10}
         />,
       ).asJSON();
+
       expect(rendered).toMatchSnapshot();
       expect(rendered).toBeTruthy();
     });

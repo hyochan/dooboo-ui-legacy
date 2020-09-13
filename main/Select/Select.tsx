@@ -111,6 +111,7 @@ const Select: React.FC<Props> = (props): React.ReactElement => {
 
   React.useEffect(() => {
     const rotateValue = isOpen ? 1 : 0;
+
     Animated.timing(rotateAnimValue, {
       toValue: rotateValue,
       duration: 120,
@@ -119,6 +120,7 @@ const Select: React.FC<Props> = (props): React.ReactElement => {
     }).start();
 
     const slideValue = !disabled && isOpen ? 1 : 0;
+
     Animated.timing(slideAnimValue, {
       toValue: slideValue,
       duration: 120,
@@ -227,6 +229,7 @@ const Select: React.FC<Props> = (props): React.ReactElement => {
                   textStyle,
                 });
               }
+
               return null;
             })}
           </View>

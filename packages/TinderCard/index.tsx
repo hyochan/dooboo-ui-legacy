@@ -129,6 +129,7 @@ function TinderCard<T>(
 
       setCardIndex((idx) => {
         currentIndex = idx;
+
         return idx + 1;
       });
 
@@ -137,6 +138,7 @@ function TinderCard<T>(
       } else {
         onSwipeLeft && data && onSwipeLeft(data[currentIndex]);
       }
+
       setTimeBreak(false);
     },
     [],
@@ -144,8 +146,10 @@ function TinderCard<T>(
 
   const forceSwipe = (direction: TinderCardDirection): void => {
     setTimeBreak(true);
+
     const x =
       direction === TinderCardDirection.RIGHT ? SCREEN_WIDTH : -SCREEN_WIDTH;
+
     Animated.timing(position, {
       toValue: { x, y: 0 },
       duration: SWIPE_OUT_DURATION,
@@ -196,6 +200,7 @@ function TinderCard<T>(
       if (renderNoMoreCards) {
         return renderNoMoreCards();
       }
+
       return (
         <NoCardWrapper>
           <Text>No more cards</Text>
@@ -205,6 +210,7 @@ function TinderCard<T>(
 
     const dataSet = data.map((item, idx) => {
       if (!renderCards || idx < cardIndex) return null;
+
       if (idx === cardIndex) {
         return (
           <Animated.View
@@ -259,6 +265,7 @@ function TinderCard<T>(
         </Animated.View>
       );
     });
+
     return dataSet.reverse();
   };
 
@@ -271,6 +278,7 @@ function TinderCard<T>(
 
   const refForceSwipe = (direction: TinderCardDirection): void => {
     if (timeBreak) return;
+
     return forceSwipe(direction);
   };
 

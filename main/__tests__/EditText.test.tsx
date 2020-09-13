@@ -52,6 +52,7 @@ describe('[EditText]', () => {
 
     it('should set error message when no valid email has been written', async () => {
       const input = await waitForElement(() => testingLib.getByTestId('INPUT_TEST'));
+
       await wait(() => {
         fireEvent.changeText(input, 'input test');
       });
@@ -71,6 +72,7 @@ describe('[EditText]', () => {
       props.onFocus = (): void => {};
       component = <EditText {...props} />;
       testingLib = render(component);
+
       const input = await waitForElement(() => testingLib.getByTestId('INPUT_TEST'));
 
       await wait(() => {
@@ -93,7 +95,9 @@ describe('[EditText]', () => {
     it('renders without crashing', () => {
       component = <EditText {...props} />;
       testingLib = render(component);
+
       const rendered = renderer.create(component).toJSON();
+
       expect(rendered).toMatchSnapshot();
       expect(rendered).toBeTruthy();
     });
@@ -102,6 +106,7 @@ describe('[EditText]', () => {
       props.onFocus = (): void => {};
       component = <EditText {...props} />;
       testingLib = render(component);
+
       const input = await waitForElement(() => testingLib.getByTestId('INPUT_TEST'));
 
       await wait(() => {
@@ -115,6 +120,7 @@ describe('[EditText]', () => {
       it('should trigger blur without errorText', async () => {
         component = <EditText {...props} />;
         testingLib = render(component);
+
         const input = await waitForElement(() => testingLib.getByTestId('INPUT_TEST'));
 
         await wait(() => {
@@ -126,6 +132,7 @@ describe('[EditText]', () => {
         props.errorText = 'error text';
         component = <EditText {...props} />;
         testingLib = render(component);
+
         const input = await waitForElement(() => testingLib.getByTestId('INPUT_TEST'));
 
         await wait(() => {
@@ -149,7 +156,9 @@ describe('[EditText]', () => {
     it('renders without crashing', () => {
       component = <EditText {...props} />;
       testingLib = render(component);
+
       const rendered = renderer.create(component).toJSON();
+
       expect(rendered).toMatchSnapshot();
       expect(rendered).toBeTruthy();
     });
@@ -159,6 +168,7 @@ describe('[EditText]', () => {
       props.onFocus = (): void => {};
       component = <EditText {...props} />;
       testingLib = render(component);
+
       const input = await waitForElement(() => testingLib.getByTestId('INPUT_TEST'));
 
       await wait(() => {
@@ -173,6 +183,7 @@ describe('[EditText]', () => {
       it('renders row type input without errorText', async () => {
         component = <EditText {...props} />;
         testingLib = render(component);
+
         const input = await waitForElement(() => testingLib.getByTestId('INPUT_TEST'));
 
         await wait(() => {
@@ -184,6 +195,7 @@ describe('[EditText]', () => {
         props.errorText = 'error text';
         component = <EditText {...props} />;
         testingLib = render(component);
+
         const input = await waitForElement(() => testingLib.getByTestId('INPUT_TEST'));
 
         await wait(() => {
@@ -196,6 +208,7 @@ describe('[EditText]', () => {
         props.onFocus = undefined;
         component = <EditText {...props} />;
         testingLib = render(component);
+
         const input = await waitForElement(() => testingLib.getByTestId('INPUT_TEST'));
 
         await wait(() => {
@@ -223,7 +236,9 @@ describe('[EditText]', () => {
     it('renders without crashing', () => {
       component = <EditText {...props} />;
       testingLib = render(component);
+
       const rendered = renderer.create(component).toJSON();
+
       expect(rendered).toMatchSnapshot();
       expect(rendered).toBeTruthy();
     });
@@ -232,6 +247,7 @@ describe('[EditText]', () => {
       props.onFocus = (): void => {};
       component = <EditText {...props} />;
       testingLib = render(component);
+
       const input = await waitForElement(() => testingLib.getByTestId('INPUT_TEST'));
 
       await wait(() => {
@@ -245,6 +261,7 @@ describe('[EditText]', () => {
       it('should trigger blur without errorText', async () => {
         component = <EditText {...props} />;
         testingLib = render(component);
+
         const input = await waitForElement(() => testingLib.getByTestId('INPUT_TEST'));
 
         await wait(() => {
@@ -256,6 +273,7 @@ describe('[EditText]', () => {
         props.errorText = 'error text';
         component = <EditText {...props} />;
         testingLib = render(component);
+
         const input = await waitForElement(() => testingLib.getByTestId('INPUT_TEST'));
 
         await wait(() => {
@@ -279,7 +297,9 @@ describe('[EditText]', () => {
     it('renders without crashing', () => {
       component = <EditText {...props} />;
       testingLib = render(component);
+
       const rendered = renderer.create(component).toJSON();
+
       expect(rendered).toMatchSnapshot();
       expect(rendered).toBeTruthy();
     });
@@ -289,6 +309,7 @@ describe('[EditText]', () => {
       props.onFocus = (): void => {};
       component = <EditText {...props} />;
       testingLib = render(component);
+
       const input = await waitForElement(() => testingLib.getByTestId('INPUT_TEST'));
 
       await wait(() => {
@@ -303,6 +324,7 @@ describe('[EditText]', () => {
       it('renders row type input without errorText', async () => {
         component = <EditText {...props} />;
         testingLib = render(component);
+
         const input = await waitForElement(() => testingLib.getByTestId('INPUT_TEST'));
 
         await wait(() => {
@@ -314,6 +336,7 @@ describe('[EditText]', () => {
         props.errorText = 'error text';
         component = <EditText {...props} />;
         testingLib = render(component);
+
         const input = await waitForElement(() => testingLib.getByTestId('INPUT_TEST'));
 
         await wait(() => {
@@ -326,6 +349,7 @@ describe('[EditText]', () => {
         props.onFocus = undefined;
         component = <EditText {...props} />;
         testingLib = render(component);
+
         const input = await waitForElement(() => testingLib.getByTestId('INPUT_TEST'));
 
         await wait(() => {

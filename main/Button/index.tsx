@@ -121,6 +121,7 @@ function Button(props: Props): React.ReactElement {
       </Container>
     );
   }
+
   return (
     <Container style={containerStyle}>
       <StyledButton

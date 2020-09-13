@@ -21,6 +21,7 @@ const createTestProps = (
 
 describe('[SearchInput] render test', () => {
   const inputValue = '';
+
   it('should render without crashing', () => {
     props = createTestProps();
     component = <SearchInput {...props} value={inputValue}/>;
@@ -34,6 +35,7 @@ describe('[SearchInput] render test', () => {
 describe('[SearchInput] event test', () => {
   beforeAll(() => {
     const inputValue = '';
+
     props = createTestProps();
     testingLib = render(<SearchInput {...props} value={inputValue} />);
   });
@@ -67,6 +69,7 @@ describe('[SearchInput] event test', () => {
 describe('[SearchInput] ResetIndicator test', () => {
   beforeAll(() => {
     const inputValue = 'some value';
+
     props = createTestProps();
     testingLib = render(<SearchInput {...props} value={inputValue} />);
   });

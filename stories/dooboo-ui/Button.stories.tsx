@@ -86,6 +86,7 @@ function Default(): React.ReactElement {
           }}
           onPress={(): void => {
             setGoogleLoading(true);
+
             const timeout = setTimeout(() => {
               setGoogleLoading(false);
               clearTimeout(timeout);
@@ -116,6 +117,7 @@ function Default(): React.ReactElement {
           }}
           onPress={(): void => {
             setFacebookLoading(true);
+
             const timeout = setTimeout(() => {
               setFacebookLoading(false);
               clearTimeout(timeout);

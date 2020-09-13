@@ -179,6 +179,7 @@ function CalendarCarousel<T>({
   const scrollEffect = (e: NativeSyntheticEvent<NativeScrollEvent>) : void => {
     const xValue = Math.floor(e.nativeEvent.contentOffset.x);
     const maxLayoutFloor = Math.floor(layoutWidth) * 2;
+
     if (!layoutWidth || layoutWidth === 1) return;
 
     if (xValue === 0) {
@@ -199,11 +200,14 @@ function CalendarCarousel<T>({
       const update = prevMonth;
 
       setCurrentDate(update);
+
       return onDateChanged?.(update);
     }
+
     const update = nextMonth;
 
     setCurrentDate(update);
+
     return onDateChanged?.(update);
   };
 
@@ -218,9 +222,11 @@ function CalendarCarousel<T>({
       const lastWeekday = new Date(year, month, lastDate).getDay();
 
       const weekdays = [];
+
       for (let idx = 0; idx <= 6; idx++) {
         const matchMonth = new Date(2020, 5, idx);
         const weekDay = matchMonth.toLocaleString('default', { weekday: 'narrow' });
+
         weekdays.push(
           <View style={{ width: 47.14 }} key={idx}>
             <Text style={styles.weekdayText}>{weekDay}</Text>
@@ -229,18 +235,22 @@ function CalendarCarousel<T>({
       }
 
       const prevDates = [];
+
       for (let idx = 0; idx < firstWeekday; idx++) {
         const date = new Date(year, month, 0);
+
         date.setDate(date.getDate() - idx);
         prevDates.unshift(date);
       }
 
       const dates = [];
+
       for (let idx = 1; idx <= lastDate; idx++) {
         dates.push(new Date(year, month, idx));
       }
 
       const nextDates = [];
+
       if (6 - lastWeekday >= 1) {
         for (let idx = 1; idx <= 6 - lastWeekday; idx++) {
           nextDates.push(new Date(year, month + 1, idx));
@@ -257,6 +267,7 @@ function CalendarCarousel<T>({
 
         const isToday = (dateItem: Date): boolean => {
           const today = new Date();
+
           return dateItem.getDate() === today.getDate() &&
               dateItem.getMonth() === today.getMonth() &&
               dateItem.getFullYear() === today.getFullYear();
@@ -311,6 +322,7 @@ function CalendarCarousel<T>({
             </TouchableOpacity>
           );
         }
+
         return (
           <TouchableOpacity onPress={(): void => selectDate(setItemDay)}>
             <View style={styles.defaultView}>

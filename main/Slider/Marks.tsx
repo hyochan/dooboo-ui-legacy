@@ -269,6 +269,7 @@ const createMarks = ({
         }
 
         const value = getMarkValue(step, index);
+
         if (onMarkPress) {
           onMarkPress(value, position, index);
         }
@@ -366,6 +367,7 @@ const Marks: FC<Props> = ({
     disabled,
     onMarkPress,
   });
+
   useEffect(() => {
     const markValues = getMarkValues(step, markPositions);
 

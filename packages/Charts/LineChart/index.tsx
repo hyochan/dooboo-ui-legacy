@@ -95,9 +95,11 @@ const LineChart: FC<LineChartProps> = (props) => {
       ) *
         unit +
       unit;
+
     for (let i = 0; i <= yMaxValue; i += unit) {
       i <= yMaxValue && range.push(i);
     }
+
     return range;
   };
 
@@ -121,6 +123,7 @@ const LineChart: FC<LineChartProps> = (props) => {
     SVGHeight - SVGPadding * (SVGHeight < 736 ? 2.7 : SVGHeight < 1023 ? 3 : 4.5),
   ];
   const yAxis = d3.scaleLinear().domain(yDomain).range(yRange);
+
   return (
     <Container
       onLayout={(e): void => {
@@ -243,6 +246,7 @@ const LineChart: FC<LineChartProps> = (props) => {
                 xEnd = index + 1;
                 yEnd = data[index + 1][yAxisKey];
               }
+
               return (
                 <G key={index}>
                   {graphStyle.withLine && (

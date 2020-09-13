@@ -128,6 +128,7 @@ function PinchZoomModal(props: Props): ReactElement {
                 const viewSize = e.nativeEvent.layoutMeasurement;
 
                 const newPage = Math.floor(contentOffset.x / viewSize.width);
+
                 if (onPageChanged) {
                   onPageChanged(newPage);
                 }

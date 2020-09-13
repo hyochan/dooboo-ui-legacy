@@ -82,7 +82,9 @@ const AccordionItem: FC<Props> = (props) => {
 
   const handleBodyLayout = (e: LayoutChangeEvent): void => {
     if (bodyMounted) return;
+
     const { height } = e.nativeEvent.layout;
+
     layoutHeight = height;
     setBodyMounted(true);
     setBodyHeight(height);
@@ -138,6 +140,7 @@ const AccordionItem: FC<Props> = (props) => {
           duration: animDuration || 300,
           useNativeDriver: true,
         }).start();
+
         return;
       }
 
@@ -148,12 +151,14 @@ const AccordionItem: FC<Props> = (props) => {
       }).start();
     } else {
       const targetValue = opened ? -bodyHeight : 0;
+
       dropDownAnimValueList.setValue(targetValue);
     }
   }, [opened]);
 
   useEffect(() => {
     const targetValue = opened ? 0 : 1;
+
     if (shouldAnimate) {
       Animated.timing(rotateAnimValue, {
         toValue: targetValue,

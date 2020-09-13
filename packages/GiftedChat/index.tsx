@@ -116,6 +116,7 @@ function Shared(props: Props): React.ReactElement {
     keyboardShowListener = Keyboard.addListener('keyboardDidShow', (e) => {
       setKeyboardHeight(e.endCoordinates.height);
     });
+
     return (): void => {
       if (keyboardShowListener) {
         keyboardShowListener.remove();

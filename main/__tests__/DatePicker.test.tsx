@@ -15,6 +15,7 @@ const standardDate = new Date(2020, 9, 13);
 describe('[DatePicker] render', () => {
   it('should render without crashing', () => {
     const rendered = render(<DatePicker />).asJSON();
+
     expect(rendered).toMatchSnapshot();
     expect(rendered).toBeTruthy();
   });
@@ -25,6 +26,7 @@ describe('[DateInput] render', () => {
     const rendered = render(
       <DateInput onPressCalendar={(): void => {}} />,
     ).asJSON();
+
     expect(rendered).toMatchSnapshot();
     expect(rendered).toBeTruthy();
   });
@@ -44,6 +46,7 @@ describe('[DateInput] render', () => {
       );
 
       const dateInputClicked = rendered.root.findByType(TouchableOpacity);
+
       renderer.act(() => {
         dateInputClicked.props.onPress();
       });
@@ -57,6 +60,7 @@ describe('[PickerCalendar] render', () => {
     const rendered = render(
       <PickerCalendar visible={false} onSelectDate={(): void => {}} />,
     ).asJSON();
+
     expect(rendered).toMatchSnapshot();
     expect(rendered).toBeTruthy();
   });
@@ -70,6 +74,7 @@ describe('[Calendar]', () => {
         renderDay={() => <CalendarDate date={standardDate}></CalendarDate>}
       />,
     ).asJSON();
+
     expect(rendered).toMatchSnapshot();
     expect(rendered).toBeTruthy();
   });
@@ -80,6 +85,7 @@ describe('[CalendarDate] render', () => {
     const rendered = render(
       <CalendarDate onPress={(): void => {}} date={standardDate} />,
     ).asJSON();
+
     expect(rendered).toMatchSnapshot();
     expect(rendered).toBeTruthy();
   });
@@ -100,6 +106,7 @@ describe('[CalendarDate] render', () => {
       );
 
       const dateSelected = rendered.root.findByType(TouchableOpacity);
+
       renderer.act(() => {
         dateSelected.props.onPress();
       });
@@ -118,6 +125,7 @@ describe('[CalendarMonth] render', () => {
         today={new Date(standardDate)}
       />,
     ).asJSON();
+
     expect(rendered).toMatchSnapshot();
     expect(rendered).toBeTruthy();
   });
@@ -128,6 +136,7 @@ describe('[CalendarWeekDays] render', () => {
     const rendered = render(
       <CalendarWeekDays calendarWidth={300} weekdayFormat={'narrow'} />,
     ).asJSON();
+
     expect(rendered).toMatchSnapshot();
     expect(rendered).toBeTruthy();
   });

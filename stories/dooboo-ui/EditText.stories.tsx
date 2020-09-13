@@ -17,6 +17,7 @@ import { storiesOf } from '@storybook/react-native';
 const ColumnEditText = (): React.ReactElement => {
   const validateEmail = (email: string): boolean => {
     const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+
     return re.test(email);
   };
 
@@ -147,6 +148,7 @@ const ColumnEditText = (): React.ReactElement => {
 const RowEditText = (): React.ReactElement => {
   const validateEmail = (email: string): boolean => {
     const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+
     return re.test(email);
   };
 
@@ -208,8 +210,10 @@ const RowEditText = (): React.ReactElement => {
             onBlur={(): void => {
               if (!validateEmail(email)) {
                 setEmailErrorText('Not a valid email address');
+
                 return;
               }
+
               setEmailErrorText('');
             }}
             label="E-mail"
@@ -304,6 +308,7 @@ const RowEditText = (): React.ReactElement => {
 const BoxEditText = (): React.ReactElement => {
   const validateEmail = (email: string): boolean => {
     const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+
     return re.test(email);
   };
 
@@ -490,6 +495,7 @@ const BoxEditText = (): React.ReactElement => {
 const BoxRowEditText = (): React.ReactElement => {
   const validateEmail = (email: string): boolean => {
     const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+
     return re.test(email);
   };
 

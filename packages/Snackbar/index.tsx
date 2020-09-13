@@ -9,9 +9,11 @@ interface SnackbarContext {
 const SnackbarContext = createContext<SnackbarContext | undefined>(undefined);
 const useCtx = (): SnackbarContext | undefined => {
   const c = useContext<SnackbarContext | undefined>(SnackbarContext);
+
   if (!c) {
     throw new Error('useCtx must be inside a Provider with a value');
   }
+
   return c;
 };
 
@@ -26,6 +28,7 @@ function SnackbarProvider(props: SnackbarProviderProps): React.ReactElement {
   const show = (content: Content): void => {
     snackbar.current && snackbar.current.show({ ...defaultContent, ...content });
   };
+
   return (
     <View style={{ flex: 1, width: '100%' }}>
       <SnackbarContext.Provider value={{ show }}>{children}</SnackbarContext.Provider>

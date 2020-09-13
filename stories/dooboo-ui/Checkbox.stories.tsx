@@ -33,6 +33,7 @@ function DefaultCheckbox(): React.ReactElement {
   const customStyle = {
     labelLeft: true,
   };
+
   return (
     <ScrollContainer>
       <Container>
@@ -73,6 +74,7 @@ function DefaultCheckboxGroup(): React.ReactElement {
     // eslint-disable-next-line no-console
     console.log('checked = ', checkedValues);
   };
+
   return (
     <ScrollContainer>
       <Container>

@@ -31,6 +31,7 @@ describe('[Card]', () => {
     root = rendered.root;
 
     const texts = root.findAllByType(Text);
+
     expect(texts).toHaveLength(0);
   });
 
@@ -46,6 +47,7 @@ describe('[Card]', () => {
     root = rendered.root;
 
     const images = root.findAllByType(Image);
+
     expect(images).toHaveLength(1);
   });
 
@@ -56,6 +58,7 @@ describe('[Card]', () => {
     root = rendered.root;
 
     const texts = root.findAllByType(Text);
+
     expect(texts).toHaveLength(2);
   });
 
@@ -73,6 +76,7 @@ describe('[Card]', () => {
     root = rendered.root;
 
     const texts = root.findAllByType(Text);
+
     expect(texts).toHaveLength(2);
   });
 

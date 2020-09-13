@@ -72,6 +72,7 @@ describe('[GiftedChatInput] render', () => {
     const rendered: renderer.ReactTestRendererJSON | null = renderer
       .create(component)
       .toJSON();
+
     expect(rendered).toMatchSnapshot();
     expect(rendered).toBeTruthy();
   });
@@ -85,6 +86,7 @@ describe('[GiftedChatInput] render', () => {
 
     it('should invoke changeText event handler when message changed', () => {
       const textInput = testingLib.getByTestId('input_chat');
+
       jest.useFakeTimers();
       jest.runAllTimers();
       fireEvent.changeText(textInput, 'chat test');
@@ -94,11 +96,13 @@ describe('[GiftedChatInput] render', () => {
 
     it('should call [setShowMenu] when focused', () => {
       const textInput = testingLib.getByTestId('input_chat');
+
       textInput.props.onFocus();
     });
 
     it('should [showMenu] when touch pressed', () => {
       let touchMenu = testingLib.getByTestId('touch_menu');
+
       fireEvent.press(touchMenu);
 
       touchMenu = testingLib.getByTestId('touch_menu');
@@ -107,6 +111,7 @@ describe('[GiftedChatInput] render', () => {
 
     it('should call [setShowMenu] when focused', () => {
       const touchMenu = testingLib.getByTestId('touch_menu');
+
       fireEvent.press(touchMenu);
     });
   });

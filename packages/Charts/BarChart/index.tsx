@@ -94,9 +94,11 @@ const BarChart: FC<BarChartProps> = (props) => {
       ) *
         unit +
       unit;
+
     for (let i = 0; i <= yMaxValue; i += unit) {
       i <= yMaxValue && range.push(i);
     }
+
     return range;
   };
 
@@ -120,6 +122,7 @@ const BarChart: FC<BarChartProps> = (props) => {
     SVGHeight - SVGPadding * (SVGHeight < 736 ? 1.5 : SVGHeight < 1023 ? 2.5 : 3.5),
   ];
   const yAxis = d3.scaleLinear().domain(yDomain).range(yRange);
+
   return (
     <Container
       onLayout={(e): void => {

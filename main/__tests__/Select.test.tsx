@@ -18,6 +18,7 @@ const createTestProps = (
 
 describe('[Select] render test', () => {
   const placeholderText = 'Testing-placeholder';
+
   it('should render without crashing', () => {
     props = createTestProps({
       onSelect: jest.fn(),
@@ -32,6 +33,7 @@ describe('[Select] render test', () => {
 
 describe('[SelectItem] render test', () => {
   const itemValue = 'Item-1';
+
   it('should render without crashing', () => {
     props = createTestProps({
       onSelect: jest.fn(),

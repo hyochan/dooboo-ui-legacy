@@ -2,10 +2,9 @@ import { Checkbox, CheckboxGroup } from '../Checkbox';
 import React, { ReactElement } from 'react';
 import {
   RenderResult,
-  act,
-  fireEvent,
   render,
 } from '@testing-library/react-native';
+
 import { TouchableHighlight } from 'react-native';
 import renderer from 'react-test-renderer';
 
@@ -27,7 +26,7 @@ describe('[Checkbox]', () => {
   });
 
   it('render without crashing', () => {
-    const rendered: renderer.ReactTestRendererJSON | null = renderer
+    const rendered = renderer
       .create(component(props))
       .toJSON();
 
@@ -51,6 +50,7 @@ describe('[Checkbox]', () => {
       });
       expect(handlePress).toHaveBeenCalled();
     });
+
     it('should simulate props', (): void => {
       const rendered = renderer.create(
         component({

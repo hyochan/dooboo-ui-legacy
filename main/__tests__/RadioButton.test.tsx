@@ -35,6 +35,7 @@ describe('[RadioButton] render', () => {
     const rendered: renderer.ReactTestRendererJSON | null = renderer
       .create(component(props))
       .toJSON();
+
     expect(rendered).toMatchSnapshot();
     expect(rendered).toBeTruthy();
   });
@@ -49,6 +50,7 @@ describe('[RadioButton] render', () => {
         }),
       );
       const radioButtonClick = rendered.root.findByType(TouchableOpacity);
+
       renderer.act(() => {
         radioButtonClick.props.onPress();
       });

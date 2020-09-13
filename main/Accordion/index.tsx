@@ -13,6 +13,7 @@ export interface Datum {
   title: string;
   bodies: string[];
 }
+
 interface Props {
   data: Datum[];
   shouldAnimate: boolean;

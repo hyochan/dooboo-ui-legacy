@@ -90,6 +90,7 @@ const mockData = [
 const LineChartComponent = (): ReactElement => {
   const [currentHeight, setCurrentHeight] = React.useState<number>(350);
   const [currentWidth, setCurrentWidth] = React.useState<number>(400);
+
   return (
     <CustomContainer
       onLayout={(e): void => {
@@ -160,6 +161,7 @@ const LineChartComponent = (): ReactElement => {
 const BarChartComponent = (): ReactElement => {
   const [currentHeight, setCurrentHeight] = React.useState<number>(350);
   const [currentWidth, setCurrentWidth] = React.useState<number>(400);
+
   return (
     <CustomContainer
       onLayout={(e): void => {

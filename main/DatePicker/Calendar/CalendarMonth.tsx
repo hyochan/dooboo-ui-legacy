@@ -5,6 +5,7 @@ const convertDateString = (date: Date): string => {
   const dateString = new Date(date.getTime() - date.getTimezoneOffset() * 60000)
     .toISOString()
     .split('T')[0];
+
   return dateString;
 };
 
@@ -40,7 +41,9 @@ function CalendarMonth<T>(props: PropsWithChildren<Props<T>>): ReactElement {
     props.monthDate.getMonth(),
     1,
   );
+
   startDate.setDate(startDate.getDate() - startDate.getDay());
+
   const sYear = startDate.getFullYear();
   const sMonth = startDate.getMonth();
   const sDate = startDate.getDate();
@@ -49,6 +52,7 @@ function CalendarMonth<T>(props: PropsWithChildren<Props<T>>): ReactElement {
 
   for (let i = 0; i < 42; i++) {
     const date = new Date(sYear, sMonth, sDate + i);
+
     datesOfMonth.push(date);
   }
 
@@ -57,6 +61,7 @@ function CalendarMonth<T>(props: PropsWithChildren<Props<T>>): ReactElement {
     const week = dates.map((date) => {
       const isCurMonth =
         date.getFullYear() === thisYear && date.getMonth() === thisMonth;
+
       return (
         <View key={date.getDate()}>
           {props.renderDay({
@@ -93,6 +98,7 @@ function CalendarMonth<T>(props: PropsWithChildren<Props<T>>): ReactElement {
 
   for (let week = 0; week < 6; week++) {
     const week = renderWeek(datesOfMonth.splice(0, 7), weeks.length);
+
     weeks.push(week);
   }
 

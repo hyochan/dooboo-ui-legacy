@@ -6,6 +6,7 @@ import { storiesOf } from '@storybook/react-native';
 
 const Small = (): React.ReactElement => {
   const [switchOn1, setSwitchOn1] = useState(false);
+
   return (
     <SwitchToggle
       switchOn={switchOn1}
@@ -16,6 +17,7 @@ const Small = (): React.ReactElement => {
 
 const Medium = (): React.ReactElement => {
   const [switchOn2, setSwitchOn2] = useState<boolean>(false);
+
   return (
     <SwitchToggle
       containerStyle={{
@@ -43,6 +45,7 @@ const Medium = (): React.ReactElement => {
 
 const WithText = (): React.ReactElement => {
   const [switchOn4, setSwitchOn4] = useState(false);
+
   return (
     <SwitchToggle
       buttonText={switchOn4 ? 'Hour' : 'Day'}
@@ -92,6 +95,7 @@ const WithText = (): React.ReactElement => {
 };
 const Large = (): React.ReactElement => {
   const [switchOn3, setSwitchOn3] = useState(false);
+
   return (
     <SwitchToggle
       containerStyle={{
@@ -127,15 +131,19 @@ export default {
 };
 
 export const toStorybook1 = (): ReactElement => <Small />;
+
 toStorybook1.story = { name: 'small' };
 
 export const toStorybook2 = (): ReactElement => <Medium />;
+
 toStorybook2.story = { name: 'medium' };
 
 export const toStorybook3 = (): ReactElement => <Large />;
+
 toStorybook3.story = { name: 'large' };
 
 export const toStorybook4 = (): ReactElement => <WithText />;
+
 toStorybook4.story = { name: 'WithText' };
 
 /**

@@ -57,6 +57,7 @@ function useDebounce(value: string, delay: number): string {
     const handler = setTimeout(() => {
       setDebouncedValue(value);
     }, delay);
+
     return (): void => {
       clearTimeout(handler);
     };

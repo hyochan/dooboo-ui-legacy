@@ -100,6 +100,7 @@ const DateInput: FC<Props> = (props) => {
 
   const validateDate = (input: string): void => {
     const validDate = /^(19|20)\d{2}-(0[1-9]|1[012])-(0[1-9]|[12][0-9]|3[0-1])$/;
+
     if (validDate.test(input) || input === '') {
       setError(false);
     } else {
@@ -113,6 +114,7 @@ const DateInput: FC<Props> = (props) => {
     )
       .toISOString()
       .split('T')[0];
+
     return dateString;
   };
 

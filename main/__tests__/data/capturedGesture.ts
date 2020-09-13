@@ -16,19 +16,24 @@ interface GestureHandlerInput {
 
 const replaceFirstTouchToThis = (item: GestureHandlerInput):GestureHandlerInput => {
   const { nativeEvent } = item;
+
   if (nativeEvent) {
     nativeEvent.touches[0] = nativeEvent;
     nativeEvent.changedTouches[0] = nativeEvent;
   }
+
   return item;
 };
 
 export function getFirstTouchOfTwoFinger(inputs: GestureHandlerInput[]): GestureHandlerInput | null {
   const firstTouchIndex = inputs.findIndex((input) => {
     const { nativeEvent } = input;
+
     return nativeEvent.touches.length === 2;
   });
+
   if (firstTouchIndex < 0) return null;
+
   return inputs[firstTouchIndex];
 }
 
@@ -36,9 +41,12 @@ export function getLastTouchOfTwofinger(inputs: GestureHandlerInput[]): GestureH
   const reversed = inputs.map((i) => i).reverse();
   const firstTouchIndex = reversed.findIndex((input) => {
     const { nativeEvent } = input;
+
     return nativeEvent.touches.length === 2;
   });
+
   if (firstTouchIndex < 0) return null;
+
   return reversed[firstTouchIndex];
 }
 
@@ -52,6 +60,7 @@ interface TwoPosition {
 export function getChangedDistanceRatio({ start, end }: { start: TwoPosition, end: TwoPosition }): number {
   const startDist = Math.sqrt((start.x1 - start.x2) ** 2 + (start.y1 - start.y2) ** 2);
   const endDist = Math.sqrt((end.x1 - end.x2) ** 2 + (end.y1 - end.y2) ** 2);
+
   return endDist / startDist;
 }
 
@@ -72,6 +81,7 @@ export function getTwoFingerStartEndPositions(inputs: GestureHandlerInput[]): {
     y1: zoomEnd.nativeEvent.locationY,
     y2: zoomEnd.nativeEvent.touches[1].locationY,
   };
+
   return { start, end };
 }
 

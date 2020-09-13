@@ -275,12 +275,14 @@ const EditText: FC<Props> = (props) => {
               autoCapitalize={autoCapitalize}
               onFocus={(): void => {
                 setFocus(true);
+
                 if (onFocus) {
                   onFocus();
                 }
               }}
               onBlur={(): void => {
                 setFocus(false);
+
                 if (onBlur) {
                   onBlur();
                 }
@@ -342,12 +344,14 @@ const EditText: FC<Props> = (props) => {
               autoCapitalize={autoCapitalize}
               onFocus={(): void => {
                 setFocus(true && !disabled);
+
                 if (onFocus) {
                   onFocus();
                 }
               }}
               onBlur={(): void => {
                 setFocus(false);
+
                 if (onBlur) {
                   onBlur();
                 }
@@ -423,12 +427,14 @@ const EditText: FC<Props> = (props) => {
               autoCapitalize={autoCapitalize}
               onFocus={(): void => {
                 setFocus(true);
+
                 if (onFocus) {
                   onFocus();
                 }
               }}
               onBlur={(): void => {
                 setFocus(false);
+
                 if (onBlur) {
                   onBlur();
                 }

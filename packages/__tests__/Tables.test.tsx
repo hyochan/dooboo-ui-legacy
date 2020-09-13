@@ -123,6 +123,7 @@ describe('[Tables] render test', (): void => {
       props = createTestProps({
         data,
       });
+
       const { getAllByTestId } = render(<Table {...props} />);
       const title = getAllByTestId(TEST_ID.TITLE);
 
@@ -133,6 +134,7 @@ describe('[Tables] render test', (): void => {
       props = createTestProps({
         data,
       });
+
       const { getAllByTestId } = render(<Table {...props} />);
       const header = getAllByTestId(TEST_ID.HEADER);
 
@@ -143,6 +145,7 @@ describe('[Tables] render test', (): void => {
       props = createTestProps({
         data,
       });
+
       const { getAllByTestId } = render(<Table {...props} />);
       const row = getAllByTestId(TEST_ID.ROW);
 
@@ -156,6 +159,7 @@ describe('[Tables] render test', (): void => {
 
       const { getAllByTestId } = render(<Table {...props} />);
       const cell = getAllByTestId(TEST_ID.CELL);
+
       expect(cell).not.toBeNull();
     });
   });
@@ -179,6 +183,7 @@ describe('[Tables] render test', (): void => {
 
     const { getAllByTestId } = render(<Table {...props} />);
     const checkbox = getAllByTestId(TEST_ID.CHECKBOX);
+
     expect(checkbox).not.toBeNull();
   });
 
