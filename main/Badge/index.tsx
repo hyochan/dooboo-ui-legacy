@@ -1,7 +1,9 @@
 import React, { FC } from 'react';
 
+import styled, { css } from 'styled-components/native';
+import { FlattenSimpleInterpolation } from 'styled-components';
+
 import { StyleSheet } from 'react-native';
-import styled from 'styled-components/native';
 
 interface StyleProps {
   color?: string;
@@ -11,7 +13,7 @@ interface StyleProps {
   textColor?: string;
 }
 
-export interface BadgeProps extends StyleProps{
+export interface BadgeProps extends StyleProps {
   count?: number;
   maximumCount?: number;
   showZero?: boolean;
@@ -22,38 +24,44 @@ export interface BadgeProps extends StyleProps{
 const StyledView = styled.View<StyleProps>`
   position: absolute;
   top: -15px;
-  ${(props) => props.badgePlacement}: -10px;
+  
   width: auto;
   min-width: 45px;
   height: 45px;
-  border-color: ${(props) =>
-    props.border ? props.border : '#00ff0000'};
   border-width: 3px;
-  background-color: ${(props) => props.color};
   border-radius: 50px;
   justify-content: center;
   align-items: center;
-  opacity: ${(props) => props.opacity};
+  ${(props): FlattenSimpleInterpolation => css`
+    ${props.badgePlacement}: -10px;
+    opacity: ${props.opacity};
+    border-color: ${props.border || '#00ff0000'};
+    background-color: ${props.color};
+  `}
 `;
 
 const StyledText = styled.Text<StyleProps>`
-  color: ${(props) => props.textColor};
   text-align: center;
   padding: 5px;
   margin-left: 3px;
   margin-right: 3px;
+  ${(props): FlattenSimpleInterpolation => css`
+    color: ${props.textColor};
+  `}
 `;
 
 const StyledDotView = styled.View<StyleProps>`
   position: absolute;
   top: -5px;
-  ${(props) => props.badgePlacement}: -5px;
   width: 20px;
   height: 20px;
-  background-color: ${(props) => props.color};
   border-radius: 50px;
   justify-content: center;
   align-items: center;
+  ${(props): FlattenSimpleInterpolation => css`
+    ${props.badgePlacement}: -5px;
+    background-color: ${props.color};
+  `}
 `;
 
 const styles = StyleSheet.create({
