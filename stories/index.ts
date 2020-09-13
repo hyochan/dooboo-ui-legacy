@@ -18,3 +18,4 @@ import './packages/TinderCard.stories';
 import './packages/Tables.stories';
 import './packages/CalendarCarousel.stories';
 import './dooboo-ui/PinchZoom.stories';
+import './dooboo-ui/DatePicker.stories';
