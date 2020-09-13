@@ -1,5 +1,5 @@
-import React, { ReactElement, useState } from 'react';
-import { SafeAreaView, ScrollView, Text, View } from 'react-native';
+import React, { ReactElement } from 'react';
+import { SafeAreaView, ScrollView, View } from 'react-native';
 import { Badge } from '../../main/Badge';
 import { ContainerDeco } from '../../storybook/decorators';
 import { storiesOf } from '@storybook/react-native';
@@ -22,15 +22,18 @@ const StyledTitle = styled.Text`
   margin-bottom: 20px;
 `;
 
-const StyledView: any = styled.View`
+const StyledBasicView = styled.View`
   margin: 20px;
   width: 100px;
   height: 100px;
-  background-color: #BFBFBF
-  border-radius: 12;
-  box-shadow: 3px 3px 2px rgba(0, 0, 0, 0.5);
-  elevation: 1;
+  background-color: #BFBFBF;
+  border-radius: 12px;
+  box-shadow: 3px 3px 2px rgba(0, 0, 0, 0.5);  
 `;
+
+const StyledView = (props): React.ReactElement => {
+  return <StyledBasicView style={{ elevation: 1 }} {...props}/>;
+};
 
 const Badge1 = (): React.ReactElement => {
   return (
@@ -72,7 +75,7 @@ const Badge1 = (): React.ReactElement => {
                 <Badge variant="dot" color="#ED2939" />
               </StyledView>
               <StyledView>
-                <Badge color="#F2B9AC" count={100} position="left" />
+                <Badge color="#F2B9AC" count={100} badgePlacement="left" />
               </StyledView>
             </ShowContainer>
           </View>

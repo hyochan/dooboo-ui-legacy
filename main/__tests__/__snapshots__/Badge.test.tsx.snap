@@ -19,9 +19,9 @@ exports[`[Badge] render should not render opacity when count is over than max co
     }
   >
     <View
+      badgePlacement="right"
       color="#34AFF9"
       opacity={1}
-      position="right"
       style={
         Array [
           Object {
@@ -89,9 +89,9 @@ exports[`[Badge] render should render badge when wrong variant 1`] = `
     }
   >
     <View
+      badgePlacement="right"
       color="#34AFF9"
       opacity={1}
-      position="right"
       style={
         Array [
           Object {
@@ -159,8 +159,8 @@ exports[`[Badge] render should render dot badge 1`] = `
     }
   >
     <View
+      badgePlacement="right"
       color="#34AFF9"
-      position="right"
       style={
         Array [
           Object {
@@ -200,9 +200,9 @@ exports[`[Badge] render should render left badge 1`] = `
     }
   >
     <View
+      badgePlacement="right"
       color="#34AFF9"
       opacity={1}
-      position="left"
       style={
         Array [
           Object {
@@ -213,10 +213,10 @@ exports[`[Badge] render should render left badge 1`] = `
             "borderWidth": 3,
             "height": 45,
             "justifyContent": "center",
-            "left": -10,
             "minWidth": 45,
             "opacity": 1,
             "position": "absolute",
+            "right": -10,
             "top": -15,
             "width": "auto",
           },
@@ -270,9 +270,9 @@ exports[`[Badge] render should render with + when count is over than max count 1
     }
   >
     <View
+      badgePlacement="right"
       color="#34AFF9"
       opacity={0.6}
-      position="right"
       style={
         Array [
           Object {
@@ -340,9 +340,9 @@ exports[`[Badge] render should render without crashing 1`] = `
     }
   >
     <View
+      badgePlacement="right"
       color="#34AFF9"
       opacity={1}
-      position="right"
       style={
         Array [
           Object {
