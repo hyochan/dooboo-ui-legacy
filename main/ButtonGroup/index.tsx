@@ -49,6 +49,7 @@ const ButtonGroup: FC<Props> = (props) => {
             style={{ flex: 1 }}
             onPress={(): void => {
               setSelectedOption(i);
+
               if (onPress) {
                 onPress(i);
               }

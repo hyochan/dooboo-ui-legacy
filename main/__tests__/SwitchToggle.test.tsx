@@ -24,6 +24,7 @@ describe('[SwitchToggle]', (): void => {
 
   it('should render without crashing', (): void => {
     const rendered = renderer.create(component);
+
     expect(rendered).toMatchSnapshot();
     expect(rendered).toBeTruthy();
   });
@@ -32,6 +33,7 @@ describe('[SwitchToggle]', (): void => {
     it('should simulate onPress', (): void => {
       const rendered = renderer.create(component);
       const switchToggle = rendered.root.findByType(TouchableOpacity);
+
       jest.useFakeTimers();
 
       renderer.act(() => {
@@ -47,9 +49,12 @@ describe('[SwitchToggle]', (): void => {
         switchOn: false,
         onPress: jest.fn(),
       };
+
       component = <SwitchToggle {...props}/>;
+
       const rendered = renderer.create(component);
       const switchToggle = rendered.root.findByType(TouchableOpacity);
+
       jest.useFakeTimers();
 
       renderer.act(() => {

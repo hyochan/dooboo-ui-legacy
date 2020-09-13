@@ -19,6 +19,7 @@ const CheckMark = styled.Image`
   width: 14px;
   height: 14px;
 `;
+
 interface Props {
   value?: boolean;
   onClick?: () => void;

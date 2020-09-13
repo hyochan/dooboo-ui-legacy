@@ -95,6 +95,7 @@ export function ImageList(): React.ReactElement {
 function AutoHeightImage(props: ImageProps & { style: { width: number }}): React.ReactElement {
   const { style } = props;
   const [heightPerWidth, setHightPerWidth] = React.useState(0);
+
   return <Image
     {...props}
     style={[style, { height: heightPerWidth * style.width || style.width }]}
@@ -129,6 +130,7 @@ export function ImageSlider({ imageSources = images }:{ imageSources?: ImageSour
     const moveNext = animValues.nextTranslateX < -WIDTH / 2;
     const movePrev = animValues.prevTranslateX > WIDTH / 2;
     const targetTranslate = pinchZoom.current?.animatedValue.translate;
+
     if (moveNext && currentIndex < imageSources.length - 1 && targetTranslate) {
       Animated.timing(targetTranslate, {
         toValue: { x: -WIDTH, y: animValues.y },
@@ -169,6 +171,7 @@ export function ImageSlider({ imageSources = images }:{ imageSources?: ImageSour
       });
     }
   }, [currentIndex]);
+
   return <Container style={{ backgroundColor: '#000' }}>
     <ImageSliderContainer>
       { currentIndex > 0

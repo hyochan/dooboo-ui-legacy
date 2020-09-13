@@ -13,6 +13,7 @@ const Default = (): React.ReactElement => {
 
   const selectOption = (index: number): void => {
     setOption(data[index]);
+
     switch (index) {
       case 0:
         setOption('Option 1');

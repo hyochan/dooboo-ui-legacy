@@ -42,6 +42,7 @@ function CalendarWeekDays(props: Props): React.ReactElement {
     const weekDay = matchMonth.toLocaleString('default', {
       weekday: props.weekdayFormat || 'narrow', // 'narrow',
     });
+
     weekDays.push(weekDay);
   }
 
@@ -49,6 +50,7 @@ function CalendarWeekDays(props: Props): React.ReactElement {
     <DaysRow style={{ ...props.style }}>
       {weekDays.map((day, index) => {
         const textColor = index === 0 ? '#ff424c' : '#565656';
+
         return (
           <DayColumn style={{ width: props.calendarWidth / 7 }} key={index}>
             <DayTitle style={{ color: textColor }}>{day}</DayTitle>

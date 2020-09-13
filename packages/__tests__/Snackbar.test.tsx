@@ -16,6 +16,7 @@ const message = 'snackbar content';
 
 function TestWrapper(): React.ReactElement {
   snackbarRef = React.useRef();
+
   return (
     <View style={{ flex: 1 }}>
       <TouchableOpacity
@@ -37,6 +38,7 @@ function TestWrapper(): React.ReactElement {
 
 function ContentInnerProvider(): React.ReactElement {
   const snackbar = useSnackbarContext();
+
   return (
     <View style={{ flex: 1 }}>
       <TouchableOpacity
@@ -60,12 +62,14 @@ function ContentInnerProvider(): React.ReactElement {
 describe('[Snackbar]', () => {
   it('renders TestWrapper without crashing', () => {
     const rendered = renderer.create(<TestWrapper />);
+
     expect(rendered.toJSON()).toMatchSnapshot();
   });
 
   it('should simulate showing snackbar', async () => {
     const renderResult = render(<TestWrapper />);
     const btn = renderResult.getByTestId('Button');
+
     act(() => {
       fireEvent.press(btn);
     });
@@ -108,11 +112,13 @@ describe('[Snackbar] using provider', () => {
 
   it('renders TestElement without crashing', () => {
     const rendered = renderer.create(TestElement());
+
     expect(rendered.toJSON()).toMatchSnapshot();
   });
 
   it('renders TestElement using whole screen view without crashing', () => {
     const rendered = renderer.create(TestElement());
+
     expect(rendered.toJSON()).toMatchSnapshot();
   });
 

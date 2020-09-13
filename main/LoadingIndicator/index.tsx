@@ -43,12 +43,14 @@ function LoadingIndicator(props: Props): ReactElement {
         height: 80,
       };
     }
+
     if (size === 'small') {
       return {
         width: 50,
         height: 50,
       };
     }
+
     if (!size) {
       return {};
     }

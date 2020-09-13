@@ -38,6 +38,7 @@ const Table: React.FC<Props> & TableNamespace = ({
   /** default Data key */
   const group = data.reduce((acc, current) => {
     Array.from(Object.assign(acc, Object.keys(current)));
+
     return acc;
   }, []);
 
@@ -47,6 +48,7 @@ const Table: React.FC<Props> & TableNamespace = ({
   const handleClick = (name: string): void => {
     const selectedIndex = selected.indexOf(name);
     let newSelected: string[] = [];
+
     if (selectedIndex === -1) {
       newSelected = newSelected.concat(selected, name);
     } else if (selectedIndex === 0) {
@@ -59,8 +61,10 @@ const Table: React.FC<Props> & TableNamespace = ({
         selected.slice(selectedIndex + 1),
       );
     }
+
     setSelected(newSelected);
   };
+
   /** Render */
   return (
     <ScrollView
@@ -90,6 +94,7 @@ const Table: React.FC<Props> & TableNamespace = ({
           </Table.Header>
           {data.map((item, i) => {
             const isItemSelected = isSelected(item[group[0]]);
+
             return (
               <Table.Row
                 key={`row-${item}-${i}`}

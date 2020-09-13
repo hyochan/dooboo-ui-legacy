@@ -138,6 +138,7 @@ function Default(): React.ReactElement {
 
   useInterval(() => {
     if (data.length > 20) return;
+
     setData([...data, ...tinderCardDummyData]);
   }, 500);
 

@@ -36,6 +36,7 @@ describe('PinchZoom of ImageSlider', () => {
     const renderedJSON: renderer.ReactTestRendererJSON | null = renderer
       .create(<ImageSlider />)
       .toJSON();
+
     expect(renderedJSON).toMatchSnapshot();
     expect(renderedJSON).toBeTruthy();
   });
@@ -60,6 +61,7 @@ describe('PinchZoom of ImageSlider', () => {
     it('should zoom in by openGesture', () => {
       act(() => {
         const callBacks = pinchZoomContainer.props.responderCallback;
+
         openGesture.forEach(({ name, nativeEvent, gestureState }) => {
           callBacks[name] && callBacks[name]({ nativeEvent }, gestureState);
         });
@@ -93,6 +95,7 @@ describe('PinchZoom of ImageSlider', () => {
 
       act(() => {
         const callBacks = pinchZoomContainer.props.responderCallback;
+
         moveGesture.forEach(({ name, nativeEvent, gestureState }) => {
           callBacks[name] && callBacks[name]({ nativeEvent }, gestureState);
         });
@@ -116,6 +119,7 @@ describe('PinchZoom of ImageSlider', () => {
     it('should zoom out by closeGesture', () => {
       act(() => {
         const callBacks = pinchZoomContainer.props.responderCallback;
+
         closeGesture.forEach(({ name, nativeEvent, gestureState }) => {
           callBacks[name] && callBacks[name]({ nativeEvent }, gestureState);
         });
@@ -128,6 +132,7 @@ describe('PinchZoom of ImageSlider', () => {
 
       const openScale = getChangedDistanceRatio(getTwoFingerStartEndPositions(openGesture));
       const closeScale = getChangedDistanceRatio(getTwoFingerStartEndPositions(closeGesture));
+
       expect(openScale * closeScale).toBeLessThan(1);
 
       expect(scale).toEqual(1);
@@ -137,6 +142,7 @@ describe('PinchZoom of ImageSlider', () => {
 
     it('should release onTranslateChanged function if the property changed.', () => {
       const callBacks = pinchZoomContainer.props.responderCallback;
+
       act(() => {
         callBacks.onPanResponderGrant();
         callBacks.onPanResponderMove({

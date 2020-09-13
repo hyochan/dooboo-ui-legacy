@@ -38,6 +38,7 @@ const Magnifier = styled.Image`
 
 const Default = (): React.ReactElement => {
   const [value, setValue] = useState<string>('');
+
   return (
     <SafeAreaView>
       <ScrollView

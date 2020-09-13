@@ -37,6 +37,7 @@ interface Props {
 
 const PickerCalendar: FC<Props> = (props) => {
   const { calendarWidth = 300 } = props;
+
   return (
     <Modal visible={props.visible} transparent={true} animationType={'fade'}>
       <ModalContainer onPress={props.onBackdropPress}>

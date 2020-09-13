@@ -114,6 +114,7 @@ const Slider: FC<Props> = ({
             easing: Easing.bezier(0.0, 0.0, 0.2, 1),
             useNativeDriver: Platform.OS === 'android',
           }).start();
+
           if (!hideLabel && autoLabel) {
             setIsVisibleLabel(true);
           }
@@ -125,6 +126,7 @@ const Slider: FC<Props> = ({
             easing: Easing.bezier(0.0, 0.0, 0.2, 1),
             useNativeDriver: Platform.OS === 'android',
           }).start();
+
           if (!hideLabel && autoLabel) {
             setIsVisibleLabel(false);
           }

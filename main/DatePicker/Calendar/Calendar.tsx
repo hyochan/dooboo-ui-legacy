@@ -8,6 +8,7 @@ const convertDateString = (date: Date): string => {
   const dateString = new Date(date.getTime() - date.getTimezoneOffset() * 60000)
     .toISOString()
     .split('T')[0];
+
   return dateString;
 };
 
@@ -19,10 +20,13 @@ const getMonthList = (
   const tmpRows: Date[] = [];
   const year = initMonthDate.getFullYear();
   const month = initMonthDate.getMonth();
+
   for (let i = -pastRange; i <= futureRange; i++) {
     const monthDate = new Date(year, month + i, 1);
+
     tmpRows.push(monthDate);
   }
+
   return tmpRows;
 };
 
@@ -98,7 +102,9 @@ function Calendar(props: Props): React.ReactElement {
 
   const onViewableItemsChanged = React.useCallback(({ viewableItems }) => {
     if (viewableItems.length === 0) return; // 없는 경우 있음. 그냥 무시
+
     const { item } = viewableItems[0];
+
     props.onChangeMonth && props.onChangeMonth(item);
     setCurMonthFirst(item);
   }, []);

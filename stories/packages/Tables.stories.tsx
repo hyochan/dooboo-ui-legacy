@@ -134,10 +134,13 @@ const items = [
 ];
 const TableDefault = (): ReactElement => {
   const checkAble = boolean('isCheckAble', false);
+
   return <Table data={items} isCheckAble={checkAble} />;
 };
+
 function CheckAble(): ReactElement {
   const arrayData = object('data', items);
+
   return <Table isCheckAble={true} data={arrayData} />;
 }
 function CustomGroup(): ReactElement {
@@ -154,6 +157,7 @@ function CustomGroup(): ReactElement {
     'CALCIUM',
     'IRON',
   ]);
+
   return (
     <Table customGroup={customGroupData} isCheckAble={true} data={arrayData} />
   );
@@ -163,6 +167,7 @@ TableDefault.title = 'Tables';
 export const toStorybook1 = (): ReactElement => <TableDefault />;
 export const toStorybook2 = (): ReactElement => <CheckAble />;
 export const toStorybook3 = (): ReactElement => <CustomGroup />;
+
 /**
  * Below are stories for app
  */

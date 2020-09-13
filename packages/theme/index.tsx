@@ -20,6 +20,7 @@ interface Context {
   doobooTheme: DoobooTheme;
   changeThemeType: () => void;
 }
+
 const [useCtx, Provider] = createCtx<Context>();
 
 export const defaultThemeType: ThemeType = ThemeType.LIGHT;
@@ -43,10 +44,12 @@ function ThemeProvider({
   const changeThemeType = (): void => {
     const newThemeType =
       themeType === ThemeType.LIGHT ? ThemeType.DARK : ThemeType.LIGHT;
+
     setThemeType(newThemeType);
   };
 
   let theme: DefaultTheme;
+
   if (customTheme) {
     theme = createDoobooTheme(
       {

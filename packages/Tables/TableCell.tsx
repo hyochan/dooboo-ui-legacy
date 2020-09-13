@@ -23,8 +23,10 @@ const StyledText = styled.Text`
   align-items: center;
   text-align: center;
 `;
+
 function TableCell(props: Props): ReactElement {
   const { children, cellStyle, isShort } = props;
+
   return (
     <Container
       testID="table-cell-test-id"

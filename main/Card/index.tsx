@@ -9,7 +9,6 @@ import React, { FC, ReactNode, ReactNodeArray } from 'react';
 
 import { FlattenSimpleInterpolation } from 'styled-components';
 import styled from 'styled-components/native';
-
 import styles from './styles';
 
 interface ContainerProps {

@@ -20,8 +20,10 @@ const Content = styled.View<{ isChecked: boolean }>`
   flex-direction: row;
   background: ${({ isChecked }): string => (isChecked ? '#f2f9ff' : 'white')};
 `;
+
 function TableRow(props: Props): ReactElement {
   const { isChecked, rowStyle } = props;
+
   return (
     <Container testID="table-row-test-id" style={[rowStyle]}>
       <Content isChecked={isChecked}>{props.children}</Content>

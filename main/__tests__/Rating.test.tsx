@@ -18,6 +18,7 @@ describe('[Rating] render', () => {
     const rendered = renderer
       .create(component(defaultProps))
       .toJSON();
+
     expect(rendered).toMatchSnapshot();
     expect(rendered).toBeTruthy();
   });

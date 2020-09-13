@@ -76,6 +76,7 @@ const CheckboxGroup: FC<CheckboxGroupProps> = ({
           value: option,
         } as CheckboxOptionType;
       }
+
       return option;
     });
   }, [options]);
@@ -89,11 +90,13 @@ const CheckboxGroup: FC<CheckboxGroupProps> = ({
   const toggleOption = (option: CheckboxOptionType): void => {
     const optionIndex = groupValues.indexOf(option.value);
     const _values = [...groupValues];
+
     if (optionIndex === -1) {
       _values.push(option.value);
     } else {
       _values.splice(optionIndex, 1);
     }
+
     if (!(values)) {
       setGroupValues(_values);
     }
@@ -105,6 +108,7 @@ const CheckboxGroup: FC<CheckboxGroupProps> = ({
         .sort((a, b) => {
           const indexA = options.findIndex((opt) => opt.value === a);
           const indexB = options.findIndex((opt) => opt.value === b);
+
           return indexA - indexB;
         });
 

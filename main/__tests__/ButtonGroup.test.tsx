@@ -30,6 +30,7 @@ describe('[ButtonGroup] render', () => {
     const rendered: renderer.ReactTestRendererJSON = renderer
       .create(component)
       .toJSON();
+
     expect(rendered).toMatchSnapshot();
     expect(rendered).toBeTruthy();
   });
@@ -41,6 +42,7 @@ describe('[ButtonGroup] render', () => {
 
     it('should simulate onPress', () => {
       const btn1 = testingLib.queryByTestId('CHILD_1');
+
       act(() => {
         fireEvent.press(btn1);
       });

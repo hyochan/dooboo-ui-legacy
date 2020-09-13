@@ -65,6 +65,7 @@ function SwitchToggle(props: Props): React.ReactElement {
       duration: props.duration,
       useNativeDriver: false,
     };
+
     Animated.timing(animXValue, animValue).start();
   };
 
@@ -79,8 +80,10 @@ function SwitchToggle(props: Props): React.ReactElement {
 
   const prevSwitchOnRef = useRef<boolean>();
   const prevSwitchOn = !!prevSwitchOnRef.current;
+
   useEffect(() => {
     prevSwitchOnRef.current = props.switchOn;
+
     if (prevSwitchOn !== props.switchOn) {
       runAnimation();
     }

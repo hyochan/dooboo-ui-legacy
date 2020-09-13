@@ -9,6 +9,7 @@ interface Props {
 
 export default function Arrow(props: Props): React.ReactElement {
   const { customColor = { color: '#2b2b2b' } } = props;
+
   return (
     <View>
       <Svg height="20" width="20" viewBox="0 0 20 20">
