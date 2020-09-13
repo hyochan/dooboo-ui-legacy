@@ -21,7 +21,7 @@ describe('[DatePicker] render', () => {
 describe('[DateInput] render', () => {
   it('should render without crashing', () => {
     const rendered = render(
-      <DateInput onPressCalendar={(): void => { }} />,
+      <DateInput onPressCalendar={(): void => {}} />,
     ).asJSON();
     expect(rendered).toMatchSnapshot();
     expect(rendered).toBeTruthy();
@@ -53,7 +53,7 @@ describe('[DateInput] render', () => {
 describe('[PickerCalendar] render', () => {
   it('should render without crashing', () => {
     const rendered = render(
-      <PickerCalendar visible={false} onSelectDate={(): void => { }} />,
+      <PickerCalendar visible={false} onSelectDate={(): void => {}} />,
     ).asJSON();
     expect(rendered).toMatchSnapshot();
     expect(rendered).toBeTruthy();
@@ -65,7 +65,7 @@ describe('[Calendar]', () => {
     const rendered = render(
       <Calendar
         calendarWidth={300}
-        renderDay={(): React.ReactElement => <CalendarDate date={new Date()}></CalendarDate>}
+        renderDay={() => <CalendarDate date={new Date()}></CalendarDate>}
       />,
     ).asJSON();
     expect(rendered).toMatchSnapshot();
@@ -76,7 +76,7 @@ describe('[Calendar]', () => {
 describe('[CalendarDate] render', () => {
   it('should render without crashing', () => {
     const rendered = render(
-      <CalendarDate onPress={(): void => { }} date={new Date()} />,
+      <CalendarDate onPress={(): void => {}} date={new Date()} />,
     ).asJSON();
     expect(rendered).toMatchSnapshot();
     expect(rendered).toBeTruthy();
@@ -112,7 +112,7 @@ describe('[CalendarMonth] render', () => {
       <CalendarMonth
         monthDate={new Date()}
         calendarWidth={300}
-        renderDay={(): React.ReactElement => <CalendarDate date={new Date()}></CalendarDate>}
+        renderDay={() => <CalendarDate date={new Date()}></CalendarDate>}
         today={new Date()}
       />,
     ).asJSON();
