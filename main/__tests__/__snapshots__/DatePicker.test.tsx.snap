@@ -15,7 +15,7 @@ exports[`[Calendar] should render without crashing 1`] = `
   >
     <View>
       <Text>
-        2020-09-13
+        2020-09-14
       </Text>
     </View>
     <View
@@ -66,7 +66,7 @@ exports[`[Calendar] should render without crashing 1`] = `
             ]
           }
         >
-          S
+          일
         </Text>
       </View>
       <View
@@ -98,7 +98,7 @@ exports[`[Calendar] should render without crashing 1`] = `
             ]
           }
         >
-          M
+          월
         </Text>
       </View>
       <View
@@ -130,7 +130,7 @@ exports[`[Calendar] should render without crashing 1`] = `
             ]
           }
         >
-          T
+          화
         </Text>
       </View>
       <View
@@ -162,7 +162,7 @@ exports[`[Calendar] should render without crashing 1`] = `
             ]
           }
         >
-          W
+          수
         </Text>
       </View>
       <View
@@ -194,7 +194,7 @@ exports[`[Calendar] should render without crashing 1`] = `
             ]
           }
         >
-          T
+          목
         </Text>
       </View>
       <View
@@ -226,7 +226,7 @@ exports[`[Calendar] should render without crashing 1`] = `
             ]
           }
         >
-          F
+          금
         </Text>
       </View>
       <View
@@ -258,7 +258,7 @@ exports[`[Calendar] should render without crashing 1`] = `
             ]
           }
         >
-          S
+          토
         </Text>
       </View>
     </View>
@@ -5728,7 +5728,7 @@ exports[`[CalendarWeekDays] render should render without crashing 1`] = `
           ]
         }
       >
-        S
+        일
       </Text>
     </View>
     <View
@@ -5760,7 +5760,7 @@ exports[`[CalendarWeekDays] render should render without crashing 1`] = `
           ]
         }
       >
-        M
+        월
       </Text>
     </View>
     <View
@@ -5792,7 +5792,7 @@ exports[`[CalendarWeekDays] render should render without crashing 1`] = `
           ]
         }
       >
-        T
+        화
       </Text>
     </View>
     <View
@@ -5824,7 +5824,7 @@ exports[`[CalendarWeekDays] render should render without crashing 1`] = `
           ]
         }
       >
-        W
+        수
       </Text>
     </View>
     <View
@@ -5856,7 +5856,7 @@ exports[`[CalendarWeekDays] render should render without crashing 1`] = `
           ]
         }
       >
-        T
+        목
       </Text>
     </View>
     <View
@@ -5888,7 +5888,7 @@ exports[`[CalendarWeekDays] render should render without crashing 1`] = `
           ]
         }
       >
-        F
+        금
       </Text>
     </View>
     <View
@@ -5920,7 +5920,7 @@ exports[`[CalendarWeekDays] render should render without crashing 1`] = `
           ]
         }
       >
-        S
+        토
       </Text>
     </View>
   </View>
@@ -6024,7 +6024,7 @@ exports[`[DateInput] render should render without crashing 1`] = `
             ]
           }
           underlineColorAndroid="transparent"
-          value="2020-09-13"
+          value="2020-09-14"
         />
       </View>
       <>
@@ -6154,7 +6154,7 @@ exports[`[DatePicker] render should render without crashing 1`] = `
               ]
             }
             underlineColorAndroid="transparent"
-            value="2020-09-13"
+            value="2020-09-14"
           />
         </View>
         <>
@@ -6299,7 +6299,7 @@ exports[`[DatePicker] render should render without crashing 1`] = `
                         ]
                       }
                     >
-                      S
+                      일
                     </Text>
                   </View>
                   <View
@@ -6331,7 +6331,7 @@ exports[`[DatePicker] render should render without crashing 1`] = `
                         ]
                       }
                     >
-                      M
+                      월
                     </Text>
                   </View>
                   <View
@@ -6363,7 +6363,7 @@ exports[`[DatePicker] render should render without crashing 1`] = `
                         ]
                       }
                     >
-                      T
+                      화
                     </Text>
                   </View>
                   <View
@@ -6395,7 +6395,7 @@ exports[`[DatePicker] render should render without crashing 1`] = `
                         ]
                       }
                     >
-                      W
+                      수
                     </Text>
                   </View>
                   <View
@@ -6427,7 +6427,7 @@ exports[`[DatePicker] render should render without crashing 1`] = `
                         ]
                       }
                     >
-                      T
+                      목
                     </Text>
                   </View>
                   <View
@@ -6459,7 +6459,7 @@ exports[`[DatePicker] render should render without crashing 1`] = `
                         ]
                       }
                     >
-                      F
+                      금
                     </Text>
                   </View>
                   <View
@@ -6491,7 +6491,7 @@ exports[`[DatePicker] render should render without crashing 1`] = `
                         ]
                       }
                     >
-                      S
+                      토
                     </Text>
                   </View>
                 </View>
@@ -7611,8 +7611,8 @@ exports[`[DatePicker] render should render without crashing 1`] = `
                                         "width": 32,
                                       },
                                       Object {
-                                        "backgroundColor": "#efefef",
-                                        "borderRadius": 16,
+                                        "backgroundColor": "white",
+                                        "borderRadius": 0,
                                         "opacity": 1,
                                       },
                                     ]
@@ -7676,8 +7676,8 @@ exports[`[DatePicker] render should render without crashing 1`] = `
                                         "width": 32,
                                       },
                                       Object {
-                                        "backgroundColor": "white",
-                                        "borderRadius": 0,
+                                        "backgroundColor": "#efefef",
+                                        "borderRadius": 16,
                                         "opacity": 1,
                                       },
                                     ]
@@ -9579,7 +9579,7 @@ exports[`[PickerCalendar] render should render without crashing 1`] = `
                       ]
                     }
                   >
-                    S
+                    일
                   </Text>
                 </View>
                 <View
@@ -9611,7 +9611,7 @@ exports[`[PickerCalendar] render should render without crashing 1`] = `
                       ]
                     }
                   >
-                    M
+                    월
                   </Text>
                 </View>
                 <View
@@ -9643,7 +9643,7 @@ exports[`[PickerCalendar] render should render without crashing 1`] = `
                       ]
                     }
                   >
-                    T
+                    화
                   </Text>
                 </View>
                 <View
@@ -9675,7 +9675,7 @@ exports[`[PickerCalendar] render should render without crashing 1`] = `
                       ]
                     }
                   >
-                    W
+                    수
                   </Text>
                 </View>
                 <View
@@ -9707,7 +9707,7 @@ exports[`[PickerCalendar] render should render without crashing 1`] = `
                       ]
                     }
                   >
-                    T
+                    목
                   </Text>
                 </View>
                 <View
@@ -9739,7 +9739,7 @@ exports[`[PickerCalendar] render should render without crashing 1`] = `
                       ]
                     }
                   >
-                    F
+                    금
                   </Text>
                 </View>
                 <View
@@ -9771,7 +9771,7 @@ exports[`[PickerCalendar] render should render without crashing 1`] = `
                       ]
                     }
                   >
-                    S
+                    토
                   </Text>
                 </View>
               </View>
@@ -10891,8 +10891,8 @@ exports[`[PickerCalendar] render should render without crashing 1`] = `
                                       "width": 32,
                                     },
                                     Object {
-                                      "backgroundColor": "#efefef",
-                                      "borderRadius": 16,
+                                      "backgroundColor": "white",
+                                      "borderRadius": 0,
                                       "opacity": 1,
                                     },
                                   ]
@@ -10956,8 +10956,8 @@ exports[`[PickerCalendar] render should render without crashing 1`] = `
                                       "width": 32,
                                     },
                                     Object {
-                                      "backgroundColor": "white",
-                                      "borderRadius": 0,
+                                      "backgroundColor": "#efefef",
+                                      "borderRadius": 16,
                                       "opacity": 1,
                                     },
                                   ]
