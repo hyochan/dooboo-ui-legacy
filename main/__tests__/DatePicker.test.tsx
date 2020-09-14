@@ -19,7 +19,7 @@ const standardDate = new Date('2020-09-13');
 
 describe('[DatePicker] render', () => {
   it('should render without crashing', () => {
-    const rendered = render(<DatePicker selectedDate={standardDate} />).asJSON();
+    const rendered = render(<DatePicker selectedDate={standardDate} locale={'en'} />).asJSON();
 
     // expect(rendered).toMatchSnapshot();
     expect(rendered).toBeTruthy();
@@ -67,6 +67,7 @@ describe('[PickerCalendar] render', () => {
         visible={false}
         onSelectDate={(): void => {}}
         selectedDate={standardDate}
+        locale={'en'}
         weekdayFormat={'narrow'} />,
     ).asJSON();
 
@@ -82,6 +83,7 @@ describe('[Calendar]', () => {
         initDate={standardDate}
         renderDay={() => <CalendarDate date={standardDate} isToday={false} />}
         calendarWidth={300}
+        locale={'en'}
       />,
     ).asJSON();
 
@@ -144,7 +146,7 @@ describe('[CalendarMonth] render', () => {
 describe('[CalendarWeekDays] render', () => {
   it('should render without crashing', () => {
     const rendered = render(
-      <CalendarWeekDays calendarWidth={300} weekdayFormat={'narrow'} />,
+      <CalendarWeekDays calendarWidth={300} weekdayFormat={'narrow'} locale={'en'} />,
     ).asJSON();
 
     // expect(rendered).toMatchSnapshot();

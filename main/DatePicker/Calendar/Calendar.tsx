@@ -48,6 +48,7 @@ interface Props {
   pastRange?: number; // Number of past months displayed on the calendar
   futureRange?: number; // Number of future months displayed on the calendar
   calendarWidth: number; // calendar width
+  locale?: string;
   titleContent?: (monthFirst: Date) => React.ReactElement;
   weekdayFormat?: 'narrow' | 'short';
 }
@@ -134,6 +135,7 @@ function Calendar(props: Props): React.ReactElement {
           width: props.calendarWidth,
           height: 22,
         }}
+        locale={props.locale}
         weekdayFormat={props.weekdayFormat}
       />
       <FlatList
