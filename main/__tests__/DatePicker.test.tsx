@@ -15,11 +15,11 @@ import { TouchableOpacity } from 'react-native';
 import { render } from '@testing-library/react-native';
 import renderer from 'react-test-renderer';
 
-const standardDate = new Date('2020-09-01');
+const standardDate = new Date('2020-09-13');
 
 describe('[DatePicker] render', () => {
   it('should render without crashing', () => {
-    const rendered = render(<DatePicker />).asJSON();
+    const rendered = render(<DatePicker selectedDate={standardDate} />).asJSON();
 
     // expect(rendered).toMatchSnapshot();
     expect(rendered).toBeTruthy();
@@ -29,7 +29,7 @@ describe('[DatePicker] render', () => {
 describe('[DateInput] render', () => {
   it('should render without crashing', () => {
     const rendered = render(
-      <DateInput onPressCalendar={(): void => {}} />,
+      <DateInput onPressCalendar={(): void => {}} selectedDate={standardDate} />,
     ).asJSON();
 
     // expect(rendered).toMatchSnapshot();
@@ -39,7 +39,7 @@ describe('[DateInput] render', () => {
     it('should simulate onPress', () => {
       const onPressCalendar = jest.fn();
       const rendered = renderer.create(
-        <DateInput onPressCalendar={onPressCalendar} />,
+        <DateInput onPressCalendar={onPressCalendar} selectedDate={standardDate} />,
         {
           createNodeMock: () => {
             return {
@@ -63,7 +63,11 @@ describe('[DateInput] render', () => {
 describe('[PickerCalendar] render', () => {
   it('should render without crashing', () => {
     const rendered = render(
-      <PickerCalendar visible={false} onSelectDate={(): void => {}} />,
+      <PickerCalendar
+        visible={false}
+        onSelectDate={(): void => {}}
+        selectedDate={standardDate}
+        weekdayFormat={'narrow'} />,
     ).asJSON();
 
     // expect(rendered).toMatchSnapshot();
@@ -75,8 +79,9 @@ describe('[Calendar]', () => {
   it('should render without crashing', () => {
     const rendered = render(
       <Calendar
+        initDate={standardDate}
+        renderDay={() => <CalendarDate date={standardDate} isToday={false} />}
         calendarWidth={300}
-        renderDay={() => <CalendarDate date={standardDate}></CalendarDate>}
       />,
     ).asJSON();
 
@@ -88,7 +93,7 @@ describe('[Calendar]', () => {
 describe('[CalendarDate] render', () => {
   it('should render without crashing', () => {
     const rendered = render(
-      <CalendarDate onPress={(): void => {}} date={standardDate} />,
+      <CalendarDate onPress={(): void => {}} date={standardDate} isToday={false} />,
     ).asJSON();
 
     // expect(rendered).toMatchSnapshot();
@@ -99,7 +104,7 @@ describe('[CalendarDate] render', () => {
     it('should simulate onPress', () => {
       const onSelectDate = jest.fn();
       const rendered = renderer.create(
-        <CalendarDate onPress={onSelectDate} date={standardDate} />,
+        <CalendarDate onPress={onSelectDate} date={standardDate} isToday={false} />,
         {
           createNodeMock: () => {
             return {
@@ -126,8 +131,8 @@ describe('[CalendarMonth] render', () => {
       <CalendarMonth
         monthDate={standardDate}
         calendarWidth={300}
-        renderDay={() => <CalendarDate date={standardDate}></CalendarDate>}
-        today={new Date(standardDate)}
+        renderDay={() => <CalendarDate date={standardDate} isToday={false} />}
+        today={standardDate}
       />,
     ).asJSON();
 
