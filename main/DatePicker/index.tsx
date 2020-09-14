@@ -17,6 +17,7 @@ interface Props {
   style?: ViewStyle;
   label?: string;
   labelTextStyle?: TextStyle;
+  locale?: string;
   errorText?: string;
   errorTextStyle?: TextStyle;
   dateTextStyle?: TextStyle;
@@ -59,6 +60,7 @@ const DatePicker = (props: Props): React.ReactElement => {
           setCalendarVisible(false);
         }}
         containerStyle={{ width: 300, height: 350 }}
+        locale={props.locale}
         weekdayFormat={props.weekdayFormat}
         titleContent={props.titleContent}
       />

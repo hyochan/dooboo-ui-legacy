@@ -28,6 +28,7 @@ interface Props {
   selectedDate?: Date;
   onSelectDate: (date: Date) => void;
   containerStyle?: ViewStyle;
+  locale?: string;
   onBackdropPress?: () => void;
   calendarWidth?: number;
   weekdayFormat?: 'narrow' | 'short';
@@ -36,7 +37,7 @@ interface Props {
 }
 
 const PickerCalendar: FC<Props> = (props) => {
-  const { calendarWidth = 300 } = props;
+  const { calendarWidth = 300, locale = 'default' } = props;
 
   return (
     <Modal visible={props.visible} transparent={true} animationType={'fade'}>
@@ -70,6 +71,7 @@ const PickerCalendar: FC<Props> = (props) => {
                 containerStyle={{
                   overflow: 'hidden',
                 }}
+                locale={locale}
                 renderDay={({
                   date,
                   isCurrentMonth,

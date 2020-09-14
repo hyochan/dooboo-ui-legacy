@@ -28,6 +28,7 @@ const DayTitle = styled.Text`
 interface Props {
   style?: ViewStyle;
   calendarWidth: number;
+  locale?: string;
   weekdayFormat?: 'narrow' | 'short';
 }
 
@@ -39,7 +40,7 @@ function CalendarWeekDays(props: Props): React.ReactElement {
 
   for (let idx = 0; idx <= 6; idx++) {
     const matchMonth = new Date(2020, 8, 6 + idx);
-    const weekDay = matchMonth.toLocaleString('default', {
+    const weekDay = matchMonth.toLocaleString(props.locale, {
       weekday: props.weekdayFormat || 'narrow', // 'narrow',
     });
 

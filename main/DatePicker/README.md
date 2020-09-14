@@ -16,6 +16,7 @@
 | style                |           | ViewStyle                                     |                                        |
 | label                |           | string                                        | `default arrow image`                  |
 | labelTextStyle       |           | TextStyle                                     | ``                                     |
+| locale               |           | string                                        | `default`                              |
 | errorText            |           | string                                        | `Invalid Date`                         |
 | errorTextStyle       |           | TextStyle                                     | `{ color: '#F00', textAlign: 'left' }` |
 | dateTextStyle        |           | TextStyle                                     |
