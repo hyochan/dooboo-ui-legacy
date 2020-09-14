@@ -11,12 +11,14 @@
   <img alt="Supports Expo Web" longdesc="Supports Expo Web" src="https://img.shields.io/badge/web-4630EB.svg?style=flat-square&logo=GOOGLE-CHROME&labelColor=4285F4&logoColor=fff" />
 </p>
 
+
 [![Npm Version](http://img.shields.io/npm/v/dooboo-ui.svg?style=flat-square)](https://npmjs.org/package/dooboo-ui)
 [![Downloads](http://img.shields.io/npm/dm/dooboo-ui.svg?style=flat-square)](https://npmjs.org/package/dooboo-ui)
 [![CircleCI](https://circleci.com/gh/dooboolab/dooboo-ui.svg?style=shield)](https://circleci.com/gh/dooboolab/dooboo-ui)
 [![codecov](https://codecov.io/gh/dooboolab/dooboo-ui/branch/master/graph/badge.svg)](https://codecov.io/gh/dooboolab/dooboo-ui)
 [![Sponsor](https://opencollective.com/dooboo-ui/tiers/badge.svg?style=shield)](https://opencollective.com/dooboo-ui/tiers/badge.svg)
 ![License](http://img.shields.io/npm/l/dooboo-ui.svg?style=flat-square)
+
 
 We love [react-hooks](https://code.fb.com/open-source/react-hooks) and willing to share our [react-native](https://facebook.github.io/react-native) ui components built in [functional components](https://logrocket.com/blog/pure-functional-components) using hooks. Also the `dooboo-ui` is built on top of our favorite stacks like [styled-components](https://styled-components.com), [typescript](https://typescript.org), [jest](https://jestjs.io), [react-testing-library](https://testing-library.com/docs/react-testing-library/intro), [expo](https://expo.io), [storybook](https://storybook.js.org), and so on.
 
@@ -44,7 +46,7 @@ We aim to support `react-native` ui components in all platforms and we are curre
 ## Compatibility
 
 | package           | version |
-| ----------------- | ------- |
+|-------------------|---------|
 | react             | >=16.9  |
 | react-native      | >=0.58  |
 | styled-components | >=4.4.0 |
@@ -86,45 +88,41 @@ We aim to support `react-native` ui components in all platforms and we are curre
 #### Workaround when you face error in expo web
 
 You need to set webpack for using "dooboo-ui" in expo-web.
+1. Install @expo/webpack-config in your expo's project.
+```yarn add @expo/webpack-config``` 
+or ```npm install @expo/webpack-config```
 
-1.  Install @expo/webpack-config in your expo's project.
-    `yarn add @expo/webpack-config`
-    or `npm install @expo/webpack-config`
+2. Create webpack.config.js in root path and Add below code.
+See [issue](https://forums.expo.io/t/error-when-running-expo-start-web/33096/3) below for more details.
 
-2.  Create webpack.config.js in root path and Add below code.
-    See [issue](https://forums.expo.io/t/error-when-running-expo-start-web/33096/3) below for more details.
+    ```javascript
+    const createExpoWebpackConfigAsync = require('@expo/webpack-config');
 
-        ```javascript
-        const createExpoWebpackConfigAsync = require('@expo/webpack-config');
-
-        module.exports = async function(env, argv) {
-          const config = await createExpoWebpackConfigAsync(
-            {
-              ...env,
-              babel: {
-                dangerouslyAddModulePathsToTranspile: [
-                  'dooboo-ui',
-                ],
-              },
-            },
-            argv
-          );
-          return config;
-        };
-        ```
+    module.exports = async function(env, argv) {
+      const config = await createExpoWebpackConfigAsync(
+        {
+          ...env,
+          babel: {
+            dangerouslyAddModulePathsToTranspile: [
+              'dooboo-ui',
+            ],
+          },
+        },
+        argv
+      );
+      return config;
+    };
+    ```
 
 ## Sponsors
-
 Support this project by becoming a sponsor. Your logo will show up here with
 a link to your website. \[[Become a sponsor](https://opencollective.com/dooboo-ui#sponsor)\]
 
 ### Backers
-
 Please be our [Backers](https://opencollective.com/dooboo-ui#backers).
 <a href="https://opencollective.com/dooboo-ui#backers" target="_blank"><img src="https://opencollective.com/dooboo-ui/backers.svg?width=890"></a>
 
 ### Contributing
-
 Please make sure to read the [Contributing Guide](CONTRIBUTING.md) before making a pull request.
 Thank you to all the people who helped to maintain and upgrade this project!
 
