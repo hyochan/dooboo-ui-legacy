@@ -96,18 +96,20 @@ const ColumnEditText = (): React.ReactElement => {
           />
           <Button
             style={{
-              borderRadius: 6,
-              borderWidth: 0,
-              marginTop: 40,
-              width: 184,
-              height: 48,
-              backgroundColor: '#6DA6FC',
+              button: {
+                borderRadius: 6,
+                borderWidth: 0,
+                marginTop: 40,
+                width: 184,
+                height: 48,
+                backgroundColor: '#6DA6FC',
+              },
+              text: {
+                color: '#FFFFFF',
+              },
             }}
             testID="btn-default"
             onPress={(): void => onSignIn()}
-            textStyle={{
-              color: '#FFFFFF',
-            }}
             text="Login"
           />
           {/* Email SignUp text */}
@@ -256,18 +258,20 @@ const RowEditText = (): React.ReactElement => {
           />
           <Button
             style={{
-              borderRadius: 6,
-              borderWidth: 0,
-              marginTop: 40,
-              width: 184,
-              height: 48,
-              backgroundColor: '#6DA6FC',
+              button: {
+                borderRadius: 6,
+                borderWidth: 0,
+                marginTop: 40,
+                width: 184,
+                height: 48,
+                backgroundColor: '#6DA6FC',
+              },
+              text: {
+                color: '#FFFFFF',
+              },
             }}
             testID="btn-row"
             onPress={(): void => onSignIn()}
-            textStyle={{
-              color: '#FFFFFF',
-            }}
             text="Login"
           />
           {/* Email SignUp text */}
@@ -472,18 +476,20 @@ const BoxEditText = (): React.ReactElement => {
           />
           <Button
             style={{
-              borderRadius: 6,
-              borderWidth: 0,
-              marginTop: 40,
-              width: 184,
-              height: 48,
-              backgroundColor: '#6DA6FC',
+              button: {
+                borderRadius: 6,
+                borderWidth: 0,
+                marginTop: 40,
+                width: 184,
+                height: 48,
+                backgroundColor: '#6DA6FC',
+              },
+              text: {
+                color: '#FFFFFF',
+              },
             }}
             testID="btn-box"
             onPress={(): void => onSignIn()}
-            textStyle={{
-              color: '#FFFFFF',
-            }}
             text="Verify Email"
           />
         </View>
@@ -594,18 +600,20 @@ const BoxRowEditText = (): React.ReactElement => {
           />
           <Button
             style={{
-              borderRadius: 6,
-              borderWidth: 0,
-              marginTop: 40,
-              width: 184,
-              height: 48,
-              backgroundColor: '#6DA6FC',
+              button: {
+                borderRadius: 6,
+                borderWidth: 0,
+                marginTop: 40,
+                width: 184,
+                height: 48,
+                backgroundColor: '#6DA6FC',
+              },
+              text: {
+                color: '#FFFFFF',
+              },
             }}
             testID="btn-boxrow"
             onPress={(): void => onSignIn()}
-            textStyle={{
-              color: '#FFFFFF',
-            }}
             text="SignIn"
           />
           <View

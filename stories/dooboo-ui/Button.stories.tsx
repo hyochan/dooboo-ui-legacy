@@ -35,34 +35,41 @@ function Default(): React.ReactElement {
           text="😀 😎 👍 💯"
           onPress={action('Clicked')}
           style={{
-            marginVertical: 40,
-            borderWidth: 0.5,
+            button: {
+              marginVertical: 40,
+              borderWidth: 0.5,
+            },
           }}
         />
         <Button
           style={{
-            backgroundColor: '#109CF1',
+            button: {
+              backgroundColor: '#109CF1',
+            },
+            text: {
+              color: '#FFFFFF',
+            },
           }}
-          textStyle={{ color: '#FFFFFF' }}
           onPress={action('Clicked')}
           text={'Hovered button in web'}
         />
 
         <Button
           style={{
-            marginVertical: 40,
-            borderWidth: 0.5,
+            button: {
+              marginVertical: 40,
+              borderWidth: 0.5,
+            },
+            text: {
+              color: '#109CF1',
+            },
           }}
           outlined
           color={'idea'}
-          textStyle={{ color: '#109CF1' }}
           onPress={action('Clicked')}
           text={'Outlined button'}
         />
         <Button
-          style={{
-            marginVertical: 40,
-          }}
           disabled={true}
           text={text('button text', 'this is disabled')}
         />
@@ -78,11 +85,13 @@ function Default(): React.ReactElement {
           }
           loading={googleLoading}
           indicatorColor="#023059"
-          containerStyle={{
-            marginTop: 32,
-          }}
           style={{
-            backgroundColor: '#ccc',
+            root: {
+              marginTop: 32,
+            },
+            button: {
+              backgroundColor: '#ccc',
+            },
           }}
           onPress={(): void => {
             setGoogleLoading(true);
@@ -107,13 +116,15 @@ function Default(): React.ReactElement {
           }
           indicatorColor="#023059"
           loading={facebookLoading}
-          containerStyle={{
-            marginTop: 32,
-          }}
           style={{
-            backgroundColor: '#ccc',
-            borderWidth: 0.5,
-            borderRadius: 0,
+            root: {
+              marginTop: 32,
+            },
+            button: {
+              backgroundColor: '#ccc',
+              borderWidth: 0.5,
+              borderRadius: 0,
+            },
           }}
           onPress={(): void => {
             setFacebookLoading(true);
