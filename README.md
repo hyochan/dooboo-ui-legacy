@@ -54,8 +54,12 @@ We aim to support `react-native` ui components in all platforms and we are curre
 ## List of components in `dooboo-ui`
 
 - [Accordion](https://github.com/dooboolab/dooboo-ui/tree/master/main/Accordion)
+- [Badge](https://github.com/dooboolab/dooboo-ui/tree/master/main/Badge)
 - [Button](https://github.com/dooboolab/dooboo-ui/tree/master/main/Button)
 - [ButtonGroup](https://github.com/dooboolab/dooboo-ui/tree/master/main/ButtonGroup)
+- [Card](https://github.com/dooboolab/dooboo-ui/tree/master/main/Card)
+- [Checkbox](https://github.com/dooboolab/dooboo-ui/tree/master/main/Checkbox)
+- [DatePicker](https://github.com/dooboolab/dooboo-ui/tree/master/main/DatePicker)
 - [EditText](https://github.com/dooboolab/dooboo-ui/tree/master/main/EditText)
 - [LoadingIndicator](https://github.com/dooboolab/dooboo-ui/tree/master/main/LoadingIndicator)
 - [RadioButton](https://github.com/dooboolab/dooboo-ui/tree/master/main/RadioButton)
@@ -123,5 +127,3 @@ Please make sure to read the [Contributing Guide](CONTRIBUTING.md) before making
 Thank you to all the people who helped to maintain and upgrade this project!
 
 [![a relative link](https://opencollective.com/dooboo-ui/contributors.svg?width=890&button=true)](https://github.com/dooboolab/dooboo-ui/graphs/contributors)
-
-
