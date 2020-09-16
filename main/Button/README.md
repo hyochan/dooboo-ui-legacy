@@ -9,24 +9,16 @@
 |                       | required | types                 | default   |
 | --------------------- | -------- | --------------------- | --------- |
 | testID                |          | string                |           |
-| containerStyle        |          | ViewStyle             |           |
-| style                 |          | ViewStyle             |           |
-| disabledStyle         |          | ViewStyle             |           |
-| textStyle             |          | TextStyle             |           |
-| didsabledTextStyle    |          | TextStyle             |           |
-| loading               |          | boolean               |           |
 | disabled              |          | boolean               |           |
+| loading               |          | boolean               |           |
+| style                 |          | StylesType            |           |
+| indicatorColor        |          | string                | '#ffffff' |
 | leftElement           |          | ReactElement          |           |
 | rightElement          |          | ReactElement          |           |
-| indicatorColor        |          | string                | '#ffffff' |
-| activeOpacity         |          | number                | 0.5       |
+| activeOpacity         |          | number                | 0.7       |
 | text                  |          | string                |           |
-| onPress               |          | func                  |           |
+| onPress               |          | () => void            |           |
 | touchableOpacityProps |          | TouchableOpacityProps |           |
-| hoverStyle            |          | ViewStyle             |           |
-| Accent                |          | ViewStyle             |           |
-| hoverTextStyle        |          | TextStyle             |           |
-| Secondary             |          | ViewStyle             |           |
 
 ## Installation
 
@@ -44,173 +36,151 @@ yarn add dooboo-ui
 
 - Usage
 
-  - with `StyleSheet`
-
-  ```jsx
+  ```tsx
   <Button
     testID="sampleButton"
     style={{
-      backgroundColor: 'red',
-      borderColor: 'blue',
+      button: {
+        backgroundColor: 'red',
+        borderColor: 'blue',
+      },
+      text: {
+        color: 'white',
+      },
     }}
-    textStyle={{
-      color: 'white',
-    }}
-    onPress={(): void => {}}>
+    onPress={(): void => {}}
+  >
     Sample button
   </Button>
   ```
 
-  ```jsx
+  ```tsx
   <Button
     testID="sampleButton"
     style={{
-      backgroundColor: 'red',
-      borderColor: 'blue',
+      button: {
+        backgroundColor: 'red',
+        borderColor: 'blue',
+      },
     }}
-    onPress={(): void => {}}>
+    onPress={(): void => {}}
+  >
     <SampleText>Sample button</SampleText>
   </Button>
   ```
 
-  - with `styled-components`
-
-  ```jsx
-  const SampleButton = styled(Button)`
-    width: 136px;
-    height: 60px;
-    background-color: black;
-    border-color: red;
-    border-width: 1px;
-  `;
-  const SampleText = styled.Text`
-    color: white;
-  `;
-  <SampleButton
-    testID="sampleButton"
-    textStyle={{
-      color: 'white',
-    }}
-    onPress={(): void => {}}>
-    Sample button
-  </SampleButton>;
-  ```
-
-  ```jsx
-  const SampleButton = styled(Button)`
-    width: 136px;
-    height: 60px;
-    background-color: black;
-    border-color: red;
-    border-width: 1px;
-  `;
-  const SampleText = styled.Text`
-    color: white;
-  `;
-  <SampleButton testID="sampleButton" onPress={(): void => {}}>
-    <SampleText>Sample button</SampleText>
-  </SampleButton>;
-  ```
-
-  - example
+- Example
 
   ```tsx
   function Page(props: Props) {
     return (
       <Container>
-        <Button testID="btn" loading={false} onPress={() => {}}>
-          😀 😎 👍 💯
-        </Button>
-        {/* Button Style Accent  */}
         <Button
-          style={{
-            backgroundColor: '#109CF1',
-          }}
-          hoverStyle={{
-            backgroundColor: '#34AFF9',
-          }}
-          Accent={{
-            shadowColor: 'black',
-            shadowOffset: {
-              width: 0,
-              height: 4,
-            },
-            shadowOpacity: 0.24,
-            shadowRadius: 16.0,
-            elevation: 10,
-            borderRadius: 4,
-          }}
-          textStyle={{ color: '#FFFFFF' }}
+          loading={false}
+          text="😀 😎 👍 💯"
           onPress={action('Clicked')}
-          text={'Accent button '}
-        />
-        {/* Button Style Secondary   */}
-        <Button
-          hoverTextStyle={{
-            color: '#34AFF9',
-          }}
-          Secondary={{
-            borderColor: '#109CF1',
-            borderWidth: 2,
-            shadowColor: 'black',
-            shadowOffset: {
-              width: 0,
-              height: 4,
-            },
-            shadowOpacity: 0.24,
-            shadowRadius: 16.0,
-            elevation: 10,
-            borderRadius: 4,
-          }}
           style={{
-            marginVertical: 40,
+            button: {
+              marginVertical: 40,
+              borderWidth: 0.5,
+            },
           }}
-          textStyle={{ color: '#109CF1' }}
-          onPress={action('Clicked')}
-          text={'Secondary'}
         />
         <Button
           style={{
-            marginVertical: 40,
+            button: {
+              backgroundColor: '#109CF1',
+            },
+            text: {
+              color: '#FFFFFF',
+            },
           }}
+          onPress={action('Clicked')}
+          text={'Hovered button in web'}
+        />
+
+        <Button
+          style={{
+            button: {
+              marginVertical: 40,
+              borderWidth: 0.5,
+            },
+            text: {
+              color: '#109CF1',
+            },
+          }}
+          outlined
+          color={'idea'}
+          onPress={action('Clicked')}
+          text={'Outlined button'}
+        />
+        <Button
           disabled={true}
-          onPress={() => {}}>
-          This is disabled!!
-        </Button>
+          text={text('button text', 'this is disabled')}
+        />
         <Button
-          testID="btnGoogle"
-          iconLeft={<Image source={IC_GOOGLE} />}
+          leftElement={
+            <View
+              style={{
+                position: 'absolute',
+                left: 16,
+              }}>
+              <Image style={{ width: 20, height: 20 }} source={IC_GOOGLE} />
+            </View>
+          }
           loading={googleLoading}
           indicatorColor="#023059"
-          onPress={() => {
+          style={{
+            root: {
+              marginTop: 32,
+            },
+            button: {
+              backgroundColor: '#ccc',
+            },
+          }}
+          onPress={(): void => {
             setGoogleLoading(true);
+
             const timeout = setTimeout(() => {
               setGoogleLoading(false);
               clearTimeout(timeout);
             }, 2000);
-          }}>
-          GOOGLE SIGN IN
-        </Button>
+          }}
+          text="GOOGLE SIGN IN"
+        />
         <Button
           testID="btnFacebook"
-          iconLeft={<Image source={IC_FACEBOOK} />}
+          leftElement={
+            <View
+              style={{
+                position: 'absolute',
+                left: 16,
+              }}>
+              <Image style={{ width: 15, height: 28 }} source={IC_FACEBOOK} />
+            </View>
+          }
           indicatorColor="#023059"
           loading={facebookLoading}
           style={{
-            marginTop: 40,
-            backgroundColor: '#ccc',
-            borderWidth: 0.5,
-            borderRadius: 0,
+            root: {
+              marginTop: 32,
+            },
+            button: {
+              backgroundColor: '#ccc',
+              borderWidth: 0.5,
+              borderRadius: 0,
+            },
           }}
-          onPress={() => {
+          onPress={(): void => {
             setFacebookLoading(true);
+
             const timeout = setTimeout(() => {
               setFacebookLoading(false);
               clearTimeout(timeout);
             }, 2000);
-          }}>
-          FACEBOOK SIGN IN
-        </Button>
+          }}
+          text="FACEBOOK SIGN IN"
+        />
       </Container>
     );
   }

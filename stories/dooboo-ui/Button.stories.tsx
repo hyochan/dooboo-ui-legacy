@@ -64,8 +64,6 @@ function Default(): React.ReactElement {
               color: '#109CF1',
             },
           }}
-          outlined
-          color={'idea'}
           onPress={action('Clicked')}
           text={'Outlined button'}
         />

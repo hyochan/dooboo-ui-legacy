@@ -53,12 +53,9 @@ const defaultStyles = StyleSheet.create({
 
 type StylesType = Partial<StyleSheet.NamedStyles<typeof defaultStyles>>;
 
-type ColorType = 'decision' | 'idea' | 'emotion' | 'benefit' | 'facts' | 'criticism';
-
 interface Props {
   testID?: string;
   indicatorColor?: string;
-  color?: ColorType;
   loading?: boolean;
   disabled?: boolean;
   style?: StylesType;
@@ -66,7 +63,6 @@ interface Props {
   rightElement?: React.ReactElement;
   activeOpacity?: number;
   text?: string;
-  outlined?: boolean;
   onPress?: () => void;
   touchableOpacityProps?: Partial<TouchableOpacityProps>;
 }
@@ -76,10 +72,10 @@ function Button({
   disabled,
   loading,
   style,
-  indicatorColor,
+  indicatorColor = '#ffffff',
   leftElement,
   rightElement,
-  activeOpacity,
+  activeOpacity = 0.7,
   text,
   onPress,
   touchableOpacityProps,
@@ -96,7 +92,7 @@ function Button({
     >
       <TouchableOpacity
         testID={testID}
-        activeOpacity={activeOpacity || 0.7}
+        activeOpacity={activeOpacity}
         onPress={onPress}
         delayPressIn={30}
         disabled={disabled}
