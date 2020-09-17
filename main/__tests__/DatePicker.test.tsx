@@ -19,9 +19,9 @@ const standardDate = new Date('2020-09-13');
 
 describe('[DatePicker] render', () => {
   it('should render without crashing', () => {
-    const rendered = render(<DatePicker selectedDate={standardDate} locale={'en'} />).asJSON();
+    const rendered = render(<DatePicker selectedDate={standardDate} locale={'en-US'} />).asJSON();
 
-    // expect(rendered).toMatchSnapshot();
+    expect(rendered).toMatchSnapshot();
     expect(rendered).toBeTruthy();
   });
 });
@@ -32,7 +32,7 @@ describe('[DateInput] render', () => {
       <DateInput onPressCalendar={(): void => {}} selectedDate={standardDate} />,
     ).asJSON();
 
-    // expect(rendered).toMatchSnapshot();
+    expect(rendered).toMatchSnapshot();
     expect(rendered).toBeTruthy();
   });
   describe('[DateInput] Interaction', () => {
@@ -67,11 +67,11 @@ describe('[PickerCalendar] render', () => {
         visible={false}
         onSelectDate={(): void => {}}
         selectedDate={standardDate}
-        locale={'en'}
+        locale={'en-US'}
         weekdayFormat={'narrow'} />,
     ).asJSON();
 
-    // expect(rendered).toMatchSnapshot();
+    expect(rendered).toMatchSnapshot();
     expect(rendered).toBeTruthy();
   });
 });
@@ -83,11 +83,11 @@ describe('[Calendar]', () => {
         initDate={standardDate}
         renderDay={() => <CalendarDate date={standardDate} isToday={false} />}
         calendarWidth={300}
-        locale={'en'}
+        locale={'en-US'}
       />,
     ).asJSON();
 
-    // expect(rendered).toMatchSnapshot();
+    expect(rendered).toMatchSnapshot();
     expect(rendered).toBeTruthy();
   });
 });
@@ -98,7 +98,7 @@ describe('[CalendarDate] render', () => {
       <CalendarDate onPress={(): void => {}} date={standardDate} isToday={false} />,
     ).asJSON();
 
-    // expect(rendered).toMatchSnapshot();
+    expect(rendered).toMatchSnapshot();
     expect(rendered).toBeTruthy();
   });
 
@@ -138,7 +138,7 @@ describe('[CalendarMonth] render', () => {
       />,
     ).asJSON();
 
-    // expect(rendered).toMatchSnapshot();
+    expect(rendered).toMatchSnapshot();
     expect(rendered).toBeTruthy();
   });
 });
@@ -146,10 +146,10 @@ describe('[CalendarMonth] render', () => {
 describe('[CalendarWeekDays] render', () => {
   it('should render without crashing', () => {
     const rendered = render(
-      <CalendarWeekDays calendarWidth={300} weekdayFormat={'narrow'} locale={'en'} />,
+      <CalendarWeekDays calendarWidth={300} weekdayFormat={'narrow'} locale={'en-US'} />,
     ).asJSON();
 
-    // expect(rendered).toMatchSnapshot();
+    expect(rendered).toMatchSnapshot();
     expect(rendered).toBeTruthy();
   });
 });
