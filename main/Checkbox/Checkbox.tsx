@@ -80,9 +80,17 @@ const Checkbox: FC<CheckboxProps> = ({
     <TouchableHighlight
       onPress={handleChange}
       underlayColor="transparent"
-      style={{ marginHorizontal: 20, paddingBottom: 20 }}
+      style={{ margin: 10 }}
       disabled={disabled}>
-      <Container labelLeft={customStyle?.labelLeft}>
+      <Container>
+        {customStyle?.labelLeft && (
+          <Label
+            labelColor={labelColor}
+            labelSize={customStyle?.labelSize}
+            labelLeft={customStyle?.labelLeft}>
+            {label}
+          </Label>
+        )}
         <MarkerContainer
           boxSize={customStyle?.boxSize}
           boxColor={disabled ? COLOR.LIGHTGRAY : customStyle?.boxColor}>
@@ -91,26 +99,24 @@ const Checkbox: FC<CheckboxProps> = ({
               <MarkerImg source={{ uri: checkboxImg }} />
             )}
             {indeterminate && (
-              <MarkerIndeterminate
+              <Markerindeterminate
                 boxColor={disabled ? COLOR.LIGHTGRAY : customStyle?.boxColor}
               />
             )}
           </Marker>
         </MarkerContainer>
-        <Label
-          labelColor={labelColor}
-          labelSize={customStyle?.labelSize}
-          labelLeft={customStyle?.labelLeft}>
-          {label}
-        </Label>
+        {!customStyle?.labelLeft && (
+          <Label
+            labelColor={labelColor}
+            labelSize={customStyle?.labelSize}
+            labelLeft={customStyle?.labelLeft}>
+            {label}
+          </Label>
+        )}
       </Container>
     </TouchableHighlight>
   );
 };
-
-interface ContainerProps {
-  labelLeft?: boolean;
-}
 
 interface MarkerContainerProps {
   boxSize?: number;
@@ -141,10 +147,9 @@ const COLOR: {
   BLACK: '#000000',
 };
 
-const Container = styled.View<ContainerProps>`
-  flex-direction: ${({ labelLeft }): string =>
-    labelLeft ? 'row-reverse' : 'row'};
-  justify-content: center;
+const Container = styled.View`
+  flex-direction: row;
+  justify-content: flex-start;
   align-items: center;
 `;
 
@@ -170,7 +175,7 @@ const MarkerImg = styled.Image`
   resize-mode: contain;
 `;
 
-const MarkerIndeterminate = styled.View<MarkerIndeterminateProps>`
+const Markerindeterminate = styled.View<MarkerIndeterminateProps>`
   width: 55%;
   height: 55%;
   background-color: ${({ boxColor }): string => boxColor || COLOR.BLUE_SKY};

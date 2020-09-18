@@ -43,6 +43,7 @@ interface CheckboxGroupProps {
   disabled?: boolean;
   onChange?: (checkedValue: Array<CheckboxValueType>) => void;
   commonCustomStyle?: CustomStyle;
+  direction?: 'column' | 'row';
 }
 
 export const GroupCheckboxContext = React.createContext<CheckboxGroupContext | null>(null);
@@ -54,6 +55,7 @@ const CheckboxGroup: FC<CheckboxGroupProps> = ({
   disabled,
   onChange,
   commonCustomStyle,
+  direction,
 }) => {
   const isMounted = useRef(false);
   const [groupValues, setGroupValues] = useState<CheckboxValueType[]>(values || defaultValues || []);
@@ -124,7 +126,7 @@ const CheckboxGroup: FC<CheckboxGroupProps> = ({
   };
 
   return (
-    <Container>
+    <Container direction={direction}>
       <GroupCheckboxContext.Provider value={context}>
         {getOptions().map((option) => (
           <Checkbox
@@ -145,9 +147,14 @@ const CheckboxGroup: FC<CheckboxGroupProps> = ({
   );
 };
 
-const Container = styled.View`
-  flex-direction: row;
+interface ContainerProps {
+  direction?: 'row' | 'column';
+}
+
+const Container = styled.View<ContainerProps>`
+  flex-direction: ${({ direction }) => direction || 'column'};
   flex-wrap: wrap;
+  align-items: flex-start;
 `;
 
 export default CheckboxGroup;
