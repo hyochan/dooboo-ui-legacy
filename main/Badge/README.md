@@ -25,7 +25,7 @@
 | **showZero**          |          | boolean               |    true   | Set whether to show '0' count number in badge or not |
 | **opacityVisible**    |          | boolean               |    true   | Set application of change in color opacity |
 | **variant**           |          | string                |'standard' | Set shape of the badge. Available choices are 'dot' and 'standard' |
-| **position**          |          | string                |  'right'  | Set position of the badge. Available choices are 'left', 'right' , 'top', 'down'. |
+| **badgePlacement**          |          | string                |  'right'  | Set position of the badge. Available choices are 'left', 'right' , 'top', 'down'. |
 | **border**            |          | string                |           | Set border color of the badge. |
 | **textColor**         |          | string                | '#FFFFFF' | Set textColor of the count number inside the badge. |
 
