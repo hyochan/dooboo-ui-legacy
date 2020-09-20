@@ -1,147 +1,139 @@
 import {
   ActivityIndicator,
-  TextStyle,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
   TouchableOpacityProps,
-  ViewStyle,
+  View,
 } from 'react-native';
 import React, { useRef } from 'react';
 
-import styled from 'styled-components/native';
 import { useHover } from 'react-native-web-hooks';
 
-const Container = styled.View`
-  justify-content: center;
-  align-items: center;
-`;
+const defaultStyles = StyleSheet.create({
+  root: {
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  hovered: {
+    shadowColor: 'black',
+    shadowOffset: {
+      width: 0,
+      height: 4,
+    },
+    shadowOpacity: 0.24,
+    shadowRadius: 16,
+    elevation: 10,
+    borderRadius: 4,
+  },
+  button: {
+    alignSelf: 'center',
+    width: 320,
+    height: 52,
+    borderColor: 'blue',
+    alignItems: 'center',
+    justifyContent: 'center',
+    flexDirection: 'row',
+    paddingLeft: 16,
+    paddingRight: 16,
+    borderRadius: 6,
+  },
+  text: {
+    fontSize: 14,
+    color: '#069ccd',
+  },
+  disabledButton: {
+    backgroundColor: '#cccccc',
+    borderColor: 'rgb(200, 200, 200)',
+  },
+  disabledText: {
+    color: '#969696',
+  },
+});
 
-const StyledButton = styled.TouchableOpacity`
-  align-self: center;
-  width: 320px;
-  height: 52px;
-  border-color: blue;
-  align-items: center;
-  justify-content: center;
-  flex-direction: row;
-  padding-left: 16px;
-  padding-right: 16px;
-  border-radius: 6px;
-`;
-
-const StyledDisabled = styled(StyledButton)`
-  background-color: #cccccc;
-  border-color: rgb(200, 200, 200);
-`;
-
-const StyledText = styled.Text`
-  font-size: 14px;
-  color: #069ccd;
-`;
-
-const StyledDisabledText = styled(StyledText)`
-  color: #969696;
-`;
-
-interface ChildStyle {
-  style?: ViewStyle;
-  textStyle?: TextStyle;
-}
-
-type ColorType = 'decision' | 'idea' | 'emotion' | 'benefit' | 'facts' | 'criticism';
+type StylesType = Partial<StyleSheet.NamedStyles<typeof defaultStyles>>;
 
 interface Props {
   testID?: string;
   indicatorColor?: string;
-  color?: ColorType;
   loading?: boolean;
   disabled?: boolean;
-  containerStyle?: ViewStyle;
-  style?: ViewStyle;
-  textStyle?: TextStyle;
-  disabledStyle?: ChildStyle;
+  style?: StylesType;
   leftElement?: React.ReactElement;
   rightElement?: React.ReactElement;
   activeOpacity?: number;
   text?: string;
-  outlined?: boolean;
   onPress?: () => void;
-  touchableOpacityProps?: TouchableOpacityProps & any;
+  touchableOpacityProps?: Partial<TouchableOpacityProps>;
 }
 
-const hoveredStyle = {
-  shadowColor: 'black',
-  shadowOffset: {
-    width: 0,
-    height: 4,
-  },
-  shadowOpacity: 0.24,
-  shadowRadius: 16.0,
-  elevation: 10,
-  borderRadius: 4,
-};
-
-function Button(props: Props): React.ReactElement {
-  const {
-    testID,
-    disabled,
-    loading,
-    containerStyle,
-    disabledStyle,
-    style,
-    textStyle,
-    indicatorColor,
-    leftElement,
-    rightElement,
-    activeOpacity,
-    text,
-    onPress,
-    touchableOpacityProps,
-  } = props;
-
+function Button({
+  testID,
+  disabled,
+  loading,
+  style,
+  indicatorColor = '#ffffff',
+  leftElement,
+  rightElement,
+  activeOpacity = 0.7,
+  text,
+  onPress,
+  touchableOpacityProps,
+}: Props): React.ReactElement {
   const ref = useRef(null);
   const isHovered = useHover(ref);
 
-  if (disabled) {
-    return (
-      <Container style={containerStyle}>
-        <StyledDisabled style={disabledStyle?.style}>
-          <StyledDisabledText style={[textStyle, disabledStyle?.textStyle]}>
-            {text}
-          </StyledDisabledText>
-        </StyledDisabled>
-      </Container>
-    );
-  }
-
-  if (loading) {
-    return (
-      <Container style={containerStyle}>
-        <StyledButton style={style}>
-          <ActivityIndicator size="small" color={indicatorColor} />
-        </StyledButton>
-      </Container>
-    );
-  }
-
   return (
-    <Container style={containerStyle}>
-      <StyledButton
+    <View
+      style={[
+        defaultStyles.root,
+        style?.root,
+      ]}
+    >
+      <TouchableOpacity
         testID={testID}
-        activeOpacity={activeOpacity || 0.7}
+        activeOpacity={activeOpacity}
         onPress={onPress}
         delayPressIn={30}
+        disabled={disabled}
         ref={ref}
-        style={[style, (isHovered && hoveredStyle)]}
+        style={[
+          defaultStyles.button,
+          style?.button,
+          isHovered && !disabled && [
+            defaultStyles.hovered,
+            style?.hovered,
+          ],
+          disabled && [
+            defaultStyles.disabledButton,
+            style?.disabledButton,
+          ],
+        ]}
         {...touchableOpacityProps}
       >
-        {leftElement}
-        <StyledText
-          style={textStyle}
-        >
-          {text}
-        </StyledText>
-        {rightElement}
-      </StyledButton>
-    </Container>
+        {loading
+          ? <ActivityIndicator size="small" color={indicatorColor} />
+          : (
+            <>
+              {leftElement}
+              <Text
+                style={[
+                  defaultStyles.text,
+                  style?.text,
+                  disabled && [
+                    defaultStyles.disabledText,
+                    style?.disabledText,
+                  ],
+                ]}
+              >
+                {text}
+              </Text>
+              {rightElement}
+            </>
+          )
+        }
+      </TouchableOpacity>
+    </View>
   );
 }
 
