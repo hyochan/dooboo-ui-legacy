@@ -27,6 +27,16 @@ module.exports = {
         prev: ['const', 'let', 'var', 'export'],
         next: ['const', 'let', 'var', 'export'],
       },
+      {
+        blankLine: 'always',
+        prev: ['multiline-const', 'multiline-expression', 'multiline-let'],
+        next: '*',
+      },
+      {
+        blankLine: 'always',
+        prev: '*',
+        next: ['multiline-const', 'multiline-expression', 'multiline-let'],
+      },
       // Always require blank lines before and after class declaration, if, do/while, switch, try
       {
         blankLine: 'always',
