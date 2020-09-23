@@ -13,6 +13,7 @@ const Container = styled.View`
   width: 100%;
   height: 48px;
 `;
+
 const Content = styled.View<{ isChecked: boolean }>`
   height: 48px;
   border-bottom-width: 1px;

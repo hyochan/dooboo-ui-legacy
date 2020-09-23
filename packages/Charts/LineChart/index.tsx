@@ -14,12 +14,14 @@ const Container = styled.View`
   justify-content: center;
   align-items: center;
 `;
+
 const HeaderContainer = styled.View`
   width: 100%;
   background-color: transparent;
   margin: 0;
   padding: 0;
 `;
+
 const ChartContainer = styled.View`
   height: 100%;
   width: 100%;
@@ -78,6 +80,7 @@ const LineChart: FC<LineChartProps> = (props) => {
       fontWeight: 'bold',
     },
   } = props;
+
   // Initialize
   const [currentHeight, setCurrentHeight] = React.useState<number>(400);
   const [currentWidth, setCurrentWidth] = React.useState<number>(500);
@@ -89,6 +92,7 @@ const LineChart: FC<LineChartProps> = (props) => {
   ): Array<number> => {
     const range: number[] = [];
     const unit = typeof yUnit === 'string' ? Number(yUnit) : yUnit;
+
     const yMaxValue =
       Math.trunc(
         Math.max(...data.map((current) => current[yAxisKey]), 0) / unit,
@@ -118,10 +122,12 @@ const LineChart: FC<LineChartProps> = (props) => {
   // Y-AXIS
   const yAxisRange = getYmaxRange(data, yUnit);
   const yDomain = [0, d3.max(yAxisRange, (item) => item)];
+
   const yRange = [
     SVGPadding,
     SVGHeight - SVGPadding * (SVGHeight < 736 ? 2.7 : SVGHeight < 1023 ? 3 : 4.5),
   ];
+
   const yAxis = d3.scaleLinear().domain(yDomain).range(yRange);
 
   return (

@@ -232,15 +232,19 @@ export const toStorybookControllable = (): ReactElement => <Controllable />;
 toStorybookDefault.story = {
   name: 'Default',
 };
+
 toStorybookNormal.story = {
   name: 'Normal',
 };
+
 toStorybookStandAlone.story = {
   name: 'StandAlone',
 };
+
 toStorybookLabel.story = {
   name: 'LabelPlacement',
 };
+
 toStorybookControllable.story = {
   name: 'Controllable',
 };

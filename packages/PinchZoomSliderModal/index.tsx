@@ -48,6 +48,7 @@ function PinchZoomModal(props: Props): ReactElement {
     containerStyle,
     shouldPinch = true,
   } = props;
+
   const [dimensionWidth, setDimensionWidth] = useState<number>(Dimensions.get('window').width);
   const [dimensionHeight, setDimensionHeight] = useState<number>(Dimensions.get('window').height);
 

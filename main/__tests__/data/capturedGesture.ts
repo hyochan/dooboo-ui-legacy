@@ -39,6 +39,7 @@ export function getFirstTouchOfTwoFinger(inputs: GestureHandlerInput[]): Gesture
 
 export function getLastTouchOfTwofinger(inputs: GestureHandlerInput[]): GestureHandlerInput | null {
   const reversed = inputs.map((i) => i).reverse();
+
   const firstTouchIndex = reversed.findIndex((input) => {
     const { nativeEvent } = input;
 
@@ -69,12 +70,14 @@ export function getTwoFingerStartEndPositions(inputs: GestureHandlerInput[]): {
 } {
   const zoomStart = getFirstTouchOfTwoFinger(inputs);
   const zoomEnd = getLastTouchOfTwofinger(inputs);
+
   const start = {
     x1: zoomStart.nativeEvent.locationX,
     x2: zoomStart.nativeEvent.touches[1].locationX,
     y1: zoomStart.nativeEvent.locationY,
     y2: zoomStart.nativeEvent.touches[1].locationY,
   };
+
   const end = {
     x1: zoomEnd.nativeEvent.locationX,
     x2: zoomEnd.nativeEvent.touches[1].locationX,
@@ -504,6 +507,7 @@ const openGesture: GestureHandlerInput[] = [
     },
   },
 ].map(replaceFirstTouchToThis);
+
 const closeGesture: GestureHandlerInput[] = [
   {
     name: 'onPanResponderGrant',
@@ -935,6 +939,7 @@ const closeGesture: GestureHandlerInput[] = [
     },
   },
 ].map(replaceFirstTouchToThis);
+
 const moveGesture: GestureHandlerInput[] = [
   {
     name: 'onPanResponderGrant',
@@ -1279,6 +1284,7 @@ const moveGesture: GestureHandlerInput[] = [
     },
   },
 ].map(replaceFirstTouchToThis);
+
 export {
   openGesture,
   closeGesture,

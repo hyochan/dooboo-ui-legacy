@@ -109,6 +109,7 @@ describe('PinchZoom of ImageSlider', () => {
 
       const moveGestureStateList = moveGesture.filter(({ name }) => name === 'onPanResponderMove')
         .map(({ gestureState }) => gestureState);
+
       const lastMoveGestureState = moveGestureStateList[moveGestureStateList.length - 1];
 
       expect(scale).toBeCloseTo(prevScale);
@@ -145,6 +146,7 @@ describe('PinchZoom of ImageSlider', () => {
 
       act(() => {
         callBacks.onPanResponderGrant();
+
         callBacks.onPanResponderMove({
           nativeEvent: {
             identifier: 0,
@@ -155,6 +157,7 @@ describe('PinchZoom of ImageSlider', () => {
             ],
           },
         }, { dx: 0, dy: 0 });
+
         callBacks.onPanResponderMove({
           nativeEvent: {
             identifier: 0,
@@ -180,6 +183,7 @@ describe('PinchZoom of ImageSlider', () => {
         // Call onRelease and the pinchzoom move to -300
         callBacks.onPanResponderRelease();
       });
+
       jest.runAllTimers();
       expect(pinchZoomContainer.props.style.left).toEqual(-300);
     });

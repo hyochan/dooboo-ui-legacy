@@ -71,6 +71,7 @@ const Slider: FC<Props> = ({
   const sliderRef = React.useRef<any>();
   const [sliderWidth, setSliderWidth] = useState<number>(0);
   const [sliderPositionX, setSliderPositionX] = useState(0);
+
   const [percent, setPercent] = useState(
     getNearestPercentByValue({
       value: defaultValue || minValue,
@@ -79,6 +80,7 @@ const Slider: FC<Props> = ({
       step,
     }),
   );
+
   const [value, setValue] = useState(defaultValue);
   const [scaleValue] = useState(new Animated.Value(0.01));
   const [opacityValue] = useState(new Animated.Value(0.12));
@@ -144,6 +146,7 @@ const Slider: FC<Props> = ({
             sliderWidth,
             stepPercent,
           });
+
           const value = getStepValueByPercent({
             percent,
             stepPercent,

@@ -93,6 +93,7 @@ const WithText = (): React.ReactElement => {
     />
   );
 };
+
 const Large = (): React.ReactElement => {
   const [switchOn3, setSwitchOn3] = useState(false);
 

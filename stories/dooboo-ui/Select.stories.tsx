@@ -13,6 +13,7 @@ const CustomContainer = styled.View`
   justify-content: flex-start;
   align-items: center;
 `;
+
 const TogglerWrapper = styled.View`
   width: 100%;
   display: flex;
@@ -20,10 +21,12 @@ const TogglerWrapper = styled.View`
   justify-content: center;
   margin: 10px;
 `;
+
 const ThemeSwitch = styled.Switch`
   width: 30px;
   height: 30px;
 `;
+
 const CustomTextInput = styled.TextInput`
   background-color: #ffffff;
   width: 190px;
@@ -31,12 +34,14 @@ const CustomTextInput = styled.TextInput`
   padding: 10px;
   font-size: 12px;
 `;
+
 const CustomSelectContainer = styled.View`
   width: 185px;
   height: 45px;
   align-items: center;
   justify-content: center;
 `;
+
 const CustomText = styled.Text`
   font-size: 10px;
   font-weight: bold;
@@ -46,6 +51,7 @@ const CustomText = styled.Text`
 const Default = (): React.ReactElement => {
   // [Select] states
   const [selectedValue, onSelectedValue] = React.useState<string>('');
+
   const [isOpen, toggleSelect] = React.useState<
     boolean
   >(false);
@@ -129,9 +135,11 @@ const ChangeProps = (): React.ReactElement => {
 
 const Customized = (): React.ReactElement => {
   const [listHeightValue, setListHeightValue] = React.useState<string>('');
+
   const [customPrefix, setCustomPrefix] = React.useState<string>(
     'https://user-images.githubusercontent.com/50701501/88152214-ae263680-cc3e-11ea-9a72-062e0208ee79.png',
   );
+
   const [customSuffix, setCustomSuffix] = React.useState<string>(
     'https://user-images.githubusercontent.com/50701501/88151403-9dc18c00-cc3d-11ea-95c0-447162f8465e.png',
   );
@@ -209,9 +217,11 @@ export const toStorybook3 = (): ReactElement => <Customized />;
 toStorybook1.story = {
   name: 'default',
 };
+
 toStorybook2.story = {
   name: 'ChangeProps',
 };
+
 toStorybook2.story = {
   name: 'Customized',
 };

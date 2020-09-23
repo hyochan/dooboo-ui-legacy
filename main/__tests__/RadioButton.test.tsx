@@ -43,19 +43,23 @@ describe('[RadioButton] render', () => {
   describe('[RadioButton] Interaction', (): void => {
     it('should simulate onPress', (): void => {
       const handlePress = jest.fn();
+
       const rendered = renderer.create(
         component({
           testID: 'RADIOBUTTON_ID',
           onPress: handlePress,
         }),
       );
+
       const radioButtonClick = rendered.root.findByType(TouchableOpacity);
 
       renderer.act(() => {
         radioButtonClick.props.onPress();
       });
+
       expect(handlePress).toHaveBeenCalled();
     });
+
     it('should simulate props', (): void => {
       const rendered = renderer.create(
         component({
@@ -74,6 +78,7 @@ describe('[RadioButton] render', () => {
       rendered.update(
         component({ disabled: false, value: 0, selectedValue: 1 }),
       );
+
       expect(rendered).toMatchSnapshot();
       expect(rendered).toBeTruthy();
     });

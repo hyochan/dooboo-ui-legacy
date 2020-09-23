@@ -30,6 +30,7 @@ function PinchZoom(props: Props, ref: Ref<PinchZoomRef>): ReactElement {
     blockNativeResponder = true, onScaleChanged, onTranslateChanged,
     onRelease,
   } = props;
+
   const touches = useRef([new TouchPosition(), new TouchPosition()]).current;
   const targetPosition = useRef(new Vector()).current;
   const layoutCenter = useRef(new Vector()).current;
@@ -37,16 +38,19 @@ function PinchZoom(props: Props, ref: Ref<PinchZoomRef>): ReactElement {
   const translateValue = useRef({ offset: new Vector(), current: new Vector() }).current;
   const scale = useRef(new Animated.Value(1)).current;
   const translate = useRef(new Animated.ValueXY(new Vector())).current;
+
   const release = (): void => {
     Animated.timing(scale, {
       useNativeDriver: true,
       toValue: 1,
     }).start();
+
     Animated.timing(translate, {
       useNativeDriver: true,
       toValue: new Vector(),
     }).start();
   };
+
   const createPanResponder = (): PanResponderInstance => {
     return PanResponder.create({
       onStartShouldSetPanResponder: /* istanbul ignore next */ () => true,
@@ -70,6 +74,7 @@ function PinchZoom(props: Props, ref: Ref<PinchZoomRef>): ReactElement {
           if (touch2.offset.x === 0 && touch2.offset.y === 0) {
             touch1.setOffset({ x: nativeEvent.locationX, y: nativeEvent.locationY });
             touch2.setOffset({ x: secondEvent.locationX, y: secondEvent.locationY });
+
             targetPosition.set(
               getOriginScaleTargetPosition({
                 currentPosition: touch1.offset.center(touch2.offset),
@@ -82,16 +87,19 @@ function PinchZoom(props: Props, ref: Ref<PinchZoomRef>): ReactElement {
 
           touch1.setCurrent({ x: nativeEvent.locationX, y: nativeEvent.locationY });
           touch2.setCurrent({ x: secondEvent.locationX, y: secondEvent.locationY });
+
           scaleValue.current = scaleValue.offset *
             touch1.current.distance(touch2.current) / touch1.offset.distance(touch2.offset);
 
           scaleValue.current = Math.max(1, Math.sqrt(scaleValue.current * scaleValue.offset));
           scale.setValue(scaleValue.current);
+
           translateValue.current.set(getTranslate({
             targetPosition,
             layoutCenter,
             scale: scaleValue.current,
           }));
+
           translate.setValue(translateValue.current);
         } else if (
           touch2.offset.x === 0 && touch2.offset.y === 0 &&
@@ -104,6 +112,7 @@ function PinchZoom(props: Props, ref: Ref<PinchZoomRef>): ReactElement {
             max: maxValue,
             min: maxValue.multiply(-1),
           });
+
           translate.setValue(translateValue.current);
         }
       },

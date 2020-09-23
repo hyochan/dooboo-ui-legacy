@@ -110,6 +110,7 @@ const WIDTH = 300;
 
 export function ImageSlider({ imageSources = images }:{ imageSources?: ImageSourcePropType[] }): React.ReactElement {
   const [currentIndex, setCurrentIndex] = React.useState<number>(0);
+
   const animValues = React.useRef({
     scale: 1,
     x: 0,
@@ -117,15 +118,18 @@ export function ImageSlider({ imageSources = images }:{ imageSources?: ImageSour
     nextTranslateX: 0,
     prevTranslateX: 0,
   }).current;
+
   const pinchZoom = React.useRef<PinchZoomRef>(null);
   const nextImageTranslateX = React.useRef(new Animated.Value(0)).current;
   const prevImageTranslateX = React.useRef(new Animated.Value(0)).current;
+
   const translateOtherImages = React.useCallback(() => {
     animValues.nextTranslateX = (animValues.scale - 1) * WIDTH / 2 + animValues.x;
     animValues.prevTranslateX = (1 - animValues.scale) * WIDTH / 2 + animValues.x;
     nextImageTranslateX.setValue(animValues.nextTranslateX);
     prevImageTranslateX.setValue(animValues.prevTranslateX);
   }, []);
+
   const onRelease = React.useCallback(() => {
     const moveNext = animValues.nextTranslateX < -WIDTH / 2;
     const movePrev = animValues.prevTranslateX > WIDTH / 2;

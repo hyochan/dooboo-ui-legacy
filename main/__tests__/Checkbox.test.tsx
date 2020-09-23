@@ -9,6 +9,7 @@ import { TouchableHighlight } from 'react-native';
 import renderer from 'react-test-renderer';
 
 let props: unknown;
+
 // Note: test renderer must be required after react-native.
 const createTestProps = (
   obj: Record<string, unknown>,
@@ -36,6 +37,7 @@ describe('[Checkbox]', () => {
   describe('[Checkbox] Interaction', (): void => {
     it('should simulate onPress', (): void => {
       const handlePress = jest.fn();
+
       const rendered = renderer.create(
         component({
           label: 'CHECKBOX_LABEL',
@@ -48,6 +50,7 @@ describe('[Checkbox]', () => {
       renderer.act(() => {
         checkboxClick.props.onPress();
       });
+
       expect(handlePress).toHaveBeenCalled();
     });
 
@@ -69,12 +72,14 @@ describe('[Checkbox]', () => {
       rendered.update(
         component({ disabled: false, customStyle: { boxColor: '#FF0000' } }),
       );
+
       expect(rendered).toMatchSnapshot();
       expect(rendered).toBeTruthy();
 
       rendered.update(
         component({ disabled: false, checked: false, indeterminate: true }),
       );
+
       expect(rendered).toMatchSnapshot();
       expect(rendered).toBeTruthy();
     });
@@ -109,6 +114,7 @@ describe('[CheckboxGroup] render test', () => {
       options: checkboxGroupData,
       values: defaultCheckedList,
     });
+
     groupComponent = <CheckboxGroup {...groupProps} />;
     testingLib = render(groupComponent);
 
@@ -122,6 +128,7 @@ describe('[CheckboxGroup] render test', () => {
       options: checkboxGroupData,
       values: [],
     });
+
     groupComponent = <CheckboxGroup {...groupProps} />;
     testingLib = render(groupComponent);
 
@@ -135,6 +142,7 @@ describe('[CheckboxGroup] render test', () => {
       options: checkboxGroupDataStr,
       values: [],
     });
+
     groupComponent = <CheckboxGroup {...groupProps} />;
     testingLib = render(groupComponent);
 
@@ -148,6 +156,7 @@ describe('[CheckboxGroup] render test', () => {
       options: checkboxGroupData,
       values: defaultCheckedList,
     });
+
     groupComponent = <CheckboxGroup {...groupProps} />;
     testingLib = render(groupComponent);
 
@@ -166,6 +175,7 @@ describe('[CheckboxGroup] render test', () => {
     groupProps = createTestProps({
       options: checkboxGroupDataDisabled,
     });
+
     groupComponent = <CheckboxGroup {...groupProps} />;
     testingLib = render(groupComponent);
 
@@ -184,6 +194,7 @@ describe('[CheckboxGroup] render test', () => {
     groupProps = createTestProps({
       options: checkboxGroupDataCustom,
     });
+
     groupComponent = <CheckboxGroup {...groupProps} />;
     testingLib = render(groupComponent);
 
@@ -218,6 +229,7 @@ describe('[CheckboxGroup] render test', () => {
 
   it('should be toggleOption triggered by checkbox', () => {
     const handlePress = jest.fn();
+
     const defaultProps = {
       options: checkboxGroupData,
       values: defaultCheckedList,

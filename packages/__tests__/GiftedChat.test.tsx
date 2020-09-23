@@ -65,6 +65,7 @@ describe('[GiftedChatInput] render', () => {
         },
       ],
     });
+
     component = <GiftedChatInput {...props} />;
   });
 

@@ -36,6 +36,7 @@ interface Props<T> {
 function CalendarMonth<T>(props: PropsWithChildren<Props<T>>): ReactElement {
   const thisYear = props.monthDate.getFullYear(); // year number of this month's calendar
   const thisMonth = props.monthDate.getMonth(); // month number of this month's calendar
+
   const startDate = new Date(
     props.monthDate.getFullYear(),
     props.monthDate.getMonth(),

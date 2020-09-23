@@ -17,6 +17,7 @@ const Container = styled.View<{ isCheckAble: boolean }>`
   flex-direction: row;
   align-content: center;
 `;
+
 const StyledText = styled.Text`
   width: 100%;
   height: 24px;

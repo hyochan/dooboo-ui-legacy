@@ -68,6 +68,7 @@ function Calendar(props: Props): React.ReactElement {
   const [monthList] = React.useState<Date[]>(
     getMonthList(initDate, pastRange, futureRange),
   );
+
   const [curMonthFirst, setCurMonthFirst] = React.useState<Date>(initDate);
 
   // getItemLayout

@@ -47,6 +47,7 @@ const styles = StyleSheet.create({
 
 function SwitchToggle(props: Props): React.ReactElement {
   const [animXValue] = useState(new Animated.Value(props.switchOn ? 1 : 0));
+
   const getStart = (): number | Record<string, unknown> | undefined => {
     // prettier-ignore
     return props.type === undefined
@@ -75,6 +76,7 @@ function SwitchToggle(props: Props): React.ReactElement {
         ((props.circleStyle.width as number) +
           (props.containerStyle.padding as number || 0) * 2)
       : 0;
+
   const circlePosXEnd = props.RTL ? -endPos : endPos;
   const [circlePosXStart] = useState(getStart());
 

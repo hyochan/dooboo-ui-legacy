@@ -30,6 +30,7 @@ const DatePicker = (props: Props): React.ReactElement => {
   const [selectedDate, setSelectedDate] = React.useState<Date>(
     props.selectedDate || new Date(),
   );
+
   const [calendarVisible, setCalendarVisible] = React.useState<boolean>(false);
 
   const onSelectDate = (newDate: Date): void => {

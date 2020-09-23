@@ -30,7 +30,7 @@ export interface CheckboxGroupState {
 }
 
 export interface CheckboxGroupContext {
-  registerValue?:(value: CheckboxValueType) => void;
+  registerValue?: (value: CheckboxValueType) => void;
   toggleOption: (option: CheckboxOptionType) => void;
   value?: CheckboxValueType[];
   disabled?: boolean;
@@ -83,7 +83,7 @@ const CheckboxGroup: FC<CheckboxGroupProps> = ({
     });
   }, [options]);
 
-  const registerValue = useCallback((value : string): void => {
+  const registerValue = useCallback((value: string): void => {
     setRegisteredValues((prevRegisteredValues) => {
       return [...prevRegisteredValues, value];
     });
@@ -105,6 +105,7 @@ const CheckboxGroup: FC<CheckboxGroupProps> = ({
 
     if (onChange) {
       const options = getOptions();
+
       const filterdValues = _values
         .filter((val) => registeredValues.indexOf(val) !== -1)
         .sort((a, b) => {
@@ -136,7 +137,7 @@ const CheckboxGroup: FC<CheckboxGroupProps> = ({
             value={option.value}
             checked={groupValues.indexOf(option.value) !== -1}
             onChange={option.onChange}
-            customStyle={ 'customStyle' in option ? option.customStyle : commonCustomStyle}
+            customStyle={'customStyle' in option ? option.customStyle : commonCustomStyle}
           >
             {option.label}
           </Checkbox>
@@ -152,7 +153,7 @@ interface ContainerProps {
 }
 
 const Container = styled.View<ContainerProps>`
-  flex-direction: ${({ direction }) => direction || 'column'};
+  flex-direction: ${({ direction }): 'row' | 'column' => direction || 'column'};
   flex-wrap: wrap;
   align-items: flex-start;
 `;

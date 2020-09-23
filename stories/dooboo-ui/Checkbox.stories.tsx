@@ -60,11 +60,13 @@ function DefaultCheckbox(): React.ReactElement {
 
 function DefaultCheckboxGroup(): React.ReactElement {
   const plainOptions = ['Apple', 'Pear', 'Orange'];
+
   const options = [
     { label: 'Apple', value: 'Apple' },
     { label: 'Pear', value: 'Pear' },
     { label: 'Orange', value: 'Orange' },
   ];
+
   const optionsWithDisabled = [
     { label: 'Apple', value: 'Apple' },
     { label: 'Pear', value: 'Pear' },
@@ -112,16 +114,20 @@ function CheckAllExample(): React.ReactElement {
   const defaultCheckedList = ['Apple', 'Orange'];
 
   const [checkedList, setCheckedList] = useState(defaultCheckedList);
+
   const [indeterminate, setIndeterminate] = useState(
     defaultCheckedList.length > 0,
   );
+
   const [checkAll, setCheckAll] = useState(false);
 
   const onChange = (checkedList): void => {
     setCheckedList(checkedList);
+
     setIndeterminate(
       !!checkedList.length && checkedList.length < plainOptions.length,
     );
+
     setCheckAll(checkedList.length === plainOptions.length);
   };
 

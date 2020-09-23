@@ -123,6 +123,7 @@ function TinderCard<T>(
 
       UIManager.setLayoutAnimationEnabledExperimental &&
         UIManager.setLayoutAnimationEnabledExperimental(true);
+
       LayoutAnimation.spring();
 
       let currentIndex = 0;

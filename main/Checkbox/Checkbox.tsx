@@ -56,6 +56,7 @@ const Checkbox: FC<CheckboxProps> = ({
 
       return !prevChecked;
     });
+
     groupCheckboxContext?.toggleOption({ label, value: value || '' });
   }, [onChange, setIsChecked, label, groupCheckboxContext?.toggleOption]);
 

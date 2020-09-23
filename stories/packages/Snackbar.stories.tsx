@@ -42,12 +42,15 @@ function Default(): React.ReactElement {
   const [shortOrLong, setShortOrLong] = useState<boolean>(false);
   const [longText, setLongText] = useState<boolean>(false);
   const snackbarText = text('Snackbar Text', 'Simple Snackbar is opened');
+
   const snackbarLongText = text(
     'Snackbar Long Text',
     'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Minus quia vel maxime nost',
   );
+
   const containerColor = color('container color', '#1976D1');
   const messageColor = color('message color', '#ffffff');
+
   const onPress = useCallback((): void => {
     if (snackbar) {
       snackbar.show({
@@ -94,17 +97,21 @@ function WithAction(): React.ReactElement {
   const [shortOrLong, setShortOrLong] = useState<boolean>(false);
   const [longText, setLongText] = useState<boolean>(false);
   const snackbarText = text('Snackbar Text', 'Simple Snackbar is opened');
+
   const snackbarLongText = text(
     'Snackbar Long Text',
     'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Minus quia vel maxime nost',
   );
+
   const actionText = text('action text', 'Action');
   const containerColor = color('container color', '#2979ff');
   const messageColor = color('message color', '#ffffff');
   const actionColor = color('action color', '#000000');
+
   const onPressAction = useCallback((): void => {
     Alert.alert('Action!!');
   }, []);
+
   const onPress = useCallback((): void => {
     snackbar.current && snackbar.current.show({
       text: longText ? snackbarLongText : snackbarText,

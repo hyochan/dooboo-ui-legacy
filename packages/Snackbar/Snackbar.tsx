@@ -85,20 +85,26 @@ export enum Timer {
 
 const Snackbar = (props: SnackbarProps, ref: React.Ref<SnackbarRef>): React.ReactElement => {
   const { testID } = props;
+
   const [showingState, setShowingState] = React.useState<ShowingState>(
     { isVisible: false, isShowing: false },
   );
+
   const [content, setContent] = React.useState<Content>({ text: '', timer: Timer.SHORT });
+
   const {
     text, actionText, messageStyle, actionStyle, containerStyle, timer = Timer.SHORT, onPressAction,
   } = content;
+
   const { isShowing, isVisible, timeout } = showingState;
   const [fadeAnim] = React.useState(new Animated.Value(0));
+
   const show = (c: Content): void => {
     setContent(c);
     timeout && clearTimeout(timeout);
     setShowingState((prevState) => Object.assign(Object.assign({}, prevState), { isShowing: true }));
   };
+
   const hide = (duration = 200): void => {
     Animated.timing(
       fadeAnim,
@@ -122,6 +128,7 @@ const Snackbar = (props: SnackbarProps, ref: React.Ref<SnackbarRef>): React.Reac
         }, timer + 200);
 
         setShowingState({ isShowing: false, isVisible: true, timeout: hideTimeout });
+
         Animated.timing(
           fadeAnim,
           {
@@ -133,6 +140,7 @@ const Snackbar = (props: SnackbarProps, ref: React.Ref<SnackbarRef>): React.Reac
       }
     }
   }, [showingState]);
+
   React.useImperativeHandle(ref, () => ({
     show,
   }));

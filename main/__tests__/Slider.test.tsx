@@ -75,6 +75,7 @@ describe('[Slider] render', () => {
       render(
         <Slider />,
       );
+
       expect(useRefSpy).toBeCalledTimes(1);
       expect(measure).not.toBeCalled();
     });
@@ -85,6 +86,7 @@ describe('[Slider] render', () => {
       render(
         <Slider />,
       );
+
       expect(useRefSpy).toBeCalledTimes(1);
       expect(measure).toBeCalledTimes(1);
     });
@@ -100,10 +102,13 @@ describe('[Slider] render', () => {
       };
 
       jest.spyOn(React, 'useRef').mockReturnValueOnce(mockRef);
+
       render(
         <Slider />,
       );
+
       jest.spyOn(React, 'useRef').mockReturnValueOnce(mockRef);
+
       act(() => {
         mockRef.callback(0, 0, 100, 100, 0, 0);
       });
@@ -115,6 +120,7 @@ describe('[Slider] render', () => {
       const { queryByTestId } = render(
         <Slider />,
       );
+
       const rail = queryByTestId(TEST_ID.RAIL);
 
       expect(rail).not.toBeNull();
@@ -124,6 +130,7 @@ describe('[Slider] render', () => {
       const { queryByTestId } = render(
         <Slider />,
       );
+
       const track = queryByTestId(TEST_ID.TRACK);
 
       expect(track).not.toBeNull();
@@ -133,6 +140,7 @@ describe('[Slider] render', () => {
       const { queryByTestId } = render(
         <Slider />,
       );
+
       const marks = queryByTestId(TEST_ID.MARKS);
 
       expect(marks).not.toBeNull();
@@ -142,6 +150,7 @@ describe('[Slider] render', () => {
       const { queryByTestId } = render(
         <Slider />,
       );
+
       const thumb = queryByTestId(TEST_ID.THUMB);
 
       expect(thumb).not.toBeNull();
@@ -151,6 +160,7 @@ describe('[Slider] render', () => {
       const { queryByTestId } = render(
         <Slider />,
       );
+
       const label = queryByTestId(TEST_ID.LABEL);
 
       expect(label).toBeNull();
@@ -162,6 +172,7 @@ describe('[Slider] render', () => {
           hideLabel={false}
         />,
       );
+
       const label = queryByTestId(TEST_ID.LABEL);
 
       expect(label).not.toBeNull();
@@ -174,6 +185,7 @@ describe('[Slider] render', () => {
         hideMark={true}
       />,
     );
+
     const marks = queryByTestId(TEST_ID.MARKS);
 
     expect(marks).toBeNull();
@@ -185,6 +197,7 @@ describe('[Slider] render', () => {
         step={-1}
       />,
     );
+
     const marks = queryByTestId(TEST_ID.MARKS);
 
     expect(marks).toBeNull();
@@ -196,6 +209,7 @@ describe('[Slider] render', () => {
         step={0}
       />,
     );
+
     const marks = queryByTestId(TEST_ID.MARKS);
 
     expect(marks).toBeNull();
@@ -207,10 +221,12 @@ describe('[Slider] render', () => {
         onChange={(): void => {}}
       />,
     );
+
     const thumb = rendered.getByTestId(TEST_ID.THUMB_ANIMATED);
 
     jest.useFakeTimers();
     expect(thumb.props.style.transform[0].scale).toEqual(0.01);
+
     rendered.rerender(
       <Slider
         hideLabel={false}
@@ -218,6 +234,7 @@ describe('[Slider] render', () => {
         onChange={(): void => {}}
       />,
     );
+
     act(
       () => {
         if (testResponder && testResponder.onStartShouldSetPanResponder(null, null)) {
@@ -225,8 +242,10 @@ describe('[Slider] render', () => {
         }
       },
     );
+
     jest.runAllTimers();
     expect(thumb.props.style.transform[0].scale).toEqual(1);
+
     act(
       () => {
         if (
@@ -241,6 +260,7 @@ describe('[Slider] render', () => {
         testResponder.onPanResponderTerminationRequest(null, null);
       },
     );
+
     jest.runAllTimers();
     expect(thumb.props.style.transform[0].scale).toEqual(0);
   });
@@ -283,6 +303,7 @@ describe('[Marks]', () => {
         onMarkPress={handleMarkPress}
       />,
     );
+
     const marks = getAllByTestId(TEST_ID.MARKS);
 
     for (let i = 0; i < MARK_COUNT; i += 1) {
@@ -316,11 +337,13 @@ describe('[Marks]', () => {
         onInit={onInit}
       />,
     );
+
     expect(onInit).toHaveBeenCalledTimes(1);
 
     const expectedArgumentForOnInit = Array.from({
       length: MARK_COUNT + 1,
     }).map((_, idx) => STEP * idx);
+
     const actualArgumentForOnInit = onInit.mock.calls[0][0];
 
     expect(actualArgumentForOnInit).toStrictEqual(expectedArgumentForOnInit);
@@ -370,6 +393,7 @@ describe('[Track]', () => {
   it('should be n% width of Slider.', () => {
     const TEST_ID_TRACK = 'TrackTestID';
     const percent = 50;
+
     const { getByTestId } = render(
       <Track
         testID="TrackTestID"
@@ -377,6 +401,7 @@ describe('[Track]', () => {
         percent={50}
       />,
     );
+
     const track = getByTestId(TEST_ID_TRACK);
 
     expect(track.getProp('width')).toBe(percent);
@@ -399,6 +424,7 @@ describe('[Track]', () => {
     it('should be n% width of Slider.', () => {
       const TEST_ID_TRACK = 'TrackTestID';
       const percent = 50;
+
       const { getByTestId } = render(
         <Track
           testID={TEST_ID_TRACK}
@@ -406,6 +432,7 @@ describe('[Track]', () => {
           percent={50}
         />,
       );
+
       const track = getByTestId(TEST_ID_TRACK);
 
       expect(track.getProp('width')).toBe(percent);
@@ -430,11 +457,13 @@ describe('[Track]', () => {
 
     it('should pose [Thumb] to given percent.', () => {
       const PERCENT = 30;
+
       const { container } = render(
         <Thumb
           percent={PERCENT}
         />,
       );
+
       const thumb = container.props.children;
 
       expect(thumb.props.percent).toBe(PERCENT);
@@ -448,6 +477,7 @@ describe('[Track]', () => {
 
         expect(result).toBe(10);
       });
+
       it('should return ceiled when the number is smaller than half of the digit.', () => {
         const result = roundNearest(13, 5);
 

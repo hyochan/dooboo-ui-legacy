@@ -29,15 +29,17 @@ describe('[DatePicker] render', () => {
 describe('[DateInput] render', () => {
   it('should render without crashing', () => {
     const rendered = render(
-      <DateInput onPressCalendar={(): void => {}} selectedDate={standardDate} />,
+      <DateInput onPressCalendar={(): void => { }} selectedDate={standardDate} />,
     ).asJSON();
 
     expect(rendered).toMatchSnapshot();
     expect(rendered).toBeTruthy();
   });
+
   describe('[DateInput] Interaction', () => {
     it('should simulate onPress', () => {
       const onPressCalendar = jest.fn();
+
       const rendered = renderer.create(
         <DateInput onPressCalendar={onPressCalendar} selectedDate={standardDate} />,
         {
@@ -55,6 +57,7 @@ describe('[DateInput] render', () => {
       renderer.act(() => {
         dateInputClicked.props.onPress();
       });
+
       expect(onPressCalendar).toHaveBeenCalled();
     });
   });
@@ -65,7 +68,7 @@ describe('[PickerCalendar] render', () => {
     const rendered = render(
       <PickerCalendar
         visible={false}
-        onSelectDate={(): void => {}}
+        onSelectDate={(): void => { }}
         selectedDate={standardDate}
         locale={'en-US'}
         weekdayFormat={'narrow'} />,
@@ -81,7 +84,7 @@ describe('[Calendar]', () => {
     const rendered = render(
       <Calendar
         initDate={standardDate}
-        renderDay={() => <CalendarDate date={standardDate} isToday={false} />}
+        renderDay={(): React.ReactElement => <CalendarDate date={standardDate} isToday={false} />}
         calendarWidth={300}
         locale={'en-US'}
       />,
@@ -95,7 +98,7 @@ describe('[Calendar]', () => {
 describe('[CalendarDate] render', () => {
   it('should render without crashing', () => {
     const rendered = render(
-      <CalendarDate onPress={(): void => {}} date={standardDate} isToday={false} />,
+      <CalendarDate onPress={(): void => { }} date={standardDate} isToday={false} />,
     ).asJSON();
 
     expect(rendered).toMatchSnapshot();
@@ -105,6 +108,7 @@ describe('[CalendarDate] render', () => {
   describe('[CalendarDate] Interaction', () => {
     it('should simulate onPress', () => {
       const onSelectDate = jest.fn();
+
       const rendered = renderer.create(
         <CalendarDate onPress={onSelectDate} date={standardDate} isToday={false} />,
         {
@@ -122,6 +126,7 @@ describe('[CalendarDate] render', () => {
       renderer.act(() => {
         dateSelected.props.onPress();
       });
+
       expect(onSelectDate).toHaveBeenCalled();
     });
   });
@@ -133,7 +138,7 @@ describe('[CalendarMonth] render', () => {
       <CalendarMonth
         monthDate={standardDate}
         calendarWidth={300}
-        renderDay={() => <CalendarDate date={standardDate} isToday={false} />}
+        renderDay={(): React.ReactElement => <CalendarDate date={standardDate} isToday={false} />}
         today={standardDate}
       />,
     ).asJSON();

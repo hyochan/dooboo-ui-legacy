@@ -57,6 +57,7 @@ describe('[Accordion] render test', () => {
       collapseOnStart: true,
       data: data,
     });
+
     component = <Accordion {...props}/>;
     testingLib = render(component);
 
@@ -65,10 +66,12 @@ describe('[Accordion] render test', () => {
 
   it('should operate animation when isAnimated props is true', () => {
     jest.useFakeTimers();
+
     props = createTestProps({
       isAnimated: true,
       data: data,
     });
+
     component = <Accordion {...props}/>;
     testingLib = render(component);
     jest.runAllTimers();
@@ -81,6 +84,7 @@ describe('[Accordion] render test', () => {
       animDuration: 500,
       data: data,
     });
+
     component = <Accordion {...props}/>;
     testingLib = render(component);
 
@@ -93,6 +97,7 @@ describe('[Accordion] event test', () => {
     props = createTestProps({
       data: data,
     });
+
     component = <Accordion {...props}/>;
     testingLib = render(component);
   });

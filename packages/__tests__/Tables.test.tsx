@@ -13,6 +13,7 @@ const TEST_ID = {
   CHECK: 'check-wrapper-test-id',
   CHECKBOX: 'checkbox-test-id',
 };
+
 let props: any;
 let component: ReactElement;
 let testingLib: RenderResult;
@@ -101,6 +102,7 @@ describe('[Tables] render test', (): void => {
     props = createTestProps({
       data,
     });
+
     component = <Table {...props} />;
     testingLib = render(component);
 
@@ -112,6 +114,7 @@ describe('[Tables] render test', (): void => {
       collapsedWhenRendered: false,
       data,
     });
+
     component = <Table {...props} />;
     testingLib = render(component);
 
@@ -189,10 +192,12 @@ describe('[Tables] render test', (): void => {
 
   it('should render checkbox when isCheckAble is true', () => {
     jest.useFakeTimers();
+
     props = createTestProps({
       isCheckAble: true,
       data,
     });
+
     component = <Table {...props} />;
     testingLib = render(component);
     jest.runAllTimers();

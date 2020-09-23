@@ -28,6 +28,7 @@ describe('[Card]', () => {
         subTitle: 'Card subTitle',
       }),
     );
+
     root = rendered.root;
 
     const texts = root.findAllByType(Text);
@@ -44,6 +45,7 @@ describe('[Card]', () => {
         },
       }),
     );
+
     root = rendered.root;
 
     const images = root.findAllByType(Image);
@@ -55,6 +57,7 @@ describe('[Card]', () => {
     rendered = renderer.create(
       component({ title: 'Card title', subTitle: 'Card subTitle' }),
     );
+
     root = rendered.root;
 
     const texts = root.findAllByType(Text);
@@ -73,6 +76,7 @@ describe('[Card]', () => {
         ),
       }),
     );
+
     root = rendered.root;
 
     const texts = root.findAllByType(Text);

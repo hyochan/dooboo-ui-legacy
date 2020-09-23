@@ -20,6 +20,7 @@ describe('[SwitchToggle]', (): void => {
     testID: 'SWITCH_ID',
     onPress: jest.fn(),
   });
+
   component = <SwitchToggle {...props}/>;
 
   it('should render without crashing', (): void => {
@@ -72,6 +73,7 @@ describe('[SwitchToggle]', (): void => {
       renderer.act(() => {
         switchToggle.props.onPress();
       });
+
       expect(props.switchOn).toBeFalsy();
     });
   });

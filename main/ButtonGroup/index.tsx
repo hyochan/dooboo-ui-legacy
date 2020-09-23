@@ -37,6 +37,7 @@ const ButtonGroup: FC<Props> = (props) => {
     data,
     onPress,
   } = props;
+
   const [selectedOption, setSelectedOption] = useState(initialIndex);
 
   return (

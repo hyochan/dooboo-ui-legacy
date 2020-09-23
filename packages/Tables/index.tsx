@@ -45,6 +45,7 @@ const Table: React.FC<Props> & TableNamespace = ({
   /** checking interaction */
   const [selected, setSelected] = React.useState<string[]>([]);
   const isSelected = (name: string): boolean => selected.indexOf(name) !== -1;
+
   const handleClick = (name: string): void => {
     const selectedIndex = selected.indexOf(name);
     let newSelected: string[] = [];

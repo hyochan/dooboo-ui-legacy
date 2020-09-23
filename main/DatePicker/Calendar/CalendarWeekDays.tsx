@@ -40,6 +40,7 @@ function CalendarWeekDays(props: Props): React.ReactElement {
 
   for (let idx = 0; idx <= 6; idx++) {
     const matchMonth = new Date(2020, 8, 6 + idx);
+
     const weekDay = matchMonth.toLocaleString(props.locale, {
       weekday: props.weekdayFormat || 'narrow', // 'narrow',
     });

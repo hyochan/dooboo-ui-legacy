@@ -232,6 +232,7 @@ const getMarkPositions = ({
 
 const getMarkValue = (step: number, markIndex: number): number =>
   step * markIndex;
+
 const getMarkValues = (step: number, markPositions: number[]): number[] =>
   markPositions.map((_, index) => getMarkValue(step, index));
 
@@ -327,6 +328,7 @@ const Marks: FC<Props> = ({
   const markStyleToApply = StyleSheet.flatten(style);
 
   const railWidth = sliderWidth;
+
   const markWidth = isNil(mark)
     ? getMarkWidth(markStyleToApply)
     : (customMarkWidth as number);

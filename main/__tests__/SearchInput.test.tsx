@@ -47,6 +47,7 @@ describe('[SearchInput] event test', () => {
     act(() => {
       fireEvent.focus(input);
     });
+
     expect(container.props.style[2].borderColor).toEqual('#109CF1');
   });
 
@@ -57,6 +58,7 @@ describe('[SearchInput] event test', () => {
     act(() => {
       fireEvent.blur(input);
     });
+
     expect(container.props.style[0].borderColor).toEqual('#E0E0E0');
   });
 

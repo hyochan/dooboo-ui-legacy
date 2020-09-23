@@ -13,6 +13,7 @@ const CustomContainer = styled.View`
   padding-left: 20px;
   padding-right: 20px;
 `;
+
 const CustomHeaderContainer = styled.View`
   height: 40px;
   width: 100%;
@@ -236,6 +237,7 @@ export const toStorybook2 = (): ReactElement => <BarChartComponent />;
 toStorybook1.story = {
   name: 'LineChart',
 };
+
 toStorybook2.story = {
   name: 'BarChart',
 };

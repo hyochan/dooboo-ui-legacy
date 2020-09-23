@@ -11,6 +11,7 @@ export interface SelectItemProps {
   textStyle?: TextStyle;
   children?: string;
 }
+
 const ItemWrapper = styled.TouchableOpacity.attrs({ activeOpacity: 0.9 })`
   width: 100%;
   padding: 14px 12px;

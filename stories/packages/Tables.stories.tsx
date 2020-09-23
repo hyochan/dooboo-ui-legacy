@@ -132,6 +132,7 @@ const items = [
     iron: 6,
   },
 ];
+
 const TableDefault = (): ReactElement => {
   const checkAble = boolean('isCheckAble', false);
 
@@ -145,6 +146,7 @@ function CheckAble(): ReactElement {
 }
 function CustomGroup(): ReactElement {
   const arrayData = object('data', items);
+
   const customGroupData = array('customGroup', [
     'ID',
     'NAME',
@@ -178,9 +180,11 @@ toStorybook1.story = {
 toStorybook2.story = {
   name: 'CheckAble Type',
 };
+
 toStorybook3.story = {
   name: 'CustomGroup Type',
 };
+
 storiesOf('Tables', module)
   .addDecorator(ContainerDeco)
   .add('default', () => (

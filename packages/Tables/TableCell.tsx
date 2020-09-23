@@ -15,6 +15,7 @@ const Container = styled.View<{ isShort: boolean }>`
   flex-direction: row;
   align-items: center;
 `;
+
 const StyledText = styled.Text`
   width: 100%;
   height: 24px;

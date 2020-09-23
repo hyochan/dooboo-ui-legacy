@@ -114,9 +114,11 @@ export const toStorybook3 = (): ReactElement => <DatePickerYearMonth />;
 toStorybook1.story = {
   name: 'default',
 };
+
 toStorybook2.story = {
   name: 'weekday format',
 };
+
 toStorybook3.story = {
   name: 'custom year/month',
 };

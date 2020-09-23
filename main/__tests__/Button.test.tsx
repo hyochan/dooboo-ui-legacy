@@ -42,6 +42,7 @@ describe('[Button]', () => {
     rendered = renderer.create(
       component({ leftElement: <Text />, rightElement: <Text /> }),
     );
+
     root = rendered.root;
 
     const texts = root.findAllByType(Text);
@@ -58,6 +59,7 @@ describe('[Button]', () => {
           onClick: () => cnt++,
         }),
       );
+
       root = rendered.root;
 
       root.findByType(Button).props.onClick();

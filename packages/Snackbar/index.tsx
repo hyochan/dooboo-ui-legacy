@@ -7,6 +7,7 @@ interface SnackbarContext {
 }
 
 const SnackbarContext = createContext<SnackbarContext | undefined>(undefined);
+
 const useCtx = (): SnackbarContext | undefined => {
   const c = useContext<SnackbarContext | undefined>(SnackbarContext);
 
@@ -25,6 +26,7 @@ export interface SnackbarProviderProps {
 function SnackbarProvider(props: SnackbarProviderProps): React.ReactElement {
   const { children, defaultContent = {} } = props;
   const snackbar = useRef<SnackbarRef>() as React.MutableRefObject<SnackbarRef>;
+
   const show = (content: Content): void => {
     snackbar.current && snackbar.current.show({ ...defaultContent, ...content });
   };

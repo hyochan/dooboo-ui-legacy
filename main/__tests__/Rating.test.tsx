@@ -26,6 +26,7 @@ describe('[Rating] render', () => {
   describe('[Rating] Interaction', (): void => {
     it('should simulate onPress', (): void => {
       const handlePress = jest.fn();
+
       const rendered = renderer.create(
         component({
           ...defaultProps,
@@ -41,12 +42,14 @@ describe('[Rating] render', () => {
           },
         },
       );
+
       const stars = rendered.root.findAllByType(TouchableOpacity);
       const ratingClick = stars[stars.length - 1];
 
       renderer.act(() => {
         ratingClick.props.onPress();
       });
+
       expect(handlePress).toHaveBeenCalled();
     });
 

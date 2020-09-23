@@ -23,6 +23,7 @@ describe('[Select] render test', () => {
     props = createTestProps({
       onSelect: jest.fn(),
     });
+
     component = <Select {...props} placeholder={placeholderText} />;
     testingLib = render(component);
 
@@ -38,6 +39,7 @@ describe('[SelectItem] render test', () => {
     props = createTestProps({
       onSelect: jest.fn(),
     });
+
     component = <Select {...props} placeholder={itemValue} />;
     testingLib = render(component);
 

@@ -90,6 +90,7 @@ describe('[LineChart] renders', () => {
       yAxisKey: 'key2',
       yUnit: '2',
     });
+
     component = <LineChart {...props} />;
     testingLib = render(component);
     expect(testingLib.baseElement).toBeTruthy();
@@ -104,6 +105,7 @@ describe('[LineChart] renders', () => {
       yAxisKey: 'key4',
       yUnit: '100',
     });
+
     component = <LineChart {...props} />;
 
     testingLib = render(component);
@@ -120,6 +122,7 @@ describe('[BarChart] renders', () => {
       yAxisKey: 'key4',
       yUnit: '10',
     });
+
     component = <BarChart {...props} />;
     testingLib = render(component);
     expect(testingLib.baseElement).toBeTruthy();
@@ -134,6 +137,7 @@ describe('[BarChart] renders', () => {
       yAxisKey: 'key6',
       yUnit: '1000',
     });
+
     component = <BarChart {...props} />;
 
     testingLib = render(component);
