@@ -46,8 +46,8 @@ function StarComponent(props: StarProps): React.ReactElement {
   };
 
   const image = props.on
-    ? require('../../assets/star_s.png')
-    : require('../../assets/star_d.png');
+    ? require('../__assets__/star_s.png')
+    : require('../__assets__/star_d.png');
 
   return (
     <StarWrapper onPress={handlePress} activeOpacity={props.disabled ? 1 : 0.7}>

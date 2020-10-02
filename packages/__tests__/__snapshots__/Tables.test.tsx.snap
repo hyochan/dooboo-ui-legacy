@@ -408,7 +408,7 @@ exports[`[Tables] render test should render checkbox when isCheckAble is true 1`
                       <Image
                         source={
                           Object {
-                            "testUri": "../../../assets/mark.png",
+                            "testUri": "../../../packages/__assets__/mark.png",
                           }
                         }
                         style={
@@ -701,7 +701,7 @@ exports[`[Tables] render test should render checkbox when isCheckAble is true 1`
                       <Image
                         source={
                           Object {
-                            "testUri": "../../../assets/mark.png",
+                            "testUri": "../../../packages/__assets__/mark.png",
                           }
                         }
                         style={
@@ -994,7 +994,7 @@ exports[`[Tables] render test should render checkbox when isCheckAble is true 1`
                       <Image
                         source={
                           Object {
-                            "testUri": "../../../assets/mark.png",
+                            "testUri": "../../../packages/__assets__/mark.png",
                           }
                         }
                         style={
@@ -1287,7 +1287,7 @@ exports[`[Tables] render test should render checkbox when isCheckAble is true 1`
                       <Image
                         source={
                           Object {
-                            "testUri": "../../../assets/mark.png",
+                            "testUri": "../../../packages/__assets__/mark.png",
                           }
                         }
                         style={
@@ -1580,7 +1580,7 @@ exports[`[Tables] render test should render checkbox when isCheckAble is true 1`
                       <Image
                         source={
                           Object {
-                            "testUri": "../../../assets/mark.png",
+                            "testUri": "../../../packages/__assets__/mark.png",
                           }
                         }
                         style={
@@ -1873,7 +1873,7 @@ exports[`[Tables] render test should render checkbox when isCheckAble is true 1`
                       <Image
                         source={
                           Object {
-                            "testUri": "../../../assets/mark.png",
+                            "testUri": "../../../packages/__assets__/mark.png",
                           }
                         }
                         style={
@@ -2166,7 +2166,7 @@ exports[`[Tables] render test should render checkbox when isCheckAble is true 1`
                       <Image
                         source={
                           Object {
-                            "testUri": "../../../assets/mark.png",
+                            "testUri": "../../../packages/__assets__/mark.png",
                           }
                         }
                         style={
@@ -2459,7 +2459,7 @@ exports[`[Tables] render test should render checkbox when isCheckAble is true 1`
                       <Image
                         source={
                           Object {
-                            "testUri": "../../../assets/mark.png",
+                            "testUri": "../../../packages/__assets__/mark.png",
                           }
                         }
                         style={
@@ -2752,7 +2752,7 @@ exports[`[Tables] render test should render checkbox when isCheckAble is true 1`
                       <Image
                         source={
                           Object {
-                            "testUri": "../../../assets/mark.png",
+                            "testUri": "../../../packages/__assets__/mark.png",
                           }
                         }
                         style={
@@ -3045,7 +3045,7 @@ exports[`[Tables] render test should render checkbox when isCheckAble is true 1`
                       <Image
                         source={
                           Object {
-                            "testUri": "../../../assets/mark.png",
+                            "testUri": "../../../packages/__assets__/mark.png",
                           }
                         }
                         style={
