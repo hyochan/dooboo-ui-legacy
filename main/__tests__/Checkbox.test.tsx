@@ -1,7 +1,7 @@
 import { Checkbox, CheckboxGroup } from '../Checkbox';
 import React, { ReactElement } from 'react';
 import {
-  RenderResult,
+  RenderAPI,
   render,
 } from '@testing-library/react-native';
 
@@ -100,7 +100,7 @@ const defaultCheckedList = ['Apple', 'Orange'];
 
 let groupProps: unknown;
 let groupComponent: ReactElement;
-let testingLib: RenderResult;
+let testingLib: RenderAPI;
 
 const createTestGroupProps = (
   obj: Record<string, unknown>,
@@ -118,8 +118,9 @@ describe('[CheckboxGroup] render test', () => {
     groupComponent = <CheckboxGroup {...groupProps} />;
     testingLib = render(groupComponent);
 
-    expect(testingLib.baseElement).toMatchSnapshot();
-    expect(testingLib.baseElement).toBeTruthy();
+    const json = testingLib.toJSON();
+
+    expect(json).toMatchSnapshot();
   });
 
   it('should render disabled when CheckboxGroup props is true', () => {
@@ -132,8 +133,9 @@ describe('[CheckboxGroup] render test', () => {
     groupComponent = <CheckboxGroup {...groupProps} />;
     testingLib = render(groupComponent);
 
-    expect(testingLib.baseElement).toMatchSnapshot();
-    expect(testingLib.baseElement).toBeTruthy();
+    const json = testingLib.toJSON();
+
+    expect(json).toMatchSnapshot();
   });
 
   it('should render options when CheckboxGroup props is string of Array', () => {
@@ -146,8 +148,9 @@ describe('[CheckboxGroup] render test', () => {
     groupComponent = <CheckboxGroup {...groupProps} />;
     testingLib = render(groupComponent);
 
-    expect(testingLib.baseElement).toMatchSnapshot();
-    expect(testingLib.baseElement).toBeTruthy();
+    const json = testingLib.toJSON();
+
+    expect(json).toMatchSnapshot();
   });
 
   it('should render checkall when values is not undefined', () => {
@@ -160,8 +163,9 @@ describe('[CheckboxGroup] render test', () => {
     groupComponent = <CheckboxGroup {...groupProps} />;
     testingLib = render(groupComponent);
 
-    expect(testingLib.baseElement).toMatchSnapshot();
-    expect(testingLib.baseElement).toBeTruthy();
+    const json = testingLib.toJSON();
+
+    expect(json).toMatchSnapshot();
   });
 
   it('should render disabled in Options', () => {
@@ -179,8 +183,9 @@ describe('[CheckboxGroup] render test', () => {
     groupComponent = <CheckboxGroup {...groupProps} />;
     testingLib = render(groupComponent);
 
-    expect(testingLib.baseElement).toMatchSnapshot();
-    expect(testingLib.baseElement).toBeTruthy();
+    const json = testingLib.toJSON();
+
+    expect(json).toMatchSnapshot();
   });
 
   it('should render customStyle in Options', () => {
@@ -198,8 +203,9 @@ describe('[CheckboxGroup] render test', () => {
     groupComponent = <CheckboxGroup {...groupProps} />;
     testingLib = render(groupComponent);
 
-    expect(testingLib.baseElement).toMatchSnapshot();
-    expect(testingLib.baseElement).toBeTruthy();
+    const json = testingLib.toJSON();
+
+    expect(json).toMatchSnapshot();
   });
 
   it('should reRender without creashing when value props change', () => {

@@ -1,17 +1,26 @@
 import { Animated, PanResponder, PanResponderInstance, TransformsStyle, ViewStyle } from 'react-native';
 import React, {
-  PropsWithChildren, ReactElement, Ref, forwardRef,
-  useCallback, useEffect, useImperativeHandle, useRef, useState,
+  PropsWithChildren,
+  ReactElement,
+  Ref,
+  forwardRef,
+  useCallback,
+  useEffect,
+  useImperativeHandle,
+  useRef,
+  useState,
 } from 'react';
 import {
-  TouchPosition, Vector, VectorType,
+  TouchPosition,
+  Vector,
+  VectorType,
   getClamppedVector,
   getOriginScaleTargetPosition,
   getTranslate,
 } from './utils';
 
 type Props = PropsWithChildren <{
-  style?: ViewStyle | { transform: Animated.WithAnimatedValue<TransformsStyle> },
+  style?: ViewStyle,
   blockNativeResponder?: boolean,
   onScaleChanged?(value: number): void,
   onTranslateChanged?(valueXY: VectorType): void,
@@ -180,7 +189,7 @@ function PinchZoom(props: Props, ref: Ref<PinchZoomRef>): ReactElement {
     style={[
       style,
       {
-        transform: style?.transform || [
+        transform: style?.transform && [
           {
             translateX: translate.x,
           },

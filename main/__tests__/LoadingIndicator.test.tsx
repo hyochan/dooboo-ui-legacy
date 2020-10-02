@@ -22,7 +22,7 @@ describe('[LoadingIndicator] render', () => {
   });
 
   it('should render without crashing', () => {
-    const rendered: renderer.ReactTestRendererJSON = renderer
+    const rendered = renderer
       .create(component)
       .toJSON();
 
@@ -38,7 +38,7 @@ describe('[LoadingIndicator] render', () => {
 
     component = <LoadingIndicator {...props} />;
 
-    const rendered: renderer.ReactTestRendererJSON = renderer
+    const rendered = renderer
       .create(component)
       .toJSON();
 
@@ -53,7 +53,7 @@ describe('[LoadingIndicator] render', () => {
 
     component = <LoadingIndicator {...props} />;
 
-    const rendered: renderer.ReactTestRendererJSON = renderer
+    const rendered = renderer
       .create(component)
       .toJSON();
 
@@ -69,7 +69,7 @@ describe('[LoadingIndicator] render', () => {
 
     component = <LoadingIndicator {...props} />;
 
-    const rendered: renderer.ReactTestRendererJSON = renderer
+    const rendered = renderer
       .create(component)
       .toJSON();
 
@@ -85,7 +85,7 @@ describe('[LoadingIndicator] render', () => {
 
     component = <LoadingIndicator {...props} />;
 
-    const rendered: renderer.ReactTestRendererJSON = renderer
+    const rendered = renderer
       .create(component)
       .toJSON();
 
@@ -101,7 +101,7 @@ describe('[LoadingIndicator] render', () => {
 
     component = <LoadingIndicator {...props} />;
 
-    const rendered: renderer.ReactTestRendererJSON = renderer
+    const rendered = renderer
       .create(component)
       .toJSON();
 
@@ -117,7 +117,7 @@ describe('[LoadingIndicator] render', () => {
 
     component = <LoadingIndicator {...props} />;
 
-    const rendered: renderer.ReactTestRendererJSON = renderer
+    const rendered = renderer
       .create(component)
       .toJSON();
 
@@ -133,7 +133,7 @@ describe('[LoadingIndicator] render', () => {
 
     component = <LoadingIndicator {...props} />;
 
-    const rendered: renderer.ReactTestRendererJSON = renderer
+    const rendered = renderer
       .create(component)
       .toJSON();
 
@@ -148,7 +148,7 @@ describe('[LoadingIndicator] render', () => {
 
     component = <LoadingIndicator {...props} />;
 
-    const rendered: renderer.ReactTestRendererJSON = renderer
+    const rendered = renderer
       .create(component)
       .toJSON();
 
@@ -164,7 +164,7 @@ describe('[LoadingIndicator] render', () => {
 
     component = <LoadingIndicator {...props} />;
 
-    const rendered: renderer.ReactTestRendererJSON = renderer
+    const rendered = renderer
       .create(component)
       .toJSON();
 
@@ -180,7 +180,7 @@ describe('[LoadingIndicator] render', () => {
 
     component = <LoadingIndicator {...props} />;
 
-    const rendered: renderer.ReactTestRendererJSON = renderer
+    const rendered = renderer
       .create(component)
       .toJSON();
 
@@ -196,7 +196,7 @@ describe('[LoadingIndicator] render', () => {
 
     component = <LoadingIndicator {...props} />;
 
-    const rendered: renderer.ReactTestRendererJSON = renderer
+    const rendered = renderer
       .create(component)
       .toJSON();
 
@@ -212,7 +212,7 @@ describe('[LoadingIndicator] render', () => {
 
     component = <LoadingIndicator {...props} />;
 
-    const rendered: renderer.ReactTestRendererJSON = renderer
+    const rendered = renderer
       .create(component)
       .toJSON();
 
@@ -228,7 +228,7 @@ describe('[LoadingIndicator] render', () => {
 
     component = <LoadingIndicator {...props} />;
 
-    const rendered: renderer.ReactTestRendererJSON = renderer
+    const rendered = renderer
       .create(component)
       .toJSON();
 

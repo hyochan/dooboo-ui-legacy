@@ -1,10 +1,10 @@
 import { Badge, BadgeProps } from '../Badge';
 import React, { ReactElement } from 'react';
-import { RenderResult, render } from '@testing-library/react-native';
+import { RenderAPI, render } from '@testing-library/react-native';
 
 let props: BadgeProps;
 let component: ReactElement;
-let testingLib: RenderResult;
+let testingLib: RenderAPI;
 
 const createTestProps = (
   obj?: Record<string, unknown>,
@@ -16,10 +16,12 @@ describe('[Badge] render', () => {
   it('should render without crashing', () => {
     props = createTestProps();
     component = <Badge {...props} />;
+
     testingLib = render(component);
 
-    expect(testingLib.baseElement).toMatchSnapshot();
-    expect(testingLib.baseElement).toBeTruthy();
+    const json = testingLib.toJSON();
+
+    expect(json).toMatchSnapshot();
   });
 
   it('should render with + when count is over than max count', () => {
@@ -31,8 +33,9 @@ describe('[Badge] render', () => {
     component = <Badge {...props} />;
     testingLib = render(component);
 
-    expect(testingLib.baseElement).toMatchSnapshot();
-    expect(testingLib.baseElement).toBeTruthy();
+    const json = testingLib.toJSON();
+
+    expect(json).toMatchSnapshot();
   });
 
   it('should not render opacity when count is over than max count', () => {
@@ -45,8 +48,9 @@ describe('[Badge] render', () => {
     component = <Badge {...props} />;
     testingLib = render(component);
 
-    expect(testingLib.baseElement).toMatchSnapshot();
-    expect(testingLib.baseElement).toBeTruthy();
+    const json = testingLib.toJSON();
+
+    expect(json).toMatchSnapshot();
   });
 
   it('should render dot badge', () => {
@@ -57,8 +61,9 @@ describe('[Badge] render', () => {
     component = <Badge {...props} />;
     testingLib = render(component);
 
-    expect(testingLib.baseElement).toMatchSnapshot();
-    expect(testingLib.baseElement).toBeTruthy();
+    const json = testingLib.toJSON();
+
+    expect(json).toMatchSnapshot();
   });
 
   it('should render left badge', () => {
@@ -69,8 +74,9 @@ describe('[Badge] render', () => {
     component = <Badge {...props} />;
     testingLib = render(component);
 
-    expect(testingLib.baseElement).toMatchSnapshot();
-    expect(testingLib.baseElement).toBeTruthy();
+    const json = testingLib.toJSON();
+
+    expect(json).toMatchSnapshot();
   });
 
   it('should render badge when wrong variant', () => {
@@ -81,7 +87,8 @@ describe('[Badge] render', () => {
     component = <Badge {...props} />;
     testingLib = render(component);
 
-    expect(testingLib.baseElement).toMatchSnapshot();
-    expect(testingLib.baseElement).toBeTruthy();
+    const json = testingLib.toJSON();
+
+    expect(json).toMatchSnapshot();
   });
 });

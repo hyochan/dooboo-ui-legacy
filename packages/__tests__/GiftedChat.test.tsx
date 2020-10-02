@@ -2,7 +2,7 @@ import 'react-native';
 
 import * as React from 'react';
 
-import { RenderResult, fireEvent, render } from '@testing-library/react-native';
+import { RenderAPI, fireEvent, render } from '@testing-library/react-native';
 
 import GiftedChatInput from '../GiftedChat';
 // Note: test renderer must be required after react-native.
@@ -70,7 +70,7 @@ describe('[GiftedChatInput] render', () => {
   });
 
   it('renders without crashing', () => {
-    const rendered: renderer.ReactTestRendererJSON | null = renderer
+    const rendered = renderer
       .create(component)
       .toJSON();
 
@@ -79,7 +79,7 @@ describe('[GiftedChatInput] render', () => {
   });
 
   describe('interactions', () => {
-    let testingLib: RenderResult;
+    let testingLib: RenderAPI;
 
     beforeEach(() => {
       testingLib = render(component);

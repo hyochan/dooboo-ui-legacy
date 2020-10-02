@@ -22,7 +22,7 @@ exports[`[GiftedChatInput] render renders without crashing 1`] = `
     ]
   }
 >
-  <ScrollView
+  <RCTScrollView
     ListEmptyComponent={<View />}
     contentContainerStyle={null}
     data={
@@ -89,25 +89,27 @@ exports[`[GiftedChatInput] render renders without crashing 1`] = `
     viewabilityConfigCallbackPairs={Array []}
     windowSize={21}
   >
-    <View
-      onLayout={[Function]}
-      style={null}
-    >
-      <View />
+    <View>
+      <View
+        onLayout={[Function]}
+        style={null}
+      >
+        <View />
+      </View>
+      <View
+        onLayout={[Function]}
+        style={null}
+      >
+        <View />
+      </View>
+      <View
+        onLayout={[Function]}
+        style={null}
+      >
+        <View />
+      </View>
     </View>
-    <View
-      onLayout={[Function]}
-      style={null}
-    >
-      <View />
-    </View>
-    <View
-      onLayout={[Function]}
-      style={null}
-    >
-      <View />
-    </View>
-  </ScrollView>
+  </RCTScrollView>
   <View
     style={
       Array [
@@ -159,23 +161,30 @@ exports[`[GiftedChatInput] render renders without crashing 1`] = `
       underlineColorAndroid="transparent"
       value=""
     />
-    <
-      onPress={[Function]}
+    <View
+      accessible={true}
+      focusable={true}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
       style={
-        Array [
-          Object {
-            "height": "100%",
-            "justifyContent": "center",
-            "left": 10,
-            "minWidth": 20,
-            "position": "absolute",
-          },
-        ]
+        Object {
+          "height": "100%",
+          "justifyContent": "center",
+          "left": 10,
+          "minWidth": 20,
+          "opacity": 1,
+          "position": "absolute",
+        }
       }
       testID="touch_menu"
     >
       <View />
-    </>
+    </View>
     <View
       style={
         Object {

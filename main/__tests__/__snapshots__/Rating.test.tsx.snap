@@ -15,16 +15,22 @@ exports[`[Rating] render [Rating] Interaction should simulate props 1`] = `
     ]
   }
 >
-  <
-    activeOpacity={1}
-    onPress={[Function]}
+  <View
+    accessible={true}
+    focusable={true}
+    onClick={[Function]}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
     style={
-      Array [
-        Object {
-          "height": "100%",
-          "width": 30,
-        },
-      ]
+      Object {
+        "height": "100%",
+        "opacity": 1,
+        "width": 30,
+      }
     }
   >
     <Image
@@ -43,7 +49,7 @@ exports[`[Rating] render [Rating] Interaction should simulate props 1`] = `
         ]
       }
     />
-  </>
+  </View>
 </View>
 `;
 
@@ -63,16 +69,22 @@ exports[`[Rating] render [Rating] Interaction should simulate props 2`] = `
     ]
   }
 >
-  <
-    activeOpacity={1}
-    onPress={[Function]}
+  <View
+    accessible={true}
+    focusable={true}
+    onClick={[Function]}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
     style={
-      Array [
-        Object {
-          "height": "100%",
-          "width": 30,
-        },
-      ]
+      Object {
+        "height": "100%",
+        "opacity": 1,
+        "width": 30,
+      }
     }
   >
     <Image
@@ -91,7 +103,7 @@ exports[`[Rating] render [Rating] Interaction should simulate props 2`] = `
         ]
       }
     />
-  </>
+  </View>
 </View>
 `;
 
@@ -111,16 +123,22 @@ exports[`[Rating] render renders without crashing 1`] = `
   }
   total={5}
 >
-  <
-    activeOpacity={1}
-    onPress={[Function]}
+  <View
+    accessible={true}
+    focusable={true}
+    onClick={[Function]}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
     style={
-      Array [
-        Object {
-          "height": "100%",
-          "width": 30,
-        },
-      ]
+      Object {
+        "height": "100%",
+        "opacity": 1,
+        "width": 30,
+      }
     }
   >
     <Image
@@ -139,17 +157,23 @@ exports[`[Rating] render renders without crashing 1`] = `
         ]
       }
     />
-  </>
-  <
-    activeOpacity={1}
-    onPress={[Function]}
+  </View>
+  <View
+    accessible={true}
+    focusable={true}
+    onClick={[Function]}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
     style={
-      Array [
-        Object {
-          "height": "100%",
-          "width": 30,
-        },
-      ]
+      Object {
+        "height": "100%",
+        "opacity": 1,
+        "width": 30,
+      }
     }
   >
     <Image
@@ -168,17 +192,23 @@ exports[`[Rating] render renders without crashing 1`] = `
         ]
       }
     />
-  </>
-  <
-    activeOpacity={1}
-    onPress={[Function]}
+  </View>
+  <View
+    accessible={true}
+    focusable={true}
+    onClick={[Function]}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
     style={
-      Array [
-        Object {
-          "height": "100%",
-          "width": 30,
-        },
-      ]
+      Object {
+        "height": "100%",
+        "opacity": 1,
+        "width": 30,
+      }
     }
   >
     <Image
@@ -197,17 +227,23 @@ exports[`[Rating] render renders without crashing 1`] = `
         ]
       }
     />
-  </>
-  <
-    activeOpacity={1}
-    onPress={[Function]}
+  </View>
+  <View
+    accessible={true}
+    focusable={true}
+    onClick={[Function]}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
     style={
-      Array [
-        Object {
-          "height": "100%",
-          "width": 30,
-        },
-      ]
+      Object {
+        "height": "100%",
+        "opacity": 1,
+        "width": 30,
+      }
     }
   >
     <Image
@@ -226,17 +262,23 @@ exports[`[Rating] render renders without crashing 1`] = `
         ]
       }
     />
-  </>
-  <
-    activeOpacity={1}
-    onPress={[Function]}
+  </View>
+  <View
+    accessible={true}
+    focusable={true}
+    onClick={[Function]}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
     style={
-      Array [
-        Object {
-          "height": "100%",
-          "width": 30,
-        },
-      ]
+      Object {
+        "height": "100%",
+        "opacity": 1,
+        "width": 30,
+      }
     }
   >
     <Image
@@ -255,6 +297,6 @@ exports[`[Rating] render renders without crashing 1`] = `
         ]
       }
     />
-  </>
+  </View>
 </View>
 `;

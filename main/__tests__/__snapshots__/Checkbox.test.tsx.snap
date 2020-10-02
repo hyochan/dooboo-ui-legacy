@@ -1,15 +1,21 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`[Checkbox] [Checkbox] Interaction should simulate props 1`] = `
-<
-  disabled={true}
-  onPress={[Function]}
+<View
+  accessible={true}
+  focusable={true}
+  onClick={[Function]}
+  onResponderGrant={[Function]}
+  onResponderMove={[Function]}
+  onResponderRelease={[Function]}
+  onResponderTerminate={[Function]}
+  onResponderTerminationRequest={[Function]}
+  onStartShouldSetResponder={[Function]}
   style={
     Object {
       "margin": 10,
     }
   }
-  underlayColor="transparent"
 >
   <View
     style={
@@ -68,19 +74,25 @@ exports[`[Checkbox] [Checkbox] Interaction should simulate props 1`] = `
       }
     />
   </View>
-</>
+</View>
 `;
 
 exports[`[Checkbox] [Checkbox] Interaction should simulate props 2`] = `
-<
-  disabled={false}
-  onPress={[Function]}
+<View
+  accessible={true}
+  focusable={true}
+  onClick={[Function]}
+  onResponderGrant={[Function]}
+  onResponderMove={[Function]}
+  onResponderRelease={[Function]}
+  onResponderTerminate={[Function]}
+  onResponderTerminationRequest={[Function]}
+  onStartShouldSetResponder={[Function]}
   style={
     Object {
       "margin": 10,
     }
   }
-  underlayColor="transparent"
 >
   <View
     style={
@@ -137,19 +149,25 @@ exports[`[Checkbox] [Checkbox] Interaction should simulate props 2`] = `
       }
     />
   </View>
-</>
+</View>
 `;
 
 exports[`[Checkbox] [Checkbox] Interaction should simulate props 3`] = `
-<
-  disabled={false}
-  onPress={[Function]}
+<View
+  accessible={true}
+  focusable={true}
+  onClick={[Function]}
+  onResponderGrant={[Function]}
+  onResponderMove={[Function]}
+  onResponderRelease={[Function]}
+  onResponderTerminate={[Function]}
+  onResponderTerminationRequest={[Function]}
+  onStartShouldSetResponder={[Function]}
   style={
     Object {
       "margin": 10,
     }
   }
-  underlayColor="transparent"
 >
   <View
     style={
@@ -225,19 +243,25 @@ exports[`[Checkbox] [Checkbox] Interaction should simulate props 3`] = `
       }
     />
   </View>
-</>
+</View>
 `;
 
 exports[`[Checkbox] [Checkbox] Interaction should simulate props 4`] = `
-<
-  disabled={false}
-  onPress={[Function]}
+<View
+  accessible={true}
+  focusable={true}
+  onClick={[Function]}
+  onResponderGrant={[Function]}
+  onResponderMove={[Function]}
+  onResponderRelease={[Function]}
+  onResponderTerminate={[Function]}
+  onResponderTerminationRequest={[Function]}
+  onStartShouldSetResponder={[Function]}
   style={
     Object {
       "margin": 10,
     }
   }
-  underlayColor="transparent"
 >
   <View
     style={
@@ -306,19 +330,25 @@ exports[`[Checkbox] [Checkbox] Interaction should simulate props 4`] = `
       }
     />
   </View>
-</>
+</View>
 `;
 
 exports[`[Checkbox] render without crashing 1`] = `
-<
-  disabled={false}
-  onPress={[Function]}
+<View
+  accessible={true}
+  focusable={true}
+  onClick={[Function]}
+  onResponderGrant={[Function]}
+  onResponderMove={[Function]}
+  onResponderRelease={[Function]}
+  onResponderTerminate={[Function]}
+  onResponderTerminationRequest={[Function]}
+  onStartShouldSetResponder={[Function]}
   style={
     Object {
       "margin": 10,
     }
   }
-  underlayColor="transparent"
 >
   <View
     style={
@@ -375,7 +405,7 @@ exports[`[Checkbox] render without crashing 1`] = `
       }
     />
   </View>
-</>
+</View>
 `;
 
 exports[`[CheckboxGroup] render test should be toggleOption triggered by checkbox 1`] = `
@@ -390,15 +420,21 @@ exports[`[CheckboxGroup] render test should be toggleOption triggered by checkbo
     ]
   }
 >
-  <
-    disabled={false}
-    onPress={[Function]}
+  <View
+    accessible={true}
+    focusable={true}
+    onClick={[Function]}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
     style={
       Object {
         "margin": 10,
       }
     }
-    underlayColor="transparent"
   >
     <View
       style={
@@ -457,16 +493,22 @@ exports[`[CheckboxGroup] render test should be toggleOption triggered by checkbo
         Apple
       </Text>
     </View>
-  </>
-  <
-    disabled={false}
-    onPress={[Function]}
+  </View>
+  <View
+    accessible={true}
+    focusable={true}
+    onClick={[Function]}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
     style={
       Object {
         "margin": 10,
       }
     }
-    underlayColor="transparent"
   >
     <View
       style={
@@ -525,16 +567,22 @@ exports[`[CheckboxGroup] render test should be toggleOption triggered by checkbo
         Pear
       </Text>
     </View>
-  </>
-  <
-    disabled={false}
-    onPress={[Function]}
+  </View>
+  <View
+    accessible={true}
+    focusable={true}
+    onClick={[Function]}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
     style={
       Object {
         "margin": 10,
       }
     }
-    underlayColor="transparent"
   >
     <View
       style={
@@ -611,16 +659,22 @@ exports[`[CheckboxGroup] render test should be toggleOption triggered by checkbo
         Orange
       </Text>
     </View>
-  </>
-  <
-    disabled={false}
-    onPress={[Function]}
+  </View>
+  <View
+    accessible={true}
+    focusable={true}
+    onClick={[Function]}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
     style={
       Object {
         "margin": 10,
       }
     }
-    underlayColor="transparent"
   >
     <View
       style={
@@ -679,7 +733,7 @@ exports[`[CheckboxGroup] render test should be toggleOption triggered by checkbo
         Mango
       </Text>
     </View>
-  </>
+  </View>
 </View>
 `;
 
@@ -695,15 +749,21 @@ exports[`[CheckboxGroup] render test should be toggleOption triggered by checkbo
     ]
   }
 >
-  <
-    disabled={false}
-    onPress={[Function]}
+  <View
+    accessible={true}
+    focusable={true}
+    onClick={[Function]}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
     style={
       Object {
         "margin": 10,
       }
     }
-    underlayColor="transparent"
   >
     <View
       style={
@@ -762,16 +822,22 @@ exports[`[CheckboxGroup] render test should be toggleOption triggered by checkbo
         Apple
       </Text>
     </View>
-  </>
-  <
-    disabled={false}
-    onPress={[Function]}
+  </View>
+  <View
+    accessible={true}
+    focusable={true}
+    onClick={[Function]}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
     style={
       Object {
         "margin": 10,
       }
     }
-    underlayColor="transparent"
   >
     <View
       style={
@@ -830,16 +896,22 @@ exports[`[CheckboxGroup] render test should be toggleOption triggered by checkbo
         Pear
       </Text>
     </View>
-  </>
-  <
-    disabled={false}
-    onPress={[Function]}
+  </View>
+  <View
+    accessible={true}
+    focusable={true}
+    onClick={[Function]}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
     style={
       Object {
         "margin": 10,
       }
     }
-    underlayColor="transparent"
   >
     <View
       style={
@@ -898,16 +970,22 @@ exports[`[CheckboxGroup] render test should be toggleOption triggered by checkbo
         Orange
       </Text>
     </View>
-  </>
-  <
-    disabled={false}
-    onPress={[Function]}
+  </View>
+  <View
+    accessible={true}
+    focusable={true}
+    onClick={[Function]}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
     style={
       Object {
         "margin": 10,
       }
     }
-    underlayColor="transparent"
   >
     <View
       style={
@@ -966,7 +1044,7 @@ exports[`[CheckboxGroup] render test should be toggleOption triggered by checkbo
         Mango
       </Text>
     </View>
-  </>
+  </View>
 </View>
 `;
 
@@ -982,15 +1060,21 @@ exports[`[CheckboxGroup] render test should be toggleOption triggered by checkbo
     ]
   }
 >
-  <
-    disabled={false}
-    onPress={[Function]}
+  <View
+    accessible={true}
+    focusable={true}
+    onClick={[Function]}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
     style={
       Object {
         "margin": 10,
       }
     }
-    underlayColor="transparent"
   >
     <View
       style={
@@ -1067,16 +1151,22 @@ exports[`[CheckboxGroup] render test should be toggleOption triggered by checkbo
         Apple
       </Text>
     </View>
-  </>
-  <
-    disabled={false}
-    onPress={[Function]}
+  </View>
+  <View
+    accessible={true}
+    focusable={true}
+    onClick={[Function]}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
     style={
       Object {
         "margin": 10,
       }
     }
-    underlayColor="transparent"
   >
     <View
       style={
@@ -1135,16 +1225,22 @@ exports[`[CheckboxGroup] render test should be toggleOption triggered by checkbo
         Pear
       </Text>
     </View>
-  </>
-  <
-    disabled={false}
-    onPress={[Function]}
+  </View>
+  <View
+    accessible={true}
+    focusable={true}
+    onClick={[Function]}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
     style={
       Object {
         "margin": 10,
       }
     }
-    underlayColor="transparent"
   >
     <View
       style={
@@ -1203,16 +1299,22 @@ exports[`[CheckboxGroup] render test should be toggleOption triggered by checkbo
         Orange
       </Text>
     </View>
-  </>
-  <
-    disabled={false}
-    onPress={[Function]}
+  </View>
+  <View
+    accessible={true}
+    focusable={true}
+    onClick={[Function]}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
     style={
       Object {
         "margin": 10,
       }
     }
-    underlayColor="transparent"
   >
     <View
       style={
@@ -1271,25 +1373,35 @@ exports[`[CheckboxGroup] render test should be toggleOption triggered by checkbo
         Mango
       </Text>
     </View>
-  </>
+  </View>
 </View>
 `;
 
 exports[`[CheckboxGroup] render test should render checkall when values is not undefined 1`] = `
 <View
-  pointerEvents="box-none"
   style={
-    Object {
-      "flex": 1,
-    }
+    Array [
+      Object {
+        "alignItems": "flex-start",
+        "flexDirection": "column",
+        "flexWrap": "wrap",
+      },
+    ]
   }
 >
   <View
-    collapsable={true}
-    pointerEvents="box-none"
+    accessible={true}
+    focusable={true}
+    onClick={[Function]}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
     style={
       Object {
-        "flex": 1,
+        "margin": 10,
       }
     }
   >
@@ -1297,325 +1409,324 @@ exports[`[CheckboxGroup] render test should render checkall when values is not u
       style={
         Array [
           Object {
-            "alignItems": "flex-start",
-            "flexDirection": "column",
-            "flexWrap": "wrap",
+            "alignItems": "center",
+            "flexDirection": "row",
+            "justifyContent": "flex-start",
           },
         ]
       }
     >
-      <
-        disabled={true}
+      <View
+        boxColor="#E0E0E0"
         style={
-          Object {
-            "margin": 10,
-          }
+          Array [
+            Object {
+              "backgroundColor": "#E0E0E0",
+              "height": 20,
+              "paddingBottom": 1,
+              "paddingLeft": 1,
+              "paddingRight": 1,
+              "paddingTop": 1,
+              "width": 20,
+            },
+          ]
         }
-        underlayColor="transparent"
       >
         <View
+          isChecked={true}
           style={
             Array [
               Object {
                 "alignItems": "center",
-                "flexDirection": "row",
-                "justifyContent": "flex-start",
+                "backgroundColor": "transparent",
+                "flexBasis": 0,
+                "flexGrow": 1,
+                "flexShrink": 1,
+                "justifyContent": "center",
               },
             ]
           }
         >
-          <View
-            boxColor="#E0E0E0"
-            style={
-              Array [
-                Object {
-                  "backgroundColor": "#E0E0E0",
-                  "height": 20,
-                  "paddingBottom": 1,
-                  "paddingLeft": 1,
-                  "paddingRight": 1,
-                  "paddingTop": 1,
-                  "width": 20,
-                },
-              ]
-            }
-          >
-            <View
-              isChecked={true}
-              style={
-                Array [
-                  Object {
-                    "alignItems": "center",
-                    "backgroundColor": "transparent",
-                    "flexBasis": 0,
-                    "flexGrow": 1,
-                    "flexShrink": 1,
-                    "justifyContent": "center",
-                  },
-                ]
+          <Image
+            source={
+              Object {
+                "uri": "https://i.imgur.com/tC6YqOV.png",
               }
-            >
-              <Image
-                source={
-                  Object {
-                    "uri": "https://i.imgur.com/tC6YqOV.png",
-                  }
-                }
-                style={
-                  Array [
-                    Object {
-                      "height": "85%",
-                      "resizeMode": "contain",
-                      "tintColor": "#ffffff",
-                      "width": "85%",
-                    },
-                  ]
-                }
-              />
-            </View>
-          </View>
-          <Text
-            labelColor="#E0E0E0"
+            }
             style={
               Array [
                 Object {
-                  "color": "#E0E0E0",
-                  "fontSize": 20,
-                  "paddingLeft": 10,
-                  "paddingRight": 0,
+                  "height": "85%",
+                  "resizeMode": "contain",
+                  "tintColor": "#ffffff",
+                  "width": "85%",
                 },
               ]
             }
-          >
-            Apple
-          </Text>
+          />
         </View>
-      </>
-      <
-        disabled={true}
+      </View>
+      <Text
+        labelColor="#E0E0E0"
         style={
-          Object {
-            "margin": 10,
-          }
+          Array [
+            Object {
+              "color": "#E0E0E0",
+              "fontSize": 20,
+              "paddingLeft": 10,
+              "paddingRight": 0,
+            },
+          ]
         }
-        underlayColor="transparent"
+      >
+        Apple
+      </Text>
+    </View>
+  </View>
+  <View
+    accessible={true}
+    focusable={true}
+    onClick={[Function]}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      Object {
+        "margin": 10,
+      }
+    }
+  >
+    <View
+      style={
+        Array [
+          Object {
+            "alignItems": "center",
+            "flexDirection": "row",
+            "justifyContent": "flex-start",
+          },
+        ]
+      }
+    >
+      <View
+        boxColor="#E0E0E0"
+        style={
+          Array [
+            Object {
+              "backgroundColor": "#E0E0E0",
+              "height": 20,
+              "paddingBottom": 1,
+              "paddingLeft": 1,
+              "paddingRight": 1,
+              "paddingTop": 1,
+              "width": 20,
+            },
+          ]
+        }
       >
         <View
+          isChecked={false}
           style={
             Array [
               Object {
                 "alignItems": "center",
-                "flexDirection": "row",
-                "justifyContent": "flex-start",
+                "backgroundColor": "#ffffff",
+                "flexBasis": 0,
+                "flexGrow": 1,
+                "flexShrink": 1,
+                "justifyContent": "center",
               },
             ]
           }
-        >
-          <View
-            boxColor="#E0E0E0"
-            style={
-              Array [
-                Object {
-                  "backgroundColor": "#E0E0E0",
-                  "height": 20,
-                  "paddingBottom": 1,
-                  "paddingLeft": 1,
-                  "paddingRight": 1,
-                  "paddingTop": 1,
-                  "width": 20,
-                },
-              ]
-            }
-          >
-            <View
-              isChecked={false}
-              style={
-                Array [
-                  Object {
-                    "alignItems": "center",
-                    "backgroundColor": "#ffffff",
-                    "flexBasis": 0,
-                    "flexGrow": 1,
-                    "flexShrink": 1,
-                    "justifyContent": "center",
-                  },
-                ]
-              }
-            />
-          </View>
-          <Text
-            labelColor="#E0E0E0"
-            style={
-              Array [
-                Object {
-                  "color": "#E0E0E0",
-                  "fontSize": 20,
-                  "paddingLeft": 10,
-                  "paddingRight": 0,
-                },
-              ]
-            }
-          >
-            Pear
-          </Text>
-        </View>
-      </>
-      <
-        disabled={true}
+        />
+      </View>
+      <Text
+        labelColor="#E0E0E0"
         style={
-          Object {
-            "margin": 10,
-          }
+          Array [
+            Object {
+              "color": "#E0E0E0",
+              "fontSize": 20,
+              "paddingLeft": 10,
+              "paddingRight": 0,
+            },
+          ]
         }
-        underlayColor="transparent"
+      >
+        Pear
+      </Text>
+    </View>
+  </View>
+  <View
+    accessible={true}
+    focusable={true}
+    onClick={[Function]}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      Object {
+        "margin": 10,
+      }
+    }
+  >
+    <View
+      style={
+        Array [
+          Object {
+            "alignItems": "center",
+            "flexDirection": "row",
+            "justifyContent": "flex-start",
+          },
+        ]
+      }
+    >
+      <View
+        boxColor="#E0E0E0"
+        style={
+          Array [
+            Object {
+              "backgroundColor": "#E0E0E0",
+              "height": 20,
+              "paddingBottom": 1,
+              "paddingLeft": 1,
+              "paddingRight": 1,
+              "paddingTop": 1,
+              "width": 20,
+            },
+          ]
+        }
       >
         <View
+          isChecked={true}
           style={
             Array [
               Object {
                 "alignItems": "center",
-                "flexDirection": "row",
-                "justifyContent": "flex-start",
+                "backgroundColor": "transparent",
+                "flexBasis": 0,
+                "flexGrow": 1,
+                "flexShrink": 1,
+                "justifyContent": "center",
               },
             ]
           }
         >
-          <View
-            boxColor="#E0E0E0"
-            style={
-              Array [
-                Object {
-                  "backgroundColor": "#E0E0E0",
-                  "height": 20,
-                  "paddingBottom": 1,
-                  "paddingLeft": 1,
-                  "paddingRight": 1,
-                  "paddingTop": 1,
-                  "width": 20,
-                },
-              ]
-            }
-          >
-            <View
-              isChecked={true}
-              style={
-                Array [
-                  Object {
-                    "alignItems": "center",
-                    "backgroundColor": "transparent",
-                    "flexBasis": 0,
-                    "flexGrow": 1,
-                    "flexShrink": 1,
-                    "justifyContent": "center",
-                  },
-                ]
+          <Image
+            source={
+              Object {
+                "uri": "https://i.imgur.com/tC6YqOV.png",
               }
-            >
-              <Image
-                source={
-                  Object {
-                    "uri": "https://i.imgur.com/tC6YqOV.png",
-                  }
-                }
-                style={
-                  Array [
-                    Object {
-                      "height": "85%",
-                      "resizeMode": "contain",
-                      "tintColor": "#ffffff",
-                      "width": "85%",
-                    },
-                  ]
-                }
-              />
-            </View>
-          </View>
-          <Text
-            labelColor="#E0E0E0"
+            }
             style={
               Array [
                 Object {
-                  "color": "#E0E0E0",
-                  "fontSize": 20,
-                  "paddingLeft": 10,
-                  "paddingRight": 0,
+                  "height": "85%",
+                  "resizeMode": "contain",
+                  "tintColor": "#ffffff",
+                  "width": "85%",
                 },
               ]
             }
-          >
-            Orange
-          </Text>
+          />
         </View>
-      </>
-      <
-        disabled={true}
+      </View>
+      <Text
+        labelColor="#E0E0E0"
         style={
-          Object {
-            "margin": 10,
-          }
+          Array [
+            Object {
+              "color": "#E0E0E0",
+              "fontSize": 20,
+              "paddingLeft": 10,
+              "paddingRight": 0,
+            },
+          ]
         }
-        underlayColor="transparent"
+      >
+        Orange
+      </Text>
+    </View>
+  </View>
+  <View
+    accessible={true}
+    focusable={true}
+    onClick={[Function]}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      Object {
+        "margin": 10,
+      }
+    }
+  >
+    <View
+      style={
+        Array [
+          Object {
+            "alignItems": "center",
+            "flexDirection": "row",
+            "justifyContent": "flex-start",
+          },
+        ]
+      }
+    >
+      <View
+        boxColor="#E0E0E0"
+        style={
+          Array [
+            Object {
+              "backgroundColor": "#E0E0E0",
+              "height": 20,
+              "paddingBottom": 1,
+              "paddingLeft": 1,
+              "paddingRight": 1,
+              "paddingTop": 1,
+              "width": 20,
+            },
+          ]
+        }
       >
         <View
+          isChecked={false}
           style={
             Array [
               Object {
                 "alignItems": "center",
-                "flexDirection": "row",
-                "justifyContent": "flex-start",
+                "backgroundColor": "#ffffff",
+                "flexBasis": 0,
+                "flexGrow": 1,
+                "flexShrink": 1,
+                "justifyContent": "center",
               },
             ]
           }
-        >
-          <View
-            boxColor="#E0E0E0"
-            style={
-              Array [
-                Object {
-                  "backgroundColor": "#E0E0E0",
-                  "height": 20,
-                  "paddingBottom": 1,
-                  "paddingLeft": 1,
-                  "paddingRight": 1,
-                  "paddingTop": 1,
-                  "width": 20,
-                },
-              ]
-            }
-          >
-            <View
-              isChecked={false}
-              style={
-                Array [
-                  Object {
-                    "alignItems": "center",
-                    "backgroundColor": "#ffffff",
-                    "flexBasis": 0,
-                    "flexGrow": 1,
-                    "flexShrink": 1,
-                    "justifyContent": "center",
-                  },
-                ]
-              }
-            />
-          </View>
-          <Text
-            labelColor="#E0E0E0"
-            style={
-              Array [
-                Object {
-                  "color": "#E0E0E0",
-                  "fontSize": 20,
-                  "paddingLeft": 10,
-                  "paddingRight": 0,
-                },
-              ]
-            }
-          >
-            Mango
-          </Text>
-        </View>
-      </>
+        />
+      </View>
+      <Text
+        labelColor="#E0E0E0"
+        style={
+          Array [
+            Object {
+              "color": "#E0E0E0",
+              "fontSize": 20,
+              "paddingLeft": 10,
+              "paddingRight": 0,
+            },
+          ]
+        }
+      >
+        Mango
+      </Text>
     </View>
   </View>
 </View>
@@ -1623,19 +1734,29 @@ exports[`[CheckboxGroup] render test should render checkall when values is not u
 
 exports[`[CheckboxGroup] render test should render customStyle in Options 1`] = `
 <View
-  pointerEvents="box-none"
   style={
-    Object {
-      "flex": 1,
-    }
+    Array [
+      Object {
+        "alignItems": "flex-start",
+        "flexDirection": "column",
+        "flexWrap": "wrap",
+      },
+    ]
   }
 >
   <View
-    collapsable={true}
-    pointerEvents="box-none"
+    accessible={true}
+    focusable={true}
+    onClick={[Function]}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
     style={
       Object {
-        "flex": 1,
+        "margin": 10,
       }
     }
   >
@@ -1643,281 +1764,280 @@ exports[`[CheckboxGroup] render test should render customStyle in Options 1`] = 
       style={
         Array [
           Object {
-            "alignItems": "flex-start",
-            "flexDirection": "column",
-            "flexWrap": "wrap",
+            "alignItems": "center",
+            "flexDirection": "row",
+            "justifyContent": "flex-start",
           },
         ]
       }
     >
-      <
-        disabled={false}
+      <View
         style={
-          Object {
-            "margin": 10,
-          }
+          Array [
+            Object {
+              "backgroundColor": "#1890FF",
+              "height": 20,
+              "paddingBottom": 1,
+              "paddingLeft": 1,
+              "paddingRight": 1,
+              "paddingTop": 1,
+              "width": 20,
+            },
+          ]
         }
-        underlayColor="transparent"
       >
         <View
+          isChecked={false}
           style={
             Array [
               Object {
                 "alignItems": "center",
-                "flexDirection": "row",
-                "justifyContent": "flex-start",
+                "backgroundColor": "#ffffff",
+                "flexBasis": 0,
+                "flexGrow": 1,
+                "flexShrink": 1,
+                "justifyContent": "center",
               },
             ]
           }
-        >
-          <View
-            style={
-              Array [
-                Object {
-                  "backgroundColor": "#1890FF",
-                  "height": 20,
-                  "paddingBottom": 1,
-                  "paddingLeft": 1,
-                  "paddingRight": 1,
-                  "paddingTop": 1,
-                  "width": 20,
-                },
-              ]
-            }
-          >
-            <View
-              isChecked={false}
-              style={
-                Array [
-                  Object {
-                    "alignItems": "center",
-                    "backgroundColor": "#ffffff",
-                    "flexBasis": 0,
-                    "flexGrow": 1,
-                    "flexShrink": 1,
-                    "justifyContent": "center",
-                  },
-                ]
-              }
-            />
-          </View>
-          <Text
-            style={
-              Array [
-                Object {
-                  "color": "#000000",
-                  "fontSize": 20,
-                  "paddingLeft": 10,
-                  "paddingRight": 0,
-                },
-              ]
-            }
-          >
-            Apple
-          </Text>
-        </View>
-      </>
-      <
-        disabled={false}
+        />
+      </View>
+      <Text
         style={
-          Object {
-            "margin": 10,
-          }
+          Array [
+            Object {
+              "color": "#000000",
+              "fontSize": 20,
+              "paddingLeft": 10,
+              "paddingRight": 0,
+            },
+          ]
         }
-        underlayColor="transparent"
+      >
+        Apple
+      </Text>
+    </View>
+  </View>
+  <View
+    accessible={true}
+    focusable={true}
+    onClick={[Function]}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      Object {
+        "margin": 10,
+      }
+    }
+  >
+    <View
+      style={
+        Array [
+          Object {
+            "alignItems": "center",
+            "flexDirection": "row",
+            "justifyContent": "flex-start",
+          },
+        ]
+      }
+    >
+      <View
+        style={
+          Array [
+            Object {
+              "backgroundColor": "#1890FF",
+              "height": 20,
+              "paddingBottom": 1,
+              "paddingLeft": 1,
+              "paddingRight": 1,
+              "paddingTop": 1,
+              "width": 20,
+            },
+          ]
+        }
       >
         <View
+          isChecked={false}
           style={
             Array [
               Object {
                 "alignItems": "center",
-                "flexDirection": "row",
-                "justifyContent": "flex-start",
+                "backgroundColor": "#ffffff",
+                "flexBasis": 0,
+                "flexGrow": 1,
+                "flexShrink": 1,
+                "justifyContent": "center",
               },
             ]
           }
-        >
-          <View
-            style={
-              Array [
-                Object {
-                  "backgroundColor": "#1890FF",
-                  "height": 20,
-                  "paddingBottom": 1,
-                  "paddingLeft": 1,
-                  "paddingRight": 1,
-                  "paddingTop": 1,
-                  "width": 20,
-                },
-              ]
-            }
-          >
-            <View
-              isChecked={false}
-              style={
-                Array [
-                  Object {
-                    "alignItems": "center",
-                    "backgroundColor": "#ffffff",
-                    "flexBasis": 0,
-                    "flexGrow": 1,
-                    "flexShrink": 1,
-                    "justifyContent": "center",
-                  },
-                ]
-              }
-            />
-          </View>
-          <Text
-            style={
-              Array [
-                Object {
-                  "color": "#000000",
-                  "fontSize": 20,
-                  "paddingLeft": 10,
-                  "paddingRight": 0,
-                },
-              ]
-            }
-          >
-            Pear
-          </Text>
-        </View>
-      </>
-      <
-        disabled={false}
+        />
+      </View>
+      <Text
         style={
-          Object {
-            "margin": 10,
-          }
+          Array [
+            Object {
+              "color": "#000000",
+              "fontSize": 20,
+              "paddingLeft": 10,
+              "paddingRight": 0,
+            },
+          ]
         }
-        underlayColor="transparent"
+      >
+        Pear
+      </Text>
+    </View>
+  </View>
+  <View
+    accessible={true}
+    focusable={true}
+    onClick={[Function]}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      Object {
+        "margin": 10,
+      }
+    }
+  >
+    <View
+      style={
+        Array [
+          Object {
+            "alignItems": "center",
+            "flexDirection": "row",
+            "justifyContent": "flex-start",
+          },
+        ]
+      }
+    >
+      <View
+        style={
+          Array [
+            Object {
+              "backgroundColor": "#1890FF",
+              "height": 20,
+              "paddingBottom": 1,
+              "paddingLeft": 1,
+              "paddingRight": 1,
+              "paddingTop": 1,
+              "width": 20,
+            },
+          ]
+        }
       >
         <View
+          isChecked={false}
           style={
             Array [
               Object {
                 "alignItems": "center",
-                "flexDirection": "row",
-                "justifyContent": "flex-start",
+                "backgroundColor": "#ffffff",
+                "flexBasis": 0,
+                "flexGrow": 1,
+                "flexShrink": 1,
+                "justifyContent": "center",
               },
             ]
           }
-        >
-          <View
-            style={
-              Array [
-                Object {
-                  "backgroundColor": "#1890FF",
-                  "height": 20,
-                  "paddingBottom": 1,
-                  "paddingLeft": 1,
-                  "paddingRight": 1,
-                  "paddingTop": 1,
-                  "width": 20,
-                },
-              ]
-            }
-          >
-            <View
-              isChecked={false}
-              style={
-                Array [
-                  Object {
-                    "alignItems": "center",
-                    "backgroundColor": "#ffffff",
-                    "flexBasis": 0,
-                    "flexGrow": 1,
-                    "flexShrink": 1,
-                    "justifyContent": "center",
-                  },
-                ]
-              }
-            />
-          </View>
-          <Text
-            style={
-              Array [
-                Object {
-                  "color": "#000000",
-                  "fontSize": 20,
-                  "paddingLeft": 10,
-                  "paddingRight": 0,
-                },
-              ]
-            }
-          >
-            Orange
-          </Text>
-        </View>
-      </>
-      <
-        disabled={false}
+        />
+      </View>
+      <Text
         style={
-          Object {
-            "margin": 10,
-          }
+          Array [
+            Object {
+              "color": "#000000",
+              "fontSize": 20,
+              "paddingLeft": 10,
+              "paddingRight": 0,
+            },
+          ]
         }
-        underlayColor="transparent"
+      >
+        Orange
+      </Text>
+    </View>
+  </View>
+  <View
+    accessible={true}
+    focusable={true}
+    onClick={[Function]}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      Object {
+        "margin": 10,
+      }
+    }
+  >
+    <View
+      style={
+        Array [
+          Object {
+            "alignItems": "center",
+            "flexDirection": "row",
+            "justifyContent": "flex-start",
+          },
+        ]
+      }
+    >
+      <View
+        style={
+          Array [
+            Object {
+              "backgroundColor": "#1890FF",
+              "height": 20,
+              "paddingBottom": 1,
+              "paddingLeft": 1,
+              "paddingRight": 1,
+              "paddingTop": 1,
+              "width": 20,
+            },
+          ]
+        }
       >
         <View
+          isChecked={false}
           style={
             Array [
               Object {
                 "alignItems": "center",
-                "flexDirection": "row",
-                "justifyContent": "flex-start",
+                "backgroundColor": "#ffffff",
+                "flexBasis": 0,
+                "flexGrow": 1,
+                "flexShrink": 1,
+                "justifyContent": "center",
               },
             ]
           }
-        >
-          <View
-            style={
-              Array [
-                Object {
-                  "backgroundColor": "#1890FF",
-                  "height": 20,
-                  "paddingBottom": 1,
-                  "paddingLeft": 1,
-                  "paddingRight": 1,
-                  "paddingTop": 1,
-                  "width": 20,
-                },
-              ]
-            }
-          >
-            <View
-              isChecked={false}
-              style={
-                Array [
-                  Object {
-                    "alignItems": "center",
-                    "backgroundColor": "#ffffff",
-                    "flexBasis": 0,
-                    "flexGrow": 1,
-                    "flexShrink": 1,
-                    "justifyContent": "center",
-                  },
-                ]
-              }
-            />
-          </View>
-          <Text
-            style={
-              Array [
-                Object {
-                  "color": "#000000",
-                  "fontSize": 20,
-                  "paddingLeft": 10,
-                  "paddingRight": 0,
-                },
-              ]
-            }
-          >
-            Mango
-          </Text>
-        </View>
-      </>
+        />
+      </View>
+      <Text
+        style={
+          Array [
+            Object {
+              "color": "#000000",
+              "fontSize": 20,
+              "paddingLeft": 10,
+              "paddingRight": 0,
+            },
+          ]
+        }
+      >
+        Mango
+      </Text>
     </View>
   </View>
 </View>
@@ -1925,19 +2045,29 @@ exports[`[CheckboxGroup] render test should render customStyle in Options 1`] = 
 
 exports[`[CheckboxGroup] render test should render disabled in Options 1`] = `
 <View
-  pointerEvents="box-none"
   style={
-    Object {
-      "flex": 1,
-    }
+    Array [
+      Object {
+        "alignItems": "flex-start",
+        "flexDirection": "column",
+        "flexWrap": "wrap",
+      },
+    ]
   }
 >
   <View
-    collapsable={true}
-    pointerEvents="box-none"
+    accessible={true}
+    focusable={true}
+    onClick={[Function]}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
     style={
       Object {
-        "flex": 1,
+        "margin": 10,
       }
     }
   >
@@ -1945,281 +2075,280 @@ exports[`[CheckboxGroup] render test should render disabled in Options 1`] = `
       style={
         Array [
           Object {
-            "alignItems": "flex-start",
-            "flexDirection": "column",
-            "flexWrap": "wrap",
+            "alignItems": "center",
+            "flexDirection": "row",
+            "justifyContent": "flex-start",
           },
         ]
       }
     >
-      <
-        disabled={false}
+      <View
         style={
-          Object {
-            "margin": 10,
-          }
+          Array [
+            Object {
+              "backgroundColor": "#1890FF",
+              "height": 20,
+              "paddingBottom": 1,
+              "paddingLeft": 1,
+              "paddingRight": 1,
+              "paddingTop": 1,
+              "width": 20,
+            },
+          ]
         }
-        underlayColor="transparent"
       >
         <View
+          isChecked={false}
           style={
             Array [
               Object {
                 "alignItems": "center",
-                "flexDirection": "row",
-                "justifyContent": "flex-start",
+                "backgroundColor": "#ffffff",
+                "flexBasis": 0,
+                "flexGrow": 1,
+                "flexShrink": 1,
+                "justifyContent": "center",
               },
             ]
           }
-        >
-          <View
-            style={
-              Array [
-                Object {
-                  "backgroundColor": "#1890FF",
-                  "height": 20,
-                  "paddingBottom": 1,
-                  "paddingLeft": 1,
-                  "paddingRight": 1,
-                  "paddingTop": 1,
-                  "width": 20,
-                },
-              ]
-            }
-          >
-            <View
-              isChecked={false}
-              style={
-                Array [
-                  Object {
-                    "alignItems": "center",
-                    "backgroundColor": "#ffffff",
-                    "flexBasis": 0,
-                    "flexGrow": 1,
-                    "flexShrink": 1,
-                    "justifyContent": "center",
-                  },
-                ]
-              }
-            />
-          </View>
-          <Text
-            style={
-              Array [
-                Object {
-                  "color": "#000000",
-                  "fontSize": 20,
-                  "paddingLeft": 10,
-                  "paddingRight": 0,
-                },
-              ]
-            }
-          >
-            Apple
-          </Text>
-        </View>
-      </>
-      <
-        disabled={false}
+        />
+      </View>
+      <Text
         style={
-          Object {
-            "margin": 10,
-          }
+          Array [
+            Object {
+              "color": "#000000",
+              "fontSize": 20,
+              "paddingLeft": 10,
+              "paddingRight": 0,
+            },
+          ]
         }
-        underlayColor="transparent"
+      >
+        Apple
+      </Text>
+    </View>
+  </View>
+  <View
+    accessible={true}
+    focusable={true}
+    onClick={[Function]}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      Object {
+        "margin": 10,
+      }
+    }
+  >
+    <View
+      style={
+        Array [
+          Object {
+            "alignItems": "center",
+            "flexDirection": "row",
+            "justifyContent": "flex-start",
+          },
+        ]
+      }
+    >
+      <View
+        style={
+          Array [
+            Object {
+              "backgroundColor": "#1890FF",
+              "height": 20,
+              "paddingBottom": 1,
+              "paddingLeft": 1,
+              "paddingRight": 1,
+              "paddingTop": 1,
+              "width": 20,
+            },
+          ]
+        }
       >
         <View
+          isChecked={false}
           style={
             Array [
               Object {
                 "alignItems": "center",
-                "flexDirection": "row",
-                "justifyContent": "flex-start",
+                "backgroundColor": "#ffffff",
+                "flexBasis": 0,
+                "flexGrow": 1,
+                "flexShrink": 1,
+                "justifyContent": "center",
               },
             ]
           }
-        >
-          <View
-            style={
-              Array [
-                Object {
-                  "backgroundColor": "#1890FF",
-                  "height": 20,
-                  "paddingBottom": 1,
-                  "paddingLeft": 1,
-                  "paddingRight": 1,
-                  "paddingTop": 1,
-                  "width": 20,
-                },
-              ]
-            }
-          >
-            <View
-              isChecked={false}
-              style={
-                Array [
-                  Object {
-                    "alignItems": "center",
-                    "backgroundColor": "#ffffff",
-                    "flexBasis": 0,
-                    "flexGrow": 1,
-                    "flexShrink": 1,
-                    "justifyContent": "center",
-                  },
-                ]
-              }
-            />
-          </View>
-          <Text
-            style={
-              Array [
-                Object {
-                  "color": "#000000",
-                  "fontSize": 20,
-                  "paddingLeft": 10,
-                  "paddingRight": 0,
-                },
-              ]
-            }
-          >
-            Pear
-          </Text>
-        </View>
-      </>
-      <
-        disabled={false}
+        />
+      </View>
+      <Text
         style={
-          Object {
-            "margin": 10,
-          }
+          Array [
+            Object {
+              "color": "#000000",
+              "fontSize": 20,
+              "paddingLeft": 10,
+              "paddingRight": 0,
+            },
+          ]
         }
-        underlayColor="transparent"
+      >
+        Pear
+      </Text>
+    </View>
+  </View>
+  <View
+    accessible={true}
+    focusable={true}
+    onClick={[Function]}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      Object {
+        "margin": 10,
+      }
+    }
+  >
+    <View
+      style={
+        Array [
+          Object {
+            "alignItems": "center",
+            "flexDirection": "row",
+            "justifyContent": "flex-start",
+          },
+        ]
+      }
+    >
+      <View
+        style={
+          Array [
+            Object {
+              "backgroundColor": "#1890FF",
+              "height": 20,
+              "paddingBottom": 1,
+              "paddingLeft": 1,
+              "paddingRight": 1,
+              "paddingTop": 1,
+              "width": 20,
+            },
+          ]
+        }
       >
         <View
+          isChecked={false}
           style={
             Array [
               Object {
                 "alignItems": "center",
-                "flexDirection": "row",
-                "justifyContent": "flex-start",
+                "backgroundColor": "#ffffff",
+                "flexBasis": 0,
+                "flexGrow": 1,
+                "flexShrink": 1,
+                "justifyContent": "center",
               },
             ]
           }
-        >
-          <View
-            style={
-              Array [
-                Object {
-                  "backgroundColor": "#1890FF",
-                  "height": 20,
-                  "paddingBottom": 1,
-                  "paddingLeft": 1,
-                  "paddingRight": 1,
-                  "paddingTop": 1,
-                  "width": 20,
-                },
-              ]
-            }
-          >
-            <View
-              isChecked={false}
-              style={
-                Array [
-                  Object {
-                    "alignItems": "center",
-                    "backgroundColor": "#ffffff",
-                    "flexBasis": 0,
-                    "flexGrow": 1,
-                    "flexShrink": 1,
-                    "justifyContent": "center",
-                  },
-                ]
-              }
-            />
-          </View>
-          <Text
-            style={
-              Array [
-                Object {
-                  "color": "#000000",
-                  "fontSize": 20,
-                  "paddingLeft": 10,
-                  "paddingRight": 0,
-                },
-              ]
-            }
-          >
-            Orange
-          </Text>
-        </View>
-      </>
-      <
-        disabled={false}
+        />
+      </View>
+      <Text
         style={
-          Object {
-            "margin": 10,
-          }
+          Array [
+            Object {
+              "color": "#000000",
+              "fontSize": 20,
+              "paddingLeft": 10,
+              "paddingRight": 0,
+            },
+          ]
         }
-        underlayColor="transparent"
+      >
+        Orange
+      </Text>
+    </View>
+  </View>
+  <View
+    accessible={true}
+    focusable={true}
+    onClick={[Function]}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      Object {
+        "margin": 10,
+      }
+    }
+  >
+    <View
+      style={
+        Array [
+          Object {
+            "alignItems": "center",
+            "flexDirection": "row",
+            "justifyContent": "flex-start",
+          },
+        ]
+      }
+    >
+      <View
+        style={
+          Array [
+            Object {
+              "backgroundColor": "#1890FF",
+              "height": 20,
+              "paddingBottom": 1,
+              "paddingLeft": 1,
+              "paddingRight": 1,
+              "paddingTop": 1,
+              "width": 20,
+            },
+          ]
+        }
       >
         <View
+          isChecked={false}
           style={
             Array [
               Object {
                 "alignItems": "center",
-                "flexDirection": "row",
-                "justifyContent": "flex-start",
+                "backgroundColor": "#ffffff",
+                "flexBasis": 0,
+                "flexGrow": 1,
+                "flexShrink": 1,
+                "justifyContent": "center",
               },
             ]
           }
-        >
-          <View
-            style={
-              Array [
-                Object {
-                  "backgroundColor": "#1890FF",
-                  "height": 20,
-                  "paddingBottom": 1,
-                  "paddingLeft": 1,
-                  "paddingRight": 1,
-                  "paddingTop": 1,
-                  "width": 20,
-                },
-              ]
-            }
-          >
-            <View
-              isChecked={false}
-              style={
-                Array [
-                  Object {
-                    "alignItems": "center",
-                    "backgroundColor": "#ffffff",
-                    "flexBasis": 0,
-                    "flexGrow": 1,
-                    "flexShrink": 1,
-                    "justifyContent": "center",
-                  },
-                ]
-              }
-            />
-          </View>
-          <Text
-            style={
-              Array [
-                Object {
-                  "color": "#000000",
-                  "fontSize": 20,
-                  "paddingLeft": 10,
-                  "paddingRight": 0,
-                },
-              ]
-            }
-          >
-            Mango
-          </Text>
-        </View>
-      </>
+        />
+      </View>
+      <Text
+        style={
+          Array [
+            Object {
+              "color": "#000000",
+              "fontSize": 20,
+              "paddingLeft": 10,
+              "paddingRight": 0,
+            },
+          ]
+        }
+      >
+        Mango
+      </Text>
     </View>
   </View>
 </View>
@@ -2227,19 +2356,29 @@ exports[`[CheckboxGroup] render test should render disabled in Options 1`] = `
 
 exports[`[CheckboxGroup] render test should render disabled when CheckboxGroup props is true 1`] = `
 <View
-  pointerEvents="box-none"
   style={
-    Object {
-      "flex": 1,
-    }
+    Array [
+      Object {
+        "alignItems": "flex-start",
+        "flexDirection": "column",
+        "flexWrap": "wrap",
+      },
+    ]
   }
 >
   <View
-    collapsable={true}
-    pointerEvents="box-none"
+    accessible={true}
+    focusable={true}
+    onClick={[Function]}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
     style={
       Object {
-        "flex": 1,
+        "margin": 10,
       }
     }
   >
@@ -2247,289 +2386,288 @@ exports[`[CheckboxGroup] render test should render disabled when CheckboxGroup p
       style={
         Array [
           Object {
-            "alignItems": "flex-start",
-            "flexDirection": "column",
-            "flexWrap": "wrap",
+            "alignItems": "center",
+            "flexDirection": "row",
+            "justifyContent": "flex-start",
           },
         ]
       }
     >
-      <
-        disabled={true}
+      <View
+        boxColor="#E0E0E0"
         style={
-          Object {
-            "margin": 10,
-          }
+          Array [
+            Object {
+              "backgroundColor": "#E0E0E0",
+              "height": 20,
+              "paddingBottom": 1,
+              "paddingLeft": 1,
+              "paddingRight": 1,
+              "paddingTop": 1,
+              "width": 20,
+            },
+          ]
         }
-        underlayColor="transparent"
       >
         <View
+          isChecked={false}
           style={
             Array [
               Object {
                 "alignItems": "center",
-                "flexDirection": "row",
-                "justifyContent": "flex-start",
+                "backgroundColor": "#ffffff",
+                "flexBasis": 0,
+                "flexGrow": 1,
+                "flexShrink": 1,
+                "justifyContent": "center",
               },
             ]
           }
-        >
-          <View
-            boxColor="#E0E0E0"
-            style={
-              Array [
-                Object {
-                  "backgroundColor": "#E0E0E0",
-                  "height": 20,
-                  "paddingBottom": 1,
-                  "paddingLeft": 1,
-                  "paddingRight": 1,
-                  "paddingTop": 1,
-                  "width": 20,
-                },
-              ]
-            }
-          >
-            <View
-              isChecked={false}
-              style={
-                Array [
-                  Object {
-                    "alignItems": "center",
-                    "backgroundColor": "#ffffff",
-                    "flexBasis": 0,
-                    "flexGrow": 1,
-                    "flexShrink": 1,
-                    "justifyContent": "center",
-                  },
-                ]
-              }
-            />
-          </View>
-          <Text
-            labelColor="#E0E0E0"
-            style={
-              Array [
-                Object {
-                  "color": "#E0E0E0",
-                  "fontSize": 20,
-                  "paddingLeft": 10,
-                  "paddingRight": 0,
-                },
-              ]
-            }
-          >
-            Apple
-          </Text>
-        </View>
-      </>
-      <
-        disabled={true}
+        />
+      </View>
+      <Text
+        labelColor="#E0E0E0"
         style={
-          Object {
-            "margin": 10,
-          }
+          Array [
+            Object {
+              "color": "#E0E0E0",
+              "fontSize": 20,
+              "paddingLeft": 10,
+              "paddingRight": 0,
+            },
+          ]
         }
-        underlayColor="transparent"
+      >
+        Apple
+      </Text>
+    </View>
+  </View>
+  <View
+    accessible={true}
+    focusable={true}
+    onClick={[Function]}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      Object {
+        "margin": 10,
+      }
+    }
+  >
+    <View
+      style={
+        Array [
+          Object {
+            "alignItems": "center",
+            "flexDirection": "row",
+            "justifyContent": "flex-start",
+          },
+        ]
+      }
+    >
+      <View
+        boxColor="#E0E0E0"
+        style={
+          Array [
+            Object {
+              "backgroundColor": "#E0E0E0",
+              "height": 20,
+              "paddingBottom": 1,
+              "paddingLeft": 1,
+              "paddingRight": 1,
+              "paddingTop": 1,
+              "width": 20,
+            },
+          ]
+        }
       >
         <View
+          isChecked={false}
           style={
             Array [
               Object {
                 "alignItems": "center",
-                "flexDirection": "row",
-                "justifyContent": "flex-start",
+                "backgroundColor": "#ffffff",
+                "flexBasis": 0,
+                "flexGrow": 1,
+                "flexShrink": 1,
+                "justifyContent": "center",
               },
             ]
           }
-        >
-          <View
-            boxColor="#E0E0E0"
-            style={
-              Array [
-                Object {
-                  "backgroundColor": "#E0E0E0",
-                  "height": 20,
-                  "paddingBottom": 1,
-                  "paddingLeft": 1,
-                  "paddingRight": 1,
-                  "paddingTop": 1,
-                  "width": 20,
-                },
-              ]
-            }
-          >
-            <View
-              isChecked={false}
-              style={
-                Array [
-                  Object {
-                    "alignItems": "center",
-                    "backgroundColor": "#ffffff",
-                    "flexBasis": 0,
-                    "flexGrow": 1,
-                    "flexShrink": 1,
-                    "justifyContent": "center",
-                  },
-                ]
-              }
-            />
-          </View>
-          <Text
-            labelColor="#E0E0E0"
-            style={
-              Array [
-                Object {
-                  "color": "#E0E0E0",
-                  "fontSize": 20,
-                  "paddingLeft": 10,
-                  "paddingRight": 0,
-                },
-              ]
-            }
-          >
-            Pear
-          </Text>
-        </View>
-      </>
-      <
-        disabled={true}
+        />
+      </View>
+      <Text
+        labelColor="#E0E0E0"
         style={
-          Object {
-            "margin": 10,
-          }
+          Array [
+            Object {
+              "color": "#E0E0E0",
+              "fontSize": 20,
+              "paddingLeft": 10,
+              "paddingRight": 0,
+            },
+          ]
         }
-        underlayColor="transparent"
+      >
+        Pear
+      </Text>
+    </View>
+  </View>
+  <View
+    accessible={true}
+    focusable={true}
+    onClick={[Function]}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      Object {
+        "margin": 10,
+      }
+    }
+  >
+    <View
+      style={
+        Array [
+          Object {
+            "alignItems": "center",
+            "flexDirection": "row",
+            "justifyContent": "flex-start",
+          },
+        ]
+      }
+    >
+      <View
+        boxColor="#E0E0E0"
+        style={
+          Array [
+            Object {
+              "backgroundColor": "#E0E0E0",
+              "height": 20,
+              "paddingBottom": 1,
+              "paddingLeft": 1,
+              "paddingRight": 1,
+              "paddingTop": 1,
+              "width": 20,
+            },
+          ]
+        }
       >
         <View
+          isChecked={false}
           style={
             Array [
               Object {
                 "alignItems": "center",
-                "flexDirection": "row",
-                "justifyContent": "flex-start",
+                "backgroundColor": "#ffffff",
+                "flexBasis": 0,
+                "flexGrow": 1,
+                "flexShrink": 1,
+                "justifyContent": "center",
               },
             ]
           }
-        >
-          <View
-            boxColor="#E0E0E0"
-            style={
-              Array [
-                Object {
-                  "backgroundColor": "#E0E0E0",
-                  "height": 20,
-                  "paddingBottom": 1,
-                  "paddingLeft": 1,
-                  "paddingRight": 1,
-                  "paddingTop": 1,
-                  "width": 20,
-                },
-              ]
-            }
-          >
-            <View
-              isChecked={false}
-              style={
-                Array [
-                  Object {
-                    "alignItems": "center",
-                    "backgroundColor": "#ffffff",
-                    "flexBasis": 0,
-                    "flexGrow": 1,
-                    "flexShrink": 1,
-                    "justifyContent": "center",
-                  },
-                ]
-              }
-            />
-          </View>
-          <Text
-            labelColor="#E0E0E0"
-            style={
-              Array [
-                Object {
-                  "color": "#E0E0E0",
-                  "fontSize": 20,
-                  "paddingLeft": 10,
-                  "paddingRight": 0,
-                },
-              ]
-            }
-          >
-            Orange
-          </Text>
-        </View>
-      </>
-      <
-        disabled={true}
+        />
+      </View>
+      <Text
+        labelColor="#E0E0E0"
         style={
-          Object {
-            "margin": 10,
-          }
+          Array [
+            Object {
+              "color": "#E0E0E0",
+              "fontSize": 20,
+              "paddingLeft": 10,
+              "paddingRight": 0,
+            },
+          ]
         }
-        underlayColor="transparent"
+      >
+        Orange
+      </Text>
+    </View>
+  </View>
+  <View
+    accessible={true}
+    focusable={true}
+    onClick={[Function]}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      Object {
+        "margin": 10,
+      }
+    }
+  >
+    <View
+      style={
+        Array [
+          Object {
+            "alignItems": "center",
+            "flexDirection": "row",
+            "justifyContent": "flex-start",
+          },
+        ]
+      }
+    >
+      <View
+        boxColor="#E0E0E0"
+        style={
+          Array [
+            Object {
+              "backgroundColor": "#E0E0E0",
+              "height": 20,
+              "paddingBottom": 1,
+              "paddingLeft": 1,
+              "paddingRight": 1,
+              "paddingTop": 1,
+              "width": 20,
+            },
+          ]
+        }
       >
         <View
+          isChecked={false}
           style={
             Array [
               Object {
                 "alignItems": "center",
-                "flexDirection": "row",
-                "justifyContent": "flex-start",
+                "backgroundColor": "#ffffff",
+                "flexBasis": 0,
+                "flexGrow": 1,
+                "flexShrink": 1,
+                "justifyContent": "center",
               },
             ]
           }
-        >
-          <View
-            boxColor="#E0E0E0"
-            style={
-              Array [
-                Object {
-                  "backgroundColor": "#E0E0E0",
-                  "height": 20,
-                  "paddingBottom": 1,
-                  "paddingLeft": 1,
-                  "paddingRight": 1,
-                  "paddingTop": 1,
-                  "width": 20,
-                },
-              ]
-            }
-          >
-            <View
-              isChecked={false}
-              style={
-                Array [
-                  Object {
-                    "alignItems": "center",
-                    "backgroundColor": "#ffffff",
-                    "flexBasis": 0,
-                    "flexGrow": 1,
-                    "flexShrink": 1,
-                    "justifyContent": "center",
-                  },
-                ]
-              }
-            />
-          </View>
-          <Text
-            labelColor="#E0E0E0"
-            style={
-              Array [
-                Object {
-                  "color": "#E0E0E0",
-                  "fontSize": 20,
-                  "paddingLeft": 10,
-                  "paddingRight": 0,
-                },
-              ]
-            }
-          >
-            Mango
-          </Text>
-        </View>
-      </>
+        />
+      </View>
+      <Text
+        labelColor="#E0E0E0"
+        style={
+          Array [
+            Object {
+              "color": "#E0E0E0",
+              "fontSize": 20,
+              "paddingLeft": 10,
+              "paddingRight": 0,
+            },
+          ]
+        }
+      >
+        Mango
+      </Text>
     </View>
   </View>
 </View>
@@ -2537,19 +2675,29 @@ exports[`[CheckboxGroup] render test should render disabled when CheckboxGroup p
 
 exports[`[CheckboxGroup] render test should render options when CheckboxGroup props is string of Array 1`] = `
 <View
-  pointerEvents="box-none"
   style={
-    Object {
-      "flex": 1,
-    }
+    Array [
+      Object {
+        "alignItems": "flex-start",
+        "flexDirection": "column",
+        "flexWrap": "wrap",
+      },
+    ]
   }
 >
   <View
-    collapsable={true}
-    pointerEvents="box-none"
+    accessible={true}
+    focusable={true}
+    onClick={[Function]}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
     style={
       Object {
-        "flex": 1,
+        "margin": 10,
       }
     }
   >
@@ -2557,220 +2705,212 @@ exports[`[CheckboxGroup] render test should render options when CheckboxGroup pr
       style={
         Array [
           Object {
-            "alignItems": "flex-start",
-            "flexDirection": "column",
-            "flexWrap": "wrap",
+            "alignItems": "center",
+            "flexDirection": "row",
+            "justifyContent": "flex-start",
           },
         ]
       }
     >
-      <
-        disabled={true}
+      <View
+        boxColor="#E0E0E0"
         style={
-          Object {
-            "margin": 10,
-          }
+          Array [
+            Object {
+              "backgroundColor": "#E0E0E0",
+              "height": 20,
+              "paddingBottom": 1,
+              "paddingLeft": 1,
+              "paddingRight": 1,
+              "paddingTop": 1,
+              "width": 20,
+            },
+          ]
         }
-        underlayColor="transparent"
       >
         <View
+          isChecked={false}
           style={
             Array [
               Object {
                 "alignItems": "center",
-                "flexDirection": "row",
-                "justifyContent": "flex-start",
+                "backgroundColor": "#ffffff",
+                "flexBasis": 0,
+                "flexGrow": 1,
+                "flexShrink": 1,
+                "justifyContent": "center",
               },
             ]
           }
-        >
-          <View
-            boxColor="#E0E0E0"
-            style={
-              Array [
-                Object {
-                  "backgroundColor": "#E0E0E0",
-                  "height": 20,
-                  "paddingBottom": 1,
-                  "paddingLeft": 1,
-                  "paddingRight": 1,
-                  "paddingTop": 1,
-                  "width": 20,
-                },
-              ]
-            }
-          >
-            <View
-              isChecked={false}
-              style={
-                Array [
-                  Object {
-                    "alignItems": "center",
-                    "backgroundColor": "#ffffff",
-                    "flexBasis": 0,
-                    "flexGrow": 1,
-                    "flexShrink": 1,
-                    "justifyContent": "center",
-                  },
-                ]
-              }
-            />
-          </View>
-          <Text
-            labelColor="#E0E0E0"
-            style={
-              Array [
-                Object {
-                  "color": "#E0E0E0",
-                  "fontSize": 20,
-                  "paddingLeft": 10,
-                  "paddingRight": 0,
-                },
-              ]
-            }
-          >
-            Apple
-          </Text>
-        </View>
-      </>
-      <
-        disabled={true}
+        />
+      </View>
+      <Text
+        labelColor="#E0E0E0"
         style={
-          Object {
-            "margin": 10,
-          }
+          Array [
+            Object {
+              "color": "#E0E0E0",
+              "fontSize": 20,
+              "paddingLeft": 10,
+              "paddingRight": 0,
+            },
+          ]
         }
-        underlayColor="transparent"
+      >
+        Apple
+      </Text>
+    </View>
+  </View>
+  <View
+    accessible={true}
+    focusable={true}
+    onClick={[Function]}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      Object {
+        "margin": 10,
+      }
+    }
+  >
+    <View
+      style={
+        Array [
+          Object {
+            "alignItems": "center",
+            "flexDirection": "row",
+            "justifyContent": "flex-start",
+          },
+        ]
+      }
+    >
+      <View
+        boxColor="#E0E0E0"
+        style={
+          Array [
+            Object {
+              "backgroundColor": "#E0E0E0",
+              "height": 20,
+              "paddingBottom": 1,
+              "paddingLeft": 1,
+              "paddingRight": 1,
+              "paddingTop": 1,
+              "width": 20,
+            },
+          ]
+        }
       >
         <View
+          isChecked={false}
           style={
             Array [
               Object {
                 "alignItems": "center",
-                "flexDirection": "row",
-                "justifyContent": "flex-start",
+                "backgroundColor": "#ffffff",
+                "flexBasis": 0,
+                "flexGrow": 1,
+                "flexShrink": 1,
+                "justifyContent": "center",
               },
             ]
           }
-        >
-          <View
-            boxColor="#E0E0E0"
-            style={
-              Array [
-                Object {
-                  "backgroundColor": "#E0E0E0",
-                  "height": 20,
-                  "paddingBottom": 1,
-                  "paddingLeft": 1,
-                  "paddingRight": 1,
-                  "paddingTop": 1,
-                  "width": 20,
-                },
-              ]
-            }
-          >
-            <View
-              isChecked={false}
-              style={
-                Array [
-                  Object {
-                    "alignItems": "center",
-                    "backgroundColor": "#ffffff",
-                    "flexBasis": 0,
-                    "flexGrow": 1,
-                    "flexShrink": 1,
-                    "justifyContent": "center",
-                  },
-                ]
-              }
-            />
-          </View>
-          <Text
-            labelColor="#E0E0E0"
-            style={
-              Array [
-                Object {
-                  "color": "#E0E0E0",
-                  "fontSize": 20,
-                  "paddingLeft": 10,
-                  "paddingRight": 0,
-                },
-              ]
-            }
-          >
-            Pear
-          </Text>
-        </View>
-      </>
-      <
-        disabled={true}
+        />
+      </View>
+      <Text
+        labelColor="#E0E0E0"
         style={
-          Object {
-            "margin": 10,
-          }
+          Array [
+            Object {
+              "color": "#E0E0E0",
+              "fontSize": 20,
+              "paddingLeft": 10,
+              "paddingRight": 0,
+            },
+          ]
         }
-        underlayColor="transparent"
+      >
+        Pear
+      </Text>
+    </View>
+  </View>
+  <View
+    accessible={true}
+    focusable={true}
+    onClick={[Function]}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      Object {
+        "margin": 10,
+      }
+    }
+  >
+    <View
+      style={
+        Array [
+          Object {
+            "alignItems": "center",
+            "flexDirection": "row",
+            "justifyContent": "flex-start",
+          },
+        ]
+      }
+    >
+      <View
+        boxColor="#E0E0E0"
+        style={
+          Array [
+            Object {
+              "backgroundColor": "#E0E0E0",
+              "height": 20,
+              "paddingBottom": 1,
+              "paddingLeft": 1,
+              "paddingRight": 1,
+              "paddingTop": 1,
+              "width": 20,
+            },
+          ]
+        }
       >
         <View
+          isChecked={false}
           style={
             Array [
               Object {
                 "alignItems": "center",
-                "flexDirection": "row",
-                "justifyContent": "flex-start",
+                "backgroundColor": "#ffffff",
+                "flexBasis": 0,
+                "flexGrow": 1,
+                "flexShrink": 1,
+                "justifyContent": "center",
               },
             ]
           }
-        >
-          <View
-            boxColor="#E0E0E0"
-            style={
-              Array [
-                Object {
-                  "backgroundColor": "#E0E0E0",
-                  "height": 20,
-                  "paddingBottom": 1,
-                  "paddingLeft": 1,
-                  "paddingRight": 1,
-                  "paddingTop": 1,
-                  "width": 20,
-                },
-              ]
-            }
-          >
-            <View
-              isChecked={false}
-              style={
-                Array [
-                  Object {
-                    "alignItems": "center",
-                    "backgroundColor": "#ffffff",
-                    "flexBasis": 0,
-                    "flexGrow": 1,
-                    "flexShrink": 1,
-                    "justifyContent": "center",
-                  },
-                ]
-              }
-            />
-          </View>
-          <Text
-            labelColor="#E0E0E0"
-            style={
-              Array [
-                Object {
-                  "color": "#E0E0E0",
-                  "fontSize": 20,
-                  "paddingLeft": 10,
-                  "paddingRight": 0,
-                },
-              ]
-            }
-          >
-            Orange
-          </Text>
-        </View>
-      </>
+        />
+      </View>
+      <Text
+        labelColor="#E0E0E0"
+        style={
+          Array [
+            Object {
+              "color": "#E0E0E0",
+              "fontSize": 20,
+              "paddingLeft": 10,
+              "paddingRight": 0,
+            },
+          ]
+        }
+      >
+        Orange
+      </Text>
     </View>
   </View>
 </View>
@@ -2778,19 +2918,29 @@ exports[`[CheckboxGroup] render test should render options when CheckboxGroup pr
 
 exports[`[CheckboxGroup] render test should render without crashing 1`] = `
 <View
-  pointerEvents="box-none"
   style={
-    Object {
-      "flex": 1,
-    }
+    Array [
+      Object {
+        "alignItems": "flex-start",
+        "flexDirection": "column",
+        "flexWrap": "wrap",
+      },
+    ]
   }
 >
   <View
-    collapsable={true}
-    pointerEvents="box-none"
+    accessible={true}
+    focusable={true}
+    onClick={[Function]}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
     style={
       Object {
-        "flex": 1,
+        "margin": 10,
       }
     }
   >
@@ -2798,317 +2948,316 @@ exports[`[CheckboxGroup] render test should render without crashing 1`] = `
       style={
         Array [
           Object {
-            "alignItems": "flex-start",
-            "flexDirection": "column",
-            "flexWrap": "wrap",
+            "alignItems": "center",
+            "flexDirection": "row",
+            "justifyContent": "flex-start",
           },
         ]
       }
     >
-      <
-        disabled={false}
+      <View
         style={
-          Object {
-            "margin": 10,
-          }
+          Array [
+            Object {
+              "backgroundColor": "#1890FF",
+              "height": 20,
+              "paddingBottom": 1,
+              "paddingLeft": 1,
+              "paddingRight": 1,
+              "paddingTop": 1,
+              "width": 20,
+            },
+          ]
         }
-        underlayColor="transparent"
       >
         <View
+          isChecked={true}
           style={
             Array [
               Object {
                 "alignItems": "center",
-                "flexDirection": "row",
-                "justifyContent": "flex-start",
+                "backgroundColor": "transparent",
+                "flexBasis": 0,
+                "flexGrow": 1,
+                "flexShrink": 1,
+                "justifyContent": "center",
               },
             ]
           }
         >
-          <View
-            style={
-              Array [
-                Object {
-                  "backgroundColor": "#1890FF",
-                  "height": 20,
-                  "paddingBottom": 1,
-                  "paddingLeft": 1,
-                  "paddingRight": 1,
-                  "paddingTop": 1,
-                  "width": 20,
-                },
-              ]
-            }
-          >
-            <View
-              isChecked={true}
-              style={
-                Array [
-                  Object {
-                    "alignItems": "center",
-                    "backgroundColor": "transparent",
-                    "flexBasis": 0,
-                    "flexGrow": 1,
-                    "flexShrink": 1,
-                    "justifyContent": "center",
-                  },
-                ]
+          <Image
+            source={
+              Object {
+                "uri": "https://i.imgur.com/tC6YqOV.png",
               }
-            >
-              <Image
-                source={
-                  Object {
-                    "uri": "https://i.imgur.com/tC6YqOV.png",
-                  }
-                }
-                style={
-                  Array [
-                    Object {
-                      "height": "85%",
-                      "resizeMode": "contain",
-                      "tintColor": "#ffffff",
-                      "width": "85%",
-                    },
-                  ]
-                }
-              />
-            </View>
-          </View>
-          <Text
+            }
             style={
               Array [
                 Object {
-                  "color": "#000000",
-                  "fontSize": 20,
-                  "paddingLeft": 10,
-                  "paddingRight": 0,
+                  "height": "85%",
+                  "resizeMode": "contain",
+                  "tintColor": "#ffffff",
+                  "width": "85%",
                 },
               ]
             }
-          >
-            Apple
-          </Text>
+          />
         </View>
-      </>
-      <
-        disabled={false}
+      </View>
+      <Text
         style={
-          Object {
-            "margin": 10,
-          }
+          Array [
+            Object {
+              "color": "#000000",
+              "fontSize": 20,
+              "paddingLeft": 10,
+              "paddingRight": 0,
+            },
+          ]
         }
-        underlayColor="transparent"
+      >
+        Apple
+      </Text>
+    </View>
+  </View>
+  <View
+    accessible={true}
+    focusable={true}
+    onClick={[Function]}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      Object {
+        "margin": 10,
+      }
+    }
+  >
+    <View
+      style={
+        Array [
+          Object {
+            "alignItems": "center",
+            "flexDirection": "row",
+            "justifyContent": "flex-start",
+          },
+        ]
+      }
+    >
+      <View
+        style={
+          Array [
+            Object {
+              "backgroundColor": "#1890FF",
+              "height": 20,
+              "paddingBottom": 1,
+              "paddingLeft": 1,
+              "paddingRight": 1,
+              "paddingTop": 1,
+              "width": 20,
+            },
+          ]
+        }
       >
         <View
+          isChecked={false}
           style={
             Array [
               Object {
                 "alignItems": "center",
-                "flexDirection": "row",
-                "justifyContent": "flex-start",
+                "backgroundColor": "#ffffff",
+                "flexBasis": 0,
+                "flexGrow": 1,
+                "flexShrink": 1,
+                "justifyContent": "center",
               },
             ]
           }
-        >
-          <View
-            style={
-              Array [
-                Object {
-                  "backgroundColor": "#1890FF",
-                  "height": 20,
-                  "paddingBottom": 1,
-                  "paddingLeft": 1,
-                  "paddingRight": 1,
-                  "paddingTop": 1,
-                  "width": 20,
-                },
-              ]
-            }
-          >
-            <View
-              isChecked={false}
-              style={
-                Array [
-                  Object {
-                    "alignItems": "center",
-                    "backgroundColor": "#ffffff",
-                    "flexBasis": 0,
-                    "flexGrow": 1,
-                    "flexShrink": 1,
-                    "justifyContent": "center",
-                  },
-                ]
-              }
-            />
-          </View>
-          <Text
-            style={
-              Array [
-                Object {
-                  "color": "#000000",
-                  "fontSize": 20,
-                  "paddingLeft": 10,
-                  "paddingRight": 0,
-                },
-              ]
-            }
-          >
-            Pear
-          </Text>
-        </View>
-      </>
-      <
-        disabled={false}
+        />
+      </View>
+      <Text
         style={
-          Object {
-            "margin": 10,
-          }
+          Array [
+            Object {
+              "color": "#000000",
+              "fontSize": 20,
+              "paddingLeft": 10,
+              "paddingRight": 0,
+            },
+          ]
         }
-        underlayColor="transparent"
+      >
+        Pear
+      </Text>
+    </View>
+  </View>
+  <View
+    accessible={true}
+    focusable={true}
+    onClick={[Function]}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      Object {
+        "margin": 10,
+      }
+    }
+  >
+    <View
+      style={
+        Array [
+          Object {
+            "alignItems": "center",
+            "flexDirection": "row",
+            "justifyContent": "flex-start",
+          },
+        ]
+      }
+    >
+      <View
+        style={
+          Array [
+            Object {
+              "backgroundColor": "#1890FF",
+              "height": 20,
+              "paddingBottom": 1,
+              "paddingLeft": 1,
+              "paddingRight": 1,
+              "paddingTop": 1,
+              "width": 20,
+            },
+          ]
+        }
       >
         <View
+          isChecked={true}
           style={
             Array [
               Object {
                 "alignItems": "center",
-                "flexDirection": "row",
-                "justifyContent": "flex-start",
+                "backgroundColor": "transparent",
+                "flexBasis": 0,
+                "flexGrow": 1,
+                "flexShrink": 1,
+                "justifyContent": "center",
               },
             ]
           }
         >
-          <View
-            style={
-              Array [
-                Object {
-                  "backgroundColor": "#1890FF",
-                  "height": 20,
-                  "paddingBottom": 1,
-                  "paddingLeft": 1,
-                  "paddingRight": 1,
-                  "paddingTop": 1,
-                  "width": 20,
-                },
-              ]
-            }
-          >
-            <View
-              isChecked={true}
-              style={
-                Array [
-                  Object {
-                    "alignItems": "center",
-                    "backgroundColor": "transparent",
-                    "flexBasis": 0,
-                    "flexGrow": 1,
-                    "flexShrink": 1,
-                    "justifyContent": "center",
-                  },
-                ]
+          <Image
+            source={
+              Object {
+                "uri": "https://i.imgur.com/tC6YqOV.png",
               }
-            >
-              <Image
-                source={
-                  Object {
-                    "uri": "https://i.imgur.com/tC6YqOV.png",
-                  }
-                }
-                style={
-                  Array [
-                    Object {
-                      "height": "85%",
-                      "resizeMode": "contain",
-                      "tintColor": "#ffffff",
-                      "width": "85%",
-                    },
-                  ]
-                }
-              />
-            </View>
-          </View>
-          <Text
+            }
             style={
               Array [
                 Object {
-                  "color": "#000000",
-                  "fontSize": 20,
-                  "paddingLeft": 10,
-                  "paddingRight": 0,
+                  "height": "85%",
+                  "resizeMode": "contain",
+                  "tintColor": "#ffffff",
+                  "width": "85%",
                 },
               ]
             }
-          >
-            Orange
-          </Text>
+          />
         </View>
-      </>
-      <
-        disabled={false}
+      </View>
+      <Text
         style={
-          Object {
-            "margin": 10,
-          }
+          Array [
+            Object {
+              "color": "#000000",
+              "fontSize": 20,
+              "paddingLeft": 10,
+              "paddingRight": 0,
+            },
+          ]
         }
-        underlayColor="transparent"
+      >
+        Orange
+      </Text>
+    </View>
+  </View>
+  <View
+    accessible={true}
+    focusable={true}
+    onClick={[Function]}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      Object {
+        "margin": 10,
+      }
+    }
+  >
+    <View
+      style={
+        Array [
+          Object {
+            "alignItems": "center",
+            "flexDirection": "row",
+            "justifyContent": "flex-start",
+          },
+        ]
+      }
+    >
+      <View
+        style={
+          Array [
+            Object {
+              "backgroundColor": "#1890FF",
+              "height": 20,
+              "paddingBottom": 1,
+              "paddingLeft": 1,
+              "paddingRight": 1,
+              "paddingTop": 1,
+              "width": 20,
+            },
+          ]
+        }
       >
         <View
+          isChecked={false}
           style={
             Array [
               Object {
                 "alignItems": "center",
-                "flexDirection": "row",
-                "justifyContent": "flex-start",
+                "backgroundColor": "#ffffff",
+                "flexBasis": 0,
+                "flexGrow": 1,
+                "flexShrink": 1,
+                "justifyContent": "center",
               },
             ]
           }
-        >
-          <View
-            style={
-              Array [
-                Object {
-                  "backgroundColor": "#1890FF",
-                  "height": 20,
-                  "paddingBottom": 1,
-                  "paddingLeft": 1,
-                  "paddingRight": 1,
-                  "paddingTop": 1,
-                  "width": 20,
-                },
-              ]
-            }
-          >
-            <View
-              isChecked={false}
-              style={
-                Array [
-                  Object {
-                    "alignItems": "center",
-                    "backgroundColor": "#ffffff",
-                    "flexBasis": 0,
-                    "flexGrow": 1,
-                    "flexShrink": 1,
-                    "justifyContent": "center",
-                  },
-                ]
-              }
-            />
-          </View>
-          <Text
-            style={
-              Array [
-                Object {
-                  "color": "#000000",
-                  "fontSize": 20,
-                  "paddingLeft": 10,
-                  "paddingRight": 0,
-                },
-              ]
-            }
-          >
-            Mango
-          </Text>
-        </View>
-      </>
+        />
+      </View>
+      <Text
+        style={
+          Array [
+            Object {
+              "color": "#000000",
+              "fontSize": 20,
+              "paddingLeft": 10,
+              "paddingRight": 0,
+            },
+          ]
+        }
+      >
+        Mango
+      </Text>
     </View>
   </View>
 </View>

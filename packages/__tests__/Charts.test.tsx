@@ -2,13 +2,13 @@ import * as React from 'react';
 
 import { BarChart, LineChart } from '../Charts/lib';
 import {
-  RenderResult,
+  RenderAPI,
   render,
 } from '@testing-library/react-native';
 
 let props: any;
 let component: React.ReactElement;
-let testingLib: RenderResult;
+let testingLib: RenderAPI;
 
 const testingData = [
   {
@@ -93,7 +93,7 @@ describe('[LineChart] renders', () => {
 
     component = <LineChart {...props} />;
     testingLib = render(component);
-    expect(testingLib.baseElement).toBeTruthy();
+    expect(testingLib.toJSON()).toBeTruthy();
   });
 
   it('[BarChart] should render when custom props given', () => {
@@ -110,7 +110,7 @@ describe('[LineChart] renders', () => {
 
     testingLib = render(component);
     jest.runAllTimers();
-    expect(testingLib.baseElement).toBeTruthy();
+    expect(testingLib.toJSON()).toBeTruthy();
   });
 });
 
@@ -125,7 +125,7 @@ describe('[BarChart] renders', () => {
 
     component = <BarChart {...props} />;
     testingLib = render(component);
-    expect(testingLib.baseElement).toBeTruthy();
+    expect(testingLib.toJSON()).toBeTruthy();
   });
 
   it('[BarChart] should render when custom props given', () => {
@@ -142,6 +142,6 @@ describe('[BarChart] renders', () => {
 
     testingLib = render(component);
     jest.runAllTimers();
-    expect(testingLib.baseElement).toBeTruthy();
+    expect(testingLib.toJSON()).toBeTruthy();
   });
 });

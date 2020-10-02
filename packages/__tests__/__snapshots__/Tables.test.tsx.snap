@@ -1,34 +1,19 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`[Tables] render test should render checkbox when isCheckAble is true 1`] = `
-<View
-  pointerEvents="box-none"
+<RCTScrollView
   style={
     Object {
-      "flex": 1,
+      "height": "100%",
+      "width": "100%",
     }
   }
 >
-  <View
-    collapsable={true}
-    pointerEvents="box-none"
-    style={
-      Object {
-        "flex": 1,
-      }
-    }
-  >
-    <ScrollView
-      style={
-        Object {
-          "height": "100%",
-          "width": "100%",
-        }
-      }
+  <View>
+    <RCTScrollView
+      horizontal={true}
     >
-      <ScrollView
-        horizontal={true}
-      >
+      <View>
         <View
           style={
             Array [
@@ -61,237 +46,267 @@ exports[`[Tables] render test should render checkbox when isCheckAble is true 1`
             }
             testID="table-header-test-id"
           >
-            <TouchableWithoutFeedback
-              disabled={true}
+            <View
+              accessible={true}
+              focusable={false}
+              isCheckAble={false}
+              onClick={[Function]}
+              onResponderGrant={[Function]}
+              onResponderMove={[Function]}
+              onResponderRelease={[Function]}
+              onResponderTerminate={[Function]}
+              onResponderTerminationRequest={[Function]}
+              onStartShouldSetResponder={[Function]}
+              style={
+                Array [
+                  Object {
+                    "alignContent": "center",
+                    "flexDirection": "row",
+                    "width": 100,
+                  },
+                  Object {
+                    "paddingVertical": 12,
+                  },
+                  undefined,
+                ]
+              }
               testID="table-title-test-id"
             >
-              <View
-                isCheckAble={false}
+              <Text
                 style={
                   Array [
                     Object {
-                      "alignContent": "center",
-                      "flexDirection": "row",
-                      "width": 100,
+                      "alignItems": "center",
+                      "fontSize": 12,
+                      "height": 24,
+                      "lineHeight": 24,
+                      "textAlign": "center",
+                      "width": "100%",
                     },
-                    Object {
-                      "paddingVertical": 12,
-                    },
-                    undefined,
                   ]
                 }
-              >
-                <Text
-                  style={
-                    Array [
-                      Object {
-                        "alignItems": "center",
-                        "fontSize": 12,
-                        "height": 24,
-                        "lineHeight": 24,
-                        "textAlign": "center",
-                        "width": "100%",
-                      },
-                    ]
-                  }
-                />
-              </View>
-            </TouchableWithoutFeedback>
-            <TouchableWithoutFeedback
-              disabled={true}
+              />
+            </View>
+            <View
+              accessible={true}
+              focusable={false}
+              isCheckAble={true}
+              onClick={[Function]}
+              onResponderGrant={[Function]}
+              onResponderMove={[Function]}
+              onResponderRelease={[Function]}
+              onResponderTerminate={[Function]}
+              onResponderTerminationRequest={[Function]}
+              onStartShouldSetResponder={[Function]}
+              style={
+                Array [
+                  Object {
+                    "alignContent": "center",
+                    "flexDirection": "row",
+                    "width": 50,
+                  },
+                  Object {
+                    "paddingVertical": 12,
+                  },
+                  undefined,
+                ]
+              }
               testID="table-title-test-id"
             >
-              <View
-                isCheckAble={true}
+              <Text
+                numberOfLines={1}
                 style={
                   Array [
                     Object {
-                      "alignContent": "center",
-                      "flexDirection": "row",
-                      "width": 50,
+                      "alignItems": "center",
+                      "fontSize": 12,
+                      "height": 24,
+                      "lineHeight": 24,
+                      "textAlign": "center",
+                      "width": "100%",
                     },
-                    Object {
-                      "paddingVertical": 12,
-                    },
-                    undefined,
                   ]
                 }
               >
-                <Text
-                  numberOfLines={1}
-                  style={
-                    Array [
-                      Object {
-                        "alignItems": "center",
-                        "fontSize": 12,
-                        "height": 24,
-                        "lineHeight": 24,
-                        "textAlign": "center",
-                        "width": "100%",
-                      },
-                    ]
-                  }
-                >
-                  id
-                </Text>
-              </View>
-            </TouchableWithoutFeedback>
-            <TouchableWithoutFeedback
-              disabled={true}
+                id
+              </Text>
+            </View>
+            <View
+              accessible={true}
+              focusable={false}
+              isCheckAble={false}
+              onClick={[Function]}
+              onResponderGrant={[Function]}
+              onResponderMove={[Function]}
+              onResponderRelease={[Function]}
+              onResponderTerminate={[Function]}
+              onResponderTerminationRequest={[Function]}
+              onStartShouldSetResponder={[Function]}
+              style={
+                Array [
+                  Object {
+                    "alignContent": "center",
+                    "flexDirection": "row",
+                    "width": 100,
+                  },
+                  Object {
+                    "paddingVertical": 12,
+                  },
+                  undefined,
+                ]
+              }
               testID="table-title-test-id"
             >
-              <View
-                isCheckAble={false}
+              <Text
+                numberOfLines={1}
                 style={
                   Array [
                     Object {
-                      "alignContent": "center",
-                      "flexDirection": "row",
-                      "width": 100,
+                      "alignItems": "center",
+                      "fontSize": 12,
+                      "height": 24,
+                      "lineHeight": 24,
+                      "textAlign": "center",
+                      "width": "100%",
                     },
-                    Object {
-                      "paddingVertical": 12,
-                    },
-                    undefined,
                   ]
                 }
               >
-                <Text
-                  numberOfLines={1}
-                  style={
-                    Array [
-                      Object {
-                        "alignItems": "center",
-                        "fontSize": 12,
-                        "height": 24,
-                        "lineHeight": 24,
-                        "textAlign": "center",
-                        "width": "100%",
-                      },
-                    ]
-                  }
-                >
-                  name
-                </Text>
-              </View>
-            </TouchableWithoutFeedback>
-            <TouchableWithoutFeedback
-              disabled={true}
+                name
+              </Text>
+            </View>
+            <View
+              accessible={true}
+              focusable={false}
+              isCheckAble={false}
+              onClick={[Function]}
+              onResponderGrant={[Function]}
+              onResponderMove={[Function]}
+              onResponderRelease={[Function]}
+              onResponderTerminate={[Function]}
+              onResponderTerminationRequest={[Function]}
+              onStartShouldSetResponder={[Function]}
+              style={
+                Array [
+                  Object {
+                    "alignContent": "center",
+                    "flexDirection": "row",
+                    "width": 100,
+                  },
+                  Object {
+                    "paddingVertical": 12,
+                  },
+                  undefined,
+                ]
+              }
               testID="table-title-test-id"
             >
-              <View
-                isCheckAble={false}
+              <Text
+                numberOfLines={1}
                 style={
                   Array [
                     Object {
-                      "alignContent": "center",
-                      "flexDirection": "row",
-                      "width": 100,
+                      "alignItems": "center",
+                      "fontSize": 12,
+                      "height": 24,
+                      "lineHeight": 24,
+                      "textAlign": "center",
+                      "width": "100%",
                     },
-                    Object {
-                      "paddingVertical": 12,
-                    },
-                    undefined,
                   ]
                 }
               >
-                <Text
-                  numberOfLines={1}
-                  style={
-                    Array [
-                      Object {
-                        "alignItems": "center",
-                        "fontSize": 12,
-                        "height": 24,
-                        "lineHeight": 24,
-                        "textAlign": "center",
-                        "width": "100%",
-                      },
-                    ]
-                  }
-                >
-                  phoneNumber
-                </Text>
-              </View>
-            </TouchableWithoutFeedback>
-            <TouchableWithoutFeedback
-              disabled={true}
+                phoneNumber
+              </Text>
+            </View>
+            <View
+              accessible={true}
+              focusable={false}
+              isCheckAble={false}
+              onClick={[Function]}
+              onResponderGrant={[Function]}
+              onResponderMove={[Function]}
+              onResponderRelease={[Function]}
+              onResponderTerminate={[Function]}
+              onResponderTerminationRequest={[Function]}
+              onStartShouldSetResponder={[Function]}
+              style={
+                Array [
+                  Object {
+                    "alignContent": "center",
+                    "flexDirection": "row",
+                    "width": 100,
+                  },
+                  Object {
+                    "paddingVertical": 12,
+                  },
+                  undefined,
+                ]
+              }
               testID="table-title-test-id"
             >
-              <View
-                isCheckAble={false}
+              <Text
+                numberOfLines={1}
                 style={
                   Array [
                     Object {
-                      "alignContent": "center",
-                      "flexDirection": "row",
-                      "width": 100,
+                      "alignItems": "center",
+                      "fontSize": 12,
+                      "height": 24,
+                      "lineHeight": 24,
+                      "textAlign": "center",
+                      "width": "100%",
                     },
-                    Object {
-                      "paddingVertical": 12,
-                    },
-                    undefined,
                   ]
                 }
               >
-                <Text
-                  numberOfLines={1}
-                  style={
-                    Array [
-                      Object {
-                        "alignItems": "center",
-                        "fontSize": 12,
-                        "height": 24,
-                        "lineHeight": 24,
-                        "textAlign": "center",
-                        "width": "100%",
-                      },
-                    ]
-                  }
-                >
-                  email
-                </Text>
-              </View>
-            </TouchableWithoutFeedback>
-            <TouchableWithoutFeedback
-              disabled={true}
+                email
+              </Text>
+            </View>
+            <View
+              accessible={true}
+              focusable={false}
+              isCheckAble={false}
+              onClick={[Function]}
+              onResponderGrant={[Function]}
+              onResponderMove={[Function]}
+              onResponderRelease={[Function]}
+              onResponderTerminate={[Function]}
+              onResponderTerminationRequest={[Function]}
+              onStartShouldSetResponder={[Function]}
+              style={
+                Array [
+                  Object {
+                    "alignContent": "center",
+                    "flexDirection": "row",
+                    "width": 100,
+                  },
+                  Object {
+                    "paddingVertical": 12,
+                  },
+                  undefined,
+                ]
+              }
               testID="table-title-test-id"
             >
-              <View
-                isCheckAble={false}
+              <Text
+                numberOfLines={1}
                 style={
                   Array [
                     Object {
-                      "alignContent": "center",
-                      "flexDirection": "row",
-                      "width": 100,
+                      "alignItems": "center",
+                      "fontSize": 12,
+                      "height": 24,
+                      "lineHeight": 24,
+                      "textAlign": "center",
+                      "width": "100%",
                     },
-                    Object {
-                      "paddingVertical": 12,
-                    },
-                    undefined,
                   ]
                 }
               >
-                <Text
-                  numberOfLines={1}
-                  style={
-                    Array [
-                      Object {
-                        "alignItems": "center",
-                        "fontSize": 12,
-                        "height": 24,
-                        "lineHeight": 24,
-                        "textAlign": "center",
-                        "width": "100%",
-                      },
-                    ]
-                  }
-                >
-                  nickname
-                </Text>
-              </View>
-            </TouchableWithoutFeedback>
+                nickname
+              </Text>
+            </View>
           </View>
           <View
             style={
@@ -356,7 +371,21 @@ exports[`[Tables] render test should render checkbox when isCheckAble is true 1`
                     ]
                   }
                 >
-                  <
+                  <View
+                    accessible={true}
+                    focusable={true}
+                    onClick={[Function]}
+                    onResponderGrant={[Function]}
+                    onResponderMove={[Function]}
+                    onResponderRelease={[Function]}
+                    onResponderTerminate={[Function]}
+                    onResponderTerminationRequest={[Function]}
+                    onStartShouldSetResponder={[Function]}
+                    style={
+                      Object {
+                        "opacity": 1,
+                      }
+                    }
                     testID="checkbox-test-id"
                   >
                     <View
@@ -392,7 +421,7 @@ exports[`[Tables] render test should render checkbox when isCheckAble is true 1`
                         }
                       />
                     </View>
-                  </>
+                  </View>
                 </Text>
               </View>
               <View
@@ -635,7 +664,21 @@ exports[`[Tables] render test should render checkbox when isCheckAble is true 1`
                     ]
                   }
                 >
-                  <
+                  <View
+                    accessible={true}
+                    focusable={true}
+                    onClick={[Function]}
+                    onResponderGrant={[Function]}
+                    onResponderMove={[Function]}
+                    onResponderRelease={[Function]}
+                    onResponderTerminate={[Function]}
+                    onResponderTerminationRequest={[Function]}
+                    onStartShouldSetResponder={[Function]}
+                    style={
+                      Object {
+                        "opacity": 1,
+                      }
+                    }
                     testID="checkbox-test-id"
                   >
                     <View
@@ -671,7 +714,7 @@ exports[`[Tables] render test should render checkbox when isCheckAble is true 1`
                         }
                       />
                     </View>
-                  </>
+                  </View>
                 </Text>
               </View>
               <View
@@ -914,7 +957,21 @@ exports[`[Tables] render test should render checkbox when isCheckAble is true 1`
                     ]
                   }
                 >
-                  <
+                  <View
+                    accessible={true}
+                    focusable={true}
+                    onClick={[Function]}
+                    onResponderGrant={[Function]}
+                    onResponderMove={[Function]}
+                    onResponderRelease={[Function]}
+                    onResponderTerminate={[Function]}
+                    onResponderTerminationRequest={[Function]}
+                    onStartShouldSetResponder={[Function]}
+                    style={
+                      Object {
+                        "opacity": 1,
+                      }
+                    }
                     testID="checkbox-test-id"
                   >
                     <View
@@ -950,7 +1007,7 @@ exports[`[Tables] render test should render checkbox when isCheckAble is true 1`
                         }
                       />
                     </View>
-                  </>
+                  </View>
                 </Text>
               </View>
               <View
@@ -1193,7 +1250,21 @@ exports[`[Tables] render test should render checkbox when isCheckAble is true 1`
                     ]
                   }
                 >
-                  <
+                  <View
+                    accessible={true}
+                    focusable={true}
+                    onClick={[Function]}
+                    onResponderGrant={[Function]}
+                    onResponderMove={[Function]}
+                    onResponderRelease={[Function]}
+                    onResponderTerminate={[Function]}
+                    onResponderTerminationRequest={[Function]}
+                    onStartShouldSetResponder={[Function]}
+                    style={
+                      Object {
+                        "opacity": 1,
+                      }
+                    }
                     testID="checkbox-test-id"
                   >
                     <View
@@ -1229,7 +1300,7 @@ exports[`[Tables] render test should render checkbox when isCheckAble is true 1`
                         }
                       />
                     </View>
-                  </>
+                  </View>
                 </Text>
               </View>
               <View
@@ -1472,7 +1543,21 @@ exports[`[Tables] render test should render checkbox when isCheckAble is true 1`
                     ]
                   }
                 >
-                  <
+                  <View
+                    accessible={true}
+                    focusable={true}
+                    onClick={[Function]}
+                    onResponderGrant={[Function]}
+                    onResponderMove={[Function]}
+                    onResponderRelease={[Function]}
+                    onResponderTerminate={[Function]}
+                    onResponderTerminationRequest={[Function]}
+                    onStartShouldSetResponder={[Function]}
+                    style={
+                      Object {
+                        "opacity": 1,
+                      }
+                    }
                     testID="checkbox-test-id"
                   >
                     <View
@@ -1508,7 +1593,7 @@ exports[`[Tables] render test should render checkbox when isCheckAble is true 1`
                         }
                       />
                     </View>
-                  </>
+                  </View>
                 </Text>
               </View>
               <View
@@ -1751,7 +1836,21 @@ exports[`[Tables] render test should render checkbox when isCheckAble is true 1`
                     ]
                   }
                 >
-                  <
+                  <View
+                    accessible={true}
+                    focusable={true}
+                    onClick={[Function]}
+                    onResponderGrant={[Function]}
+                    onResponderMove={[Function]}
+                    onResponderRelease={[Function]}
+                    onResponderTerminate={[Function]}
+                    onResponderTerminationRequest={[Function]}
+                    onStartShouldSetResponder={[Function]}
+                    style={
+                      Object {
+                        "opacity": 1,
+                      }
+                    }
                     testID="checkbox-test-id"
                   >
                     <View
@@ -1787,7 +1886,7 @@ exports[`[Tables] render test should render checkbox when isCheckAble is true 1`
                         }
                       />
                     </View>
-                  </>
+                  </View>
                 </Text>
               </View>
               <View
@@ -2030,7 +2129,21 @@ exports[`[Tables] render test should render checkbox when isCheckAble is true 1`
                     ]
                   }
                 >
-                  <
+                  <View
+                    accessible={true}
+                    focusable={true}
+                    onClick={[Function]}
+                    onResponderGrant={[Function]}
+                    onResponderMove={[Function]}
+                    onResponderRelease={[Function]}
+                    onResponderTerminate={[Function]}
+                    onResponderTerminationRequest={[Function]}
+                    onStartShouldSetResponder={[Function]}
+                    style={
+                      Object {
+                        "opacity": 1,
+                      }
+                    }
                     testID="checkbox-test-id"
                   >
                     <View
@@ -2066,7 +2179,7 @@ exports[`[Tables] render test should render checkbox when isCheckAble is true 1`
                         }
                       />
                     </View>
-                  </>
+                  </View>
                 </Text>
               </View>
               <View
@@ -2309,7 +2422,21 @@ exports[`[Tables] render test should render checkbox when isCheckAble is true 1`
                     ]
                   }
                 >
-                  <
+                  <View
+                    accessible={true}
+                    focusable={true}
+                    onClick={[Function]}
+                    onResponderGrant={[Function]}
+                    onResponderMove={[Function]}
+                    onResponderRelease={[Function]}
+                    onResponderTerminate={[Function]}
+                    onResponderTerminationRequest={[Function]}
+                    onStartShouldSetResponder={[Function]}
+                    style={
+                      Object {
+                        "opacity": 1,
+                      }
+                    }
                     testID="checkbox-test-id"
                   >
                     <View
@@ -2345,7 +2472,7 @@ exports[`[Tables] render test should render checkbox when isCheckAble is true 1`
                         }
                       />
                     </View>
-                  </>
+                  </View>
                 </Text>
               </View>
               <View
@@ -2588,7 +2715,21 @@ exports[`[Tables] render test should render checkbox when isCheckAble is true 1`
                     ]
                   }
                 >
-                  <
+                  <View
+                    accessible={true}
+                    focusable={true}
+                    onClick={[Function]}
+                    onResponderGrant={[Function]}
+                    onResponderMove={[Function]}
+                    onResponderRelease={[Function]}
+                    onResponderTerminate={[Function]}
+                    onResponderTerminationRequest={[Function]}
+                    onStartShouldSetResponder={[Function]}
+                    style={
+                      Object {
+                        "opacity": 1,
+                      }
+                    }
                     testID="checkbox-test-id"
                   >
                     <View
@@ -2624,7 +2765,7 @@ exports[`[Tables] render test should render checkbox when isCheckAble is true 1`
                         }
                       />
                     </View>
-                  </>
+                  </View>
                 </Text>
               </View>
               <View
@@ -2867,7 +3008,21 @@ exports[`[Tables] render test should render checkbox when isCheckAble is true 1`
                     ]
                   }
                 >
-                  <
+                  <View
+                    accessible={true}
+                    focusable={true}
+                    onClick={[Function]}
+                    onResponderGrant={[Function]}
+                    onResponderMove={[Function]}
+                    onResponderRelease={[Function]}
+                    onResponderTerminate={[Function]}
+                    onResponderTerminationRequest={[Function]}
+                    onStartShouldSetResponder={[Function]}
+                    style={
+                      Object {
+                        "opacity": 1,
+                      }
+                    }
                     testID="checkbox-test-id"
                   >
                     <View
@@ -2903,7 +3058,7 @@ exports[`[Tables] render test should render checkbox when isCheckAble is true 1`
                         }
                       />
                     </View>
-                  </>
+                  </View>
                 </Text>
               </View>
               <View
@@ -3084,41 +3239,26 @@ exports[`[Tables] render test should render checkbox when isCheckAble is true 1`
             </View>
           </View>
         </View>
-      </ScrollView>
-    </ScrollView>
+      </View>
+    </RCTScrollView>
   </View>
-</View>
+</RCTScrollView>
 `;
 
 exports[`[Tables] render test should render collapsed when collapsedWhenRendered props is false 1`] = `
-<View
-  pointerEvents="box-none"
+<RCTScrollView
   style={
     Object {
-      "flex": 1,
+      "height": "100%",
+      "width": "100%",
     }
   }
 >
-  <View
-    collapsable={true}
-    pointerEvents="box-none"
-    style={
-      Object {
-        "flex": 1,
-      }
-    }
-  >
-    <ScrollView
-      style={
-        Object {
-          "height": "100%",
-          "width": "100%",
-        }
-      }
+  <View>
+    <RCTScrollView
+      horizontal={true}
     >
-      <ScrollView
-        horizontal={true}
-      >
+      <View>
         <View
           style={
             Array [
@@ -3151,237 +3291,267 @@ exports[`[Tables] render test should render collapsed when collapsedWhenRendered
             }
             testID="table-header-test-id"
           >
-            <TouchableWithoutFeedback
-              disabled={true}
+            <View
+              accessible={true}
+              focusable={false}
+              isCheckAble={true}
+              onClick={[Function]}
+              onResponderGrant={[Function]}
+              onResponderMove={[Function]}
+              onResponderRelease={[Function]}
+              onResponderTerminate={[Function]}
+              onResponderTerminationRequest={[Function]}
+              onStartShouldSetResponder={[Function]}
+              style={
+                Array [
+                  Object {
+                    "alignContent": "center",
+                    "flexDirection": "row",
+                    "width": 50,
+                  },
+                  Object {
+                    "paddingVertical": 12,
+                  },
+                  undefined,
+                ]
+              }
               testID="table-title-test-id"
             >
-              <View
-                isCheckAble={true}
+              <Text
                 style={
                   Array [
                     Object {
-                      "alignContent": "center",
-                      "flexDirection": "row",
-                      "width": 50,
+                      "alignItems": "center",
+                      "fontSize": 12,
+                      "height": 24,
+                      "lineHeight": 24,
+                      "textAlign": "center",
+                      "width": "100%",
                     },
-                    Object {
-                      "paddingVertical": 12,
-                    },
-                    undefined,
                   ]
                 }
-              >
-                <Text
-                  style={
-                    Array [
-                      Object {
-                        "alignItems": "center",
-                        "fontSize": 12,
-                        "height": 24,
-                        "lineHeight": 24,
-                        "textAlign": "center",
-                        "width": "100%",
-                      },
-                    ]
-                  }
-                />
-              </View>
-            </TouchableWithoutFeedback>
-            <TouchableWithoutFeedback
-              disabled={true}
+              />
+            </View>
+            <View
+              accessible={true}
+              focusable={false}
+              isCheckAble={true}
+              onClick={[Function]}
+              onResponderGrant={[Function]}
+              onResponderMove={[Function]}
+              onResponderRelease={[Function]}
+              onResponderTerminate={[Function]}
+              onResponderTerminationRequest={[Function]}
+              onStartShouldSetResponder={[Function]}
+              style={
+                Array [
+                  Object {
+                    "alignContent": "center",
+                    "flexDirection": "row",
+                    "width": 50,
+                  },
+                  Object {
+                    "paddingVertical": 12,
+                  },
+                  undefined,
+                ]
+              }
               testID="table-title-test-id"
             >
-              <View
-                isCheckAble={true}
+              <Text
+                numberOfLines={1}
                 style={
                   Array [
                     Object {
-                      "alignContent": "center",
-                      "flexDirection": "row",
-                      "width": 50,
+                      "alignItems": "center",
+                      "fontSize": 12,
+                      "height": 24,
+                      "lineHeight": 24,
+                      "textAlign": "center",
+                      "width": "100%",
                     },
-                    Object {
-                      "paddingVertical": 12,
-                    },
-                    undefined,
                   ]
                 }
               >
-                <Text
-                  numberOfLines={1}
-                  style={
-                    Array [
-                      Object {
-                        "alignItems": "center",
-                        "fontSize": 12,
-                        "height": 24,
-                        "lineHeight": 24,
-                        "textAlign": "center",
-                        "width": "100%",
-                      },
-                    ]
-                  }
-                >
-                  id
-                </Text>
-              </View>
-            </TouchableWithoutFeedback>
-            <TouchableWithoutFeedback
-              disabled={true}
+                id
+              </Text>
+            </View>
+            <View
+              accessible={true}
+              focusable={false}
+              isCheckAble={false}
+              onClick={[Function]}
+              onResponderGrant={[Function]}
+              onResponderMove={[Function]}
+              onResponderRelease={[Function]}
+              onResponderTerminate={[Function]}
+              onResponderTerminationRequest={[Function]}
+              onStartShouldSetResponder={[Function]}
+              style={
+                Array [
+                  Object {
+                    "alignContent": "center",
+                    "flexDirection": "row",
+                    "width": 100,
+                  },
+                  Object {
+                    "paddingVertical": 12,
+                  },
+                  undefined,
+                ]
+              }
               testID="table-title-test-id"
             >
-              <View
-                isCheckAble={false}
+              <Text
+                numberOfLines={1}
                 style={
                   Array [
                     Object {
-                      "alignContent": "center",
-                      "flexDirection": "row",
-                      "width": 100,
+                      "alignItems": "center",
+                      "fontSize": 12,
+                      "height": 24,
+                      "lineHeight": 24,
+                      "textAlign": "center",
+                      "width": "100%",
                     },
-                    Object {
-                      "paddingVertical": 12,
-                    },
-                    undefined,
                   ]
                 }
               >
-                <Text
-                  numberOfLines={1}
-                  style={
-                    Array [
-                      Object {
-                        "alignItems": "center",
-                        "fontSize": 12,
-                        "height": 24,
-                        "lineHeight": 24,
-                        "textAlign": "center",
-                        "width": "100%",
-                      },
-                    ]
-                  }
-                >
-                  name
-                </Text>
-              </View>
-            </TouchableWithoutFeedback>
-            <TouchableWithoutFeedback
-              disabled={true}
+                name
+              </Text>
+            </View>
+            <View
+              accessible={true}
+              focusable={false}
+              isCheckAble={false}
+              onClick={[Function]}
+              onResponderGrant={[Function]}
+              onResponderMove={[Function]}
+              onResponderRelease={[Function]}
+              onResponderTerminate={[Function]}
+              onResponderTerminationRequest={[Function]}
+              onStartShouldSetResponder={[Function]}
+              style={
+                Array [
+                  Object {
+                    "alignContent": "center",
+                    "flexDirection": "row",
+                    "width": 100,
+                  },
+                  Object {
+                    "paddingVertical": 12,
+                  },
+                  undefined,
+                ]
+              }
               testID="table-title-test-id"
             >
-              <View
-                isCheckAble={false}
+              <Text
+                numberOfLines={1}
                 style={
                   Array [
                     Object {
-                      "alignContent": "center",
-                      "flexDirection": "row",
-                      "width": 100,
+                      "alignItems": "center",
+                      "fontSize": 12,
+                      "height": 24,
+                      "lineHeight": 24,
+                      "textAlign": "center",
+                      "width": "100%",
                     },
-                    Object {
-                      "paddingVertical": 12,
-                    },
-                    undefined,
                   ]
                 }
               >
-                <Text
-                  numberOfLines={1}
-                  style={
-                    Array [
-                      Object {
-                        "alignItems": "center",
-                        "fontSize": 12,
-                        "height": 24,
-                        "lineHeight": 24,
-                        "textAlign": "center",
-                        "width": "100%",
-                      },
-                    ]
-                  }
-                >
-                  phoneNumber
-                </Text>
-              </View>
-            </TouchableWithoutFeedback>
-            <TouchableWithoutFeedback
-              disabled={true}
+                phoneNumber
+              </Text>
+            </View>
+            <View
+              accessible={true}
+              focusable={false}
+              isCheckAble={false}
+              onClick={[Function]}
+              onResponderGrant={[Function]}
+              onResponderMove={[Function]}
+              onResponderRelease={[Function]}
+              onResponderTerminate={[Function]}
+              onResponderTerminationRequest={[Function]}
+              onStartShouldSetResponder={[Function]}
+              style={
+                Array [
+                  Object {
+                    "alignContent": "center",
+                    "flexDirection": "row",
+                    "width": 100,
+                  },
+                  Object {
+                    "paddingVertical": 12,
+                  },
+                  undefined,
+                ]
+              }
               testID="table-title-test-id"
             >
-              <View
-                isCheckAble={false}
+              <Text
+                numberOfLines={1}
                 style={
                   Array [
                     Object {
-                      "alignContent": "center",
-                      "flexDirection": "row",
-                      "width": 100,
+                      "alignItems": "center",
+                      "fontSize": 12,
+                      "height": 24,
+                      "lineHeight": 24,
+                      "textAlign": "center",
+                      "width": "100%",
                     },
-                    Object {
-                      "paddingVertical": 12,
-                    },
-                    undefined,
                   ]
                 }
               >
-                <Text
-                  numberOfLines={1}
-                  style={
-                    Array [
-                      Object {
-                        "alignItems": "center",
-                        "fontSize": 12,
-                        "height": 24,
-                        "lineHeight": 24,
-                        "textAlign": "center",
-                        "width": "100%",
-                      },
-                    ]
-                  }
-                >
-                  email
-                </Text>
-              </View>
-            </TouchableWithoutFeedback>
-            <TouchableWithoutFeedback
-              disabled={true}
+                email
+              </Text>
+            </View>
+            <View
+              accessible={true}
+              focusable={false}
+              isCheckAble={false}
+              onClick={[Function]}
+              onResponderGrant={[Function]}
+              onResponderMove={[Function]}
+              onResponderRelease={[Function]}
+              onResponderTerminate={[Function]}
+              onResponderTerminationRequest={[Function]}
+              onStartShouldSetResponder={[Function]}
+              style={
+                Array [
+                  Object {
+                    "alignContent": "center",
+                    "flexDirection": "row",
+                    "width": 100,
+                  },
+                  Object {
+                    "paddingVertical": 12,
+                  },
+                  undefined,
+                ]
+              }
               testID="table-title-test-id"
             >
-              <View
-                isCheckAble={false}
+              <Text
+                numberOfLines={1}
                 style={
                   Array [
                     Object {
-                      "alignContent": "center",
-                      "flexDirection": "row",
-                      "width": 100,
+                      "alignItems": "center",
+                      "fontSize": 12,
+                      "height": 24,
+                      "lineHeight": 24,
+                      "textAlign": "center",
+                      "width": "100%",
                     },
-                    Object {
-                      "paddingVertical": 12,
-                    },
-                    undefined,
                   ]
                 }
               >
-                <Text
-                  numberOfLines={1}
-                  style={
-                    Array [
-                      Object {
-                        "alignItems": "center",
-                        "fontSize": 12,
-                        "height": 24,
-                        "lineHeight": 24,
-                        "textAlign": "center",
-                        "width": "100%",
-                      },
-                    ]
-                  }
-                >
-                  nickname
-                </Text>
-              </View>
-            </TouchableWithoutFeedback>
+                nickname
+              </Text>
+            </View>
           </View>
           <View
             style={
@@ -5764,8 +5934,8 @@ exports[`[Tables] render test should render collapsed when collapsedWhenRendered
             </View>
           </View>
         </View>
-      </ScrollView>
-    </ScrollView>
+      </View>
+    </RCTScrollView>
   </View>
-</View>
+</RCTScrollView>
 `;

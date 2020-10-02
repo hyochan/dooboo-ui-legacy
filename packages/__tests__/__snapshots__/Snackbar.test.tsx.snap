@@ -8,14 +8,27 @@ exports[`[Snackbar] renders TestWrapper without crashing 1`] = `
     }
   }
 >
-  <
-    onPress={[Function]}
+  <View
+    accessible={true}
+    focusable={true}
+    onClick={[Function]}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      Object {
+        "opacity": 1,
+      }
+    }
     testID="Button"
   >
     <Text>
       show snack bar
     </Text>
-  </>
+  </View>
 </View>
 `;
 
@@ -35,14 +48,27 @@ exports[`[Snackbar] using provider renders TestElement using whole screen view w
       }
     }
   >
-    <
-      onPress={[Function]}
+    <View
+      accessible={true}
+      focusable={true}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "opacity": 1,
+        }
+      }
       testID="Button"
     >
       <Text>
         show snack bar
       </Text>
-    </>
+    </View>
   </View>
 </View>
 `;
@@ -63,14 +89,27 @@ exports[`[Snackbar] using provider renders TestElement without crashing 1`] = `
       }
     }
   >
-    <
-      onPress={[Function]}
+    <View
+      accessible={true}
+      focusable={true}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "opacity": 1,
+        }
+      }
       testID="Button"
     >
       <Text>
         show snack bar
       </Text>
-    </>
+    </View>
   </View>
 </View>
 `;

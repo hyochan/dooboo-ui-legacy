@@ -1,8 +1,5 @@
 import React, { ReactElement } from 'react';
 
-import {
-  RenderResult,
-} from '@testing-library/react-native';
 import { SwitchToggle } from '../../main';
 import { TouchableOpacity } from 'react-native';
 import renderer from 'react-test-renderer';

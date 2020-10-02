@@ -5,7 +5,7 @@ process.env.TZ = 'Asia/Seoul';
 
 module.exports = {
   ...tsJestConfig,
-  preset: '@testing-library/react-native',
+  preset: 'react-native',
   transformIgnorePatterns: [
     'node_modules/(?!(.*-)?react-(.*-)?native(-.*)?)',
   ],

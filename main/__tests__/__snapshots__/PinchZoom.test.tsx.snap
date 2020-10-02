@@ -54,17 +54,7 @@ exports[`PinchZoom of ImageSlider should renders without crashing 1`] = `
       style={
         Object {
           "justifyContent": "center",
-          "transform": Array [
-            Object {
-              "translateX": 0,
-            },
-            Object {
-              "translateY": 0,
-            },
-            Object {
-              "scale": 1,
-            },
-          ],
+          "transform": undefined,
           "width": 300,
         }
       }
@@ -116,6 +106,12 @@ exports[`PinchZoom of ImageSlider should renders without crashing 1`] = `
           "transform": Array [
             Object {
               "translateX": 0,
+            },
+            Object {
+              "translateY": 0,
+            },
+            Object {
+              "scale": 1,
             },
           ],
           "width": 300,

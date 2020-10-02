@@ -18,6 +18,7 @@ export default function Arrow(props: Props): React.ReactElement {
           y1={7}
           x2={10}
           y2={12}
+          // @ts-ignore
           stroke={customColor.color || '#2b2b2b'}
           strokeWidth="1.5"
           strokeLinecap="round"
@@ -28,6 +29,7 @@ export default function Arrow(props: Props): React.ReactElement {
           y1={12}
           x2={15}
           y2={7}
+          // @ts-ignore
           stroke={customColor.color || '#2b2b2b'}
           strokeWidth="1.5"
           strokeLinecap="round"

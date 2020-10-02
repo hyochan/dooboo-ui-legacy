@@ -1,7 +1,7 @@
 import 'react-native';
 
 import React, { ReactElement } from 'react';
-import { RenderResult, render } from '@testing-library/react-native';
+import { RenderAPI, render } from '@testing-library/react-native';
 
 import Table from '../Tables';
 
@@ -16,7 +16,7 @@ const TEST_ID = {
 
 let props: any;
 let component: ReactElement;
-let testingLib: RenderResult;
+let testingLib: RenderAPI;
 
 const data = [
   {
@@ -106,7 +106,7 @@ describe('[Tables] render test', (): void => {
     component = <Table {...props} />;
     testingLib = render(component);
 
-    expect(testingLib.baseElement).toBeTruthy();
+    expect(testingLib.toJSON()).toBeTruthy();
   });
 
   it('should render collapsed when collapsedWhenRendered props is false', () => {
@@ -118,7 +118,7 @@ describe('[Tables] render test', (): void => {
     component = <Table {...props} />;
     testingLib = render(component);
 
-    expect(testingLib.baseElement).toMatchSnapshot();
+    expect(testingLib.toJSON()).toMatchSnapshot();
   });
 
   describe('required components', () => {
@@ -202,7 +202,7 @@ describe('[Tables] render test', (): void => {
     testingLib = render(component);
     jest.runAllTimers();
 
-    expect(testingLib.baseElement).toMatchSnapshot();
+    expect(testingLib.toJSON()).toMatchSnapshot();
   });
 
   describe('[Table] event test', () => {

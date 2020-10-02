@@ -1,3 +1,5 @@
+import 'react-native-get-random-values';
+
 import { IC_FACEBOOK, IC_GOOGLE } from '../Icon';
 import { Image, View } from 'react-native';
 import React, { ReactElement, useState } from 'react';
