@@ -1,5 +1,6 @@
 import React, { FC, useCallback, useEffect, useRef, useState } from 'react';
-import Checkbox from './Checkbox';
+
+import { Checkbox } from './Checkbox';
 import styled from 'styled-components/native';
 
 interface CustomStyle {
@@ -48,7 +49,7 @@ interface CheckboxGroupProps {
 
 export const GroupCheckboxContext = React.createContext<CheckboxGroupContext | null>(null);
 
-const CheckboxGroup: FC<CheckboxGroupProps> = ({
+export const CheckboxGroup: FC<CheckboxGroupProps> = ({
   defaultValues,
   values,
   options,
@@ -157,5 +158,3 @@ const Container = styled.View<ContainerProps>`
   flex-wrap: wrap;
   align-items: flex-start;
 `;
-
-export default CheckboxGroup;
