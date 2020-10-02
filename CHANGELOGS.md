@@ -1,6 +1,6 @@
 ## Changelogs
 
-- **[0.0.20]**
+- **[0.0.21]**
 
   - Upgrade expo sdk to 39 which has reac-native version of 0.63+ [#355](https://github.com/dooboolab/dooboo-ui/pull/355)
 

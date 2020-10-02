@@ -14,7 +14,13 @@
     "allowSyntheticDefaultImports": true,
     "declaration": true
   },
-  "exclude": ["node_modules", "lib", "**/**/*/__tests__", "dist", "**/*.example.*"],
-  "include": ["./main"],
+  "exclude": [
+    "node_modules",
+    "lib",
+    "**/**/*/__tests__",
+    "dist",
+    "**/*.example.*"
+  ],
+  "include": ["main"],
   "files": ["environment.d.ts"]
 }

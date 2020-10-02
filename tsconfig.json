@@ -24,8 +24,13 @@
     "emitDecoratorMetadata": true,
     "esModuleInterop": true
   },
-  "include": ["src/**/*.ts", "src/**/*.tsx", "stories/**/*.ts", "stories/**/*.tsx"],
+  "include": [
+    "src/**/*.ts",
+    "src/**/*.tsx",
+    "stories/**/*.ts",
+    "stories/**/*.tsx"
+  ],
   "exclude": ["node_modules", "**/*.test.tsx", "**/*.spec.ts"],
   "files": ["environment.d.ts"],
-  "types": ["typePatches"],
+  "types": ["typePatches"]
 }
