@@ -1,6 +1,6 @@
 import React, { ReactElement } from 'react';
-import { TouchableOpacity } from 'react-native';
 
+import { TouchableOpacity } from 'react-native';
 import styled from 'styled-components/native';
 
 const CheckView = styled.View<{ checked: boolean }>`
@@ -31,7 +31,7 @@ function CheckBox(props: Props): ReactElement {
   return (
     <TouchableOpacity testID="checkbox-test-id" onPress={onClick}>
       <CheckView checked={value}>
-        <CheckMark source={require('../__assets__/mark.png')} />
+        <CheckMark source={require('../../../assets/mark.png')} />
       </CheckView>
     </TouchableOpacity>
   );
