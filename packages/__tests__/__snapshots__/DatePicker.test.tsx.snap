@@ -7287,7 +7287,7 @@ exports[`[DateInput] render should render without crashing 1`] = `
       <Image
         source={
           Object {
-            "testUri": "../../../main/__assets__/calendar.png",
+            "testUri": "../../../packages/DatePicker/assets/calendar.png",
           }
         }
         style={
@@ -7423,7 +7423,7 @@ exports[`[DatePicker] render should render without crashing 1`] = `
         <Image
           source={
             Object {
-              "testUri": "../../../main/__assets__/calendar.png",
+              "testUri": "../../../packages/DatePicker/assets/calendar.png",
             }
           }
           style={

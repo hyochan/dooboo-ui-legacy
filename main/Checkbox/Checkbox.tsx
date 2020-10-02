@@ -6,6 +6,7 @@ import React, {
   useRef,
   useState,
 } from 'react';
+
 import { GroupCheckboxContext } from './CheckboxGroup';
 import { TouchableHighlight } from 'react-native';
 import styled from 'styled-components/native';
@@ -35,7 +36,7 @@ export interface CheckboxProps {
   customStyle?: CustomStyle;
 }
 
-const Checkbox: FC<CheckboxProps> = ({
+export const Checkbox: FC<CheckboxProps> = ({
   label,
   value,
   checked = false,
@@ -188,5 +189,3 @@ const Label = styled.Text<LabelProps>`
   padding-right: ${({ labelLeft }): number => (labelLeft ? 10 : 0)}px;
   color: ${({ labelColor }): string => labelColor || COLOR.BLACK};
 `;
-
-export default Checkbox;

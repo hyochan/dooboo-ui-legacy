@@ -12,5 +12,3 @@ export { SwitchToggle } from './SwitchToggle';
 export { Select, SelectItem } from './Select';
 export { Checkbox, CheckboxGroup } from './Checkbox';
 export { Card } from './Card';
-export { PinchZoom } from './PinchZoom';
-export { DatePicker } from './DatePicker';
