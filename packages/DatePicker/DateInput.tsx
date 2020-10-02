@@ -140,7 +140,7 @@ const DateInput: FC<Props> = (props) => {
         <TouchableOpacity onPress={onPressCalendar}>
           <Image
             style={{ width: 20, height: 20 }}
-            source={require('../__assets__/calendar.png')}
+            source={require('./assets/calendar.png')}
           />
         </TouchableOpacity>
       </StyledRowContainer>
