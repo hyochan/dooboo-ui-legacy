@@ -4,6 +4,7 @@
  */
 
 import * as React from 'react';
+
 import Calendar from '../DatePicker/Calendar/Calendar';
 import CalendarDate from '../DatePicker/Calendar/CalendarDate';
 import CalendarMonth from '../DatePicker/Calendar/CalendarMonth';
@@ -19,7 +20,7 @@ const standardDate = new Date('2020-09-13');
 
 describe('[DatePicker] render', () => {
   it('should render without crashing', () => {
-    const rendered = render(<DatePicker selectedDate={standardDate} locale={'en-US'} />).asJSON();
+    const rendered = render(<DatePicker selectedDate={standardDate} locale={'en-US'} />).toJSON();
 
     expect(rendered).toMatchSnapshot();
     expect(rendered).toBeTruthy();
@@ -30,7 +31,7 @@ describe('[DateInput] render', () => {
   it('should render without crashing', () => {
     const rendered = render(
       <DateInput onPressCalendar={(): void => { }} selectedDate={standardDate} />,
-    ).asJSON();
+    ).toJSON();
 
     expect(rendered).toMatchSnapshot();
     expect(rendered).toBeTruthy();
@@ -72,7 +73,7 @@ describe('[PickerCalendar] render', () => {
         selectedDate={standardDate}
         locale={'en-US'}
         weekdayFormat={'narrow'} />,
-    ).asJSON();
+    ).toJSON();
 
     expect(rendered).toMatchSnapshot();
     expect(rendered).toBeTruthy();
@@ -88,7 +89,7 @@ describe('[Calendar]', () => {
         calendarWidth={300}
         locale={'en-US'}
       />,
-    ).asJSON();
+    ).toJSON();
 
     expect(rendered).toMatchSnapshot();
     expect(rendered).toBeTruthy();
@@ -99,7 +100,7 @@ describe('[CalendarDate] render', () => {
   it('should render without crashing', () => {
     const rendered = render(
       <CalendarDate onPress={(): void => { }} date={standardDate} isToday={false} />,
-    ).asJSON();
+    ).toJSON();
 
     expect(rendered).toMatchSnapshot();
     expect(rendered).toBeTruthy();
@@ -141,7 +142,7 @@ describe('[CalendarMonth] render', () => {
         renderDay={(): React.ReactElement => <CalendarDate date={standardDate} isToday={false} />}
         today={standardDate}
       />,
-    ).asJSON();
+    ).toJSON();
 
     expect(rendered).toMatchSnapshot();
     expect(rendered).toBeTruthy();
@@ -152,7 +153,7 @@ describe('[CalendarWeekDays] render', () => {
   it('should render without crashing', () => {
     const rendered = render(
       <CalendarWeekDays calendarWidth={300} weekdayFormat={'narrow'} locale={'en-US'} />,
-    ).asJSON();
+    ).toJSON();
 
     expect(rendered).toMatchSnapshot();
     expect(rendered).toBeTruthy();

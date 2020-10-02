@@ -25,7 +25,7 @@ describe('[TinderCard] render', () => {
   });
 
   it('renders without crashing', () => {
-    const rendered: renderer.ReactTestRendererJSON | null = renderer
+    const rendered = renderer
       .create(component)
       .toJSON();
 

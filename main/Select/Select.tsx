@@ -198,6 +198,7 @@ const Select: React.FC<Props> = (props): React.ReactElement => {
           style={[
             {
               backgroundColor: '#ffffff',
+              // @ts-ignore
               border: disabled ? 'none' : '1px solid #CBD7E5',
               borderRadius: 6,
               boxShadow,

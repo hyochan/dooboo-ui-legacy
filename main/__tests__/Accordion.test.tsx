@@ -1,6 +1,6 @@
 import React, { ReactElement } from 'react';
 import {
-  RenderResult,
+  RenderAPI,
   act,
   fireEvent,
   render,
@@ -10,7 +10,7 @@ import { Accordion } from '../../main';
 
 let props: any;
 let component: ReactElement;
-let testingLib: RenderResult;
+let testingLib: RenderAPI;
 
 const data = [
   {
@@ -49,7 +49,9 @@ describe('[Accordion] render test', () => {
     component = <Accordion {...props}/>;
     testingLib = render(component);
 
-    expect(testingLib.baseElement).toMatchSnapshot();
+    const json = testingLib.toJSON();
+
+    expect(json).toMatchSnapshot();
   });
 
   it('should render collapsed when collapseOnStart props is true', () => {
@@ -61,7 +63,9 @@ describe('[Accordion] render test', () => {
     component = <Accordion {...props}/>;
     testingLib = render(component);
 
-    expect(testingLib.baseElement).toMatchSnapshot();
+    const json = testingLib.toJSON();
+
+    expect(json).toMatchSnapshot();
   });
 
   it('should operate animation when isAnimated props is true', () => {
@@ -73,10 +77,13 @@ describe('[Accordion] render test', () => {
     });
 
     component = <Accordion {...props}/>;
-    testingLib = render(component);
     jest.runAllTimers();
 
-    expect(testingLib.baseElement).toMatchSnapshot();
+    testingLib = render(component);
+
+    const json = testingLib.toJSON();
+
+    expect(json).toMatchSnapshot();
   });
 
   it('should adjust duration of animation depends on animDuration props value', () => {
@@ -88,7 +95,9 @@ describe('[Accordion] render test', () => {
     component = <Accordion {...props}/>;
     testingLib = render(component);
 
-    expect(testingLib.baseElement).toMatchSnapshot();
+    const json = testingLib.toJSON();
+
+    expect(json).toMatchSnapshot();
   });
 });
 
@@ -107,7 +116,7 @@ describe('[Accordion] event test', () => {
     const itemTitle = getByTestId('body_0');
 
     act(() => {
-      fireEvent.layout(itemTitle, {
+      fireEvent(itemTitle, 'layout', {
         nativeEvent: {
           layout: {
             height: 300,

@@ -1,9 +1,21 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`[SwitchToggle] should render without crashing 1`] = `
-<
-  activeOpacity={0.5}
-  onPress={[MockFunction]}
+<View
+  accessible={true}
+  focusable={true}
+  onClick={[Function]}
+  onResponderGrant={[Function]}
+  onResponderMove={[Function]}
+  onResponderRelease={[Function]}
+  onResponderTerminate={[Function]}
+  onResponderTerminationRequest={[Function]}
+  onStartShouldSetResponder={[Function]}
+  style={
+    Object {
+      "opacity": 1,
+    }
+  }
   testID="SWITCH_ID"
 >
   <View
@@ -46,5 +58,5 @@ exports[`[SwitchToggle] should render without crashing 1`] = `
       }
     />
   </View>
-</>
+</View>
 `;

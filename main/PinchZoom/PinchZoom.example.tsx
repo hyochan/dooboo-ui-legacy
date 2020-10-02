@@ -1,5 +1,6 @@
 import { Animated, Dimensions, FlatList, Image, ImageProps, ImageSourcePropType } from 'react-native';
 import PinchZoom, { PinchZoomRef } from './';
+
 import React from 'react';
 import styled from 'styled-components/native';
 
@@ -188,6 +189,7 @@ export function ImageSlider({ imageSources = images }:{ imageSources?: ImageSour
             top: 0,
             bottom: 0,
             justifyContent: 'center',
+            // @ts-ignore
             transform: [{ translateX: prevImageTranslateX }],
           }}
         >
@@ -231,6 +233,7 @@ export function ImageSlider({ imageSources = images }:{ imageSources?: ImageSour
               bottom: 0,
               justifyContent: 'center',
               left: WIDTH,
+              // @ts-ignore
               transform: [{ translateX: nextImageTranslateX }],
             }}>
             <AutoHeightImage

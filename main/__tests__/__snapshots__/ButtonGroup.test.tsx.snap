@@ -16,11 +16,20 @@ exports[`[ButtonGroup] render renders without crashing 1`] = `
     }
   }
 >
-  <
-    onPress={[Function]}
+  <View
+    accessible={true}
+    focusable={true}
+    onClick={[Function]}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
     style={
       Object {
         "flex": 1,
+        "opacity": 1,
       }
     }
     testID="CHILD_0"
@@ -52,12 +61,21 @@ exports[`[ButtonGroup] render renders without crashing 1`] = `
         option 1
       </Text>
     </View>
-  </>
-  <
-    onPress={[Function]}
+  </View>
+  <View
+    accessible={true}
+    focusable={true}
+    onClick={[Function]}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
     style={
       Object {
         "flex": 1,
+        "opacity": 1,
       }
     }
     testID="CHILD_1"
@@ -89,6 +107,6 @@ exports[`[ButtonGroup] render renders without crashing 1`] = `
         option 2
       </Text>
     </View>
-  </>
+  </View>
 </View>
 `;

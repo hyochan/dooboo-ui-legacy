@@ -1,6 +1,6 @@
 import React, { ReactElement } from 'react';
 import {
-  RenderResult,
+  RenderAPI,
   cleanup,
   render,
 } from '@testing-library/react-native';
@@ -8,7 +8,7 @@ import { Select, SelectItem } from '../../main';
 
 let props: any;
 let component: ReactElement;
-let testingLib: RenderResult;
+let testingLib: RenderAPI;
 
 const createTestProps = (
   obj?: Record<string, unknown>,
@@ -27,8 +27,7 @@ describe('[Select] render test', () => {
     component = <Select {...props} placeholder={placeholderText} />;
     testingLib = render(component);
 
-    expect(testingLib.baseElement).toMatchSnapshot();
-    expect(testingLib.baseElement).toBeTruthy();
+    expect(testingLib.toJSON()).toMatchSnapshot();
   });
 });
 
@@ -43,8 +42,7 @@ describe('[SelectItem] render test', () => {
     component = <Select {...props} placeholder={itemValue} />;
     testingLib = render(component);
 
-    expect(testingLib.baseElement).toMatchSnapshot();
-    expect(testingLib.baseElement).toBeTruthy();
+    expect(testingLib.toJSON()).toMatchSnapshot();
   });
 });
 
