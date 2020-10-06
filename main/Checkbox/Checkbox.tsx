@@ -7,7 +7,7 @@ import React, {
   useState,
 } from 'react';
 
-import { GroupCheckboxContext } from './CheckboxGroup';
+import { GroupCheckboxContext } from './GroupCheckboxContext';
 import { TouchableHighlight } from 'react-native';
 import styled from 'styled-components/native';
 
