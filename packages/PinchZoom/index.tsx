@@ -19,7 +19,7 @@ import {
   getTranslate,
 } from './utils';
 
-type Props = PropsWithChildren <{
+type Props = PropsWithChildren<{
   style?: ViewStyle,
   blockNativeResponder?: boolean,
   onScaleChanged?(value: number): void,
@@ -29,7 +29,7 @@ type Props = PropsWithChildren <{
 
 export interface PinchZoomRef {
   animatedValue: { scale: Animated.Value, translate: Animated.ValueXY },
-  setValues(_:{ scale?: number, translate?: VectorType }): void,
+  setValues(_: { scale?: number, translate?: VectorType }): void,
 }
 
 function PinchZoom(props: Props, ref: Ref<PinchZoomRef>): ReactElement {
@@ -112,7 +112,7 @@ function PinchZoom(props: Props, ref: Ref<PinchZoomRef>): ReactElement {
           translate.setValue(translateValue.current);
         } else if (
           touch2.offset.x === 0 && touch2.offset.y === 0 &&
-            nativeEvent.touches.length === 1
+          nativeEvent.touches.length === 1
         ) {
           const maxValue = layoutCenter.multiply(scaleValue.current + 1);
 
@@ -144,7 +144,7 @@ function PinchZoom(props: Props, ref: Ref<PinchZoomRef>): ReactElement {
 
     const id = translate.addListener(onTranslateChanged);
 
-    return ():void => {
+    return (): void => {
       translate.removeListener(id);
     };
   }, [onTranslateChanged]);
@@ -152,9 +152,11 @@ function PinchZoom(props: Props, ref: Ref<PinchZoomRef>): ReactElement {
   useEffect(() => {
     if (!onScaleChanged) return;
 
-    const id = scale.addListener(({ value }) => onScaleChanged(value));
+    const id = scale.addListener(({ value }) => {
+      onScaleChanged(value);
+    });
 
-    return ():void => {
+    return (): void => {
       scale.removeListener(id);
     };
   }, [onScaleChanged]);
@@ -164,7 +166,7 @@ function PinchZoom(props: Props, ref: Ref<PinchZoomRef>): ReactElement {
     setPanResponder(createPanResponder());
   }, [blockNativeResponder, onRelease, onScaleChanged, onTranslateChanged]);
 
-  const setValues = useCallback(({ scale, translate }:{ scale?: number, translate?: VectorType }) => {
+  const setValues = useCallback(({ scale, translate }: { scale?: number, translate?: VectorType }) => {
     if (scale != null) { scaleValue.current = scale; }
 
     if (translate != null) { translateValue.current = new Vector(translate); }
@@ -189,7 +191,7 @@ function PinchZoom(props: Props, ref: Ref<PinchZoomRef>): ReactElement {
     style={[
       style,
       {
-        transform: style?.transform && [
+        transform: style?.transform || [
           {
             translateX: translate.x,
           },
