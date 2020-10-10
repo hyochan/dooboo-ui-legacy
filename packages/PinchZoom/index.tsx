@@ -2,6 +2,7 @@ import { Animated, NativeTouchEvent, PanResponder, ViewStyle } from 'react-nativ
 import React, {
   PropsWithChildren,
   ReactElement,
+  useEffect,
   useRef,
 } from 'react';
 
@@ -18,7 +19,7 @@ function getDistanceFromTouches(
     (touch1.pageY - touch2.pageY) ** 2);
 }
 
-function getTouchesCenter(
+function getTouchesCenterLocation(
   touches: NativeTouchEvent[],
 ): {x: number, y: number} {
   return {
@@ -31,9 +32,25 @@ function PinchZoom(props: Props): ReactElement {
   const { style, children } = props;
   const scale = useRef(new Animated.Value(1)).current;
   const translate = useRef(new Animated.ValueXY({ x: 0, y: 0 })).current;
+  const transformCache = useRef({ scale: 1, translateX: 0, translateY: 0 }).current;
+  const lastTransform = useRef({ scale: 1, translateX: 0, translateY: 0 });
   const initialDistance = useRef<number>();
-  const targetPosition = useRef<{x: number, y: number}>();
-  const layoutSize = useRef<{width: number, height: number}>();
+  const initialLocation = useRef<{x: number, y: number}>();
+  const layout = useRef<{width: number, height: number, x: number, y: number}>();
+
+  useEffect(() => {
+    scale.addListener(({ value }) => { transformCache.scale = value; });
+
+    const id = translate.addListener(({ x, y }) => {
+      transformCache.translateX = x;
+      transformCache.translateY = y;
+    });
+
+    return () => {
+      scale.removeAllListeners();
+      translate.removeListener(id);
+    };
+  });
 
   const panResponder = useRef(
     PanResponder.create({
@@ -41,17 +58,17 @@ function PinchZoom(props: Props): ReactElement {
       onPanResponderGrant: ({ nativeEvent }) => {
         const { touches } = nativeEvent;
 
-        if (touches.length === 2 && layoutSize.current != null) {
+        lastTransform.current = { ...transformCache };
+
+        if (touches.length === 2 && layout.current != null) {
           initialDistance.current = getDistanceFromTouches(touches);
 
-          const centerLocation = getTouchesCenter(touches);
+          const center = getTouchesCenterLocation(touches);
 
-          targetPosition.current = {
-            x: centerLocation.x - layoutSize.current.width / 2,
-            y: centerLocation.y - layoutSize.current.height / 2,
+          initialLocation.current = {
+            x: center.x - layout.current.width / 2,
+            y: center.y - layout.current.height / 2,
           };
-          console.log('targetPosition', targetPosition.current);
-          console.log('layoutSize', layoutSize.current);
         } else {
           initialDistance.current = undefined;
         }
@@ -60,30 +77,30 @@ function PinchZoom(props: Props): ReactElement {
         const { touches } = nativeEvent;
 
         if (touches.length === 2) {
-          if (initialDistance.current && targetPosition.current) {
-            const scaleValue = getDistanceFromTouches(touches) / initialDistance.current;
+          if (initialDistance.current && initialLocation.current && layout.current) {
+            const newScale = getDistanceFromTouches(touches) / initialDistance.current * lastTransform.current.scale;
 
-            scale.setValue(scaleValue);
+            scale.setValue(newScale);
 
             translate.setValue({
-              x: targetPosition.current.x * (1 - scaleValue),
-              y: targetPosition.current.y * (1 - scaleValue),
+              x: initialLocation.current.x * (lastTransform.current.scale - newScale) +
+                lastTransform.current.translateX,
+              y: initialLocation.current.y * (lastTransform.current.scale - newScale) +
+                lastTransform.current.translateY,
             });
-            console.log('targetPosition', targetPosition.current);
-          } else if (layoutSize.current != null) {
+          } else if (layout.current != null) {
             initialDistance.current = getDistanceFromTouches(touches);
 
-            const centerLocation = getTouchesCenter(touches);
+            const center = getTouchesCenterLocation(touches);
 
-            targetPosition.current = {
-              x: centerLocation.x - layoutSize.current.width / 2,
-              y: centerLocation.y - layoutSize.current.height / 2,
+            initialLocation.current = {
+              x: center.x - layout.current.width / 2,
+              y: center.y - layout.current.height / 2,
             };
           }
         }
       },
       onPanResponderRelease: ({ nativeEvent }) => {
-        console.log('onPanResponderRelease', nativeEvent);
       },
     }),
   ).current;
@@ -97,9 +114,7 @@ function PinchZoom(props: Props): ReactElement {
       ],
     }]}
     onLayout={({ nativeEvent }) => {
-      const { layout: { width, height } } = nativeEvent;
-
-      layoutSize.current = { width, height };
+      layout.current = nativeEvent.layout;
     }}
     {...panResponder.panHandlers}
   >
