@@ -1,4 +1,4 @@
-import { Animated, NativeTouchEvent, PanResponder, ViewStyle } from 'react-native';
+import { Animated, LayoutRectangle, NativeMethods, NativeTouchEvent, PanResponder, ViewStyle } from 'react-native';
 import React, {
   PropsWithChildren,
   ReactElement,
@@ -10,6 +10,8 @@ type Props = PropsWithChildren<{
   style?: ViewStyle,
 }>
 
+type TouchePosition = Pick<NativeTouchEvent, 'locationX' | 'locationY' | 'pageX' | 'pageY'>
+
 function getDistanceFromTouches(
   touches: NativeTouchEvent[],
 ): number {
@@ -19,24 +21,31 @@ function getDistanceFromTouches(
     (touch1.pageY - touch2.pageY) ** 2);
 }
 
-function getTouchesCenterLocation(
-  touches: NativeTouchEvent[],
-): {x: number, y: number} {
+function getRelativeTouchesCenterPosition(
+  touches: NativeTouchEvent[], layout: {width: number, height: number, pageX: number, pageY: number},
+): TouchePosition {
   return {
-    x: (touches[0].locationX + touches[1].locationX) / 2,
-    y: (touches[0].locationY + touches[1].locationY) / 2,
+    locationX: (touches[0].locationX + touches[1].locationX) / 2 - layout.width / 2,
+    locationY: (touches[0].locationY + touches[1].locationY) / 2 - layout.height / 2,
+    pageX: (touches[0].pageX + touches[1].pageX) / 2 - layout.width / 2 - layout.pageX,
+    pageY: (touches[0].pageY + touches[1].pageY) / 2 - layout.height / 2 - layout.pageY,
   };
 }
 
 function PinchZoom(props: Props): ReactElement {
   const { style, children } = props;
+  const containerView = useRef<NativeMethods>();
   const scale = useRef(new Animated.Value(1)).current;
   const translate = useRef(new Animated.ValueXY({ x: 0, y: 0 })).current;
   const transformCache = useRef({ scale: 1, translateX: 0, translateY: 0 }).current;
   const lastTransform = useRef({ scale: 1, translateX: 0, translateY: 0 });
   const initialDistance = useRef<number>();
-  const initialLocation = useRef<{x: number, y: number}>();
-  const layout = useRef<{width: number, height: number, x: number, y: number}>();
+  const initialTouchesCenter = useRef<TouchePosition>();
+  const layout = useRef<{width: number, height: number, pageX: number, pageY: number}>();
+
+  containerView.current?.measure((x, y, width, height, pageX, pageY) => {
+    layout.current = { width, height, pageX, pageY };
+  });
 
   useEffect(() => {
     scale.addListener(({ value }) => { transformCache.scale = value; });
@@ -62,13 +71,7 @@ function PinchZoom(props: Props): ReactElement {
 
         if (touches.length === 2 && layout.current != null) {
           initialDistance.current = getDistanceFromTouches(touches);
-
-          const center = getTouchesCenterLocation(touches);
-
-          initialLocation.current = {
-            x: center.x - layout.current.width / 2,
-            y: center.y - layout.current.height / 2,
-          };
+          initialTouchesCenter.current = getRelativeTouchesCenterPosition(touches, layout.current);
         } else {
           initialDistance.current = undefined;
         }
@@ -77,35 +80,28 @@ function PinchZoom(props: Props): ReactElement {
         const { touches } = nativeEvent;
 
         if (touches.length === 2) {
-          if (initialDistance.current && initialLocation.current && layout.current) {
+          if (initialDistance.current && initialTouchesCenter.current && layout.current) {
             const newScale = getDistanceFromTouches(touches) / initialDistance.current * lastTransform.current.scale;
+            const { pageX, pageY } = getRelativeTouchesCenterPosition(touches, layout.current);
 
             scale.setValue(newScale);
 
             translate.setValue({
-              x: initialLocation.current.x * (lastTransform.current.scale - newScale) +
-                lastTransform.current.translateX,
-              y: initialLocation.current.y * (lastTransform.current.scale - newScale) +
-                lastTransform.current.translateY,
+              x: pageX - (initialTouchesCenter.current.locationX * newScale),
+              y: pageY - (initialTouchesCenter.current.locationY * newScale),
             });
           } else if (layout.current != null) {
             initialDistance.current = getDistanceFromTouches(touches);
-
-            const center = getTouchesCenterLocation(touches);
-
-            initialLocation.current = {
-              x: center.x - layout.current.width / 2,
-              y: center.y - layout.current.height / 2,
-            };
+            initialTouchesCenter.current = getRelativeTouchesCenterPosition(touches, layout.current);
           }
         }
       },
-      onPanResponderRelease: ({ nativeEvent }) => {
-      },
+      onPanResponderRelease: () => {},
     }),
   ).current;
 
   return <Animated.View
+    ref={containerView}
     style={[style, {
       transform: [
         { translateX: translate.x },
@@ -113,9 +109,6 @@ function PinchZoom(props: Props): ReactElement {
         { scale },
       ],
     }]}
-    onLayout={({ nativeEvent }) => {
-      layout.current = nativeEvent.layout;
-    }}
     {...panResponder.panHandlers}
   >
     {children}
