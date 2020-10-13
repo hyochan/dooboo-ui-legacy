@@ -81,14 +81,23 @@ function PinchZoom(props: Props): ReactElement {
 
         if (touches.length === 2) {
           if (initialDistance.current && initialTouchesCenter.current && layout.current) {
-            const newScale = getDistanceFromTouches(touches) / initialDistance.current * lastTransform.current.scale;
+            const newScale = Math.max(
+              1,
+              getDistanceFromTouches(touches) / initialDistance.current * lastTransform.current.scale,
+            );
+
             const { pageX, pageY } = getRelativeTouchesCenterPosition(touches, layout.current);
 
             scale.setValue(newScale);
 
+            const newTranslateX = pageX - (initialTouchesCenter.current.locationX * newScale);
+            const newTranslateY = pageY - (initialTouchesCenter.current.locationY * newScale);
+
             translate.setValue({
-              x: pageX - (initialTouchesCenter.current.locationX * newScale),
-              y: pageY - (initialTouchesCenter.current.locationY * newScale),
+              x: Math.min(Math.abs(newTranslateX), (newScale - 1) * layout.current.width / 2) *
+                Math.sign(newTranslateX),
+              y: Math.min(Math.abs(newTranslateY), (newScale - 1) * layout.current.height / 2) *
+                Math.sign(newTranslateY),
             });
           } else if (layout.current != null) {
             initialDistance.current = getDistanceFromTouches(touches);
