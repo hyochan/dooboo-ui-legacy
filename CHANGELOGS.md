@@ -1,5 +1,15 @@
 ## Changelogs
 
+- **[0.0.23]**
+
+  - Renamed CheckBox dir to Checkbox and fix import error.
+  - Type enhancement on [Badge] [#359](https://github.com/dooboolab/dooboo-ui/pull/359)
+
+- **[0.0.22]**
+
+  - Major refactoring on [Button], [EditText] and various works given by contributions. Fixes import bug on [Checkbox]. Move [PinchZoom] and [DatePicker] to packages.
+    Reorganize assets for main and packages. For packages, it should go inside its root while main direct to \_\_assets in the same dir.
+
 - **[0.0.21]**
 
   - Upgrade expo sdk to 39 which has reac-native version of 0.63+ [#355](https://github.com/dooboolab/dooboo-ui/pull/355)
