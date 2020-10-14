@@ -17,7 +17,7 @@ export interface BadgeProps extends StyleProps {
   maximumCount?: number;
   showZero?: boolean;
   opacityVisible?: boolean;
-  variant?: string;
+  variant?: 'standard' | 'dot';
 }
 
 const StyledView = styled.View<StyleProps>`
