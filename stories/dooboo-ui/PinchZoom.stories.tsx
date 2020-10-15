@@ -1,6 +1,7 @@
 import { Dimensions, Image, View } from 'react-native';
 
 import { ContainerDeco } from '../../storybook/decorators';
+import { ImageSlider } from '../../packages/PinchZoom/PinchZoom.example';
 import PinchZoom from '../../packages/PinchZoom';
 import React from 'react';
 import { storiesOf } from '@storybook/react-native';
@@ -22,4 +23,5 @@ storiesOf('PinchZoom', module)
           style={{ width: '100%', height: Dimensions.get('screen').width * 4 / 3 }} />
       </PinchZoom>
     </View>
-  ));
+  ))
+  .add('Image slider', () => <ImageSlider />);
