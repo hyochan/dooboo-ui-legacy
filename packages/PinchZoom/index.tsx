@@ -111,6 +111,8 @@ function PinchZoom(props: Props, ref: Ref<PinchZoomRef>): ReactElement {
 
         lastTransform.current = { ...transformCache };
 
+        initialDistance.current = undefined;
+
         if (touches.length === 2 && layout.current != null) {
           initialDistance.current = getDistanceFromTouches(touches);
           initialTouchesCenter.current = getRelativeTouchesCenterPosition(touches, layout.current);
