@@ -2,6 +2,7 @@ import {
   ActivityIndicator,
   StyleSheet,
   Text,
+  TextProps,
   TouchableOpacity,
   TouchableOpacityProps,
   View,
@@ -65,6 +66,7 @@ interface Props {
   text?: string;
   onPress?: () => void;
   touchableOpacityProps?: Partial<TouchableOpacityProps>;
+  textProps?: Partial<TextProps>;
 }
 
 function Button({
@@ -79,6 +81,7 @@ function Button({
   text,
   onPress,
   touchableOpacityProps,
+  textProps,
 }: Props): React.ReactElement {
   const ref = useRef(null);
   const isHovered = useHover(ref);
@@ -125,6 +128,7 @@ function Button({
                     style?.disabledText,
                   ],
                 ]}
+                {...textProps}
               >
                 {text}
               </Text>

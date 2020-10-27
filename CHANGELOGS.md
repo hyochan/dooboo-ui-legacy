@@ -1,5 +1,9 @@
 ## Changelogs
 
+- **[0.0.24]**
+
+  - Add ability to customize text with textProps in [Button].
+
 - **[0.0.23]**
 
   - Renamed CheckBox dir to Checkbox and fix import error.
