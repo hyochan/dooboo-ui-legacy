@@ -46,19 +46,6 @@ describe('PinchZoom of ImageSlider', () => {
   //   const rendered: RenderAPI = render(<ImageSlider />);
   //   const pinchZoomContainer = rendered.getAllByTestId('PINCH_ZOOM_CONTAINER')[0];
 
-  //   it('should set the center of layout position when onLayout called', () => {
-  //     act(() => {
-  //       fireEvent(pinchZoomContainer, 'layout', {
-  //         nativeEvent: {
-  //           layout: {
-  //             width: TEST_CONTAINER_WIDTH,
-  //             height: TEST_CONTAINER_HEIGHT,
-  //           },
-  //         },
-  //       });
-  //     });
-  //   });
-
   //   it('should zoom in by openGesture', () => {
   //     act(() => {
   //       const callBacks = pinchZoomContainer.props.responderCallback;

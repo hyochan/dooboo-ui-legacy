@@ -223,7 +223,8 @@ function PinchZoom(props: Props, ref: Ref<PinchZoomRef>): ReactElement {
   }));
 
   return <Animated.View
-    ref={containerView}
+    testID="PINCH_ZOOM_CONTAINER"
+    ref={(ref: NativeMethods) => { containerView.current = ref }}
     style={[style, style?.transform ? {} : {
       transform: [
         { translateX: translate.x },
