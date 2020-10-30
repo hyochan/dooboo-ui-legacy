@@ -37,20 +37,7 @@ exports[`PinchZoom of ImageSlider should renders without crashing 1`] = `
     }
   >
     <View
-      onLayout={[Function]}
-      responderCallback={
-        Object {
-          "onMoveShouldSetPanResponder": [Function],
-          "onMoveShouldSetPanResponderCapture": [Function],
-          "onPanResponderGrant": [Function],
-          "onPanResponderMove": [Function],
-          "onPanResponderRelease": [Function],
-          "onPanResponderTerminationRequest": [Function],
-          "onShouldBlockNativeResponder": [Function],
-          "onStartShouldSetPanResponder": [Function],
-          "onStartShouldSetPanResponderCapture": [Function],
-        }
-      }
+      forwardedRef={[Function]}
       style={
         Object {
           "justifyContent": "center",
@@ -92,20 +79,7 @@ exports[`PinchZoom of ImageSlider should renders without crashing 1`] = `
       />
     </View>
     <View
-      onLayout={[Function]}
-      responderCallback={
-        Object {
-          "onMoveShouldSetPanResponder": [Function],
-          "onMoveShouldSetPanResponderCapture": [Function],
-          "onPanResponderGrant": [Function],
-          "onPanResponderMove": [Function],
-          "onPanResponderRelease": [Function],
-          "onPanResponderTerminationRequest": [Function],
-          "onShouldBlockNativeResponder": [Function],
-          "onStartShouldSetPanResponder": [Function],
-          "onStartShouldSetPanResponderCapture": [Function],
-        }
-      }
+      forwardedRef={[Function]}
       style={
         Object {
           "bottom": 0,
