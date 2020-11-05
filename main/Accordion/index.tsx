@@ -1,7 +1,7 @@
 import { Animated, ViewStyle } from 'react-native';
 import React, { FC, useRef } from 'react';
 
-import AccrordionItem from './AccordionItem';
+import AccordionItem from './AccordionItem';
 import styled from 'styled-components/native';
 
 const Container = styled.View`
@@ -48,7 +48,7 @@ const Accordion: FC<Props> = (props) => {
       {
         data.map((datum, titleKey) => {
           return (
-            <AccrordionItem
+            <AccordionItem
               testID={`${titleKey}`}
               key={titleKey}
               datum={datum}
