@@ -2,12 +2,16 @@ import React, { useMemo } from 'react';
 import { StyleProp, ViewStyle } from 'react-native';
 import styled from 'styled-components/native';
 
+interface CustomItem {
+  onComponent: React.ReactElement;
+  offComponent: React.ReactElement;
+}
 interface Props {
   total: number;
   value: number;
   onChange?: (value: number) => void;
   disabled?: boolean;
-  customItem?: CustomStar;
+  customItem?: CustomItem;
   containerStyle?: StyleProp<ViewStyle>;
 }
 
@@ -22,11 +26,6 @@ interface StarProps {
   onPress: () => void;
   disabled?: boolean;
   customItem?: CustomItem;
-}
-
-interface CustomItem {
-  onComponent: React.ReactElement;
-  offComponent: React.ReactElement;
 }
 
 const ContainerWrapper = styled.View<ContainerWrapperProps>`
