@@ -1,7 +1,7 @@
 import * as React from 'react';
-import { Rating } from '../../main';
 // Note: test renderer must be required after react-native.
-import { TouchableOpacity } from 'react-native';
+import { TouchableOpacity, View } from 'react-native';
+import { Rating } from '../../main';
 import renderer from 'react-test-renderer';
 
 const defaultProps = {
@@ -62,6 +62,30 @@ describe('[Rating] render', () => {
       );
 
       rendered.update(component({ value: 1 }));
+      expect(rendered).toMatchSnapshot();
+      expect(rendered).toBeTruthy();
+
+      rendered.update(component({ disabled: true }));
+      expect(rendered).toMatchSnapshot();
+      expect(rendered).toBeTruthy();
+    });
+
+    it('should simulate customItem and containerStyle props', (): void => {
+      const rendered = renderer.create(
+        component({
+          ...defaultProps,
+          customItem: {
+            onComponent: <View />,
+            offComponent: <View />,
+          },
+          containerStyle: {
+            width: 300,
+          },
+          testID: 'RATING_ID',
+        }),
+      );
+
+      rendered.update(component({ value: 3 }));
       expect(rendered).toMatchSnapshot();
       expect(rendered).toBeTruthy();
 
