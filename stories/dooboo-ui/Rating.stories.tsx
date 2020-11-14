@@ -22,6 +22,20 @@ const Result = styled.Text`
   margin: 10px 0;
 `;
 
+const CustomOn = styled.View`
+  height: 30px;
+  width: 30px;
+  border-radius: 15px;
+  background-color: #888;
+`;
+
+const CustomOff = styled.View`
+  height: 30px;
+  width: 30px;
+  border-radius: 15px;
+  background-color: #000;
+`;
+
 function Default(): React.ReactElement {
   const [value, setValue] = React.useState(0);
   const disabled = boolean('disabled', false);
@@ -41,6 +55,27 @@ function Default(): React.ReactElement {
         value={value}
         onChange={handleChange}
         disabled={disabled}
+      />
+      <Rating
+        total={number('total', 5)}
+        value={value}
+        onChange={handleChange}
+        disabled={disabled}
+        customItem={{
+          onComponent: <CustomOn />,
+          offComponent: <CustomOff />,
+        }}
+      />
+      <Rating
+        total={number('total', 5)}
+        value={value}
+        onChange={handleChange}
+        disabled={disabled}
+        customItem={{
+          onComponent: <CustomOn />,
+          offComponent: <CustomOff />,
+        }}
+        containerStyle={{ width: 200 }}
       />
       <Result>Selected: {value} stars</Result>
     </Container>

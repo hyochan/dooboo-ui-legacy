@@ -1,5 +1,5 @@
 import React, { useMemo } from 'react';
-
+import { StyleProp, ViewStyle } from 'react-native';
 import styled from 'styled-components/native';
 
 interface Props {
@@ -7,6 +7,8 @@ interface Props {
   value: number;
   onChange?: (value: number) => void;
   disabled?: boolean;
+  customItem?: CustomStar;
+  containerStyle?: StyleProp<ViewStyle>;
 }
 
 interface ContainerWrapperProps {
@@ -16,42 +18,53 @@ interface ContainerWrapperProps {
 
 interface StarProps {
   key: number;
-  on: boolean;
+  isOn: boolean;
   onPress: () => void;
   disabled?: boolean;
+  customItem?: CustomItem;
+}
+
+interface CustomItem {
+  onComponent: React.ReactElement;
+  offComponent: React.ReactElement;
 }
 
 const ContainerWrapper = styled.View<ContainerWrapperProps>`
   width: ${({ total }): number => total * 30}px;
-  height: 30px;
   flex-direction: row;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
   opacity: ${({ disabled }): number => (disabled ? 0.5 : 1)};
 `;
 
 const StarWrapper = styled.TouchableOpacity`
-  width: 30px;
-  height: 100%;
 `;
 
 const StyledImage = styled.Image`
-  width: 100%;
-  height: 100%;
+  width: 30px;
+  height: 30px;
 `;
 
-function StarComponent(props: StarProps): React.ReactElement {
+function StarComponent({ customItem, onPress, isOn, disabled }: StarProps): React.ReactElement {
   const handlePress = (): void => {
-    props.onPress();
+    onPress();
   };
 
-  const image = props.on
-    ? require('../__assets__/star_s.png')
-    : require('../__assets__/star_d.png');
+  const star: React.ReactElement = React.useMemo(() => {
+    if (customItem) {
+      return isOn ? customItem.onComponent : customItem.offComponent;
+    } else {
+      const image = isOn
+        ? require('../__assets__/star_s.png')
+        : require('../__assets__/star_d.png');
+
+      return <StyledImage source={image} resizeMode="contain" />;
+    }
+  }, [customItem?.onComponent, customItem?.offComponent, isOn]);
 
   return (
-    <StarWrapper onPress={handlePress} activeOpacity={props.disabled ? 1 : 0.7}>
-      <StyledImage source={image} resizeMode="contain" />
+    <StarWrapper onPress={handlePress} activeOpacity={disabled ? 1 : 0.7}>
+      {star}
     </StarWrapper>
   );
 }
@@ -69,17 +82,18 @@ function Rating(props: Props): React.ReactElement {
     return initArr.map((item, index) => (
       <StarComponent
         key={index}
-        on={props.value - 1 >= index}
+        isOn={props.value - 1 >= index}
         onPress={(): void => {
           (props.onChange && !props.disabled) && _handlePress(index);
         }}
         disabled={!props.onChange || props.disabled}
+        customItem={props.customItem}
       />
     ));
   }, [props.value, props.onChange, props.disabled]);
 
   return (
-    <ContainerWrapper total={props.total} disabled={props.disabled}>
+    <ContainerWrapper style={props.containerStyle} total={props.total} disabled={props.disabled}>
       {starsArr}
     </ContainerWrapper>
   );
