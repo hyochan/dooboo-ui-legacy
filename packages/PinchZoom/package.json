@@ -1,8 +1,8 @@
 {
-  "name": "@dooboo-ui/pinch-zoom-slider-modal",
+  "name": "@dooboo-ui/pinch-zoom",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
-  "version": "0.0.2",
+  "version": "0.0.1",
   "license": "MIT",
   "postinstall": "tsc",
   "scripts": {
@@ -12,16 +12,14 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/dooboolab/dooboo-ui.git",
-    "directory": "packages/PinchZoomSliderModal"
+    "directory": "packages/PinchZoom"
   },
   "bugs": {
     "url": "https://github.com/dooboolab/dooboo-ui/issues"
   },
   "homepage": "https://github.com/dooboolab/dooboo-ui#readme",
   "dependencies": {
-    "@react-native-community/viewpager": "^4.0.1",
-    "dooboolab-welcome": "^1.2.0",
-    "react-native-image-pan-zoom": "^2.1.12"
+    "dooboolab-welcome": "^1.2.0"
   },
   "devDependencies": {
     "styled-components": "^5.0.0",

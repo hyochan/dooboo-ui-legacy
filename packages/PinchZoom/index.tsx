@@ -9,7 +9,6 @@ import React, {
   useRef,
   useState,
 } from 'react';
-import { number } from '@storybook/addon-knobs';
 
 type Props = PropsWithChildren<{
   style?: ViewStyle,
@@ -250,6 +249,7 @@ function PinchZoom(props: Props, ref: Ref<PinchZoomRef>): ReactElement {
 
   return <Animated.View
     testID="PINCH_ZOOM_CONTAINER"
+    // @ts-ignore
     ref={(ref: NativeMethods) => { containerView.current = ref; }}
     style={[style, style?.transform ? {} : {
       transform: [
