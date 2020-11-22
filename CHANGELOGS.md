@@ -1,5 +1,9 @@
 ## Changelogs
 
+- **[0.0.25]**
+
+  - Enhancements on [PinchZoom] and [Rating].
+
 - **[0.0.24]**
 
   - Add ability to customize text with textProps in [Button].
