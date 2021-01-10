@@ -72,7 +72,8 @@ function Button({
   testID,
   disabled,
   loading,
-  styles: style,
+  style,
+  styles,
   indicatorColor = '#ffffff',
   leftElement,
   rightElement,
@@ -94,33 +95,37 @@ function Button({
       onPress={onPress}
       delayPressIn={50}
       disabled={disabled}
-      style={[
-        isHovered && !disabled && [defaultStyles.hovered, style?.hovered],
-        disabled && [defaultStyles.disabledButton, style?.disabledButton],
-      ]}
+      style={style}
       {...touchableOpacityProps}>
       {loading ? (
         <View
           style={[
             defaultStyles.container,
-            style?.container,
+            styles?.container,
             {
               width: layout?.width,
               height: layout?.height,
             },
+            isHovered && !disabled && [defaultStyles.hovered, styles?.hovered],
+            disabled && [defaultStyles.disabledButton, styles?.disabledButton],
           ]}>
           <ActivityIndicator size="small" color={indicatorColor} />
         </View>
       ) : (
         <View
-          style={[defaultStyles.container, style?.container]}
+          style={[
+            defaultStyles.container,
+            styles?.container,
+            isHovered && !disabled && [defaultStyles.hovered, styles?.hovered],
+            disabled && [defaultStyles.disabledButton, styles?.disabledButton],
+          ]}
           onLayout={(e) => setLayout(e.nativeEvent.layout)}>
           {leftElement}
           <Text
             style={[
               defaultStyles.text,
-              style?.text,
-              disabled && [defaultStyles.disabledText, style?.disabledText],
+              styles?.text,
+              disabled && [defaultStyles.disabledText, styles?.disabledText],
             ]}
             {...textProps}>
             {text}
