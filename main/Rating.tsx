@@ -1,5 +1,6 @@
 import React, { useMemo } from 'react';
 import { StyleProp, ViewStyle } from 'react-native';
+
 import styled from 'styled-components/native';
 
 interface CustomItem {
@@ -54,8 +55,8 @@ function StarComponent({ customItem, onPress, isOn, disabled }: StarProps): Reac
       return isOn ? customItem.onComponent : customItem.offComponent;
     } else {
       const image = isOn
-        ? require('../__assets__/star_s.png')
-        : require('../__assets__/star_d.png');
+        ? require('./__assets__/star_s.png')
+        : require('./__assets__/star_d.png');
 
       return <StyledImage source={image} resizeMode="contain" />;
     }
