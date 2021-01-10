@@ -100,6 +100,7 @@ export interface CheckboxProps {
   defaultChecked?: boolean;
   indeterminate?: boolean;
   disabled?: boolean;
+  // @ts-ignore
   onChange?: (event: OnChangeEvent) => void;
   customStyle?: CustomStyle;
 }

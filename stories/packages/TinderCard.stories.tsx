@@ -207,6 +207,7 @@ function Default(): React.ReactElement {
         onSwipeLeft={handleLike}
         onCancel={handleCancel}
         data={data}
+        // @ts-ignore
         renderCards={_renderCards}
         renderNoMoreCards={_renderNoMoreCards}
         containerStyle={{ width: 300, height: 500 }}

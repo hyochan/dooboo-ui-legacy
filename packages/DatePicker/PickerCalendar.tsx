@@ -72,6 +72,7 @@ const PickerCalendar: FC<Props> = (props) => {
                   overflow: 'hidden',
                 }}
                 locale={locale}
+                // @ts-ignore
                 renderDay={({
                   date,
                   isCurrentMonth,

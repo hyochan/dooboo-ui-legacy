@@ -105,6 +105,7 @@ export const CheckboxGroup: FC<CheckboxGroupProps> = ({
 
   return (
     <Container direction={direction}>
+      {/* @ts-ignore */}
       <GroupCheckboxContext.Provider value={context}>
         {getOptions().map((option) => (
           <Checkbox
@@ -113,6 +114,7 @@ export const CheckboxGroup: FC<CheckboxGroupProps> = ({
             disabled={'disabled' in option ? option.disabled : disabled}
             value={option.value}
             checked={groupValues.indexOf(option.value) !== -1}
+            // @ts-ignore
             onChange={option.onChange}
             customStyle={
               'customStyle' in option ? option.customStyle : commonCustomStyle
