@@ -3,9 +3,7 @@ import * as React from 'react';
 import { Button } from '../../main';
 import { Text } from 'react-native';
 import renderer from 'react-test-renderer';
-// Note: test renderer must be required after react-native.
 
-// eslint-disable-next-line
 const component = (props?: any): React.ReactElement => {
   return <Button {...props} />;
 };

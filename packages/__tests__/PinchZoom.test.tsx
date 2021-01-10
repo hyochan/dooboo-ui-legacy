@@ -8,8 +8,9 @@ jest.useFakeTimers();
 
 jest.mock('react-native/Libraries/Interaction/PanResponder', () => {
   return {
-    create: (responderCallback: PanResponderCallbacks)
-    : { panHandlers : { responderCallback:PanResponderCallbacks } } => {
+    create: (
+      responderCallback: PanResponderCallbacks,
+    ): { panHandlers: { responderCallback: PanResponderCallbacks } } => {
       return {
         panHandlers: {
           responderCallback,
@@ -21,9 +22,7 @@ jest.mock('react-native/Libraries/Interaction/PanResponder', () => {
 
 describe('PinchZoom of ImageSlider', () => {
   it('should renders without crashing', () => {
-    const renderedJSON = renderer
-      .create(<ImageSlider />)
-      .toJSON();
+    const renderedJSON = renderer.create(<ImageSlider />).toJSON();
 
     expect(renderedJSON).toMatchSnapshot();
     expect(renderedJSON).toBeTruthy();

@@ -8,7 +8,7 @@ import {
   View,
   ViewStyle,
 } from 'react-native';
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useCallback, useEffect, useRef, useState } from 'react';
 
 interface Props {
   testID?: string;
@@ -59,6 +59,7 @@ function SwitchToggle(props: Props): React.ReactElement {
           : {};
   };
 
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   const runAnimation = (): void => {
     const animValue = {
       fromValue: props.switchOn ? 0 : 1,
@@ -74,7 +75,7 @@ function SwitchToggle(props: Props): React.ReactElement {
     props.containerStyle && props.circleStyle
       ? (props.containerStyle.width as number) -
         ((props.circleStyle.width as number) +
-          (props.containerStyle.padding as number || 0) * 2)
+          ((props.containerStyle.padding as number) || 0) * 2)
       : 0;
 
   const circlePosXEnd = props.RTL ? -endPos : endPos;
@@ -86,10 +87,8 @@ function SwitchToggle(props: Props): React.ReactElement {
   useEffect(() => {
     prevSwitchOnRef.current = props.switchOn;
 
-    if (prevSwitchOn !== props.switchOn) {
-      runAnimation();
-    }
-  }, [props.switchOn]);
+    if (prevSwitchOn !== props.switchOn) runAnimation();
+  }, [prevSwitchOn, props.switchOn, runAnimation]);
 
   const generateRightText = (): React.ReactElement => {
     return (
@@ -127,8 +126,7 @@ function SwitchToggle(props: Props): React.ReactElement {
     <TouchableOpacity
       testID={props.testID}
       onPress={props.onPress}
-      activeOpacity={0.5}
-    >
+      activeOpacity={0.5}>
       <Animated.View
         style={[
           styles.container,
@@ -142,8 +140,7 @@ function SwitchToggle(props: Props): React.ReactElement {
               ] as string[] | number[],
             }),
           },
-        ]}
-      >
+        ]}>
         {generateLeftText()}
         {props.switchOn && generateLeftIcon()}
         <Animated.View
@@ -172,8 +169,7 @@ function SwitchToggle(props: Props): React.ReactElement {
               ],
             },
             props.buttonStyle,
-          ]}
-        >
+          ]}>
           <Animated.View style={props.buttonContainerStyle}>
             <Text style={props.buttonTextStyle}>{props.buttonText}</Text>
           </Animated.View>

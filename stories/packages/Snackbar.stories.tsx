@@ -52,7 +52,7 @@ function Default(): React.ReactElement {
   const messageColor = color('message color', '#ffffff');
 
   const onPress = useCallback((): void => {
-    if (snackbar) {
+    if (snackbar)
       snackbar.show({
         text: longText ? snackbarLongText : snackbarText,
         timer: shortOrLong ? Timer.LONG : Timer.SHORT,
@@ -64,8 +64,15 @@ function Default(): React.ReactElement {
           fontSize: 17,
         },
       });
-    }
-  }, [shortOrLong, longText, containerColor, messageColor]);
+  }, [
+    shortOrLong,
+    longText,
+    containerColor,
+    messageColor,
+    snackbar,
+    snackbarLongText,
+    snackbarText,
+  ]);
 
   return (
     <Container>
@@ -113,24 +120,35 @@ function WithAction(): React.ReactElement {
   }, []);
 
   const onPress = useCallback((): void => {
-    snackbar.current && snackbar.current.show({
-      text: longText ? snackbarLongText : snackbarText,
-      timer: shortOrLong ? Timer.LONG : Timer.SHORT,
-      containerStyle: {
-        backgroundColor: containerColor,
-      },
-      messageStyle: {
-        color: messageColor,
-        fontSize: 17,
-      },
-      actionText,
-      actionStyle: {
-        color: actionColor,
-        fontSize: 17,
-      },
-      onPressAction,
-    });
-  }, [shortOrLong, longText, containerColor, messageColor]);
+    snackbar.current &&
+      snackbar.current.show({
+        text: longText ? snackbarLongText : snackbarText,
+        timer: shortOrLong ? Timer.LONG : Timer.SHORT,
+        containerStyle: {
+          backgroundColor: containerColor,
+        },
+        messageStyle: {
+          color: messageColor,
+          fontSize: 17,
+        },
+        actionText,
+        actionStyle: {
+          color: actionColor,
+          fontSize: 17,
+        },
+        onPressAction,
+      });
+  }, [
+    shortOrLong,
+    longText,
+    containerColor,
+    messageColor,
+    actionColor,
+    actionText,
+    onPressAction,
+    snackbarLongText,
+    snackbarText,
+  ]);
 
   return (
     <Container>
@@ -168,11 +186,13 @@ export default {
   title: 'SnackBar',
 };
 
-export const toStorybook = (): ReactElement => <>
-  <SnackbarProvider>
-    <Default />
-  </SnackbarProvider>
-</>;
+export const toStorybook = (): ReactElement => (
+  <>
+    <SnackbarProvider>
+      <Default />
+    </SnackbarProvider>
+  </>
+);
 
 toStorybook.story = {
   name: 'default',

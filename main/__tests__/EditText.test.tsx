@@ -12,7 +12,6 @@ import { View } from 'react-native';
 // Note: test renderer must be required after react-native.
 import renderer from 'react-test-renderer';
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
 let component: React.ReactElement;
 let testingLib: RenderAPI;
 
@@ -27,7 +26,7 @@ describe('[EditText]', () => {
       borderWidth: 3,
       textStyle: {},
       labelWidth: 90,
-      borderStyle: { },
+      borderStyle: {},
       borderColor: '#fff',
       errorColor: '#fff',
       onChangeText: (word: string): void => {

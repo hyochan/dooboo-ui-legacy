@@ -79,7 +79,9 @@ const Normal = (): React.ReactElement => {
 };
 
 const StandAlone = (): React.ReactElement => {
-  const [selectedStandAlone, setSelectedStandAlone] = React.useState<string>('');
+  const [selectedStandAlone, setSelectedStandAlone] = React.useState<string>(
+    '',
+  );
 
   return (
     <View>
@@ -254,18 +256,8 @@ toStorybookControllable.story = {
  */
 storiesOf('RadioButton', module)
   .addDecorator(ContainerDeco)
-  .add('default', () => (
-    <Default />
-  ))
-  .add('Normal', () => (
-    <Normal />
-  ))
-  .add('StandAlone', () => (
-    <StandAlone />
-  ))
-  .add('LabelPlacement', () => (
-    <LabelPlacement />
-  ))
-  .add('Controllable', () => (
-    <Controllable />
-  ));
+  .add('default', () => <Default />)
+  .add('Normal', () => <Normal />)
+  .add('StandAlone', () => <StandAlone />)
+  .add('LabelPlacement', () => <LabelPlacement />)
+  .add('Controllable', () => <Controllable />);

@@ -92,50 +92,39 @@ function Button({
       delayPressIn={50}
       disabled={disabled}
       style={[
-        isHovered && !disabled && [
-          defaultStyles.hovered,
-          style?.hovered,
-        ],
-        disabled && [
-          defaultStyles.disabledButton,
-          style?.disabledButton,
-        ],
+        isHovered && !disabled && [defaultStyles.hovered, style?.hovered],
+        disabled && [defaultStyles.disabledButton, style?.disabledButton],
       ]}
-      {...touchableOpacityProps}
-    >
-      {loading
-        ? <View style={[
-          defaultStyles.container,
-          style?.container,
-          {
-            width: layout?.width,
-            height: layout?.height,
-          },
-        ]}><ActivityIndicator size="small" color={indicatorColor} /></View>
-        : <View
+      {...touchableOpacityProps}>
+      {loading ? (
+        <View
           style={[
             defaultStyles.container,
             style?.container,
-          ]}
-          onLayout={(e) => setLayout(e.nativeEvent.layout)}
-        >
+            {
+              width: layout?.width,
+              height: layout?.height,
+            },
+          ]}>
+          <ActivityIndicator size="small" color={indicatorColor} />
+        </View>
+      ) : (
+        <View
+          style={[defaultStyles.container, style?.container]}
+          onLayout={(e) => setLayout(e.nativeEvent.layout)}>
           {leftElement}
           <Text
             style={[
               defaultStyles.text,
               style?.text,
-              disabled && [
-                defaultStyles.disabledText,
-                style?.disabledText,
-              ],
+              disabled && [defaultStyles.disabledText, style?.disabledText],
             ]}
-            {...textProps}
-          >
+            {...textProps}>
             {text}
           </Text>
           {rightElement}
         </View>
-      }
+      )}
     </TouchableOpacity>
   );
 }

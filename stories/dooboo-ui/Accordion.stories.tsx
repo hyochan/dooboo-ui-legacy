@@ -35,26 +35,15 @@ const LeftElement = styled.Image`
 const data = [
   {
     title: 'Lists',
-    bodies: [
-      'user',
-      'mail',
-      'plan',
-    ],
+    bodies: ['user', 'mail', 'plan'],
   },
   {
     title: 'mail',
-    bodies: [
-      'mail list',
-      'category',
-      'bin',
-    ],
+    bodies: ['mail list', 'category', 'bin'],
   },
   {
     title: 'Reports',
-    bodies: [
-      'report list',
-      'statistics',
-    ],
+    bodies: ['report list', 'statistics'],
   },
 ];
 
@@ -85,22 +74,18 @@ const CustomStyle = (): React.ReactElement => {
           collapseOnStart={true}
           animDuration={300}
           activeOpacity={1}
-          renderTitle = {(item): React.ReactElement => {
+          renderTitle={(item): React.ReactElement => {
             return (
               <Fragment>
                 <LeftElement source={IC_MAGNIFIER} />
-                <CustomStyledTitle>
-                  {item}
-                </CustomStyledTitle>
+                <CustomStyledTitle>{item}</CustomStyledTitle>
               </Fragment>
             );
           }}
-          renderBody = {(item): React.ReactElement => {
+          renderBody={(item): React.ReactElement => {
             return (
               <Fragment>
-                <CustomStyledItem>
-                  {item}
-                </CustomStyledItem>
+                <CustomStyledItem>{item}</CustomStyledItem>
               </Fragment>
             );
           }}

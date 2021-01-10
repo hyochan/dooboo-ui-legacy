@@ -85,22 +85,22 @@ const BarChart: FC<BarChartProps> = (props) => {
 
   // get Y axis values range
   const getYmaxRange = (
-    data: Array<Record<string, number>>,
-    yUnit: string | number,
+    rangeData: Array<Record<string, number>>,
+    rangeYUnit: string | number,
   ): Array<number> => {
     const range: number[] = [];
-    const unit = typeof yUnit === 'string' ? Number(yUnit) : yUnit;
+
+    const unit =
+      typeof rangeYUnit === 'string' ? Number(rangeYUnit) : rangeYUnit;
 
     const yMaxValue =
       Math.trunc(
-        Math.max(...data.map((current) => current[yAxisKey]), 0) / unit,
+        Math.max(...rangeData.map((current) => current[yAxisKey]), 0) / unit,
       ) *
         unit +
       unit;
 
-    for (let i = 0; i <= yMaxValue; i += unit) {
-      i <= yMaxValue && range.push(i);
-    }
+    for (let i = 0; i <= yMaxValue; i += unit) i <= yMaxValue && range.push(i);
 
     return range;
   };
@@ -123,7 +123,8 @@ const BarChart: FC<BarChartProps> = (props) => {
 
   const yRange = [
     SVGPadding,
-    SVGHeight - SVGPadding * (SVGHeight < 736 ? 1.5 : SVGHeight < 1023 ? 2.5 : 3.5),
+    SVGHeight -
+      SVGPadding * (SVGHeight < 736 ? 1.5 : SVGHeight < 1023 ? 2.5 : 3.5),
   ];
 
   const yAxis = d3.scaleLinear().domain(yDomain).range(yRange);

@@ -71,14 +71,16 @@ function Calendar(props: Props): React.ReactElement {
 
   const [curMonthFirst, setCurMonthFirst] = React.useState<Date>(initDate);
 
-  // getItemLayout
-  const getItemLayout = React.useCallback((data, index) => {
-    return {
-      length: props.calendarWidth,
-      offset: props.calendarWidth * index,
-      index,
-    };
-  }, []);
+  const getItemLayout = React.useCallback(
+    (data, index) => {
+      return {
+        length: props.calendarWidth,
+        offset: props.calendarWidth * index,
+        index,
+      };
+    },
+    [props.calendarWidth],
+  );
 
   const MemoizedCalendarMonth = React.memo(CalendarMonth, () => {
     return true;
@@ -99,27 +101,27 @@ function Calendar(props: Props): React.ReactElement {
         />
       );
     },
-    [],
+    [MemoizedCalendarMonth, initDate, props.calendarWidth, props.renderDay],
   );
 
-  const onViewableItemsChanged = React.useCallback(({ viewableItems }) => {
-    if (viewableItems.length === 0) return; // 없는 경우 있음. 그냥 무시
+  const onViewableItemsChanged = React.useCallback(
+    ({ viewableItems }) => {
+      if (viewableItems.length === 0) return; // 없는 경우 있음. 그냥 무시
 
-    const { item } = viewableItems[0];
+      const { item } = viewableItems[0];
 
-    props.onChangeMonth && props.onChangeMonth(item);
-    setCurMonthFirst(item);
-  }, []);
+      props.onChangeMonth && props.onChangeMonth(item);
+      setCurMonthFirst(item);
+    },
+    [props],
+  );
 
   const renderYearMonth = React.useCallback(
     (monthFirst): React.ReactElement => {
-      if (props.titleContent) {
-        return props.titleContent(monthFirst);
-      } else {
-        return <Text>{`${convertDateString(monthFirst)}`}</Text>;
-      }
+      if (props.titleContent) return props.titleContent(monthFirst);
+      else return <Text>{`${convertDateString(monthFirst)}`}</Text>;
     },
-    [],
+    [props],
   );
 
   return (

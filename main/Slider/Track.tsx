@@ -13,7 +13,7 @@ const StyledTrack = styled.View<{ width: number }>`
   left: 0px;
   width: ${({ width }): string => `${width}%`};
   height: ${DEFAULT.height}px;
-  background-color: #0B21E8;
+  background-color: #0b21e8;
 `;
 
 interface Props {
@@ -22,18 +22,8 @@ interface Props {
   percent: number;
 }
 
-const Track: FC<Props> = ({
-  testID,
-  style,
-  percent,
-}) => {
-  return (
-    <StyledTrack
-      testID={testID}
-      style={style}
-      width={percent}
-    />
-  );
+const Track: FC<Props> = ({ testID, style, percent }) => {
+  return <StyledTrack testID={testID} style={style} width={percent} />;
 };
 
 export default Track;

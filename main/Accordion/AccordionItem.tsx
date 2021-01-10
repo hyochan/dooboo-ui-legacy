@@ -1,9 +1,4 @@
-import {
-  Animated,
-  Easing,
-  LayoutChangeEvent,
-  ViewStyle,
-} from 'react-native';
+import { Animated, Easing, LayoutChangeEvent, ViewStyle } from 'react-native';
 import React, { FC, useEffect, useRef, useState } from 'react';
 
 import { Datum } from './index';
@@ -95,18 +90,17 @@ const AccordionItem: FC<Props> = (props) => {
   };
 
   const renderDefaultTitle = (title: string): React.ReactElement => {
-    return (
-      <StyledTitle>{title}</StyledTitle>
-    );
+    return <StyledTitle>{title}</StyledTitle>;
   };
 
   const renderDefaultBody = (body: string): React.ReactElement => {
-    return (
-      <StyledItem>{body}</StyledItem>
-    );
+    return <StyledItem>{body}</StyledItem>;
   };
 
-  const renderIndicator = (toggleElement: ToggleIndicatorType): React.ReactElement => {
+  const renderIndicator = (
+    // eslint-disable-next-line @typescript-eslint/no-shadow
+    toggleElement: ToggleIndicatorType,
+  ): React.ReactElement => {
     return (
       <Animated.View
         style={{
@@ -127,9 +121,8 @@ const AccordionItem: FC<Props> = (props) => {
   };
 
   useEffect((): void => {
-    if (bodyMounted) {
-      dropDownAnimValueList.setValue(opened ? -layoutHeight : 0);
-    }
+    if (bodyMounted) dropDownAnimValueList.setValue(opened ? -layoutHeight : 0);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [bodyMounted]);
 
   useEffect((): void => {
@@ -154,21 +147,21 @@ const AccordionItem: FC<Props> = (props) => {
 
       dropDownAnimValueList.setValue(targetValue);
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [opened]);
 
   useEffect(() => {
     const targetValue = opened ? 0 : 1;
 
-    if (shouldAnimate) {
+    if (shouldAnimate)
       Animated.timing(rotateAnimValue, {
         toValue: targetValue,
         duration: 200,
         easing: Easing.linear,
         useNativeDriver: true,
       }).start();
-    } else {
-      rotateAnimValue.setValue(targetValue);
-    }
+    else rotateAnimValue.setValue(targetValue);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [opened]);
 
   return (
@@ -180,52 +173,34 @@ const AccordionItem: FC<Props> = (props) => {
           width: 300,
           transform: sumOfPrecedingTranslateY,
         },
-      ]}
-    >
+      ]}>
       <TitleContainer
         testID={`title_${testID}`}
         onPress={handleAnimState}
         activeOpacity={activeOpacity}
-        style={titleContainerStyle}
-      >
-        {
-          renderTitle
-            ? renderTitle(item.title)
-            : renderDefaultTitle(item.title)
-        }
+        style={titleContainerStyle}>
+        {renderTitle ? renderTitle(item.title) : renderDefaultTitle(item.title)}
         {renderIndicator(toggleElement)}
       </TitleContainer>
 
       <Animated.View
         testID={`body_${testID}`}
         style={{
-          height: !bodyMounted
-            ? undefined
-            : bodyHeight,
+          height: !bodyMounted ? undefined : bodyHeight,
           transform: [
             {
               translateY: dropDownAnimValueList,
             },
           ],
         }}
-        onLayout={handleBodyLayout}
-      >
-        {
-          item.bodies.map((body, key) => {
-            return (
-              <ItemContainer
-                key={key}
-                style={bodyContainerStyle}
-              >
-                {
-                  renderBody
-                    ? renderBody(body)
-                    : renderDefaultBody(body)
-                }
-              </ItemContainer>
-            );
-          })
-        }
+        onLayout={handleBodyLayout}>
+        {item.bodies.map((body, key) => {
+          return (
+            <ItemContainer key={key} style={bodyContainerStyle}>
+              {renderBody ? renderBody(body) : renderDefaultBody(body)}
+            </ItemContainer>
+          );
+        })}
       </Animated.View>
     </Animated.View>
   );

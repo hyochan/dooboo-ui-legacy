@@ -2,7 +2,12 @@ import 'react-native';
 
 import * as React from 'react';
 
-import { RenderAPI, act, fireEvent, render } from '@testing-library/react-native';
+import {
+  RenderAPI,
+  act,
+  fireEvent,
+  render,
+} from '@testing-library/react-native';
 
 import { ButtonGroup } from '../../main';
 
@@ -10,7 +15,9 @@ let props: any;
 let component: React.ReactElement;
 let testingLib: RenderAPI;
 
-const createTestProps = (obj: Record<string, unknown>): Record<string, unknown> => ({
+const createTestProps = (
+  obj: Record<string, unknown>,
+): Record<string, unknown> => ({
   navigation: {
     navigate: jest.fn(),
   },

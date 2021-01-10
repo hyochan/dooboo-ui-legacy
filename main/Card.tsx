@@ -129,13 +129,12 @@ const Card: FC<Props> = (props) => {
   const renderTitle = title || subTitle;
   const renderDivider = hasDivider && renderTitle && children;
 
-  if (loading) {
+  if (loading)
     return (
       <LoadingContainer style={containerStyle}>
         <ActivityIndicator />
       </LoadingContainer>
     );
-  }
 
   return (
     <Container {...{ outlined, raised }} style={containerStyle}>

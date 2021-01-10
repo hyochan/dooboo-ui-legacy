@@ -8,12 +8,13 @@ import GiftedChatInput from '../GiftedChat';
 // Note: test renderer must be required after react-native.
 import renderer from 'react-test-renderer';
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
 let props: any;
 let component: React.ReactElement;
 // let testingLib: RenderResult;
 
-const createTestProps = (obj: Record<string, unknown>): Record<string, unknown> => ({
+const createTestProps = (
+  obj: Record<string, unknown>,
+): Record<string, unknown> => ({
   navigation: {
     navigate: jest.fn(),
   },
@@ -70,9 +71,7 @@ describe('[GiftedChatInput] render', () => {
   });
 
   it('renders without crashing', () => {
-    const rendered = renderer
-      .create(component)
-      .toJSON();
+    const rendered = renderer.create(component).toJSON();
 
     expect(rendered).toMatchSnapshot();
     expect(rendered).toBeTruthy();
@@ -107,12 +106,6 @@ describe('[GiftedChatInput] render', () => {
       fireEvent.press(touchMenu);
 
       touchMenu = testingLib.getByTestId('touch_menu');
-      fireEvent.press(touchMenu);
-    });
-
-    it('should call [setShowMenu] when focused', () => {
-      const touchMenu = testingLib.getByTestId('touch_menu');
-
       fireEvent.press(touchMenu);
     });
   });

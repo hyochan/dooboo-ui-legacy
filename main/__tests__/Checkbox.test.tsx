@@ -1,9 +1,6 @@
 import { Checkbox, CheckboxGroup } from '../Checkbox';
 import React, { ReactElement } from 'react';
-import {
-  RenderAPI,
-  render,
-} from '@testing-library/react-native';
+import { RenderAPI, render } from '@testing-library/react-native';
 
 import { TouchableHighlight } from 'react-native';
 import renderer from 'react-test-renderer';
@@ -17,8 +14,8 @@ const createTestProps = (
   ...obj,
 });
 
-const component = (props?): React.ReactElement => {
-  return <Checkbox {...props} />;
+const component = (currentProps?): React.ReactElement => {
+  return <Checkbox {...currentProps} />;
 };
 
 describe('[Checkbox]', () => {
@@ -27,9 +24,7 @@ describe('[Checkbox]', () => {
   });
 
   it('render without crashing', () => {
-    const rendered = renderer
-      .create(component(props))
-      .toJSON();
+    const rendered = renderer.create(component(props)).toJSON();
 
     expect(rendered).toMatchSnapshot();
   });
@@ -242,6 +237,7 @@ describe('[CheckboxGroup] render test', () => {
       onChange: handlePress,
     };
 
+    // eslint-disable-next-line @typescript-eslint/no-shadow
     const groupComponent = (props?): React.ReactElement => {
       return <CheckboxGroup {...props} />;
     };

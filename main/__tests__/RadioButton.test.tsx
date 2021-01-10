@@ -15,15 +15,17 @@ let props: unknown;
 // let component: React.ReactElement;
 // let testingLib: RenderResult;
 
-const createTestProps = (obj: Record<string, unknown>): Record<string, unknown> => ({
+const createTestProps = (
+  obj: Record<string, unknown>,
+): Record<string, unknown> => ({
   navigation: {
     navigate: jest.fn(),
   },
   ...obj,
 });
 
-const component = (props?): React.ReactElement => {
-  return <RadioButton {...props} />;
+const component = (currentProps?): React.ReactElement => {
+  return <RadioButton {...currentProps} />;
 };
 
 describe('[RadioButton] render', () => {
@@ -32,9 +34,7 @@ describe('[RadioButton] render', () => {
   });
 
   it('renders without crashing', () => {
-    const rendered = renderer
-      .create(component(props))
-      .toJSON();
+    const rendered = renderer.create(component(props)).toJSON();
 
     expect(rendered).toMatchSnapshot();
     expect(rendered).toBeTruthy();

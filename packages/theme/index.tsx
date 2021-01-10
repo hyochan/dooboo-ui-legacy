@@ -50,7 +50,7 @@ function ThemeProvider({
 
   let theme: DefaultTheme;
 
-  if (customTheme) {
+  if (customTheme)
     theme = createDoobooTheme(
       {
         light: {
@@ -64,12 +64,11 @@ function ThemeProvider({
       },
       themeType,
     ) as DefaultTheme;
-  } else {
+  else
     theme = createDoobooTheme(
       { light: {}, dark: {} },
       themeType,
     ) as DefaultTheme;
-  }
 
   return (
     <Provider

@@ -1,10 +1,7 @@
 import * as React from 'react';
 
 import { BarChart, LineChart } from '../Charts/lib';
-import {
-  RenderAPI,
-  render,
-} from '@testing-library/react-native';
+import { RenderAPI, render } from '@testing-library/react-native';
 
 let props: any;
 let component: React.ReactElement;

@@ -15,9 +15,7 @@ const component = (props?): React.ReactElement => {
 
 describe('[Rating] render', () => {
   it('renders without crashing', () => {
-    const rendered = renderer
-      .create(component(defaultProps))
-      .toJSON();
+    const rendered = renderer.create(component(defaultProps)).toJSON();
 
     expect(rendered).toMatchSnapshot();
     expect(rendered).toBeTruthy();

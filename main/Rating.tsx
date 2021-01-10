@@ -37,30 +37,34 @@ const ContainerWrapper = styled.View<ContainerWrapperProps>`
   opacity: ${({ disabled }): number => (disabled ? 0.5 : 1)};
 `;
 
-const StarWrapper = styled.TouchableOpacity`
-`;
+const StarWrapper = styled.TouchableOpacity``;
 
 const StyledImage = styled.Image`
   width: 30px;
   height: 30px;
 `;
 
-function StarComponent({ customItem, onPress, isOn, disabled }: StarProps): React.ReactElement {
+function StarComponent({
+  customItem,
+  onPress,
+  isOn,
+  disabled,
+}: StarProps): React.ReactElement {
   const handlePress = (): void => {
     onPress();
   };
 
   const star: React.ReactElement = React.useMemo(() => {
-    if (customItem) {
+    if (customItem)
       return isOn ? customItem.onComponent : customItem.offComponent;
-    } else {
+    else {
       const image = isOn
         ? require('./__assets__/star_s.png')
         : require('./__assets__/star_d.png');
 
       return <StyledImage source={image} resizeMode="contain" />;
     }
-  }, [customItem?.onComponent, customItem?.offComponent, isOn]);
+  }, [customItem, isOn]);
 
   return (
     <StarWrapper onPress={handlePress} activeOpacity={disabled ? 1 : 0.7}>
@@ -70,6 +74,7 @@ function StarComponent({ customItem, onPress, isOn, disabled }: StarProps): Reac
 }
 
 function Rating(props: Props): React.ReactElement {
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   const _handlePress = (position: number): void => {
     props.onChange && props.onChange(position + 1);
   };
@@ -84,16 +89,26 @@ function Rating(props: Props): React.ReactElement {
         key={index}
         isOn={props.value - 1 >= index}
         onPress={(): void => {
-          (props.onChange && !props.disabled) && _handlePress(index);
+          props.onChange && !props.disabled && _handlePress(index);
         }}
         disabled={!props.onChange || props.disabled}
         customItem={props.customItem}
       />
     ));
-  }, [props.value, props.onChange, props.disabled]);
+  }, [
+    initArr,
+    props.value,
+    props.onChange,
+    props.disabled,
+    props.customItem,
+    _handlePress,
+  ]);
 
   return (
-    <ContainerWrapper style={props.containerStyle} total={props.total} disabled={props.disabled}>
+    <ContainerWrapper
+      style={props.containerStyle}
+      total={props.total}
+      disabled={props.disabled}>
       {starsArr}
     </ContainerWrapper>
   );

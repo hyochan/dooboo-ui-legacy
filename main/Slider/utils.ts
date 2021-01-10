@@ -3,18 +3,24 @@ export const roundNearest = (number: number, digit: number): number => {
   const halfDigit = digit / 2;
   const base = number - rest;
 
-  if (rest >= halfDigit) {
-    return base + digit;
-  }
+  if (rest >= halfDigit) return base + digit;
 
   return base;
 };
 
-export const getPercentByValue = (value: number, maxValue: number, minValue: number): number => {
+export const getPercentByValue = (
+  value: number,
+  maxValue: number,
+  minValue: number,
+): number => {
   return (value / (maxValue - minValue)) * 100;
 };
 
-export const getValueByPercent = (percent: number, maxValue: number, minValue: number): number => {
+export const getValueByPercent = (
+  percent: number,
+  maxValue: number,
+  minValue: number,
+): number => {
   return ((maxValue - minValue) * percent) / 100;
 };
 
@@ -27,7 +33,7 @@ export const getStepPercent = ({
   maxValue: number;
   step: number;
 }): number => {
-  return 100 / (maxValue - minValue) * step;
+  return (100 / (maxValue - minValue)) * step;
 };
 
 export const getPercentByPositionX = ({
@@ -41,18 +47,11 @@ export const getPercentByPositionX = ({
 }): number => {
   const percent = (positionX / sliderWidth) * 100;
 
-  if (percent <= 0) {
-    return 0;
-  }
+  if (percent <= 0) return 0;
 
-  if (percent >= 100) {
-    return 100;
-  }
+  if (percent >= 100) return 100;
 
-  return roundNearest(
-    percent,
-    stepPercent,
-  );
+  return roundNearest(percent, stepPercent);
 };
 
 export const getNearestPercentByValue = ({
@@ -74,13 +73,9 @@ export const getNearestPercentByValue = ({
 
   const percent = getPercentByValue(value, maxValue, minValue);
 
-  if (percent <= 0) {
-    return 0;
-  }
+  if (percent <= 0) return 0;
 
-  if (percent >= 100) {
-    return 100;
-  }
+  if (percent >= 100) return 100;
 
   return roundNearest(
     getPercentByValue(value, maxValue, minValue),
@@ -97,5 +92,5 @@ export const getStepValueByPercent = ({
   stepPercent: number;
   step: number;
 }): number => {
-  return percent / stepPercent * step;
+  return (percent / stepPercent) * step;
 };

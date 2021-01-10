@@ -3,15 +3,15 @@ import 'react-native';
 import * as React from 'react';
 
 import TinderCard from '../TinderCard';
-// Note: test renderer must be required after react-native.
 import renderer from 'react-test-renderer';
 
-// eslint-disable-next-line
 let props: any;
 let component: React.ReactElement;
 // let testingLib: RenderResult;
 
-const createTestProps = (obj: Record<string, unknown>): Record<string, unknown> => ({
+const createTestProps = (
+  obj: Record<string, unknown>,
+): Record<string, unknown> => ({
   navigation: {
     navigate: jest.fn(),
   },
@@ -25,9 +25,7 @@ describe('[TinderCard] render', () => {
   });
 
   it('renders without crashing', () => {
-    const rendered = renderer
-      .create(component)
-      .toJSON();
+    const rendered = renderer.create(component).toJSON();
 
     expect(rendered).toMatchSnapshot();
     expect(rendered).toBeTruthy();

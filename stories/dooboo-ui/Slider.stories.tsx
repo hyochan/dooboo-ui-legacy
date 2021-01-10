@@ -176,7 +176,6 @@ function Colored(): React.ReactElement {
 
   return (
     <Container>
-
       <SubTitle>Colored</SubTitle>
       <Slider
         minValue={0}
@@ -204,7 +203,6 @@ function CustomMarks(): React.ReactElement {
 
   return (
     <Container>
-
       <SubTitle>Custom Marks</SubTitle>
       <Slider
         minValue={0}
@@ -212,9 +210,7 @@ function CustomMarks(): React.ReactElement {
         step={1}
         labelSize={50}
         labelTextStyle={{ fontSize: 30 }}
-        mark={(
-          <Text>1</Text>
-        )}
+        mark={<Text>1</Text>}
         customMarkWidth={2}
         onChange={(value): void => {
           setCustomMarks(value);
@@ -237,9 +233,7 @@ function CustomThumb(): React.ReactElement {
         step={1}
         labelSize={50}
         labelTextStyle={{ fontSize: 30 }}
-        thumb={(
-          <Text>1</Text>
-        )}
+        thumb={<Text>1</Text>}
         onChange={(value): void => {
           setCustomThumb(value);
         }}

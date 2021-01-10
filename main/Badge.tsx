@@ -82,15 +82,13 @@ const Badge: FC<BadgeProps> = (props) => {
     textColor = '#FFFFFF',
   } = props;
 
-  if (!showZero) {
-    if (count === 0) return null;
-  }
+  if (!showZero) if (count === 0) return null;
 
-  if (variant === 'dot') {
+  if (variant === 'dot')
     return <StyledDotView color={color} badgePlacement={position} />;
-  } else {
-    const opacity = (maximumCount < count && opacityVisible) ? 0.6 : 1;
-    const countText = (maximumCount < count) ? count + '+' : count;
+  else {
+    const opacity = maximumCount < count && opacityVisible ? 0.6 : 1;
+    const countText = maximumCount < count ? count + '+' : count;
 
     return (
       <StyledView

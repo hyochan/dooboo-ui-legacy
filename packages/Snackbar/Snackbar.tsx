@@ -1,5 +1,3 @@
-import * as React from 'react';
-
 import {
   Animated,
   Dimensions,
@@ -8,6 +6,7 @@ import {
   TextStyle,
   ViewStyle,
 } from 'react-native';
+import React, { useCallback } from 'react';
 
 import styled from 'styled-components/native';
 
@@ -83,17 +82,30 @@ export enum Timer {
   LONG = 3000,
 }
 
-const Snackbar = (props: SnackbarProps, ref: React.Ref<SnackbarRef>): React.ReactElement => {
+const Snackbar = (
+  props: SnackbarProps,
+  ref: React.Ref<SnackbarRef>,
+): React.ReactElement => {
   const { testID } = props;
 
-  const [showingState, setShowingState] = React.useState<ShowingState>(
-    { isVisible: false, isShowing: false },
-  );
+  const [showingState, setShowingState] = React.useState<ShowingState>({
+    isVisible: false,
+    isShowing: false,
+  });
 
-  const [content, setContent] = React.useState<Content>({ text: '', timer: Timer.SHORT });
+  const [content, setContent] = React.useState<Content>({
+    text: '',
+    timer: Timer.SHORT,
+  });
 
   const {
-    text, actionText, messageStyle, actionStyle, containerStyle, timer = Timer.SHORT, onPressAction,
+    text,
+    actionText,
+    messageStyle,
+    actionStyle,
+    containerStyle,
+    timer = Timer.SHORT,
+    onPressAction,
   } = content;
 
   const { isShowing, isVisible, timeout } = showingState;
@@ -102,44 +114,48 @@ const Snackbar = (props: SnackbarProps, ref: React.Ref<SnackbarRef>): React.Reac
   const show = (c: Content): void => {
     setContent(c);
     timeout && clearTimeout(timeout);
-    setShowingState((prevState) => Object.assign(Object.assign({}, prevState), { isShowing: true }));
+
+    setShowingState((prevState) =>
+      Object.assign(Object.assign({}, prevState), { isShowing: true }),
+    );
   };
 
-  const hide = (duration = 200): void => {
-    Animated.timing(
-      fadeAnim,
-      {
+  const hide = useCallback(
+    (duration = 200): void => {
+      Animated.timing(fadeAnim, {
         toValue: 0,
         duration,
         useNativeDriver: true,
-      },
-    ).start(() => setShowingState(
-      (prevState) => Object.assign(Object.assign({}, prevState), { isVisible: false }),
-    ));
-  };
+      }).start(() =>
+        setShowingState((prevState) =>
+          Object.assign(Object.assign({}, prevState), { isVisible: false }),
+        ),
+      );
+    },
+    [fadeAnim],
+  );
 
   React.useEffect(() => {
-    if (isShowing) {
-      if (isVisible) {
-        hide(50);
-      } else {
+    if (isShowing)
+      if (isVisible) hide(50);
+      else {
         const hideTimeout = setTimeout(() => {
           hide();
         }, timer + 200);
 
-        setShowingState({ isShowing: false, isVisible: true, timeout: hideTimeout });
+        setShowingState({
+          isShowing: false,
+          isVisible: true,
+          timeout: hideTimeout,
+        });
 
-        Animated.timing(
-          fadeAnim,
-          {
-            toValue: 1,
-            duration: 200,
-            useNativeDriver: true,
-          },
-        ).start();
+        Animated.timing(fadeAnim, {
+          toValue: 1,
+          duration: 200,
+          useNativeDriver: true,
+        }).start();
       }
-    }
-  }, [showingState]);
+  }, [showingState, fadeAnim, hide, isShowing, isVisible, timer]);
 
   React.useImperativeHandle(ref, () => ({
     show,
@@ -155,8 +171,7 @@ const Snackbar = (props: SnackbarProps, ref: React.Ref<SnackbarRef>): React.Reac
             { maxWidth: Dimensions.get('screen').width - 32 },
             containerStyle,
             { opacity: fadeAnim },
-          ]}
-        >
+          ]}>
           <MessageText style={messageStyle}>{text}</MessageText>
           {actionText && (
             <ActionContainer>
@@ -164,8 +179,7 @@ const Snackbar = (props: SnackbarProps, ref: React.Ref<SnackbarRef>): React.Reac
                 onPress={(): void => {
                   onPressAction && onPressAction();
                   hide();
-                }}
-              >
+                }}>
                 <ActionButton>
                   <ActionText style={actionStyle}>{actionText}</ActionText>
                 </ActionButton>

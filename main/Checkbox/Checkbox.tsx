@@ -127,21 +127,18 @@ export const Checkbox: FC<CheckboxProps> = ({
     });
 
     groupCheckboxContext?.toggleOption({ label, value: value || '' });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [onChange, setIsChecked, label, groupCheckboxContext?.toggleOption]);
 
   useEffect(() => {
     // for only componenUpdate not in mount
-    if (isMounted.current) {
-      setIsChecked(checked);
-    } else {
-      isMounted.current = true;
-    }
+    if (isMounted.current) setIsChecked(checked);
+    else isMounted.current = true;
   }, [checked]);
 
   useEffect(() => {
-    if (value && groupCheckboxContext?.registerValue) {
+    if (value && groupCheckboxContext?.registerValue)
       groupCheckboxContext.registerValue(value);
-    }
   }, []);
 
   const labelColor = disabled ? COLOR.LIGHTGRAY : customStyle?.labelColor;

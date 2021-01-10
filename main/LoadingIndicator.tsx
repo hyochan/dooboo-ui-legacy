@@ -34,56 +34,59 @@ interface Props {
 }
 
 function LoadingIndicator(props: Props): ReactElement {
-  const { containerStyle, renderCustomElement, style, size, color, imgSource } = props;
+  const {
+    containerStyle,
+    renderCustomElement,
+    style,
+    size,
+    color,
+    imgSource,
+  } = props;
 
-  const handleImgSize = (size: number | string | undefined): ImageStyle => {
-    if (size === 'large') {
+  const handleImgSize = (imgSize: number | string | undefined): ImageStyle => {
+    if (imgSize === 'large')
       return {
         width: 80,
         height: 80,
       };
-    }
 
-    if (size === 'small') {
+    if (imgSize === 'small')
       return {
         width: 50,
         height: 50,
       };
-    }
 
-    if (!size) {
-      return {};
-    }
+    if (!imgSize) return {};
 
     return {
-      width: size,
-      height: size,
+      width: imgSize,
+      height: imgSize,
     };
   };
 
-  const handleImgSourceType = (src: string | ImageSourcePropType): ImageSourcePropType => {
-    if (typeof src === 'string') {
+  const handleImgSourceType = (
+    src: string | ImageSourcePropType,
+  ): ImageSourcePropType => {
+    if (typeof src === 'string')
       return {
         uri: src,
       };
-    }
 
     return src;
   };
 
   return (
     <View style={StyleSheet.flatten([styles.container, containerStyle])}>
-      {
-        renderCustomElement
-          ? renderCustomElement()
-          : !imgSource
-            ? <ActivityIndicator
-              style={style}
-              size={size}
-              color={color}
-            />
-            : <Image source={handleImgSourceType(imgSource)} style={handleImgSize(size)} />
-      }
+      {renderCustomElement ? (
+        renderCustomElement()
+      ) : !imgSource ? (
+        <ActivityIndicator style={style} size={size} color={color} />
+      ) : (
+        <Image
+          source={handleImgSourceType(imgSource)}
+          style={handleImgSize(size)}
+        />
+      )}
     </View>
   );
 }

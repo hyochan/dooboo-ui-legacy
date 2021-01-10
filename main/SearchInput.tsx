@@ -18,7 +18,7 @@ const Container = styled.View`
   margin-right: 20px;
   border-radius: 6px;
   border-width: 1px;
-  border-color: #E0E0E0;
+  border-color: #e0e0e0;
   flex-direction: row;
   align-items: center;
 `;
@@ -61,7 +61,7 @@ function useDebounce(value: string, delay: number): string {
     return (): void => {
       clearTimeout(handler);
     };
-  }, [value]);
+  }, [delay, value]);
 
   return debouncedValue;
 }
@@ -88,10 +88,8 @@ const SearchInput: FC<Props> = (props) => {
   const debouncedValue = useDebounce(inputValue, debounceDelay);
 
   useEffect(() => {
-    if (onDebounceOrOnReset) {
-      onDebounceOrOnReset(debouncedValue);
-    }
-  }, [debouncedValue]);
+    if (onDebounceOrOnReset) onDebounceOrOnReset(debouncedValue);
+  }, [debouncedValue, onDebounceOrOnReset]);
 
   useEffect(() => {
     setInputValue(value);
@@ -100,8 +98,7 @@ const SearchInput: FC<Props> = (props) => {
   return (
     <Container
       testID={'SEARCH_CONTAINER'}
-      style={[containerStyle, focused && { borderColor: focusColor }]}
-    >
+      style={[containerStyle, focused && { borderColor: focusColor }]}>
       {leftElement || null}
       <Input
         testID={'SEARCH_INPUT'}
@@ -120,9 +117,7 @@ const SearchInput: FC<Props> = (props) => {
           setFocus(false);
           onBlur && onBlur();
         }}
-        onKeyPress={
-          onKeyPress
-        }
+        onKeyPress={onKeyPress}
       />
       {rightElement || null}
     </Container>

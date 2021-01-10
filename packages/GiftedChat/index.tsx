@@ -1,4 +1,13 @@
-import { EmitterSubscription, FlatList, Keyboard, ListRenderItem, TextInput, View } from 'react-native';
+import {
+  BackHandler,
+  BackHandlerStatic,
+  FlatList,
+  Keyboard,
+  ListRenderItem,
+  Platform,
+  TextInput,
+  View,
+} from 'react-native';
 import React, { useEffect, useRef, useState } from 'react';
 
 import styled from 'styled-components/native';
@@ -13,9 +22,11 @@ const StyledKeyboardAvoidingView = styled.KeyboardAvoidingView`
 
 const StyledViewChat = styled.View`
   width: 100%;
-  border-top-width: 0.5px;
-  min-height: 52px;
-  max-height: 52px;
+  max-width: 100%;
+  border-top-width: 0.3px;
+  border-color: ${({ theme }): string => theme.lineColor};
+  min-height: 56px;
+  max-height: 56px;
   padding-right: 8px;
   padding-left: 8px;
   flex-direction: row;
@@ -25,10 +36,9 @@ const StyledViewChat = styled.View`
 `;
 
 const StyledInputChat = styled.TextInput`
-  width: 80%;
   font-size: 14px;
-  margin-right: 20px;
   padding-left: 48px;
+  padding-bottom: 4px;
   color: black;
 `;
 
@@ -49,20 +59,17 @@ const StyledViewBottom = styled.View`
 const StyledViewMenu = styled.View<{ height: number }>`
   flex-direction: row;
   flex-wrap: wrap;
-  height: ${({ height }): number => height}px;
+  height: ${({ height }): string => `${height}px`};
 `;
 
-interface Props {
-  inputTestID?: string;
-  touchTestID?: string;
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  chats?: any;
+interface Props<T> {
+  chats?: T[];
   borderColor?: string;
   backgroundColor?: string;
   fontColor?: string;
+  onEndReached?: () => void;
   keyboardOffset?: number;
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  renderItem: ListRenderItem<any>;
+  renderItem: ListRenderItem<T>;
   optionView?: React.ReactElement;
   emptyItem?: React.ReactElement;
   renderViewMenu?: () => React.ReactElement;
@@ -73,17 +80,12 @@ interface Props {
   renderSendButton?: () => React.ReactElement;
 }
 
-function Shared(props: Props): React.ReactElement {
-  let keyboardShowListener: EmitterSubscription;
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+function Shared<T>(props: Props<T>): React.ReactElement {
   const input1 = useRef<TextInput>();
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const input2 = useRef<TextInput>();
 
   const {
-    inputTestID,
-    touchTestID,
-    chats,
+    chats = [],
     borderColor,
     backgroundColor,
     fontColor,
@@ -97,66 +99,92 @@ function Shared(props: Props): React.ReactElement {
     placeholder,
     placeholderTextColor,
     renderSendButton,
+    onEndReached,
   } = props;
 
   const [keyboardHeight, setKeyboardHeight] = useState<number>(258);
   const [showMenu, setShowMenu] = useState<boolean>(false);
+  const [isFirstTime, setIsFirstTime] = useState<boolean>(true);
+
+  const backHandler = useRef<BackHandlerStatic>(BackHandler);
+  const keyboard = useRef(Keyboard);
 
   useEffect(() => {
-    if (showMenu) {
-      Keyboard.dismiss();
-    } else {
-      if (input1 && input1.current) {
-        input1.current.focus();
-      }
+    if (showMenu) Keyboard.dismiss();
+    else {
+      if (!isFirstTime) input1?.current?.focus();
+
+      setIsFirstTime(false);
     }
-  }, [showMenu]);
+  }, [showMenu, isFirstTime]);
 
   useEffect(() => {
-    keyboardShowListener = Keyboard.addListener('keyboardDidShow', (e) => {
-      setKeyboardHeight(e.endCoordinates.height);
-    });
+    const backHandlerListner = backHandler.current.addEventListener(
+      'hardwareBackPress',
+      (): boolean => {
+        setShowMenu((show) => (show ? false : show));
+
+        return false;
+      },
+    );
+
+    const keyboardShowListener = keyboard.current.addListener(
+      'keyboardDidShow',
+      (e) => {
+        setKeyboardHeight(e.endCoordinates.height);
+      },
+    );
 
     return (): void => {
-      if (keyboardShowListener) {
-        keyboardShowListener.remove();
-      }
+      if (keyboardShowListener) keyboardShowListener.remove();
+
+      if (backHandlerListner) backHandlerListner.remove();
     };
-  });
+  }, []);
 
   return (
     <>
       <StyledKeyboardAvoidingView
         keyboardVerticalOffset={keyboardOffset}
-        behavior={'padding'}
-      >
+        behavior={Platform.select({
+          ios: 'padding',
+          default: undefined,
+        })}>
         <FlatList
           style={{ alignSelf: 'stretch' }}
-          // prettier-ignore
           contentContainerStyle={
             chats.length === 0
               ? {
-                flex: 1,
-                alignItems: 'center',
-                justifyContent: 'center',
-              }
+                  flex: 1,
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                }
               : null
           }
+          inverted
           keyExtractor={(item, index): string => index.toString()}
           data={chats}
           renderItem={renderItem}
+          onEndReached={onEndReached}
           ListEmptyComponent={emptyItem}
+          ListHeaderComponent={
+            <View style={{ height: showMenu ? keyboardHeight + 80 : 28 }} />
+          }
         />
         {!showMenu ? (
           <StyledViewChat
             style={{
               borderColor: borderColor,
               backgroundColor: backgroundColor,
-            }}
-          >
+            }}>
             <StyledInputChat
-              testID={inputTestID}
+              testID="input-chat"
               style={{
+                flexGrow: 1,
+                flexShrink: 1,
+                paddingTop: 5,
+                paddingBottom: 5,
+                marginRight: 10,
                 color: fontColor,
                 backgroundColor: backgroundColor,
               }}
@@ -171,18 +199,20 @@ function Shared(props: Props): React.ReactElement {
               onChangeText={onChangeMessage}
             />
             <StyledTouchMenu
-              testID={touchTestID}
-              onPress={(): void => setShowMenu(true)}
-            >
+              testID="touch-menu"
+              onPress={(): void => {
+                Keyboard.dismiss();
+                setShowMenu(true);
+              }}>
               {optionView}
             </StyledTouchMenu>
             <View
               style={{
-                flex: 1,
+                flexGrow: 0,
+                flexShrink: 0,
                 marginVertical: 8,
-              }}
-            >
-              {renderSendButton ? renderSendButton() : null}
+              }}>
+              {renderSendButton?.()}
             </View>
           </StyledViewChat>
         ) : null}
@@ -193,16 +223,16 @@ function Shared(props: Props): React.ReactElement {
             style={{
               borderColor: borderColor,
               backgroundColor: backgroundColor,
-            }}
-          >
+            }}>
             <StyledInputChat
-              testID={inputTestID}
               // @ts-ignore
               ref={input2}
               onFocus={(): void => setShowMenu(false)}
               style={{
                 color: fontColor,
                 backgroundColor: backgroundColor,
+                flexGrow: 1,
+                flexShrink: 1,
               }}
               multiline={true}
               placeholder={placeholder}
@@ -211,28 +241,25 @@ function Shared(props: Props): React.ReactElement {
               defaultValue={message}
             />
             <StyledTouchMenu
-              testID={touchTestID}
-              onPress={(): void => setShowMenu(false)}
-            >
+              testID="touch-menu"
+              onPress={(): void => setShowMenu(false)}>
               {optionView}
             </StyledTouchMenu>
             <View
               style={{
-                flex: 1,
-                marginVertical: 8,
-              }}
-            >
-              {renderSendButton ? renderSendButton() : null}
+                position: 'absolute',
+                right: 8,
+              }}>
+              {renderSendButton?.()}
             </View>
           </StyledViewChat>
           <StyledViewMenu
-            testID="viewMenu"
+            testID="view-menu"
             height={keyboardHeight}
             style={{
               backgroundColor: backgroundColor,
-            }}
-          >
-            {renderViewMenu ? renderViewMenu() : null}
+            }}>
+            {renderViewMenu?.()}
           </StyledViewMenu>
         </StyledViewBottom>
       ) : null}
@@ -240,7 +267,6 @@ function Shared(props: Props): React.ReactElement {
   );
 }
 
-/* eslint-disable */
 Shared.defaultProps = {
   chats: [],
   keyboardOffset: 0,
@@ -249,10 +275,9 @@ Shared.defaultProps = {
   renderItem: (): React.ReactElement => <View />,
   renderViewMenu: (): React.ReactElement => <View />,
   message: '',
-  onChangeMessage: () => {},
+  onChangeMessage: (): void => {},
   placeholder: '',
   renderSendButton: (): React.ReactElement => <View />,
 };
-/* eslint-enable */
 
 export default Shared;

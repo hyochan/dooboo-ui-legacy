@@ -47,8 +47,7 @@ const Default = (): React.ReactElement => {
           alignSelf: 'stretch',
           paddingHorizontal: 20,
           paddingVertical: 100,
-        }}
-      >
+        }}>
         <Container>
           <SearchInput
             value={value}

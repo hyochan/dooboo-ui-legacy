@@ -183,11 +183,10 @@ const EditText: FC<Props> = (props) => {
               errorText
                 ? { color: errorColor }
                 : focused && [
-                  { color: focusColor },
-                  !disabled && focusedLabelStyle,
-                ],
-            ]}
-          >
+                    { color: focusColor },
+                    !disabled && focusedLabelStyle,
+                  ],
+            ]}>
             {label}
           </StyledLabel>
           <StyledTextInput
@@ -212,21 +211,17 @@ const EditText: FC<Props> = (props) => {
             onSubmitEditing={onSubmitEditing}
             multiline={multiline}
           />
-          {
-            borderWidth && <StyledLine
+          {borderWidth && (
+            <StyledLine
               style={[
                 borderStyle,
                 { borderBottomWidth: borderWidth, borderColor: borderColor },
-                focused &&
-                  { borderColor: errorText ? errorColor : focusColor },
+                focused && { borderColor: errorText ? errorColor : focusColor },
               ]}
             />
-          }
+          )}
           {errorText ? (
-            <StyledInvalidText
-              testID={errorTestID}
-              style={errorTextStyle}
-            >
+            <StyledInvalidText testID={errorTestID} style={errorTextStyle}>
               {`${errorText}`}
             </StyledInvalidText>
           ) : null}
@@ -241,29 +236,25 @@ const EditText: FC<Props> = (props) => {
               borderStyle,
               errorText
                 ? {
-                  borderColor: errorColor,
-                  borderBottomWidth: focusedBorderWidth,
-                }
+                    borderColor: errorColor,
+                    borderBottomWidth: focusedBorderWidth,
+                  }
                 : focused && {
-                  borderColor: focusColor,
-                  borderBottomWidth: focusedBorderWidth,
-                },
+                    borderColor: focusColor,
+                    borderBottomWidth: focusedBorderWidth,
+                  },
               contentStyle,
-            ]}
-          >
+            ]}>
             {label ? (
               <StyledRowLabel
                 style={[
                   labelTextStyle,
                   errorText
                     ? [{ color: errorColor }, focusedLabelStyle]
-                    : focused && !disabled && [
-                      { color: focusColor },
-                      focusedLabelStyle,
-                    ],
+                    : focused &&
+                      !disabled && [{ color: focusColor }, focusedLabelStyle],
                   { width: labelWidth },
-                ]}
-              >
+                ]}>
                 {label}
               </StyledRowLabel>
             ) : null}
@@ -275,16 +266,12 @@ const EditText: FC<Props> = (props) => {
               onFocus={(): void => {
                 setFocus(true);
 
-                if (onFocus) {
-                  onFocus();
-                }
+                if (onFocus) onFocus();
               }}
               onBlur={(): void => {
                 setFocus(false);
 
-                if (onBlur) {
-                  onBlur();
-                }
+                if (onBlur) onBlur();
               }}
               onSubmitEditing={onSubmitEditing}
               placeholder={placeholder}
@@ -313,12 +300,8 @@ const EditText: FC<Props> = (props) => {
               labelTextStyle,
               errorText
                 ? { color: errorColor }
-                : focused && [
-                  { color: focusColor },
-                  focusedLabelStyle,
-                ],
-            ]}
-          >
+                : focused && [{ color: focusColor }, focusedLabelStyle],
+            ]}>
             {label}
           </StyledLabel>
           <StyledRowContent
@@ -331,12 +314,11 @@ const EditText: FC<Props> = (props) => {
               errorText
                 ? { borderColor: errorColor, borderWidth: focusedBorderWidth }
                 : focused && {
-                  borderColor: focusColor,
-                  borderWidth: focusedBorderWidth,
-                },
+                    borderColor: focusColor,
+                    borderWidth: focusedBorderWidth,
+                  },
               contentStyle,
-            ]}
-          >
+            ]}>
             <StyledTextInput
               {...textInputProps}
               testID={testID}
@@ -344,16 +326,12 @@ const EditText: FC<Props> = (props) => {
               onFocus={(): void => {
                 setFocus(true && !disabled);
 
-                if (onFocus) {
-                  onFocus();
-                }
+                if (onFocus) onFocus();
               }}
               onBlur={(): void => {
                 setFocus(false);
 
-                if (onBlur) {
-                  onBlur();
-                }
+                if (onBlur) onBlur();
               }}
               placeholder={placeholder}
               placeholderTextColor={placeholderTextColor}
@@ -371,7 +349,6 @@ const EditText: FC<Props> = (props) => {
                 {rightElement}
               </StyledIcon>
             )}
-
           </StyledRowContent>
           {errorText ? (
             <StyledInvalidText
@@ -381,8 +358,7 @@ const EditText: FC<Props> = (props) => {
                   color: errorColor,
                 },
                 errorTextStyle,
-              ]}
-            >
+              ]}>
               {`${errorText}`}
             </StyledInvalidText>
           ) : null}
@@ -402,11 +378,10 @@ const EditText: FC<Props> = (props) => {
               errorText
                 ? { borderColor: errorColor, borderWidth: focusedBorderWidth }
                 : focused && {
-                  borderColor: focusColor,
-                  borderWidth: focusedBorderWidth,
-                },
-            ]}
-          >
+                    borderColor: focusColor,
+                    borderWidth: focusedBorderWidth,
+                  },
+            ]}>
             {label ? (
               <StyledRowLabel
                 style={[
@@ -414,10 +389,12 @@ const EditText: FC<Props> = (props) => {
                   errorText
                     ? [{ color: errorColor }, focusedLabelStyle]
                     : focused
-                      ? [{ color: focusColor }, focusedLabelStyle]
-                      : null,
+                    ? [{ color: focusColor }, focusedLabelStyle]
+                    : null,
                   { marginLeft: 15, width: labelWidth },
-                ]}>{label}</StyledRowLabel>
+                ]}>
+                {label}
+              </StyledRowLabel>
             ) : null}
             <StyledRowInput
               {...textInputProps}
@@ -427,16 +404,12 @@ const EditText: FC<Props> = (props) => {
               onFocus={(): void => {
                 setFocus(true);
 
-                if (onFocus) {
-                  onFocus();
-                }
+                if (onFocus) onFocus();
               }}
               onBlur={(): void => {
                 setFocus(false);
 
-                if (onBlur) {
-                  onBlur();
-                }
+                if (onBlur) onBlur();
               }}
               onSubmitEditing={onSubmitEditing}
               placeholder={placeholder}

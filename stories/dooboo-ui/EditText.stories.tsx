@@ -26,23 +26,17 @@ const ColumnEditText = (): React.ReactElement => {
   const [errorEmail, setErrorEmail] = useState<string>('');
 
   const onSignIn = (): void => {
-    if (!validateEmail(email)) {
-      setErrorEmail('Not a valid email address');
-    }
+    if (!validateEmail(email)) setErrorEmail('Not a valid email address');
   };
 
   const onTextChanged = (type: string, text: string): void => {
     type === 'EMAIL' ? setEmail(text) : setPassword(text);
 
-    if (type === 'EMAIL' && text === '') {
-      setErrorEmail('');
-    }
+    if (type === 'EMAIL' && text === '') setErrorEmail('');
   };
 
   return (
-    <SafeAreaView
-      style={{ width: '100%' }}
-    >
+    <SafeAreaView style={{ width: '100%' }}>
       <ScrollView
         contentContainerStyle={{
           alignSelf: 'stretch',
@@ -51,22 +45,21 @@ const ColumnEditText = (): React.ReactElement => {
           flexDirection: 'column',
           justifyContent: 'center',
           alignItems: 'center',
-        }}
-      >
+        }}>
         <View
           style={{
             flexDirection: 'column',
             justifyContent: 'center',
             alignItems: 'center',
             width: Platform.OS === 'web' ? 438 : '100%',
-          }}
-        >
-          <Text style={{
-            fontWeight: 'bold',
-            fontSize: 24,
-            lineHeight: 35,
-            color: '#495057',
           }}>
+          <Text
+            style={{
+              fontWeight: 'bold',
+              fontSize: 24,
+              lineHeight: 35,
+              color: '#495057',
+            }}>
             Sign in with Email
           </Text>
           <EditText
@@ -119,15 +112,13 @@ const ColumnEditText = (): React.ReactElement => {
               flexDirection: 'row',
               justifyContent: 'center',
               alignItems: 'center',
-            }}
-          >
+            }}>
             <Text
               testID="no-account"
               style={{
                 fontSize: 14,
                 color: '#495057',
-              }}
-            >
+              }}>
               Do not have and account?{' '}
             </Text>
             <TouchableOpacity onPress={(): null => null} style={{ padding: 4 }}>
@@ -135,8 +126,7 @@ const ColumnEditText = (): React.ReactElement => {
                 style={{
                   color: '#6772e5',
                   fontWeight: 'bold',
-                }}
-              >
+                }}>
                 Find
               </Text>
             </TouchableOpacity>
@@ -160,11 +150,8 @@ const RowEditText = (): React.ReactElement => {
   const [password, setPassword] = useState<string>('');
 
   const onSignIn = (): void => {
-    if (!validateEmail(email)) {
-      setEmailErrorText('Not a valid email address');
-    } else {
-      setEmailErrorText('');
-    }
+    if (!validateEmail(email)) setEmailErrorText('Not a valid email address');
+    else setEmailErrorText('');
   };
 
   return (
@@ -178,16 +165,14 @@ const RowEditText = (): React.ReactElement => {
           flexDirection: 'column',
           justifyContent: 'center',
           alignItems: 'center',
-        }}
-      >
+        }}>
         <View
           style={{
             flexDirection: 'column',
             justifyContent: 'center',
             alignItems: 'center',
             width: Platform.OS === 'web' ? 438 : '100%',
-          }}
-        >
+          }}>
           <Text
             style={{
               fontStyle: 'normal',
@@ -196,8 +181,7 @@ const RowEditText = (): React.ReactElement => {
               lineHeight: 47,
               letterSpacing: -0.05,
               color: '#323C47',
-            }}
-          >
+            }}>
             Sign in with Email
           </Text>
           <EditText
@@ -281,15 +265,13 @@ const RowEditText = (): React.ReactElement => {
               flexDirection: 'row',
               justifyContent: 'center',
               alignItems: 'center',
-            }}
-          >
+            }}>
             <Text
               testID="no-account"
               style={{
                 fontSize: 14,
                 color: '#495057',
-              }}
-            >
+              }}>
               Do not have and account?{' '}
             </Text>
             <TouchableOpacity onPress={(): null => null} style={{ padding: 4 }}>
@@ -297,8 +279,7 @@ const RowEditText = (): React.ReactElement => {
                 style={{
                   color: '#6772e5',
                   fontWeight: 'bold',
-                }}
-              >
+                }}>
                 Find
               </Text>
             </TouchableOpacity>
@@ -321,19 +302,14 @@ const BoxEditText = (): React.ReactElement => {
   const [errorEmail, setErrorEmail] = useState<string>('');
 
   const onSignIn = (): void => {
-    if (!validateEmail(email)) {
-      setErrorEmail('Not a valid email address');
-    } else {
-      setErrorEmail('');
-    }
+    if (!validateEmail(email)) setErrorEmail('Not a valid email address');
+    else setErrorEmail('');
   };
 
   const onTextChanged = (type: string, text: string): void => {
     type === 'EMAIL' ? setEmail(text) : setPassword(text);
 
-    if (type === 'EMAIL' && text === '') {
-      setErrorEmail('');
-    }
+    if (type === 'EMAIL' && text === '') setErrorEmail('');
   };
 
   return (
@@ -347,16 +323,14 @@ const BoxEditText = (): React.ReactElement => {
           flexDirection: 'column',
           justifyContent: 'center',
           alignItems: 'center',
-        }}
-      >
+        }}>
         <View
           style={{
             flexDirection: 'column',
             justifyContent: 'center',
             alignItems: 'center',
             width: Platform.OS === 'web' ? 438 : '100%',
-          }}
-        >
+          }}>
           <Text
             style={{
               fontStyle: 'normal',
@@ -365,8 +339,7 @@ const BoxEditText = (): React.ReactElement => {
               lineHeight: 47,
               letterSpacing: -0.05,
               color: '#323C47',
-            }}
-          >
+            }}>
             Sign Up
           </Text>
           <EditText
@@ -403,7 +376,9 @@ const BoxEditText = (): React.ReactElement => {
               borderColor: '#ECF0F5',
             }}
             borderWidth={1}
-            rightElement={<Image source={IC_CHECK} style={{ width: 16, height: 16 }} />}
+            rightElement={
+              <Image source={IC_CHECK} style={{ width: 16, height: 16 }} />
+            }
           />
           <EditText
             testID="password-input-box"
@@ -510,19 +485,14 @@ const BoxRowEditText = (): React.ReactElement => {
   const [errorEmail, setErrorEmail] = useState<string>('');
 
   const onSignIn = (): void => {
-    if (!validateEmail(email)) {
-      setErrorEmail('Not a valid email address');
-    } else {
-      setErrorEmail('');
-    }
+    if (!validateEmail(email)) setErrorEmail('Not a valid email address');
+    else setErrorEmail('');
   };
 
   const onTextChanged = (type: string, text: string): void => {
     type === 'EMAIL' ? setEmail(text) : setPassword(text);
 
-    if (type === 'EMAIL' && text === '') {
-      setErrorEmail('');
-    }
+    if (type === 'EMAIL' && text === '') setErrorEmail('');
   };
 
   return (
@@ -536,16 +506,14 @@ const BoxRowEditText = (): React.ReactElement => {
           flexDirection: 'column',
           justifyContent: 'center',
           alignItems: 'center',
-        }}
-      >
+        }}>
         <View
           style={{
             flexDirection: 'column',
             justifyContent: 'center',
             alignItems: 'center',
             width: Platform.OS === 'web' ? 438 : '100%',
-          }}
-        >
+          }}>
           <Text
             style={{
               fontStyle: 'normal',
@@ -554,8 +522,7 @@ const BoxRowEditText = (): React.ReactElement => {
               lineHeight: 47,
               letterSpacing: -0.05,
               color: '#323C47',
-            }}
-          >
+            }}>
             Sign in with Email
           </Text>
           <EditText

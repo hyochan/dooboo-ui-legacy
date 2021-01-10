@@ -1,4 +1,10 @@
-import { Animated, MeasureOnSuccessCallback, PanResponderCallbacks, PanResponderInstance, View } from 'react-native';
+import {
+  Animated,
+  MeasureOnSuccessCallback,
+  PanResponderCallbacks,
+  PanResponderInstance,
+  View,
+} from 'react-native';
 import { fireEvent, render } from '@testing-library/react-native';
 import {
   getNearestPercentByValue,
@@ -36,9 +42,7 @@ jest.mock('react-native/Libraries/Interaction/PanResponder', () => {
       testResponder = responder;
 
       return {
-        panHandlers: {
-
-        },
+        panHandlers: {},
       };
     },
   };
@@ -70,29 +74,32 @@ describe('[Slider] render', () => {
     });
 
     it('Should not have slider.current.measure called when current does not exist', () => {
-      const useRefSpy = jest.spyOn(React, 'useRef').mockReturnValueOnce({ current: null });
+      const useRefSpy = jest
+        .spyOn(React, 'useRef')
+        .mockReturnValueOnce({ current: null });
 
-      render(
-        <Slider />,
-      );
+      render(<Slider />);
 
       expect(useRefSpy).toBeCalledTimes(1);
       expect(measure).not.toBeCalled();
     });
 
     it('Should have slider.current.measure called when current exist', () => {
-      const useRefSpy = jest.spyOn(React, 'useRef').mockReturnValueOnce({ current: { measure } });
+      const useRefSpy = jest
+        .spyOn(React, 'useRef')
+        .mockReturnValueOnce({ current: { measure } });
 
-      render(
-        <Slider />,
-      );
+      render(<Slider />);
 
       expect(useRefSpy).toBeCalledTimes(1);
       expect(measure).toBeCalledTimes(1);
     });
 
     it('Should have slider position updated if measure callback called', () => {
-      const mockRef : { current: any, callback: MeasureOnSuccessCallback | null } = {
+      const mockRef: {
+        current: any;
+        callback: MeasureOnSuccessCallback | null;
+      } = {
         current: {
           measure: (callback: MeasureOnSuccessCallback): void => {
             mockRef.callback = callback;
@@ -103,9 +110,7 @@ describe('[Slider] render', () => {
 
       jest.spyOn(React, 'useRef').mockReturnValueOnce(mockRef);
 
-      render(
-        <Slider />,
-      );
+      render(<Slider />);
 
       jest.spyOn(React, 'useRef').mockReturnValueOnce(mockRef);
 
@@ -117,9 +122,7 @@ describe('[Slider] render', () => {
 
   describe('required components', () => {
     it('should have a [Rail].', () => {
-      const { queryByTestId } = render(
-        <Slider />,
-      );
+      const { queryByTestId } = render(<Slider />);
 
       const rail = queryByTestId(TEST_ID.RAIL);
 
@@ -127,9 +130,7 @@ describe('[Slider] render', () => {
     });
 
     it('should have a [Track].', () => {
-      const { queryByTestId } = render(
-        <Slider />,
-      );
+      const { queryByTestId } = render(<Slider />);
 
       const track = queryByTestId(TEST_ID.TRACK);
 
@@ -137,9 +138,7 @@ describe('[Slider] render', () => {
     });
 
     it('should have a [Marks].', () => {
-      const { queryByTestId } = render(
-        <Slider />,
-      );
+      const { queryByTestId } = render(<Slider />);
 
       const marks = queryByTestId(TEST_ID.MARKS);
 
@@ -147,9 +146,7 @@ describe('[Slider] render', () => {
     });
 
     it('should have a [Thumb].', () => {
-      const { queryByTestId } = render(
-        <Slider />,
-      );
+      const { queryByTestId } = render(<Slider />);
 
       const thumb = queryByTestId(TEST_ID.THUMB);
 
@@ -157,9 +154,7 @@ describe('[Slider] render', () => {
     });
 
     it('should hide [Label].', () => {
-      const { queryByTestId } = render(
-        <Slider />,
-      );
+      const { queryByTestId } = render(<Slider />);
 
       const label = queryByTestId(TEST_ID.LABEL);
 
@@ -167,11 +162,7 @@ describe('[Slider] render', () => {
     });
 
     it('should have a [Label].', () => {
-      const { queryByTestId } = render(
-        <Slider
-          hideLabel={false}
-        />,
-      );
+      const { queryByTestId } = render(<Slider hideLabel={false} />);
 
       const label = queryByTestId(TEST_ID.LABEL);
 
@@ -180,11 +171,7 @@ describe('[Slider] render', () => {
   });
 
   it('should hide [Marks] when hideMark is true.', () => {
-    const { queryByTestId } = render(
-      <Slider
-        hideMark={true}
-      />,
-    );
+    const { queryByTestId } = render(<Slider hideMark={true} />);
 
     const marks = queryByTestId(TEST_ID.MARKS);
 
@@ -192,11 +179,7 @@ describe('[Slider] render', () => {
   });
 
   it('should hide [Marks] when step is less than 0.', () => {
-    const { queryByTestId } = render(
-      <Slider
-        step={-1}
-      />,
-    );
+    const { queryByTestId } = render(<Slider step={-1} />);
 
     const marks = queryByTestId(TEST_ID.MARKS);
 
@@ -204,11 +187,7 @@ describe('[Slider] render', () => {
   });
 
   it('should hide [Marks] when step is equal to 0.', () => {
-    const { queryByTestId } = render(
-      <Slider
-        step={0}
-      />,
-    );
+    const { queryByTestId } = render(<Slider step={0} />);
 
     const marks = queryByTestId(TEST_ID.MARKS);
 
@@ -216,11 +195,7 @@ describe('[Slider] render', () => {
   });
 
   it('should respond to the touch and move of the user.', () => {
-    const rendered = render(
-      <Slider
-        onChange={(): void => {}}
-      />,
-    );
+    const rendered = render(<Slider onChange={(): void => {}} />);
 
     const thumb = rendered.getByTestId(TEST_ID.THUMB_ANIMATED);
 
@@ -228,39 +203,33 @@ describe('[Slider] render', () => {
     expect(thumb.props.style.transform[0].scale).toEqual(0.01);
 
     rendered.rerender(
-      <Slider
-        hideLabel={false}
-        autoLabel
-        onChange={(): void => {}}
-      />,
+      <Slider hideLabel={false} autoLabel onChange={(): void => {}} />,
     );
 
-    act(
-      () => {
-        if (testResponder && testResponder.onStartShouldSetPanResponder(null, null)) {
-          testResponder.onPanResponderGrant(null, null);
-        }
-      },
-    );
+    act(() => {
+      if (
+        testResponder &&
+        testResponder.onStartShouldSetPanResponder(null, null)
+      )
+        testResponder.onPanResponderGrant(null, null);
+    });
 
     jest.runAllTimers();
     expect(thumb.props.style.transform[0].scale).toEqual(1);
 
-    act(
-      () => {
-        if (
-          testResponder &&
-          testResponder.onStartShouldSetPanResponder(null, null) &&
-          testResponder.onMoveShouldSetPanResponder(null, null)
-        ) {
-          // @ts-ignore
-          testResponder.onPanResponderMove(null, { moveX: 10 });
-          testResponder.onPanResponderRelease(null, null);
-        }
+    act(() => {
+      if (
+        testResponder &&
+        testResponder.onStartShouldSetPanResponder(null, null) &&
+        testResponder.onMoveShouldSetPanResponder(null, null)
+      ) {
+        // @ts-ignore
+        testResponder.onPanResponderMove(null, { moveX: 10 });
+        testResponder.onPanResponderRelease(null, null);
+      }
 
-        testResponder.onPanResponderTerminationRequest(null, null);
-      },
-    );
+      testResponder.onPanResponderTerminationRequest(null, null);
+    });
 
     jest.runAllTimers();
     expect(thumb.props.style.transform[0].scale).toEqual(0);
@@ -307,9 +276,7 @@ describe('[Marks]', () => {
 
     const marks = getAllByTestId(TEST_ID.MARKS);
 
-    for (let i = 0; i < MARK_COUNT; i += 1) {
-      fireEvent.press(marks[i]);
-    }
+    for (let i = 0; i < MARK_COUNT; i += 1) fireEvent.press(marks[i]);
 
     for (let i = 0; i < MARK_COUNT; i += 1) {
       const [value, , index] = handleMarkPress.mock.calls[i];
