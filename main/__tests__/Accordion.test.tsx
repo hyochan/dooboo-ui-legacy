@@ -15,38 +15,28 @@ let testingLib: RenderAPI;
 const data = [
   {
     title: 'title1',
-    bodies: [
-      'body1',
-      'body2',
-      'body3',
-    ],
+    bodies: ['body1', 'body2', 'body3'],
   },
   {
     title: 'title2',
-    bodies: [
-      'body1',
-      'body2',
-      'body3',
-    ],
+    bodies: ['body1', 'body2', 'body3'],
   },
   {
     title: 'title3',
-    bodies: [
-      'body1',
-      'body2',
-      'body3',
-    ],
+    bodies: ['body1', 'body2', 'body3'],
   },
 ];
 
-const createTestProps = (obj?: Record<string, unknown>): Record<string, unknown> => ({
+const createTestProps = (
+  obj?: Record<string, unknown>,
+): Record<string, unknown> => ({
   ...obj,
 });
 
 describe('[Accordion] render test', () => {
   it('should render without crasing', () => {
     props = createTestProps({ data: data });
-    component = <Accordion {...props}/>;
+    component = <Accordion {...props} />;
     testingLib = render(component);
 
     const json = testingLib.toJSON();
@@ -60,7 +50,7 @@ describe('[Accordion] render test', () => {
       data: data,
     });
 
-    component = <Accordion {...props}/>;
+    component = <Accordion {...props} />;
     testingLib = render(component);
 
     const json = testingLib.toJSON();
@@ -76,7 +66,7 @@ describe('[Accordion] render test', () => {
       data: data,
     });
 
-    component = <Accordion {...props}/>;
+    component = <Accordion {...props} />;
     jest.runAllTimers();
 
     testingLib = render(component);
@@ -92,7 +82,7 @@ describe('[Accordion] render test', () => {
       data: data,
     });
 
-    component = <Accordion {...props}/>;
+    component = <Accordion {...props} />;
     testingLib = render(component);
 
     const json = testingLib.toJSON();
@@ -107,7 +97,7 @@ describe('[Accordion] event test', () => {
       data: data,
     });
 
-    component = <Accordion {...props}/>;
+    component = <Accordion {...props} />;
     testingLib = render(component);
   });
 

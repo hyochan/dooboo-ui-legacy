@@ -98,9 +98,9 @@ function CalendarMonth<T>(props: PropsWithChildren<Props<T>>): ReactElement {
   const weeks: React.ReactElement[] = [];
 
   for (let week = 0; week < 6; week++) {
-    const week = renderWeek(datesOfMonth.splice(0, 7), weeks.length);
+    const currentWeek = renderWeek(datesOfMonth.splice(0, 7), weeks.length);
 
-    weeks.push(week);
+    weeks.push(currentWeek);
   }
 
   return (

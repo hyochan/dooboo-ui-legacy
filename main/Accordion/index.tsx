@@ -41,36 +41,33 @@ const Accordion: FC<Props> = (props) => {
     bodyContainerStyle,
   } = props;
 
-  const dropDownAnimValueList = useRef(data.map(() => new Animated.Value(0))).current;
+  const dropDownAnimValueList = useRef(data.map(() => new Animated.Value(0)))
+    .current;
 
   return (
     <Container>
-      {
-        data.map((datum, titleKey) => {
-          return (
-            <AccordionItem
-              testID={`${titleKey}`}
-              key={titleKey}
-              datum={datum}
-              shouldAnimate={shouldAnimate}
-              collapseOnStart={collapseOnStart}
-              animDuration={animDuration}
-              activeOpacity={activeOpacity}
-              toggleElement={toggleElement}
-              renderTitle={renderTitle}
-              renderBody={renderBody}
-              titleContainerStyle={titleContainerStyle}
-              bodyContainerStyle={bodyContainerStyle}
-              dropDownAnimValueList={dropDownAnimValueList[titleKey]}
-              sumOfPrecedingTranslateY={
-                dropDownAnimValueList
-                  .filter((item, idx) => idx < titleKey)
-                  .map((value) => ({ translateY: value }))
-              }
-            />
-          );
-        })
-      }
+      {data.map((datum, titleKey) => {
+        return (
+          <AccordionItem
+            testID={`${titleKey}`}
+            key={titleKey}
+            datum={datum}
+            shouldAnimate={shouldAnimate}
+            collapseOnStart={collapseOnStart}
+            animDuration={animDuration}
+            activeOpacity={activeOpacity}
+            toggleElement={toggleElement}
+            renderTitle={renderTitle}
+            renderBody={renderBody}
+            titleContainerStyle={titleContainerStyle}
+            bodyContainerStyle={bodyContainerStyle}
+            dropDownAnimValueList={dropDownAnimValueList[titleKey]}
+            sumOfPrecedingTranslateY={dropDownAnimValueList
+              .filter((item, idx) => idx < titleKey)
+              .map((value) => ({ translateY: value }))}
+          />
+        );
+      })}
     </Container>
   );
 };

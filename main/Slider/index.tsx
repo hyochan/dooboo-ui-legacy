@@ -1,4 +1,13 @@
-import { Animated, Easing, PanResponder, Platform, StyleProp, TextStyle, ViewStyle } from 'react-native';
+import {
+  Animated,
+  Easing,
+  PanResponder,
+  Platform,
+  StyleProp,
+  TextStyle,
+  View,
+  ViewStyle,
+} from 'react-native';
 import React, { FC, useEffect, useMemo, useState } from 'react';
 import {
   getNearestPercentByValue,
@@ -68,7 +77,7 @@ const Slider: FC<Props> = ({
   labelTextStyle,
   onChange,
 }) => {
-  const sliderRef = React.useRef<any>();
+  const sliderRef = React.useRef<View>();
   const [sliderWidth, setSliderWidth] = useState<number>(0);
   const [sliderPositionX, setSliderPositionX] = useState(0);
 
@@ -88,10 +97,8 @@ const Slider: FC<Props> = ({
   const [percentValue] = useState(new Animated.Value(0));
 
   useEffect(() => {
-    if (!hideLabel && !autoLabel) {
-      setIsVisibleLabel(true);
-    }
-  }, []);
+    if (!hideLabel && !autoLabel) setIsVisibleLabel(true);
+  }, [autoLabel, hideLabel]);
 
   useEffect(() => {
     // Set Label percent animated Value
@@ -101,7 +108,7 @@ const Slider: FC<Props> = ({
       easing: Easing.elastic(1),
       useNativeDriver: Platform.OS === 'android',
     }).start();
-  }, [percent]);
+  }, [percent, percentValue]);
 
   const panResponder = useMemo(
     () =>
@@ -117,9 +124,7 @@ const Slider: FC<Props> = ({
             useNativeDriver: Platform.OS === 'android',
           }).start();
 
-          if (!hideLabel && autoLabel) {
-            setIsVisibleLabel(true);
-          }
+          if (!hideLabel && autoLabel) setIsVisibleLabel(true);
         },
         onPanResponderRelease: () => {
           Animated.timing(scaleValue, {
@@ -129,9 +134,7 @@ const Slider: FC<Props> = ({
             useNativeDriver: Platform.OS === 'android',
           }).start();
 
-          if (!hideLabel && autoLabel) {
-            setIsVisibleLabel(false);
-          }
+          if (!hideLabel && autoLabel) setIsVisibleLabel(false);
         },
         onPanResponderMove: (evt, gestureState) => {
           // the latest screen coordinates of the recently-moved touch
@@ -141,12 +144,14 @@ const Slider: FC<Props> = ({
             step,
           });
 
+          // eslint-disable-next-line @typescript-eslint/no-shadow
           const percent = getPercentByPositionX({
             positionX: gestureState.moveX - sliderPositionX,
             sliderWidth,
             stepPercent,
           });
 
+          // eslint-disable-next-line @typescript-eslint/no-shadow
           const value = getStepValueByPercent({
             percent,
             stepPercent,
@@ -156,29 +161,33 @@ const Slider: FC<Props> = ({
           setPercent(percent);
           setValue(value);
 
-          if (onChange) {
-            onChange(value);
-          }
+          if (onChange) onChange(value);
         },
       }),
-    [sliderPositionX, sliderWidth, onChange],
+    [
+      scaleValue,
+      hideLabel,
+      autoLabel,
+      minValue,
+      maxValue,
+      step,
+      sliderPositionX,
+      sliderWidth,
+      onChange,
+    ],
   );
 
-  if (sliderRef.current) {
+  if (sliderRef.current)
     sliderRef.current.measure((x, y, width, height, pageX) => {
       setSliderPositionX(pageX);
       setSliderWidth(width);
     });
-  }
 
   return (
-    <Container
-      ref={sliderRef}
-      {...panResponder.panHandlers}
-    >
-      <Rail testID="rail-test-id" style={railStyle}/>
-      <Track testID="track-test-id" percent={percent} style={trackStyle}/>
-      {!hideMark && (step > 0) && (
+    <Container ref={sliderRef} {...panResponder.panHandlers}>
+      <Rail testID="rail-test-id" style={railStyle} />
+      <Track testID="track-test-id" percent={percent} style={trackStyle} />
+      {!hideMark && step > 0 && (
         <Marks
           testID="marks-test-id"
           sliderWidth={sliderWidth}

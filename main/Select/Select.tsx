@@ -49,7 +49,8 @@ const SelectWrapper = styled.TouchableOpacity<SelectPropsType>`
   justify-content: space-between;
   padding: 14px 12px;
   border-radius: 5px;
-  border: ${({ disabled }): string => disabled ? 'none' : '1px solid #CBD7E5'};
+  border: ${({ disabled }): string =>
+    disabled ? 'none' : '1px solid #CBD7E5'};
   border-radius: 6px;
 `;
 
@@ -127,26 +128,23 @@ const Select: React.FC<Props> = (props): React.ReactElement => {
       easing: Easing.linear,
       useNativeDriver: false,
     }).start();
-  }, [isOpen, disabled]);
+  }, [isOpen, disabled, rotateAnimValue, slideAnimValue]);
 
   React.useEffect(() => {
     onSelect(value);
-  }, [value]);
+  }, [onSelect, value]);
 
   React.useEffect(() => {
-    if (onOpen) {
-      onOpen(isOpen);
-    }
-  }, [isOpen]);
+    if (onOpen) onOpen(isOpen);
+  }, [isOpen, onOpen]);
 
   React.useEffect(() => {
     // This will set title of the first of child element to labelValue when the component mounted
     React.Children.forEach(children, (child, index) => {
-      if (React.isValidElement(child) && index === 0) {
+      if (React.isValidElement(child) && index === 0)
         setLabelValue(child.props.children);
-      }
     });
-  }, []);
+  }, [children]);
 
   return (
     <Container testID={testID} style={style}>
@@ -156,8 +154,7 @@ const Select: React.FC<Props> = (props): React.ReactElement => {
         disabled={disabled}
         style={selectedElementStyle}
         onPress={handlePressItem}
-        onBlur={handleBlurItem}
-      >
+        onBlur={handleBlurItem}>
         <Fragment>
           {renderSelectElement() || (
             <Fragment>
@@ -182,11 +179,9 @@ const Select: React.FC<Props> = (props): React.ReactElement => {
                   },
                 ],
               },
-            ]}
-          >
+            ]}>
             <IconView>
-              {customIcon ||
-              (showArrow && <Arrow customColor={textStyle} />)}
+              {customIcon || (showArrow && <Arrow customColor={textStyle} />)}
             </IconView>
           </Animated.View>
         </Fragment>
@@ -204,35 +199,37 @@ const Select: React.FC<Props> = (props): React.ReactElement => {
               boxShadow,
               height: slideAnimValue.interpolate({
                 inputRange: [0, 1],
-                outputRange: [
-                  0,
-                  childrenHeight,
-                ],
+                outputRange: [0, childrenHeight],
               }),
               ...childrenElementStyle,
             },
-          ]}
-        >
-          <View onLayout={(e): void => setChildrenHeight(e.nativeEvent.layout.height + 5)}>
-            {React.Children.map(children, (child, index): ReactElement | null => {
-              const firstElementStyle: ViewStyle = index === 0
-                ? {}
-                : { borderTopWidth: 1, borderTopColor: '#CBD7E5' };
+          ]}>
+          <View
+            onLayout={(e): void =>
+              setChildrenHeight(e.nativeEvent.layout.height + 5)
+            }>
+            {React.Children.map(
+              children,
+              (child, index): ReactElement | null => {
+                const firstElementStyle: ViewStyle =
+                  index === 0
+                    ? {}
+                    : { borderTopWidth: 1, borderTopColor: '#CBD7E5' };
 
-              if (React.isValidElement(child)) {
-                return React.cloneElement<SelectItemProps>(child, {
-                  onSelectItem: (value): void => {
-                    setOpen(false);
-                    setLabelValue(child.props.children);
-                    setValue(value);
-                  },
-                  style: firstElementStyle,
-                  textStyle,
-                });
-              }
+                if (React.isValidElement(child))
+                  return React.cloneElement<SelectItemProps>(child, {
+                    onSelectItem: (itemVal): void => {
+                      setOpen(false);
+                      setLabelValue(child.props.children);
+                      setValue(itemVal);
+                    },
+                    style: firstElementStyle,
+                    textStyle,
+                  });
 
-              return null;
-            })}
+                return null;
+              },
+            )}
           </View>
         </Animated.ScrollView>
       </SelectChildWrapper>

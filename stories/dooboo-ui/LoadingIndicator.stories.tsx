@@ -33,7 +33,8 @@ function ImgVersion(): React.ReactElement {
     <Container>
       <LoadingIndicator
         imgSource="https://user-images.githubusercontent.com/31176502/71331734-ca61d800-2576-11ea-8934-6a260a1d714e.gif"
-        containerStyle={{ backgroundColor: 'white' }} />
+        containerStyle={{ backgroundColor: 'white' }}
+      />
       <StyledText>Loading ... </StyledText>
     </Container>
   );
@@ -61,7 +62,8 @@ storiesOf('LoadingIndicator', module)
     <>
       <Default />
     </>
-  )).add('imgVersion', () => (
+  ))
+  .add('imgVersion', () => (
     <>
       <ImgVersion />
     </>

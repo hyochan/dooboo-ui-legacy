@@ -1,5 +1,4 @@
 import React, { ReactElement } from 'react';
-// eslint-disable-next-line sort-imports
 import { boolean, number } from '@storybook/addon-knobs';
 
 import { ContainerDeco } from '../../storybook/decorators';
@@ -40,13 +39,13 @@ function Default(): React.ReactElement {
   const [value, setValue] = React.useState(0);
   const disabled = boolean('disabled', false);
 
-  const handleChange = (value: number): void => {
-    setValue(value);
+  const handleChange = (prop: number): void => {
+    setValue(prop);
   };
 
   React.useEffect(() => {
     setValue(number('initValue', 3) || 0);
-  }, [number('initValue', 3)]);
+  }, []);
 
   return (
     <Container>

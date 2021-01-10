@@ -22,7 +22,7 @@ const DateRow = styled.View`
   justify-content: center;
 `;
 
-interface Props<T> {
+interface Props {
   onPress?: (date: Date) => void;
   style?: ViewStyle;
   date: Date;
@@ -30,7 +30,7 @@ interface Props<T> {
   isToday?: boolean;
 }
 
-function CalendarDate<T>(props: Props<T>): React.ReactElement {
+function CalendarDate(props: Props): React.ReactElement {
   const dateColor = props.date.getDay() === 0 ? 'red' : 'black';
   const dateOpacity = props.isCurMonth ? 1 : 0.2;
 

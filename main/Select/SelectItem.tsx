@@ -37,8 +37,7 @@ const SelectItem: React.FC<SelectItemProps> = (props): React.ReactElement => {
     <ItemWrapper
       testID={testID}
       style={style}
-      onPress={(): void => onSelectItem(value)}
-    >
+      onPress={(): void => onSelectItem(value)}>
       <ItemText style={textStyle}>{children}</ItemText>
     </ItemWrapper>
   );

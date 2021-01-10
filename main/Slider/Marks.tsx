@@ -96,13 +96,9 @@ const getStepByMarkCount = ({
 }): number => {
   const step = railWidth / count;
 
-  if (startMark && endMark) {
-    return railWidth / (count - 1);
-  }
+  if (startMark && endMark) return railWidth / (count - 1);
 
-  if (!startMark && !endMark) {
-    return (railWidth - step) / count;
-  }
+  if (!startMark && !endMark) return (railWidth - step) / count;
 
   return (railWidth - step) / (count - 1);
 };
@@ -121,7 +117,7 @@ const getStepDistanceByMarkCount = ({
   count: number;
 }): number => {
   const getStepFineTunedStepByMark = ({
-    markWidth,
+    markWidth: currentMarkWidth,
     markCount,
     step,
   }: {
@@ -129,7 +125,7 @@ const getStepDistanceByMarkCount = ({
     markCount: number;
     step: number;
   }): number => {
-    const fineTunerToFitMark = markWidth / markCount;
+    const fineTunerToFitMark = currentMarkWidth / markCount;
 
     return step - fineTunerToFitMark;
   };
@@ -265,23 +261,18 @@ const createMarks = ({
   return positions.map(
     (position: number, index: number): React.ReactElement => {
       const handlePress = (): void => {
-        if (disabled) {
-          return;
-        }
+        if (disabled) return;
 
         const value = getMarkValue(step, index);
 
-        if (onMarkPress) {
-          onMarkPress(value, position, index);
-        }
+        if (onMarkPress) onMarkPress(value, position, index);
       };
 
       return (
         <TouchableWithoutFeedback key={position} onPress={handlePress}>
           <MarkPositioner
             width={stepDistance}
-            position={position - fineTunedHalfStepDistance}
-          >
+            position={position - fineTunedHalfStepDistance}>
             {mark || <Mark style={style} />}
           </MarkPositioner>
         </TouchableWithoutFeedback>
@@ -293,10 +284,9 @@ const createMarks = ({
 const getMarkWidth = (markStyle: ViewStyle): number => {
   const { width } = markStyle;
 
-  if (isNil(width)) {
-    return DEFAULT.width;
-  }
+  if (isNil(width)) return DEFAULT.width;
 
+  // eslint-disable-next-line radix
   return parseInt((width as string | number).toString());
 };
 
@@ -315,15 +305,13 @@ const Marks: FC<Props> = ({
   minValue,
   maxValue,
 }) => {
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   const handleInit = (markValues: number[], markPositions: number[]): void => {
-    if (onInit) {
-      onInit(markValues, markPositions);
-    }
+    if (onInit) onInit(markValues, markPositions);
   };
 
-  if (mark && isNil(customMarkWidth)) {
+  if (mark && isNil(customMarkWidth))
     throw Error('Must have customMarkWidth prop if it uses a cutsom mark.');
-  }
 
   const markStyleToApply = StyleSheet.flatten(style);
 
@@ -344,8 +332,8 @@ const Marks: FC<Props> = ({
   };
 
   const { markCount: markCountToApply, stepDistance } = useMemo(
-    () =>
-      getStepDistance(markOptions),
+    () => getStepDistance(markOptions),
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     Object.values(markOptions),
   );
 
@@ -374,9 +362,13 @@ const Marks: FC<Props> = ({
     const markValues = getMarkValues(step, markPositions);
 
     handleInit(markValues, markPositions);
-  }, []);
+  }, [handleInit, markPositions, step]);
 
-  return <Container testID={testID} style={style}>{marks}</Container>;
+  return (
+    <Container testID={testID} style={style}>
+      {marks}
+    </Container>
+  );
 };
 
 export default Marks;

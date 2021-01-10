@@ -18,10 +18,7 @@ interface Props {
   renderDialogElement: () => ReactElement;
 }
 
-const Tooltip: FC<Props> = ({
-  renderInitialElement,
-  renderDialogElement,
-}) => {
+const Tooltip: FC<Props> = ({ renderInitialElement, renderDialogElement }) => {
   const ref = useRef(null);
   const isHovered = useHover(ref);
 
@@ -31,14 +28,16 @@ const Tooltip: FC<Props> = ({
     setVisable(isHovered);
   }, [isHovered]);
 
-  return <Container ref={ref}>
-    <InitialElementContainer>
-      {renderInitialElement()}
-    </InitialElementContainer>
-    {visable ? (
-      <DialogElementContainer>{renderDialogElement()}</DialogElementContainer>
-    ) : null}
-  </Container>;
+  return (
+    <Container ref={ref}>
+      <InitialElementContainer>
+        {renderInitialElement()}
+      </InitialElementContainer>
+      {visable ? (
+        <DialogElementContainer>{renderDialogElement()}</DialogElementContainer>
+      ) : null}
+    </Container>
+  );
 };
 
 export { Tooltip };

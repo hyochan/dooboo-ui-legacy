@@ -72,6 +72,7 @@ const PickerCalendar: FC<Props> = (props) => {
                   overflow: 'hidden',
                 }}
                 locale={locale}
+                // @ts-ignore
                 renderDay={({
                   date,
                   isCurrentMonth,
@@ -86,8 +87,8 @@ const PickerCalendar: FC<Props> = (props) => {
                   return (
                     <CalendarDate
                       key={date.getDate()}
-                      onPress={(date: Date): void => {
-                        props.onSelectDate(date);
+                      onPress={(dateProp: Date): void => {
+                        props.onSelectDate(dateProp);
                       }}
                       date={date}
                       style={{

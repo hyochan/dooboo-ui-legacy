@@ -87,22 +87,22 @@ const LineChart: FC<LineChartProps> = (props) => {
 
   // get Y axis values range
   const getYmaxRange = (
-    data: Array<Record<string, any>>,
-    yUnit: string | number,
+    rangeData: Array<Record<string, any>>,
+    rangeYUnit: string | number,
   ): Array<number> => {
     const range: number[] = [];
-    const unit = typeof yUnit === 'string' ? Number(yUnit) : yUnit;
+
+    const unit =
+      typeof rangeYUnit === 'string' ? Number(rangeYUnit) : rangeYUnit;
 
     const yMaxValue =
       Math.trunc(
-        Math.max(...data.map((current) => current[yAxisKey]), 0) / unit,
+        Math.max(...rangeData.map((current) => current[yAxisKey]), 0) / unit,
       ) *
         unit +
       unit;
 
-    for (let i = 0; i <= yMaxValue; i += unit) {
-      i <= yMaxValue && range.push(i);
-    }
+    for (let i = 0; i <= yMaxValue; i += unit) i <= yMaxValue && range.push(i);
 
     return range;
   };
@@ -125,7 +125,8 @@ const LineChart: FC<LineChartProps> = (props) => {
 
   const yRange = [
     SVGPadding,
-    SVGHeight - SVGPadding * (SVGHeight < 736 ? 2.7 : SVGHeight < 1023 ? 3 : 4.5),
+    SVGHeight -
+      SVGPadding * (SVGHeight < 736 ? 2.7 : SVGHeight < 1023 ? 3 : 4.5),
   ];
 
   const yAxis = d3.scaleLinear().domain(yDomain).range(yRange);
@@ -158,46 +159,44 @@ const LineChart: FC<LineChartProps> = (props) => {
               />
             )}
             {yStyle.withLabel &&
-                yAxisRange.map((unit, index) => {
-                  return (
-                    <G key={index}>
+              yAxisRange.map((unit, index) => {
+                return (
+                  <G key={index}>
+                    <Line
+                      x1={xAxis(0)}
+                      y1={yAxis(unit)}
+                      x2={xAxis(data.length - 1)}
+                      y2={yAxis(unit)}
+                      stroke={'rgba(0,0,0, 0.2)'}
+                      strokeDasharray={'2'}
+                      strokeWidth={yStyle.lineStrokeWidth}
+                    />
+                    {yStyle.withIndicator && (
                       <Line
-                        x1={xAxis(0)}
+                        x1={xAxis(0) - indicatorSize}
                         y1={yAxis(unit)}
-                        x2={
-                          xAxis(data.length - 1)
-                        }
+                        x2={xAxis(0)}
                         y2={yAxis(unit)}
-                        stroke={'rgba(0,0,0, 0.2)'}
-                        strokeDasharray={'2'}
+                        stroke={yStyle.lineColor}
                         strokeWidth={yStyle.lineStrokeWidth}
                       />
-                      {yStyle.withIndicator && (
-                        <Line
-                          x1={xAxis(0) - indicatorSize}
-                          y1={yAxis(unit)}
-                          x2={xAxis(0)}
-                          y2={yAxis(unit)}
-                          stroke={yStyle.lineColor}
-                          strokeWidth={yStyle.lineStrokeWidth}
-                        />
-                      )}
-                      {yStyle.withText && (
-                        <Text
-                          scale={[1, -1]}
-                          fill={yStyle.textColor}
-                          stroke={yStyle.textStrokeColor}
-                          fontSize={yStyle.fontSize}
-                          fontWeight={yStyle.fontWeight}
-                          x={xAxis(0) - indicatorSize - textGap}
-                          y={-yAxis(unit) + 4}
-                          textAnchor="middle">
-                          {unit}
-                        </Text>
-                      )}
-                    </G>
-                  );
-                })}
+                    )}
+                    {yStyle.withText && (
+                      <Text
+                        scale={[1, -1]}
+                        fill={yStyle.textColor}
+                        stroke={yStyle.textStrokeColor}
+                        fontSize={yStyle.fontSize}
+                        fontWeight={yStyle.fontWeight}
+                        x={xAxis(0) - indicatorSize - textGap}
+                        y={-yAxis(unit) + 4}
+                        textAnchor="middle">
+                        {unit}
+                      </Text>
+                    )}
+                  </G>
+                );
+              })}
             {/* Graph X-axis labels view */}
             {xStyle.withLabel && xStyle.withLine && (
               <Line
@@ -210,34 +209,34 @@ const LineChart: FC<LineChartProps> = (props) => {
               />
             )}
             {xStyle.withLabel &&
-                data.map((item, index) => {
-                  return (
-                    <G key={index}>
-                      {xStyle.withIndicator && (
-                        <Line
-                          x1={xAxis(index)}
-                          y1={yAxis(0)}
-                          x2={xAxis(index)}
-                          y2={yAxis(0) - indicatorSize}
-                          stroke={xStyle.lineColor}
-                          strokeWidth={xStyle.lineStrokeWidth}
-                        />
-                      )}
-                      {xStyle.withText && (
-                        <Text
-                          scale={[1, -1]}
-                          fill={xStyle.textColor}
-                          stroke={xStyle.textStrokeColor}
-                          fontSize={xStyle.fontSize}
-                          fontWeight={xStyle.fontWeight}
-                          x={xAxis(index) - 4}
-                          y={-yAxis(0) + 5 + indicatorSize + textGap}>
-                          {item[xAxisKey]}
-                        </Text>
-                      )}
-                    </G>
-                  );
-                })}
+              data.map((item, index) => {
+                return (
+                  <G key={index}>
+                    {xStyle.withIndicator && (
+                      <Line
+                        x1={xAxis(index)}
+                        y1={yAxis(0)}
+                        x2={xAxis(index)}
+                        y2={yAxis(0) - indicatorSize}
+                        stroke={xStyle.lineColor}
+                        strokeWidth={xStyle.lineStrokeWidth}
+                      />
+                    )}
+                    {xStyle.withText && (
+                      <Text
+                        scale={[1, -1]}
+                        fill={xStyle.textColor}
+                        stroke={xStyle.textStrokeColor}
+                        fontSize={xStyle.fontSize}
+                        fontWeight={xStyle.fontWeight}
+                        x={xAxis(index) - 4}
+                        y={-yAxis(0) + 5 + indicatorSize + textGap}>
+                        {item[xAxisKey]}
+                      </Text>
+                    )}
+                  </G>
+                );
+              })}
             {/* Graph: Text, Dots & Line */}
             {data.map((item, index) => {
               const xStart = index;

@@ -152,6 +152,7 @@ export interface ThemeParam {
 }
 
 export const createDoobooTheme = (
+  // eslint-disable-next-line default-param-last
   themes: ThemeParam = {
     light,
     dark,

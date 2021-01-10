@@ -1,5 +1,6 @@
 import { Checkbox, CheckboxGroup } from '../../main';
 import React, { ReactElement, useState } from 'react';
+
 import { storiesOf } from '@storybook/react-native';
 import styled from 'styled-components/native';
 
@@ -37,7 +38,7 @@ function DefaultCheckbox(): React.ReactElement {
     <ScrollContainer>
       <Container>
         <Title>default</Title>
-        <Checkbox label="defaultChecked" defaultChecked></Checkbox>
+        <Checkbox label="defaultChecked" defaultChecked />
 
         <Divider />
 
@@ -121,14 +122,12 @@ function CheckAllExample(): React.ReactElement {
 
   const [checkAll, setCheckAll] = useState(false);
 
-  const onChange = (checkedList): void => {
-    setCheckedList(checkedList);
+  const onChange = (val): void => {
+    setCheckedList(val);
 
-    setIndeterminate(
-      !!checkedList.length && checkedList.length < plainOptions.length,
-    );
+    setIndeterminate(!!val.length && val.length < plainOptions.length);
 
-    setCheckAll(checkedList.length === plainOptions.length);
+    setCheckAll(val.length === plainOptions.length);
   };
 
   const onCheckAllChange = (e): void => {

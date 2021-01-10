@@ -1,10 +1,7 @@
 import React, { ReactElement } from 'react';
-import {
-  RenderAPI,
-  cleanup,
-  render,
-} from '@testing-library/react-native';
-import { Select, SelectItem } from '../../main';
+import { RenderAPI, render } from '@testing-library/react-native';
+
+import { Select } from '../../main';
 
 let props: any;
 let component: ReactElement;

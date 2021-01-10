@@ -15,6 +15,16 @@ interface CheckboxGroupProps {
   direction?: 'column' | 'row';
 }
 
+interface ContainerProps {
+  direction?: 'row' | 'column';
+}
+
+const Container = styled.View<ContainerProps>`
+  flex-direction: ${({ direction }): 'row' | 'column' => direction || 'column'};
+  flex-wrap: wrap;
+  align-items: flex-start;
+`;
+
 export const CheckboxGroup: FC<CheckboxGroupProps> = ({
   defaultValues,
   values,
@@ -25,59 +35,59 @@ export const CheckboxGroup: FC<CheckboxGroupProps> = ({
   direction,
 }) => {
   const isMounted = useRef(false);
-  const [groupValues, setGroupValues] = useState<CheckboxValueType[]>(values || defaultValues || []);
-  const [registeredValues, setRegisteredValues] = useState<CheckboxValueType[]>([]);
+
+  const [groupValues, setGroupValues] = useState<CheckboxValueType[]>(
+    values || defaultValues || [],
+  );
+
+  const [registeredValues, setRegisteredValues] = useState<CheckboxValueType[]>(
+    [],
+  );
 
   useEffect(() => {
     // for only componenUpdate not in mount
-    if (isMounted.current) {
-      setGroupValues(values || []);
-    } else {
-      isMounted.current = true;
-    }
+    if (isMounted.current) setGroupValues(values || []);
+    else isMounted.current = true;
   }, [values]);
 
   const getOptions = useCallback((): Array<CheckboxOptionType> => {
     return (options as Array<CheckboxOptionType>).map((option) => {
-      if (typeof option === 'string') {
+      if (typeof option === 'string')
         return {
           label: option,
           value: option,
         } as CheckboxOptionType;
-      }
 
       return option;
     });
   }, [options]);
 
-  const registerValue = useCallback((value: string): void => {
-    setRegisteredValues((prevRegisteredValues) => {
-      return [...prevRegisteredValues, value];
-    });
-  }, [setRegisteredValues]);
+  const registerValue = useCallback(
+    (value: string): void => {
+      setRegisteredValues((prevRegisteredValues) => {
+        return [...prevRegisteredValues, value];
+      });
+    },
+    [setRegisteredValues],
+  );
 
   const toggleOption = (option: CheckboxOptionType): void => {
     const optionIndex = groupValues.indexOf(option.value);
     const _values = [...groupValues];
 
-    if (optionIndex === -1) {
-      _values.push(option.value);
-    } else {
-      _values.splice(optionIndex, 1);
-    }
+    if (optionIndex === -1) _values.push(option.value);
+    else _values.splice(optionIndex, 1);
 
-    if (!(values)) {
-      setGroupValues(_values);
-    }
+    if (!values) setGroupValues(_values);
 
     if (onChange) {
-      const options = getOptions();
+      const currentOptions = getOptions();
 
       const filterdValues = _values
         .filter((val) => registeredValues.indexOf(val) !== -1)
         .sort((a, b) => {
-          const indexA = options.findIndex((opt) => opt.value === a);
-          const indexB = options.findIndex((opt) => opt.value === b);
+          const indexA = currentOptions.findIndex((opt) => opt.value === a);
+          const indexB = currentOptions.findIndex((opt) => opt.value === b);
 
           return indexA - indexB;
         });
@@ -95,6 +105,7 @@ export const CheckboxGroup: FC<CheckboxGroupProps> = ({
 
   return (
     <Container direction={direction}>
+      {/* @ts-ignore */}
       <GroupCheckboxContext.Provider value={context}>
         {getOptions().map((option) => (
           <Checkbox
@@ -103,24 +114,15 @@ export const CheckboxGroup: FC<CheckboxGroupProps> = ({
             disabled={'disabled' in option ? option.disabled : disabled}
             value={option.value}
             checked={groupValues.indexOf(option.value) !== -1}
+            // @ts-ignore
             onChange={option.onChange}
-            customStyle={'customStyle' in option ? option.customStyle : commonCustomStyle}
-          >
+            customStyle={
+              'customStyle' in option ? option.customStyle : commonCustomStyle
+            }>
             {option.label}
           </Checkbox>
         ))}
       </GroupCheckboxContext.Provider>
     </Container>
-
   );
 };
-
-interface ContainerProps {
-  direction?: 'row' | 'column';
-}
-
-const Container = styled.View<ContainerProps>`
-  flex-direction: ${({ direction }): 'row' | 'column' => direction || 'column'};
-  flex-wrap: wrap;
-  align-items: flex-start;
-`;

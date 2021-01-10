@@ -6,7 +6,7 @@ import { ContainerDeco } from '../../storybook/decorators';
 import { storiesOf } from '@storybook/react-native';
 import styled from 'styled-components/native';
 
-const CustomContainer = styled.View` 
+const CustomContainer = styled.View`
   width: 100%;
   height: 100%;
   flex-direction: column;
@@ -52,9 +52,7 @@ const Default = (): React.ReactElement => {
   // [Select] states
   const [selectedValue, onSelectedValue] = React.useState<string>('');
 
-  const [isOpen, toggleSelect] = React.useState<
-    boolean
-  >(false);
+  const [isOpen, toggleSelect] = React.useState<boolean>(false);
 
   return (
     <CustomContainer style={{ justifyContent: 'center' }}>
@@ -65,7 +63,7 @@ const Default = (): React.ReactElement => {
           placeholder={'New fancy select'}
           value={selectedValue}
           onSelect={(value): void => onSelectedValue(value)}
-          onOpen={(isOpen): void => toggleSelect(isOpen)}>
+          onOpen={(toggle): void => toggleSelect(toggle)}>
           <SelectItem value={'Item-1'}>{'Item-1'}</SelectItem>
           <SelectItem value={'Item-2'}>{'Item-2'}</SelectItem>
           <SelectItem value={'Item-3'}>{'Item-3'}</SelectItem>
@@ -123,7 +121,7 @@ const ChangeProps = (): React.ReactElement => {
           placeholder={'New fancy select'}
           value={selectedValue}
           onSelect={(value): void => delaySelect(value)}
-          onOpen={(isOpen): void => toggleSelect(isOpen)}>
+          onOpen={(toggle): void => toggleSelect(toggle)}>
           <SelectItem value={'Item-1'}>{'Item-1'}</SelectItem>
           <SelectItem value={'Item-2'}>{'Item-2'}</SelectItem>
           <SelectItem value={'Item-3'}>{'Item-3'}</SelectItem>
@@ -147,7 +145,7 @@ const Customized = (): React.ReactElement => {
   const [selectedValue, onSelectedValue] = React.useState<string>('');
   const [isOpen, toggleSelect] = React.useState<boolean>(false);
 
-  const delaySelect = (selectedItem) : void => {
+  const delaySelect = (selectedItem): void => {
     onSelectedValue(selectedItem);
   };
 
@@ -182,7 +180,7 @@ const Customized = (): React.ReactElement => {
           placeholder={'My placeholder'}
           value={selectedValue}
           onSelect={(value): void => delaySelect(value)}
-          onOpen={(isOpen): void => toggleSelect(isOpen)}
+          onOpen={(toggle): void => toggleSelect(toggle)}
           prefixIcon={
             <Image
               style={{ width: 15, height: 15 }}
@@ -190,11 +188,8 @@ const Customized = (): React.ReactElement => {
                 uri: customPrefix,
               }}
             />
-          }
-        >
-          <SelectItem value={'Banana'}>
-            {'Banana'}
-          </SelectItem>
+          }>
+          <SelectItem value={'Banana'}>{'Banana'}</SelectItem>
           <SelectItem value={'Apple'}>{'Apple'}</SelectItem>
           <SelectItem value={'Orange'}>{'Orange'}</SelectItem>
         </Select>

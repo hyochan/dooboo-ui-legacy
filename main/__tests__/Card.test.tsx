@@ -1,11 +1,11 @@
 import * as React from 'react';
 
 import { Image, Text, View } from 'react-native';
+
 import { Card } from '..';
 // Note: test renderer must be required after react-native.
 import renderer from 'react-test-renderer';
 
-// eslint-disable-next-line
 const component = (props?: any): React.ReactElement => {
   return <Card {...props} />;
 };
@@ -85,7 +85,7 @@ describe('[Card]', () => {
   });
 
   it('should simulate props', (): void => {
-    const rendered = renderer.create(
+    const currentRendered = renderer.create(
       component({
         testID: 'CARD_ID',
         title: 'This is title',
@@ -94,16 +94,16 @@ describe('[Card]', () => {
       }),
     );
 
-    rendered.update(component({ hasDivider: false }));
-    expect(rendered).toMatchSnapshot();
-    expect(rendered).toBeTruthy();
+    currentRendered.update(component({ hasDivider: false }));
+    expect(currentRendered).toMatchSnapshot();
+    expect(currentRendered).toBeTruthy();
 
-    rendered.update(component({ raised: true }));
-    expect(rendered).toMatchSnapshot();
-    expect(rendered).toBeTruthy();
+    currentRendered.update(component({ raised: true }));
+    expect(currentRendered).toMatchSnapshot();
+    expect(currentRendered).toBeTruthy();
 
-    rendered.update(component({ outlined: true }));
-    expect(rendered).toMatchSnapshot();
-    expect(rendered).toBeTruthy();
+    currentRendered.update(component({ outlined: true }));
+    expect(currentRendered).toMatchSnapshot();
+    expect(currentRendered).toBeTruthy();
   });
 });

@@ -75,8 +75,7 @@ function Default(): React.ReactElement {
         />
         <Button
           leftElement={
-            <View
-              style={{ marginRight: 8 }}>
+            <View style={{ marginRight: 8 }}>
               <Image style={{ width: 20, height: 20 }} source={IC_GOOGLE} />
             </View>
           }
@@ -101,10 +100,11 @@ function Default(): React.ReactElement {
         <Button
           testID="btnFacebook"
           leftElement={
-            <View style={{
-              position: 'absolute',
-              left: 16,
-            }} >
+            <View
+              style={{
+                position: 'absolute',
+                left: 16,
+              }}>
               <Image style={{ width: 15, height: 28 }} source={IC_FACEBOOK} />
             </View>
           }

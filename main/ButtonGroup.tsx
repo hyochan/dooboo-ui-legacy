@@ -51,35 +51,26 @@ const ButtonGroup: FC<Props> = (props) => {
             onPress={(): void => {
               setSelectedOption(i);
 
-              if (onPress) {
-                onPress(i);
-              }
-            }}
-          >
+              if (onPress) onPress(i);
+            }}>
             <View
-              style={
-                StyleSheet.flatten([
-                  selectedOption === i
-                    ? selectedViewStyle
-                    : viewStyle,
-                  i === 0 ? {
-                    borderTopLeftRadius: borderRadius,
-                    borderBottomLeftRadius: borderRadius,
-                  } : {},
-                  i === data.length - 1 ? {
-                    borderBottomRightRadius: borderRadius,
-                    borderTopRightRadius: borderRadius,
-                  } : {},
-                ])
-              }
-            >
+              style={StyleSheet.flatten([
+                selectedOption === i ? selectedViewStyle : viewStyle,
+                i === 0
+                  ? {
+                      borderTopLeftRadius: borderRadius,
+                      borderBottomLeftRadius: borderRadius,
+                    }
+                  : {},
+                i === data.length - 1
+                  ? {
+                      borderBottomRightRadius: borderRadius,
+                      borderTopRightRadius: borderRadius,
+                    }
+                  : {},
+              ])}>
               <Text
-                style={
-                  selectedOption === i
-                    ? selectedTextStyle
-                    : textStyle
-                }
-              >
+                style={selectedOption === i ? selectedTextStyle : textStyle}>
                 {text}
               </Text>
             </View>

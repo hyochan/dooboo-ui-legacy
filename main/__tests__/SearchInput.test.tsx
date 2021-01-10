@@ -2,7 +2,6 @@ import React, { ReactElement } from 'react';
 import {
   RenderAPI,
   act,
-  cleanup,
   fireEvent,
   render,
 } from '@testing-library/react-native';
@@ -24,7 +23,7 @@ describe('[SearchInput] render test', () => {
 
   it('should render without crashing', () => {
     props = createTestProps();
-    component = <SearchInput {...props} value={inputValue}/>;
+    component = <SearchInput {...props} value={inputValue} />;
     testingLib = render(component);
 
     expect(testingLib.toJSON()).toMatchSnapshot();

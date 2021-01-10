@@ -1,6 +1,10 @@
 import * as React from 'react';
 
-import Snackbar, { SnackbarProvider, SnackbarRef, useSnackbarContext } from '../Snackbar';
+import Snackbar, {
+  SnackbarProvider,
+  SnackbarRef,
+  useSnackbarContext,
+} from '../Snackbar';
 import { Text, TouchableOpacity, View } from 'react-native';
 import { act, fireEvent, render } from '@testing-library/react-native';
 
@@ -22,14 +26,13 @@ function TestWrapper(): React.ReactElement {
       <TouchableOpacity
         testID="Button"
         onPress={(): void => {
-          snackbarRef.current && snackbarRef.current.show({
-            text: message,
-            actionText: 'some action',
-          });
+          snackbarRef.current &&
+            snackbarRef.current.show({
+              text: message,
+              actionText: 'some action',
+            });
         }}>
-        <Text>
-          {buttonText}
-        </Text>
+        <Text>{buttonText}</Text>
       </TouchableOpacity>
       <Snackbar testID={'snackbar'} ref={snackbarRef} />
     </View>
@@ -44,16 +47,13 @@ function ContentInnerProvider(): React.ReactElement {
       <TouchableOpacity
         testID="Button"
         onPress={(): void => {
-          if (snackbar) {
+          if (snackbar)
             snackbar.show({
               text: message,
               actionText: 'some action',
             });
-          }
         }}>
-        <Text>
-          {buttonText}
-        </Text>
+        <Text>{buttonText}</Text>
       </TouchableOpacity>
     </View>
   );
@@ -106,7 +106,7 @@ describe('[Snackbar]', () => {
 describe('[Snackbar] using provider', () => {
   const TestElement = (): React.ReactElement => (
     <SnackbarProvider>
-      <ContentInnerProvider/>
+      <ContentInnerProvider />
     </SnackbarProvider>
   );
 
@@ -123,7 +123,7 @@ describe('[Snackbar] using provider', () => {
   });
 
   it('occurs error when use snackbar context outside of the SnackbarProvider', async () => {
-    expect(() => renderer.create(<ContentInnerProvider/>)).toThrowError();
+    expect(() => renderer.create(<ContentInnerProvider />)).toThrowError();
   });
 
   // it('should simulate showing snackbar', async () => {

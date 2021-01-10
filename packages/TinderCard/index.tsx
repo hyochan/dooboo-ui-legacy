@@ -110,6 +110,7 @@ function TinderCard<T>(
     outputRange: [1, 0, 0],
   });
 
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   const resetPosition = (): void => {
     Animated.spring(position, {
       toValue: { x: 0, y: 0 },
@@ -134,31 +135,32 @@ function TinderCard<T>(
         return idx + 1;
       });
 
-      if (direction === TinderCardDirection.RIGHT) {
+      if (direction === TinderCardDirection.RIGHT)
         onSwipeRight && data && onSwipeRight(data[currentIndex]);
-      } else {
-        onSwipeLeft && data && onSwipeLeft(data[currentIndex]);
-      }
+      else onSwipeLeft && data && onSwipeLeft(data[currentIndex]);
 
       setTimeBreak(false);
     },
-    [],
+    [data, onSwipeLeft, onSwipeRight, position],
   );
 
-  const forceSwipe = (direction: TinderCardDirection): void => {
-    setTimeBreak(true);
+  const forceSwipe = useCallback(
+    (direction: TinderCardDirection): void => {
+      setTimeBreak(true);
 
-    const x =
-      direction === TinderCardDirection.RIGHT ? SCREEN_WIDTH : -SCREEN_WIDTH;
+      const x =
+        direction === TinderCardDirection.RIGHT ? SCREEN_WIDTH : -SCREEN_WIDTH;
 
-    Animated.timing(position, {
-      toValue: { x, y: 0 },
-      duration: SWIPE_OUT_DURATION,
-      useNativeDriver: true,
-    }).start(() => {
-      onSwipeCompleted(direction);
-    });
-  };
+      Animated.timing(position, {
+        toValue: { x, y: 0 },
+        duration: SWIPE_OUT_DURATION,
+        useNativeDriver: true,
+      }).start(() => {
+        onSwipeCompleted(direction);
+      });
+    },
+    [onSwipeCompleted, position],
+  );
 
   const _panResponder = useMemo(
     () =>
@@ -168,19 +170,17 @@ function TinderCard<T>(
           position.setValue({ x: gestureState.dx, y: gestureState.dy });
         },
         onPanResponderRelease: (evt, gesture) => {
-          if (gesture.dx > SWIPE_THRESHOLD) {
+          if (gesture.dx > SWIPE_THRESHOLD)
             forceSwipe(TinderCardDirection.RIGHT);
-          } else if (gesture.dx < -SWIPE_THRESHOLD) {
+          else if (gesture.dx < -SWIPE_THRESHOLD)
             forceSwipe(TinderCardDirection.LEFT);
-          } else {
-            resetPosition();
-          }
+          else resetPosition();
         },
       }),
-    [],
+    [forceSwipe, position, resetPosition],
   );
 
-  const getCardStyle = (): Record<string, any> => {
+  const getCardStyle = (): Record<string, unknown> => {
     const rotateValue = position.x.interpolate({
       inputRange: [-SCREEN_WIDTH * 1.5, 0, SCREEN_WIDTH * 1.5],
       outputRange: ['-45deg', '0deg', '45deg'],
@@ -198,9 +198,7 @@ function TinderCard<T>(
 
   const _renderCards = (): ReactElement | (ReactElement | null)[] => {
     if (!data || cardIndex >= data.length) {
-      if (renderNoMoreCards) {
-        return renderNoMoreCards();
-      }
+      if (renderNoMoreCards) return renderNoMoreCards();
 
       return (
         <NoCardWrapper>
@@ -212,7 +210,7 @@ function TinderCard<T>(
     const dataSet = data.map((item, idx) => {
       if (!renderCards || idx < cardIndex) return null;
 
-      if (idx === cardIndex) {
+      if (idx === cardIndex)
         return (
           <Animated.View
             key={`card__${idx}`}
@@ -247,7 +245,6 @@ function TinderCard<T>(
             </SwipeLabelWrapper>
           </Animated.View>
         );
-      }
 
       return (
         <Animated.View

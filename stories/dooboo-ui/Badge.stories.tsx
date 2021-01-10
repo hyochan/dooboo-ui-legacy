@@ -26,13 +26,13 @@ const StyledBasicView = styled.View`
   margin: 20px;
   width: 100px;
   height: 100px;
-  background-color: #BFBFBF;
+  background-color: #bfbfbf;
   border-radius: 12px;
-  box-shadow: 3px 3px 2px rgba(0, 0, 0, 0.5);  
+  box-shadow: 3px 3px 2px rgba(0, 0, 0, 0.5);
 `;
 
 const StyledView = (props): React.ReactElement => {
-  return <StyledBasicView style={{ elevation: 1 }} {...props}/>;
+  return <StyledBasicView style={{ elevation: 1 }} {...props} />;
 };
 
 const Badge1 = (): React.ReactElement => {
@@ -80,7 +80,7 @@ const Badge1 = (): React.ReactElement => {
             </ShowContainer>
           </View>
 
-          <View style={{ marginTop: 20 }} >
+          <View style={{ marginTop: 20 }}>
             <Container>
               <StyledTitle>Badge (maximumCount, opacityVisible)</StyledTitle>
             </Container>
@@ -113,7 +113,12 @@ const Badge1 = (): React.ReactElement => {
                 <Badge color="#91AAF2" border="#F2B9AC" count={37} />
               </StyledView>
               <StyledView>
-                <Badge color="white" border="#F2B9AC" textColor="#F2B9AC" count={50} />
+                <Badge
+                  color="white"
+                  border="#F2B9AC"
+                  textColor="#F2B9AC"
+                  count={50}
+                />
               </StyledView>
             </ShowContainer>
           </View>

@@ -47,8 +47,7 @@ const Default = (): React.ReactElement => {
           alignSelf: 'stretch',
           paddingHorizontal: 20,
           paddingVertical: 100,
-        }}
-      >
+        }}>
         <Container>
           <SearchInput
             value={value}
@@ -96,7 +95,7 @@ toStorybook.story = {
  * Below are stories for app
  */
 
-const ContainerDeco = (storyFn: any): React.ReactElement => (
+const ContainerDeco = (storyFn): React.ReactElement => (
   <Container>{storyFn()}</Container>
 );
 

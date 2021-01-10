@@ -1,20 +1,22 @@
 /* istanbul ignore file */
 interface NativeTouchEvent {
-  changedTouches?: (NativeTouchEvent|null)[];
+  changedTouches?: (NativeTouchEvent | null)[];
   identifier: number;
   locationX: number;
   locationY: number;
   timestamp: number;
-  touches?: (NativeTouchEvent|null)[];
+  touches?: (NativeTouchEvent | null)[];
 }
 
 interface GestureHandlerInput {
   name: string;
   nativeEvent: NativeTouchEvent;
-  gestureState: {dx: number, dy: number};
+  gestureState: { dx: number; dy: number };
 }
 
-const replaceFirstTouchToThis = (item: GestureHandlerInput):GestureHandlerInput => {
+const replaceFirstTouchToThis = (
+  item: GestureHandlerInput,
+): GestureHandlerInput => {
   const { nativeEvent } = item;
 
   if (nativeEvent) {
@@ -25,7 +27,9 @@ const replaceFirstTouchToThis = (item: GestureHandlerInput):GestureHandlerInput 
   return item;
 };
 
-export function getFirstTouchOfTwoFinger(inputs: GestureHandlerInput[]): GestureHandlerInput | null {
+export function getFirstTouchOfTwoFinger(
+  inputs: GestureHandlerInput[],
+): GestureHandlerInput | null {
   const firstTouchIndex = inputs.findIndex((input) => {
     const { nativeEvent } = input;
 
@@ -37,7 +41,9 @@ export function getFirstTouchOfTwoFinger(inputs: GestureHandlerInput[]): Gesture
   return inputs[firstTouchIndex];
 }
 
-export function getLastTouchOfTwofinger(inputs: GestureHandlerInput[]): GestureHandlerInput | null {
+export function getLastTouchOfTwofinger(
+  inputs: GestureHandlerInput[],
+): GestureHandlerInput | null {
   const reversed = inputs.map((i) => i).reverse();
 
   const firstTouchIndex = reversed.findIndex((input) => {
@@ -58,15 +64,27 @@ interface TwoPosition {
   y2: number;
 }
 
-export function getChangedDistanceRatio({ start, end }: { start: TwoPosition, end: TwoPosition }): number {
-  const startDist = Math.sqrt((start.x1 - start.x2) ** 2 + (start.y1 - start.y2) ** 2);
+export function getChangedDistanceRatio({
+  start,
+  end,
+}: {
+  start: TwoPosition;
+  end: TwoPosition;
+}): number {
+  const startDist = Math.sqrt(
+    (start.x1 - start.x2) ** 2 + (start.y1 - start.y2) ** 2,
+  );
+
   const endDist = Math.sqrt((end.x1 - end.x2) ** 2 + (end.y1 - end.y2) ** 2);
 
   return endDist / startDist;
 }
 
-export function getTwoFingerStartEndPositions(inputs: GestureHandlerInput[]): {
-  start: TwoPosition, end: TwoPosition
+export function getTwoFingerStartEndPositions(
+  inputs: GestureHandlerInput[],
+): {
+  start: TwoPosition;
+  end: TwoPosition;
 } {
   const zoomStart = getFirstTouchOfTwoFinger(inputs);
   const zoomEnd = getLastTouchOfTwofinger(inputs);
@@ -96,16 +114,12 @@ const openGesture: GestureHandlerInput[] = [
       dy: 0,
     },
     nativeEvent: {
-      changedTouches: [
-        null,
-      ],
+      changedTouches: [null],
       identifier: 0,
       locationX: 236.4481658935547,
       locationY: 66.47421264648438,
       timestamp: 928291738,
-      touches: [
-        null,
-      ],
+      touches: [null],
     },
   },
   {
@@ -115,16 +129,12 @@ const openGesture: GestureHandlerInput[] = [
       dy: -1.0323486328125,
     },
     nativeEvent: {
-      changedTouches: [
-        null,
-      ],
+      changedTouches: [null],
       identifier: 0,
       locationX: 236.4481658935547,
       locationY: 65.68843078613281,
       timestamp: 928291759,
-      touches: [
-        null,
-      ],
+      touches: [null],
     },
   },
   {
@@ -475,16 +485,12 @@ const openGesture: GestureHandlerInput[] = [
       dy: 2.5809326171875,
     },
     nativeEvent: {
-      changedTouches: [
-        null,
-      ],
+      changedTouches: [null],
       identifier: 1,
       locationX: 272.3207092285156,
       locationY: 150.7286376953125,
       timestamp: 928292020,
-      touches: [
-        null,
-      ],
+      touches: [null],
     },
   },
   {
@@ -494,16 +500,12 @@ const openGesture: GestureHandlerInput[] = [
       dy: 2.5809326171875,
     },
     nativeEvent: {
-      changedTouches: [
-        null,
-      ],
+      changedTouches: [null],
       identifier: 1,
       locationX: 272.3207092285156,
       locationY: 150.7286376953125,
       timestamp: 928292020,
-      touches: [
-        null,
-      ],
+      touches: [null],
     },
   },
 ].map(replaceFirstTouchToThis);
@@ -516,16 +518,12 @@ const closeGesture: GestureHandlerInput[] = [
       dy: 0,
     },
     nativeEvent: {
-      changedTouches: [
-        null,
-      ],
+      changedTouches: [null],
       identifier: 0,
       locationX: 46.0484619140625,
       locationY: 81.7563705444336,
       timestamp: 928379178,
-      touches: [
-        null,
-      ],
+      touches: [null],
     },
   },
   {
@@ -907,16 +905,12 @@ const closeGesture: GestureHandlerInput[] = [
       dy: 2.9014053344726562,
     },
     nativeEvent: {
-      changedTouches: [
-        null,
-      ],
+      changedTouches: [null],
       identifier: 0,
       locationX: 50.07897186279297,
       locationY: 101.55281829833984,
       timestamp: 928379408,
-      touches: [
-        null,
-      ],
+      touches: [null],
     },
   },
   {
@@ -926,16 +920,12 @@ const closeGesture: GestureHandlerInput[] = [
       dy: 2.9014053344726562,
     },
     nativeEvent: {
-      changedTouches: [
-        null,
-      ],
+      changedTouches: [null],
       identifier: 0,
       locationX: 50.07897186279297,
       locationY: 101.55281829833984,
       timestamp: 928379408,
-      touches: [
-        null,
-      ],
+      touches: [null],
     },
   },
 ].map(replaceFirstTouchToThis);
@@ -948,16 +938,12 @@ const moveGesture: GestureHandlerInput[] = [
       dy: 0,
     },
     nativeEvent: {
-      changedTouches: [
-        null,
-      ],
+      changedTouches: [null],
       identifier: 0,
       locationX: 171.4107208251953,
       locationY: 62.816593170166016,
       timestamp: 928421627,
-      touches: [
-        null,
-      ],
+      touches: [null],
     },
   },
   {
@@ -967,16 +953,12 @@ const moveGesture: GestureHandlerInput[] = [
       dy: -0.20648193359375,
     },
     nativeEvent: {
-      changedTouches: [
-        null,
-      ],
+      changedTouches: [null],
       identifier: 0,
       locationX: 171.4107208251953,
       locationY: 62.6101188659668,
       timestamp: 928421665,
-      touches: [
-        null,
-      ],
+      touches: [null],
     },
   },
   {
@@ -986,16 +968,12 @@ const moveGesture: GestureHandlerInput[] = [
       dy: 0.32647705078125,
     },
     nativeEvent: {
-      changedTouches: [
-        null,
-      ],
+      changedTouches: [null],
       identifier: 0,
       locationX: 170.8922119140625,
       locationY: 63.143043518066406,
       timestamp: 928421714,
-      touches: [
-        null,
-      ],
+      touches: [null],
     },
   },
   {
@@ -1005,16 +983,12 @@ const moveGesture: GestureHandlerInput[] = [
       dy: 0.73876953125,
     },
     nativeEvent: {
-      changedTouches: [
-        null,
-      ],
+      changedTouches: [null],
       identifier: 0,
       locationX: 170.49102783203125,
       locationY: 63.55533981323242,
       timestamp: 928421731,
-      touches: [
-        null,
-      ],
+      touches: [null],
     },
   },
   {
@@ -1024,16 +998,12 @@ const moveGesture: GestureHandlerInput[] = [
       dy: 2.58563232421875,
     },
     nativeEvent: {
-      changedTouches: [
-        null,
-      ],
+      changedTouches: [null],
       identifier: 0,
       locationX: 169.61351013183594,
       locationY: 65.40220642089844,
       timestamp: 928421748,
-      touches: [
-        null,
-      ],
+      touches: [null],
     },
   },
   {
@@ -1043,16 +1013,12 @@ const moveGesture: GestureHandlerInput[] = [
       dy: 7.43304443359375,
     },
     nativeEvent: {
-      changedTouches: [
-        null,
-      ],
+      changedTouches: [null],
       identifier: 0,
       locationX: 167.39285278320312,
       locationY: 70.24962615966797,
       timestamp: 928421765,
-      touches: [
-        null,
-      ],
+      touches: [null],
     },
   },
   {
@@ -1062,16 +1028,12 @@ const moveGesture: GestureHandlerInput[] = [
       dy: 9.60443115234375,
     },
     nativeEvent: {
-      changedTouches: [
-        null,
-      ],
+      changedTouches: [null],
       identifier: 0,
       locationX: 165.43045043945312,
       locationY: 72.42103576660156,
       timestamp: 928421781,
-      touches: [
-        null,
-      ],
+      touches: [null],
     },
   },
   {
@@ -1081,16 +1043,12 @@ const moveGesture: GestureHandlerInput[] = [
       dy: 11.62261962890625,
     },
     nativeEvent: {
-      changedTouches: [
-        null,
-      ],
+      changedTouches: [null],
       identifier: 0,
       locationX: 162.6761932373047,
       locationY: 74.43922424316406,
       timestamp: 928421798,
-      touches: [
-        null,
-      ],
+      touches: [null],
     },
   },
   {
@@ -1100,16 +1058,12 @@ const moveGesture: GestureHandlerInput[] = [
       dy: 14.1590576171875,
     },
     nativeEvent: {
-      changedTouches: [
-        null,
-      ],
+      changedTouches: [null],
       identifier: 0,
       locationX: 159.31295776367188,
       locationY: 76.97567749023438,
       timestamp: 928421815,
-      touches: [
-        null,
-      ],
+      touches: [null],
     },
   },
   {
@@ -1119,16 +1073,12 @@ const moveGesture: GestureHandlerInput[] = [
       dy: 16.58526611328125,
     },
     nativeEvent: {
-      changedTouches: [
-        null,
-      ],
+      changedTouches: [null],
       identifier: 0,
       locationX: 156.6410369873047,
       locationY: 79.4018325805664,
       timestamp: 928421831,
-      touches: [
-        null,
-      ],
+      touches: [null],
     },
   },
   {
@@ -1138,16 +1088,12 @@ const moveGesture: GestureHandlerInput[] = [
       dy: 18.68707275390625,
     },
     nativeEvent: {
-      changedTouches: [
-        null,
-      ],
+      changedTouches: [null],
       identifier: 0,
       locationX: 154.31666564941406,
       locationY: 81.50367736816406,
       timestamp: 928421849,
-      touches: [
-        null,
-      ],
+      touches: [null],
     },
   },
   {
@@ -1157,16 +1103,12 @@ const moveGesture: GestureHandlerInput[] = [
       dy: 21.17730712890625,
     },
     nativeEvent: {
-      changedTouches: [
-        null,
-      ],
+      changedTouches: [null],
       identifier: 0,
       locationX: 151.64683532714844,
       locationY: 83.99391174316406,
       timestamp: 928421865,
-      touches: [
-        null,
-      ],
+      touches: [null],
     },
   },
   {
@@ -1176,16 +1118,12 @@ const moveGesture: GestureHandlerInput[] = [
       dy: 23.2164306640625,
     },
     nativeEvent: {
-      changedTouches: [
-        null,
-      ],
+      changedTouches: [null],
       identifier: 0,
       locationX: 149.85519409179688,
       locationY: 86.03302001953125,
       timestamp: 928421881,
-      touches: [
-        null,
-      ],
+      touches: [null],
     },
   },
   {
@@ -1195,16 +1133,12 @@ const moveGesture: GestureHandlerInput[] = [
       dy: 24.25152587890625,
     },
     nativeEvent: {
-      changedTouches: [
-        null,
-      ],
+      changedTouches: [null],
       identifier: 0,
       locationX: 148.6957550048828,
       locationY: 87.06813049316406,
       timestamp: 928421898,
-      touches: [
-        null,
-      ],
+      touches: [null],
     },
   },
   {
@@ -1214,16 +1148,12 @@ const moveGesture: GestureHandlerInput[] = [
       dy: 24.6182861328125,
     },
     nativeEvent: {
-      changedTouches: [
-        null,
-      ],
+      changedTouches: [null],
       identifier: 0,
       locationX: 147.9366912841797,
       locationY: 87.43485260009766,
       timestamp: 928421914,
-      touches: [
-        null,
-      ],
+      touches: [null],
     },
   },
   {
@@ -1233,16 +1163,12 @@ const moveGesture: GestureHandlerInput[] = [
       dy: 24.5703125,
     },
     nativeEvent: {
-      changedTouches: [
-        null,
-      ],
+      changedTouches: [null],
       identifier: 0,
       locationX: 147.0941925048828,
       locationY: 87.38690185546875,
       timestamp: 928421932,
-      touches: [
-        null,
-      ],
+      touches: [null],
     },
   },
   {
@@ -1252,16 +1178,12 @@ const moveGesture: GestureHandlerInput[] = [
       dy: 23.8526611328125,
     },
     nativeEvent: {
-      changedTouches: [
-        null,
-      ],
+      changedTouches: [null],
       identifier: 0,
       locationX: 146.15576171875,
       locationY: 86.66927337646484,
       timestamp: 928421948,
-      touches: [
-        null,
-      ],
+      touches: [null],
     },
   },
   {
@@ -1271,22 +1193,14 @@ const moveGesture: GestureHandlerInput[] = [
       dy: 23.8526611328125,
     },
     nativeEvent: {
-      changedTouches: [
-        null,
-      ],
+      changedTouches: [null],
       identifier: 0,
       locationX: 146.15576171875,
       locationY: 86.66927337646484,
       timestamp: 928421948,
-      touches: [
-        null,
-      ],
+      touches: [null],
     },
   },
 ].map(replaceFirstTouchToThis);
 
-export {
-  openGesture,
-  closeGesture,
-  moveGesture,
-};
+export { openGesture, closeGesture, moveGesture };

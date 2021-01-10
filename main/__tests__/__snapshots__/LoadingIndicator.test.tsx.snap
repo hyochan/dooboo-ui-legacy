@@ -50,33 +50,6 @@ exports[`[LoadingIndicator] render renders with !size with string imgSource 1`] 
 </View>
 `;
 
-exports[`[LoadingIndicator] render renders with !size with string imgSource 2`] = `
-<View
-  style={
-    Object {
-      "alignItems": "center",
-      "alignSelf": "center",
-      "backgroundColor": "transparent",
-      "flex": 1,
-      "flexDirection": "row",
-      "height": "100%",
-      "justifyContent": "center",
-      "position": "absolute",
-      "width": "100%",
-    }
-  }
->
-  <Image
-    source={
-      Object {
-        "uri": "test",
-      }
-    }
-    style={Object {}}
-  />
-</View>
-`;
-
 exports[`[LoadingIndicator] render renders with [imgSource] 1`] = `
 <View
   style={

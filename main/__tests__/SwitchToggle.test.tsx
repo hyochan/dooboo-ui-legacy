@@ -4,7 +4,9 @@ import { SwitchToggle } from '../../main';
 import { TouchableOpacity } from 'react-native';
 import renderer from 'react-test-renderer';
 
-const createTestProps = (obj?: Record<string, unknown>): Record<string, unknown> => ({
+const createTestProps = (
+  obj?: Record<string, unknown>,
+): Record<string, unknown> => ({
   ...obj,
 });
 
@@ -18,7 +20,7 @@ describe('[SwitchToggle]', (): void => {
     onPress: jest.fn(),
   });
 
-  component = <SwitchToggle {...props}/>;
+  component = <SwitchToggle {...props} />;
 
   it('should render without crashing', (): void => {
     const rendered = renderer.create(component);
@@ -43,12 +45,13 @@ describe('[SwitchToggle]', (): void => {
     });
 
     it('should toggle switchOn on press', () => {
+      // eslint-disable-next-line @typescript-eslint/no-shadow
       const props = {
         switchOn: false,
         onPress: jest.fn(),
       };
 
-      component = <SwitchToggle {...props}/>;
+      component = <SwitchToggle {...props} />;
 
       const rendered = renderer.create(component);
       const switchToggle = rendered.root.findByType(TouchableOpacity);

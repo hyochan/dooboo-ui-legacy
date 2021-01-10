@@ -1,4 +1,3 @@
-
 import Svg, { Line } from 'react-native-svg';
 import React from 'react';
 import { View } from 'react-native';
@@ -48,6 +47,4 @@ function ArrowDown(): React.ReactElement {
   );
 }
 
-export {
-  ArrowDown,
-};
+export { ArrowDown };

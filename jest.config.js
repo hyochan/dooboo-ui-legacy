@@ -1,4 +1,3 @@
-// eslint-disable-next-line
 const { defaults: tsJestConfig } = require('ts-jest/presets');
 
 process.env.TZ = 'Asia/Seoul';
@@ -6,27 +5,14 @@ process.env.TZ = 'Asia/Seoul';
 module.exports = {
   ...tsJestConfig,
   preset: 'react-native',
-  transformIgnorePatterns: [
-    'node_modules/(?!(.*-)?react-(.*-)?native(-.*)?)',
-  ],
-  modulePaths: [
-    '<rootDir>',
-  ],
-  moduleDirectories: [
-    'node_modules',
-  ],
-  testMatch: [
-    '**/__tests__/**/*test.ts?(x)',
-    '**/?(*.)+(spec|test).ts?(x)',
-  ],
-  moduleFileExtensions: [
-    'js',
-    'ts',
-    'tsx',
-  ],
+  transformIgnorePatterns: ['node_modules/(?!(.*-)?react-(.*-)?native(-.*)?)'],
+  modulePaths: ['<rootDir>'],
+  moduleDirectories: ['node_modules'],
+  testMatch: ['**/__tests__/**/*test.ts?(x)', '**/?(*.)+(spec|test).ts?(x)'],
+  moduleFileExtensions: ['js', 'ts', 'tsx'],
   globals: {
     'ts-jest': {
-      tsConfig: {
+      tsconfig: {
         jsx: 'react',
       },
       diagnostics: false,

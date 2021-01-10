@@ -98,7 +98,7 @@ const InnerCircleAnim = ({
       duration: 80,
       useNativeDriver: true,
     }).start();
-  }, []);
+  }, [circleAnim, innerSize]);
 
   return (
     <Animated.View
@@ -122,6 +122,7 @@ function RadioButton(props: RadioButtonProps): React.ReactElement {
     label,
     labelPlacement = 'end',
     color = DEFAULT_CIRCLE.COLOR,
+    // eslint-disable-next-line radix
     size = parseInt(DEFAULT_CIRCLE.OUTER_SIZE),
   } = props;
 
@@ -141,7 +142,9 @@ function RadioButton(props: RadioButtonProps): React.ReactElement {
       isLabelColumn={isLabelColumn}
       onPress={(): void => onPress?.(value)}>
       {isLabelFront && <SCLabelText disabled={disabled}>{label}</SCLabelText>}
-      <SCOuterCircle {...circleStyles} style={ disabled && { backgroundColor: COLOR.LIGHTGRAY }}>
+      <SCOuterCircle
+        {...circleStyles}
+        style={disabled && { backgroundColor: COLOR.LIGHTGRAY }}>
         {isSelected && <InnerCircleAnim {...circleStyles} />}
       </SCOuterCircle>
       {!isLabelFront && <SCLabelText disabled={disabled}>{label}</SCLabelText>}
