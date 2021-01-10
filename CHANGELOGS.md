@@ -1,5 +1,9 @@
 ## Changelogs
 
+## 0.0.28
+
+- Added `TouchableOpacity` style prop to [Button] [#37`](https://github.com/dooboolab/dooboo-ui/pull/371`).
+
 ## 0.0.27
 
 - Updated packages and applied new linting rules [#370](https://github.com/dooboolab/dooboo-ui/pull/370).
