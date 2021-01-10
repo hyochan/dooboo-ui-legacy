@@ -95,8 +95,8 @@ const ColumnEditText = (): React.ReactElement => {
             onSubmitEditing={onSignIn}
           />
           <Button
-            style={{
-              button: {
+            styles={{
+              container: {
                 borderRadius: 6,
                 borderWidth: 0,
                 marginTop: 40,
@@ -257,8 +257,8 @@ const RowEditText = (): React.ReactElement => {
             }}
           />
           <Button
-            style={{
-              button: {
+            styles={{
+              container: {
                 borderRadius: 6,
                 borderWidth: 0,
                 marginTop: 40,
@@ -475,7 +475,7 @@ const BoxEditText = (): React.ReactElement => {
             }}
           />
           <Button
-            style={{
+            container={{
               button: {
                 borderRadius: 6,
                 borderWidth: 0,
@@ -599,8 +599,8 @@ const BoxRowEditText = (): React.ReactElement => {
             onSubmitEditing={onSignIn}
           />
           <Button
-            style={{
-              button: {
+            styles={{
+              container: {
                 borderRadius: 6,
                 borderWidth: 0,
                 marginTop: 40,

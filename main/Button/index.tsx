@@ -1,5 +1,6 @@
 import {
   ActivityIndicator,
+  LayoutRectangle,
   StyleSheet,
   Text,
   TextProps,
@@ -7,14 +8,32 @@ import {
   TouchableOpacityProps,
   View,
 } from 'react-native';
-import React, { useRef } from 'react';
+import React, { useRef, useState } from 'react';
 
 import { useHover } from 'react-native-web-hooks';
 
 const defaultStyles = StyleSheet.create({
-  root: {
-    justifyContent: 'center',
+  container: {
+    alignSelf: 'stretch',
+    paddingLeft: 16,
+    paddingRight: 16,
+    borderRadius: 6,
+
+    flexDirection: 'row',
     alignItems: 'center',
+    justifyContent: 'center',
+  },
+  text: {
+    paddingVertical: 12,
+    fontSize: 14,
+    color: '#069ccd',
+  },
+  disabledButton: {
+    backgroundColor: '#cccccc',
+    borderColor: 'rgb(200, 200, 200)',
+  },
+  disabledText: {
+    color: '#969696',
   },
   hovered: {
     shadowColor: 'black',
@@ -27,29 +46,6 @@ const defaultStyles = StyleSheet.create({
     elevation: 10,
     borderRadius: 4,
   },
-  button: {
-    alignSelf: 'center',
-    width: 320,
-    height: 52,
-    borderColor: 'blue',
-    alignItems: 'center',
-    justifyContent: 'center',
-    flexDirection: 'row',
-    paddingLeft: 16,
-    paddingRight: 16,
-    borderRadius: 6,
-  },
-  text: {
-    fontSize: 14,
-    color: '#069ccd',
-  },
-  disabledButton: {
-    backgroundColor: '#cccccc',
-    borderColor: 'rgb(200, 200, 200)',
-  },
-  disabledText: {
-    color: '#969696',
-  },
 });
 
 type StylesType = Partial<StyleSheet.NamedStyles<typeof defaultStyles>>;
@@ -59,7 +55,7 @@ interface Props {
   indicatorColor?: string;
   loading?: boolean;
   disabled?: boolean;
-  style?: StylesType;
+  styles?: StylesType;
   leftElement?: React.ReactElement;
   rightElement?: React.ReactElement;
   activeOpacity?: number;
@@ -73,7 +69,7 @@ function Button({
   testID,
   disabled,
   loading,
-  style,
+  styles: style,
   indicatorColor = '#ffffff',
   leftElement,
   rightElement,
@@ -83,61 +79,64 @@ function Button({
   touchableOpacityProps,
   textProps,
 }: Props): React.ReactElement {
-  const ref = useRef(null);
+  const ref = useRef<TouchableOpacity>(null);
   const isHovered = useHover(ref);
+  const [layout, setLayout] = useState<LayoutRectangle>();
 
   return (
-    <View
+    <TouchableOpacity
+      testID={testID}
+      ref={ref}
+      activeOpacity={activeOpacity}
+      onPress={onPress}
+      delayPressIn={50}
+      disabled={disabled}
       style={[
-        defaultStyles.root,
-        style?.root,
+        isHovered && !disabled && [
+          defaultStyles.hovered,
+          style?.hovered,
+        ],
+        disabled && [
+          defaultStyles.disabledButton,
+          style?.disabledButton,
+        ],
       ]}
+      {...touchableOpacityProps}
     >
-      <TouchableOpacity
-        testID={testID}
-        activeOpacity={activeOpacity}
-        onPress={onPress}
-        delayPressIn={30}
-        disabled={disabled}
-        ref={ref}
-        style={[
-          defaultStyles.button,
-          style?.button,
-          isHovered && !disabled && [
-            defaultStyles.hovered,
-            style?.hovered,
-          ],
-          disabled && [
-            defaultStyles.disabledButton,
-            style?.disabledButton,
-          ],
-        ]}
-        {...touchableOpacityProps}
-      >
-        {loading
-          ? <ActivityIndicator size="small" color={indicatorColor} />
-          : (
-            <>
-              {leftElement}
-              <Text
-                style={[
-                  defaultStyles.text,
-                  style?.text,
-                  disabled && [
-                    defaultStyles.disabledText,
-                    style?.disabledText,
-                  ],
-                ]}
-                {...textProps}
-              >
-                {text}
-              </Text>
-              {rightElement}
-            </>
-          )
-        }
-      </TouchableOpacity>
-    </View>
+      {loading
+        ? <View style={[
+          defaultStyles.container,
+          style?.container,
+          {
+            width: layout?.width,
+            height: layout?.height,
+          },
+        ]}><ActivityIndicator size="small" color={indicatorColor} /></View>
+        : <View
+          style={[
+            defaultStyles.container,
+            style?.container,
+          ]}
+          onLayout={(e) => setLayout(e.nativeEvent.layout)}
+        >
+          {leftElement}
+          <Text
+            style={[
+              defaultStyles.text,
+              style?.text,
+              disabled && [
+                defaultStyles.disabledText,
+                style?.disabledText,
+              ],
+            ]}
+            {...textProps}
+          >
+            {text}
+          </Text>
+          {rightElement}
+        </View>
+      }
+    </TouchableOpacity>
   );
 }
 

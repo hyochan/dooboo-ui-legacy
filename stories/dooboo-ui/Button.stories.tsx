@@ -36,16 +36,16 @@ function Default(): React.ReactElement {
           loading={false}
           text="😀 😎 👍 💯"
           onPress={action('Clicked')}
-          style={{
-            button: {
+          styles={{
+            container: {
               marginVertical: 40,
               borderWidth: 0.5,
             },
           }}
         />
         <Button
-          style={{
-            button: {
+          styles={{
+            container: {
               backgroundColor: '#109CF1',
             },
             text: {
@@ -57,8 +57,8 @@ function Default(): React.ReactElement {
         />
 
         <Button
-          style={{
-            button: {
+          styles={{
+            container: {
               marginVertical: 40,
               borderWidth: 0.5,
             },
@@ -76,20 +76,15 @@ function Default(): React.ReactElement {
         <Button
           leftElement={
             <View
-              style={{
-                position: 'absolute',
-                left: 16,
-              }}>
+              style={{ marginRight: 8 }}>
               <Image style={{ width: 20, height: 20 }} source={IC_GOOGLE} />
             </View>
           }
           loading={googleLoading}
           indicatorColor="#023059"
-          style={{
-            root: {
-              marginTop: 32,
-            },
-            button: {
+          styles={{
+            container: {
+              marginVertical: 20,
               backgroundColor: '#ccc',
             },
           }}
@@ -106,21 +101,19 @@ function Default(): React.ReactElement {
         <Button
           testID="btnFacebook"
           leftElement={
-            <View
-              style={{
-                position: 'absolute',
-                left: 16,
-              }}>
+            <View style={{
+              position: 'absolute',
+              left: 16,
+            }} >
               <Image style={{ width: 15, height: 28 }} source={IC_FACEBOOK} />
             </View>
           }
           indicatorColor="#023059"
           loading={facebookLoading}
-          style={{
-            root: {
-              marginTop: 32,
-            },
-            button: {
+          styles={{
+            container: {
+              height: 52,
+              width: 300,
               backgroundColor: '#ccc',
               borderWidth: 0.5,
               borderRadius: 0,
