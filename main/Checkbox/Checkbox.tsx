@@ -139,6 +139,7 @@ export const Checkbox: FC<CheckboxProps> = ({
   useEffect(() => {
     if (value && groupCheckboxContext?.registerValue)
       groupCheckboxContext.registerValue(value);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const labelColor = disabled ? COLOR.LIGHTGRAY : customStyle?.labelColor;
