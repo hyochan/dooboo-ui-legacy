@@ -41,7 +41,7 @@ type YStyle = {
 export interface BarChartProps {
   /* ====== [REQUIRED] ====== */
   // Dataset for the line chart
-  data: Array<Record<string, number>>;
+  data: Array<Record<string, any>>;
   xAxisKey: string; // X-axis parameter existing "key" in ${data}
   yAxisKey: string; // Y-axis parameter existing "key" in ${data}
   yUnit: string | number; // Y-axis unit to parse the values

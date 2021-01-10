@@ -160,7 +160,7 @@ interface Props {
   onDateChanged?: (date: Date) => void;
   selectedDate?: Date;
   selectDate?: (date: Date) => void;
-  markedDayEvents?: Record<string, Date>[];
+  markedDayEvents?: Record<string, any>[];
   monthFormatter?: { format: (date: Date) => string };
 }
 function CalendarCarousel({
