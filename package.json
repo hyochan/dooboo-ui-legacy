@@ -78,7 +78,7 @@
     "react-test-renderer": "^16.13.1",
     "react-useinterval": "^1.0.2",
     "ts-jest": "^26.4.1",
-    "typescript": "^4.0"
+    "typescript": "^4.1.3"
   },
   "jest": {
     "preset": "react-native"
