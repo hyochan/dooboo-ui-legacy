@@ -107,8 +107,7 @@ interface Props {
   focusColor?: string;
   errorColor?: string;
   autoCapitalize?: TextInputProps['autoCapitalize'];
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  textInputProps?: TextInputProps | any;
+  textInputProps?: TextInputProps;
   onFocus?: () => void;
   onBlur?: () => void;
   errorText?: string;

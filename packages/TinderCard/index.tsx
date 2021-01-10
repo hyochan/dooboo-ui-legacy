@@ -180,7 +180,7 @@ function TinderCard<T>(
     [],
   );
 
-  const getCardStyle = (): Record<string, any> => {
+  const getCardStyle = (): Record<string, unknown> => {
     const rotateValue = position.x.interpolate({
       inputRange: [-SCREEN_WIDTH * 1.5, 0, SCREEN_WIDTH * 1.5],
       outputRange: ['-45deg', '0deg', '45deg'],

@@ -6,6 +6,16 @@ import { ContainerDeco } from '../../storybook/decorators';
 import { storiesOf } from '@storybook/react-native';
 import styled from 'styled-components/native';
 
+const Container = styled.SafeAreaView`
+  flex: 1;
+  background-color: transparent;
+  flex-direction: column;
+  align-self: stretch;
+  align-items: center;
+  justify-content: center;
+  margin: 0 24px;
+`;
+
 const Default = (): React.ReactElement => {
   const data = ['Option 1', 'Option 2', 'Option 3', 'Option 4'];
 
@@ -49,16 +59,6 @@ const Default = (): React.ReactElement => {
     </Container>
   );
 };
-
-const Container = styled.SafeAreaView`
-  flex: 1;
-  background-color: transparent;
-  flex-direction: column;
-  align-self: stretch;
-  align-items: center;
-  justify-content: center;
-  margin: 0 24px;
-`;
 
 /**
  * Below are stories for web

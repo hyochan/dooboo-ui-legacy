@@ -2,7 +2,6 @@ import React, { ReactElement } from 'react';
 import {
   RenderAPI,
   act,
-  cleanup,
   fireEvent,
   render,
 } from '@testing-library/react-native';

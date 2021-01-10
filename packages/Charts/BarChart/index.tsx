@@ -85,7 +85,7 @@ const BarChart: FC<BarChartProps> = (props) => {
 
   // get Y axis values range
   const getYmaxRange = (
-    data: Array<Record<string, any>>,
+    data: Array<Record<string, number>>,
     yUnit: string | number,
   ): Array<number> => {
     const range: number[] = [];

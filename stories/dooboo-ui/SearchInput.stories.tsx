@@ -96,7 +96,7 @@ toStorybook.story = {
  * Below are stories for app
  */
 
-const ContainerDeco = (storyFn: any): React.ReactElement => (
+const ContainerDeco = (storyFn): React.ReactElement => (
   <Container>{storyFn()}</Container>
 );
 

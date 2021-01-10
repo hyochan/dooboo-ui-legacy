@@ -11,6 +11,74 @@ import { GroupCheckboxContext } from './GroupCheckboxContext';
 import { TouchableHighlight } from 'react-native';
 import styled from 'styled-components/native';
 
+const COLOR: {
+  [key: string]: string;
+} = {
+  BLUE_SKY: '#1890FF',
+  LIGHTGRAY: '#E0E0E0',
+  GRAY59: '#969696',
+  BLACK: '#000000',
+};
+
+const Container = styled.View`
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+`;
+
+const MarkerContainer = styled.View<MarkerContainerProps>`
+  padding: 1px;
+  width: ${({ boxSize }): number => boxSize || 20}px;
+  height: ${({ boxSize }): number => boxSize || 20}px;
+  background-color: ${({ boxColor }): string => boxColor || COLOR.BLUE_SKY};
+`;
+
+const Marker = styled.View<MarkerProps>`
+  flex: 1;
+  justify-content: center;
+  align-items: center;
+  background-color: ${({ isChecked }): string =>
+    isChecked ? 'transparent' : '#ffffff'};
+`;
+
+const MarkerImg = styled.Image`
+  width: 85%;
+  height: 85%;
+`;
+
+const Markerindeterminate = styled.View<MarkerIndeterminateProps>`
+  width: 55%;
+  height: 55%;
+  background-color: ${({ boxColor }): string => boxColor || COLOR.BLUE_SKY};
+`;
+
+const Label = styled.Text<LabelProps>`
+  font-size: 20px;
+  padding-left: ${({ labelLeft }): number => (labelLeft ? 0 : 10)}px;
+  padding-right: ${({ labelLeft }): number => (labelLeft ? 10 : 0)}px;
+  color: ${({ labelColor }): string => labelColor || COLOR.BLACK};
+`;
+
+interface MarkerContainerProps {
+  boxSize?: number;
+  boxColor?: string;
+}
+
+interface LabelProps {
+  disabled?: boolean;
+  labelSize?: number;
+  labelColor?: string;
+  labelLeft?: boolean;
+}
+
+interface MarkerProps {
+  isChecked: boolean;
+}
+
+interface MarkerIndeterminateProps {
+  boxColor?: string;
+}
+
 interface CustomStyle {
   labelSize?: number;
   labelColor?: string;
@@ -119,73 +187,3 @@ export const Checkbox: FC<CheckboxProps> = ({
     </TouchableHighlight>
   );
 };
-
-interface MarkerContainerProps {
-  boxSize?: number;
-  boxColor?: string;
-}
-
-interface LabelProps {
-  disabled?: boolean;
-  labelSize?: number;
-  labelColor?: string;
-  labelLeft?: boolean;
-}
-
-interface MarkerProps {
-  isChecked: boolean;
-}
-
-interface MarkerIndeterminateProps {
-  boxColor?: string;
-}
-
-const COLOR: {
-  [key: string]: string;
-} = {
-  BLUE_SKY: '#1890FF',
-  LIGHTGRAY: '#E0E0E0',
-  GRAY59: '#969696',
-  BLACK: '#000000',
-};
-
-const Container = styled.View`
-  flex-direction: row;
-  justify-content: flex-start;
-  align-items: center;
-`;
-
-const MarkerContainer = styled.View<MarkerContainerProps>`
-  padding: 1px;
-  width: ${({ boxSize }): number => boxSize || 20}px;
-  height: ${({ boxSize }): number => boxSize || 20}px;
-  background-color: ${({ boxColor }): string => boxColor || COLOR.BLUE_SKY};
-`;
-
-const Marker = styled.View<MarkerProps>`
-  flex: 1;
-  justify-content: center;
-  align-items: center;
-  background-color: ${({ isChecked }): string =>
-    isChecked ? 'transparent' : '#ffffff'};
-`;
-
-const MarkerImg = styled.Image`
-  width: 85%;
-  height: 85%;
-  tint-color: #ffffff;
-  resize-mode: contain;
-`;
-
-const Markerindeterminate = styled.View<MarkerIndeterminateProps>`
-  width: 55%;
-  height: 55%;
-  background-color: ${({ boxColor }): string => boxColor || COLOR.BLUE_SKY};
-`;
-
-const Label = styled.Text<LabelProps>`
-  font-size: 20px;
-  padding-left: ${({ labelLeft }): number => (labelLeft ? 0 : 10)}px;
-  padding-right: ${({ labelLeft }): number => (labelLeft ? 10 : 0)}px;
-  color: ${({ labelColor }): string => labelColor || COLOR.BLACK};
-`;

@@ -1,7 +1,6 @@
 import React, { ReactElement } from 'react';
 import {
   RenderAPI,
-  cleanup,
   render,
 } from '@testing-library/react-native';
 import { Select, SelectItem } from '../../main';

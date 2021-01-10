@@ -1,21 +1,8 @@
 import * as React from 'react';
 
-import { RenderAPI, act, fireEvent, render } from '@testing-library/react-native';
-import {
-  closeGesture,
-  getChangedDistanceRatio,
-  getTwoFingerStartEndPositions,
-  moveGesture,
-  openGesture,
-} from './data/capturedGesture';
-
 import { ImageSlider } from '../PinchZoom/PinchZoom.example';
 import { PanResponderCallbacks } from 'react-native';
 import renderer from 'react-test-renderer';
-
-const TEST_CONTAINER_WIDTH = 300;
-const TEST_CONTAINER_HEIGHT = 200;
-const TEST_CONTAINER_CENTER = { x: 150, y: 100 };
 
 jest.useFakeTimers();
 

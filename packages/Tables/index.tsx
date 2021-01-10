@@ -33,7 +33,6 @@ const Table: React.FC<Props> & TableNamespace = ({
   data,
   isCheckAble,
   customGroup,
-  style,
 }) => {
   /** default Data key */
   const group = data.reduce((acc, current) => {

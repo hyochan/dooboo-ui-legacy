@@ -1,4 +1,4 @@
-import { Dimensions, ImageSourcePropType, Text, TouchableOpacity, View } from 'react-native';
+import { ImageSourcePropType, View } from 'react-native';
 import React, {
   ReactElement,
   useMemo,
@@ -132,8 +132,8 @@ interface Item {
 
 function Default(): React.ReactElement {
   const tinderCard = useRef<TinderCardRef>(null);
-  const [like, setLike] = useState(0);
-  const [unlike, setUnlike] = useState(0);
+  const [, setLike] = useState(0);
+  const [, setUnlike] = useState(0);
   const [data, setData] = useState(tinderCardDummyData);
 
   useInterval(() => {

@@ -150,22 +150,23 @@ const styles = StyleSheet.create<Style>({
   },
 });
 
-interface Props<T> {
+interface Props {
   date?: Date;
   onDateChanged?: (date: Date) => void;
   selectedDate?: Date;
   selectDate?: (date: Date) => void;
-  markedDayEvents?: any;
+  markedDayEvents?: Record<string, Date>[];
   monthFormatter?: {format: (date: Date) => string};
 }
-function CalendarCarousel<T>({
+function CalendarCarousel({
   date = new Date(), onDateChanged, selectDate, selectedDate,
   markedDayEvents = [], monthFormatter = new Intl.DateTimeFormat('en', { month: 'long' }),
-}: PropsWithChildren<Props<T>>): ReactElement {
-  const [layoutWidth, setLayoutWidth] = useState<number>(330);
+}: PropsWithChildren<Props>): ReactElement {
   const scrollRef = useRef<ScrollView>(null);
-
+  const [layoutWidth, setLayoutWidth] = useState<number>(330);
+  const [eventDay, setEventDay] = useState(0);
   const [currentDate, setCurrentDate] = useState<Date>(date);
+
   const prevMonth = new Date(currentDate.getFullYear(), currentDate.getMonth() - 1, currentDate.getDate());
   const nextMonth = new Date(currentDate.getFullYear(), currentDate.getMonth() + 1, currentDate.getDate());
 
@@ -259,6 +260,10 @@ function CalendarCarousel<T>({
 
       const calendarDates = [...prevDates, ...dates, ...nextDates];
 
+      const markedDates = markedDayEvents.map((markeddates) => markeddates.selectedEventDate.getDate());
+      const markedMonths = markedDayEvents.map((markedmonths) => markedmonths.selectedEventDate.getMonth() - 1);
+      const markedYears = markedDayEvents.map((markedyears) => markedyears.selectedEventDate.getFullYear());
+
       const renderDates = (dateItem: Date):ReactElement => {
         const itemYear = dateItem.getFullYear();
         const itemMonth = dateItem.getMonth();
@@ -331,11 +336,6 @@ function CalendarCarousel<T>({
           </TouchableOpacity>
         );
       };
-
-      const [eventDay, setEventDay] = useState(0);
-      const markedDates = markedDayEvents.map((markeddates) => markeddates.selectedEventDate.getDate());
-      const markedMonths = markedDayEvents.map((markedmonths) => markedmonths.selectedEventDate.getMonth() - 1);
-      const markedYears = markedDayEvents.map((markedyears) => markedyears.selectedEventDate.getFullYear());
 
       const renderEvent = (): ReactElement[] => {
         return markedDayEvents.map((markedDayEvent, i) => {

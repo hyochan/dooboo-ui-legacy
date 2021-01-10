@@ -1,5 +1,4 @@
 import { Animated, MeasureOnSuccessCallback, PanResponderCallbacks, PanResponderInstance, View } from 'react-native';
-import React, { useRef } from 'react';
 import { fireEvent, render } from '@testing-library/react-native';
 import {
   getNearestPercentByValue,
@@ -13,6 +12,7 @@ import {
 import Label from '../Slider/Label';
 import Marks from '../Slider/Marks';
 import Rail from '../Slider/Rail';
+import React from 'react';
 import { Slider } from '../../main';
 import Thumb from '../Slider/Thumb';
 import Track from '../Slider/Track';
@@ -312,7 +312,7 @@ describe('[Marks]', () => {
     }
 
     for (let i = 0; i < MARK_COUNT; i += 1) {
-      const [value, position, index] = handleMarkPress.mock.calls[i];
+      const [value, , index] = handleMarkPress.mock.calls[i];
 
       expect(value).toBe(i * STEP);
       expect(index).toBe(i);
@@ -391,23 +391,6 @@ describe('[Track]', () => {
     expect(rendered).toBeTruthy();
   });
 
-  it('should be n% width of Slider.', () => {
-    const TEST_ID_TRACK = 'TrackTestID';
-    const percent = 50;
-
-    const { getByTestId } = render(
-      <Track
-        testID="TrackTestID"
-        style={{ backgroundColor: 'red' }}
-        percent={50}
-      />,
-    );
-
-    const track = getByTestId(TEST_ID_TRACK);
-
-    // expect(track.getProp('width')).toBe(percent);
-  });
-
   describe('[Track]', () => {
     it('renders without crashing', () => {
       const rendered = render(
@@ -420,23 +403,6 @@ describe('[Track]', () => {
 
       expect(rendered).toMatchSnapshot();
       expect(rendered).toBeTruthy();
-    });
-
-    it('should be n% width of Slider.', () => {
-      const TEST_ID_TRACK = 'TrackTestID';
-      const percent = 50;
-
-      const { getByTestId } = render(
-        <Track
-          testID={TEST_ID_TRACK}
-          style={{ backgroundColor: 'red' }}
-          percent={50}
-        />,
-      );
-
-      const track = getByTestId(TEST_ID_TRACK);
-
-      // expect(track.getProp('width')).toBe(percent);
     });
   });
 

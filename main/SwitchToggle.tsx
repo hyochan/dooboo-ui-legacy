@@ -32,9 +32,9 @@ interface Props {
   textLeftStyle?: StyleProp<TextStyle>;
   buttonStyle?: StyleProp<ViewStyle>;
   // limitation: https://github.com/DefinitelyTyped/DefinitelyTyped/issues/12202
-  buttonContainerStyle?: StyleProp<ViewStyle> | any;
-  rightContainerStyle?: StyleProp<ViewStyle> | any;
-  leftContainerStyle?: StyleProp<ViewStyle> | any;
+  buttonContainerStyle?: StyleProp<ViewStyle>;
+  rightContainerStyle?: StyleProp<ViewStyle>;
+  leftContainerStyle?: StyleProp<ViewStyle>;
   RTL?: boolean;
 }
 

@@ -15,6 +15,16 @@ interface CheckboxGroupProps {
   direction?: 'column' | 'row';
 }
 
+interface ContainerProps {
+  direction?: 'row' | 'column';
+}
+
+const Container = styled.View<ContainerProps>`
+  flex-direction: ${({ direction }): 'row' | 'column' => direction || 'column'};
+  flex-wrap: wrap;
+  align-items: flex-start;
+`;
+
 export const CheckboxGroup: FC<CheckboxGroupProps> = ({
   defaultValues,
   values,
@@ -114,13 +124,3 @@ export const CheckboxGroup: FC<CheckboxGroupProps> = ({
 
   );
 };
-
-interface ContainerProps {
-  direction?: 'row' | 'column';
-}
-
-const Container = styled.View<ContainerProps>`
-  flex-direction: ${({ direction }): 'row' | 'column' => direction || 'column'};
-  flex-wrap: wrap;
-  align-items: flex-start;
-`;

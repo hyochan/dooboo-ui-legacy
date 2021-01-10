@@ -1,4 +1,4 @@
-import { Animated, Easing, PanResponder, Platform, StyleProp, TextStyle, ViewStyle } from 'react-native';
+import { Animated, Easing, PanResponder, Platform, StyleProp, TextStyle, View, ViewStyle } from 'react-native';
 import React, { FC, useEffect, useMemo, useState } from 'react';
 import {
   getNearestPercentByValue,
@@ -68,7 +68,7 @@ const Slider: FC<Props> = ({
   labelTextStyle,
   onChange,
 }) => {
-  const sliderRef = React.useRef<any>();
+  const sliderRef = React.useRef<View>();
   const [sliderWidth, setSliderWidth] = useState<number>(0);
   const [sliderPositionX, setSliderPositionX] = useState(0);
 

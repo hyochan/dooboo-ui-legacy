@@ -5,10 +5,7 @@ import * as React from 'react';
 import { RenderAPI, act, fireEvent, render } from '@testing-library/react-native';
 
 import { ButtonGroup } from '../../main';
-// Note: test renderer must be required after react-native.
-import renderer from 'react-test-renderer';
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
 let props: any;
 let component: React.ReactElement;
 let testingLib: RenderAPI;
