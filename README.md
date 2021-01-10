@@ -49,28 +49,7 @@ We aim to support `react-native` ui components in all platforms and we are curre
 | react-native      | >=0.62  |
 | styled-components | >=5.1.1 |
 
-## List of components in `dooboo-ui`
-
-- [Accordion](https://github.com/dooboolab/dooboo-ui/tree/master/main/Accordion)
-- [Badge](https://github.com/dooboolab/dooboo-ui/tree/master/main/Badge)
-- [Button](https://github.com/dooboolab/dooboo-ui/tree/master/main/Button)
-- [ButtonGroup](https://github.com/dooboolab/dooboo-ui/tree/master/main/ButtonGroup)
-- [Card](https://github.com/dooboolab/dooboo-ui/tree/master/main/Card)
-- [Checkbox](https://github.com/dooboolab/dooboo-ui/tree/master/main/Checkbox)
-- [DatePicker](https://github.com/dooboolab/dooboo-ui/tree/master/main/DatePicker)
-- [EditText](https://github.com/dooboolab/dooboo-ui/tree/master/main/EditText)
-- [LoadingIndicator](https://github.com/dooboolab/dooboo-ui/tree/master/main/LoadingIndicator)
-- [RadioButton](https://github.com/dooboolab/dooboo-ui/tree/master/main/RadioButton)
-- [Rating](https://github.com/dooboolab/dooboo-ui/tree/master/main/Rating)
-- [SearchInput](https://github.com/dooboolab/dooboo-ui/tree/master/main/SearchInput)
-- [Select](https://github.com/dooboolab/dooboo-ui/tree/master/main/Select)
-- [Slider](https://github.com/dooboolab/dooboo-ui/tree/master/main/Slider)
-- [SwitchToggle](https://github.com/dooboolab/dooboo-ui/tree/master/main/SwitchToggle)
-- [PinchZoom](https://github.com/dooboolab/dooboo-ui/tree/master/main/PinchZoom)(WIP)
-
-> You can use most light weight components in `dooboo-ui` by importing it which are listed above. However, we also support individual imports using seperate installation which are more UI heavy. Those packages start with `@dooboo-ui/*` like `@dooboo-ui/gifted-chat` and is listed below.
-
-## List of independent components in `dooboo-ui/*`
+## List of independent components in `@dooboo-ui/*`
 
 > Below elements are not included in `dooboo-ui` package since it depends on other packages that may overload its package.
 

@@ -6,10 +6,36 @@ import {
   ViewStyle,
 } from 'react-native';
 import React, { FC, ReactNode, ReactNodeArray } from 'react';
+import styled, { css } from 'styled-components/native';
 
 import { FlattenSimpleInterpolation } from 'styled-components';
-import styled from 'styled-components/native';
-import styles from './styles';
+
+const shadow = css`
+  shadow-color: #000;
+  shadow-offset: 0 2px;
+  shadow-opacity: 0.25;
+  shadow-radius: 4px;
+  elevation: 5;
+`;
+
+const raisedShadow = css`
+  shadow-color: #000;
+  shadow-offset: 0 6px;
+  shadow-opacity: 0.35;
+  shadow-radius: 6.25px;
+  elevation: 10;
+`;
+
+const border = css`
+  border-width: 1px;
+  border-color: #ccc;
+`;
+
+const styles = {
+  shadow,
+  raisedShadow,
+  border,
+};
 
 interface ContainerProps {
   raised?: boolean;

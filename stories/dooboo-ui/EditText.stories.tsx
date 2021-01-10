@@ -475,8 +475,8 @@ const BoxEditText = (): React.ReactElement => {
             }}
           />
           <Button
-            container={{
-              button: {
+            styles={{
+              container: {
                 borderRadius: 6,
                 borderWidth: 0,
                 marginTop: 40,

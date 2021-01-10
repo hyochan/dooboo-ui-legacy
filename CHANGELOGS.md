@@ -1,61 +1,66 @@
 ## Changelogs
 
-- **[0.0.25]**
+## 0.0.27
 
-  - Enhancements on [PinchZoom] and [Rating].
+- Organize readmes and folder structures [#369](https://github.com/dooboolab/dooboo-ui/pull/369).
 
-- **[0.0.25]**
+## 0.0.26
 
-  - Enhancements on [PinchZoom] and [Rating].
+- Simplified [Button] style props in [commit](https://github.com/dooboolab/dooboo-ui/pull/369/commits/6f056bfa0c182b34bc1468666e066fd7613675fa).
 
-- **[0.0.24]**
+## 0.0.25
 
-  - Add ability to customize text with textProps in [Button].
+- Enhancements on [PinchZoom] and [Rating].
 
-- **[0.0.23]**
+## 0.0.24
 
-  - Renamed CheckBox dir to Checkbox and fix import error.
-  - Type enhancement on [Badge] [#359](https://github.com/dooboolab/dooboo-ui/pull/359)
+- Add ability to customize text with textProps in [Button].
 
-- **[0.0.22]**
+## 0.0.23
 
-  - Major refactoring on [Button], [EditText] and various works given by contributions. Fixes import bug on [Checkbox]. Move [PinchZoom] and [DatePicker] to packages.
-    Reorganize assets for main and packages. For packages, it should go inside its root while main direct to \_\_assets in the same dir.
+- Renamed CheckBox dir to Checkbox and fix import error.
+- Type enhancement on [Badge] [#359](https://github.com/dooboolab/dooboo-ui/pull/359)
 
-- **[0.0.21]**
+## 0.0.22
 
-  - Upgrade expo sdk to 39 which has reac-native version of 0.63+ [#355](https://github.com/dooboolab/dooboo-ui/pull/355)
+- Major refactoring on [Button], [EditText] and various works given by contributions. Fixes import bug on [Checkbox]. Move [PinchZoom] and [DatePicker] to packages.
+  Reorganize assets for main and packages. For packages, it should go inside its root while main direct to \_\_assets in the same dir.
 
-- **[0.0.18]**
+## 0.0.21
 
-  - Major refactor [Accordion], Add `renderTitle`, `renderBody`, `titleContainerStyle`, `bodyContainerStyle` and etc [#321](https://github.com/dooboolab/dooboo-ui/pull/321)
-  - Fixed [Button] to render correctly. Fixed wrongly placed `testID`.
-  - [EditText] doesn't need default type any more. `Column` is default.
+- Upgrade expo sdk to 39 which has reac-native version of 0.63+ [#355](https://github.com/dooboolab/dooboo-ui/pull/355)
 
-- **[0.0.15]**
+## 0.0.18
 
-  - Add `contentStyle` to [EditText] [#264](https://github.com/dooboolab/dooboo-ui/pull/264)
-  - Types fixes
-  - Changed all the import paths in more concise way [#270](https://github.com/dooboolab/dooboo-ui/pull/270).
-  - Renamed `Item` to `SelectItem` and fixes import pathes [#265](https://github.com/dooboolab/dooboo-ui/issues/265)
+- Major refactor [Accordion], Add `renderTitle`, `renderBody`, `titleContainerStyle`, `bodyContainerStyle` and etc [#321](https://github.com/dooboolab/dooboo-ui/pull/321)
+- Fixed [Button] to render correctly. Fixed wrongly placed `testID`.
+- [EditText] doesn't need default type any more. `Column` is default.
 
-- **[0.0.11]**
+## 0.0.15
 
-  - Fix regression in [EditText] [#262](https://github.com/dooboolab/dooboo-ui/pull/262)
-  - Fix regression in [Button]
+- Add `contentStyle` to [EditText] [#264](https://github.com/dooboolab/dooboo-ui/pull/264)
+- Types fixes
+- Changed all the import paths in more concise way [#270](https://github.com/dooboolab/dooboo-ui/pull/270).
+- Renamed `Item` to `SelectItem` and fixes import pathes [#265](https://github.com/dooboolab/dooboo-ui/issues/265)
 
-- **[0.0.3]**
+## 0.0.11
 
-  - Support RTL for [SwitchToggle] [#251](https://github.com/dooboolab/dooboo-ui/pull/251)
-  - Refactor [SearchInput] and re-designed [#241](https://github.com/dooboolab/dooboo-ui/pull/241)
-  - Refactor and redesign [Accordion] 🔥🔥🔥🔥 👈
-    - [#226](https://github.com/dooboolab/dooboo-ui/pull/226), [#215](https://github.com/dooboolab/dooboo-ui/pull/215), [#216](https://github.com/dooboolab/dooboo-ui/pull/216), [#239](https://github.com/dooboolab/dooboo-ui/pull/239).
-  - Add hover option to [Button] [#237](https://github.com/dooboolab/dooboo-ui/pull/237)
-  - [EditText] enhancement [#234](https://github.com/dooboolab/dooboo-ui/pull/234)
+- Fix regression in [EditText] [#262](https://github.com/dooboolab/dooboo-ui/pull/262)
+- Fix regression in [Button]
 
-- **[0.0.2]**
+## 0.0.3
 
-  - Fix `Accordion` error on `ios` in [#214](https://github.com/dooboolab/dooboo-ui/pull/214)
+- Support RTL for [SwitchToggle] [#251](https://github.com/dooboolab/dooboo-ui/pull/251)
+- Refactor [SearchInput] and re-designed [#241](https://github.com/dooboolab/dooboo-ui/pull/241)
+- Refactor and redesign [Accordion] 🔥🔥🔥🔥 👈
+  - [#226](https://github.com/dooboolab/dooboo-ui/pull/226), [#215](https://github.com/dooboolab/dooboo-ui/pull/215), [#216](https://github.com/dooboolab/dooboo-ui/pull/216), [#239](https://github.com/dooboolab/dooboo-ui/pull/239).
+- Add hover option to [Button] [#237](https://github.com/dooboolab/dooboo-ui/pull/237)
+- [EditText] enhancement [#234](https://github.com/dooboolab/dooboo-ui/pull/234)
 
-- **[0.0.1]**
-  - The rise of `dooboo-ui`
+## 0.0.2
+
+- Fix `Accordion` error on `ios` in [#214](https://github.com/dooboolab/dooboo-ui/pull/214)
+
+## 0.0.1
+
+- The rise of `dooboo-ui`
