@@ -2,11 +2,12 @@
 
 ## 0.0.27
 
-- Organize readmes and folder structures [#369](https://github.com/dooboolab/dooboo-ui/pull/369).
+- Updated packages and applied new linting rules [#370](https://github.com/dooboolab/dooboo-ui/pull/370).
 
 ## 0.0.26
 
 - Simplified [Button] style props in [commit](https://github.com/dooboolab/dooboo-ui/pull/369/commits/6f056bfa0c182b34bc1468666e066fd7613675fa).
+- Organize readmes and folder structures [#369](https://github.com/dooboolab/dooboo-ui/pull/369).
 
 ## 0.0.25
 
