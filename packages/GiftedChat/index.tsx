@@ -24,7 +24,6 @@ const StyledViewChat = styled.View`
   width: 100%;
   max-width: 100%;
   border-top-width: 0.3px;
-  border-color: ${({ theme }): string => theme.lineColor};
   min-height: 56px;
   max-height: 56px;
   padding-right: 8px;

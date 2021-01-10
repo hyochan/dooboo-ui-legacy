@@ -6,7 +6,7 @@ exports[`[SearchInput] render test should render without crashing 1`] = `
     Array [
       Object {
         "alignItems": "center",
-        "borderColor": "#E0E0E0",
+        "borderColor": "#e0e0e0",
         "borderRadius": 6,
         "borderWidth": 1,
         "flexDirection": "row",

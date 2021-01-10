@@ -5,6 +5,7 @@
     "lib": ["es2017"],
     "moduleResolution": "node",
     "noEmit": true,
+    "isolatedModules": false,
     "skipLibCheck": true,
     "resolveJsonModule": true,
     "outDir": "lib",
