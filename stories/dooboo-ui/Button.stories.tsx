@@ -36,9 +36,9 @@ function Default(): React.ReactElement {
           loading={false}
           text="😀 😎 👍 💯"
           onPress={action('Clicked')}
+          style={{ marginVertical: 40 }}
           styles={{
             container: {
-              marginVertical: 40,
               borderWidth: 0.5,
             },
           }}
@@ -57,9 +57,9 @@ function Default(): React.ReactElement {
         />
 
         <Button
+          style={{ marginVertical: 40 }}
           styles={{
             container: {
-              marginVertical: 40,
               borderWidth: 0.5,
             },
             text: {
@@ -81,9 +81,9 @@ function Default(): React.ReactElement {
           }
           loading={googleLoading}
           indicatorColor="#023059"
+          style={{ marginVertical: 20 }}
           styles={{
             container: {
-              marginVertical: 20,
               backgroundColor: '#ccc',
             },
           }}

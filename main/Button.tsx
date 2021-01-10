@@ -1,12 +1,14 @@
 import {
   ActivityIndicator,
   LayoutRectangle,
+  StyleProp,
   StyleSheet,
   Text,
   TextProps,
   TouchableOpacity,
   TouchableOpacityProps,
   View,
+  ViewStyle,
 } from 'react-native';
 import React, { useRef, useState } from 'react';
 
@@ -55,6 +57,7 @@ interface Props {
   indicatorColor?: string;
   loading?: boolean;
   disabled?: boolean;
+  style?: StyleProp<ViewStyle>;
   styles?: StylesType;
   leftElement?: React.ReactElement;
   rightElement?: React.ReactElement;
