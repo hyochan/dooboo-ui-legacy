@@ -32,6 +32,7 @@ module.exports = ({ config, mode }) => {
 
   config.resolve.alias = {
     'react-native': 'react-native-web',
+    '@storybook/react-native': '@storybook/react',
   };
 
   const configWithExpo = withUnimodules(config, {

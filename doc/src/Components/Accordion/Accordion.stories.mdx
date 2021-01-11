@@ -1,5 +1,5 @@
 import { Meta, Story, Canvas } from '@storybook/addon-docs/blocks';
-import Example from './examples/Accordion.examples';
+import { Default } from './index';
 
 <Meta title="Components/Accordion" />
 
@@ -11,17 +11,17 @@ import Example from './examples/Accordion.examples';
 
 ## Props
 
-|                      | necessary | types                  | default               |
-| -------------------- | --------- | ---------------------- | ----------------------|
-| data                 | ✓         | array                  | `Default Data`        |
-| isAnimated           |           | boolean                | `true`                |
-| collapseOnStart      | ✓         | boolean                | `false`               |
-| animDuration         |           | number                 | `300`                 |
-| activeOpacity        |           | number                 | `1`                   |
-| toggleElement        |           | React.ReactElement     | `default arrow image` |
-| accordionItemStyle   |           | ViewStyle              | ``                    |
-| titleStyle           |           | ViewStyle              | ``                    |
-| bodyStyle            |           | ViewStyle              | ``                    |
+|                    | necessary | types              | default               |
+| ------------------ | --------- | ------------------ | --------------------- |
+| data               | ✓         | array              | `Default Data`        |
+| isAnimated         |           | boolean            | `true`                |
+| collapseOnStart    | ✓         | boolean            | `false`               |
+| animDuration       |           | number             | `300`                 |
+| activeOpacity      |           | number             | `1`                   |
+| toggleElement      |           | React.ReactElement | `default arrow image` |
+| accordionItemStyle |           | ViewStyle          | ``                    |
+| titleStyle         |           | ViewStyle          | ``                    |
+| bodyStyle          |           | ViewStyle          | ``                    |
 
 ## Installation
 
@@ -30,6 +30,7 @@ yarn add dooboo-ui
 ```
 
 ## Usage
+
 ```javascript
 import { Accordion } from 'dooboo-ui';
 
@@ -92,5 +93,5 @@ const Default = (): React.ReactElement => {
 ```
 
 <Canvas withSource="none">
-  <Example />
+  <Default />
 </Canvas>
