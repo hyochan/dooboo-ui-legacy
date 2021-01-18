@@ -113,14 +113,14 @@ function TinderCard<T>(
   // eslint-disable-next-line react-hooks/exhaustive-deps
   const resetPosition = (): void => {
     Animated.spring(position, {
-      toValue: { x: 0, y: 0 },
+      toValue: {x: 0, y: 0},
       useNativeDriver: true,
     }).start();
   };
 
   const onSwipeCompleted = useCallback(
     (direction: TinderCardDirection): void => {
-      position.setValue({ x: 0, y: 0 });
+      position.setValue({x: 0, y: 0});
 
       UIManager.setLayoutAnimationEnabledExperimental &&
         UIManager.setLayoutAnimationEnabledExperimental(true);
@@ -152,7 +152,7 @@ function TinderCard<T>(
         direction === TinderCardDirection.RIGHT ? SCREEN_WIDTH : -SCREEN_WIDTH;
 
       Animated.timing(position, {
-        toValue: { x, y: 0 },
+        toValue: {x, y: 0},
         duration: SWIPE_OUT_DURATION,
         useNativeDriver: true,
       }).start(() => {
@@ -167,7 +167,7 @@ function TinderCard<T>(
       PanResponder.create({
         onStartShouldSetPanResponder: () => true,
         onPanResponderMove: (evt, gestureState) => {
-          position.setValue({ x: gestureState.dx, y: gestureState.dy });
+          position.setValue({x: gestureState.dx, y: gestureState.dy});
         },
         onPanResponderRelease: (evt, gesture) => {
           if (gesture.dx > SWIPE_THRESHOLD)
@@ -187,7 +187,7 @@ function TinderCard<T>(
     });
 
     const rotateStyle = shouldRotate
-      ? { transform: [{ rotate: rotateValue }] }
+      ? {transform: [{rotate: rotateValue}]}
       : {};
 
     return {
@@ -230,14 +230,14 @@ function TinderCard<T>(
             <SwipeLabelWrapper style={swipeLabelAlignStyle}>
               <Animated.View
                 style={[
-                  { position: 'absolute', opacity: swipeRightOpacity },
+                  {position: 'absolute', opacity: swipeRightOpacity},
                   swipeRightLabelStyle,
                 ]}>
                 {swipeRightLabelElement && swipeRightLabelElement()}
               </Animated.View>
               <Animated.View
                 style={[
-                  { position: 'absolute', opacity: swipeLeftOpacity },
+                  {position: 'absolute', opacity: swipeLeftOpacity},
                   swipeLeftLabelStyle,
                 ]}>
                 {swipeLeftLabelElement && swipeLeftLabelElement()}

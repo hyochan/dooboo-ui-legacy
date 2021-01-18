@@ -1,4 +1,4 @@
-import { FlatList, Text, View, ViewStyle } from 'react-native';
+import {FlatList, Text, View, ViewStyle} from 'react-native';
 
 import CalendarMonth from './CalendarMonth';
 import CalendarWeekDays from './CalendarWeekDays';
@@ -62,7 +62,7 @@ interface Props {
  */
 function Calendar(props: Props): React.ReactElement {
   // init date for calendar
-  const { initDate = new Date(), pastRange = 36, futureRange = 36 } = props;
+  const {initDate = new Date(), pastRange = 36, futureRange = 36} = props;
 
   // init month list (data for FlatList)
   const [monthList] = React.useState<Date[]>(
@@ -88,7 +88,7 @@ function Calendar(props: Props): React.ReactElement {
 
   // render a month
   const renderMonthCalendar = React.useCallback(
-    ({ item }): React.ReactElement => {
+    ({item}): React.ReactElement => {
       return (
         <MemoizedCalendarMonth
           monthDate={item}
@@ -105,10 +105,10 @@ function Calendar(props: Props): React.ReactElement {
   );
 
   const onViewableItemsChanged = React.useCallback(
-    ({ viewableItems }) => {
+    ({viewableItems}) => {
       if (viewableItems.length === 0) return; // 없는 경우 있음. 그냥 무시
 
-      const { item } = viewableItems[0];
+      const {item} = viewableItems[0];
 
       props.onChangeMonth && props.onChangeMonth(item);
       setCurMonthFirst(item);
@@ -152,7 +152,7 @@ function Calendar(props: Props): React.ReactElement {
         horizontal={true}
         pagingEnabled={true}
         onViewableItemsChanged={onViewableItemsChanged}
-        viewabilityConfig={{ viewAreaCoveragePercentThreshold: 50 }}
+        viewabilityConfig={{viewAreaCoveragePercentThreshold: 50}}
         renderItem={renderMonthCalendar}
         showsVerticalScrollIndicator={false}
         showsHorizontalScrollIndicator={false}

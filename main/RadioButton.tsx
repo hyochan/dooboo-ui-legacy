@@ -1,5 +1,5 @@
-import { Animated, Easing } from 'react-native';
-import React, { useRef } from 'react';
+import {Animated, Easing} from 'react-native';
+import React, {useRef} from 'react';
 
 import styled from 'styled-components/native';
 
@@ -48,27 +48,27 @@ const COLOR: {
 };
 
 const SCInputRow = styled.TouchableOpacity<InputRowProps>`
-  justify-content: ${({ isLabelColumn }): string =>
+  justify-content: ${({isLabelColumn}): string =>
     isLabelColumn ? 'center' : 'flex-start'};
-  flex-direction: ${({ isLabelColumn }): string =>
+  flex-direction: ${({isLabelColumn}): string =>
     isLabelColumn ? 'column' : 'row'};
   align-items: center;
   padding: 8px 0;
 `;
 
 const SCOuterCircle = styled.View<CircleProps>`
-  border-radius: ${({ borderRadius }): number => borderRadius}px;
-  border-width: ${({ borderWidth }): number => borderWidth}px;
-  width: ${({ size }): number => size}px;
-  height: ${({ size }): number => size}px;
-  border-color: ${({ color }): string => color};
+  border-radius: ${({borderRadius}): number => borderRadius}px;
+  border-width: ${({borderWidth}): number => borderWidth}px;
+  width: ${({size}): number => size}px;
+  height: ${({size}): number => size}px;
+  border-color: ${({color}): string => color};
   align-items: center;
   justify-content: center;
   margin: 7px;
 `;
 
 const SCLabelText = styled.Text<LabelTextProps>`
-  color: ${({ disabled }): string => (disabled ? COLOR.GRAY59 : COLOR.BLACK)};
+  color: ${({disabled}): string => (disabled ? COLOR.GRAY59 : COLOR.BLACK)};
 `;
 
 const getCircleStyles = (size: number, color: string): CircleProps => {
@@ -144,7 +144,7 @@ function RadioButton(props: RadioButtonProps): React.ReactElement {
       {isLabelFront && <SCLabelText disabled={disabled}>{label}</SCLabelText>}
       <SCOuterCircle
         {...circleStyles}
-        style={disabled && { backgroundColor: COLOR.LIGHTGRAY }}>
+        style={disabled && {backgroundColor: COLOR.LIGHTGRAY}}>
         {isSelected && <InnerCircleAnim {...circleStyles} />}
       </SCOuterCircle>
       {!isLabelFront && <SCLabelText disabled={disabled}>{label}</SCLabelText>}
@@ -158,4 +158,4 @@ RadioButton.defaultProps = {
   labelPlacement: 'end',
 };
 
-export { RadioButton };
+export {RadioButton};

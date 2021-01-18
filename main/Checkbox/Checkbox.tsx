@@ -7,8 +7,8 @@ import React, {
   useState,
 } from 'react';
 
-import { GroupCheckboxContext } from './GroupCheckboxContext';
-import { TouchableHighlight } from 'react-native';
+import {GroupCheckboxContext} from './GroupCheckboxContext';
+import {TouchableHighlight} from 'react-native';
 import styled from 'styled-components/native';
 
 const COLOR: {
@@ -28,16 +28,16 @@ const Container = styled.View`
 
 const MarkerContainer = styled.View<MarkerContainerProps>`
   padding: 1px;
-  width: ${({ boxSize }): number => boxSize || 20}px;
-  height: ${({ boxSize }): number => boxSize || 20}px;
-  background-color: ${({ boxColor }): string => boxColor || COLOR.BLUE_SKY};
+  width: ${({boxSize}): number => boxSize || 20}px;
+  height: ${({boxSize}): number => boxSize || 20}px;
+  background-color: ${({boxColor}): string => boxColor || COLOR.BLUE_SKY};
 `;
 
 const Marker = styled.View<MarkerProps>`
   flex: 1;
   justify-content: center;
   align-items: center;
-  background-color: ${({ isChecked }): string =>
+  background-color: ${({isChecked}): string =>
     isChecked ? 'transparent' : '#ffffff'};
 `;
 
@@ -49,14 +49,14 @@ const MarkerImg = styled.Image`
 const Markerindeterminate = styled.View<MarkerIndeterminateProps>`
   width: 55%;
   height: 55%;
-  background-color: ${({ boxColor }): string => boxColor || COLOR.BLUE_SKY};
+  background-color: ${({boxColor}): string => boxColor || COLOR.BLUE_SKY};
 `;
 
 const Label = styled.Text<LabelProps>`
   font-size: 20px;
-  padding-left: ${({ labelLeft }): number => (labelLeft ? 0 : 10)}px;
-  padding-right: ${({ labelLeft }): number => (labelLeft ? 10 : 0)}px;
-  color: ${({ labelColor }): string => labelColor || COLOR.BLACK};
+  padding-left: ${({labelLeft}): number => (labelLeft ? 0 : 10)}px;
+  padding-right: ${({labelLeft}): number => (labelLeft ? 10 : 0)}px;
+  color: ${({labelColor}): string => labelColor || COLOR.BLACK};
 `;
 
 interface MarkerContainerProps {
@@ -122,12 +122,12 @@ export const Checkbox: FC<CheckboxProps> = ({
 
   const handleChange = useCallback(() => {
     setIsChecked((prevChecked) => {
-      onChange && onChange({ checked: !prevChecked, label });
+      onChange && onChange({checked: !prevChecked, label});
 
       return !prevChecked;
     });
 
-    groupCheckboxContext?.toggleOption({ label, value: value || '' });
+    groupCheckboxContext?.toggleOption({label, value: value || ''});
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [onChange, setIsChecked, label, groupCheckboxContext?.toggleOption]);
 
@@ -149,7 +149,7 @@ export const Checkbox: FC<CheckboxProps> = ({
     <TouchableHighlight
       onPress={handleChange}
       underlayColor="transparent"
-      style={{ margin: 10 }}
+      style={{margin: 10}}
       disabled={disabled}>
       <Container>
         {customStyle?.labelLeft && (
@@ -165,7 +165,7 @@ export const Checkbox: FC<CheckboxProps> = ({
           boxColor={disabled ? COLOR.LIGHTGRAY : customStyle?.boxColor}>
           <Marker isChecked={isChecked}>
             {!indeterminate && isChecked && (
-              <MarkerImg source={{ uri: checkboxImg }} />
+              <MarkerImg source={{uri: checkboxImg}} />
             )}
             {indeterminate && (
               <Markerindeterminate

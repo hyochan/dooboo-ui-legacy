@@ -1,10 +1,10 @@
-import React, { useState } from 'react';
-import { SafeAreaView, ScrollView } from 'react-native';
-import { number, text } from '@storybook/addon-knobs';
+import React, {useState} from 'react';
+import {SafeAreaView, ScrollView} from 'react-native';
+import {number, text} from '@storybook/addon-knobs';
 
-import { IC_MAGNIFIER } from '../Icon';
-import { SearchInput } from '../../main';
-import { storiesOf } from '@storybook/react-native';
+import {IC_MAGNIFIER} from '../Icon';
+import {SearchInput} from '../../main';
+import {storiesOf} from '@storybook/react-native';
 import styled from 'styled-components/native';
 
 const Container = styled.SafeAreaView`

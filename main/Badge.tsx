@@ -1,8 +1,8 @@
-import React, { FC } from 'react';
-import styled, { css } from 'styled-components/native';
-import { FlattenSimpleInterpolation } from 'styled-components';
+import React, {FC} from 'react';
+import styled, {css} from 'styled-components/native';
+import {FlattenSimpleInterpolation} from 'styled-components';
 
-import { StyleSheet } from 'react-native';
+import {StyleSheet} from 'react-native';
 
 interface StyleProps {
   color?: string;
@@ -104,4 +104,4 @@ const Badge: FC<BadgeProps> = (props) => {
   }
 };
 
-export { Badge };
+export {Badge};

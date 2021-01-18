@@ -1,8 +1,8 @@
-import { Checkbox, CheckboxGroup } from '../Checkbox';
-import React, { ReactElement } from 'react';
-import { RenderAPI, render } from '@testing-library/react-native';
+import {Checkbox, CheckboxGroup} from '../Checkbox';
+import React, {ReactElement} from 'react';
+import {RenderAPI, render} from '@testing-library/react-native';
 
-import { TouchableHighlight } from 'react-native';
+import {TouchableHighlight} from 'react-native';
 import renderer from 'react-test-renderer';
 
 let props: unknown;
@@ -56,23 +56,23 @@ describe('[Checkbox]', () => {
         }),
       );
 
-      rendered.update(component({ disabled: true }));
+      rendered.update(component({disabled: true}));
       expect(rendered).toMatchSnapshot();
       expect(rendered).toBeTruthy();
 
-      rendered.update(component({ checked: true }));
+      rendered.update(component({checked: true}));
       expect(rendered).toMatchSnapshot();
       expect(rendered).toBeTruthy();
 
       rendered.update(
-        component({ disabled: false, customStyle: { boxColor: '#FF0000' } }),
+        component({disabled: false, customStyle: {boxColor: '#FF0000'}}),
       );
 
       expect(rendered).toMatchSnapshot();
       expect(rendered).toBeTruthy();
 
       rendered.update(
-        component({ disabled: false, checked: false, indeterminate: true }),
+        component({disabled: false, checked: false, indeterminate: true}),
       );
 
       expect(rendered).toMatchSnapshot();
@@ -84,10 +84,10 @@ describe('[Checkbox]', () => {
 // ##### CheckboxGroup TestCode #####
 
 const checkboxGroupData = [
-  { label: 'Apple', value: 'Apple' },
-  { label: 'Pear', value: 'Pear' },
-  { label: 'Orange', value: 'Orange' },
-  { label: 'Mango', value: 'Mango' },
+  {label: 'Apple', value: 'Apple'},
+  {label: 'Pear', value: 'Pear'},
+  {label: 'Orange', value: 'Orange'},
+  {label: 'Mango', value: 'Mango'},
 ];
 
 const checkboxGroupDataStr = ['Apple', 'Pear', 'Orange'];
@@ -209,7 +209,7 @@ describe('[CheckboxGroup] render test', () => {
       values: [],
     });
 
-    const { rerender } = render(<CheckboxGroup {...groupProps} />);
+    const {rerender} = render(<CheckboxGroup {...groupProps} />);
 
     const updatedValue = ['Apples'];
 
@@ -252,14 +252,14 @@ describe('[CheckboxGroup] render test', () => {
     expect(rendered.toJSON()).toMatchSnapshot();
 
     renderer.act(() => {
-      rendered.update(groupComponent({ ...defaultProps, values: [] }));
+      rendered.update(groupComponent({...defaultProps, values: []}));
       checkbox.findByType(TouchableHighlight).props.onPress();
     });
 
     expect(rendered.toJSON()).toMatchSnapshot();
 
     renderer.act(() => {
-      rendered.update(groupComponent({ ...defaultProps, values: undefined }));
+      rendered.update(groupComponent({...defaultProps, values: undefined}));
       checkbox.findByType(TouchableHighlight).props.onPress();
     });
 

@@ -1,8 +1,8 @@
-import React, { ReactElement } from 'react';
-import { SafeAreaView, ScrollView, View } from 'react-native';
-import { Badge } from '../../main/Badge';
-import { ContainerDeco } from '../../storybook/decorators';
-import { storiesOf } from '@storybook/react-native';
+import React, {ReactElement} from 'react';
+import {SafeAreaView, ScrollView, View} from 'react-native';
+import {Badge} from '../../main/Badge';
+import {ContainerDeco} from '../../storybook/decorators';
+import {storiesOf} from '@storybook/react-native';
 import styled from 'styled-components/native';
 
 const Container = styled.View`
@@ -32,7 +32,7 @@ const StyledBasicView = styled.View`
 `;
 
 const StyledView = (props): React.ReactElement => {
-  return <StyledBasicView style={{ elevation: 1 }} {...props} />;
+  return <StyledBasicView style={{elevation: 1}} {...props} />;
 };
 
 const Badge1 = (): React.ReactElement => {
@@ -52,7 +52,7 @@ const Badge1 = (): React.ReactElement => {
             </StyledView>
           </View>
 
-          <View style={{ marginTop: 20 }}>
+          <View style={{marginTop: 20}}>
             <Container>
               <StyledTitle>Badge (color, count, showZero)</StyledTitle>
             </Container>
@@ -66,7 +66,7 @@ const Badge1 = (): React.ReactElement => {
             </ShowContainer>
           </View>
 
-          <View style={{ marginTop: 20 }}>
+          <View style={{marginTop: 20}}>
             <Container>
               <StyledTitle>Badge (variant, position)</StyledTitle>
             </Container>
@@ -80,7 +80,7 @@ const Badge1 = (): React.ReactElement => {
             </ShowContainer>
           </View>
 
-          <View style={{ marginTop: 20 }}>
+          <View style={{marginTop: 20}}>
             <Container>
               <StyledTitle>Badge (maximumCount, opacityVisible)</StyledTitle>
             </Container>
@@ -104,7 +104,7 @@ const Badge1 = (): React.ReactElement => {
             </ShowContainer>
           </View>
 
-          <View style={{ marginTop: 20 }}>
+          <View style={{marginTop: 20}}>
             <Container>
               <StyledTitle>Badge (border, textColor)</StyledTitle>
             </Container>

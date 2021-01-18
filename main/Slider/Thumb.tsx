@@ -1,5 +1,5 @@
-import { Animated, StyleProp, ViewStyle } from 'react-native';
-import React, { FC } from 'react';
+import {Animated, StyleProp, ViewStyle} from 'react-native';
+import React, {FC} from 'react';
 
 import styled from 'styled-components/native';
 
@@ -9,7 +9,7 @@ interface ThumbPositionerType {
 
 const ThumbPositioner = styled.View<ThumbPositionerType>`
   position: absolute;
-  left: ${({ percent }): string => `${percent}%`};
+  left: ${({percent}): string => `${percent}%`};
 `;
 
 const StyledThumb = styled.View`
@@ -54,7 +54,7 @@ const Thumb: FC<Props> = ({
               width: rippleSize,
               height: rippleSize,
               borderRadius: 100,
-              transform: [{ scale: scaleValue }],
+              transform: [{scale: scaleValue}],
               opacity: opacityValue,
               backgroundColor: '#0b21e8',
             }}

@@ -7,7 +7,7 @@ import {
   TextStyle,
   ViewStyle,
 } from 'react-native';
-import React, { FC, ReactElement, useState } from 'react';
+import React, {FC, ReactElement, useState} from 'react';
 
 import styled from 'styled-components/native';
 
@@ -32,7 +32,7 @@ const StyledRowInput = styled.TextInput`
   flex: 1;
   height: 100%;
   color: #2c374e;
-  ${Platform.OS === 'web' && { 'outline-style': 'none' }}
+  ${Platform.OS === 'web' && {'outline-style': 'none'}}
 `;
 
 const Container = styled.View`
@@ -64,7 +64,7 @@ const StyledTextInput = styled.TextInput`
   font-size: 15px;
   font-weight: 500;
   min-height: 44px;
-  ${Platform.OS === 'web' && { 'outline-style': 'none' }}
+  ${Platform.OS === 'web' && {'outline-style': 'none'}}
 `;
 
 const StyledInvalidText = styled.Text`
@@ -156,7 +156,7 @@ const EditText: FC<Props> = (props) => {
     onSubmitEditing,
     rightElement,
     rightElementStyle,
-    focusedLabelStyle = { fontWeight: 'bold' },
+    focusedLabelStyle = {fontWeight: 'bold'},
     focusedBorderWidth = 1,
     focusColor = '#79B3F5',
     errorColor = '#FF8989',
@@ -181,9 +181,9 @@ const EditText: FC<Props> = (props) => {
             style={[
               labelTextStyle,
               errorText
-                ? { color: errorColor }
+                ? {color: errorColor}
                 : focused && [
-                    { color: focusColor },
+                    {color: focusColor},
                     !disabled && focusedLabelStyle,
                   ],
             ]}>
@@ -215,8 +215,8 @@ const EditText: FC<Props> = (props) => {
             <StyledLine
               style={[
                 borderStyle,
-                { borderBottomWidth: borderWidth, borderColor: borderColor },
-                focused && { borderColor: errorText ? errorColor : focusColor },
+                {borderBottomWidth: borderWidth, borderColor: borderColor},
+                focused && {borderColor: errorText ? errorColor : focusColor},
               ]}
             />
           )}
@@ -232,7 +232,7 @@ const EditText: FC<Props> = (props) => {
         <Container style={style}>
           <StyledRowContent
             style={[
-              { borderColor: borderColor, borderBottomWidth: borderWidth },
+              {borderColor: borderColor, borderBottomWidth: borderWidth},
               borderStyle,
               errorText
                 ? {
@@ -250,10 +250,10 @@ const EditText: FC<Props> = (props) => {
                 style={[
                   labelTextStyle,
                   errorText
-                    ? [{ color: errorColor }, focusedLabelStyle]
+                    ? [{color: errorColor}, focusedLabelStyle]
                     : focused &&
-                      !disabled && [{ color: focusColor }, focusedLabelStyle],
-                  { width: labelWidth },
+                      !disabled && [{color: focusColor}, focusedLabelStyle],
+                  {width: labelWidth},
                 ]}>
                 {label}
               </StyledRowLabel>
@@ -261,7 +261,7 @@ const EditText: FC<Props> = (props) => {
             <StyledRowInput
               {...textInputProps}
               testID={testID}
-              style={[textStyle, { textAlign: 'left' }]}
+              style={[textStyle, {textAlign: 'left'}]}
               autoCapitalize={autoCapitalize}
               onFocus={(): void => {
                 setFocus(true);
@@ -299,8 +299,8 @@ const EditText: FC<Props> = (props) => {
             style={[
               labelTextStyle,
               errorText
-                ? { color: errorColor }
-                : focused && [{ color: focusColor }, focusedLabelStyle],
+                ? {color: errorColor}
+                : focused && [{color: focusColor}, focusedLabelStyle],
             ]}>
             {label}
           </StyledLabel>
@@ -312,7 +312,7 @@ const EditText: FC<Props> = (props) => {
               },
               borderStyle,
               errorText
-                ? { borderColor: errorColor, borderWidth: focusedBorderWidth }
+                ? {borderColor: errorColor, borderWidth: focusedBorderWidth}
                 : focused && {
                     borderColor: focusColor,
                     borderWidth: focusedBorderWidth,
@@ -345,7 +345,7 @@ const EditText: FC<Props> = (props) => {
               contextMenuHidden={disabled}
             />
             {rightElement && (
-              <StyledIcon style={[{ width: 40 }, rightElementStyle]}>
+              <StyledIcon style={[{width: 40}, rightElementStyle]}>
                 {rightElement}
               </StyledIcon>
             )}
@@ -376,7 +376,7 @@ const EditText: FC<Props> = (props) => {
               },
               borderStyle,
               errorText
-                ? { borderColor: errorColor, borderWidth: focusedBorderWidth }
+                ? {borderColor: errorColor, borderWidth: focusedBorderWidth}
                 : focused && {
                     borderColor: focusColor,
                     borderWidth: focusedBorderWidth,
@@ -387,11 +387,11 @@ const EditText: FC<Props> = (props) => {
                 style={[
                   labelTextStyle,
                   errorText
-                    ? [{ color: errorColor }, focusedLabelStyle]
+                    ? [{color: errorColor}, focusedLabelStyle]
                     : focused
-                    ? [{ color: focusColor }, focusedLabelStyle]
+                    ? [{color: focusColor}, focusedLabelStyle]
                     : null,
-                  { marginLeft: 15, width: labelWidth },
+                  {marginLeft: 15, width: labelWidth},
                 ]}>
                 {label}
               </StyledRowLabel>
@@ -399,7 +399,7 @@ const EditText: FC<Props> = (props) => {
             <StyledRowInput
               {...textInputProps}
               testID={testID}
-              style={[{ paddingRight: 15 }, textStyle]}
+              style={[{paddingRight: 15}, textStyle]}
               autoCapitalize={autoCapitalize}
               onFocus={(): void => {
                 setFocus(true);
@@ -432,4 +432,4 @@ const EditText: FC<Props> = (props) => {
   }
 };
 
-export { EditText };
+export {EditText};

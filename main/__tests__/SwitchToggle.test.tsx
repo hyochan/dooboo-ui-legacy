@@ -1,7 +1,7 @@
-import React, { ReactElement } from 'react';
+import React, {ReactElement} from 'react';
 
-import { SwitchToggle } from '../../main';
-import { TouchableOpacity } from 'react-native';
+import {SwitchToggle} from '../../main';
+import {TouchableOpacity} from 'react-native';
 import renderer from 'react-test-renderer';
 
 const createTestProps = (

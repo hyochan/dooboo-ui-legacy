@@ -1,5 +1,5 @@
 import React from 'react';
-import { ViewStyle } from 'react-native';
+import {ViewStyle} from 'react-native';
 import styled from 'styled-components/native';
 
 const DaysRow = styled.View`
@@ -49,13 +49,13 @@ function CalendarWeekDays(props: Props): React.ReactElement {
   }
 
   return (
-    <DaysRow style={{ ...props.style }}>
+    <DaysRow style={{...props.style}}>
       {weekDays.map((day, index) => {
         const textColor = index === 0 ? '#ff424c' : '#565656';
 
         return (
-          <DayColumn style={{ width: props.calendarWidth / 7 }} key={index}>
-            <DayTitle style={{ color: textColor }}>{day}</DayTitle>
+          <DayColumn style={{width: props.calendarWidth / 7}} key={index}>
+            <DayTitle style={{color: textColor}}>{day}</DayTitle>
           </DayColumn>
         );
       })}

@@ -1,9 +1,9 @@
-import React, { ReactElement } from 'react';
-import { boolean, number } from '@storybook/addon-knobs';
+import React, {ReactElement} from 'react';
+import {boolean, number} from '@storybook/addon-knobs';
 
-import { ContainerDeco } from '../../storybook/decorators';
-import { Rating } from '../../main';
-import { storiesOf } from '@storybook/react-native';
+import {ContainerDeco} from '../../storybook/decorators';
+import {Rating} from '../../main';
+import {storiesOf} from '@storybook/react-native';
 import styled from 'styled-components/native';
 
 const Container = styled.View`
@@ -74,7 +74,7 @@ function Default(): React.ReactElement {
           onComponent: <CustomOn />,
           offComponent: <CustomOff />,
         }}
-        containerStyle={{ width: 200 }}
+        containerStyle={{width: 200}}
       />
       <Result>Selected: {value} stars</Result>
     </Container>

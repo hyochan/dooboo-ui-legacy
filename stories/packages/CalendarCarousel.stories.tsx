@@ -1,11 +1,11 @@
 import 'intl';
 import 'intl/locale-data/jsonp/en';
 
-import React, { ReactElement, useState } from 'react';
+import React, {ReactElement, useState} from 'react';
 
 import CalendarCarousel from '../../packages/CalendarCarousel';
-import { ContainerDeco } from '../../storybook/decorators';
-import { storiesOf } from '@storybook/react-native';
+import {ContainerDeco} from '../../storybook/decorators';
+import {storiesOf} from '@storybook/react-native';
 import styled from 'styled-components/native';
 
 const Container = styled.SafeAreaView`
@@ -20,7 +20,7 @@ const date = new Date();
 function Default(): React.ReactElement {
   const [currentDate, setCurrentDate] = useState<Date>(date);
   const [selectedDate, setSelectedDate] = useState<Date>();
-  const monthFormatter = new Intl.DateTimeFormat('default', { month: 'long' });
+  const monthFormatter = new Intl.DateTimeFormat('default', {month: 'long'});
 
   const markedDayEvents = [
     {

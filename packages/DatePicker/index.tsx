@@ -1,4 +1,4 @@
-import { TextStyle, ViewStyle } from 'react-native';
+import {TextStyle, ViewStyle} from 'react-native';
 import DateInput from './DateInput';
 import PickerCalendar from './PickerCalendar';
 import React from 'react';
@@ -60,7 +60,7 @@ const DatePicker = (props: Props): React.ReactElement => {
         onBackdropPress={(): void => {
           setCalendarVisible(false);
         }}
-        containerStyle={{ width: 300, height: 350 }}
+        containerStyle={{width: 300, height: 350}}
         locale={props.locale}
         weekdayFormat={props.weekdayFormat}
         titleContent={props.titleContent}
@@ -69,4 +69,4 @@ const DatePicker = (props: Props): React.ReactElement => {
   );
 };
 
-export { DatePicker };
+export {DatePicker};

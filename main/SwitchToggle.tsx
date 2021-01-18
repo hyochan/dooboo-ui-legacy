@@ -8,7 +8,7 @@ import {
   View,
   ViewStyle,
 } from 'react-native';
-import React, { useEffect, useRef, useState } from 'react';
+import React, {useEffect, useRef, useState} from 'react';
 
 interface Props {
   testID?: string;
@@ -108,7 +108,7 @@ function SwitchToggle(props: Props): React.ReactElement {
 
   const generateLeftIcon = (): React.ReactElement => {
     return (
-      <View style={{ position: 'absolute', left: 5 }}>
+      <View style={{position: 'absolute', left: 5}}>
         {props.backgroundImageOn}
       </View>
     );
@@ -116,7 +116,7 @@ function SwitchToggle(props: Props): React.ReactElement {
 
   const generateRightIcon = (): React.ReactElement => {
     return (
-      <View style={{ position: 'absolute', right: 5 }}>
+      <View style={{position: 'absolute', right: 5}}>
         {props.backgroundImageOff}
       </View>
     );
@@ -181,4 +181,4 @@ function SwitchToggle(props: Props): React.ReactElement {
   );
 }
 
-export { SwitchToggle };
+export {SwitchToggle};

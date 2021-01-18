@@ -1,8 +1,8 @@
 import * as React from 'react';
 
-import { RadioButton } from '../../main';
+import {RadioButton} from '../../main';
 // Note: test renderer must be required after react-native.
-import { TouchableOpacity } from 'react-native';
+import {TouchableOpacity} from 'react-native';
 import renderer from 'react-test-renderer';
 
 /**
@@ -67,17 +67,15 @@ describe('[RadioButton] render', () => {
         }),
       );
 
-      rendered.update(component({ labelPlacement: 'top' }));
+      rendered.update(component({labelPlacement: 'top'}));
       expect(rendered).toMatchSnapshot();
       expect(rendered).toBeTruthy();
 
-      rendered.update(component({ disabled: true }));
+      rendered.update(component({disabled: true}));
       expect(rendered).toMatchSnapshot();
       expect(rendered).toBeTruthy();
 
-      rendered.update(
-        component({ disabled: false, value: 0, selectedValue: 1 }),
-      );
+      rendered.update(component({disabled: false, value: 0, selectedValue: 1}));
 
       expect(rendered).toMatchSnapshot();
       expect(rendered).toBeTruthy();

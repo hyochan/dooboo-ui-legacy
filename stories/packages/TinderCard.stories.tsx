@@ -1,12 +1,12 @@
-import { ImageSourcePropType, View } from 'react-native';
-import React, { ReactElement, useMemo, useRef, useState } from 'react';
+import {ImageSourcePropType, View} from 'react-native';
+import React, {ReactElement, useMemo, useRef, useState} from 'react';
 import TinderCard, {
   TinderCardDirection,
   TinderCardRef,
 } from '../../packages/TinderCard';
 
-import { ContainerDeco } from '../../storybook/decorators';
-import { storiesOf } from '@storybook/react-native';
+import {ContainerDeco} from '../../storybook/decorators';
+import {storiesOf} from '@storybook/react-native';
 import styled from 'styled-components/native';
 // @ts-ignore
 import useInterval from 'react-useinterval';
@@ -184,7 +184,7 @@ function Default(): React.ReactElement {
         <CardInfoWrapper>
           <StyledText>{item.title}</StyledText>
           <StyledText
-            style={{ fontSize: 15, fontWeight: '500', fontStyle: 'italic' }}>
+            style={{fontSize: 15, fontWeight: '500', fontStyle: 'italic'}}>
             {item.content}
           </StyledText>
         </CardInfoWrapper>
@@ -210,7 +210,7 @@ function Default(): React.ReactElement {
         // @ts-ignore
         renderCards={_renderCards}
         renderNoMoreCards={_renderNoMoreCards}
-        containerStyle={{ width: 300, height: 500 }}
+        containerStyle={{width: 300, height: 500}}
         shouldRotate
         swipeRightLabelElement={(): ReactElement => (
           <LikeLabel>Like!</LikeLabel>
@@ -232,28 +232,28 @@ function Default(): React.ReactElement {
           justifyContent: 'space-between',
         }}>
         <ButtonWrapper
-          style={{ backgroundColor: '#ff7676' }}
+          style={{backgroundColor: '#ff7676'}}
           onPress={(): void => {
             if (tinderCard.current)
               tinderCard.current.forceSwipe(TinderCardDirection.LEFT);
           }}>
-          <StyledText style={{ fontSize: 15 }}>UNLIKE</StyledText>
+          <StyledText style={{fontSize: 15}}>UNLIKE</StyledText>
         </ButtonWrapper>
 
         <ButtonWrapper
           onPress={(): void => {
             if (tinderCard.current) tinderCard.current.handleCancel();
           }}>
-          <StyledText style={{ fontSize: 15 }}>UNDO</StyledText>
+          <StyledText style={{fontSize: 15}}>UNDO</StyledText>
         </ButtonWrapper>
 
         <ButtonWrapper
-          style={{ backgroundColor: '#44d1a6' }}
+          style={{backgroundColor: '#44d1a6'}}
           onPress={(): void => {
             if (tinderCard.current)
               tinderCard.current.forceSwipe(TinderCardDirection.RIGHT);
           }}>
-          <StyledText style={{ fontSize: 15 }}>LIKE</StyledText>
+          <StyledText style={{fontSize: 15}}>LIKE</StyledText>
         </ButtonWrapper>
       </View>
     </Container>

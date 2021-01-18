@@ -7,7 +7,7 @@ import {
   TextStyle,
   ViewStyle,
 } from 'react-native';
-import React, { FC, useEffect, useState } from 'react';
+import React, {FC, useEffect, useState} from 'react';
 
 import styled from 'styled-components/native';
 
@@ -28,7 +28,7 @@ const Input = styled.TextInput`
   align-self: center;
   font-size: 14px;
   padding-left: 16px;
-  ${Platform.OS === 'web' && { 'outline-style': 'none' }}
+  ${Platform.OS === 'web' && {'outline-style': 'none'}}
 `;
 
 interface Props {
@@ -98,7 +98,7 @@ const SearchInput: FC<Props> = (props) => {
   return (
     <Container
       testID={'SEARCH_CONTAINER'}
-      style={[containerStyle, focused && { borderColor: focusColor }]}>
+      style={[containerStyle, focused && {borderColor: focusColor}]}>
       {leftElement || null}
       <Input
         testID={'SEARCH_INPUT'}
@@ -124,4 +124,4 @@ const SearchInput: FC<Props> = (props) => {
   );
 };
 
-export { SearchInput };
+export {SearchInput};

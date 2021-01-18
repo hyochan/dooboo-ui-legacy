@@ -1,9 +1,9 @@
-import React, { ReactElement } from 'react';
+import React, {ReactElement} from 'react';
 
-import { TouchableOpacity } from 'react-native';
+import {TouchableOpacity} from 'react-native';
 import styled from 'styled-components/native';
 
-const CheckView = styled.View<{ checked: boolean }>`
+const CheckView = styled.View<{checked: boolean}>`
   height: 20px;
   width: 20px;
   border-width: 2px;
@@ -11,7 +11,7 @@ const CheckView = styled.View<{ checked: boolean }>`
   border-color: #d5d5d5;
   align-items: center;
   justify-content: center;
-  background-color: ${({ checked }): string =>
+  background-color: ${({checked}): string =>
     !checked ? '#ffffff' : '#d5d5d5'};
 `;
 
@@ -26,7 +26,7 @@ interface Props {
 }
 
 function CheckBox(props: Props): ReactElement {
-  const { value, onClick } = props;
+  const {value, onClick} = props;
 
   return (
     <TouchableOpacity testID="checkbox-test-id" onPress={onClick}>

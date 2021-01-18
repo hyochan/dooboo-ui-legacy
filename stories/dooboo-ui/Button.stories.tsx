@@ -1,15 +1,15 @@
 import 'react-native-get-random-values';
 
-import { IC_FACEBOOK, IC_GOOGLE } from '../Icon';
-import { Image, View } from 'react-native';
-import React, { ReactElement, useState } from 'react';
+import {IC_FACEBOOK, IC_GOOGLE} from '../Icon';
+import {Image, View} from 'react-native';
+import React, {ReactElement, useState} from 'react';
 
-import { Button } from '../../main';
-import { ContainerDeco } from '../../storybook/decorators';
-import { action } from '@storybook/addon-actions';
-import { storiesOf } from '@storybook/react-native';
+import {Button} from '../../main';
+import {ContainerDeco} from '../../storybook/decorators';
+import {action} from '@storybook/addon-actions';
+import {storiesOf} from '@storybook/react-native';
 import styled from 'styled-components/native';
-import { text } from '@storybook/addon-knobs';
+import {text} from '@storybook/addon-knobs';
 
 const ScrollContainer = styled.ScrollView`
   width: 100%;
@@ -36,7 +36,7 @@ function Default(): React.ReactElement {
           loading={false}
           text="😀 😎 👍 💯"
           onPress={action('Clicked')}
-          style={{ marginVertical: 40 }}
+          style={{marginVertical: 40}}
           styles={{
             container: {
               borderWidth: 0.5,
@@ -57,7 +57,7 @@ function Default(): React.ReactElement {
         />
 
         <Button
-          style={{ marginVertical: 40 }}
+          style={{marginVertical: 40}}
           styles={{
             container: {
               borderWidth: 0.5,
@@ -75,13 +75,13 @@ function Default(): React.ReactElement {
         />
         <Button
           leftElement={
-            <View style={{ marginRight: 8 }}>
-              <Image style={{ width: 20, height: 20 }} source={IC_GOOGLE} />
+            <View style={{marginRight: 8}}>
+              <Image style={{width: 20, height: 20}} source={IC_GOOGLE} />
             </View>
           }
           loading={googleLoading}
           indicatorColor="#023059"
-          style={{ marginVertical: 20 }}
+          style={{marginVertical: 20}}
           styles={{
             container: {
               backgroundColor: '#ccc',
@@ -105,7 +105,7 @@ function Default(): React.ReactElement {
                 position: 'absolute',
                 left: 16,
               }}>
-              <Image style={{ width: 15, height: 28 }} source={IC_FACEBOOK} />
+              <Image style={{width: 15, height: 28}} source={IC_FACEBOOK} />
             </View>
           }
           indicatorColor="#023059"

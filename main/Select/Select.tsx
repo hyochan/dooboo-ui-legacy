@@ -1,8 +1,8 @@
-import { Animated, Easing, TextStyle, View, ViewStyle } from 'react-native';
-import React, { Fragment, ReactElement, ReactNode } from 'react';
+import {Animated, Easing, TextStyle, View, ViewStyle} from 'react-native';
+import React, {Fragment, ReactElement, ReactNode} from 'react';
 
 import Arrow from './Arrow';
-import { SelectItemProps } from './SelectItem';
+import {SelectItemProps} from './SelectItem';
 import styled from 'styled-components/native';
 
 interface Props {
@@ -49,8 +49,7 @@ const SelectWrapper = styled.TouchableOpacity<SelectPropsType>`
   justify-content: space-between;
   padding: 14px 12px;
   border-radius: 5px;
-  border: ${({ disabled }): string =>
-    disabled ? 'none' : '1px solid #CBD7E5'};
+  border: ${({disabled}): string => (disabled ? 'none' : '1px solid #CBD7E5')};
   border-radius: 6px;
 `;
 
@@ -67,10 +66,10 @@ const IconView = styled.View`
   align-items: center;
 `;
 
-const StyledText = styled.Text<{ disabled: boolean }>`
+const StyledText = styled.Text<{disabled: boolean}>`
   align-self: center;
   font-size: 12px;
-  color: ${({ disabled }): string => (disabled ? '#969696' : '#2b2b2b')};
+  color: ${({disabled}): string => (disabled ? '#969696' : '#2b2b2b')};
 `;
 
 const Select: React.FC<Props> = (props): React.ReactElement => {
@@ -214,7 +213,7 @@ const Select: React.FC<Props> = (props): React.ReactElement => {
                 const firstElementStyle: ViewStyle =
                   index === 0
                     ? {}
-                    : { borderTopWidth: 1, borderTopColor: '#CBD7E5' };
+                    : {borderTopWidth: 1, borderTopColor: '#CBD7E5'};
 
                 if (React.isValidElement(child))
                   return React.cloneElement<SelectItemProps>(child, {

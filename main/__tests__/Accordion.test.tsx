@@ -1,12 +1,7 @@
-import React, { ReactElement } from 'react';
-import {
-  RenderAPI,
-  act,
-  fireEvent,
-  render,
-} from '@testing-library/react-native';
+import React, {ReactElement} from 'react';
+import {RenderAPI, act, fireEvent, render} from '@testing-library/react-native';
 
-import { Accordion } from '../../main';
+import {Accordion} from '../../main';
 
 let props: any;
 let component: ReactElement;
@@ -35,7 +30,7 @@ const createTestProps = (
 
 describe('[Accordion] render test', () => {
   it('should render without crasing', () => {
-    props = createTestProps({ data: data });
+    props = createTestProps({data: data});
     component = <Accordion {...props} />;
     testingLib = render(component);
 
@@ -102,7 +97,7 @@ describe('[Accordion] event test', () => {
   });
 
   it('should trigger onLayout event when itemBody rendered', () => {
-    const { getByTestId } = testingLib;
+    const {getByTestId} = testingLib;
     const itemTitle = getByTestId('body_0');
 
     act(() => {

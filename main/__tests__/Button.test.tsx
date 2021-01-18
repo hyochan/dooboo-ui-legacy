@@ -1,7 +1,7 @@
 import * as React from 'react';
 
-import { Button } from '../../main';
-import { Text } from 'react-native';
+import {Button} from '../../main';
+import {Text} from 'react-native';
 import renderer from 'react-test-renderer';
 
 const component = (props?: any): React.ReactElement => {
@@ -19,7 +19,7 @@ describe('[Button]', () => {
   });
 
   it('should render loading status', () => {
-    rendered = renderer.create(component({ loading: true }));
+    rendered = renderer.create(component({loading: true}));
     root = rendered.root;
 
     const texts = root.findAllByType(Text);
@@ -28,7 +28,7 @@ describe('[Button]', () => {
   });
 
   it('should render disabled status', () => {
-    rendered = renderer.create(component({ disabled: true }));
+    rendered = renderer.create(component({disabled: true}));
     root = rendered.root;
 
     const texts = root.findAllByType(Text);
@@ -38,7 +38,7 @@ describe('[Button]', () => {
 
   it('should render left and right elements', () => {
     rendered = renderer.create(
-      component({ leftElement: <Text />, rightElement: <Text /> }),
+      component({leftElement: <Text />, rightElement: <Text />}),
     );
 
     root = rendered.root;

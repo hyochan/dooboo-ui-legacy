@@ -1,6 +1,6 @@
-import { Badge, BadgeProps } from '../Badge';
-import React, { ReactElement } from 'react';
-import { RenderAPI, render } from '@testing-library/react-native';
+import {Badge, BadgeProps} from '../Badge';
+import React, {ReactElement} from 'react';
+import {RenderAPI, render} from '@testing-library/react-native';
 
 let props: BadgeProps;
 let component: ReactElement;

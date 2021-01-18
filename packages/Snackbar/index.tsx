@@ -1,6 +1,6 @@
-import React, { createContext, useContext, useRef } from 'react';
-import Snackbar, { Content, SnackbarRef } from './Snackbar';
-import { View } from 'react-native';
+import React, {createContext, useContext, useRef} from 'react';
+import Snackbar, {Content, SnackbarRef} from './Snackbar';
+import {View} from 'react-native';
 
 interface SnackbarContext {
   show(content: Content): void;
@@ -22,17 +22,16 @@ export interface SnackbarProviderProps {
 }
 
 function SnackbarProvider(props: SnackbarProviderProps): React.ReactElement {
-  const { children, defaultContent = {} } = props;
+  const {children, defaultContent = {}} = props;
   const snackbar = useRef<SnackbarRef>() as React.MutableRefObject<SnackbarRef>;
 
   const show = (content: Content): void => {
-    snackbar.current &&
-      snackbar.current.show({ ...defaultContent, ...content });
+    snackbar.current && snackbar.current.show({...defaultContent, ...content});
   };
 
   return (
-    <View style={{ flex: 1, width: '100%' }}>
-      <SnackbarContext.Provider value={{ show }}>
+    <View style={{flex: 1, width: '100%'}}>
+      <SnackbarContext.Provider value={{show}}>
         {children}
       </SnackbarContext.Provider>
       <Snackbar ref={snackbar} />
@@ -40,6 +39,6 @@ function SnackbarProvider(props: SnackbarProviderProps): React.ReactElement {
   );
 }
 
-export { useCtx as useSnackbarContext, SnackbarProvider };
+export {useCtx as useSnackbarContext, SnackbarProvider};
 export * from './Snackbar';
 export default Snackbar;

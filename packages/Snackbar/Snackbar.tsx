@@ -6,7 +6,7 @@ import {
   TextStyle,
   ViewStyle,
 } from 'react-native';
-import React, { useCallback } from 'react';
+import React, {useCallback} from 'react';
 
 import styled from 'styled-components/native';
 
@@ -86,7 +86,7 @@ const Snackbar = (
   props: SnackbarProps,
   ref: React.Ref<SnackbarRef>,
 ): React.ReactElement => {
-  const { testID } = props;
+  const {testID} = props;
 
   const [showingState, setShowingState] = React.useState<ShowingState>({
     isVisible: false,
@@ -108,7 +108,7 @@ const Snackbar = (
     onPressAction,
   } = content;
 
-  const { isShowing, isVisible, timeout } = showingState;
+  const {isShowing, isVisible, timeout} = showingState;
   const [fadeAnim] = React.useState(new Animated.Value(0));
 
   const show = (c: Content): void => {
@@ -116,7 +116,7 @@ const Snackbar = (
     timeout && clearTimeout(timeout);
 
     setShowingState((prevState) =>
-      Object.assign(Object.assign({}, prevState), { isShowing: true }),
+      Object.assign(Object.assign({}, prevState), {isShowing: true}),
     );
   };
 
@@ -128,7 +128,7 @@ const Snackbar = (
         useNativeDriver: true,
       }).start(() =>
         setShowingState((prevState) =>
-          Object.assign(Object.assign({}, prevState), { isVisible: false }),
+          Object.assign(Object.assign({}, prevState), {isVisible: false}),
         ),
       );
     },
@@ -168,9 +168,9 @@ const Snackbar = (
           testID={testID}
           style={[
             styles.container,
-            { maxWidth: Dimensions.get('screen').width - 32 },
+            {maxWidth: Dimensions.get('screen').width - 32},
             containerStyle,
-            { opacity: fadeAnim },
+            {opacity: fadeAnim},
           ]}>
           <MessageText style={messageStyle}>{text}</MessageText>
           {actionText && (

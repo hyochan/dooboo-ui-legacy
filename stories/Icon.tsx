@@ -1,6 +1,6 @@
-import Svg, { Line } from 'react-native-svg';
+import Svg, {Line} from 'react-native-svg';
 import React from 'react';
-import { View } from 'react-native';
+import {View} from 'react-native';
 
 import icArrDown from './assets/icons/ic_arr_down.png';
 import icArrUp from './assets/icons/ic_arr_up.png';
@@ -47,4 +47,4 @@ function ArrowDown(): React.ReactElement {
   );
 }
 
-export { ArrowDown };
+export {ArrowDown};

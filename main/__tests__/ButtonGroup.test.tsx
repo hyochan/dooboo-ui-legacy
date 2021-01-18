@@ -2,14 +2,9 @@ import 'react-native';
 
 import * as React from 'react';
 
-import {
-  RenderAPI,
-  act,
-  fireEvent,
-  render,
-} from '@testing-library/react-native';
+import {RenderAPI, act, fireEvent, render} from '@testing-library/react-native';
 
-import { ButtonGroup } from '../../main';
+import {ButtonGroup} from '../../main';
 
 let props: any;
 let component: React.ReactElement;

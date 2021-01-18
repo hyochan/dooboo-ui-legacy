@@ -1,9 +1,9 @@
-import { Image, View } from 'react-native';
-import React, { ReactElement } from 'react';
-import { Select, SelectItem } from '../../main';
+import {Image, View} from 'react-native';
+import React, {ReactElement} from 'react';
+import {Select, SelectItem} from '../../main';
 
-import { ContainerDeco } from '../../storybook/decorators';
-import { storiesOf } from '@storybook/react-native';
+import {ContainerDeco} from '../../storybook/decorators';
+import {storiesOf} from '@storybook/react-native';
 import styled from 'styled-components/native';
 
 const CustomContainer = styled.View`
@@ -55,7 +55,7 @@ const Default = (): React.ReactElement => {
   const [isOpen, toggleSelect] = React.useState<boolean>(false);
 
   return (
-    <CustomContainer style={{ justifyContent: 'center' }}>
+    <CustomContainer style={{justifyContent: 'center'}}>
       <CustomSelectContainer>
         <Select
           opened={isOpen}
@@ -89,7 +89,7 @@ const ChangeProps = (): React.ReactElement => {
   return (
     <CustomContainer>
       <TogglerWrapper>
-        <View style={{ alignSelf: 'center' }}>
+        <View style={{alignSelf: 'center'}}>
           <CustomText>{'Dark mode?'}</CustomText>
           <ThemeSwitch
             value={darkTheme}
@@ -152,7 +152,7 @@ const Customized = (): React.ReactElement => {
   return (
     <CustomContainer>
       <TogglerWrapper>
-        <View style={{ alignSelf: 'center' }}>
+        <View style={{alignSelf: 'center'}}>
           <CustomText>{'Fixed List height'}</CustomText>
           <CustomTextInput
             placeholder={'Set or Auto-sized'}
@@ -161,19 +161,19 @@ const Customized = (): React.ReactElement => {
           />
           <CustomText>{'Custom Prefix icon'}</CustomText>
           <CustomTextInput
-            style={{ width: 300 }}
+            style={{width: 300}}
             value={customPrefix}
             onChangeText={(text): void => setCustomPrefix(text)}
           />
           <CustomText>{'Custom Suffix icon'}</CustomText>
           <CustomTextInput
-            style={{ width: 300 }}
+            style={{width: 300}}
             value={customSuffix}
             onChangeText={(text): void => setCustomSuffix(text)}
           />
         </View>
       </TogglerWrapper>
-      <CustomSelectContainer style={{ height: 60, width: 200 }}>
+      <CustomSelectContainer style={{height: 60, width: 200}}>
         <Select
           opened={isOpen}
           activeOpacity={0.9}
@@ -183,7 +183,7 @@ const Customized = (): React.ReactElement => {
           onOpen={(toggle): void => toggleSelect(toggle)}
           prefixIcon={
             <Image
-              style={{ width: 15, height: 15 }}
+              style={{width: 15, height: 15}}
               source={{
                 uri: customPrefix,
               }}

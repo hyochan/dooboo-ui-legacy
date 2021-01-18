@@ -1,16 +1,16 @@
-import { Alert, Text } from 'react-native';
-import React, { ReactElement, useCallback, useRef, useState } from 'react';
+import {Alert, Text} from 'react-native';
+import React, {ReactElement, useCallback, useRef, useState} from 'react';
 import Snackbar, {
   SnackbarProvider,
   SnackbarRef,
   Timer,
   useSnackbarContext,
 } from '../../packages/Snackbar';
-import { color, text } from '@storybook/addon-knobs';
+import {color, text} from '@storybook/addon-knobs';
 
-import { ContainerDeco } from '../../storybook/decorators';
-import { SwitchToggle } from '../../main';
-import { storiesOf } from '@storybook/react-native';
+import {ContainerDeco} from '../../storybook/decorators';
+import {SwitchToggle} from '../../main';
+import {storiesOf} from '@storybook/react-native';
 import styled from 'styled-components/native';
 
 const Container = styled.View`
@@ -93,7 +93,7 @@ function Default(): React.ReactElement {
         <Text>SHORT / LONG</Text>
       </ToggleContainer>
       <Button onPress={onPress}>
-        <Text style={{ textAlign: 'center' }}>OPEN SNACKBAR(Default)</Text>
+        <Text style={{textAlign: 'center'}}>OPEN SNACKBAR(Default)</Text>
       </Button>
     </Container>
   );
@@ -169,7 +169,7 @@ function WithAction(): React.ReactElement {
         <Text>SHORT / LONG</Text>
       </ToggleContainer>
       <Button onPress={onPress}>
-        <Text style={{ textAlign: 'center' }}>OPEN SNACKBAR(With Action)</Text>
+        <Text style={{textAlign: 'center'}}>OPEN SNACKBAR(With Action)</Text>
       </Button>
       <Snackbar
         // @ts-ignore

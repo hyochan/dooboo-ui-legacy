@@ -1,4 +1,4 @@
-import { DefaultTheme } from 'styled-components/native';
+import {DefaultTheme} from 'styled-components/native';
 
 export enum ThemeType {
   LIGHT = 'LIGHT',
@@ -161,8 +161,8 @@ export const createDoobooTheme = (
 ): Partial<DefaultTheme> => {
   switch (type) {
     case ThemeType.LIGHT:
-      return { ...theme.light, ...themes.light };
+      return {...theme.light, ...themes.light};
     case ThemeType.DARK:
-      return { ...theme.dark, ...themes.dark };
+      return {...theme.dark, ...themes.dark};
   }
 };

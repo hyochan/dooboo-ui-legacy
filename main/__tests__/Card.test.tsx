@@ -1,8 +1,8 @@
 import * as React from 'react';
 
-import { Image, Text, View } from 'react-native';
+import {Image, Text, View} from 'react-native';
 
-import { Card } from '..';
+import {Card} from '..';
 // Note: test renderer must be required after react-native.
 import renderer from 'react-test-renderer';
 
@@ -55,7 +55,7 @@ describe('[Card]', () => {
 
   it('should render title and subtitle', () => {
     rendered = renderer.create(
-      component({ title: 'Card title', subTitle: 'Card subTitle' }),
+      component({title: 'Card title', subTitle: 'Card subTitle'}),
     );
 
     root = rendered.root;
@@ -94,15 +94,15 @@ describe('[Card]', () => {
       }),
     );
 
-    currentRendered.update(component({ hasDivider: false }));
+    currentRendered.update(component({hasDivider: false}));
     expect(currentRendered).toMatchSnapshot();
     expect(currentRendered).toBeTruthy();
 
-    currentRendered.update(component({ raised: true }));
+    currentRendered.update(component({raised: true}));
     expect(currentRendered).toMatchSnapshot();
     expect(currentRendered).toBeTruthy();
 
-    currentRendered.update(component({ outlined: true }));
+    currentRendered.update(component({outlined: true}));
     expect(currentRendered).toMatchSnapshot();
     expect(currentRendered).toBeTruthy();
   });

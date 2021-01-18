@@ -1,9 +1,9 @@
-import React, { ReactElement, useState } from 'react';
-import { Text, View } from 'react-native';
+import React, {ReactElement, useState} from 'react';
+import {Text, View} from 'react-native';
 
-import { ButtonGroup } from '../../main';
-import { ContainerDeco } from '../../storybook/decorators';
-import { storiesOf } from '@storybook/react-native';
+import {ButtonGroup} from '../../main';
+import {ContainerDeco} from '../../storybook/decorators';
+import {storiesOf} from '@storybook/react-native';
 import styled from 'styled-components/native';
 
 const Container = styled.SafeAreaView`
@@ -37,7 +37,7 @@ const Default = (): React.ReactElement => {
   return (
     <Container>
       <ButtonGroup
-        style={{ marginTop: 40 }}
+        style={{marginTop: 40}}
         onPress={(index: number): void => selectOption(index)}
         data={data}
       />

@@ -1,12 +1,7 @@
-import React, { ReactElement } from 'react';
-import {
-  RenderAPI,
-  act,
-  fireEvent,
-  render,
-} from '@testing-library/react-native';
+import React, {ReactElement} from 'react';
+import {RenderAPI, act, fireEvent, render} from '@testing-library/react-native';
 
-import { SearchInput } from '../../main';
+import {SearchInput} from '../../main';
 
 let props: any;
 let component: ReactElement;

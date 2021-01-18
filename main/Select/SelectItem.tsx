@@ -1,4 +1,4 @@
-import { TextStyle, ViewStyle } from 'react-native';
+import {TextStyle, ViewStyle} from 'react-native';
 
 import React from 'react';
 import styled from 'styled-components/native';
@@ -12,7 +12,7 @@ export interface SelectItemProps {
   children?: string;
 }
 
-const ItemWrapper = styled.TouchableOpacity.attrs({ activeOpacity: 0.9 })`
+const ItemWrapper = styled.TouchableOpacity.attrs({activeOpacity: 0.9})`
   width: 100%;
   padding: 14px 12px;
   justify-content: center;

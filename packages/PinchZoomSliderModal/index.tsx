@@ -10,7 +10,7 @@ import {
   View,
   ViewStyle,
 } from 'react-native';
-import React, { ReactElement, useCallback, useState } from 'react';
+import React, {ReactElement, useCallback, useState} from 'react';
 
 import ImageZoom from 'react-native-image-pan-zoom';
 import ViewPager from '@react-native-community/viewpager';
@@ -66,7 +66,7 @@ function PinchZoomModal(props: Props): ReactElement {
             width: dimensionWidth,
             height: dimensionHeight,
           }}>
-          <View style={{ position: 'absolute' }}>
+          <View style={{position: 'absolute'}}>
             <ImageZoom
               cropWidth={dimensionWidth}
               cropHeight={dimensionHeight}
@@ -74,7 +74,7 @@ function PinchZoomModal(props: Props): ReactElement {
               imageWidth={dimensionWidth}>
               <Image
                 defaultSource={defaultImageSource}
-                style={{ width: dimensionWidth, height: dimensionHeight }}
+                style={{width: dimensionWidth, height: dimensionHeight}}
                 source={image}
                 resizeMode={'contain'}
               />
@@ -95,10 +95,10 @@ function PinchZoomModal(props: Props): ReactElement {
             width: dimensionWidth,
             height: dimensionHeight,
           }}>
-          <View style={{ position: 'absolute' }}>
+          <View style={{position: 'absolute'}}>
             <Image
               defaultSource={defaultImageSource}
-              style={{ width: dimensionWidth, height: dimensionHeight }}
+              style={{width: dimensionWidth, height: dimensionHeight}}
               source={image}
               resizeMode={'contain'}
             />
@@ -118,11 +118,11 @@ function PinchZoomModal(props: Props): ReactElement {
       supportedOrientations={['portrait', 'landscape']}
       visible={visible}
       transparent={true}>
-      <Container style={[{ flex: 1 }, containerStyle]}>
+      <Container style={[{flex: 1}, containerStyle]}>
         {images.length < 2 ? (
           renderPinchableImage(images[0], 1)
         ) : shouldPinch ? (
-          <ViewPager style={{ flex: 1, width: '100%', height: '100%' }}>
+          <ViewPager style={{flex: 1, width: '100%', height: '100%'}}>
             {images.map((image, i) => renderPinchableImage(image, i))}
           </ViewPager>
         ) : (

@@ -1,5 +1,5 @@
-import { Modal, Text, View, ViewStyle } from 'react-native';
-import React, { FC } from 'react';
+import {Modal, Text, View, ViewStyle} from 'react-native';
+import React, {FC} from 'react';
 
 import Calendar from './Calendar/Calendar';
 import CalendarDate from './Calendar/CalendarDate';
@@ -37,7 +37,7 @@ interface Props {
 }
 
 const PickerCalendar: FC<Props> = (props) => {
-  const { calendarWidth = 300, locale = 'default' } = props;
+  const {calendarWidth = 300, locale = 'default'} = props;
 
   return (
     <Modal visible={props.visible} transparent={true} animationType={'fade'}>

@@ -6,8 +6,8 @@ import {
   ImageProps,
   ImageSourcePropType,
 } from 'react-native';
-import PinchZoom, { PinchZoomRef } from './';
-import React, { ReactElement } from 'react';
+import PinchZoom, {PinchZoomRef} from './';
+import React, {ReactElement} from 'react';
 
 import styled from 'styled-components/native';
 
@@ -65,7 +65,7 @@ const images = [
     uri:
       'https://p.bigstockphoto.com/eIdTXLbqQilMs9xbjvcs_bigstock-Aerial-View-Of-Sandy-Beach-Wit-256330393.jpg',
   },
-  { uri: 'https://avatars2.githubusercontent.com/u/7970947?v=3&s=460' },
+  {uri: 'https://avatars2.githubusercontent.com/u/7970947?v=3&s=460'},
 ];
 
 interface ImageItemProps {
@@ -85,12 +85,11 @@ function ImageItem({
     <ItemContainer>
       <TitleText>{title}</TitleText>
       <ContentText>{content}</ContentText>
-      <ImageContainer
-        style={{ overflow: 'hidden' /** It may be important! */ }}>
-        <PinchZoom style={{ width, height: 200 }}>
+      <ImageContainer style={{overflow: 'hidden' /** It may be important! */}}>
+        <PinchZoom style={{width, height: 200}}>
           <Image
-            style={{ width, height: 200, backgroundColor: '#fff' }}
-            onLoad={({ nativeEvent: { source } }): void => {
+            style={{width, height: 200, backgroundColor: '#fff'}}
+            onLoad={({nativeEvent: {source}}): void => {
               if (source && source.width && source.height)
                 setWidth((200 * source.width) / source.height);
             }}
@@ -108,9 +107,9 @@ export function ImageList(): React.ReactElement {
     <Container>
       <FlatList
         data={images}
-        style={{ flex: 1 }}
+        style={{flex: 1}}
         keyExtractor={(item): string => item.uri}
-        renderItem={({ item, index }): React.ReactElement => (
+        renderItem={({item, index}): React.ReactElement => (
           <ImageItem
             source={item}
             title={`Image ${index + 1}`}
@@ -123,16 +122,16 @@ export function ImageList(): React.ReactElement {
 }
 
 function AutoHeightImage(
-  props: ImageProps & { style: { width: number } },
+  props: ImageProps & {style: {width: number}},
 ): React.ReactElement {
-  const { style } = props;
+  const {style} = props;
   const [heightPerWidth, setHightPerWidth] = React.useState(0);
 
   return (
     <Image
       {...props}
-      style={[style, { height: heightPerWidth * style.width || style.width }]}
-      onLoad={({ nativeEvent: { source } }): void => {
+      style={[style, {height: heightPerWidth * style.width || style.width}]}
+      onLoad={({nativeEvent: {source}}): void => {
         if (source && source.width && source.height)
           setHightPerWidth(source.height / source.width);
       }}
@@ -179,29 +178,29 @@ export const ImageSlider = ({
 
     if (moveNext && currentIndex < imageSources.length - 1 && targetTranslate)
       Animated.timing(targetTranslate, {
-        toValue: { x: (-(animValues.scale + 1) / 2) * WIDTH, y: animValues.y },
+        toValue: {x: (-(animValues.scale + 1) / 2) * WIDTH, y: animValues.y},
         useNativeDriver: true,
         duration: 300,
       }).start(() => {
         nextImageTranslateX.setValue(0);
         prevImageTranslateX.setValue(0);
         setCurrentIndex(currentIndex + 1);
-        pinchZoom.current?.setValues({ scale: 1, translate: { x: 0, y: 0 } });
+        pinchZoom.current?.setValues({scale: 1, translate: {x: 0, y: 0}});
       });
     else if (movePrev && currentIndex > 0 && targetTranslate)
       Animated.timing(targetTranslate, {
-        toValue: { x: ((animValues.scale + 1) / 2) * WIDTH, y: animValues.y },
+        toValue: {x: ((animValues.scale + 1) / 2) * WIDTH, y: animValues.y},
         useNativeDriver: true,
         duration: 300,
       }).start(() => {
         nextImageTranslateX.setValue(0);
         prevImageTranslateX.setValue(0);
         setCurrentIndex(currentIndex - 1);
-        pinchZoom.current?.setValues({ scale: 1, translate: { x: 0, y: 0 } });
+        pinchZoom.current?.setValues({scale: 1, translate: {x: 0, y: 0}});
       });
     else if (animValues.nextTranslateX < 0 && targetTranslate)
       Animated.timing(targetTranslate, {
-        toValue: { x: ((1 - animValues.scale) * WIDTH) / 2, y: animValues.y },
+        toValue: {x: ((1 - animValues.scale) * WIDTH) / 2, y: animValues.y},
         useNativeDriver: true,
         duration: 300,
       }).start(() => {
@@ -214,7 +213,7 @@ export const ImageSlider = ({
       });
     else if (animValues.prevTranslateX > 0 && targetTranslate)
       Animated.timing(targetTranslate, {
-        toValue: { x: ((animValues.scale - 1) * WIDTH) / 2, y: animValues.y },
+        toValue: {x: ((animValues.scale - 1) * WIDTH) / 2, y: animValues.y},
         useNativeDriver: true,
         duration: 300,
       }).start(() => {
@@ -237,7 +236,7 @@ export const ImageSlider = ({
   ]);
 
   return (
-    <Container style={{ backgroundColor: '#000' }}>
+    <Container style={{backgroundColor: '#000'}}>
       <ImageSliderContainer>
         {currentIndex > 0 ? (
           <PinchZoom
@@ -250,11 +249,11 @@ export const ImageSlider = ({
               bottom: 0,
               justifyContent: 'center',
               // @ts-ignore
-              transform: [{ translateX: prevImageTranslateX }],
+              transform: [{translateX: prevImageTranslateX}],
             }}>
             <AutoHeightImage
               source={imageSources[currentIndex - 1]}
-              style={{ width: WIDTH, bottom: 0 }}
+              style={{width: WIDTH, bottom: 0}}
               resizeMode="contain"
             />
           </PinchZoom>
@@ -279,7 +278,7 @@ export const ImageSlider = ({
           }}>
           <AutoHeightImage
             source={imageSources[currentIndex]}
-            style={{ width: WIDTH, bottom: 0 }}
+            style={{width: WIDTH, bottom: 0}}
             resizeMode="contain"
           />
         </PinchZoom>
@@ -294,11 +293,11 @@ export const ImageSlider = ({
               justifyContent: 'center',
               left: WIDTH,
               // @ts-ignore
-              transform: [{ translateX: nextImageTranslateX }],
+              transform: [{translateX: nextImageTranslateX}],
             }}>
             <AutoHeightImage
               source={imageSources[currentIndex + 1]}
-              style={{ width: WIDTH }}
+              style={{width: WIDTH}}
               resizeMode="contain"
             />
           </PinchZoom>
@@ -310,9 +309,9 @@ export const ImageSlider = ({
 
 export const Article = (): React.ReactElement => {
   return (
-    <PinchZoom style={{ width: '100%', backgroundColor: '#eee', padding: 10 }}>
+    <PinchZoom style={{width: '100%', backgroundColor: '#eee', padding: 10}}>
       <TitleText>Article Title</TitleText>
-      <ContentText style={{ minHeight: 100, textAlignVertical: 'center' }}>
+      <ContentText style={{minHeight: 100, textAlignVertical: 'center'}}>
         {`This block is for the content of the article. \
 PinchZoom works at only Image but also other views. So, let's zoom in with your fingers.
 `}

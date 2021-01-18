@@ -1,9 +1,9 @@
-import React, { ReactElement } from 'react';
-import { Text, View } from 'react-native';
+import React, {ReactElement} from 'react';
+import {Text, View} from 'react-native';
 
-import { ContainerDeco } from '../../storybook/decorators';
-import { DatePicker } from '../../packages/DatePicker';
-import { storiesOf } from '@storybook/react-native';
+import {ContainerDeco} from '../../storybook/decorators';
+import {DatePicker} from '../../packages/DatePicker';
+import {storiesOf} from '@storybook/react-native';
 import styled from 'styled-components/native';
 
 const ScrollContainer = styled.ScrollView`

@@ -1,5 +1,5 @@
-import React, { PropsWithChildren, ReactElement } from 'react';
-import { View, ViewStyle } from 'react-native';
+import React, {PropsWithChildren, ReactElement} from 'react';
+import {View, ViewStyle} from 'react-native';
 
 const convertDateString = (date: Date): string => {
   const dateString = new Date(date.getTime() - date.getTimezoneOffset() * 60000)
@@ -27,7 +27,7 @@ interface Props<T> {
   }) => React.ReactElement;
   calendarWidth: number;
   today: Date; // init Date
-  dailyCalData?: { [key: string]: T }; // key format : YYYY-MM-DD
+  dailyCalData?: {[key: string]: T}; // key format : YYYY-MM-DD
 }
 
 /**

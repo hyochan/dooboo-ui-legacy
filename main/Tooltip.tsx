@@ -1,7 +1,7 @@
-import React, { FC, ReactElement, useEffect, useRef, useState } from 'react';
+import React, {FC, ReactElement, useEffect, useRef, useState} from 'react';
 
 import styled from 'styled-components/native';
-import { useHover } from 'react-native-web-hooks';
+import {useHover} from 'react-native-web-hooks';
 
 const Container = styled.View``;
 
@@ -18,7 +18,7 @@ interface Props {
   renderDialogElement: () => ReactElement;
 }
 
-const Tooltip: FC<Props> = ({ renderInitialElement, renderDialogElement }) => {
+const Tooltip: FC<Props> = ({renderInitialElement, renderDialogElement}) => {
   const ref = useRef(null);
   const isHovered = useHover(ref);
 
@@ -40,4 +40,4 @@ const Tooltip: FC<Props> = ({ renderInitialElement, renderDialogElement }) => {
   );
 };
 
-export { Tooltip };
+export {Tooltip};

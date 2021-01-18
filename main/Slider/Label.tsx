@@ -46,8 +46,8 @@ const Label: React.FC<Props> = ({
           borderBottomRightRadius: size / 2,
           backgroundColor: '#4163f4',
           transform: [
-            { rotate: '-45deg' },
-            { translateX: -((Math.sqrt(2) * size) / 2) },
+            {rotate: '-45deg'},
+            {translateX: -((Math.sqrt(2) * size) / 2)},
           ],
           top: -size * 2,
           left: percentValue.interpolate({

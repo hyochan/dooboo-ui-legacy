@@ -1,9 +1,9 @@
-import React, { ReactElement } from 'react';
-import { array, boolean, object, withKnobs } from '@storybook/addon-knobs';
+import React, {ReactElement} from 'react';
+import {array, boolean, object, withKnobs} from '@storybook/addon-knobs';
 
-import { ContainerDeco } from '../../storybook/decorators';
+import {ContainerDeco} from '../../storybook/decorators';
 import Table from '../../packages/Tables/lib';
-import { storiesOf } from '@storybook/react-native';
+import {storiesOf} from '@storybook/react-native';
 
 export default {
   title: 'Tables',

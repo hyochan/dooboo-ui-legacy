@@ -1,9 +1,9 @@
-import { BarChart, LineChart } from '../../packages/Charts/lib';
-import React, { ReactElement } from 'react';
+import {BarChart, LineChart} from '../../packages/Charts/lib';
+import React, {ReactElement} from 'react';
 
-import { ContainerDeco } from '../../storybook/decorators';
-import { Text } from 'react-native';
-import { storiesOf } from '@storybook/react-native';
+import {ContainerDeco} from '../../storybook/decorators';
+import {Text} from 'react-native';
+import {storiesOf} from '@storybook/react-native';
 import styled from 'styled-components/native';
 
 const CustomContainer = styled.View`
@@ -98,7 +98,7 @@ const LineChartComponent = (): ReactElement => {
         setCurrentHeight(e.nativeEvent.layout.width);
         setCurrentWidth(e.nativeEvent.layout.width);
       }}
-      style={{ height: currentHeight, width: currentWidth }}>
+      style={{height: currentHeight, width: currentWidth}}>
       <LineChart
         data={mockData}
         xAxisKey={'key5'}
@@ -169,7 +169,7 @@ const BarChartComponent = (): ReactElement => {
         setCurrentHeight(e.nativeEvent.layout.width);
         setCurrentWidth(e.nativeEvent.layout.width);
       }}
-      style={{ height: currentHeight, width: currentWidth }}>
+      style={{height: currentHeight, width: currentWidth}}>
       <BarChart
         data={mockData}
         xAxisKey={'key1'}

@@ -1,4 +1,4 @@
-import React, { FC, useEffect, useMemo } from 'react';
+import React, {FC, useEffect, useMemo} from 'react';
 import {
   StyleProp,
   StyleSheet,
@@ -51,8 +51,8 @@ const MarkPositioner = styled.View<MarkPositionerType>`
   position: absolute;
   display: flex;
   align-items: center;
-  width: ${({ width }): number => width}px;
-  left: ${({ position }): number => position}px;
+  width: ${({width}): number => width}px;
+  left: ${({position}): number => position}px;
 `;
 
 const Mark = styled.View`
@@ -221,7 +221,7 @@ const getMarkPositions = ({
 }): number[] => {
   const startAt = startMark ? 0 : stepDistance;
 
-  return Array.from({ length: count }).map(
+  return Array.from({length: count}).map(
     (_, index: number) => startAt + stepDistance * index,
   );
 };
@@ -282,7 +282,7 @@ const createMarks = ({
 };
 
 const getMarkWidth = (markStyle: ViewStyle): number => {
-  const { width } = markStyle;
+  const {width} = markStyle;
 
   if (isNil(width)) return DEFAULT.width;
 
@@ -331,7 +331,7 @@ const Marks: FC<Props> = ({
     maxValue,
   };
 
-  const { markCount: markCountToApply, stepDistance } = useMemo(
+  const {markCount: markCountToApply, stepDistance} = useMemo(
     () => getStepDistance(markOptions),
     // eslint-disable-next-line react-hooks/exhaustive-deps
     Object.values(markOptions),

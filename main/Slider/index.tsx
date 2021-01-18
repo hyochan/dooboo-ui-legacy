@@ -8,7 +8,7 @@ import {
   View,
   ViewStyle,
 } from 'react-native';
-import React, { FC, useEffect, useMemo, useState } from 'react';
+import React, {FC, useEffect, useMemo, useState} from 'react';
 import {
   getNearestPercentByValue,
   getPercentByPositionX,
@@ -224,4 +224,4 @@ const Slider: FC<Props> = ({
   );
 };
 
-export { Slider };
+export {Slider};

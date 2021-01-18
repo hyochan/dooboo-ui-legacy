@@ -5,10 +5,10 @@ import {
   TextStyle,
   ViewStyle,
 } from 'react-native';
-import React, { FC, ReactNode, ReactNodeArray } from 'react';
-import styled, { css } from 'styled-components/native';
+import React, {FC, ReactNode, ReactNodeArray} from 'react';
+import styled, {css} from 'styled-components/native';
 
-import { FlattenSimpleInterpolation } from 'styled-components';
+import {FlattenSimpleInterpolation} from 'styled-components';
 
 const shadow = css`
   shadow-color: #000;
@@ -47,7 +47,7 @@ const Container = styled.View<ContainerProps>`
   align-items: flex-start;
   background-color: #fff;
   width: 256px;
-  ${({ outlined, raised }): FlattenSimpleInterpolation =>
+  ${({outlined, raised}): FlattenSimpleInterpolation =>
     outlined ? styles.border : raised ? styles.raisedShadow : styles.shadow}
 `;
 
@@ -137,7 +137,7 @@ const Card: FC<Props> = (props) => {
     );
 
   return (
-    <Container {...{ outlined, raised }} style={containerStyle}>
+    <Container {...{outlined, raised}} style={containerStyle}>
       {image && <StlyedImage source={image} style={imageStyle} />}
       {(renderTitle || children) && (
         <ContentsContainer style={contentsContainerStyle}>
@@ -157,4 +157,4 @@ const Card: FC<Props> = (props) => {
   );
 };
 
-export { Card };
+export {Card};

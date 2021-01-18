@@ -1,5 +1,5 @@
-import React, { ReactElement } from 'react';
-import { View, ViewStyle } from 'react-native';
+import React, {ReactElement} from 'react';
+import {View, ViewStyle} from 'react-native';
 
 import styled from 'styled-components/native';
 
@@ -16,7 +16,7 @@ const HeaderContainer = styled.View`
 `;
 
 function TableHeader(props: Props): ReactElement {
-  const { children, headerStyle } = props;
+  const {children, headerStyle} = props;
 
   return (
     <HeaderContainer style={[headerStyle]} testID="table-header-test-id">

@@ -2,10 +2,10 @@ import 'react-native';
 
 import * as React from 'react';
 
-import { RenderAPI, fireEvent, render } from '@testing-library/react-native';
+import {RenderAPI, fireEvent, render} from '@testing-library/react-native';
 
 import GiftedChatInput from '../GiftedChat';
-import { createTestProps } from '../../test/testUtils';
+import {createTestProps} from '../../test/testUtils';
 
 let props: any;
 let component: React.ReactElement;

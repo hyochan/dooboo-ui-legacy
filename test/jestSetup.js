@@ -4,26 +4,32 @@ import React from 'react';
  * Temporarily test files that resolves https://github.com/facebook/react-native/issues/27721
  */
 
-jest.mock('react-native/Libraries/Components/Touchable/TouchableOpacity.js', () => {
-  // eslint-disable-next-line
-  const { View } = require('react-native');
-  const MockTouchable = (props) => {
-    return <View {...props} />;
-  };
+jest.mock(
+  'react-native/Libraries/Components/Touchable/TouchableOpacity.js',
+  () => {
+    const {View} = require('react-native');
 
-  MockTouchable.displayName = 'TouchableOpacity';
+    const MockTouchable = (props): ReactElement => {
+      return <View {...props} />;
+    };
 
-  return MockTouchable;
-});
+    MockTouchable.displayName = 'TouchableOpacity';
 
-jest.mock('react-native/Libraries/Components/Touchable/TouchableHighlight.js', () => {
-  // eslint-disable-next-line
-  const { View } = require('react-native');
-  const MockTouchable = (props) => {
-    return <View {...props} />;
-  };
+    return MockTouchable;
+  },
+);
 
-  MockTouchable.displayName = 'TouchableHighlight';
+jest.mock(
+  'react-native/Libraries/Components/Touchable/TouchableHighlight.js',
+  () => {
+    const {View} = require('react-native');
 
-  return MockTouchable;
-});
+    const MockTouchable = (props): ReactElement => {
+      return <View {...props} />;
+    };
+
+    MockTouchable.displayName = 'TouchableHighlight';
+
+    return MockTouchable;
+  },
+);

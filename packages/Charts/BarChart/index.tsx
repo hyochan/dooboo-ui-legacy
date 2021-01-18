@@ -1,10 +1,10 @@
 import * as d3 from 'd3';
 
-import { G, Line, Rect, Svg, Text } from 'react-native-svg';
-import React, { FC } from 'react';
+import {G, Line, Rect, Svg, Text} from 'react-native-svg';
+import React, {FC} from 'react';
 
-import { BarChartProps } from './types';
-import { Hoverable } from 'react-native-web-hooks';
+import {BarChartProps} from './types';
+import {Hoverable} from 'react-native-web-hooks';
 import styled from 'styled-components/native';
 
 // Styled component declaration

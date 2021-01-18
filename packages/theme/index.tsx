@@ -10,7 +10,7 @@ import {
   dark as darkTheme,
   light as lightTheme,
 } from './theme';
-import React, { useState } from 'react';
+import React, {useState} from 'react';
 
 import createCtx from './createCtx';
 
@@ -65,10 +65,7 @@ function ThemeProvider({
       themeType,
     ) as DefaultTheme;
   else
-    theme = createDoobooTheme(
-      { light: {}, dark: {} },
-      themeType,
-    ) as DefaultTheme;
+    theme = createDoobooTheme({light: {}, dark: {}}, themeType) as DefaultTheme;
 
   return (
     <Provider
@@ -83,4 +80,4 @@ function ThemeProvider({
   );
 }
 
-export { useCtx as useThemeContext, ThemeProvider, ThemeType, DoobooTheme };
+export {useCtx as useThemeContext, ThemeProvider, ThemeType, DoobooTheme};

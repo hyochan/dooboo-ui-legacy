@@ -10,10 +10,10 @@ import CalendarDate from '../DatePicker/Calendar/CalendarDate';
 import CalendarMonth from '../DatePicker/Calendar/CalendarMonth';
 import CalendarWeekDays from '../DatePicker/Calendar/CalendarWeekDays';
 import DateInput from '../DatePicker/DateInput';
-import { DatePicker } from '../DatePicker';
+import {DatePicker} from '../DatePicker';
 import PickerCalendar from '../DatePicker/PickerCalendar';
-import { TouchableOpacity } from 'react-native';
-import { render } from '@testing-library/react-native';
+import {TouchableOpacity} from 'react-native';
+import {render} from '@testing-library/react-native';
 import renderer from 'react-test-renderer';
 
 const standardDate = new Date('2020-09-13');

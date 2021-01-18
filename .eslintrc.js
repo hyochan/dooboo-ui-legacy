@@ -4,13 +4,13 @@ module.exports = {
   rules: {
     'padding-line-between-statements': [
       'warn',
-      { blankLine: 'always', prev: '*', next: 'return' },
+      {blankLine: 'always', prev: '*', next: 'return'},
       // Always require blank lines after directive (like 'use-strict'), except between directives
-      { blankLine: 'always', prev: 'directive', next: '*' },
-      { blankLine: 'any', prev: 'directive', next: 'directive' },
+      {blankLine: 'always', prev: 'directive', next: '*'},
+      {blankLine: 'any', prev: 'directive', next: 'directive'},
       // Always require blank lines after import, except between imports
-      { blankLine: 'always', prev: 'import', next: '*' },
-      { blankLine: 'any', prev: 'import', next: 'import' },
+      {blankLine: 'always', prev: 'import', next: '*'},
+      {blankLine: 'any', prev: 'import', next: 'import'},
       // Always require blank lines before and after every sequence of variable declarations and export
       {
         blankLine: 'always',

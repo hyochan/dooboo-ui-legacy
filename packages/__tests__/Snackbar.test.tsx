@@ -5,8 +5,8 @@ import Snackbar, {
   SnackbarRef,
   useSnackbarContext,
 } from '../Snackbar';
-import { Text, TouchableOpacity, View } from 'react-native';
-import { act, fireEvent, render } from '@testing-library/react-native';
+import {Text, TouchableOpacity, View} from 'react-native';
+import {act, fireEvent, render} from '@testing-library/react-native';
 
 import renderer from 'react-test-renderer';
 
@@ -22,7 +22,7 @@ function TestWrapper(): React.ReactElement {
   snackbarRef = React.useRef();
 
   return (
-    <View style={{ flex: 1 }}>
+    <View style={{flex: 1}}>
       <TouchableOpacity
         testID="Button"
         onPress={(): void => {
@@ -43,7 +43,7 @@ function ContentInnerProvider(): React.ReactElement {
   const snackbar = useSnackbarContext();
 
   return (
-    <View style={{ flex: 1 }}>
+    <View style={{flex: 1}}>
       <TouchableOpacity
         testID="Button"
         onPress={(): void => {

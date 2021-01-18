@@ -1,9 +1,9 @@
-import React, { ReactElement, useState } from 'react';
+import React, {ReactElement, useState} from 'react';
 
-import { ContainerDeco } from '../../storybook/decorators';
-import { Slider } from '../../main';
-import { Text } from 'react-native';
-import { storiesOf } from '@storybook/react-native';
+import {ContainerDeco} from '../../storybook/decorators';
+import {Slider} from '../../main';
+import {Text} from 'react-native';
+import {storiesOf} from '@storybook/react-native';
 import styled from 'styled-components/native';
 
 const StyledScrollView = styled.ScrollView`
@@ -161,7 +161,7 @@ function BigLabel(): React.ReactElement {
         hideLabel={false}
         autoLabel
         labelSize={50}
-        labelTextStyle={{ fontSize: 30 }}
+        labelTextStyle={{fontSize: 30}}
         onChange={(value): void => {
           setBigLabel(value);
         }}
@@ -183,12 +183,12 @@ function Colored(): React.ReactElement {
         defaultValue={2}
         step={1}
         hideLabel={false}
-        railStyle={{ backgroundColor: 'blue' }}
-        trackStyle={{ backgroundColor: 'black' }}
-        markStyle={{ backgroundColor: 'white' }}
-        thumbStyle={{ backgroundColor: 'green' }}
-        labelStyle={{ backgroundColor: 'red' }}
-        labelTextStyle={{ color: 'white' }}
+        railStyle={{backgroundColor: 'blue'}}
+        trackStyle={{backgroundColor: 'black'}}
+        markStyle={{backgroundColor: 'white'}}
+        thumbStyle={{backgroundColor: 'green'}}
+        labelStyle={{backgroundColor: 'red'}}
+        labelTextStyle={{color: 'white'}}
         onChange={(value): void => {
           setColored(value);
         }}
@@ -209,7 +209,7 @@ function CustomMarks(): React.ReactElement {
         maxValue={5}
         step={1}
         labelSize={50}
-        labelTextStyle={{ fontSize: 30 }}
+        labelTextStyle={{fontSize: 30}}
         mark={<Text>1</Text>}
         customMarkWidth={2}
         onChange={(value): void => {
@@ -232,7 +232,7 @@ function CustomThumb(): React.ReactElement {
         maxValue={5}
         step={1}
         labelSize={50}
-        labelTextStyle={{ fontSize: 30 }}
+        labelTextStyle={{fontSize: 30}}
         thumb={<Text>1</Text>}
         onChange={(value): void => {
           setCustomThumb(value);
@@ -255,9 +255,9 @@ function DesignBlack(): React.ReactElement {
         maxValue={10}
         defaultValue={2}
         step={1}
-        railStyle={{ backgroundColor: '#BCC1D1' }}
-        trackStyle={{ backgroundColor: '#232A3A' }}
-        thumbStyle={{ backgroundColor: '#232A3A' }}
+        railStyle={{backgroundColor: '#BCC1D1'}}
+        trackStyle={{backgroundColor: '#232A3A'}}
+        thumbStyle={{backgroundColor: '#232A3A'}}
         onChange={(value): void => {
           setDesignBlack(value);
         }}
@@ -279,9 +279,9 @@ function DesignLightBlue(): React.ReactElement {
         maxValue={10}
         defaultValue={4}
         step={1}
-        railStyle={{ backgroundColor: '#BCDBFB' }}
-        trackStyle={{ backgroundColor: '#4199F4' }}
-        thumbStyle={{ backgroundColor: '#4199F4' }}
+        railStyle={{backgroundColor: '#BCDBFB'}}
+        trackStyle={{backgroundColor: '#4199F4'}}
+        thumbStyle={{backgroundColor: '#4199F4'}}
         thumbSize={8}
         onChange={(value): void => {
           setDesignLightBlue(value);
@@ -303,14 +303,14 @@ function DesignBlue(): React.ReactElement {
         maxValue={10}
         defaultValue={6}
         step={1}
-        railStyle={{ backgroundColor: '#90A4F9' }}
-        trackStyle={{ backgroundColor: '#0B21E8' }}
+        railStyle={{backgroundColor: '#90A4F9'}}
+        trackStyle={{backgroundColor: '#0B21E8'}}
         thumbSize={8}
-        thumbStyle={{ backgroundColor: '#0B21E8' }}
-        markStyle={{ backgroundColor: '#4163F4' }}
+        thumbStyle={{backgroundColor: '#0B21E8'}}
+        markStyle={{backgroundColor: '#4163F4'}}
         labelSize={15}
-        labelStyle={{ backgroundColor: '#0B21E8' }}
-        labelTextStyle={{ color: '#FFFFFF', fontSize: 12 }}
+        labelStyle={{backgroundColor: '#0B21E8'}}
+        labelTextStyle={{color: '#FFFFFF', fontSize: 12}}
         onChange={(value): void => {
           setDesignBlue(value);
         }}

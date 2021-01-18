@@ -14,12 +14,7 @@ import {
   View,
   ViewStyle,
 } from 'react-native';
-import React, {
-  PropsWithChildren,
-  ReactElement,
-  useRef,
-  useState,
-} from 'react';
+import React, {PropsWithChildren, ReactElement, useRef, useState} from 'react';
 
 interface Style {
   wrapperContainer: ViewStyle;
@@ -161,7 +156,7 @@ interface Props {
   selectedDate?: Date;
   selectDate?: (date: Date) => void;
   markedDayEvents?: Record<string, any>[];
-  monthFormatter?: { format: (date: Date) => string };
+  monthFormatter?: {format: (date: Date) => string};
 }
 function CalendarCarousel({
   date = new Date(),
@@ -169,7 +164,7 @@ function CalendarCarousel({
   selectDate,
   selectedDate,
   markedDayEvents = [],
-  monthFormatter = new Intl.DateTimeFormat('en', { month: 'long' }),
+  monthFormatter = new Intl.DateTimeFormat('en', {month: 'long'}),
 }: PropsWithChildren<Props>): ReactElement {
   const scrollRef = useRef<ScrollView>(null);
   const [layoutWidth, setLayoutWidth] = useState<number>(330);
@@ -249,7 +244,7 @@ function CalendarCarousel({
         });
 
         weekdays.push(
-          <View style={{ width: 47.14 }} key={idx}>
+          <View style={{width: 47.14}} key={idx}>
             <Text style={styles.weekdayText}>{weekDay}</Text>
           </View>,
         );
@@ -415,7 +410,7 @@ function CalendarCarousel({
             style={styles.dayContainer}
             data={calendarDates}
             numColumns={7}
-            renderItem={({ item }): ReactElement => renderDates(item)}
+            renderItem={({item}): ReactElement => renderDates(item)}
             keyExtractor={(item, id): string => id.toString()}
             scrollEnabled={false}
           />
@@ -444,7 +439,7 @@ function CalendarCarousel({
         horizontal
         pagingEnabled
         scrollEventThrottle={16}
-        contentOffset={{ x: layoutWidth, y: 0 }}
+        contentOffset={{x: layoutWidth, y: 0}}
         ref={scrollRef}
         onMomentumScrollEnd={scrollEffect}>
         {renderCalendars()}

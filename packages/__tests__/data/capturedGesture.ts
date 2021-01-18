@@ -11,13 +11,13 @@ interface NativeTouchEvent {
 interface GestureHandlerInput {
   name: string;
   nativeEvent: NativeTouchEvent;
-  gestureState: { dx: number; dy: number };
+  gestureState: {dx: number; dy: number};
 }
 
 const replaceFirstTouchToThis = (
   item: GestureHandlerInput,
 ): GestureHandlerInput => {
-  const { nativeEvent } = item;
+  const {nativeEvent} = item;
 
   if (nativeEvent) {
     nativeEvent.touches[0] = nativeEvent;
@@ -31,7 +31,7 @@ export function getFirstTouchOfTwoFinger(
   inputs: GestureHandlerInput[],
 ): GestureHandlerInput | null {
   const firstTouchIndex = inputs.findIndex((input) => {
-    const { nativeEvent } = input;
+    const {nativeEvent} = input;
 
     return nativeEvent.touches.length === 2;
   });
@@ -47,7 +47,7 @@ export function getLastTouchOfTwofinger(
   const reversed = inputs.map((i) => i).reverse();
 
   const firstTouchIndex = reversed.findIndex((input) => {
-    const { nativeEvent } = input;
+    const {nativeEvent} = input;
 
     return nativeEvent.touches.length === 2;
   });
@@ -103,7 +103,7 @@ export function getTwoFingerStartEndPositions(
     y2: zoomEnd.nativeEvent.touches[1].locationY,
   };
 
-  return { start, end };
+  return {start, end};
 }
 
 const openGesture: GestureHandlerInput[] = [
@@ -1203,4 +1203,4 @@ const moveGesture: GestureHandlerInput[] = [
   },
 ].map(replaceFirstTouchToThis);
 
-export { openGesture, closeGesture, moveGesture };
+export {openGesture, closeGesture, moveGesture};

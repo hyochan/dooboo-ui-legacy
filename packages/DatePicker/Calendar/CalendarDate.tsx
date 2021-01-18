@@ -1,4 +1,4 @@
-import { TouchableOpacity, View, ViewStyle } from 'react-native';
+import {TouchableOpacity, View, ViewStyle} from 'react-native';
 
 import React from 'react';
 import styled from 'styled-components/native';
@@ -35,22 +35,22 @@ function CalendarDate(props: Props): React.ReactElement {
   const dateOpacity = props.isCurMonth ? 1 : 0.2;
 
   const todayStyle = props.isToday
-    ? { borderRadius: 16, backgroundColor: '#efefef' }
-    : { borderRadius: 0, backgroundColor: 'white' };
+    ? {borderRadius: 16, backgroundColor: '#efefef'}
+    : {borderRadius: 0, backgroundColor: 'white'};
 
   return (
     <TouchableOpacity
       onPress={(): void => {
         props.onPress?.(props.date);
       }}>
-      <View style={{ ...props.style }}>
+      <View style={{...props.style}}>
         <DateRow
           style={{
             flex: 1,
             justifyContent: 'center',
             alignItems: 'center',
           }}>
-          <SelectedDate style={{ opacity: dateOpacity, ...todayStyle }} />
+          <SelectedDate style={{opacity: dateOpacity, ...todayStyle}} />
           <DateText
             style={{
               alignSelf: 'center',

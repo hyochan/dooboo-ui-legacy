@@ -1,7 +1,7 @@
-import React, { ReactElement } from 'react';
-import { RenderAPI, render } from '@testing-library/react-native';
+import React, {ReactElement} from 'react';
+import {RenderAPI, render} from '@testing-library/react-native';
 
-import { Select } from '../../main';
+import {Select} from '../../main';
 
 let props: any;
 let component: ReactElement;

@@ -1,7 +1,7 @@
 import * as React from 'react';
 
-import { ImageSlider } from '../PinchZoom/PinchZoom.example';
-import { PanResponderCallbacks } from 'react-native';
+import {ImageSlider} from '../PinchZoom/PinchZoom.example';
+import {PanResponderCallbacks} from 'react-native';
 import renderer from 'react-test-renderer';
 
 jest.useFakeTimers();
@@ -10,7 +10,7 @@ jest.mock('react-native/Libraries/Interaction/PanResponder', () => {
   return {
     create: (
       responderCallback: PanResponderCallbacks,
-    ): { panHandlers: { responderCallback: PanResponderCallbacks } } => {
+    ): {panHandlers: {responderCallback: PanResponderCallbacks}} => {
       return {
         panHandlers: {
           responderCallback,

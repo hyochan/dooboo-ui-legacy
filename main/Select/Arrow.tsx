@@ -1,5 +1,5 @@
-import Svg, { Line } from 'react-native-svg';
-import { TextStyle, View } from 'react-native';
+import Svg, {Line} from 'react-native-svg';
+import {TextStyle, View} from 'react-native';
 
 import React from 'react';
 
@@ -8,7 +8,7 @@ interface Props {
 }
 
 export default function Arrow(props: Props): React.ReactElement {
-  const { customColor = { color: '#2b2b2b' } } = props;
+  const {customColor = {color: '#2b2b2b'}} = props;
 
   return (
     <View>

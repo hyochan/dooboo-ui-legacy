@@ -1,8 +1,8 @@
-import React, { ReactElement, useState } from 'react';
+import React, {ReactElement, useState} from 'react';
 
-import { ContainerDeco } from '../../storybook/decorators';
-import { SwitchToggle } from '../../main';
-import { storiesOf } from '@storybook/react-native';
+import {ContainerDeco} from '../../storybook/decorators';
+import {SwitchToggle} from '../../main';
+import {storiesOf} from '@storybook/react-native';
 
 const Small = (): React.ReactElement => {
   const [switchOn1, setSwitchOn1] = useState(false);
@@ -67,9 +67,9 @@ const WithText = (): React.ReactElement => {
         alignItems: 'center',
         justifyContent: 'flex-start',
       }}
-      buttonTextStyle={{ fontSize: 20 }}
-      textRightStyle={{ fontSize: 20 }}
-      textLeftStyle={{ fontSize: 20 }}
+      buttonTextStyle={{fontSize: 20}}
+      textRightStyle={{fontSize: 20}}
+      textLeftStyle={{fontSize: 20}}
       containerStyle={{
         marginTop: 16,
         width: 160,
@@ -133,19 +133,19 @@ export default {
 
 export const toStorybook1 = (): ReactElement => <Small />;
 
-toStorybook1.story = { name: 'small' };
+toStorybook1.story = {name: 'small'};
 
 export const toStorybook2 = (): ReactElement => <Medium />;
 
-toStorybook2.story = { name: 'medium' };
+toStorybook2.story = {name: 'medium'};
 
 export const toStorybook3 = (): ReactElement => <Large />;
 
-toStorybook3.story = { name: 'large' };
+toStorybook3.story = {name: 'large'};
 
 export const toStorybook4 = (): ReactElement => <WithText />;
 
-toStorybook4.story = { name: 'WithText' };
+toStorybook4.story = {name: 'WithText'};
 
 /**
  * Below are stories for app

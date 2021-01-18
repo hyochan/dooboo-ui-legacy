@@ -1,10 +1,10 @@
-import { ArrowDown, IC_MAGNIFIER } from '../Icon';
-import React, { Fragment, ReactElement } from 'react';
+import {ArrowDown, IC_MAGNIFIER} from '../Icon';
+import React, {Fragment, ReactElement} from 'react';
 
-import { Accordion } from '../../main';
-import { ContainerDeco } from '../../storybook/decorators';
-import { SafeAreaView } from 'react-native';
-import { storiesOf } from '@storybook/react-native';
+import {Accordion} from '../../main';
+import {ContainerDeco} from '../../storybook/decorators';
+import {SafeAreaView} from 'react-native';
+import {storiesOf} from '@storybook/react-native';
 import styled from 'styled-components/native';
 
 const Container = styled.View`
@@ -49,7 +49,7 @@ const data = [
 
 const Default = (): ReactElement => {
   return (
-    <SafeAreaView style={{ top: 100 }}>
+    <SafeAreaView style={{top: 100}}>
       <Container>
         <Accordion
           data={data}
@@ -66,7 +66,7 @@ const Default = (): ReactElement => {
 
 const CustomStyle = (): React.ReactElement => {
   return (
-    <SafeAreaView style={{ top: 100 }}>
+    <SafeAreaView style={{top: 100}}>
       <Container>
         <Accordion
           data={data}

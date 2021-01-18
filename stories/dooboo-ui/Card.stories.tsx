@@ -1,9 +1,9 @@
-import React, { ReactElement } from 'react';
+import React, {ReactElement} from 'react';
 
-import { Card } from '../../main';
-import { ContainerDeco } from '../../storybook/decorators';
-import { Text } from 'react-native';
-import { storiesOf } from '@storybook/react-native';
+import {Card} from '../../main';
+import {ContainerDeco} from '../../storybook/decorators';
+import {Text} from 'react-native';
+import {storiesOf} from '@storybook/react-native';
 import styled from 'styled-components/native';
 
 const ScrollContainer = styled.ScrollView`
@@ -32,7 +32,7 @@ function Default(): React.ReactElement {
       <Container>
         <Title>{'Image & Title & SubTitle & Children'}</Title>
         <Card
-          containerStyle={{ marginBottom: 30 }}
+          containerStyle={{marginBottom: 30}}
           image={{
             uri:
               'https://gw.alipayobjects.com/zos/rmsportal/JiqGstEfoWAOHiTxclqi.png',
@@ -43,29 +43,29 @@ function Default(): React.ReactElement {
         </Card>
         <Title>{'Image'}</Title>
         <Card
-          containerStyle={{ marginBottom: 30 }}
+          containerStyle={{marginBottom: 30}}
           image={{
             uri:
               'https://gw.alipayobjects.com/zos/rmsportal/JiqGstEfoWAOHiTxclqi.png',
           }}
         />
         <Title>{'Title'}</Title>
-        <Card containerStyle={{ marginBottom: 30 }} title="Title" />
+        <Card containerStyle={{marginBottom: 30}} title="Title" />
         <Title>{'SubTitle'}</Title>
-        <Card containerStyle={{ marginBottom: 30 }} subTitle="subTitle" />
+        <Card containerStyle={{marginBottom: 30}} subTitle="subTitle" />
         <Title>{'Title & SubTitle'}</Title>
         <Card
-          containerStyle={{ marginBottom: 30 }}
+          containerStyle={{marginBottom: 30}}
           title="Title"
           subTitle="subTitle"
         />
         <Title>{'Children'}</Title>
-        <Card containerStyle={{ marginBottom: 30 }}>
+        <Card containerStyle={{marginBottom: 30}}>
           <Text>{'children'}</Text>
         </Card>
         <Title>{'Title & SubTitle & Children'}</Title>
         <Card
-          containerStyle={{ marginBottom: 30 }}
+          containerStyle={{marginBottom: 30}}
           title="Title"
           subTitle="subTitle">
           <Text>{'children'}</Text>
@@ -81,7 +81,7 @@ function Style(): React.ReactElement {
       <Container>
         <Title>{'default'}</Title>
         <Card
-          containerStyle={{ marginBottom: 30 }}
+          containerStyle={{marginBottom: 30}}
           image={{
             uri:
               'https://gw.alipayobjects.com/zos/rmsportal/JiqGstEfoWAOHiTxclqi.png',
@@ -92,7 +92,7 @@ function Style(): React.ReactElement {
         </Card>
         <Title>{'raised'}</Title>
         <Card
-          containerStyle={{ marginBottom: 30 }}
+          containerStyle={{marginBottom: 30}}
           image={{
             uri:
               'https://gw.alipayobjects.com/zos/rmsportal/JiqGstEfoWAOHiTxclqi.png',
@@ -104,7 +104,7 @@ function Style(): React.ReactElement {
         </Card>
         <Title>{'outlined'}</Title>
         <Card
-          containerStyle={{ marginBottom: 30 }}
+          containerStyle={{marginBottom: 30}}
           image={{
             uri:
               'https://gw.alipayobjects.com/zos/rmsportal/JiqGstEfoWAOHiTxclqi.png',

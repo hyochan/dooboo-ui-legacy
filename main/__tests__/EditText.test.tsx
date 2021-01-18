@@ -7,8 +7,8 @@ import {
   waitFor,
 } from '@testing-library/react-native';
 
-import { EditText } from '../../main';
-import { View } from 'react-native';
+import {EditText} from '../../main';
+import {View} from 'react-native';
 // Note: test renderer must be required after react-native.
 import renderer from 'react-test-renderer';
 
@@ -39,7 +39,7 @@ describe('[EditText]', () => {
       focusColor: '#fff',
       inputContainerRadius: 30,
       onFocus: undefined,
-      focusLabelStyle: { fontWeight: 500 },
+      focusLabelStyle: {fontWeight: 500},
       focusBorderWidth: 10,
     };
 

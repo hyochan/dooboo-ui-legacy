@@ -8,7 +8,7 @@ import {
   View,
   ViewStyle,
 } from 'react-native';
-import React, { ReactElement } from 'react';
+import React, {ReactElement} from 'react';
 
 const styles = StyleSheet.create({
   container: {
@@ -96,4 +96,4 @@ LoadingIndicator.defaultProps = {
   color: '#969696',
 };
 
-export { LoadingIndicator };
+export {LoadingIndicator};

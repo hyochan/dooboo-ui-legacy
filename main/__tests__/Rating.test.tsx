@@ -1,7 +1,7 @@
 import * as React from 'react';
 // Note: test renderer must be required after react-native.
-import { TouchableOpacity, View } from 'react-native';
-import { Rating } from '../../main';
+import {TouchableOpacity, View} from 'react-native';
+import {Rating} from '../../main';
 import renderer from 'react-test-renderer';
 
 const defaultProps = {
@@ -59,11 +59,11 @@ describe('[Rating] render', () => {
         }),
       );
 
-      rendered.update(component({ value: 1 }));
+      rendered.update(component({value: 1}));
       expect(rendered).toMatchSnapshot();
       expect(rendered).toBeTruthy();
 
-      rendered.update(component({ disabled: true }));
+      rendered.update(component({disabled: true}));
       expect(rendered).toMatchSnapshot();
       expect(rendered).toBeTruthy();
     });
@@ -83,11 +83,11 @@ describe('[Rating] render', () => {
         }),
       );
 
-      rendered.update(component({ value: 3 }));
+      rendered.update(component({value: 3}));
       expect(rendered).toMatchSnapshot();
       expect(rendered).toBeTruthy();
 
-      rendered.update(component({ disabled: true }));
+      rendered.update(component({disabled: true}));
       expect(rendered).toMatchSnapshot();
       expect(rendered).toBeTruthy();
     });

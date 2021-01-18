@@ -1,4 +1,4 @@
-import React, { FC, useState } from 'react';
+import React, {FC, useState} from 'react';
 import {
   StyleProp,
   StyleSheet,
@@ -47,7 +47,7 @@ const ButtonGroup: FC<Props> = (props) => {
           <TouchableOpacity
             key={i}
             testID={`CHILD_${i}`}
-            style={{ flex: 1 }}
+            style={{flex: 1}}
             onPress={(): void => {
               setSelectedOption(i);
 
@@ -126,4 +126,4 @@ ButtonGroup.defaultProps = {
   data: ['option 1', 'option 2'],
 };
 
-export { ButtonGroup };
+export {ButtonGroup};

@@ -1,5 +1,5 @@
-import React, { ReactElement, ReactNode } from 'react';
-import { StyleProp, ViewStyle } from 'react-native';
+import React, {ReactElement, ReactNode} from 'react';
+import {StyleProp, ViewStyle} from 'react-native';
 
 import styled from 'styled-components/native';
 
@@ -14,16 +14,16 @@ const Container = styled.View`
   height: 48px;
 `;
 
-const Content = styled.View<{ isChecked: boolean }>`
+const Content = styled.View<{isChecked: boolean}>`
   height: 48px;
   border-bottom-width: 1px;
   border-bottom-color: lightgray;
   flex-direction: row;
-  background: ${({ isChecked }): string => (isChecked ? '#f2f9ff' : 'white')};
+  background: ${({isChecked}): string => (isChecked ? '#f2f9ff' : 'white')};
 `;
 
 function TableRow(props: Props): ReactElement {
-  const { isChecked, rowStyle } = props;
+  const {isChecked, rowStyle} = props;
 
   return (
     <Container testID="table-row-test-id" style={[rowStyle]}>

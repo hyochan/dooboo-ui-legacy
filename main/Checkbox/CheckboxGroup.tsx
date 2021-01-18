@@ -1,8 +1,8 @@
-import { CheckboxOptionType, CheckboxValueType, CustomStyle } from './types';
-import React, { FC, useCallback, useEffect, useRef, useState } from 'react';
+import {CheckboxOptionType, CheckboxValueType, CustomStyle} from './types';
+import React, {FC, useCallback, useEffect, useRef, useState} from 'react';
 
-import { Checkbox } from './Checkbox';
-import { GroupCheckboxContext } from './GroupCheckboxContext';
+import {Checkbox} from './Checkbox';
+import {GroupCheckboxContext} from './GroupCheckboxContext';
 import styled from 'styled-components/native';
 
 interface CheckboxGroupProps {
@@ -20,7 +20,7 @@ interface ContainerProps {
 }
 
 const Container = styled.View<ContainerProps>`
-  flex-direction: ${({ direction }): 'row' | 'column' => direction || 'column'};
+  flex-direction: ${({direction}): 'row' | 'column' => direction || 'column'};
   flex-wrap: wrap;
   align-items: flex-start;
 `;

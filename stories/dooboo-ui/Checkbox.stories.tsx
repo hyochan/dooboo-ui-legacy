@@ -1,7 +1,7 @@
-import { Checkbox, CheckboxGroup } from '../../main';
-import React, { ReactElement, useState } from 'react';
+import {Checkbox, CheckboxGroup} from '../../main';
+import React, {ReactElement, useState} from 'react';
 
-import { storiesOf } from '@storybook/react-native';
+import {storiesOf} from '@storybook/react-native';
 import styled from 'styled-components/native';
 
 const ScrollContainer = styled.ScrollView`
@@ -63,15 +63,15 @@ function DefaultCheckboxGroup(): React.ReactElement {
   const plainOptions = ['Apple', 'Pear', 'Orange'];
 
   const options = [
-    { label: 'Apple', value: 'Apple' },
-    { label: 'Pear', value: 'Pear' },
-    { label: 'Orange', value: 'Orange' },
+    {label: 'Apple', value: 'Apple'},
+    {label: 'Pear', value: 'Pear'},
+    {label: 'Orange', value: 'Orange'},
   ];
 
   const optionsWithDisabled = [
-    { label: 'Apple', value: 'Apple' },
-    { label: 'Pear', value: 'Pear' },
-    { label: 'Orange', value: 'Orange', disabled: true },
+    {label: 'Apple', value: 'Apple'},
+    {label: 'Pear', value: 'Pear'},
+    {label: 'Orange', value: 'Orange', disabled: true},
   ];
 
   const onChange = (checkedValues): void => {

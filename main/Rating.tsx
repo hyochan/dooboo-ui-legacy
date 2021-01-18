@@ -1,5 +1,5 @@
-import React, { useMemo } from 'react';
-import { StyleProp, ViewStyle } from 'react-native';
+import React, {useMemo} from 'react';
+import {StyleProp, ViewStyle} from 'react-native';
 
 import styled from 'styled-components/native';
 
@@ -30,11 +30,11 @@ interface StarProps {
 }
 
 const ContainerWrapper = styled.View<ContainerWrapperProps>`
-  width: ${({ total }): number => total * 30}px;
+  width: ${({total}): number => total * 30}px;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  opacity: ${({ disabled }): number => (disabled ? 0.5 : 1)};
+  opacity: ${({disabled}): number => (disabled ? 0.5 : 1)};
 `;
 
 const StarWrapper = styled.TouchableOpacity``;
@@ -114,4 +114,4 @@ function Rating(props: Props): React.ReactElement {
   );
 }
 
-export { Rating };
+export {Rating};

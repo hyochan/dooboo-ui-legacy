@@ -1,7 +1,7 @@
-import { Animated, Easing, LayoutChangeEvent, ViewStyle } from 'react-native';
-import React, { FC, useEffect, useRef, useState } from 'react';
+import {Animated, Easing, LayoutChangeEvent, ViewStyle} from 'react-native';
+import React, {FC, useEffect, useRef, useState} from 'react';
 
-import { Datum } from './index';
+import {Datum} from './index';
 import styled from 'styled-components/native';
 
 const TitleContainer = styled.TouchableOpacity`
@@ -78,7 +78,7 @@ const AccordionItem: FC<Props> = (props) => {
   const handleBodyLayout = (e: LayoutChangeEvent): void => {
     if (bodyMounted) return;
 
-    const { height } = e.nativeEvent.layout;
+    const {height} = e.nativeEvent.layout;
 
     layoutHeight = height;
     setBodyMounted(true);

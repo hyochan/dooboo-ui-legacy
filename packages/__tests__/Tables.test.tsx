@@ -1,7 +1,7 @@
 import 'react-native';
 
-import React, { ReactElement } from 'react';
-import { RenderAPI, render } from '@testing-library/react-native';
+import React, {ReactElement} from 'react';
+import {RenderAPI, render} from '@testing-library/react-native';
 
 import Table from '../Tables';
 
@@ -127,7 +127,7 @@ describe('[Tables] render test', (): void => {
         data,
       });
 
-      const { getAllByTestId } = render(<Table {...props} />);
+      const {getAllByTestId} = render(<Table {...props} />);
       const title = getAllByTestId(TEST_ID.TITLE);
 
       expect(title).not.toBeNull();
@@ -138,7 +138,7 @@ describe('[Tables] render test', (): void => {
         data,
       });
 
-      const { getAllByTestId } = render(<Table {...props} />);
+      const {getAllByTestId} = render(<Table {...props} />);
       const header = getAllByTestId(TEST_ID.HEADER);
 
       expect(header).not.toBeNull();
@@ -149,7 +149,7 @@ describe('[Tables] render test', (): void => {
         data,
       });
 
-      const { getAllByTestId } = render(<Table {...props} />);
+      const {getAllByTestId} = render(<Table {...props} />);
       const row = getAllByTestId(TEST_ID.ROW);
 
       expect(row).not.toBeNull();
@@ -160,7 +160,7 @@ describe('[Tables] render test', (): void => {
         data,
       });
 
-      const { getAllByTestId } = render(<Table {...props} />);
+      const {getAllByTestId} = render(<Table {...props} />);
       const cell = getAllByTestId(TEST_ID.CELL);
 
       expect(cell).not.toBeNull();
@@ -172,7 +172,7 @@ describe('[Tables] render test', (): void => {
       data,
     });
 
-    const { queryByTestId } = render(<Table {...props} isCheckAble={false} />);
+    const {queryByTestId} = render(<Table {...props} isCheckAble={false} />);
     const checkbox = queryByTestId(TEST_ID.CHECKBOX);
 
     expect(checkbox).toBeNull();
@@ -184,7 +184,7 @@ describe('[Tables] render test', (): void => {
       data: data,
     });
 
-    const { getAllByTestId } = render(<Table {...props} />);
+    const {getAllByTestId} = render(<Table {...props} />);
     const checkbox = getAllByTestId(TEST_ID.CHECKBOX);
 
     expect(checkbox).not.toBeNull();

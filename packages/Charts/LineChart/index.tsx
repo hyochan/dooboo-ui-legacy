@@ -1,9 +1,9 @@
 import * as d3 from 'd3';
 
-import { Circle, G, Line, Svg, Text } from 'react-native-svg';
-import React, { FC } from 'react';
+import {Circle, G, Line, Svg, Text} from 'react-native-svg';
+import React, {FC} from 'react';
 
-import { LineChartProps } from './types';
+import {LineChartProps} from './types';
 import styled from 'styled-components/native';
 
 // Styled component declaration

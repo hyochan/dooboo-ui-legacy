@@ -1,4 +1,4 @@
-import { Button, EditText, EditTextInputType } from '../../main';
+import {Button, EditText, EditTextInputType} from '../../main';
 import {
   Image,
   Platform,
@@ -8,11 +8,11 @@ import {
   TouchableOpacity,
   View,
 } from 'react-native';
-import React, { ReactElement, useState } from 'react';
+import React, {ReactElement, useState} from 'react';
 
-import { ContainerDeco } from '../../storybook/decorators';
-import { IC_CHECK } from '../Icon';
-import { storiesOf } from '@storybook/react-native';
+import {ContainerDeco} from '../../storybook/decorators';
+import {IC_CHECK} from '../Icon';
+import {storiesOf} from '@storybook/react-native';
 
 const ColumnEditText = (): React.ReactElement => {
   const validateEmail = (email: string): boolean => {
@@ -36,7 +36,7 @@ const ColumnEditText = (): React.ReactElement => {
   };
 
   return (
-    <SafeAreaView style={{ width: '100%' }}>
+    <SafeAreaView style={{width: '100%'}}>
       <ScrollView
         contentContainerStyle={{
           alignSelf: 'stretch',
@@ -64,13 +64,13 @@ const ColumnEditText = (): React.ReactElement => {
           </Text>
           <EditText
             testID="email-input-default"
-            textStyle={{ color: '#495057' }}
+            textStyle={{color: '#495057'}}
             label="Email"
             placeholder="Email address"
             placeholderTextColor="#ADB5BD"
             value={email}
             onChangeText={(text: string): void => onTextChanged('EMAIL', text)}
-            style={{ marginTop: 50 }}
+            style={{marginTop: 50}}
             errorText={errorEmail}
             onSubmitEditing={onSignIn}
           />
@@ -84,7 +84,7 @@ const ColumnEditText = (): React.ReactElement => {
             onChangeText={(text: string): void =>
               onTextChanged('PASSWORD', text)
             }
-            style={{ marginTop: 36 }}
+            style={{marginTop: 36}}
             onSubmitEditing={onSignIn}
           />
           <Button
@@ -121,7 +121,7 @@ const ColumnEditText = (): React.ReactElement => {
               }}>
               Do not have and account?{' '}
             </Text>
-            <TouchableOpacity onPress={(): null => null} style={{ padding: 4 }}>
+            <TouchableOpacity onPress={(): null => null} style={{padding: 4}}>
               <Text
                 style={{
                   color: '#6772e5',
@@ -274,7 +274,7 @@ const RowEditText = (): React.ReactElement => {
               }}>
               Do not have and account?{' '}
             </Text>
-            <TouchableOpacity onPress={(): null => null} style={{ padding: 4 }}>
+            <TouchableOpacity onPress={(): null => null} style={{padding: 4}}>
               <Text
                 style={{
                   color: '#6772e5',
@@ -377,7 +377,7 @@ const BoxEditText = (): React.ReactElement => {
             }}
             borderWidth={1}
             rightElement={
-              <Image source={IC_CHECK} style={{ width: 16, height: 16 }} />
+              <Image source={IC_CHECK} style={{width: 16, height: 16}} />
             }
           />
           <EditText
@@ -598,7 +598,7 @@ const BoxRowEditText = (): React.ReactElement => {
               }}>
               Do not have and account?{' '}
             </Text>
-            <TouchableOpacity onPress={(): null => null} style={{ padding: 4 }}>
+            <TouchableOpacity onPress={(): null => null} style={{padding: 4}}>
               <Text
                 style={{
                   color: '#6772e5',

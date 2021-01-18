@@ -1,5 +1,5 @@
-import { Animated, ViewStyle } from 'react-native';
-import React, { FC, useRef } from 'react';
+import {Animated, ViewStyle} from 'react-native';
+import React, {FC, useRef} from 'react';
 
 import AccordionItem from './AccordionItem';
 import styled from 'styled-components/native';
@@ -64,7 +64,7 @@ const Accordion: FC<Props> = (props) => {
             dropDownAnimValueList={dropDownAnimValueList[titleKey]}
             sumOfPrecedingTranslateY={dropDownAnimValueList
               .filter((item, idx) => idx < titleKey)
-              .map((value) => ({ translateY: value }))}
+              .map((value) => ({translateY: value}))}
           />
         );
       })}
@@ -72,4 +72,4 @@ const Accordion: FC<Props> = (props) => {
   );
 };
 
-export { Accordion };
+export {Accordion};

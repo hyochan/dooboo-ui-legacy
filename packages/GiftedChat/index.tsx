@@ -8,7 +8,7 @@ import {
   TextInput,
   View,
 } from 'react-native';
-import React, { useEffect, useRef, useState } from 'react';
+import React, {useEffect, useRef, useState} from 'react';
 
 import styled from 'styled-components/native';
 
@@ -55,10 +55,10 @@ const StyledViewBottom = styled.View`
   width: 100%;
 `;
 
-const StyledViewMenu = styled.View<{ height: number }>`
+const StyledViewMenu = styled.View<{height: number}>`
   flex-direction: row;
   flex-wrap: wrap;
-  height: ${({ height }): string => `${height}px`};
+  height: ${({height}): string => `${height}px`};
 `;
 
 interface Props<T> {
@@ -150,7 +150,7 @@ function Shared<T>(props: Props<T>): React.ReactElement {
           default: undefined,
         })}>
         <FlatList
-          style={{ alignSelf: 'stretch' }}
+          style={{alignSelf: 'stretch'}}
           contentContainerStyle={
             chats.length === 0
               ? {
@@ -167,7 +167,7 @@ function Shared<T>(props: Props<T>): React.ReactElement {
           onEndReached={onEndReached}
           ListEmptyComponent={emptyItem}
           ListHeaderComponent={
-            <View style={{ height: showMenu ? keyboardHeight + 80 : 28 }} />
+            <View style={{height: showMenu ? keyboardHeight + 80 : 28}} />
           }
         />
         {!showMenu ? (

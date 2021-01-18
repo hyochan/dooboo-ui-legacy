@@ -1,4 +1,4 @@
-const { defaults: tsJestConfig } = require('ts-jest/presets');
+const {defaults: tsJestConfig} = require('ts-jest/presets');
 
 process.env.TZ = 'Asia/Seoul';
 

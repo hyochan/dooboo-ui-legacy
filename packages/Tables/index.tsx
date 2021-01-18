@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import { ScrollView, StyleProp, Text, ViewStyle } from 'react-native';
+import {ScrollView, StyleProp, Text, ViewStyle} from 'react-native';
 
 import CheckBox from './CheckBox';
 import TableCell from './TableCell';
@@ -75,7 +75,7 @@ const Table: React.FC<Props> & TableNamespace = ({
           <Text>
             {selected.length > 0 ? `${selected.length} item selected` : null}{' '}
           </Text>
-          <Table.Header headerStyle={{ backgroundColor: '#f9f9f9' }}>
+          <Table.Header headerStyle={{backgroundColor: '#f9f9f9'}}>
             <Table.Title isCheckAble={!isCheckAble} />
 
             {/** have a customGroup or undefined  */}
@@ -97,10 +97,10 @@ const Table: React.FC<Props> & TableNamespace = ({
               <Table.Row
                 key={`row-${item}-${i}`}
                 isChecked={!!isItemSelected}
-                rowStyle={{ backgroundColor: 'white' }}>
+                rowStyle={{backgroundColor: 'white'}}>
                 {/* If CheckAble is true */}
                 {isCheckAble ? (
-                  <Table.Cell cellStyle={[{ justifyContent: 'center' }]}>
+                  <Table.Cell cellStyle={[{justifyContent: 'center'}]}>
                     <CheckBox
                       onClick={(): void => handleClick(item[group[0]])}
                       value={!!isItemSelected}

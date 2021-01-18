@@ -1,5 +1,5 @@
-import React, { FC } from 'react';
-import { StyleProp, ViewStyle } from 'react-native';
+import React, {FC} from 'react';
+import {StyleProp, ViewStyle} from 'react-native';
 
 import styled from 'styled-components/native';
 
@@ -20,7 +20,7 @@ const StyledRail = styled.View`
   background-color: #bcdbfb;
 `;
 
-const Rail: FC<Props> = ({ testID, style }) => {
+const Rail: FC<Props> = ({testID, style}) => {
   return <StyledRail testID={testID} style={style} />;
 };
 

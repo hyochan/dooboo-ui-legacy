@@ -5,7 +5,7 @@ import {
   TouchableOpacity,
   ViewStyle,
 } from 'react-native';
-import React, { FC, useEffect, useState } from 'react';
+import React, {FC, useEffect, useState} from 'react';
 
 import styled from 'styled-components/native';
 
@@ -46,7 +46,7 @@ const StyledDateInput = styled.TextInput`
   font-size: 15px;
   font-weight: 500;
   flex: 1;
-  ${Platform.OS === 'web' && { 'outline-style': 'none' }}
+  ${Platform.OS === 'web' && {'outline-style': 'none'}}
 `;
 
 const StyledErrorContainer = styled.View`
@@ -96,11 +96,11 @@ const DateInput: FC<Props> = (props) => {
 
   const {
     label = '',
-    labelTextStyle = { color: '#000', textAlign: 'left' },
+    labelTextStyle = {color: '#000', textAlign: 'left'},
     placeholder = 'YYYY-MM-DD',
     placeholderTextColor,
     errorText = 'Invalid Date',
-    errorTextStyle = { color: '#F00', textAlign: 'left' },
+    errorTextStyle = {color: '#F00', textAlign: 'left'},
     dateTextStyle,
     selectedDate,
     onPressCalendar,
@@ -134,7 +134,7 @@ const DateInput: FC<Props> = (props) => {
         </StyledRowContent>
         <TouchableOpacity onPress={onPressCalendar}>
           <Image
-            style={{ width: 20, height: 20 }}
+            style={{width: 20, height: 20}}
             source={require('./assets/calendar.png')}
           />
         </TouchableOpacity>
