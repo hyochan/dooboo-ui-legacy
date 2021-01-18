@@ -10,9 +10,9 @@ import {
   View,
   ViewStyle,
 } from 'react-native';
-import React, { useRef, useState } from 'react';
+import React, {useRef, useState} from 'react';
 
-import { useHover } from 'react-native-web-hooks';
+import {useHover} from 'react-native-web-hooks';
 
 const defaultStyles = StyleSheet.create({
   container: {
@@ -46,7 +46,6 @@ const defaultStyles = StyleSheet.create({
     shadowOpacity: 0.24,
     shadowRadius: 16,
     elevation: 10,
-    borderRadius: 4,
   },
 });
 
@@ -137,4 +136,4 @@ function Button({
   );
 }
 
-export { Button };
+export default Button;
