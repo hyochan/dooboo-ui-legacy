@@ -1,5 +1,10 @@
 ## Changelogs
 
+## 0.0.30
+
+- Update [Button] web styles
+- Updated bracket spacing rules for eslint and prettier
+
 ## 0.0.29
 
 - Added `TouchableOpacity` style prop to [Button] [#372](https://github.com/dooboolab/dooboo-ui/pull/372).
