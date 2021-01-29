@@ -15,89 +15,113 @@
 2. Import
 
    ```ts
-   import { ThemeProvider } from '@dooboo-ui/theme';
+   import {ThemeProvider} from '@dooboo-ui/theme';
    ```
 
 3. Create `light` and `dark` theme
 
    ```ts
    export const colors = {
-     whiteGray: '#f7f6f3',
-     dusk: 'rgb(65,77,107)',
-     dodgerBlue: 'rgb(58,139,255)',
-     skyBlue: 'rgb(100,199,255)',
-     mellowBlue: '#80b8f0',
-     green: 'rgb(29,211,168)',
-     greenBlue: 'rgb(36,205,151)',
-     greenishCyan: '#50e3c2',
-     mediumGray: 'rgb(134,154,183)',
-     paleGray: 'rgb(221,226,236)',
-     lightBackground: '#ffffff',
-     lightBackgroundLight: '#f7f6f3',
-     darkBackground: '#323739',
-     darkBackgroundLight: '#393241',
-     cloudyBlue: 'rgb(175,194,219)',
-     lightSalmon: '#f5aeae',
-     google: 'rgb(224,66,56)',
-     facebook: 'rgb(52,89,151)',
+     helioTrope: '#9A77FF',
+     mauve: '#cfa7ff',
+     fuchsiaBlue: '#664acb',
+     eastBay: '#3d3f77',
+     scampi: '#6b6aa6',
+     downRiver: '#0c194b',
+     magicMint: '#a5f4cc',
+     babyBlue: '#d8ffff',
+     deYork: '#74c19b',
+     aquaMarine: '#44D1A6',
+     salmon: '#FF7676',
+     charcoalGray: '#48454D',
+     brownGray: '#999999',
+     white: '#FFFFFF',
+     black: '#000000',
+     darkGray: '#00000070',
+     mediumGray: '#00000030',
+     lightGray: '#CFCED0',
+     paleViolet: '#F2F2F2',
+     mineShaftDark: '#222222',
+     mineShaft: '#333333',
+     light: '#F3F3F3',
+     negative: '#ff7676',
+     apple: '#151E22',
+     google: '#E04238',
+     facebook: '#345997',
    };
 
    export const light = {
-     background: colors.lightBackground,
-     backgroundDark: colors.dodgerBlue,
-     btnPrimary: colors.dodgerBlue,
-     btnPrimaryFont: 'white',
-     btnPrimaryLight: 'white',
-     btnPrimaryLightFont: colors.dodgerBlue,
-     textDisabled: '#969696',
-     btnDisabled: 'rgb(224,224,224)',
-     fontColor: 'black',
-     fontSubColor: colors.dusk,
-     labelColor: colors.mediumGray,
-     tintColor: colors.dodgerBlue,
-     lineColor: colors.paleGray,
-     indicatorColor: colors.dodgerBlue,
-     inactiveColor: '#a3a3a3',
-     primary: colors.dodgerBlue,
-     primaryLight: colors.skyBlue,
-     searchBackground: 'rgb(247,248,251)',
-     status: colors.greenishCyan,
-     placeholder: colors.cloudyBlue,
-     focused: colors.dodgerBlue,
-     placeholderFocused: colors.mellowBlue,
+     background: colors.white,
+     primary: colors.helioTrope,
+     primaryLight: colors.mauve,
+     primaryDark: colors.fuchsiaBlue,
+     secondary: colors.eastBay,
+     secondaryLight: colors.scampi,
+     secondaryDark: colors.downRiver,
+     tertiary: colors.downRiver,
+     tertiaryLight: colors.magicMint,
+     tertiaryDark: colors.babyBlue,
+     positive: colors.aquaMarine,
+     negative: colors.salmon,
+     text: colors.mineShaftDark,
+     primaryText: colors.charcoalGray,
+     secondaryText: colors.brownGray,
+     conntrastBackground: colors.darkGray,
+     contrastText: colors.white,
+     dialog: colors.lightGray,
+     disabled: colors.mediumGray,
+     placeholder: colors.lightGray,
+     paper: colors.paleViolet,
+     appleIcon: colors.apple,
+     appleText: colors.apple,
+     appleBackground: colors.light,
+     facebookIcon: colors.light,
+     facebookText: colors.light,
+     facebookBackground: colors.facebook,
+     googleIcon: colors.light,
+     googleText: colors.light,
+     googleBackground: colors.google,
    };
 
    export type Theme = typeof light;
 
    export const dark = {
-     background: colors.darkBackground,
-     backgroundDark: '#262A2C',
-     btnPrimary: '#262A2C',
-     btnPrimaryFont: 'white',
-     btnPrimaryLight: '#696969',
-     btnPrimaryLightFont: '#262A2C',
-     textDisabled: '#969696',
-     btnDisabled: 'rgb(224,224,224)',
-     fontColor: 'white',
-     fontSubColor: colors.paleGray,
-     labelColor: colors.mediumGray,
-     tintColor: '#a3a3a3',
-     lineColor: '#515557',
-     indicatorColor: 'white',
-     inactiveColor: colors.paleGray,
-     primary: '#1F2324',
-     primaryLight: '#262A2C',
-     searchBackground: '#243447',
-     status: colors.greenishCyan,
-     placeholder: colors.cloudyBlue,
-     focused: 'lightcoral',
-     placeholderFocused: colors.lightSalmon,
+     background: colors.mineShaftDark,
+     primary: colors.helioTrope,
+     primaryLight: colors.fuchsiaBlue,
+     primaryDark: colors.mauve,
+     secondary: colors.downRiver,
+     secondaryLight: colors.scampi,
+     secondaryDark: colors.eastBay,
+     tertiary: colors.downRiver,
+     tertiaryLight: colors.babyBlue,
+     tertiaryDark: colors.magicMint,
+     positive: colors.aquaMarine,
+     negative: colors.salmon,
+     text: colors.white,
+     primaryText: colors.white,
+     secondaryText: colors.brownGray,
+     contrastBackground: colors.white,
+     contrastText: colors.mineShaftDark,
+     dialog: colors.lightGray,
+     disabled: colors.mediumGray,
+     placeholder: colors.lightGray,
+     paper: colors.mineShaft,
+     appleIcon: colors.apple,
+     appleText: colors.apple,
+     appleBackground: colors.light,
+     facebookIcon: colors.light,
+     facebookText: colors.light,
+     facebookBackground: colors.facebook,
+     googleIcon: colors.light,
+     googleText: colors.light,
+     googleBackground: colors.google,
    };
    ```
 
 4. Wrap your component with `ThemeProvider` with given customTheme.
    ```tsx
-   <ThemeProvider customTheme={{ light, dark }}>
+   <ThemeProvider customTheme={{light, dark}}>
      <App />
    </ThemeProvider>
    ```
@@ -107,13 +131,13 @@
 1. Import `useThemeContext`
 
    ```ts
-   import { useThemeContext } from '@dooboo-ui/theme';
+   import {useThemeContext} from '@dooboo-ui/theme';
    ```
 
 2. Retrive theme.
 
    ```ts
-   const { theme } = useThemeContext();
+   const {theme} = useThemeContext();
    ```
 
 3. Use it in style.
@@ -129,7 +153,7 @@
    ```ts
    const StyledContainer = styled.SafeAreaView`
      flex: 1;
-     background-color: ${({ theme }): string => theme.background};
+     background-color: ${({theme}): string => theme.background};
      flex-direction: column;
      align-items: center;
    `;
@@ -141,8 +165,8 @@
 
 ```ts
 import 'styled-components';
-import { DoobooTheme } from '@dooboo-ui/theme';
-import { Theme } from './theme';
+import {DoobooTheme} from '@dooboo-ui/theme';
+import {Theme} from './theme';
 
 type AllTheme = Theme & DoobooTheme;
 
@@ -159,20 +183,4 @@ declare module 'styled-components' {
 
 ## Default colors
 
-- colors
-
-  | param           | light   | dark                 |
-  | --------------- | ------- | -------------------- |
-  | brand           | #29BDFF | #09071D              |
-  | brandLight      | #2973FF | #29BDFF              |
-  | title           | #29BDFF | #09071D              |
-  | background      | #FFFFFF | #09071D              |
-  | backgroundPaper | #F8F8F8 | #22202F              |
-  | disabled        | #E5E5E5 | #969696              |
-  | gray            | #9A9AA0 | #E5E5E5              |
-  | fontPrimary     | #09071D | #FFFFFF              |
-  | font            | #2E2E2E | #FFFFFF              |
-  | good            | #50E3C2 | #50E3C2              |
-  | warning         | #FC540A | #FC540A              |
-  | error           | #E86459 | #E86459              |
-  | underline       | #E5E5E5 | rgb(229,229,229,0.3) |
+> Although you can extend your colors, above variables are defined as defaulted.
