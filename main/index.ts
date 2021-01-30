@@ -2,7 +2,7 @@ export {Accordion} from './Accordion';
 export {Badge} from './Badge';
 export {Button} from './Button';
 export {ButtonGroup} from './ButtonGroup';
-export {EditText, EditTextInputType} from './EditText';
+export {EditText} from './EditText';
 export {LoadingIndicator} from './LoadingIndicator';
 export {Slider} from './Slider';
 export {RadioButton} from './RadioButton';
