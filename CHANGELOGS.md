@@ -1,6 +1,6 @@
 ## Changelogs
 
-## 0.0.33
+## 0.0.34
 
 - Removed default `flex: 1` in [EditText] - style
 

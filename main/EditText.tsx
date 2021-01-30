@@ -4,7 +4,6 @@ import type {StyleProp, TextInputProps, ViewStyle} from 'react-native';
 
 const defaultStyle: ViewStyle = {
   alignSelf: 'stretch',
-  flex: 1,
 
   flexDirection: 'column',
 };
