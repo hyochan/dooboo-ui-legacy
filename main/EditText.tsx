@@ -55,7 +55,6 @@ const defaultColumnStyles = StyleSheet.create({
     paddingVertical: 12,
     fontSize: 14,
     fontWeight: 'bold',
-    flex: 1,
     color: '#2c374e',
   },
   errorText: {

@@ -1,5 +1,13 @@
 ## Changelogs
 
+## 0.0.33
+
+- Removed default `flex: 1` in [EditText] - style
+
+## 0.0.32
+
+- Removed `flex: 1` [EditText] - column
+
 ## 0.0.31
 
 - Refactored [EditText] to more concise way as how it is done in [Button]
