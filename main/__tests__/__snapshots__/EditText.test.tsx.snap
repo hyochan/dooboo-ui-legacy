@@ -6,7 +6,6 @@ exports[`[EditText] Type: [row] - default renders without crashing 1`] = `
     Array [
       Object {
         "alignSelf": "stretch",
-        "flex": 1,
         "flexDirection": "column",
       },
       undefined,
@@ -58,7 +57,6 @@ exports[`[EditText] Type: [row] - default renders without crashing 1`] = `
         Array [
           Object {
             "color": "#2c374e",
-            "flex": 1,
             "fontSize": 14,
             "fontWeight": "bold",
             "paddingVertical": 12,
@@ -81,7 +79,6 @@ exports[`[EditText] Type: [row] renders without crashing 1`] = `
     Array [
       Object {
         "alignSelf": "stretch",
-        "flex": 1,
         "flexDirection": "column",
       },
       undefined,
