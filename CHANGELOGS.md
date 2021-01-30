@@ -1,5 +1,9 @@
 ## Changelogs
 
+## 0.0.31
+
+- Refactored [EditText] to more concise way as how it is done in [Button]
+
 ## 0.0.30
 
 - Update [Button] web styles

@@ -1,3 +1,7 @@
+[0.1.0]
+
+- Refactored all theme variables.
+
 [0.0.5]
 
 - Build with internally added `@babel/preset-react` preset in `babel` config.
