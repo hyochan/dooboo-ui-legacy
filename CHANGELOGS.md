@@ -1,5 +1,9 @@
 ## Changelogs
 
+## 0.0.35
+
+- Fix correct [Button] `onPress` type
+
 ## 0.0.34
 
 - Removed default `flex: 1` in [EditText] - style

@@ -60,9 +60,9 @@ interface Props {
   styles?: StylesType;
   leftElement?: React.ReactElement;
   rightElement?: React.ReactElement;
-  activeOpacity?: number;
+  activeOpacity?: TouchableOpacityProps['activeOpacity'];
   text?: string;
-  onPress?: () => void;
+  onPress?: TouchableOpacityProps['onPress'];
   touchableOpacityProps?: Partial<TouchableOpacityProps>;
   textProps?: Partial<TextProps>;
 }
