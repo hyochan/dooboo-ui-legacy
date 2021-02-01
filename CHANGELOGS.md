@@ -1,5 +1,9 @@
 ## Changelogs
 
+## 0.0.36
+
+- Added hover style to [EditText] and also `labelText` hover style. Fixed padding style in [Button]. Previously, default padding was applied in `text` which was hard to detect. Manage to have default pad styles in a container instead. [#374](https://github.com/dooboolab/dooboo-ui/pull/374)
+
 ## 0.0.35
 
 - Fix correct [Button] `onPress` type
