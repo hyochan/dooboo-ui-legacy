@@ -28,6 +28,9 @@ const defaultRowStyles = StyleSheet.create({
     color: '#b9b9c4',
     width: 100,
   },
+  labelTextHovered: {
+    color: '#9A77FF',
+  },
   input: {
     paddingVertical: 12,
     paddingHorizontal: 8,
@@ -53,12 +56,15 @@ const defaultColumnStyles = StyleSheet.create({
     flexDirection: 'column',
   },
   hovered: {
-    borderBottomWidth: 0.5,
+    borderBottomWidth: 0.3,
     borderBottomColor: '#9A77FF',
   },
   labelText: {
     fontSize: 14,
     color: '#b9b9c4',
+  },
+  labelTextHovered: {
+    color: '#9A77FF',
   },
   input: {
     paddingVertical: 12,
@@ -151,22 +157,24 @@ const EditText: FC<Props> = ({
               : disableColor,
           },
         ]}>
-        {/* {labelText ? ( */}
-        <Text
-          style={[
-            defaultStyles.labelText,
-            styles?.labelText,
-            {
-              color: errorText
-                ? errorColor
-                : focused
-                ? focusColor
-                : disableColor,
-            },
-          ]}>
-          {labelText}
-        </Text>
-        {/* ) : null} */}
+        {labelText ? (
+          <Text
+            style={[
+              defaultStyles.labelText,
+              styles?.labelText,
+              hovered
+                ? [defaultStyles.labelTextHovered, styles?.labelTextHovered]
+                : {
+                    color: errorText
+                      ? errorColor
+                      : focused
+                      ? focusColor
+                      : disableColor,
+                  },
+            ]}>
+            {labelText}
+          </Text>
+        ) : null}
         <TextInput
           {...textInputProps}
           testID={testID}
