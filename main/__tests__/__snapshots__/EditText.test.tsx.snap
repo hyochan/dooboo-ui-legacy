@@ -4,6 +4,7 @@ exports[`[EditText] Type: [row] - default renders without crashing 1`] = `
 <View
   style={
     Array [
+      false,
       Object {
         "alignSelf": "stretch",
         "flexDirection": "column",
@@ -77,6 +78,7 @@ exports[`[EditText] Type: [row] renders without crashing 1`] = `
 <View
   style={
     Array [
+      false,
       Object {
         "alignSelf": "stretch",
         "flexDirection": "column",
@@ -103,23 +105,6 @@ exports[`[EditText] Type: [row] renders without crashing 1`] = `
       ]
     }
   >
-    <Text
-      style={
-        Array [
-          Object {
-            "color": "#b9b9c4",
-            "fontSize": 14,
-            "width": 100,
-          },
-          undefined,
-          Object {
-            "color": "#999999",
-          },
-        ]
-      }
-    >
-      
-    </Text>
     <TextInput
       allowFontScaling={true}
       autoCapitalize="none"
