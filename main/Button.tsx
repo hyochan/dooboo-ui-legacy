@@ -17,8 +17,8 @@ import {useHover} from 'react-native-web-hooks';
 const defaultStyles = StyleSheet.create({
   container: {
     alignSelf: 'stretch',
-    paddingLeft: 16,
-    paddingRight: 16,
+    paddingHorizontal: 12,
+    paddingVertical: 8,
     borderRadius: 6,
 
     flexDirection: 'row',
@@ -26,7 +26,6 @@ const defaultStyles = StyleSheet.create({
     justifyContent: 'center',
   },
   text: {
-    paddingVertical: 12,
     fontSize: 14,
     color: '#069ccd',
   },
@@ -83,7 +82,7 @@ function Button({
   textProps,
 }: Props): React.ReactElement {
   const ref = useRef<TouchableOpacity>(null);
-  const isHovered = useHover(ref);
+  const hovered = useHover(ref);
   const [layout, setLayout] = useState<LayoutRectangle>();
 
   return (
@@ -105,7 +104,7 @@ function Button({
               width: layout?.width,
               height: layout?.height,
             },
-            isHovered && !disabled && [defaultStyles.hovered, styles?.hovered],
+            hovered && !disabled && [defaultStyles.hovered, styles?.hovered],
             disabled && [defaultStyles.disabledButton, styles?.disabledButton],
           ]}>
           <ActivityIndicator size="small" color={indicatorColor} />
@@ -115,7 +114,7 @@ function Button({
           style={[
             defaultStyles.container,
             styles?.container,
-            isHovered && !disabled && [defaultStyles.hovered, styles?.hovered],
+            hovered && !disabled && [defaultStyles.hovered, styles?.hovered],
             disabled && [defaultStyles.disabledButton, styles?.disabledButton],
           ]}
           onLayout={(e) => setLayout(e.nativeEvent.layout)}>
