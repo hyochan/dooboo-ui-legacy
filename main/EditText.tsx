@@ -1,6 +1,8 @@
 import {Platform, StyleSheet, Text, TextInput, View} from 'react-native';
-import React, {FC, useState} from 'react';
+import React, {FC, useRef, useState} from 'react';
 import type {StyleProp, TextInputProps, ViewStyle} from 'react-native';
+
+import {useHover} from 'react-native-web-hooks';
 
 const defaultStyle: ViewStyle = {
   alignSelf: 'stretch',
@@ -17,10 +19,17 @@ const defaultRowStyles = StyleSheet.create({
     borderBottomWidth: 0.3,
     borderBottomColor: '#666666',
   },
+  hovered: {
+    borderBottomWidth: 0.5,
+    borderBottomColor: '#9A77FF',
+  },
   labelText: {
     fontSize: 14,
     color: '#b9b9c4',
     width: 100,
+  },
+  labelTextHovered: {
+    color: '#9A77FF',
   },
   input: {
     paddingVertical: 12,
@@ -46,9 +55,16 @@ const defaultColumnStyles = StyleSheet.create({
 
     flexDirection: 'column',
   },
+  hovered: {
+    borderBottomWidth: 0.3,
+    borderBottomColor: '#9A77FF',
+  },
   labelText: {
     fontSize: 14,
     color: '#b9b9c4',
+  },
+  labelTextHovered: {
+    color: '#9A77FF',
   },
   input: {
     paddingVertical: 12,
@@ -112,11 +128,19 @@ const EditText: FC<Props> = ({
   type = 'column',
 }) => {
   const [focused, setFocused] = useState(false);
+  const ref = useRef<View>(null);
 
   const defaultStyles = type === 'row' ? defaultRowStyles : defaultColumnStyles;
+  const hovered = useHover(ref);
 
   return (
-    <View style={[defaultStyle, style]}>
+    <View
+      ref={ref}
+      style={[
+        hovered && [defaultStyles.hovered, styles?.hovered],
+        defaultStyle,
+        style,
+      ]}>
       <View
         style={[
           defaultStyles.container,
@@ -133,22 +157,24 @@ const EditText: FC<Props> = ({
               : disableColor,
           },
         ]}>
-        {/* {labelText ? ( */}
-        <Text
-          style={[
-            defaultStyles.labelText,
-            styles?.labelText,
-            {
-              color: errorText
-                ? errorColor
-                : focused
-                ? focusColor
-                : disableColor,
-            },
-          ]}>
-          {labelText}
-        </Text>
-        {/* ) : null} */}
+        {labelText ? (
+          <Text
+            style={[
+              defaultStyles.labelText,
+              styles?.labelText,
+              hovered
+                ? [defaultStyles.labelTextHovered, styles?.labelTextHovered]
+                : {
+                    color: errorText
+                      ? errorColor
+                      : focused
+                      ? focusColor
+                      : disableColor,
+                  },
+            ]}>
+            {labelText}
+          </Text>
+        ) : null}
         <TextInput
           {...textInputProps}
           testID={testID}
