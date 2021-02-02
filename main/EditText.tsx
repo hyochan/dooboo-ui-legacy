@@ -137,7 +137,7 @@ const EditText: FC<Props> = ({
     <View
       ref={ref}
       style={[
-        hovered && [defaultStyles.hovered, styles?.hovered],
+        editable && hovered && [defaultStyles.hovered, styles?.hovered],
         defaultStyle,
         style,
       ]}>
@@ -162,7 +162,7 @@ const EditText: FC<Props> = ({
             style={[
               defaultStyles.labelText,
               styles?.labelText,
-              hovered
+              editable && hovered
                 ? [defaultStyles.labelTextHovered, styles?.labelTextHovered]
                 : {
                     color: errorText

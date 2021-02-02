@@ -1,6 +1,10 @@
 ## Changelogs
 
-## 0.0.36
+## 0.0.37
+
+- Disable hover in [EditText] when not editable.
+
+- ## 0.0.36
 
 - Added hover style to [EditText] and also `labelText` hover style. Fixed padding style in [Button]. Previously, default padding was applied in `text` which was hard to detect. Manage to have default pad styles in a container instead. [#374](https://github.com/dooboolab/dooboo-ui/pull/374)
 
