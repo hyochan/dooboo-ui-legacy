@@ -1,6 +1,7 @@
 import {
   DefaultTheme,
   ThemeProvider as OriginalThemeProvider,
+  withTheme,
 } from 'styled-components/native';
 import {
   Theme as DoobooTheme,
@@ -80,4 +81,10 @@ function ThemeProvider({
   );
 }
 
-export {useCtx as useThemeContext, ThemeProvider, ThemeType, DoobooTheme};
+export {
+  useCtx as useThemeContext,
+  ThemeProvider,
+  ThemeType,
+  DoobooTheme,
+  withTheme,
+};

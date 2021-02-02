@@ -20,6 +20,7 @@
     "dooboolab-welcome": "^1.2.0"
   },
   "devDependencies": {
+    "@types/styled-components-react-native": "^5.1.1",
     "styled-components": "^5.1.1",
     "typescript": "^3.9.5"
   },
