@@ -184,6 +184,7 @@ const Slider: FC<Props> = ({
     });
 
   return (
+    // @ts-ignore
     <Container ref={sliderRef} {...panResponder.panHandlers}>
       <Rail testID="rail-test-id" style={railStyle} />
       <Track testID="track-test-id" percent={percent} style={trackStyle} />
