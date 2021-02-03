@@ -1,10 +1,7 @@
-import {
-  addDecorator,
-  configure,
-  getStorybookUI,
-} from '@storybook/react-native';
+import {addDecorator, configure, getStorybookUI} from '@storybook/react-native';
+
 import AsyncStorage from '@react-native-community/async-storage';
-import { withKnobs } from '@storybook/addon-knobs';
+import {withKnobs} from '@storybook/addon-knobs';
 
 configure(() => {
   // Since require.context doesn't exist in metro bundler world, we have to

@@ -135,7 +135,10 @@ const EditText: FC<Props> = ({
 
   return (
     <View
-      ref={ref}
+      ref={Platform.select({
+        web: ref,
+        default: undefined,
+      })}
       style={[
         editable && hovered && [defaultStyles.hovered, styles?.hovered],
         defaultStyle,
