@@ -1,5 +1,12 @@
 ## Changelogs
 
+## 0.0.38
+
+[EditText]
+
+- Use `useRef` for hover only in web env.
+- Tests fixes. When `await` is used more than once, `native-testing-library` emits error.[Reference](https://github.com/callstack/react-native-testing-library/issues/379#issuecomment-672932435)
+
 ## 0.0.37
 
 [EditText]

@@ -93,8 +93,8 @@ type Props = {
   onChangeText?: TextInputProps['onChangeText'];
   placeholder?: TextInputProps['placeholder'];
   placeholderTextColor?: TextInputProps['placeholderTextColor'];
-  onFocus?: TextInputProps['onFocus'];
-  onBlur?: TextInputProps['onBlur'];
+  onFocus?: TextInputProps['onFocus'] | undefined;
+  onBlur?: TextInputProps['onBlur'] | undefined;
   editable?: TextInputProps['editable'];
   autoCapitalize?: TextInputProps['autoCapitalize'];
   secureTextEntry?: TextInputProps['secureTextEntry'];

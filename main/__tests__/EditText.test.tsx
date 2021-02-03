@@ -2,6 +2,7 @@ import * as React from 'react';
 
 import {
   RenderAPI,
+  act,
   fireEvent,
   render,
   waitFor,
@@ -14,19 +15,24 @@ import renderer from 'react-test-renderer';
 let component: React.ReactElement;
 let testingLib: RenderAPI;
 
+const props: Record<string, unknown> = {
+  testID: 'INPUT_TEST',
+  testError: 'ERROR_TEST',
+  labelText: 'label text',
+  errorText: undefined,
+  onFocus: undefined,
+  onBlur: undefined,
+  borderColor: '#fff',
+  errorColor: '#fff',
+  focusColor: '#fff',
+};
+
 describe('[EditText]', () => {
   let value = '';
 
   describe('interactions', () => {
-    const props = {
-      testID: 'INPUT_TEST',
-      borderColor: '#fff',
-      errorColor: '#fff',
-      onChangeText: (word: string): void => {
-        value = word;
-      },
-      focusColor: '#fff',
-      onFocus: undefined,
+    props.onChangeText = (word: string): void => {
+      value = word;
     };
 
     beforeEach(() => {
@@ -37,7 +43,7 @@ describe('[EditText]', () => {
     it('should set error message when no valid email has been written', async () => {
       const input = await waitFor(() => testingLib.getByTestId('INPUT_TEST'));
 
-      await waitFor(() => {
+      act(() => {
         fireEvent.changeText(input, 'input test');
       });
 
@@ -45,29 +51,21 @@ describe('[EditText]', () => {
     });
 
     it('renders editText and running onFocus', async () => {
-      props.onFocus = (): void => {};
+      props.onFocus = jest.fn();
       component = <EditText {...props} />;
       testingLib = render(component);
 
       const input = await waitFor(() => testingLib.getByTestId('INPUT_TEST'));
 
-      await waitFor(() => {
+      expect(input).toBeTruthy();
+
+      act(() => {
         fireEvent(input, 'focus');
       });
     });
   });
 
-  // errorText == undefined ? true : false
   describe('Type: [row] - default', () => {
-    const props = {
-      testID: 'INPUT_TEST',
-      testError: 'ERROR_TEST',
-      labelText: 'label text',
-      errorText: undefined,
-      onFocus: undefined,
-      onBlur: undefined,
-    };
-
     it('renders without crashing', () => {
       component = <EditText {...props} />;
       testingLib = render(component);
@@ -79,13 +77,15 @@ describe('[EditText]', () => {
     });
 
     it('renders editText and running onFocus', async () => {
-      props.onFocus = (): void => {};
+      props.onFocus = jest.fn();
       component = <EditText {...props} />;
       testingLib = render(component);
 
       const input = await waitFor(() => testingLib.getByTestId('INPUT_TEST'));
 
-      await waitFor(() => {
+      expect(input).toBeTruthy();
+
+      act(() => {
         fireEvent(input, 'focus');
       });
     });
@@ -99,7 +99,9 @@ describe('[EditText]', () => {
 
         const input = await waitFor(() => testingLib.getByTestId('INPUT_TEST'));
 
-        await waitFor(() => {
+        expect(input).toBeTruthy();
+
+        act(() => {
           fireEvent(input, 'blur');
         });
       });
@@ -111,7 +113,9 @@ describe('[EditText]', () => {
 
         const input = await waitFor(() => testingLib.getByTestId('INPUT_TEST'));
 
-        await waitFor(() => {
+        expect(input).toBeTruthy();
+
+        act(() => {
           fireEvent(input, 'blur');
         });
       });
@@ -119,15 +123,6 @@ describe('[EditText]', () => {
   });
 
   describe('Type: [row]', () => {
-    const props = {
-      testID: 'INPUT_TEST',
-      testError: 'ERROR_TEST',
-      label: undefined,
-      errorText: undefined,
-      onFocus: undefined,
-      onBlur: undefined,
-    };
-
     it('renders without crashing', () => {
       component = <EditText {...props} type="row" />;
       testingLib = render(component);
@@ -146,14 +141,15 @@ describe('[EditText]', () => {
 
       const input = await waitFor(() => testingLib.getByTestId('INPUT_TEST'));
 
-      await waitFor(() => {
+      expect(input).toBeTruthy();
+
+      act(() => {
         fireEvent(input, 'focus');
       });
     });
 
     describe('when running onBlur (focused === false)', () => {
       props.onBlur = (): void => {};
-      // props.errorText = 'error test';
 
       it('renders row type input without errorText', async () => {
         component = <EditText {...props} />;
@@ -161,7 +157,9 @@ describe('[EditText]', () => {
 
         const input = await waitFor(() => testingLib.getByTestId('INPUT_TEST'));
 
-        await waitFor(() => {
+        expect(input).toBeTruthy();
+
+        act(() => {
           fireEvent(input, 'blur');
         });
       });
@@ -173,7 +171,9 @@ describe('[EditText]', () => {
 
         const input = await waitFor(() => testingLib.getByTestId('INPUT_TEST'));
 
-        await waitFor(() => {
+        expect(input).toBeTruthy();
+
+        act(() => {
           fireEvent(input, 'blur');
         });
       });
@@ -186,11 +186,13 @@ describe('[EditText]', () => {
 
         const input = await waitFor(() => testingLib.getByTestId('INPUT_TEST'));
 
-        await waitFor(() => {
+        expect(input).toBeTruthy();
+
+        act(() => {
           fireEvent(input, 'blur');
         });
 
-        await waitFor(() => {
+        act(() => {
           fireEvent(input, 'focus');
         });
       });
