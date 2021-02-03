@@ -50,7 +50,7 @@ const defaultStyles = StyleSheet.create({
 
 type StylesType = Partial<StyleSheet.NamedStyles<typeof defaultStyles>>;
 
-interface Props {
+export interface ButtonProps {
   testID?: string;
   indicatorColor?: string;
   loading?: boolean;
@@ -80,7 +80,7 @@ function Button({
   onPress,
   touchableOpacityProps,
   textProps,
-}: Props): React.ReactElement {
+}: ButtonProps): React.ReactElement {
   const ref = useRef<TouchableOpacity>(null);
   const hovered = useHover(ref);
   const [layout, setLayout] = useState<LayoutRectangle>();
@@ -97,6 +97,7 @@ function Button({
       {...touchableOpacityProps}>
       {loading ? (
         <View
+          testID="loading-view"
           style={[
             defaultStyles.container,
             styles?.container,
@@ -111,6 +112,7 @@ function Button({
         </View>
       ) : (
         <View
+          testID="button-view"
           style={[
             defaultStyles.container,
             styles?.container,
