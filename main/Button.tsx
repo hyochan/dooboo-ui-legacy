@@ -1,6 +1,7 @@
 import {
   ActivityIndicator,
   LayoutRectangle,
+  Platform,
   StyleProp,
   StyleSheet,
   Text,
@@ -88,7 +89,10 @@ function Button({
   return (
     <TouchableOpacity
       testID={testID}
-      ref={ref}
+      ref={Platform.select({
+        web: ref,
+        default: undefined,
+      })}
       activeOpacity={activeOpacity}
       onPress={onPress}
       delayPressIn={50}

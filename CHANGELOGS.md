@@ -2,7 +2,14 @@
 
 ## 0.0.37
 
-- Disable hover in [EditText] when not editable.
+[EditText]
+
+- Disable hover in when not editable.
+
+[Button]
+
+- tests coverage to 100%.
+- Use `useRef` for hover only in web env.
 
 - ## 0.0.36
 
