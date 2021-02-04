@@ -3,7 +3,7 @@ import 'react-native-get-random-values';
 import {IC_FACEBOOK, IC_GOOGLE} from '../Icon';
 import {Image, View} from 'react-native';
 import React, {ReactElement, useState} from 'react';
-import {ThemeType, dark, light} from '../../main/theme';
+import {ThemeType, light} from '../../main/theme';
 
 import {Button} from '../../main';
 import {ContainerDeco} from '../../storybook/decorators';

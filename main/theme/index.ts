@@ -72,9 +72,9 @@ export const light = {
 };
 
 export type Theme = typeof light & {
-  isDesktop: boolean;
-  isTablet: boolean;
-  isMobile: boolean;
+  isDesktop?: boolean;
+  isTablet?: boolean;
+  isMobile?: boolean;
 };
 
 export const dark = {
