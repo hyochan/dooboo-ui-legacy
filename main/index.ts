@@ -12,3 +12,11 @@ export {SwitchToggle} from './SwitchToggle';
 export {Select, SelectItem} from './Select';
 export {Checkbox, CheckboxGroup} from './Checkbox';
 export {Card} from './Card';
+export {
+  ThemeProvider,
+  useTheme,
+  withTheme,
+  theme,
+  ThemeType,
+  Theme as DoobooTheme,
+} from './theme';

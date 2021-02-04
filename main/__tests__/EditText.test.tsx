@@ -270,8 +270,30 @@ describe('[EditText]', () => {
         expect(json).toMatchSnapshot();
         expect(json).toBeTruthy();
       });
+
+      it('renders custom styles without crashing', () => {
+        testingLib = render(
+          component({
+            type: 'column',
+            styles: {
+              container: {},
+              errorText: {},
+              hovered: {},
+              input: {},
+              labelText: {},
+              labelTextHovered: {},
+            },
+          }),
+        );
+
+        const json = testingLib.toJSON();
+
+        expect(json).toMatchSnapshot();
+        expect(json).toBeTruthy();
+      });
     });
 
+    // // Below tests is emitting console error but this is expeted
     describe('web', () => {
       beforeAll(() => {
         jest.mock('react-native/Libraries/Utilities/Platform', () => ({

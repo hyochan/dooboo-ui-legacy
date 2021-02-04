@@ -10,6 +10,7 @@ import {
 import React, {ReactElement, useState} from 'react';
 
 import {ContainerDeco} from '../../storybook/decorators';
+import {ThemeProvider} from '../../main/theme/ThemeProvider';
 import {storiesOf} from '@storybook/react-native';
 
 const ColumnEditText = (): React.ReactElement => {
@@ -289,9 +290,17 @@ toStorybook2.story = {
  */
 storiesOf('EditText', module)
   .addDecorator(ContainerDeco)
-  .add(toStorybook1.story.name, () => <ColumnEditText />, {
-    notes: toStorybook1.story.notes,
-  })
+  .add(
+    toStorybook1.story.name,
+    () => (
+      <ThemeProvider>
+        <ColumnEditText />
+      </ThemeProvider>
+    ),
+    {
+      notes: toStorybook1.story.notes,
+    },
+  )
   .add(toStorybook2.story.name, () => <RowEditText />, {
     notes: toStorybook2.story.notes,
   });

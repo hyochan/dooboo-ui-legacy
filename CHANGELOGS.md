@@ -1,5 +1,26 @@
 ## Changelogs
 
+## 0.0.40
+
+[Theme]
+
+- Added missing `media` type in `theme`.
+
+## 0.0.39
+
+[Theme]
+
+- Deprecated [@dooboo-ui/theme](https://www.npmjs.com/package/@dooboo-ui/theme) and included in `dooboo-ui` package itself.
+  - This decision was made to unify the theme props used internally.
+
+[EditText]
+
+- Use theme props in default styling.
+
+[Button]
+
+- Use theme props in default styling.
+
 ## 0.0.38
 
 [EditText]

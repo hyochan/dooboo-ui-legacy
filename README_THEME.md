@@ -2,23 +2,15 @@
 
 > The `theme` module easily provides ability to make `light` and `dark` theme.
 
-[![Npm Version](http://img.shields.io/npm/v/@dooboo-ui/theme.svg?style=flat-square)](https://npmjs.org/package/@dooboo-ui/theme)
-[![Downloads](http://img.shields.io/npm/dm/@dooboo-ui/theme.svg?style=flat-square)](https://npmjs.org/package/@dooboo-ui/theme)
-
-![theme](https://user-images.githubusercontent.com/27461460/69912924-08864300-1474-11ea-90aa-e815063fe7e6.gif)
-
 ## Installation
 
-1. Install via yarn or npm.
-   `npm install @dooboo-ui/theme` or `yarn add @dooboo-ui/theme`.
-
-2. Import
+1. Import
 
    ```ts
-   import {ThemeProvider} from '@dooboo-ui/theme';
+   import {ThemeProvider} from 'dooboo-ui';
    ```
 
-3. Create `light` and `dark` theme
+2. Create `light` and `dark` theme
 
    ```ts
    export const colors = {
@@ -119,7 +111,7 @@
    };
    ```
 
-4. Wrap your component with `ThemeProvider` with given customTheme.
+3. Wrap your component with `ThemeProvider` with given customTheme.
    ```tsx
    <ThemeProvider customTheme={{light, dark}}>
      <App />
@@ -131,7 +123,7 @@
 1. Import `useThemeContext`
 
    ```ts
-   import {useThemeContext} from '@dooboo-ui/theme';
+   import {useThemeContext} from 'dooboo-ui';
    ```
 
 2. Retrive theme.
@@ -153,7 +145,7 @@
    ```ts
    const StyledContainer = styled.SafeAreaView`
      flex: 1;
-     background-color: ${({theme}): string => theme.background};
+     background-color: ${({theme}) => theme.background};
      flex-direction: column;
      align-items: center;
    `;

@@ -36,6 +36,6 @@
     "stories/**/*.tsx"
   ],
   "exclude": ["node_modules", "**/*.test.tsx", "**/*.spec.ts"],
-  "files": ["environment.d.ts"],
+  "files": ["environment.d.ts", "main/theme/styled.d.ts"],
   "types": ["typePatches"]
 }

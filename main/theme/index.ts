@@ -22,7 +22,7 @@ export const colors = {
   white: '#FFFFFF',
   black: '#000000',
   darkGray: '#00000070',
-  mediumGray: '#00000030',
+  mediumGray: '#00000050',
   lightGray: '#CFCED0',
   paleViolet: '#F2F2F2',
   mineShaftDark: '#222222',
@@ -32,7 +32,10 @@ export const colors = {
   apple: '#151E22',
   google: '#E04238',
   facebook: '#345997',
+  success: '#00BA90',
 };
+
+export type Colors = typeof colors;
 
 export const light = {
   background: colors.white,
@@ -50,10 +53,11 @@ export const light = {
   text: colors.mineShaftDark,
   primaryText: colors.charcoalGray,
   secondaryText: colors.brownGray,
-  conntrastBackground: colors.darkGray,
+  contrastBackground: colors.darkGray,
   contrastText: colors.white,
   dialog: colors.lightGray,
   disabled: colors.mediumGray,
+  disabledText: colors.light,
   placeholder: colors.lightGray,
   paper: colors.paleViolet,
   appleIcon: colors.apple,
@@ -67,7 +71,11 @@ export const light = {
   googleBackground: colors.google,
 };
 
-export type Theme = typeof light;
+export type Theme = typeof light & {
+  isDesktop?: boolean;
+  isTablet?: boolean;
+  isMobile?: boolean;
+};
 
 export const dark = {
   background: colors.mineShaftDark,
@@ -88,7 +96,8 @@ export const dark = {
   contrastBackground: colors.white,
   contrastText: colors.mineShaftDark,
   dialog: colors.lightGray,
-  disabled: colors.mediumGray,
+  disabled: colors.lightGray,
+  disabledText: colors.mediumGray,
   placeholder: colors.lightGray,
   paper: colors.mineShaft,
   appleIcon: colors.apple,
@@ -112,18 +121,20 @@ export interface ThemeParam {
   dark: Partial<Theme>;
 }
 
-export const createDoobooTheme = (
-  // eslint-disable-next-line default-param-last
-  themes: ThemeParam = {
-    light,
-    dark,
-  },
-  type?: ThemeType,
-): Partial<DefaultTheme> => {
+export const createDoobooTheme = ({
+  type,
+  themes,
+}: {
+  type?: ThemeType;
+  themes?: ThemeParam;
+}): Partial<DefaultTheme> => {
   switch (type) {
-    case ThemeType.LIGHT:
-      return {...theme.light, ...themes.light};
     case ThemeType.DARK:
-      return {...theme.dark, ...themes.dark};
+      return {...theme.dark, ...themes?.dark};
+    case ThemeType.LIGHT:
+    default:
+      return {...theme.light, ...themes?.light};
   }
 };
+
+export {ThemeProvider, useTheme, withTheme} from './ThemeProvider';
