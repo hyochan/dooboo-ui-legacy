@@ -1,6 +1,12 @@
 ## Changelogs
 
-## 0.0.38
+## 0.0.40
+
+[Theme]
+
+- Added missing `media` type in `theme`.
+
+## 0.0.39
 
 [Theme]
 
