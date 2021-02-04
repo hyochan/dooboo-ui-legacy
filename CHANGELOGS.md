@@ -1,5 +1,11 @@
 ## Changelogs
 
+## 0.0.41
+
+[EditText]
+
+- Fixed default `borderBottomWidth` to 0.5.
+
 ## 0.0.40
 
 [Theme]

@@ -85,7 +85,7 @@ const Component: FC<EditTextProps & {theme: Theme}> = ({
               flexDirection: 'row',
               alignItems: 'center',
               justifyContent: 'space-between',
-              borderBottomWidth: 0.3,
+              borderBottomWidth: 0.5,
               borderBottomColor: borderColor,
             },
             styles?.container,
@@ -136,7 +136,7 @@ const Component: FC<EditTextProps & {theme: Theme}> = ({
             {
               alignSelf: 'stretch',
               justifyContent: 'space-between',
-              borderBottomWidth: 0.3,
+              borderBottomWidth: 0.5,
               borderBottomColor: borderColor,
 
               flexDirection: 'column',
@@ -145,7 +145,7 @@ const Component: FC<EditTextProps & {theme: Theme}> = ({
           ],
           hovered: [
             {
-              borderBottomWidth: 0.3,
+              borderBottomWidth: 0.5,
               borderBottomColor: hoveredColor,
             },
             styles?.hovered,
