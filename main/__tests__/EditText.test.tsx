@@ -2,197 +2,298 @@ import * as React from 'react';
 
 import {
   RenderAPI,
+  act,
   fireEvent,
   render,
   waitFor,
 } from '@testing-library/react-native';
 
 import {EditText} from '../../main';
-// Note: test renderer must be required after react-native.
-import renderer from 'react-test-renderer';
+import type {EditTextProps} from '../../main/EditText';
+import RNWebHooks from 'react-native-web-hooks';
+import {ReactTestInstance} from 'react-test-renderer';
 
-let component: React.ReactElement;
+jest.mock('react-native-web-hooks', () => ({
+  useHover: () => false,
+}));
+
 let testingLib: RenderAPI;
 
+const component = (editProps?: EditTextProps): React.ReactElement => {
+  return <EditText {...editProps} />;
+};
+
 describe('[EditText]', () => {
-  let value = '';
-
   describe('interactions', () => {
-    const props = {
-      testID: 'INPUT_TEST',
-      borderColor: '#fff',
-      errorColor: '#fff',
-      onChangeText: (word: string): void => {
-        value = word;
-      },
-      focusColor: '#fff',
-      onFocus: undefined,
-    };
-
-    beforeEach(() => {
-      component = <EditText {...props} autoCapitalize="words" />;
-      testingLib = render(component);
+    beforeAll(() => {
+      testingLib = render(
+        component({
+          autoCapitalize: 'words',
+        }),
+      );
     });
 
-    it('should set error message when no valid email has been written', async () => {
-      const input = await waitFor(() => testingLib.getByTestId('INPUT_TEST'));
+    describe('hovered', () => {
+      let container: ReactTestInstance;
 
-      await waitFor(() => {
-        fireEvent.changeText(input, 'input test');
+      beforeAll(() => {
+        jest.spyOn(RNWebHooks, 'useHover').mockImplementation(() => true);
       });
 
-      expect(value).toEqual('input test');
-    });
+      it('should render styles', async () => {
+        testingLib = render(
+          component({
+            styles: {
+              hovered: {
+                backgroundColor: 'green',
+              },
+            },
+          }),
+        );
 
-    it('renders editText and running onFocus', async () => {
-      props.onFocus = (): void => {};
-      component = <EditText {...props} />;
-      testingLib = render(component);
+        container = await waitFor(() => testingLib.getByTestId('container-id'));
 
-      const input = await waitFor(() => testingLib.getByTestId('INPUT_TEST'));
+        const containerCustomStyle = container.props.style[0][1];
 
-      await waitFor(() => {
-        fireEvent(input, 'focus');
+        expect(containerCustomStyle).toEqual({backgroundColor: 'green'});
       });
-    });
-  });
 
-  // errorText == undefined ? true : false
-  describe('Type: [row] - default', () => {
-    const props = {
-      testID: 'INPUT_TEST',
-      testError: 'ERROR_TEST',
-      labelText: 'label text',
-      errorText: undefined,
-      onFocus: undefined,
-      onBlur: undefined,
-    };
+      describe('labeText', () => {
+        it('should render text', async () => {
+          testingLib = render(
+            component({
+              labelText: 'label text',
+            }),
+          );
 
-    it('renders without crashing', () => {
-      component = <EditText {...props} />;
-      testingLib = render(component);
+          const label = await waitFor(() => testingLib.getByText('label text'));
 
-      const rendered = renderer.create(component).toJSON();
+          expect(label).toBeTruthy();
+        });
 
-      expect(rendered).toMatchSnapshot();
-      expect(rendered).toBeTruthy();
-    });
+        it('should render style', async () => {
+          testingLib = render(
+            component({
+              labelText: 'label text',
+              styles: {
+                labelText: {
+                  color: 'green',
+                },
+              },
+            }),
+          );
 
-    it('renders editText and running onFocus', async () => {
-      props.onFocus = (): void => {};
-      component = <EditText {...props} />;
-      testingLib = render(component);
+          const label = await waitFor(() => testingLib.getByText('label text'));
+          const labelTextStyle = label.props.style[1];
 
-      const input = await waitFor(() => testingLib.getByTestId('INPUT_TEST'));
+          expect(labelTextStyle).toEqual({color: 'green'});
+        });
 
-      await waitFor(() => {
-        fireEvent(input, 'focus');
-      });
-    });
+        describe('unhovered', () => {
+          beforeAll(() => {
+            jest.spyOn(RNWebHooks, 'useHover').mockImplementation(() => false);
+          });
 
-    describe('when running onBlur (focused === false)', () => {
-      props.onBlur = (): void => {};
+          it('should contain `disableColor` - default', async () => {
+            testingLib = render(
+              component({
+                labelText: 'label text',
+                styles: {
+                  labelText: {
+                    color: 'green',
+                  },
+                },
+                disableColor: '#666',
+              }),
+            );
 
-      it('should trigger blur without errorText', async () => {
-        component = <EditText {...props} />;
-        testingLib = render(component);
+            const label = await waitFor(() =>
+              testingLib.getByText('label text'),
+            );
 
-        const input = await waitFor(() => testingLib.getByTestId('INPUT_TEST'));
+            const unhoveredTextStyle = label.props.style[2];
 
-        await waitFor(() => {
-          fireEvent(input, 'blur');
+            expect(unhoveredTextStyle).toEqual({color: '#666'});
+          });
+
+          it('should contain `focusColor` when focused', async () => {
+            testingLib = render(
+              component({
+                testID: 'INPUT_TEST',
+                labelText: 'label text',
+                styles: {
+                  labelText: {
+                    color: 'green',
+                  },
+                },
+                disableColor: '#666',
+                focusColor: 'pink',
+              }),
+            );
+
+            const input = await waitFor(() =>
+              testingLib.getByTestId('INPUT_TEST'),
+            );
+
+            act(() => {
+              input.props.onFocus();
+            });
+
+            const label = testingLib.getByText('label text');
+
+            const unhoveredTextStyle = label.props.style[2];
+
+            expect(unhoveredTextStyle).toEqual({color: 'pink'});
+          });
+
+          it('should contain `errorColor` when `errorText is provided', async () => {
+            testingLib = render(
+              component({
+                testID: 'INPUT_TEST',
+                labelText: 'label text',
+                errorText: 'error text',
+                styles: {
+                  labelText: {
+                    color: 'green',
+                  },
+                },
+                errorColor: 'orange',
+              }),
+            );
+
+            const input = await waitFor(() =>
+              testingLib.getByTestId('INPUT_TEST'),
+            );
+
+            act(() => {
+              input.props.onFocus();
+            });
+
+            const label = testingLib.getByText('label text');
+            const error = testingLib.getByText('error text');
+
+            const unhoveredTextStyle = label.props.style[2];
+
+            expect(error).toBeTruthy();
+            expect(unhoveredTextStyle).toEqual({color: 'orange'});
+          });
         });
       });
 
-      it('should trigger blur with errorText', async () => {
-        props.errorText = 'error text';
-        component = <EditText {...props} />;
-        testingLib = render(component);
+      it('should trigger `onFocus`', async () => {
+        testingLib = render(
+          component({
+            testID: 'INPUT_TEST',
+            onFocus: jest.fn(),
+          }),
+        );
 
         const input = await waitFor(() => testingLib.getByTestId('INPUT_TEST'));
 
-        await waitFor(() => {
-          fireEvent(input, 'blur');
-        });
-      });
-    });
-  });
+        expect(input).toBeTruthy();
 
-  describe('Type: [row]', () => {
-    const props = {
-      testID: 'INPUT_TEST',
-      testError: 'ERROR_TEST',
-      label: undefined,
-      errorText: undefined,
-      onFocus: undefined,
-      onBlur: undefined,
-    };
-
-    it('renders without crashing', () => {
-      component = <EditText {...props} type="row" />;
-      testingLib = render(component);
-
-      const rendered = renderer.create(component).toJSON();
-
-      expect(rendered).toMatchSnapshot();
-      expect(rendered).toBeTruthy();
-    });
-
-    it('renders row type input and runs onFocus', async () => {
-      props.label = 'label text';
-      props.onFocus = (): void => {};
-      component = <EditText {...props} type="row" />;
-      testingLib = render(component);
-
-      const input = await waitFor(() => testingLib.getByTestId('INPUT_TEST'));
-
-      await waitFor(() => {
-        fireEvent(input, 'focus');
-      });
-    });
-
-    describe('when running onBlur (focused === false)', () => {
-      props.onBlur = (): void => {};
-      // props.errorText = 'error test';
-
-      it('renders row type input without errorText', async () => {
-        component = <EditText {...props} />;
-        testingLib = render(component);
-
-        const input = await waitFor(() => testingLib.getByTestId('INPUT_TEST'));
-
-        await waitFor(() => {
-          fireEvent(input, 'blur');
-        });
-      });
-
-      it('renders row type input with props errorText', async () => {
-        props.errorText = 'error text';
-        component = <EditText {...props} />;
-        testingLib = render(component);
-
-        const input = await waitFor(() => testingLib.getByTestId('INPUT_TEST'));
-
-        await waitFor(() => {
-          fireEvent(input, 'blur');
-        });
-      });
-
-      it('should trigger blur focus when onBlur and onFocus are undefined', async () => {
-        props.onBlur = undefined;
-        props.onFocus = undefined;
-        component = <EditText {...props} />;
-        testingLib = render(component);
-
-        const input = await waitFor(() => testingLib.getByTestId('INPUT_TEST'));
-
-        await waitFor(() => {
-          fireEvent(input, 'blur');
-        });
-
-        await waitFor(() => {
+        act(() => {
           fireEvent(input, 'focus');
         });
+      });
+
+      describe('onBlur (focused === false)', () => {
+        it('should trigger blur without errorText', async () => {
+          testingLib = render(
+            component({
+              onBlur: () => {},
+              testID: 'INPUT_TEST',
+            }),
+          );
+
+          const input = await waitFor(() =>
+            testingLib.getByTestId('INPUT_TEST'),
+          );
+
+          expect(input).toBeTruthy();
+
+          act(() => {
+            fireEvent(input, 'blur');
+          });
+        });
+
+        it('should trigger blur with errorText', async () => {
+          testingLib = render(
+            component({
+              testID: 'INPUT_TEST',
+              errorText: 'error text',
+            }),
+          );
+
+          const input = await waitFor(() =>
+            testingLib.getByTestId('INPUT_TEST'),
+          );
+
+          expect(input).toBeTruthy();
+
+          act(() => {
+            fireEvent(input, 'blur');
+          });
+        });
+      });
+    });
+
+    describe('Type: [row] - default', () => {
+      it('should render without crashing', () => {
+        testingLib = render(component());
+
+        const json = testingLib.toJSON();
+
+        expect(json).toBeTruthy();
+
+        testingLib = render(
+          component({
+            type: 'row',
+          }),
+        );
+
+        expect(json).toMatchSnapshot();
+        expect(json).toBeTruthy();
+      });
+    });
+
+    describe('Type: [column]', () => {
+      it('renders without crashing', () => {
+        testingLib = render(
+          component({
+            type: 'column',
+          }),
+        );
+
+        const json = testingLib.toJSON();
+
+        expect(json).toMatchSnapshot();
+        expect(json).toBeTruthy();
+      });
+    });
+
+    describe('web', () => {
+      beforeAll(() => {
+        jest.mock('react-native/Libraries/Utilities/Platform', () => ({
+          OS: 'web',
+          select: () => ({
+            web: true,
+            default: undefined,
+          }),
+        }));
+      });
+
+      it('renders without crashing', () => {
+        testingLib = render(
+          component({
+            type: 'column',
+          }),
+        );
+
+        const json = testingLib.toJSON();
+
+        expect(json).toMatchSnapshot();
+        expect(json).toBeTruthy();
       });
     });
   });

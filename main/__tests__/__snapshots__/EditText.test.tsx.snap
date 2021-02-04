@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`[EditText] Type: [row] - default renders without crashing 1`] = `
+exports[`[EditText] interactions Type: [column] renders without crashing 1`] = `
 <View
   style={
     Array [
@@ -12,6 +12,7 @@ exports[`[EditText] Type: [row] - default renders without crashing 1`] = `
       undefined,
     ]
   }
+  testID="container-id"
 >
   <View
     style={
@@ -30,22 +31,6 @@ exports[`[EditText] Type: [row] - default renders without crashing 1`] = `
       ]
     }
   >
-    <Text
-      style={
-        Array [
-          Object {
-            "color": "#b9b9c4",
-            "fontSize": 14,
-          },
-          undefined,
-          Object {
-            "color": "#999999",
-          },
-        ]
-      }
-    >
-      label text
-    </Text>
     <TextInput
       allowFontScaling={true}
       autoCapitalize="none"
@@ -66,7 +51,6 @@ exports[`[EditText] Type: [row] - default renders without crashing 1`] = `
           false,
         ]
       }
-      testID="INPUT_TEST"
       underlineColorAndroid="transparent"
       value=""
     />
@@ -74,7 +58,7 @@ exports[`[EditText] Type: [row] - default renders without crashing 1`] = `
 </View>
 `;
 
-exports[`[EditText] Type: [row] renders without crashing 1`] = `
+exports[`[EditText] interactions Type: [row] - default should render without crashing 1`] = `
 <View
   style={
     Array [
@@ -86,16 +70,16 @@ exports[`[EditText] Type: [row] renders without crashing 1`] = `
       undefined,
     ]
   }
+  testID="container-id"
 >
   <View
     style={
       Array [
         Object {
-          "alignItems": "center",
           "alignSelf": "stretch",
           "borderBottomColor": "#666666",
           "borderBottomWidth": 0.3,
-          "flexDirection": "row",
+          "flexDirection": "column",
           "justifyContent": "space-between",
         },
         Object {
@@ -117,17 +101,74 @@ exports[`[EditText] Type: [row] renders without crashing 1`] = `
         Array [
           Object {
             "color": "#2c374e",
-            "flex": 1,
             "fontSize": 14,
             "fontWeight": "bold",
-            "paddingHorizontal": 8,
             "paddingVertical": 12,
           },
           undefined,
           false,
         ]
       }
-      testID="INPUT_TEST"
+      underlineColorAndroid="transparent"
+      value=""
+    />
+  </View>
+</View>
+`;
+
+exports[`[EditText] interactions web renders without crashing 1`] = `
+<View
+  style={
+    Array [
+      false,
+      Object {
+        "alignSelf": "stretch",
+        "flexDirection": "column",
+      },
+      undefined,
+    ]
+  }
+  testID="container-id"
+>
+  <View
+    style={
+      Array [
+        Object {
+          "alignSelf": "stretch",
+          "borderBottomColor": "#666666",
+          "borderBottomWidth": 0.3,
+          "flexDirection": "column",
+          "justifyContent": "space-between",
+        },
+        Object {
+          "borderBottomColor": "#999999",
+          "borderColor": "#999999",
+        },
+      ]
+    }
+  >
+    <TextInput
+      allowFontScaling={true}
+      autoCapitalize="none"
+      editable={true}
+      onBlur={[Function]}
+      onFocus={[Function]}
+      rejectResponderTermination={true}
+      secureTextEntry={false}
+      style={
+        Array [
+          Object {
+            "color": "#2c374e",
+            "fontSize": 14,
+            "fontWeight": "bold",
+            "paddingVertical": 12,
+          },
+          undefined,
+          Object {
+            "outlineWidth": 0,
+          },
+        ]
+      }
       underlineColorAndroid="transparent"
       value=""
     />

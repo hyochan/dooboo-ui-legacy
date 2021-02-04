@@ -81,7 +81,7 @@ const defaultColumnStyles = StyleSheet.create({
 
 type StylesType = Partial<StyleSheet.NamedStyles<typeof defaultRowStyles>>;
 
-type Props = {
+export type EditTextProps = {
   testID?: TextInputProps['testID'];
   textInputProps?: TextInputProps;
   style?: StyleProp<ViewStyle>;
@@ -93,8 +93,8 @@ type Props = {
   onChangeText?: TextInputProps['onChangeText'];
   placeholder?: TextInputProps['placeholder'];
   placeholderTextColor?: TextInputProps['placeholderTextColor'];
-  onFocus?: TextInputProps['onFocus'];
-  onBlur?: TextInputProps['onBlur'];
+  onFocus?: TextInputProps['onFocus'] | undefined;
+  onBlur?: TextInputProps['onBlur'] | undefined;
   editable?: TextInputProps['editable'];
   autoCapitalize?: TextInputProps['autoCapitalize'];
   secureTextEntry?: TextInputProps['secureTextEntry'];
@@ -105,7 +105,7 @@ type Props = {
   type?: 'row' | 'column';
 };
 
-const EditText: FC<Props> = ({
+const EditText: FC<EditTextProps> = ({
   testID,
   textInputProps,
   style,
@@ -135,7 +135,11 @@ const EditText: FC<Props> = ({
 
   return (
     <View
-      ref={ref}
+      testID="container-id"
+      ref={Platform.select({
+        web: ref,
+        default: undefined,
+      })}
       style={[
         editable && hovered && [defaultStyles.hovered, styles?.hovered],
         defaultStyle,
