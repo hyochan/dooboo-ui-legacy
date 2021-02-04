@@ -7,6 +7,7 @@
 - Use `useRef` for hover only in web env.
 - Tests fixes. When `await` is used more than once, `native-testing-library` emits error.[Reference](https://github.com/callstack/react-native-testing-library/issues/379#issuecomment-672932435)
 - Refactored [EditText] tests with 100% coverage.
+- Removed `@react-native-async-storage/async-storage` from core dependency.
 
 ## 0.0.37
 
