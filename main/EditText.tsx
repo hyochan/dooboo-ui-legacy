@@ -2,7 +2,9 @@ import {Platform, StyleSheet, Text, TextInput, View} from 'react-native';
 import React, {FC, useRef, useState} from 'react';
 import type {StyleProp, TextInputProps, ViewStyle} from 'react-native';
 
+import {Theme} from './theme';
 import {useHover} from 'react-native-web-hooks';
+import {withTheme} from './theme/ThemeProvider';
 
 const defaultStyle: ViewStyle = {
   alignSelf: 'stretch',
@@ -83,6 +85,7 @@ type StylesType = Partial<StyleSheet.NamedStyles<typeof defaultRowStyles>>;
 
 export type EditTextProps = {
   testID?: TextInputProps['testID'];
+  theme?: Theme;
   textInputProps?: TextInputProps;
   style?: StyleProp<ViewStyle>;
   styles?: StylesType;
@@ -105,7 +108,8 @@ export type EditTextProps = {
   type?: 'row' | 'column';
 };
 
-const EditText: FC<EditTextProps> = ({
+const Component: FC<EditTextProps> = ({
+  theme,
   testID,
   textInputProps,
   style,
@@ -144,6 +148,9 @@ const EditText: FC<EditTextProps> = ({
         editable && hovered && [defaultStyles.hovered, styles?.hovered],
         defaultStyle,
         style,
+        theme && {
+          backgroundColor: 'red',
+        },
       ]}>
       <View
         style={[
@@ -219,5 +226,7 @@ const EditText: FC<EditTextProps> = ({
     </View>
   );
 };
+
+const EditText = withTheme(Component);
 
 export {EditText};
