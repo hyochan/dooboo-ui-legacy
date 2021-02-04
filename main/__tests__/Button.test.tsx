@@ -1,10 +1,10 @@
-import * as React from 'react';
-
 import {act, fireEvent, render, waitFor} from '@testing-library/react-native';
 
 import {Button} from '../../main';
-import type {ButtonProps} from '../../main/Button';
+import type {ButtonProps} from '../Button';
 import {LoadingIndicator} from '../LoadingIndicator';
+import React from 'react';
+import type {ReactElement} from 'react';
 import type {RenderAPI} from '@testing-library/react-native';
 import {Text} from 'react-native';
 
@@ -14,13 +14,13 @@ jest.mock('react-native-web-hooks', () => ({
   useHover: () => true,
 }));
 
-const component = (props?: ButtonProps): React.ReactElement => {
+const Component = (props?: ButtonProps): ReactElement => {
   return <Button {...props} />;
 };
 
 describe('[Button]', () => {
   it('should render without crashing', () => {
-    testingLib = render(component());
+    testingLib = render(Component());
 
     const json = testingLib.toJSON();
 
@@ -29,7 +29,7 @@ describe('[Button]', () => {
 
   describe('Loading', () => {
     it('should render loading status', () => {
-      testingLib = render(component({loading: true}));
+      testingLib = render(Component({loading: true}));
 
       expect(LoadingIndicator).toBeDefined();
       expect(testingLib.getByTestId('loading-view')).toBeTruthy();
@@ -37,7 +37,7 @@ describe('[Button]', () => {
 
     it('should render default disabled style when disabled', () => {
       testingLib = render(
-        component({
+        Component({
           loading: true,
           disabled: true,
         }),
@@ -50,7 +50,7 @@ describe('[Button]', () => {
 
     it('should render disabled button style when disabled', () => {
       testingLib = render(
-        component({
+        Component({
           loading: true,
           disabled: true,
           styles: {
@@ -62,7 +62,7 @@ describe('[Button]', () => {
       );
 
       const disabledButtonStyle = testingLib.getByTestId('loading-view').props
-        .style[4][1];
+        .style[4];
 
       expect(disabledButtonStyle).toEqual({
         borderColor: 'red',
@@ -71,7 +71,7 @@ describe('[Button]', () => {
 
     it('should render custom container', () => {
       testingLib = render(
-        component({
+        Component({
           loading: true,
           disabled: false,
           styles: {
@@ -89,7 +89,7 @@ describe('[Button]', () => {
   describe('Button', () => {
     it('should render disabled status', () => {
       testingLib = render(
-        component({
+        Component({
           disabled: true,
         }),
       );
@@ -101,7 +101,7 @@ describe('[Button]', () => {
 
     it('should render disabled status with disabled style', () => {
       testingLib = render(
-        component({
+        Component({
           disabled: true,
           styles: {
             disabledButton: {
@@ -114,16 +114,14 @@ describe('[Button]', () => {
       const button = testingLib.getByTestId('button-view');
       const disabledButtonStyle = button.props.style[3];
 
-      const found = disabledButtonStyle.some(
-        (el) => el.backgroundColor === 'yellow',
-      );
-
-      expect(found).toBeTruthy();
+      expect(disabledButtonStyle).toEqual({
+        backgroundColor: 'yellow',
+      });
     });
 
     it('should render container', () => {
       testingLib = render(
-        component({
+        Component({
           styles: {
             container: {
               backgroundColor: 'blue',
@@ -143,7 +141,7 @@ describe('[Button]', () => {
 
   describe('After onLayout', () => {
     it('should trigger onLayout then set loading-view layout', async () => {
-      testingLib = render(component());
+      testingLib = render(Component());
 
       const button = testingLib.getByTestId('button-view');
 
@@ -159,7 +157,7 @@ describe('[Button]', () => {
       });
 
       testingLib.rerender(
-        component({
+        Component({
           loading: true,
         }),
       );
@@ -177,7 +175,7 @@ describe('[Button]', () => {
 
   it('should render left and right elements', () => {
     testingLib = render(
-      component({leftElement: <Text />, rightElement: <Text />}),
+      Component({leftElement: <Text />, rightElement: <Text />}),
     );
 
     const button = testingLib.getByTestId('button-view');
@@ -190,7 +188,7 @@ describe('[Button]', () => {
 
     it('should simulate onPress', () => {
       testingLib = render(
-        component({
+        Component({
           onPress: () => cnt++,
         }),
       );

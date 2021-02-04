@@ -2,54 +2,45 @@ import {
   ActivityIndicator,
   LayoutRectangle,
   Platform,
-  StyleProp,
-  StyleSheet,
-  Text,
-  TextProps,
   TouchableOpacity,
-  TouchableOpacityProps,
-  View,
-  ViewStyle,
 } from 'react-native';
 import React, {useRef, useState} from 'react';
+import type {
+  StyleProp,
+  TextProps,
+  TextStyle,
+  TouchableOpacityProps,
+  ViewStyle,
+} from 'react-native';
+import {Theme, light} from './theme';
 
+import type {FC} from 'react';
+import styled from 'styled-components/native';
 import {useHover} from 'react-native-web-hooks';
+import {withTheme} from './theme/ThemeProvider';
 
-const defaultStyles = StyleSheet.create({
-  container: {
-    alignSelf: 'stretch',
-    paddingHorizontal: 12,
-    paddingVertical: 8,
-    borderRadius: 6,
+type Styles = {
+  container?: StyleProp<ViewStyle>;
+  text?: StyleProp<TextStyle>;
+  disabledButton?: StyleProp<ViewStyle>;
+  disabledText?: StyleProp<TextStyle>;
+  hovered?: StyleProp<ViewStyle>;
+};
 
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  text: {
-    fontSize: 14,
-    color: '#069ccd',
-  },
-  disabledButton: {
-    backgroundColor: '#cccccc',
-    borderColor: 'rgb(200, 200, 200)',
-  },
-  disabledText: {
-    color: '#969696',
-  },
-  hovered: {
-    shadowColor: 'black',
-    shadowOffset: {
-      width: 0,
-      height: 4,
-    },
-    shadowOpacity: 0.24,
-    shadowRadius: 16,
-    elevation: 10,
-  },
-});
+const Container = styled.View`
+  align-self: stretch;
+  padding: 8px 12px;
+  background-color: ${({theme}) => theme.primary || light.primary};
 
-type StylesType = Partial<StyleSheet.NamedStyles<typeof defaultStyles>>;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+`;
+
+const Text = styled.Text`
+  font-size: 14px;
+  color: white;
+`;
 
 export interface ButtonProps {
   testID?: string;
@@ -57,7 +48,7 @@ export interface ButtonProps {
   loading?: boolean;
   disabled?: boolean;
   style?: StyleProp<ViewStyle>;
-  styles?: StylesType;
+  styles?: Styles;
   leftElement?: React.ReactElement;
   rightElement?: React.ReactElement;
   activeOpacity?: TouchableOpacityProps['activeOpacity'];
@@ -67,13 +58,14 @@ export interface ButtonProps {
   textProps?: Partial<TextProps>;
 }
 
-function Button({
+const Component: FC<ButtonProps & {theme: Theme}> = ({
   testID,
+  theme,
   disabled,
   loading,
   style,
   styles,
-  indicatorColor = '#ffffff',
+  indicatorColor = theme.contrastText,
   leftElement,
   rightElement,
   activeOpacity = 0.7,
@@ -81,10 +73,32 @@ function Button({
   onPress,
   touchableOpacityProps,
   textProps,
-}: ButtonProps): React.ReactElement {
+}) => {
   const ref = useRef<TouchableOpacity>(null);
   const hovered = useHover(ref);
   const [layout, setLayout] = useState<LayoutRectangle>();
+
+  const compositeStyles: Styles = {
+    disabledButton: {
+      backgroundColor: theme.disabled,
+      borderColor: theme.primary,
+    },
+    disabledText: {
+      color: theme.disabledText,
+    },
+    hovered: {
+      borderColor: theme.primary,
+      shadowColor: 'black',
+      shadowOffset: {
+        width: 0,
+        height: 4,
+      },
+      shadowOpacity: 0.24,
+      shadowRadius: 16,
+      elevation: 10,
+    },
+    ...styles,
+  };
 
   return (
     <TouchableOpacity
@@ -100,45 +114,44 @@ function Button({
       style={style}
       {...touchableOpacityProps}>
       {loading ? (
-        <View
+        <Container
           testID="loading-view"
           style={[
-            defaultStyles.container,
-            styles?.container,
+            compositeStyles.container,
             {
               width: layout?.width,
               height: layout?.height,
             },
-            hovered && !disabled && [defaultStyles.hovered, styles?.hovered],
-            disabled && [defaultStyles.disabledButton, styles?.disabledButton],
+            hovered && !disabled && compositeStyles.hovered,
+            disabled && compositeStyles.disabledButton,
           ]}>
           <ActivityIndicator size="small" color={indicatorColor} />
-        </View>
+        </Container>
       ) : (
-        <View
+        <Container
           testID="button-view"
           style={[
-            defaultStyles.container,
-            styles?.container,
-            hovered && !disabled && [defaultStyles.hovered, styles?.hovered],
-            disabled && [defaultStyles.disabledButton, styles?.disabledButton],
+            compositeStyles.container,
+            hovered && !disabled && compositeStyles.hovered,
+            disabled && compositeStyles.disabledButton,
           ]}
           onLayout={(e) => setLayout(e.nativeEvent.layout)}>
           {leftElement}
           <Text
             style={[
-              defaultStyles.text,
-              styles?.text,
-              disabled && [defaultStyles.disabledText, styles?.disabledText],
+              compositeStyles.text,
+              disabled && compositeStyles.disabledText,
             ]}
             {...textProps}>
             {text}
           </Text>
           {rightElement}
-        </View>
+        </Container>
       )}
     </TouchableOpacity>
   );
-}
+};
 
-export {Button};
+Component.defaultProps = {theme: light};
+
+export const Button = withTheme(Component);

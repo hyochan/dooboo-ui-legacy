@@ -1,8 +1,8 @@
 import {Platform, StyleSheet, Text, TextInput, View} from 'react-native';
 import React, {FC, useRef, useState} from 'react';
 import type {StyleProp, TextInputProps, ViewStyle} from 'react-native';
+import {Theme, light} from './theme';
 
-import {Theme} from './theme';
 import {useHover} from 'react-native-web-hooks';
 import {withTheme} from './theme/ThemeProvider';
 
@@ -126,9 +126,9 @@ const Component: FC<EditTextProps> = ({
   autoCapitalize = 'none',
   secureTextEntry = false,
   editable = true,
-  focusColor = '#9A77FF',
-  errorColor = '#ff7676',
-  disableColor = '#999999',
+  focusColor = theme ? theme.primary : '#9A77FF',
+  errorColor = theme ? theme.negative : '#ff7676',
+  disableColor = theme ? theme.disabled : '#999999',
   type = 'column',
 }) => {
   const [focused, setFocused] = useState(false);
@@ -227,6 +227,6 @@ const Component: FC<EditTextProps> = ({
   );
 };
 
-const EditText = withTheme(Component);
+Component.defaultProps = {theme: light};
 
-export {EditText};
+export const EditText = withTheme(Component);

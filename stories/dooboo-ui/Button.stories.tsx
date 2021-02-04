@@ -3,9 +3,11 @@ import 'react-native-get-random-values';
 import {IC_FACEBOOK, IC_GOOGLE} from '../Icon';
 import {Image, View} from 'react-native';
 import React, {ReactElement, useState} from 'react';
+import {ThemeType, dark, light} from '../../main/theme';
 
 import {Button} from '../../main';
 import {ContainerDeco} from '../../storybook/decorators';
+import {ThemeProvider} from '../../main/theme/ThemeProvider';
 import {action} from '@storybook/addon-actions';
 import {storiesOf} from '@storybook/react-native';
 import styled from 'styled-components/native';
@@ -39,17 +41,21 @@ function Default(): React.ReactElement {
           style={{marginVertical: 40}}
           styles={{
             container: {
+              borderRadius: 20,
               borderWidth: 0.5,
+              backgroundColor: 'white',
             },
           }}
         />
         <Button
           styles={{
             container: {
-              backgroundColor: '#109CF1',
+              borderRadius: 20,
+              paddingVertical: 11,
+              paddingHorizontal: 52,
             },
             text: {
-              color: '#FFFFFF',
+              fontSize: 16,
             },
           }}
           onPress={action('Clicked')}
@@ -62,9 +68,6 @@ function Default(): React.ReactElement {
             container: {
               borderWidth: 0.5,
             },
-            text: {
-              color: '#109CF1',
-            },
           }}
           onPress={action('Clicked')}
           text={'Outlined button'}
@@ -75,16 +78,20 @@ function Default(): React.ReactElement {
         />
         <Button
           leftElement={
-            <View style={{marginRight: 8}}>
+            <View style={{marginRight: 12}}>
               <Image style={{width: 20, height: 20}} source={IC_GOOGLE} />
             </View>
           }
           loading={googleLoading}
-          indicatorColor="#023059"
-          style={{marginVertical: 20}}
+          style={{marginBottom: 20, marginTop: 30}}
           styles={{
             container: {
-              backgroundColor: '#ccc',
+              height: 52,
+              width: 300,
+              borderWidth: 0.5,
+              borderColor: light.dialog,
+              borderRadius: 40,
+              backgroundColor: light.googleBackground,
             },
           }}
           onPress={(): void => {
@@ -103,20 +110,20 @@ function Default(): React.ReactElement {
             <View
               style={{
                 position: 'absolute',
-                left: 16,
+                left: 24,
               }}>
               <Image style={{width: 15, height: 28}} source={IC_FACEBOOK} />
             </View>
           }
-          indicatorColor="#023059"
           loading={facebookLoading}
           styles={{
             container: {
               height: 52,
               width: 300,
-              backgroundColor: '#ccc',
               borderWidth: 0.5,
-              borderRadius: 0,
+              borderColor: light.dialog,
+              borderRadius: 40,
+              backgroundColor: light.secondary,
             },
           }}
           onPress={(): void => {
@@ -156,4 +163,9 @@ storiesOf('Button', module)
     <>
       <Default />
     </>
+  ))
+  .add('with dark theme', () => (
+    <ThemeProvider initialThemeType={ThemeType.DARK}>
+      <Default />
+    </ThemeProvider>
   ));

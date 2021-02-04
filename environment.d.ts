@@ -1,5 +1,5 @@
 declare module '*.svg' {
-  import { IconType } from './src/types';
+  import {IconType} from './src/types';
 
   const content: IconType;
   export default content;

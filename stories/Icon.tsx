@@ -1,7 +1,7 @@
 import Svg, {Line} from 'react-native-svg';
+
 import React from 'react';
 import {View} from 'react-native';
-
 import icArrDown from './assets/icons/ic_arr_down.png';
 import icArrUp from './assets/icons/ic_arr_up.png';
 import icCheck from './assets/icons/check.png';

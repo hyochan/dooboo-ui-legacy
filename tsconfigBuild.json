@@ -21,6 +21,11 @@
     "dist",
     "**/*.example.*"
   ],
-  "include": ["main"],
-  "files": ["environment.d.ts"]
+  "include": [
+    "main"
+  ],
+  "files": [
+    "environment.d.ts",
+    "main/theme/styled.d.ts"
+  ]
 }

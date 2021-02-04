@@ -10,6 +10,9 @@ exports[`[EditText] interactions Type: [column] renders without crashing 1`] = `
         "flexDirection": "column",
       },
       undefined,
+      Object {
+        "backgroundColor": "red",
+      },
     ]
   }
   testID="container-id"
@@ -25,8 +28,8 @@ exports[`[EditText] interactions Type: [column] renders without crashing 1`] = `
           "justifyContent": "space-between",
         },
         Object {
-          "borderBottomColor": "#999999",
-          "borderColor": "#999999",
+          "borderBottomColor": "#00000030",
+          "borderColor": "#00000030",
         },
       ]
     }
@@ -68,6 +71,9 @@ exports[`[EditText] interactions Type: [row] - default should render without cra
         "flexDirection": "column",
       },
       undefined,
+      Object {
+        "backgroundColor": "red",
+      },
     ]
   }
   testID="container-id"
@@ -83,8 +89,8 @@ exports[`[EditText] interactions Type: [row] - default should render without cra
           "justifyContent": "space-between",
         },
         Object {
-          "borderBottomColor": "#999999",
-          "borderColor": "#999999",
+          "borderBottomColor": "#00000030",
+          "borderColor": "#00000030",
         },
       ]
     }
@@ -126,6 +132,9 @@ exports[`[EditText] interactions web renders without crashing 1`] = `
         "flexDirection": "column",
       },
       undefined,
+      Object {
+        "backgroundColor": "red",
+      },
     ]
   }
   testID="container-id"
@@ -141,8 +150,8 @@ exports[`[EditText] interactions web renders without crashing 1`] = `
           "justifyContent": "space-between",
         },
         Object {
-          "borderBottomColor": "#999999",
-          "borderColor": "#999999",
+          "borderBottomColor": "#00000030",
+          "borderColor": "#00000030",
         },
       ]
     }
