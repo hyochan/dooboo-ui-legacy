@@ -19,7 +19,7 @@ exports[`[EditText] interactions Type: [column] renders without crashing 1`] = `
       Array [
         Object {
           "alignSelf": "stretch",
-          "borderBottomColor": "#666666",
+          "borderBottomColor": "#00000050",
           "borderBottomWidth": 0.3,
           "flexDirection": "column",
           "justifyContent": "space-between",
@@ -42,7 +42,7 @@ exports[`[EditText] interactions Type: [column] renders without crashing 1`] = `
       style={
         Array [
           Object {
-            "color": "#2c374e",
+            "color": "#222222",
             "fontSize": 14,
             "fontWeight": "bold",
             "paddingVertical": 12,
@@ -77,7 +77,7 @@ exports[`[EditText] interactions Type: [row] - default should render without cra
       Array [
         Object {
           "alignSelf": "stretch",
-          "borderBottomColor": "#666666",
+          "borderBottomColor": "#00000050",
           "borderBottomWidth": 0.3,
           "flexDirection": "column",
           "justifyContent": "space-between",
@@ -100,7 +100,7 @@ exports[`[EditText] interactions Type: [row] - default should render without cra
       style={
         Array [
           Object {
-            "color": "#2c374e",
+            "color": "#222222",
             "fontSize": 14,
             "fontWeight": "bold",
             "paddingVertical": 12,
@@ -135,7 +135,7 @@ exports[`[EditText] interactions web renders without crashing 1`] = `
       Array [
         Object {
           "alignSelf": "stretch",
-          "borderBottomColor": "#666666",
+          "borderBottomColor": "#00000050",
           "borderBottomWidth": 0.3,
           "flexDirection": "column",
           "justifyContent": "space-between",
@@ -158,7 +158,7 @@ exports[`[EditText] interactions web renders without crashing 1`] = `
       style={
         Array [
           Object {
-            "color": "#2c374e",
+            "color": "#222222",
             "fontSize": 14,
             "fontWeight": "bold",
             "paddingVertical": 12,

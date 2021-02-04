@@ -1,94 +1,31 @@
-import {Platform, StyleSheet, Text, TextInput, View} from 'react-native';
+import {Platform, Text, TextInput, View} from 'react-native';
 import React, {FC, useRef, useState} from 'react';
-import type {StyleProp, TextInputProps, ViewStyle} from 'react-native';
+import type {
+  StyleProp,
+  TextInputProps,
+  TextStyle,
+  ViewStyle,
+} from 'react-native';
 import {Theme, light} from './theme';
 
 import {useHover} from 'react-native-web-hooks';
 import {withTheme} from './theme/ThemeProvider';
 
-const defaultStyle: ViewStyle = {
-  alignSelf: 'stretch',
-
-  flexDirection: 'column',
+type Styles = {
+  container?: StyleProp<ViewStyle>;
+  hovered?: StyleProp<ViewStyle>;
+  labelText?: StyleProp<TextStyle>;
+  labelTextHovered?: StyleProp<TextStyle>;
+  input: StyleProp<TextStyle>;
+  errorText?: StyleProp<TextStyle>;
 };
-
-const defaultRowStyles = StyleSheet.create({
-  container: {
-    alignSelf: 'stretch',
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'space-between',
-    borderBottomWidth: 0.3,
-    borderBottomColor: '#666666',
-  },
-  hovered: {
-    borderBottomWidth: 0.5,
-    borderBottomColor: '#9A77FF',
-  },
-  labelText: {
-    fontSize: 14,
-    color: '#b9b9c4',
-    width: 100,
-  },
-  labelTextHovered: {
-    color: '#9A77FF',
-  },
-  input: {
-    paddingVertical: 12,
-    paddingHorizontal: 8,
-    fontSize: 14,
-    fontWeight: 'bold',
-    flex: 1,
-    color: '#2c374e',
-  },
-  errorText: {
-    marginTop: 4,
-    fontSize: 12,
-    color: '#991111',
-  },
-});
-
-const defaultColumnStyles = StyleSheet.create({
-  container: {
-    alignSelf: 'stretch',
-    justifyContent: 'space-between',
-    borderBottomWidth: 0.3,
-    borderBottomColor: '#666666',
-
-    flexDirection: 'column',
-  },
-  hovered: {
-    borderBottomWidth: 0.3,
-    borderBottomColor: '#9A77FF',
-  },
-  labelText: {
-    fontSize: 14,
-    color: '#b9b9c4',
-  },
-  labelTextHovered: {
-    color: '#9A77FF',
-  },
-  input: {
-    paddingVertical: 12,
-    fontSize: 14,
-    fontWeight: 'bold',
-    color: '#2c374e',
-  },
-  errorText: {
-    marginTop: 8,
-    fontSize: 12,
-    color: '#991111',
-  },
-});
-
-type StylesType = Partial<StyleSheet.NamedStyles<typeof defaultRowStyles>>;
 
 export type EditTextProps = {
   testID?: TextInputProps['testID'];
   theme?: Theme;
   textInputProps?: TextInputProps;
   style?: StyleProp<ViewStyle>;
-  styles?: StylesType;
+  styles?: Styles;
   labelText?: string;
   errorText?: string;
   value?: TextInputProps['value'];
@@ -134,7 +71,81 @@ const Component: FC<EditTextProps & {theme: Theme}> = ({
   const [focused, setFocused] = useState(false);
   const ref = useRef<View>(null);
 
-  const defaultStyles = type === 'row' ? defaultRowStyles : defaultColumnStyles;
+  const borderColor = disableColor;
+  const labelColor = disableColor;
+  const hoveredColor = theme.primary;
+  const textColor = theme.text;
+
+  const compositeStyles: Styles =
+    type === 'row'
+      ? {
+          container: {
+            alignSelf: 'stretch',
+            flexDirection: 'row',
+            alignItems: 'center',
+            justifyContent: 'space-between',
+            borderBottomWidth: 0.3,
+            borderBottomColor: borderColor,
+          },
+          hovered: {
+            borderBottomWidth: 0.5,
+            borderBottomColor: hoveredColor,
+          },
+          labelText: {
+            fontSize: 14,
+            color: labelColor,
+            width: 100,
+          },
+          labelTextHovered: {
+            color: hoveredColor,
+          },
+          input: {
+            paddingVertical: 12,
+            paddingHorizontal: 8,
+            fontSize: 14,
+            fontWeight: 'bold',
+            flex: 1,
+            color: textColor,
+          },
+          errorText: {
+            marginTop: 4,
+            fontSize: 12,
+            color: errorColor,
+          },
+        }
+      : {
+          container: {
+            alignSelf: 'stretch',
+            justifyContent: 'space-between',
+            borderBottomWidth: 0.3,
+            borderBottomColor: borderColor,
+
+            flexDirection: 'column',
+          },
+          hovered: {
+            borderBottomWidth: 0.3,
+            borderBottomColor: hoveredColor,
+          },
+          labelText: {
+            fontSize: 14,
+            color: labelColor,
+          },
+          labelTextHovered: {
+            color: hoveredColor,
+          },
+          input: {
+            paddingVertical: 12,
+            fontSize: 14,
+            fontWeight: 'bold',
+            color: textColor,
+          },
+          errorText: {
+            marginTop: 8,
+            fontSize: 12,
+            color: errorColor,
+          },
+        };
+
   const hovered = useHover(ref);
 
   return (
@@ -145,13 +156,13 @@ const Component: FC<EditTextProps & {theme: Theme}> = ({
         default: undefined,
       })}
       style={[
-        editable && hovered && [defaultStyles.hovered, styles?.hovered],
-        defaultStyle,
+        editable && hovered && [compositeStyles.hovered, styles?.hovered],
+        {alignSelf: 'stretch', flexDirection: 'column'},
         style,
       ]}>
       <View
         style={[
-          defaultStyles.container,
+          compositeStyles.container,
           {
             borderColor: errorText
               ? errorColor
@@ -168,10 +179,10 @@ const Component: FC<EditTextProps & {theme: Theme}> = ({
         {labelText ? (
           <Text
             style={[
-              defaultStyles.labelText,
+              compositeStyles.labelText,
               styles?.labelText,
               editable && hovered
-                ? [defaultStyles.labelTextHovered, styles?.labelTextHovered]
+                ? [compositeStyles.labelTextHovered, styles?.labelTextHovered]
                 : {
                     color: errorText
                       ? errorColor
@@ -189,7 +200,7 @@ const Component: FC<EditTextProps & {theme: Theme}> = ({
           autoCapitalize={autoCapitalize}
           secureTextEntry={secureTextEntry}
           style={[
-            defaultStyles.input,
+            compositeStyles.input,
             styles?.input,
             // @ts-ignore
             Platform.OS === 'web' && {outlineWidth: 0},
@@ -213,7 +224,7 @@ const Component: FC<EditTextProps & {theme: Theme}> = ({
       {errorText ? (
         <Text
           style={[
-            defaultStyles.errorText,
+            compositeStyles.errorText,
             styles?.errorText,
             {color: errorColor},
           ]}>
