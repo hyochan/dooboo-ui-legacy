@@ -272,6 +272,7 @@ describe('[EditText]', () => {
       });
     });
 
+    // Below tests is emitting console error but this is expeted
     describe('web', () => {
       beforeAll(() => {
         jest.mock('react-native/Libraries/Utilities/Platform', () => ({

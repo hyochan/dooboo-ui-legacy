@@ -108,7 +108,7 @@ export type EditTextProps = {
   type?: 'row' | 'column';
 };
 
-const Component: FC<EditTextProps> = ({
+const Component: FC<EditTextProps & {theme: Theme}> = ({
   theme,
   testID,
   textInputProps,
@@ -126,9 +126,9 @@ const Component: FC<EditTextProps> = ({
   autoCapitalize = 'none',
   secureTextEntry = false,
   editable = true,
-  focusColor = theme ? theme.primary : '#9A77FF',
-  errorColor = theme ? theme.negative : '#ff7676',
-  disableColor = theme ? theme.disabled : '#999999',
+  focusColor = theme.primary,
+  errorColor = theme.negative,
+  disableColor = theme.disabled,
   type = 'column',
 }) => {
   const [focused, setFocused] = useState(false);
@@ -148,9 +148,6 @@ const Component: FC<EditTextProps> = ({
         editable && hovered && [defaultStyles.hovered, styles?.hovered],
         defaultStyle,
         style,
-        theme && {
-          backgroundColor: 'red',
-        },
       ]}>
       <View
         style={[
