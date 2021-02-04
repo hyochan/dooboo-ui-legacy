@@ -67,7 +67,11 @@ export const light = {
   googleBackground: colors.google,
 };
 
-export type Theme = typeof light;
+export type Theme = typeof light & {
+  isDesktop: boolean;
+  isTablet: boolean;
+  isMobile: boolean;
+};
 
 export const dark = {
   background: colors.mineShaftDark,

@@ -1,3 +1,5 @@
+import {DefaultTheme} from 'styled-components/native';
+
 export enum ThemeType {
   LIGHT = 'LIGHT',
   DARK = 'DARK',
@@ -109,3 +111,26 @@ export const theme = {
   light,
   dark,
 };
+
+export interface ThemeParam {
+  light: Partial<Theme>;
+  dark: Partial<Theme>;
+}
+
+export const createDoobooTheme = ({
+  type,
+  themes,
+}: {
+  type?: ThemeType;
+  themes?: ThemeParam;
+}): Partial<DefaultTheme> => {
+  switch (type) {
+    case ThemeType.DARK:
+      return {...theme.dark, ...themes?.dark};
+    case ThemeType.LIGHT:
+    default:
+      return {...theme.light, ...themes?.light};
+  }
+};
+
+export {ThemeProvider, useTheme, withTheme} from './ThemeProvider';

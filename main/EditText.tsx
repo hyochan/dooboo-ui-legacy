@@ -16,7 +16,7 @@ type Styles = {
   hovered?: StyleProp<ViewStyle>;
   labelText?: StyleProp<TextStyle>;
   labelTextHovered?: StyleProp<TextStyle>;
-  input: StyleProp<TextStyle>;
+  input?: StyleProp<TextStyle>;
   errorText?: StyleProp<TextStyle>;
 };
 
@@ -66,7 +66,7 @@ const Component: FC<EditTextProps & {theme: Theme}> = ({
   focusColor = theme.primary,
   errorColor = theme.negative,
   disableColor = theme.disabled,
-  type = 'column',
+  type = 'row',
 }) => {
   const [focused, setFocused] = useState(false);
   const ref = useRef<View>(null);
@@ -79,71 +79,107 @@ const Component: FC<EditTextProps & {theme: Theme}> = ({
   const compositeStyles: Styles =
     type === 'row'
       ? {
-          container: {
-            alignSelf: 'stretch',
-            flexDirection: 'row',
-            alignItems: 'center',
-            justifyContent: 'space-between',
-            borderBottomWidth: 0.3,
-            borderBottomColor: borderColor,
-          },
-          hovered: {
-            borderBottomWidth: 0.5,
-            borderBottomColor: hoveredColor,
-          },
-          labelText: {
-            fontSize: 14,
-            color: labelColor,
-            width: 100,
-          },
-          labelTextHovered: {
-            color: hoveredColor,
-          },
-          input: {
-            paddingVertical: 12,
-            paddingHorizontal: 8,
-            fontSize: 14,
-            fontWeight: 'bold',
-            flex: 1,
-            color: textColor,
-          },
-          errorText: {
-            marginTop: 4,
-            fontSize: 12,
-            color: errorColor,
-          },
+          container: [
+            {
+              alignSelf: 'stretch',
+              flexDirection: 'row',
+              alignItems: 'center',
+              justifyContent: 'space-between',
+              borderBottomWidth: 0.3,
+              borderBottomColor: borderColor,
+            },
+            styles?.container,
+          ],
+          hovered: [
+            {
+              borderBottomWidth: 0.5,
+              borderBottomColor: hoveredColor,
+            },
+            styles?.hovered,
+          ],
+          labelText: [
+            {
+              fontSize: 14,
+              color: labelColor,
+              width: 100,
+            },
+            styles?.labelText,
+          ],
+          labelTextHovered: [
+            {
+              color: hoveredColor,
+            },
+            styles?.labelTextHovered,
+          ],
+          input: [
+            {
+              paddingVertical: 12,
+              paddingHorizontal: 8,
+              fontSize: 14,
+              fontWeight: 'bold',
+              flex: 1,
+              color: textColor,
+            },
+            styles?.input,
+          ],
+          errorText: [
+            {
+              marginTop: 4,
+              fontSize: 12,
+              color: errorColor,
+            },
+            styles?.errorText,
+          ],
         }
       : {
-          container: {
-            alignSelf: 'stretch',
-            justifyContent: 'space-between',
-            borderBottomWidth: 0.3,
-            borderBottomColor: borderColor,
+          container: [
+            {
+              alignSelf: 'stretch',
+              justifyContent: 'space-between',
+              borderBottomWidth: 0.3,
+              borderBottomColor: borderColor,
 
-            flexDirection: 'column',
-          },
-          hovered: {
-            borderBottomWidth: 0.3,
-            borderBottomColor: hoveredColor,
-          },
-          labelText: {
-            fontSize: 14,
-            color: labelColor,
-          },
-          labelTextHovered: {
-            color: hoveredColor,
-          },
-          input: {
-            paddingVertical: 12,
-            fontSize: 14,
-            fontWeight: 'bold',
-            color: textColor,
-          },
-          errorText: {
-            marginTop: 8,
-            fontSize: 12,
-            color: errorColor,
-          },
+              flexDirection: 'column',
+            },
+            styles?.container,
+          ],
+          hovered: [
+            {
+              borderBottomWidth: 0.3,
+              borderBottomColor: hoveredColor,
+            },
+            styles?.hovered,
+          ],
+          labelText: [
+            {
+              fontSize: 14,
+              color: labelColor,
+            },
+            styles?.labelText,
+          ],
+          labelTextHovered: [
+            {
+              color: hoveredColor,
+            },
+            styles?.labelTextHovered,
+          ],
+          input: [
+            {
+              paddingVertical: 12,
+              fontSize: 14,
+              fontWeight: 'bold',
+              color: textColor,
+            },
+            styles?.input,
+          ],
+          errorText: [
+            {
+              marginTop: 8,
+              fontSize: 12,
+              color: errorColor,
+            },
+            styles?.errorText,
+          ],
         };
 
   const hovered = useHover(ref);

@@ -2,6 +2,21 @@
 
 ## 0.0.38
 
+[Theme]
+
+- Deprecated [@dooboo-ui/theme](https://www.npmjs.com/package/@dooboo-ui/theme) and included in `dooboo-ui` package itself.
+  - This decision was made to unify the theme props used internally.
+
+[EditText]
+
+- Use theme props in default styling.
+
+[Button]
+
+- Use theme props in default styling.
+
+## 0.0.38
+
 [EditText]
 
 - Use `useRef` for hover only in web env.

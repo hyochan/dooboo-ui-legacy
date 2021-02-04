@@ -4,7 +4,7 @@ import {
   withTheme,
 } from 'styled-components/native';
 import React, {useEffect, useState} from 'react';
-import {ThemeType, colors, dark, light} from './index';
+import {ThemeParam, ThemeType, colors, dark, light} from './index';
 
 import {Appearance} from 'react-native';
 import type {Colors} from './index';
@@ -29,11 +29,13 @@ interface Props {
   children?: React.ReactElement;
   // Using initial ThemeType is essential while testing apps with consistent ThemeType
   initialThemeType?: ThemeType;
+  customTheme?: ThemeParam;
 }
 
 function ThemeProvider({
   children,
   initialThemeType,
+  customTheme,
 }: Props): React.ReactElement {
   const isMobile = useMediaQuery({maxWidth: 767});
   const isTablet = useMediaQuery({minWidth: 767, maxWidth: 992});
@@ -62,7 +64,10 @@ function ThemeProvider({
     setThemeType(newThemeType);
   };
 
-  const defaultTheme = themeType === ThemeType.DARK ? dark : light;
+  const defaultTheme =
+    themeType === ThemeType.DARK
+      ? {...dark, ...customTheme?.dark}
+      : {...light, ...customTheme?.light};
 
   const media = {
     isMobile,
