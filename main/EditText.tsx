@@ -81,7 +81,7 @@ const defaultColumnStyles = StyleSheet.create({
 
 type StylesType = Partial<StyleSheet.NamedStyles<typeof defaultRowStyles>>;
 
-type Props = {
+export type EditTextProps = {
   testID?: TextInputProps['testID'];
   textInputProps?: TextInputProps;
   style?: StyleProp<ViewStyle>;
@@ -105,7 +105,7 @@ type Props = {
   type?: 'row' | 'column';
 };
 
-const EditText: FC<Props> = ({
+const EditText: FC<EditTextProps> = ({
   testID,
   textInputProps,
   style,
@@ -135,6 +135,7 @@ const EditText: FC<Props> = ({
 
   return (
     <View
+      testID="container-id"
       ref={Platform.select({
         web: ref,
         default: undefined,
