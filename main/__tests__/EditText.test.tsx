@@ -1,5 +1,3 @@
-import * as React from 'react';
-
 import {
   RenderAPI,
   act,
@@ -11,7 +9,9 @@ import {
 import {EditText} from '../../main';
 import type {EditTextProps} from '../../main/EditText';
 import RNWebHooks from 'react-native-web-hooks';
+import React from 'react';
 import {ReactTestInstance} from 'react-test-renderer';
+import {View} from 'react-native';
 
 jest.mock('react-native-web-hooks', () => ({
   useHover: () => false,
@@ -53,9 +53,12 @@ describe('[EditText]', () => {
 
         container = await waitFor(() => testingLib.getByTestId('container-id'));
 
-        const containerCustomStyle = container.props.style[0][1];
+        const containerChildViewCustomStyle = container.findByType(View)
+          .instance.props.style[1][1];
 
-        expect(containerCustomStyle).toEqual({backgroundColor: 'green'});
+        expect(containerChildViewCustomStyle).toEqual({
+          backgroundColor: 'green',
+        });
       });
 
       describe('labeText', () => {
@@ -293,7 +296,7 @@ describe('[EditText]', () => {
       });
     });
 
-    // // Below tests is emitting console error but this is expeted
+    //? Below tests is emitting console error but this is expeted
     describe('web', () => {
       beforeAll(() => {
         jest.mock('react-native/Libraries/Utilities/Platform', () => ({

@@ -72,6 +72,7 @@ const Component: FC<EditTextProps & {theme: Theme}> = ({
 }) => {
   const [focused, setFocused] = useState(false);
   const ref = useRef<View>(null);
+  const hovered = useHover(ref);
 
   const borderColor = disableColor;
   const labelColor = disableColor;
@@ -95,6 +96,7 @@ const Component: FC<EditTextProps & {theme: Theme}> = ({
           hovered: [
             {
               borderBottomColor: hoveredColor,
+              borderBottomWidth: 1,
             },
             styles?.hovered,
           ],
@@ -183,8 +185,6 @@ const Component: FC<EditTextProps & {theme: Theme}> = ({
           ],
         };
 
-  const hovered = useHover(ref);
-
   return (
     <View
       testID="container-id"
@@ -192,14 +192,11 @@ const Component: FC<EditTextProps & {theme: Theme}> = ({
         web: ref,
         default: undefined,
       })}
-      style={[
-        editable && hovered && [compositeStyles.hovered, styles?.hovered],
-        {alignSelf: 'stretch', flexDirection: 'column'},
-        style,
-      ]}>
+      style={[{alignSelf: 'stretch', flexDirection: 'column'}, style]}>
       <View
         style={[
           compositeStyles.container,
+          editable && hovered && [compositeStyles.hovered, styles?.hovered],
           {
             borderColor: hovered
               ? hoverColor

@@ -62,6 +62,7 @@ const ColumnEditText = (): React.ReactElement => {
             Sign in with Email
           </Text>
           <EditText
+            type="column"
             labelText="email"
             placeholder="your@email.com"
             placeholderTextColor="#ADB5BD"
@@ -77,6 +78,7 @@ const ColumnEditText = (): React.ReactElement => {
             onSubmitEditing={onSignIn}
           />
           <EditText
+            type="column"
             secureTextEntry={true}
             labelText="Password"
             placeholder="Write your password"

@@ -1,5 +1,11 @@
 ## Changelogs
 
+## 0.0.43
+
+[EditText]
+
+- Fixed hovering issue in `0.0.42` in `column` type. Also fixed where `hover` style should be applied. Previously it was a `container` but it should be applied to the first child `View`.
+
 ## 0.0.42
 
 [EditText]

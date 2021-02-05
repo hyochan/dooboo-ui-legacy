@@ -4,7 +4,6 @@ exports[`[EditText] interactions Type: [column] renders custom styles without cr
 <View
   style={
     Array [
-      false,
       Object {
         "alignSelf": "stretch",
         "flexDirection": "column",
@@ -27,6 +26,7 @@ exports[`[EditText] interactions Type: [column] renders custom styles without cr
           },
           Object {},
         ],
+        false,
         Object {
           "borderBottomColor": "#00000050",
           "borderColor": "#00000050",
@@ -68,7 +68,6 @@ exports[`[EditText] interactions Type: [column] renders without crashing 1`] = `
 <View
   style={
     Array [
-      false,
       Object {
         "alignSelf": "stretch",
         "flexDirection": "column",
@@ -91,6 +90,7 @@ exports[`[EditText] interactions Type: [column] renders without crashing 1`] = `
           },
           undefined,
         ],
+        false,
         Object {
           "borderBottomColor": "#00000050",
           "borderColor": "#00000050",
@@ -132,7 +132,6 @@ exports[`[EditText] interactions Type: [row] - default should render without cra
 <View
   style={
     Array [
-      false,
       Object {
         "alignSelf": "stretch",
         "flexDirection": "column",
@@ -156,6 +155,7 @@ exports[`[EditText] interactions Type: [row] - default should render without cra
           },
           undefined,
         ],
+        false,
         Object {
           "borderBottomColor": "#00000050",
           "borderColor": "#00000050",
@@ -199,7 +199,6 @@ exports[`[EditText] interactions web renders without crashing 1`] = `
 <View
   style={
     Array [
-      false,
       Object {
         "alignSelf": "stretch",
         "flexDirection": "column",
@@ -222,6 +221,7 @@ exports[`[EditText] interactions web renders without crashing 1`] = `
           },
           undefined,
         ],
+        false,
         Object {
           "borderBottomColor": "#00000050",
           "borderColor": "#00000050",
