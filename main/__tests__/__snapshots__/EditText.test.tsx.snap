@@ -21,7 +21,7 @@ exports[`[EditText] interactions Type: [column] renders custom styles without cr
           Object {
             "alignSelf": "stretch",
             "borderBottomColor": "#00000050",
-            "borderBottomWidth": 0.3,
+            "borderBottomWidth": 0.5,
             "flexDirection": "column",
             "justifyContent": "space-between",
           },
@@ -85,7 +85,7 @@ exports[`[EditText] interactions Type: [column] renders without crashing 1`] = `
           Object {
             "alignSelf": "stretch",
             "borderBottomColor": "#00000050",
-            "borderBottomWidth": 0.3,
+            "borderBottomWidth": 0.5,
             "flexDirection": "column",
             "justifyContent": "space-between",
           },
@@ -150,7 +150,7 @@ exports[`[EditText] interactions Type: [row] - default should render without cra
             "alignItems": "center",
             "alignSelf": "stretch",
             "borderBottomColor": "#00000050",
-            "borderBottomWidth": 0.3,
+            "borderBottomWidth": 0.5,
             "flexDirection": "row",
             "justifyContent": "space-between",
           },
@@ -216,7 +216,7 @@ exports[`[EditText] interactions web renders without crashing 1`] = `
           Object {
             "alignSelf": "stretch",
             "borderBottomColor": "#00000050",
-            "borderBottomWidth": 0.3,
+            "borderBottomWidth": 0.5,
             "flexDirection": "column",
             "justifyContent": "space-between",
           },
