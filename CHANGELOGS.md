@@ -1,6 +1,15 @@
 ## Changelogs
 
-## 0.0.43
+## 0.0.44
+
+[EditText]
+
+- Added missing callBack props `onSubmitEditing`.
+- Set default `placeholderTextColor`.
+- Added `labelColor`.
+- Dark mode example in story.
+
+- ## 0.0.43
 
 [EditText]
 

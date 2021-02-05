@@ -43,6 +43,7 @@ export type EditTextProps = {
   hoverColor?: string;
   errorColor?: string;
   disableColor?: string;
+  labelColor?: string;
   type?: 'row' | 'column';
 };
 
@@ -56,18 +57,20 @@ const Component: FC<EditTextProps & {theme: Theme}> = ({
   errorText = '',
   value = '',
   placeholder,
-  placeholderTextColor,
   onChange,
   onChangeText,
   onFocus,
   onBlur,
+  onSubmitEditing,
   autoCapitalize = 'none',
   secureTextEntry = false,
   editable = true,
+  placeholderTextColor = theme.placeholder,
   focusColor = theme.primary,
   hoverColor = theme.primaryDark,
   errorColor = theme.negative,
   disableColor = theme.disabled,
+  labelColor = theme.secondaryText,
   type = 'row',
 }) => {
   const [focused, setFocused] = useState(false);
@@ -75,7 +78,6 @@ const Component: FC<EditTextProps & {theme: Theme}> = ({
   const hovered = useHover(ref);
 
   const borderColor = disableColor;
-  const labelColor = disableColor;
   const hoveredColor = theme.primary;
   const textColor = theme.text;
 
@@ -257,6 +259,7 @@ const Component: FC<EditTextProps & {theme: Theme}> = ({
           placeholderTextColor={placeholderTextColor}
           onChange={onChange}
           onChangeText={onChangeText}
+          onSubmitEditing={onSubmitEditing}
         />
       </View>
       {errorText ? (
