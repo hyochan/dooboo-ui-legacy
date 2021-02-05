@@ -1,5 +1,11 @@
 ## Changelogs
 
+## 0.0.42
+
+[EditText]
+
+- Fixed hover line appearing below the `errorText`.
+
 ## 0.0.41
 
 [EditText]

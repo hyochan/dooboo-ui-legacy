@@ -40,6 +40,7 @@ export type EditTextProps = {
   secureTextEntry?: TextInputProps['secureTextEntry'];
   onSubmitEditing?: TextInputProps['onSubmitEditing'];
   focusColor?: string;
+  hoverColor?: string;
   errorColor?: string;
   disableColor?: string;
   type?: 'row' | 'column';
@@ -64,6 +65,7 @@ const Component: FC<EditTextProps & {theme: Theme}> = ({
   secureTextEntry = false,
   editable = true,
   focusColor = theme.primary,
+  hoverColor = theme.primaryDark,
   errorColor = theme.negative,
   disableColor = theme.disabled,
   type = 'row',
@@ -92,7 +94,6 @@ const Component: FC<EditTextProps & {theme: Theme}> = ({
           ],
           hovered: [
             {
-              borderBottomWidth: 0.5,
               borderBottomColor: hoveredColor,
             },
             styles?.hovered,
@@ -200,12 +201,16 @@ const Component: FC<EditTextProps & {theme: Theme}> = ({
         style={[
           compositeStyles.container,
           {
-            borderColor: errorText
+            borderColor: hovered
+              ? hoverColor
+              : errorText
               ? errorColor
               : focused
               ? focusColor
               : disableColor,
-            borderBottomColor: errorText
+            borderBottomColor: hovered
+              ? hoverColor
+              : errorText
               ? errorColor
               : focused
               ? focusColor
