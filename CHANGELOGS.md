@@ -1,10 +1,10 @@
 ## Changelogs
 
-## 0.0.46
+## 0.0.47
 
-[StatusBar]
+[StatusBarBrightness]
 
-- Newly added that handles bar light in mobile.
+- Newly added [StatusBarBrightness] to control `StatusBar`'s brightnes in mobile.
 
 ## 0.0.45
 
