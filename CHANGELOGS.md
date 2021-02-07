@@ -1,5 +1,11 @@
 ## Changelogs
 
+## 0.0.46
+
+[StatusBar]
+
+- Newly added that handles bar light in mobile.
+
 ## 0.0.45
 
 [EditText]
