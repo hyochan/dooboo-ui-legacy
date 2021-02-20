@@ -27,6 +27,7 @@ We love [react-hooks](https://code.fb.com/open-source/react-hooks) and willing t
 ## Contributing to `dooboo-ui`
 
 ![dooboo-ui](https://user-images.githubusercontent.com/27461460/73331047-ea876400-42a5-11ea-9c9c-1c997eb961be.png)
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fdooboolab%2Fdooboo-ui.svg?type=shield)](https://app.fossa.com/projects/git%2Bgithub.com%2Fdooboolab%2Fdooboo-ui?ref=badge_shield)
 
 - See also
   - dooboolab's [vision-and-mission](https://github.com/dooboolab/dooboolab.com/blob/master/vision-and-mission.md)
@@ -112,3 +113,7 @@ Please make sure to read the [Contributing Guide](CONTRIBUTING.md) before making
 Thank you to all the people who helped to maintain and upgrade this project!
 
 [![a relative link](https://opencollective.com/dooboo-ui/contributors.svg?width=890&button=true)](https://github.com/dooboolab/dooboo-ui/graphs/contributors)
+
+
+## License
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fdooboolab%2Fdooboo-ui.svg?type=large)](https://app.fossa.com/projects/git%2Bgithub.com%2Fdooboolab%2Fdooboo-ui?ref=badge_large)
