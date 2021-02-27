@@ -1,3 +1,4 @@
+import {Appearance, useColorScheme} from 'react-native';
 import {
   DefaultTheme,
   ThemeProvider as OriginalThemeProvider,
@@ -6,7 +7,6 @@ import {
 import React, {useEffect, useState} from 'react';
 import {ThemeParam, ThemeType, colors, dark, light} from './index';
 
-import {Appearance} from 'react-native';
 import type {Colors} from './index';
 import createCtx from './createCtx';
 import {useMediaQuery} from 'react-responsive';
@@ -40,14 +40,18 @@ function ThemeProvider({
   const isMobile = useMediaQuery({maxWidth: 767});
   const isTablet = useMediaQuery({minWidth: 767, maxWidth: 992});
   const isDesktop = useMediaQuery({minWidth: 992});
+  const colorScheme = useColorScheme();
 
   const [themeType, setThemeType] = useState(
-    initialThemeType || ThemeType.LIGHT,
+    initialThemeType ||
+      (colorScheme === 'light' ? ThemeType.LIGHT : ThemeType.DARK),
   );
 
   useEffect(() => {
-    const listener = ({colorScheme}): void => {
-      setThemeType(colorScheme === 'light' ? ThemeType.LIGHT : ThemeType.DARK);
+    const listener = ({colorScheme: newColorScheme}): void => {
+      setThemeType(
+        newColorScheme === 'light' ? ThemeType.LIGHT : ThemeType.DARK,
+      );
     };
 
     Appearance.addChangeListener(listener);

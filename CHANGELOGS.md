@@ -1,5 +1,15 @@
 ## Changelogs
 
+## 0.0.48
+
+[StatusBarBrightness]
+
+- Set default `themeType`.
+
+[ThemeProvider]
+
+- Set default themeType with `colorScheme`.
+
 ## 0.0.47
 
 [StatusBarBrightness]

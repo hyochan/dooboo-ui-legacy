@@ -6,10 +6,9 @@ import type {
   TextStyle,
   ViewStyle,
 } from 'react-native';
-import {Theme, light} from './theme';
+import {Theme, light, withTheme} from './theme';
 
 import {useHover} from 'react-native-web-hooks';
-import {withTheme} from './theme/ThemeProvider';
 
 type Styles = {
   container?: StyleProp<ViewStyle>;
