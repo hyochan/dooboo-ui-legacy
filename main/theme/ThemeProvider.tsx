@@ -1,4 +1,3 @@
-import {Appearance, useColorScheme} from 'react-native';
 import {
   DefaultTheme,
   ThemeProvider as OriginalThemeProvider,
@@ -7,8 +6,10 @@ import {
 import React, {useEffect, useState} from 'react';
 import {ThemeParam, ThemeType, colors, dark, light} from './index';
 
+import {Appearance} from 'react-native';
 import type {Colors} from './index';
 import createCtx from './createCtx';
+import useColorScheme from './useColorScheme';
 import {useMediaQuery} from 'react-responsive';
 
 interface Context {

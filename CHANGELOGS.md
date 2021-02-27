@@ -1,5 +1,12 @@
 ## Changelogs
 
+## 0.0.49
+
+[ThemeProvider]
+
+- Fixed theme variable changing issue
+- Related https://github.com/facebook/react-native/issues/28525.
+
 ## 0.0.48
 
 [StatusBarBrightness]
