@@ -3,10 +3,9 @@ import {
   ThemeProvider as OriginalThemeProvider,
   withTheme,
 } from 'styled-components/native';
-import React, {useEffect, useState} from 'react';
+import React, {useState} from 'react';
 import {ThemeParam, ThemeType, colors, dark, light} from './index';
 
-import {Appearance} from 'react-native';
 import type {Colors} from './index';
 import createCtx from './createCtx';
 import useColorScheme from './useColorScheme';
@@ -47,20 +46,6 @@ function ThemeProvider({
     initialThemeType ||
       (colorScheme === 'light' ? ThemeType.LIGHT : ThemeType.DARK),
   );
-
-  useEffect(() => {
-    const listener = ({colorScheme: newColorScheme}): void => {
-      setThemeType(
-        newColorScheme === 'light' ? ThemeType.LIGHT : ThemeType.DARK,
-      );
-    };
-
-    Appearance.addChangeListener(listener);
-
-    return function cleanup() {
-      Appearance.removeChangeListener(listener);
-    };
-  }, []);
 
   const changeThemeType = (): void => {
     const newThemeType =
