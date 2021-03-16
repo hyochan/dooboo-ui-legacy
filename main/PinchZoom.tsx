@@ -360,4 +360,6 @@ function PinchZoom(props: Props, ref: Ref<PinchZoomRef>): ReactElement {
   );
 }
 
-export default forwardRef<PinchZoomRef, Props>(PinchZoom);
+const PinchZoomRoot = forwardRef<PinchZoomRef, Props>(PinchZoom);
+
+export {PinchZoomRoot as PinchZoom};

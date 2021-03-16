@@ -1,5 +1,9 @@
 ## Changelogs
 
+## 0.0.51
+
+- [PinchZoom] added in `dooboo-ui` package.
+
 ## 0.0.50
 
 [ThemeProvider]

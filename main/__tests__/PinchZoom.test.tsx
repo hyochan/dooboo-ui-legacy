@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import {ImageSlider} from '../PinchZoom/PinchZoom.example';
+import {ImageSlider} from '../../stories/dooboo-ui/PinchZoomStories/PinchZoomSlider';
 import {PanResponderCallbacks} from 'react-native';
 import renderer from 'react-test-renderer';
 
