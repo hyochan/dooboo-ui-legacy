@@ -2,6 +2,7 @@ import {
   Animated,
   Dimensions,
   Platform,
+  StyleProp,
   StyleSheet,
   TextStyle,
   ViewStyle,
@@ -61,16 +62,16 @@ export interface Content {
   text: string;
   actionText?: string;
   timer?: Timer;
-  actionStyle?: TextStyle;
-  containerStyle?: ViewStyle;
-  messageStyle?: TextStyle;
+  actionStyle?: StyleProp<TextStyle>;
+  containerStyle?: StyleProp<ViewStyle>;
+  messageStyle?: StyleProp<TextStyle>;
   onPressAction?: () => void;
 }
 
 interface ShowingState {
   isVisible?: boolean;
   isShowing?: boolean;
-  timeout?: NodeJS.Timeout;
+  timeout?: any;
 }
 
 export interface SnackbarRef {
@@ -172,6 +173,7 @@ const Snackbar = (
             containerStyle,
             {opacity: fadeAnim},
           ]}>
+          {/* @ts-ignore */}
           <MessageText style={messageStyle}>{text}</MessageText>
           {actionText && (
             <ActionContainer>
@@ -181,6 +183,7 @@ const Snackbar = (
                   hide();
                 }}>
                 <ActionButton>
+                  {/* @ts-ignore */}
                   <ActionText style={actionStyle}>{actionText}</ActionText>
                 </ActionButton>
               </Touchable>

@@ -211,7 +211,6 @@ function Default(): React.ReactElement {
         renderCards={_renderCards}
         renderNoMoreCards={_renderNoMoreCards}
         containerStyle={{width: 300, height: 500}}
-        shouldRotate
         swipeRightLabelElement={(): ReactElement => (
           <LikeLabel>Like!</LikeLabel>
         )}
