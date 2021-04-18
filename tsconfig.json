@@ -32,8 +32,7 @@
     "experimentalDecorators": true,
     "emitDecoratorMetadata": true,
     "esModuleInterop": true,
-    "noUnusedLocals": false,
-    "jsxImportSource": "@emotion/react"
+    "noUnusedLocals": false
   },
   "include": [
     "src/**/*.ts",

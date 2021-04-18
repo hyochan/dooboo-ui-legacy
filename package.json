@@ -39,6 +39,7 @@
     "@babel/plugin-transform-modules-commonjs": "^7.13.8",
     "@babel/preset-react": "^7.13.13",
     "@dooboo/eslint-config": "^0.6.26",
+    "@emotion/babel-plugin": "^11.3.0",
     "@expo/webpack-config": "^0.12.66",
     "@react-native-async-storage/async-storage": "^1.15.2",
     "@storybook/addon-actions": "6.2.8",
