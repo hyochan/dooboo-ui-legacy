@@ -1,8 +1,8 @@
 import {
-  DefaultTheme,
+  Theme as DefaultTheme,
   ThemeProvider as OriginalThemeProvider,
   withTheme,
-} from 'styled-components/native';
+} from '@emotion/react';
 import React, {useState} from 'react';
 import {ThemeParam, ThemeType, colors, dark, light} from './index';
 

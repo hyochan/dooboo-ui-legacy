@@ -2,7 +2,7 @@ import {Animated, Easing, LayoutChangeEvent, ViewStyle} from 'react-native';
 import React, {FC, useEffect, useRef, useState} from 'react';
 
 import {Datum} from './index';
-import styled from 'styled-components/native';
+import styled from '@emotion/native';
 
 const TitleContainer = styled.TouchableOpacity`
   justify-content: center;

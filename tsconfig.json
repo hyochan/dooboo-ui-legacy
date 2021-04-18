@@ -2,7 +2,9 @@
   "compilerOptions": {
     "allowSyntheticDefaultImports": true,
     "jsx": "react-native",
-    "lib": ["es2017"],
+    "lib": [
+      "es2017"
+    ],
     "moduleResolution": "node",
     "noEmit": true,
     "isolatedModules": false,
@@ -13,7 +15,10 @@
     "target": "es6",
     "sourceMap": true,
     "allowJs": false,
-    "rootDirs": ["src", "stories"],
+    "rootDirs": [
+      "src",
+      "stories"
+    ],
     "baseUrl": "src",
     "incremental": true,
     "forceConsistentCasingInFileNames": true,
@@ -27,7 +32,8 @@
     "experimentalDecorators": true,
     "emitDecoratorMetadata": true,
     "esModuleInterop": true,
-    "noUnusedLocals": false
+    "noUnusedLocals": false,
+    "jsxImportSource": "@emotion/react"
   },
   "include": [
     "src/**/*.ts",
@@ -35,7 +41,15 @@
     "stories/**/*.ts",
     "stories/**/*.tsx"
   ],
-  "exclude": ["node_modules", "**/*.test.tsx", "**/*.spec.ts"],
-  "files": ["environment.d.ts", "main/theme/styled.d.ts"],
-  "types": ["typePatches"]
+  "exclude": [
+    "node_modules",
+    "**/*.test.tsx",
+    "**/*.spec.ts"
+  ],
+  "files": [
+    "environment.d.ts",
+    "main/theme/styled.d.ts"
+  ],
+  "types": ["typePatches", "jest"],
+  "extends": "expo/tsconfig.base"
 }

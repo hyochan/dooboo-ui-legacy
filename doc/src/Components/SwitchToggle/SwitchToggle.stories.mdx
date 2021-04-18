@@ -1,4 +1,4 @@
-import { Meta, Story, Canvas } from '@storybook/addon-docs/blocks';
+import {Meta, Story, Canvas} from '@storybook/addon-docs/blocks';
 
 <Meta title="Components/SwitchToggle" />
 
@@ -6,7 +6,7 @@ import { Meta, Story, Canvas } from '@storybook/addon-docs/blocks';
 
 > Simple switch toggle component for react-native. This component supports horizontal switch toggle with animation with several options like start/end background colors, start/end circle colors, and duration for animation.
 
-<img src="https://firebasestorage.googleapis.com/v0/b/bookoo-89f6c.appspot.com/o/switch-toggle.gif?alt=media&token=a9dc36e0-3c25-45dc-bbb7-8b095a716dc8"/>
+<img src="https://firebasestorage.googleapis.com/v0/b/bookoo-89f6c.appspot.com/o/switch-toggle.gif?alt=media&token=a9dc36e0-3c25-45dc-bbb7-8b095a716dc8" />
 
 ## Props
 
@@ -43,10 +43,10 @@ yarn add dooboo-ui
 ## Usage
 
 ```javascript
-import React, { ReactElement, useState } from 'react';
+import React, {ReactElement, useState} from 'react';
 
-import { SwitchToggle } from 'dooboo-ui';
-import styled from 'styled-components/native';
+import {SwitchToggle} from 'dooboo-ui';
+import styled from '@emotion/native';
 
 const Container = styled.View`
   flex: 1;
@@ -131,9 +131,9 @@ function Page(): ReactElement {
           alignItems: 'center',
           justifyContent: 'flex-start',
         }}
-        buttonTextStyle={{ fontSize: 20 }}
-        textRightStyle={{ fontSize: 20 }}
-        textLeftStyle={{ fontSize: 20 }}
+        buttonTextStyle={{fontSize: 20}}
+        textRightStyle={{fontSize: 20}}
+        textLeftStyle={{fontSize: 20}}
         containerStyle={{
           marginTop: 16,
           width: 160,

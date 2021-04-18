@@ -6,7 +6,7 @@ import {Button} from '../../../main';
 import type {FC} from 'react';
 import {action} from '@storybook/addon-actions';
 import {light} from '../../../main/theme';
-import styled from 'styled-components/native';
+import styled from '@emotion/native';
 import {text} from '@storybook/addon-knobs';
 
 const ScrollContainer = styled.ScrollView`

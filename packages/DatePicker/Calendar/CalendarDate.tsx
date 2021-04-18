@@ -1,7 +1,7 @@
 import {TouchableOpacity, View, ViewStyle} from 'react-native';
 
 import React from 'react';
-import styled from 'styled-components/native';
+import styled from '@emotion/native';
 
 const SelectedDate = styled.View`
   position: absolute;

@@ -15,6 +15,7 @@ exports[`[GiftedChatInput] render renders without crashing 1`] = `
           "flexShrink": 1,
           "justifyContent": "center",
         },
+        undefined,
       ],
       Object {
         "paddingBottom": 0,
@@ -23,9 +24,9 @@ exports[`[GiftedChatInput] render renders without crashing 1`] = `
   }
 >
   <RCTScrollView
-    ListEmptyComponent={<View />}
+    ListEmptyComponent={<Component />}
     ListHeaderComponent={
-      <View
+      <Component
         style={
           Object {
             "height": 28,

@@ -29,10 +29,10 @@ exports[`PinchZoom of ImageSlider should renders without crashing 1`] = `
           "flexShrink": 1,
           "height": 400,
           "justifyContent": "center",
-          "maxWidth": 750,
           "overflow": "hidden",
           "width": 300,
         },
+        undefined,
       ]
     }
   >

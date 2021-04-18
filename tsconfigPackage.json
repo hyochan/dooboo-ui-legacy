@@ -13,5 +13,13 @@
     "allowSyntheticDefaultImports": true,
     "declaration": true
   },
-  "exclude": ["node_modules", "package", "**/**/*/__tests__", "dist"]
+  "exclude": [
+    "node_modules",
+    "package",
+    "**/**/*/__tests__",
+    "dist"
+  ],
+  "types": [
+    "jest"
+  ]
 }

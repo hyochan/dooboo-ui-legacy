@@ -1,6 +1,6 @@
 import React, {FC, ReactElement, useEffect, useRef, useState} from 'react';
 
-import styled from 'styled-components/native';
+import styled from '@emotion/native';
 import {useHover} from 'react-native-web-hooks';
 
 const Container = styled.View``;

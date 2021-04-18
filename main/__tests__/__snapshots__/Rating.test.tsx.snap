@@ -8,9 +8,8 @@ exports[`[Rating] render [Rating] Interaction should simulate customItem and con
         "alignItems": "center",
         "flexDirection": "row",
         "justifyContent": "space-between",
-        "opacity": 1,
-        "width": "NaNpx",
       },
+      undefined,
     ]
   }
 >
@@ -43,6 +42,7 @@ exports[`[Rating] render [Rating] Interaction should simulate customItem and con
             "height": 30,
             "width": 30,
           },
+          undefined,
         ]
       }
     />
@@ -59,9 +59,8 @@ exports[`[Rating] render [Rating] Interaction should simulate customItem and con
         "alignItems": "center",
         "flexDirection": "row",
         "justifyContent": "space-between",
-        "opacity": 0.5,
-        "width": "NaNpx",
       },
+      undefined,
     ]
   }
 >
@@ -94,6 +93,7 @@ exports[`[Rating] render [Rating] Interaction should simulate customItem and con
             "height": 30,
             "width": 30,
           },
+          undefined,
         ]
       }
     />
@@ -109,9 +109,8 @@ exports[`[Rating] render [Rating] Interaction should simulate props 1`] = `
         "alignItems": "center",
         "flexDirection": "row",
         "justifyContent": "space-between",
-        "opacity": 1,
-        "width": "NaNpx",
       },
+      undefined,
     ]
   }
 >
@@ -144,6 +143,7 @@ exports[`[Rating] render [Rating] Interaction should simulate props 1`] = `
             "height": 30,
             "width": 30,
           },
+          undefined,
         ]
       }
     />
@@ -160,9 +160,8 @@ exports[`[Rating] render [Rating] Interaction should simulate props 2`] = `
         "alignItems": "center",
         "flexDirection": "row",
         "justifyContent": "space-between",
-        "opacity": 0.5,
-        "width": "NaNpx",
       },
+      undefined,
     ]
   }
 >
@@ -195,6 +194,7 @@ exports[`[Rating] render [Rating] Interaction should simulate props 2`] = `
             "height": 30,
             "width": 30,
           },
+          undefined,
         ]
       }
     />
@@ -210,9 +210,8 @@ exports[`[Rating] render renders without crashing 1`] = `
         "alignItems": "center",
         "flexDirection": "row",
         "justifyContent": "space-between",
-        "opacity": 1,
-        "width": 150,
       },
+      undefined,
     ]
   }
   total={5}
@@ -246,6 +245,7 @@ exports[`[Rating] render renders without crashing 1`] = `
             "height": 30,
             "width": 30,
           },
+          undefined,
         ]
       }
     />
@@ -279,6 +279,7 @@ exports[`[Rating] render renders without crashing 1`] = `
             "height": 30,
             "width": 30,
           },
+          undefined,
         ]
       }
     />
@@ -312,6 +313,7 @@ exports[`[Rating] render renders without crashing 1`] = `
             "height": 30,
             "width": 30,
           },
+          undefined,
         ]
       }
     />
@@ -345,6 +347,7 @@ exports[`[Rating] render renders without crashing 1`] = `
             "height": 30,
             "width": 30,
           },
+          undefined,
         ]
       }
     />
@@ -378,6 +381,7 @@ exports[`[Rating] render renders without crashing 1`] = `
             "height": 30,
             "width": 30,
           },
+          undefined,
         ]
       }
     />

@@ -4,7 +4,6 @@
 
 ![gifted_chat](https://user-images.githubusercontent.com/27461460/69912933-218ef400-1474-11ea-9e89-c634be770927.gif)
 
-
 ## Props
 
 |                      | necessary | types               | default |
@@ -40,7 +39,7 @@ yarn add @dooboo-ui/gifted-chat
 - Import
 
   ```javascript
-  import { GiftedChat } from 'dooboo-ui';
+  import {GiftedChat} from 'dooboo-ui';
   ```
 
 - Usage
@@ -56,7 +55,7 @@ yarn add @dooboo-ui/gifted-chat
   import styled, {
     DefaultTheme,
     ThemeProps,
-  } from 'styled-components/native';
+  } from '@emotion/native';
 
   import Button from '../shared/Button';
   import { Chat } from '../../types';

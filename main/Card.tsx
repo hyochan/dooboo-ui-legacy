@@ -6,9 +6,7 @@ import {
   ViewStyle,
 } from 'react-native';
 import React, {FC, ReactNode, ReactNodeArray} from 'react';
-import styled, {css} from 'styled-components/native';
-
-import {FlattenSimpleInterpolation} from 'styled-components';
+import styled, {css} from '@emotion/native';
 
 const shadow = css`
   shadow-color: #000;
@@ -47,7 +45,7 @@ const Container = styled.View<ContainerProps>`
   align-items: flex-start;
   background-color: #fff;
   width: 256px;
-  ${({outlined, raised}): FlattenSimpleInterpolation =>
+  ${({outlined, raised}) =>
     outlined ? styles.border : raised ? styles.raisedShadow : styles.shadow}
 `;
 

@@ -7,7 +7,7 @@ import {
 } from 'react-native';
 import React, {FC, useEffect, useState} from 'react';
 
-import styled from 'styled-components/native';
+import styled, {css} from '@emotion/native';
 
 const Container = styled.View`
   flex-direction: column;
@@ -46,7 +46,6 @@ const StyledDateInput = styled.TextInput`
   font-size: 15px;
   font-weight: 500;
   flex: 1;
-  ${Platform.OS === 'web' && {'outline-style': 'none'}}
 `;
 
 const StyledErrorContainer = styled.View`
@@ -123,13 +122,19 @@ const DateInput: FC<Props> = (props) => {
       <StyledRowContainer>
         <StyledRowContent>
           <StyledDateInput
+            style={[
+              dateTextStyle,
+              Platform.OS === 'web' &&
+                css`
+                  outline-style: 'none';
+                `,
+            ]}
             value={value}
             placeholder={placeholder}
             placeholderTextColor={placeholderTextColor}
             onChangeText={(input: string): void => {
               setValue(input);
             }}
-            style={dateTextStyle}
           />
         </StyledRowContent>
         <TouchableOpacity onPress={onPressCalendar}>

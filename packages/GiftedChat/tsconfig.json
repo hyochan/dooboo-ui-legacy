@@ -3,5 +3,5 @@
   "compilerOptions": {
     "outDir": "./lib"
   },
-  "exclude": ["lib", "node_modules"]
+  "exclude": ["**/*.d.ts", "node_modules"]
 }

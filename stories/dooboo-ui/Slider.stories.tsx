@@ -4,7 +4,7 @@ import {ContainerDeco} from '../../storybook/decorators';
 import {Slider} from '../../main';
 import {Text} from 'react-native';
 import {storiesOf} from '@storybook/react-native';
-import styled from 'styled-components/native';
+import styled from '@emotion/native';
 
 const StyledScrollView = styled.ScrollView`
   width: 100%;

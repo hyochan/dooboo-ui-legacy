@@ -7,7 +7,7 @@ import Snackbar, {
   Content,
 } from '@dooboo-ui/snackbar';
 
-import styled from 'styled-components/native';
+import styled from '@emotion/native';
 import { Button, EditText } from 'dooboo-ui';
 
 const Container = styled.View`

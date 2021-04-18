@@ -4,7 +4,7 @@ import {Select, SelectItem} from '../../main';
 
 import {ContainerDeco} from '../../storybook/decorators';
 import {storiesOf} from '@storybook/react-native';
-import styled from 'styled-components/native';
+import styled from '@emotion/native';
 
 const CustomContainer = styled.View`
   width: 100%;

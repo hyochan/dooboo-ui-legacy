@@ -2,7 +2,7 @@ import {TextStyle, ViewStyle} from 'react-native';
 import DateInput from './DateInput';
 import PickerCalendar from './PickerCalendar';
 import React from 'react';
-import styled from 'styled-components/native';
+import styled from '@emotion/native';
 
 const Container = styled.View`
   flex-direction: column;

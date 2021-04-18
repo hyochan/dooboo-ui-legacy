@@ -12,10 +12,10 @@ import type {
   TouchableOpacityProps,
   ViewStyle,
 } from 'react-native';
-import {Theme, light} from './theme';
+import {DoobooTheme, light} from './theme';
 
 import type {FC} from 'react';
-import styled from 'styled-components/native';
+import styled from '@emotion/native';
 import {useHover} from 'react-native-web-hooks';
 import {withTheme} from './theme/ThemeProvider';
 
@@ -58,7 +58,7 @@ export interface ButtonProps {
   textProps?: Partial<TextProps>;
 }
 
-const Component: FC<ButtonProps & {theme: Theme}> = ({
+const Component: FC<ButtonProps & {theme: DoobooTheme}> = ({
   testID,
   theme,
   disabled,

@@ -6,17 +6,28 @@ exports[`[SearchInput] render test should render without crashing 1`] = `
     Array [
       Object {
         "alignItems": "center",
-        "borderColor": "#e0e0e0",
-        "borderRadius": 6,
-        "borderWidth": 1,
+        "borderBottomColor": "#e0e0e0",
+        "borderBottomLeftRadius": 6,
+        "borderBottomRightRadius": 6,
+        "borderBottomWidth": 1,
+        "borderLeftColor": "#e0e0e0",
+        "borderLeftWidth": 1,
+        "borderRightColor": "#e0e0e0",
+        "borderRightWidth": 1,
+        "borderTopColor": "#e0e0e0",
+        "borderTopLeftRadius": 6,
+        "borderTopRightRadius": 6,
+        "borderTopWidth": 1,
         "flexDirection": "row",
         "height": 40,
         "marginLeft": 20,
         "marginRight": 20,
         "width": 381,
       },
-      undefined,
-      false,
+      Array [
+        undefined,
+        false,
+      ],
     ]
   }
   testID="SEARCH_CONTAINER"
@@ -36,6 +47,10 @@ exports[`[SearchInput] render test should render without crashing 1`] = `
           "fontSize": 14,
           "paddingLeft": 16,
         },
+        Array [
+          undefined,
+          false,
+        ],
       ]
     }
     testID="SEARCH_INPUT"

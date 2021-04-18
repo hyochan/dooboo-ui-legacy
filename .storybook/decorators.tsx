@@ -1,5 +1,5 @@
 import React from 'react';
-import styled from 'styled-components/native';
+import styled from '@emotion/native';
 
 export const ContainerDeco = (storyFn: any): React.ReactElement => (
   <Container>{storyFn()}</Container>

@@ -19,7 +19,7 @@ exports[`[EditText] interactions Type: [column] renders custom styles without cr
         Array [
           Object {
             "alignSelf": "stretch",
-            "borderBottomColor": "#00000050",
+            "borderBottomColor": undefined,
             "borderBottomWidth": 0.5,
             "flexDirection": "column",
             "justifyContent": "space-between",
@@ -28,8 +28,8 @@ exports[`[EditText] interactions Type: [column] renders custom styles without cr
         ],
         false,
         Object {
-          "borderBottomColor": "#00000050",
-          "borderColor": "#00000050",
+          "borderBottomColor": undefined,
+          "borderColor": undefined,
         },
       ]
     }
@@ -40,14 +40,13 @@ exports[`[EditText] interactions Type: [column] renders custom styles without cr
       editable={true}
       onBlur={[Function]}
       onFocus={[Function]}
-      placeholderTextColor="#CFCED0"
       rejectResponderTermination={true}
       secureTextEntry={false}
       style={
         Array [
           Array [
             Object {
-              "color": "#222222",
+              "color": undefined,
               "fontSize": 14,
               "fontWeight": "bold",
               "paddingVertical": 12,
@@ -84,7 +83,7 @@ exports[`[EditText] interactions Type: [column] renders without crashing 1`] = `
         Array [
           Object {
             "alignSelf": "stretch",
-            "borderBottomColor": "#00000050",
+            "borderBottomColor": undefined,
             "borderBottomWidth": 0.5,
             "flexDirection": "column",
             "justifyContent": "space-between",
@@ -93,8 +92,8 @@ exports[`[EditText] interactions Type: [column] renders without crashing 1`] = `
         ],
         false,
         Object {
-          "borderBottomColor": "#00000050",
-          "borderColor": "#00000050",
+          "borderBottomColor": undefined,
+          "borderColor": undefined,
         },
       ]
     }
@@ -105,14 +104,13 @@ exports[`[EditText] interactions Type: [column] renders without crashing 1`] = `
       editable={true}
       onBlur={[Function]}
       onFocus={[Function]}
-      placeholderTextColor="#CFCED0"
       rejectResponderTermination={true}
       secureTextEntry={false}
       style={
         Array [
           Array [
             Object {
-              "color": "#222222",
+              "color": undefined,
               "fontSize": 14,
               "fontWeight": "bold",
               "paddingVertical": 12,
@@ -150,7 +148,7 @@ exports[`[EditText] interactions Type: [row] - default should render without cra
           Object {
             "alignItems": "center",
             "alignSelf": "stretch",
-            "borderBottomColor": "#00000050",
+            "borderBottomColor": undefined,
             "borderBottomWidth": 0.5,
             "flexDirection": "row",
             "justifyContent": "space-between",
@@ -159,8 +157,8 @@ exports[`[EditText] interactions Type: [row] - default should render without cra
         ],
         false,
         Object {
-          "borderBottomColor": "#00000050",
-          "borderColor": "#00000050",
+          "borderBottomColor": undefined,
+          "borderColor": undefined,
         },
       ]
     }
@@ -171,14 +169,13 @@ exports[`[EditText] interactions Type: [row] - default should render without cra
       editable={true}
       onBlur={[Function]}
       onFocus={[Function]}
-      placeholderTextColor="#CFCED0"
       rejectResponderTermination={true}
       secureTextEntry={false}
       style={
         Array [
           Array [
             Object {
-              "color": "#222222",
+              "color": undefined,
               "flex": 1,
               "fontSize": 14,
               "fontWeight": "bold",
@@ -217,7 +214,7 @@ exports[`[EditText] interactions web renders without crashing 1`] = `
         Array [
           Object {
             "alignSelf": "stretch",
-            "borderBottomColor": "#00000050",
+            "borderBottomColor": undefined,
             "borderBottomWidth": 0.5,
             "flexDirection": "column",
             "justifyContent": "space-between",
@@ -226,8 +223,8 @@ exports[`[EditText] interactions web renders without crashing 1`] = `
         ],
         false,
         Object {
-          "borderBottomColor": "#00000050",
-          "borderColor": "#00000050",
+          "borderBottomColor": undefined,
+          "borderColor": undefined,
         },
       ]
     }
@@ -238,14 +235,13 @@ exports[`[EditText] interactions web renders without crashing 1`] = `
       editable={true}
       onBlur={[Function]}
       onFocus={[Function]}
-      placeholderTextColor="#CFCED0"
       rejectResponderTermination={true}
       secureTextEntry={false}
       style={
         Array [
           Array [
             Object {
-              "color": "#222222",
+              "color": undefined,
               "fontSize": 14,
               "fontWeight": "bold",
               "paddingVertical": 12,

@@ -2,7 +2,7 @@ import { Image, Text, View } from 'react-native';
 import React, { Fragment, ReactElement } from 'react';
 
 import PinchZoom from '@dooboo-ui/pinch-zoom';
-import styled from 'styled-components/native';
+import styled from '@emotion/native';
 
 const Container = styled.View`
   flex: 1;

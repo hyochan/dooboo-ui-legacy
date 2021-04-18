@@ -3,6 +3,7 @@ import {
   Dimensions,
   LayoutAnimation,
   PanResponder,
+  StyleProp,
   Text,
   UIManager,
   ViewStyle,
@@ -18,7 +19,7 @@ import React, {
   useState,
 } from 'react';
 
-import styled from 'styled-components/native';
+import styled from '@emotion/native';
 
 const SCREEN_WIDTH = Dimensions.get('screen').width;
 const SWIPE_THRESHOLD = 0.25 * SCREEN_WIDTH;
@@ -45,13 +46,13 @@ interface Props<T> {
   onCancel?: () => void;
   swipeRightLabelElement?: () => ReactElement | null;
   swipeLeftLabelElement?: () => ReactElement | null;
-  swipeRightLabelStyle?: ViewStyle;
-  swipeLeftLabelStyle?: ViewStyle;
-  swipeLabelAlignStyle?: ViewStyle;
-  containerStyle?: ViewStyle;
-  frontCardStyle?: ViewStyle;
-  backCardsStyle?: ViewStyle;
-  shouldRotate?: boolean;
+  swipeRightLabelStyle?: StyleProp<ViewStyle>;
+  swipeLeftLabelStyle?: StyleProp<ViewStyle>;
+  swipeLabelAlignStyle?: StyleProp<ViewStyle>;
+  containerStyle?: StyleProp<ViewStyle>;
+  frontCardStyle?: StyleProp<ViewStyle>;
+  backCardsStyle?: StyleProp<ViewStyle>;
+  shouldRotate?: StyleProp<ViewStyle>;
 }
 
 const Container = styled.View`
@@ -227,6 +228,7 @@ function TinderCard<T>(
             ]}
             {..._panResponder.panHandlers}>
             {renderCards && renderCards(item)}
+            {/* @ts-ignore */}
             <SwipeLabelWrapper style={swipeLabelAlignStyle}>
               <Animated.View
                 style={[
@@ -285,6 +287,7 @@ function TinderCard<T>(
     handleCancel,
   }));
 
+  // @ts-ignore
   return <Container style={containerStyle}>{_renderCards()}</Container>;
 }
 

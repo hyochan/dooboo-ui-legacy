@@ -18,7 +18,7 @@
 [![Sponsor](https://opencollective.com/dooboo-ui/tiers/badge.svg?style=shield)](https://opencollective.com/dooboo-ui/tiers/badge.svg)
 ![License](http://img.shields.io/npm/l/dooboo-ui.svg?style=flat-square)
 
-We love [react-hooks](https://code.fb.com/open-source/react-hooks) and willing to share our [react-native](https://facebook.github.io/react-native) ui components built in [functional components](https://logrocket.com/blog/pure-functional-components) using hooks. Also the `dooboo-ui` is built on top of our favorite stacks like [styled-components](https://styled-components.com), [typescript](https://typescript.org), [jest](https://jestjs.io), [react-testing-library](https://testing-library.com/docs/react-testing-library/intro), [expo](https://expo.io), [storybook](https://storybook.js.org), and so on.
+We love [react-hooks](https://code.fb.com/open-source/react-hooks) and willing to share our [react-native](https://facebook.github.io/react-native) ui components built in [functional components](https://logrocket.com/blog/pure-functional-components) using hooks. Also the `dooboo-ui` is built on top of our favorite stacks like [emotion](https://emotion.sh/docs/@emotion/native), [typescript](https://typescript.org), [jest](https://jestjs.io), [react-testing-library](https://testing-library.com/docs/react-testing-library/intro), [expo](https://expo.io), [storybook](https://storybook.js.org), and so on.
 
 ## Documentation
 
@@ -48,11 +48,11 @@ Follow the [README_THEME](./README_THEME.md)
 
 ## Compatibility
 
-| package           | version |
-| ----------------- | ------- |
-| react             | >=16.13 |
-| react-native      | >=0.62  |
-| styled-components | >=5     |
+| package      | version |
+| ------------ | ------- |
+| react        | >=16.13 |
+| react-native | >=0.62  |
+| emotion      | \*      |
 
 ## List of independent components in `@dooboo-ui/*`
 
@@ -114,6 +114,6 @@ Thank you to all the people who helped to maintain and upgrade this project!
 
 [![a relative link](https://opencollective.com/dooboo-ui/contributors.svg?width=890&button=true)](https://github.com/dooboolab/dooboo-ui/graphs/contributors)
 
-
 ## License
+
 [![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fdooboolab%2Fdooboo-ui.svg?type=large)](https://app.fossa.com/projects/git%2Bgithub.com%2Fdooboolab%2Fdooboo-ui?ref=badge_large)

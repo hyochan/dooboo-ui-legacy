@@ -7,7 +7,7 @@ import {
 } from 'react-native';
 
 import React from 'react';
-import styled from 'styled-components/native';
+import styled from '@emotion/native';
 
 interface Props {
   testID?: string;

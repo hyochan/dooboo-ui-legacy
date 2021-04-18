@@ -1,4 +1,4 @@
-import {DefaultTheme} from 'styled-components/native';
+import {Theme} from '@emotion/react';
 
 export enum ThemeType {
   LIGHT = 'LIGHT',
@@ -71,7 +71,7 @@ export const light = {
   googleBackground: colors.google,
 };
 
-export type Theme = typeof light & {
+export type DoobooTheme = typeof light & {
   isDesktop?: boolean;
   isTablet?: boolean;
   isMobile?: boolean;
@@ -127,7 +127,7 @@ export const createDoobooTheme = ({
 }: {
   type?: ThemeType;
   themes?: ThemeParam;
-}): Partial<DefaultTheme> => {
+}): Partial<Theme> => {
   switch (type) {
     case ThemeType.DARK:
       return {...theme.dark, ...themes?.dark};

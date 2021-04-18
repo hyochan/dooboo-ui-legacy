@@ -141,7 +141,7 @@
    }
    ```
 
-4. Also availabe with `styled-components`.
+4. Also availabe with [emotion](https://emotion.sh/docs/@emotion/native).
    ```ts
    const StyledContainer = styled.SafeAreaView`
      flex: 1;
@@ -151,12 +151,12 @@
    `;
    ```
 
-## Typescript with `styled-components`
+## Typescript with [emotion](https://emotion.sh/docs/typescript#define-a-theme
 
 > Inside `src` dir, add `styled.d.ts`.
 
 ```ts
-import 'styled-components';
+import '@emotion/react';
 import {DoobooTheme} from '@dooboo-ui/theme';
 import {Theme} from './theme';
 
@@ -166,7 +166,7 @@ interface CustomTheme extends AllTheme {
   background: string;
 }
 
-declare module 'styled-components' {
+declare module '@emotion/react' {
   export interface DefaultTheme extends CustomTheme {
     background: string;
   }

@@ -3,7 +3,7 @@ import React, {Fragment, ReactElement, ReactNode} from 'react';
 
 import Arrow from './Arrow';
 import {SelectItemProps} from './SelectItem';
-import styled from 'styled-components/native';
+import styled from '@emotion/native';
 
 interface Props {
   testID?: string;

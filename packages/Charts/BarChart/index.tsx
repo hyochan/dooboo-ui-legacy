@@ -5,7 +5,7 @@ import React, {FC} from 'react';
 
 import {BarChartProps} from './types';
 import {Hoverable} from 'react-native-web-hooks';
-import styled from 'styled-components/native';
+import styled from '@emotion/native';
 
 // Styled component declaration
 const Container = styled.View`

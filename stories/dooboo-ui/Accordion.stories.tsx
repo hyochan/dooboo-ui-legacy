@@ -5,7 +5,7 @@ import {Accordion} from '../../main';
 import {ContainerDeco} from '../../storybook/decorators';
 import {SafeAreaView} from 'react-native';
 import {storiesOf} from '@storybook/react-native';
-import styled from 'styled-components/native';
+import styled from '@emotion/native';
 
 const Container = styled.View`
   flex: 1;

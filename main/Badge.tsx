@@ -1,6 +1,5 @@
 import React, {FC} from 'react';
-import styled, {css} from 'styled-components/native';
-import {FlattenSimpleInterpolation} from 'styled-components';
+import styled, {css} from '@emotion/native';
 
 import {StyleSheet} from 'react-native';
 
@@ -30,7 +29,7 @@ const StyledView = styled.View<StyleProps>`
   border-radius: 50px;
   justify-content: center;
   align-items: center;
-  ${(props): FlattenSimpleInterpolation => css`
+  ${(props) => css`
     ${props.badgePlacement}: -10px;
     opacity: ${props.opacity};
     border-color: ${props.border || '#00ff0000'};
@@ -43,7 +42,7 @@ const StyledText = styled.Text<StyleProps>`
   padding: 5px;
   margin-left: 3px;
   margin-right: 3px;
-  ${(props): FlattenSimpleInterpolation => css`
+  ${(props) => css`
     color: ${props.textColor};
   `}
 `;
@@ -56,7 +55,7 @@ const StyledDotView = styled.View<StyleProps>`
   border-radius: 50px;
   justify-content: center;
   align-items: center;
-  ${(props): FlattenSimpleInterpolation => css`
+  ${(props) => css`
     ${props.badgePlacement}: -5px;
     background-color: ${props.color};
   `}

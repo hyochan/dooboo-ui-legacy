@@ -1,7 +1,7 @@
 import {Animated, Easing} from 'react-native';
 import React, {useRef} from 'react';
 
-import styled from 'styled-components/native';
+import styled from '@emotion/native';
 
 interface CircleProps {
   color: string;

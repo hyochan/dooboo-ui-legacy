@@ -1,4 +1,4 @@
-import { Meta, Story, Canvas } from '@storybook/addon-docs/blocks';
+import {Meta, Story, Canvas} from '@storybook/addon-docs/blocks';
 
 <Meta title="Components/Button" />
 
@@ -43,7 +43,7 @@ yarn add dooboo-ui
 - Import
 
   ```javascript
-  import { Button } from 'dooboo-ui';
+  import {Button} from 'dooboo-ui';
   ```
 
 - Usage
@@ -60,8 +60,7 @@ yarn add dooboo-ui
     textStyle={{
       color: 'white',
     }}
-    onPress={(): void => {}}
-  >
+    onPress={(): void => {}}>
     Sample button
   </Button>
   ```
@@ -73,13 +72,12 @@ yarn add dooboo-ui
       backgroundColor: 'red',
       borderColor: 'blue',
     }}
-    onPress={(): void => {}}
-  >
+    onPress={(): void => {}}>
     <SampleText>Sample button</SampleText>
   </Button>
   ```
 
-  - with `styled-components`
+  - with `emotion`
 
   ```jsx
   const SampleButton = styled(Button)`
@@ -97,10 +95,9 @@ yarn add dooboo-ui
     textStyle={{
       color: 'white',
     }}
-    onPress={(): void => {}}
-  >
+    onPress={(): void => {}}>
     Sample button
-  </SampleButton>
+  </SampleButton>;
   ```
 
   ```jsx
@@ -116,7 +113,7 @@ yarn add dooboo-ui
   `;
   <SampleButton testID="sampleButton" onPress={(): void => {}}>
     <SampleText>Sample button</SampleText>
-  </SampleButton>
+  </SampleButton>;
   ```
 
   - example
@@ -147,7 +144,7 @@ yarn add dooboo-ui
             elevation: 10,
             borderRadius: 4,
           }}
-          textStyle={{ color: '#FFFFFF' }}
+          textStyle={{color: '#FFFFFF'}}
           onPress={action('Clicked')}
           text={'Accent button '}
         />
@@ -172,7 +169,7 @@ yarn add dooboo-ui
           style={{
             marginVertical: 40,
           }}
-          textStyle={{ color: '#109CF1' }}
+          textStyle={{color: '#109CF1'}}
           onPress={action('Clicked')}
           text={'Secondary'}
         />
@@ -195,8 +192,7 @@ yarn add dooboo-ui
               setGoogleLoading(false);
               clearTimeout(timeout);
             }, 2000);
-          }}
-        >
+          }}>
           GOOGLE SIGN IN
         </Button>
         <Button
@@ -216,8 +212,7 @@ yarn add dooboo-ui
               setFacebookLoading(false);
               clearTimeout(timeout);
             }, 2000);
-          }}
-        >
+          }}>
           FACEBOOK SIGN IN
         </Button>
       </Container>

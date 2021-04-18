@@ -1,7 +1,7 @@
 import {TextStyle, ViewStyle} from 'react-native';
 
 import React from 'react';
-import styled from 'styled-components/native';
+import styled from '@emotion/native';
 
 export interface SelectItemProps {
   testID?: string;
@@ -12,11 +12,12 @@ export interface SelectItemProps {
   children?: string;
 }
 
-const ItemWrapper = styled.TouchableOpacity.attrs({activeOpacity: 0.9})`
-  width: 100%;
-  padding: 14px 12px;
-  justify-content: center;
-`;
+const ItemWrapper = styled.TouchableOpacity({
+  width: 100,
+  paddingHorizontal: 12,
+  paddingVertical: 14,
+  justifyContent: 'center',
+});
 
 const ItemText = styled.Text`
   font-size: 12px;
@@ -36,6 +37,7 @@ const SelectItem: React.FC<SelectItemProps> = (props): React.ReactElement => {
   return (
     <ItemWrapper
       testID={testID}
+      activeOpacity={0.9}
       style={style}
       onPress={(): void => onSelectItem(value)}>
       <ItemText style={textStyle}>{children}</ItemText>

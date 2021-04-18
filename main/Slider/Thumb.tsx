@@ -1,7 +1,7 @@
 import {Animated, StyleProp, ViewStyle} from 'react-native';
 import React, {FC} from 'react';
 
-import styled from 'styled-components/native';
+import styled from '@emotion/native';
 
 interface ThumbPositionerType {
   percent: number;

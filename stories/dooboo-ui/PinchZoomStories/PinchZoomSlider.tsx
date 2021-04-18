@@ -9,7 +9,7 @@ import {
 import {PinchZoom, PinchZoomRef} from '../../../main';
 import React, {ReactElement} from 'react';
 
-import styled from 'styled-components/native';
+import styled from '@emotion/native';
 
 const Container = styled.View`
   flex: 1;

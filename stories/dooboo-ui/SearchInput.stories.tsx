@@ -5,7 +5,7 @@ import {number, text} from '@storybook/addon-knobs';
 import {IC_MAGNIFIER} from '../Icon';
 import {SearchInput} from '../../main';
 import {storiesOf} from '@storybook/react-native';
-import styled from 'styled-components/native';
+import styled from '@emotion/native';
 
 const Container = styled.SafeAreaView`
   justify-content: center;
