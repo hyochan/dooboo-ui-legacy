@@ -1,11 +1,12 @@
 # BarChart
 
-> Customizable & responsive Bar Chart component for react-native. This component is using `react-native-svg`, `d3` and `styled-components/native` libraries to create the graph.<br/>
+> Customizable & responsive Bar Chart component for react-native. This component is using `react-native-svg`, `d3` and `@emotion/native` libraries to create the graph.<br/>
 
 ## Screen
-Web| iOS            |  Android
-:-------------------------:|:-------------------------:|:-------------------------:
-![BarChart_web](https://user-images.githubusercontent.com/50701501/87108910-4ff06f80-c29e-11ea-8660-3eebc3b61ffb.png) | ![BarChart_ios](https://user-images.githubusercontent.com/50701501/87108967-6d253e00-c29e-11ea-9bf7-5285dc1eff07.png) |  ![BarChart_android](https://user-images.githubusercontent.com/50701501/87109009-8201d180-c29e-11ea-9d12-8e1d8f254455.png)
+
+|                                                          Web                                                          |                                                          iOS                                                          |                                                          Android                                                          |
+| :-------------------------------------------------------------------------------------------------------------------: | :-------------------------------------------------------------------------------------------------------------------: | :-----------------------------------------------------------------------------------------------------------------------: |
+| ![BarChart_web](https://user-images.githubusercontent.com/50701501/87108910-4ff06f80-c29e-11ea-8660-3eebc3b61ffb.png) | ![BarChart_ios](https://user-images.githubusercontent.com/50701501/87108967-6d253e00-c29e-11ea-9bf7-5285dc1eff07.png) | ![BarChart_android](https://user-images.githubusercontent.com/50701501/87109009-8201d180-c29e-11ea-9d12-8e1d8f254455.png) |
 
 <br/>
 
@@ -14,6 +15,7 @@ Web| iOS            |  Android
 ```sh
 yarn add dooboo-ui
 ```
+
 <br/>
 
 ## Getting started
@@ -21,14 +23,14 @@ yarn add dooboo-ui
 - Import
 
   ```javascript
-  import { BarChart } from 'dooboo-ui';
+  import {BarChart} from 'dooboo-ui';
   ```
 
 - Data
 
   ```javascript
   state = {
-      data: [
+    data: [
       {
         id: 'abcd1234efgh5674',
         key1: 'D-6',
@@ -153,20 +155,21 @@ yarn add dooboo-ui
   </View>
   });
   ```
-<br/>
+
+  <br/>
 
 ## Props
 
-| Property   | Required | Types            | Default                     | Description                                                 |
-| ---------- | -------- | ---------------- | --------------------------- | ----------------------------------------------------------- |
-| data       | ✓        | Array<'Data'>    |                             | Array of objects                                            |
-| xAxisKey   | ✓        | string           |                             | X-axis parameter existing "key" name in \${"data"}          |
-| yAxisKey   | ✓        | string           |                             | Y-axis parameter existing "key" name in \${"data"}          |
-| yUnit      |          | string OR number | 10                          | Y-axis value unit                                           |
-| header     |          | ReactElement     | undefined                   | custom React element ([Example](#ReactElement)) |
-| graphStyle |          | object           | [Graph-Style](#Graph-Style) | fully customizable graph style                              |
-| xStyle     |          | object           | [X-Style](#X-Style)         | fully customizable graph style                              |
-| yStyle     |          | object           | [Y-Style](#Y-Style)         | fully customizable graph style                              |
+| Property   | Required | Types            | Default                     | Description                                        |
+| ---------- | -------- | ---------------- | --------------------------- | -------------------------------------------------- |
+| data       | ✓        | Array<'Data'>    |                             | Array of objects                                   |
+| xAxisKey   | ✓        | string           |                             | X-axis parameter existing "key" name in \${"data"} |
+| yAxisKey   | ✓        | string           |                             | Y-axis parameter existing "key" name in \${"data"} |
+| yUnit      |          | string OR number | 10                          | Y-axis value unit                                  |
+| header     |          | ReactElement     | undefined                   | custom React element ([Example](#ReactElement))    |
+| graphStyle |          | object           | [Graph-Style](#Graph-Style) | fully customizable graph style                     |
+| xStyle     |          | object           | [X-Style](#X-Style)         | fully customizable graph style                     |
+| yStyle     |          | object           | [Y-Style](#Y-Style)         | fully customizable graph style                     |
 
 <br/>
 <br/>
@@ -240,6 +243,7 @@ yarn add dooboo-ui
   fontWeight: 'bold',
 }
 ```
+
 <br/>
 
 ## `Responsive Feature` (WEB)
@@ -251,7 +255,7 @@ If you need the chart to be responsive, wrap the `BarChart` with a **responsive*
 ```javascript
 // Responsive example
 import { BarChart } from 'dooboo-ui';
-import styled from 'styled-components/native';
+import styled from '@emotion/native';
 
 const CustomContainer = styled.View`
   height: 100%;

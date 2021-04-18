@@ -1,6 +1,6 @@
 {
   "name": "dooboo-ui",
-  "version": "0.0.51",
+  "version": "0.0.60",
   "main": "index.js",
   "types": "index.d.ts",
   "author": "dooboolab",
@@ -12,7 +12,7 @@
   "peerDependencies": {
     "react": ">=16.9",
     "react-native": ">=0.58",
-    "styled-components": ">=4.4.0"
+    "emotion": ">=11.0.0"
   },
   "dependencies": {
     "dooboolab-welcome": "^1.2.0",

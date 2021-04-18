@@ -4,7 +4,7 @@ import {boolean, number} from '@storybook/addon-knobs';
 import {ContainerDeco} from '../../storybook/decorators';
 import {Rating} from '../../main';
 import {storiesOf} from '@storybook/react-native';
-import styled from 'styled-components/native';
+import styled from '@emotion/native';
 
 const Container = styled.View`
   background-color: transparent;

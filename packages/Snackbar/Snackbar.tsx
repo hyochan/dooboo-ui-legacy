@@ -9,7 +9,7 @@ import {
 } from 'react-native';
 import React, {useCallback} from 'react';
 
-import styled from 'styled-components/native';
+import styled from '@emotion/native';
 
 const styles = StyleSheet.create({
   container: {

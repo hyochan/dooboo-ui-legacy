@@ -42,10 +42,10 @@ yarn add dooboo-ui
 ## Usage
 
 ```javascript
-import React, { ReactElement } from 'react';
+import React, {ReactElement} from 'react';
 
-import { Slider } from 'dooboo-ui';
-import styled from 'styled-components/native';
+import {Slider} from 'dooboo-ui';
+import styled from '@emotion/native';
 
 function Page(): ReactElement {
   const handleChange = (value) => {
@@ -70,14 +70,14 @@ function Page(): ReactElement {
         maxValue={10}
         defaultValue={6}
         step={1}
-        railStyle={{ backgroundColor: '#90A4F9' }}
-        trackStyle={{ backgroundColor: '#0B21E8' }}
+        railStyle={{backgroundColor: '#90A4F9'}}
+        trackStyle={{backgroundColor: '#0B21E8'}}
         thumbSize={8}
-        thumbStyle={{ backgroundColor: '#0B21E8' }}
-        markStyle={{ backgroundColor: '#4163F4' }}
+        thumbStyle={{backgroundColor: '#0B21E8'}}
+        markStyle={{backgroundColor: '#4163F4'}}
         labelSize={15}
-        labelStyle={{ backgroundColor: '#0B21E8' }}
-        labelTextStyle={{ color: '#FFFFFF', fontSize: 12 }}
+        labelStyle={{backgroundColor: '#0B21E8'}}
+        labelTextStyle={{color: '#FFFFFF', fontSize: 12}}
         onChange={handleChange}
       />
     </Container>

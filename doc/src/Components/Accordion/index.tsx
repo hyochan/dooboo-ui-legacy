@@ -2,7 +2,7 @@ import React, { Fragment, ReactElement } from 'react';
 
 import { Accordion } from 'dooboo-ui';
 import { IC_ARR_DOWN } from '../../icon';
-import styled from 'styled-components/native';
+import styled from '@emotion/native'
 
 const Container = styled.View`
   flex: 1;

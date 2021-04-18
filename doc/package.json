@@ -4,8 +4,9 @@
   "main": "index.js",
   "license": "MIT",
   "dependencies": {
-    "@dooboo-ui/pinch-zoom": "file:../packages/PinchZoom",
     "@dooboo-ui/snackbar": "file:../packages/Snackbar",
+    "@emotion/native": "^11.0.0",
+    "@emotion/react": "^11.1.5",
     "@expo/config": "^3.3.22",
     "@expo/webpack-config": "^0.12.52",
     "@storybook/addon-docs": "^6.1.11",
@@ -14,8 +15,7 @@
     "babel-loader": "^8.2.2",
     "dooboo-ui": "file:../lib",
     "metro-react-native-babel-preset": "^0.64.0",
-    "react-native-web": "^0.14.10",
-    "styled-components": "^5.1.1"
+    "react-native-web": "^0.14.10"
   },
   "devDependencies": {
     "@storybook/addon-actions": "^6.1.11",

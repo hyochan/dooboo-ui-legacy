@@ -4,7 +4,7 @@ import React, {ReactElement} from 'react';
 import {ContainerDeco} from '../../storybook/decorators';
 import {Text} from 'react-native';
 import {storiesOf} from '@storybook/react-native';
-import styled from 'styled-components/native';
+import styled from '@emotion/native';
 
 const CustomContainer = styled.View`
   height: 50%;

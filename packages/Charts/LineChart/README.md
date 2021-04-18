@@ -1,11 +1,12 @@
 # LineChart
 
-> Customizable & responsive Line Chart component for react-native. This component is using `react-native-svg`, `d3` and `styled-components/native` libraries to create the graph.<br/>
+> Customizable & responsive Line Chart component for react-native. This component is using `react-native-svg`, `d3` and `@emotion/native` libraries to create the graph.<br/>
 
 ## Screen
-Web| iOS            |  Android
-:-------------------------:|:-------------------------:|:-------------------------:
-![image](https://i.ibb.co/QmHp4K9/2020-07-02-19-18-56.png) | ![iOS](https://user-images.githubusercontent.com/50701501/86733899-8777d580-c06c-11ea-8b9f-b9ffff50edd0.png) |  ![Android](https://user-images.githubusercontent.com/50701501/86735833-0ae5f680-c06e-11ea-82f4-749f58f5366f.png)
+
+|                            Web                             |                                                     iOS                                                      |                                                     Android                                                      |
+| :--------------------------------------------------------: | :----------------------------------------------------------------------------------------------------------: | :--------------------------------------------------------------------------------------------------------------: |
+| ![image](https://i.ibb.co/QmHp4K9/2020-07-02-19-18-56.png) | ![iOS](https://user-images.githubusercontent.com/50701501/86733899-8777d580-c06c-11ea-8b9f-b9ffff50edd0.png) | ![Android](https://user-images.githubusercontent.com/50701501/86735833-0ae5f680-c06e-11ea-82f4-749f58f5366f.png) |
 
 <br/>
 
@@ -22,7 +23,7 @@ yarn add dooboo-ui
 - Import
 
   ```javascript
-  import { LineChart } from 'dooboo-ui';
+  import {LineChart} from 'dooboo-ui';
   ```
 
 - Data
@@ -160,7 +161,8 @@ yarn add dooboo-ui
   </View>
   });
   ```
-<br/>
+
+  <br/>
 
 ## Props
 
@@ -253,6 +255,7 @@ yarn add dooboo-ui
   fontWeight: 'bold',
 }
 ```
+
 <br/>
 
 ## Props
@@ -353,7 +356,7 @@ If you need the chart to be responsive, wrap the `LineChart` with a **responsive
 ```javascript
 // Responsive example
 import { LineChart } from 'dooboo-ui';
-import styled from 'styled-components/native';
+import styled from '@emotion/native';
 
 const CustomContainer = styled.View`
   height: 100%;

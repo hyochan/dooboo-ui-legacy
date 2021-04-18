@@ -6,7 +6,7 @@ import type {
   TextStyle,
   ViewStyle,
 } from 'react-native';
-import {Theme, light, withTheme} from './theme';
+import {DoobooTheme, light, withTheme} from './theme';
 
 import {useHover} from 'react-native-web-hooks';
 
@@ -21,7 +21,7 @@ type Styles = {
 
 export type EditTextProps = {
   testID?: TextInputProps['testID'];
-  theme?: Theme;
+  theme?: DoobooTheme;
   textInputProps?: TextInputProps;
   style?: StyleProp<ViewStyle>;
   styles?: Styles;
@@ -46,7 +46,7 @@ export type EditTextProps = {
   type?: 'row' | 'column';
 };
 
-const Component: FC<EditTextProps & {theme: Theme}> = ({
+const Component: FC<EditTextProps & {theme: DoobooTheme}> = ({
   theme,
   testID,
   textInputProps,

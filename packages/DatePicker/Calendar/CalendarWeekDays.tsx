@@ -1,6 +1,6 @@
 import React from 'react';
 import {ViewStyle} from 'react-native';
-import styled from 'styled-components/native';
+import styled from '@emotion/native';
 
 const DaysRow = styled.View`
   width: 100%;

@@ -8,6 +8,7 @@ exports[`[TinderCard] render renders without crashing 1`] = `
         "height": "100%",
         "width": "100%",
       },
+      undefined,
     ]
   }
 >
@@ -16,8 +17,14 @@ exports[`[TinderCard] render renders without crashing 1`] = `
       Array [
         Object {
           "alignItems": "center",
-          "borderColor": "black",
-          "borderWidth": 1,
+          "borderBottomColor": "black",
+          "borderBottomWidth": 1,
+          "borderLeftColor": "black",
+          "borderLeftWidth": 1,
+          "borderRightColor": "black",
+          "borderRightWidth": 1,
+          "borderTopColor": "black",
+          "borderTopWidth": 1,
           "flexBasis": 0,
           "flexGrow": 1,
           "flexShrink": 1,
@@ -27,6 +34,7 @@ exports[`[TinderCard] render renders without crashing 1`] = `
           "paddingRight": 10,
           "paddingTop": 10,
         },
+        undefined,
       ]
     }
   >

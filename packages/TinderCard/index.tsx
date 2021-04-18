@@ -19,7 +19,7 @@ import React, {
   useState,
 } from 'react';
 
-import styled from 'styled-components/native';
+import styled from '@emotion/native';
 
 const SCREEN_WIDTH = Dimensions.get('screen').width;
 const SWIPE_THRESHOLD = 0.25 * SCREEN_WIDTH;

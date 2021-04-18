@@ -3,7 +3,7 @@ import React, {FC} from 'react';
 
 import Calendar from './Calendar/Calendar';
 import CalendarDate from './Calendar/CalendarDate';
-import styled from 'styled-components/native';
+import styled from '@emotion/native';
 
 const ModalContainer = styled.TouchableWithoutFeedback``;
 

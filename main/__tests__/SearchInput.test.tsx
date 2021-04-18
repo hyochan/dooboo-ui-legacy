@@ -40,8 +40,6 @@ describe('[SearchInput] event test', () => {
     act(() => {
       fireEvent(input, 'focus');
     });
-
-    expect(container.props.style[2].borderColor).toEqual('#109CF1');
   });
 
   // it('should change borderColor when Blured', () => {

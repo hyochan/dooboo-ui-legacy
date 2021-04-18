@@ -19,5 +19,5 @@ export {
   withTheme,
   theme,
   ThemeType,
-  Theme as DoobooTheme,
+  DoobooTheme,
 } from './theme';

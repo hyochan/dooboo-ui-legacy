@@ -21,7 +21,7 @@ import Marks from './Marks';
 import Rail from './Rail';
 import Thumb from './Thumb';
 import Track from './Track';
-import styled from 'styled-components/native';
+import styled from '@emotion/native';
 
 const Container = styled.View`
   display: flex;

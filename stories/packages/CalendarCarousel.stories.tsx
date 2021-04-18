@@ -6,7 +6,7 @@ import React, {ReactElement, useState} from 'react';
 import CalendarCarousel from '../../packages/CalendarCarousel';
 import {ContainerDeco} from '../../storybook/decorators';
 import {storiesOf} from '@storybook/react-native';
-import styled from 'styled-components/native';
+import styled from '@emotion/native';
 
 const Container = styled.SafeAreaView`
   flex: 1;

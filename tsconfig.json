@@ -32,7 +32,8 @@
     "experimentalDecorators": true,
     "emitDecoratorMetadata": true,
     "esModuleInterop": true,
-    "noUnusedLocals": false
+    "noUnusedLocals": false,
+    "jsxImportSource": "@emotion/react"
   },
   "include": [
     "src/**/*.ts",
@@ -49,6 +50,6 @@
     "environment.d.ts",
     "main/theme/styled.d.ts"
   ],
-  "types": ["typePatches", "jest", "styled-components-react-native"],
+  "types": ["typePatches", "jest"],
   "extends": "expo/tsconfig.base"
 }

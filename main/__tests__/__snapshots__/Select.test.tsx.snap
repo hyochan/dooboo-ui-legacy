@@ -7,6 +7,7 @@ exports[`[Select] render test should render without crashing 1`] = `
       Object {
         "height": 40,
       },
+      undefined,
     ]
   }
 >
@@ -24,9 +25,12 @@ exports[`[Select] render test should render without crashing 1`] = `
       Object {
         "alignItems": "center",
         "backgroundColor": "#ffffff",
+        "borderBottomLeftRadius": 6,
+        "borderBottomRightRadius": 6,
         "borderColor": "#CBD7E5",
-        "borderRadius": 6,
         "borderStyle": "solid",
+        "borderTopLeftRadius": 6,
+        "borderTopRightRadius": 6,
         "borderWidth": 1,
         "flexDirection": "row",
         "height": "100%",
@@ -51,6 +55,7 @@ exports[`[Select] render test should render without crashing 1`] = `
             "color": "#2b2b2b",
             "fontSize": 12,
           },
+          undefined,
         ]
       }
     >
@@ -77,6 +82,7 @@ exports[`[Select] render test should render without crashing 1`] = `
               "justifyContent": "center",
               "width": 20,
             },
+            undefined,
           ]
         }
       >
@@ -156,6 +162,7 @@ exports[`[Select] render test should render without crashing 1`] = `
           "overflow": "hidden",
           "width": "100%",
         },
+        undefined,
       ]
     }
     visible={false}
@@ -191,6 +198,7 @@ exports[`[SelectItem] render test should render without crashing 1`] = `
       Object {
         "height": 40,
       },
+      undefined,
     ]
   }
 >
@@ -208,9 +216,12 @@ exports[`[SelectItem] render test should render without crashing 1`] = `
       Object {
         "alignItems": "center",
         "backgroundColor": "#ffffff",
+        "borderBottomLeftRadius": 6,
+        "borderBottomRightRadius": 6,
         "borderColor": "#CBD7E5",
-        "borderRadius": 6,
         "borderStyle": "solid",
+        "borderTopLeftRadius": 6,
+        "borderTopRightRadius": 6,
         "borderWidth": 1,
         "flexDirection": "row",
         "height": "100%",
@@ -235,6 +246,7 @@ exports[`[SelectItem] render test should render without crashing 1`] = `
             "color": "#2b2b2b",
             "fontSize": 12,
           },
+          undefined,
         ]
       }
     >
@@ -261,6 +273,7 @@ exports[`[SelectItem] render test should render without crashing 1`] = `
               "justifyContent": "center",
               "width": 20,
             },
+            undefined,
           ]
         }
       >
@@ -340,6 +353,7 @@ exports[`[SelectItem] render test should render without crashing 1`] = `
           "overflow": "hidden",
           "width": "100%",
         },
+        undefined,
       ]
     }
     visible={false}

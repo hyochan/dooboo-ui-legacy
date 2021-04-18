@@ -4,7 +4,7 @@ import {Circle, G, Line, Svg, Text} from 'react-native-svg';
 import React, {FC} from 'react';
 
 import {LineChartProps} from './types';
-import styled from 'styled-components/native';
+import styled from '@emotion/native';
 
 // Styled component declaration
 const Container = styled.View`

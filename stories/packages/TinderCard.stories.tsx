@@ -7,7 +7,7 @@ import TinderCard, {
 
 import {ContainerDeco} from '../../storybook/decorators';
 import {storiesOf} from '@storybook/react-native';
-import styled from 'styled-components/native';
+import styled from '@emotion/native';
 // @ts-ignore
 import useInterval from 'react-useinterval';
 

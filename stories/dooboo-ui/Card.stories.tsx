@@ -4,7 +4,7 @@ import {Card} from '../../main';
 import {ContainerDeco} from '../../storybook/decorators';
 import {Text} from 'react-native';
 import {storiesOf} from '@storybook/react-native';
-import styled from 'styled-components/native';
+import styled from '@emotion/native';
 
 const ScrollContainer = styled.ScrollView`
   width: 100%;

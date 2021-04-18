@@ -9,7 +9,7 @@ import {
 } from 'react-native';
 import React, {FC, useEffect, useState} from 'react';
 
-import styled from 'styled-components/native';
+import styled, {css} from '@emotion/native';
 
 const Container = styled.View`
   height: 40px;
@@ -28,7 +28,6 @@ const Input = styled.TextInput`
   align-self: center;
   font-size: 14px;
   padding-left: 16px;
-  ${Platform.OS === 'web' && {'outline-style': 'none'}}
 `;
 
 interface Props {
@@ -103,7 +102,13 @@ const SearchInput: FC<Props> = (props) => {
       <Input
         testID={'SEARCH_INPUT'}
         value={inputValue}
-        style={inputStyle}
+        style={[
+          inputStyle,
+          Platform.OS === 'web' &&
+            css`
+              outline-style: none;
+            `,
+        ]}
         onChangeText={(text): void => {
           setInputValue(text);
         }}

@@ -5,7 +5,7 @@ import {boolean, color, number, select, text} from '@storybook/addon-knobs';
 import {ContainerDeco} from '../../storybook/decorators';
 import {RadioButton} from '../../main';
 import {storiesOf} from '@storybook/react-native';
-import styled from 'styled-components/native';
+import styled from '@emotion/native';
 
 const groupId = 'RadioButton';
 

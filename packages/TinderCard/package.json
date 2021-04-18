@@ -27,7 +27,8 @@
   "peerDependencies": {
     "react": ">=16.9",
     "react-native": ">=0.58",
-    "styled-components": ">=5"
+    "@emotion/native": "^11.0.0",
+    "@emotion/react": "^11.1.5"
   },
   "publishConfig": {
     "access": "public"
