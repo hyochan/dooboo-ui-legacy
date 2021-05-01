@@ -1,18 +1,40 @@
 {
   "compilerOptions": {
-    "jsx": "preserve",
-    "noResolve": false,
-    "noImplicitAny": false,
-    "removeComments": false,
-    "sourceMap": false,
-    "module": "es2015",
-    "moduleResolution": "node",
-    "target": "es5",
-    "incremental": true,
-    "outDir": "./lib",
-    "skipLibCheck": true,
+    "allowJs": true,
     "allowSyntheticDefaultImports": true,
-    "declaration": true
+    "jsx": "preserve",
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+    "target": "esnext",
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "es6"
+    ],
+    "module": "esnext",
+    "moduleResolution": "node",
+    "forceConsistentCasingInFileNames": true,
+    "esModuleInterop": true,
+    "importHelpers": true,
+    "resolveJsonModule": true,
+    "noEmit": true,
+    "noImplicitAny": false,
+    "skipLibCheck": true,
+    "sourceMap": true,
+    "strict": true,
+    "baseUrl": "src",
+    "typeRoots": [
+      "./@types",
+      "./node_modules/@types"
+    ],
+    "noFallthroughCasesInSwitch": true,
+    "strictNullChecks": true,
+    "strictFunctionTypes": true,
+    "strictBindCallApply": true,
+    "noImplicitThis": true,
+    "strictPropertyInitialization": true,
+    "alwaysStrict": true,
+    "noImplicitReturns": true
   },
   "exclude": [
     "node_modules",
