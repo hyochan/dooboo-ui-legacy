@@ -1,40 +1,18 @@
 {
   "compilerOptions": {
-    "allowJs": true,
-    "allowSyntheticDefaultImports": true,
-    "jsx": "preserve",
-    "experimentalDecorators": true,
-    "emitDecoratorMetadata": true,
-    "target": "esnext",
-    "lib": [
-      "dom",
-      "dom.iterable",
-      "es6"
-    ],
+    "jsx": "react-native",
+    "noResolve": false,
+    "noImplicitAny": false,
+    "removeComments": false,
+    "sourceMap": false,
     "module": "esnext",
     "moduleResolution": "node",
-    "forceConsistentCasingInFileNames": true,
-    "esModuleInterop": true,
-    "importHelpers": true,
-    "resolveJsonModule": true,
-    "noEmit": true,
-    "noImplicitAny": false,
+    "target": "esnext",
+    "incremental": true,
+    "outDir": "./lib",
     "skipLibCheck": true,
-    "sourceMap": true,
-    "strict": true,
-    "baseUrl": "src",
-    "typeRoots": [
-      "./@types",
-      "./node_modules/@types"
-    ],
-    "noFallthroughCasesInSwitch": true,
-    "strictNullChecks": true,
-    "strictFunctionTypes": true,
-    "strictBindCallApply": true,
-    "noImplicitThis": true,
-    "strictPropertyInitialization": true,
-    "alwaysStrict": true,
-    "noImplicitReturns": true
+    "allowSyntheticDefaultImports": true,
+    "declaration": true
   },
   "exclude": [
     "node_modules",
