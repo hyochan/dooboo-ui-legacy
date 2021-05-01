@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
     "allowSyntheticDefaultImports": true,
-    "jsx": "react-native",
+    "jsx": "react-jsx",
     "lib": [
       "es2017"
     ],
