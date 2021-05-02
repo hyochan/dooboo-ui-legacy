@@ -68,7 +68,7 @@ jobs:
 
       - codecov/upload:
           file: ./coverage/lcov.info
-          token: 5bf93db3-06d5-4644-8188-f9de5067953d
+          token: ${{ secrets.CODECOV_TOKEN }}
 
       - store_test_results:
           path: coverage
