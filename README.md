@@ -1,6 +1,8 @@
-# dooboo-ui
+# dooboo-ui-legacy
 
-> React Native UI components built by `dooboolab`
+### DEPRECATED
+
+> This project ends with `dooboo-ui@0.0.80`. This project is continued in [dooboo-ui](https://github.com/dooboolab/dooboo-ui) from version `0.1.0`. There is [additional notice](https://github.com/dooboolab/dooboo-ui#notice) on why we made this decision. The main purpose to spped up the project.
 
 <p>
   <!-- iOS -->
