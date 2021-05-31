@@ -1,14 +1,14 @@
 {
-  "name": "dooboo-ui",
-  "version": "0.0.80",
+  "name": "dooboo-ui-legacy",
+  "version": "1.0.0",
   "main": "index.js",
   "types": "index.d.ts",
   "author": "dooboolab",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/dooboolab/dooboo-ui/issues"
+    "url": "https://github.com/dooboolab/dooboo-ui-legacy/issues"
   },
-  "homepage": "https://github.com/dooboolab/dooboo-ui#readme",
+  "homepage": "https://github.com/dooboolab/dooboo-ui-legacy#readme",
   "peerDependencies": {
     "react": ">=16.9",
     "react-native": ">=0.58",

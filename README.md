@@ -2,7 +2,7 @@
 
 ### DEPRECATED
 
-> This project ends with `dooboo-ui@0.0.80`. This project is continued in [dooboo-ui](https://github.com/dooboolab/dooboo-ui) from version `0.1.0`. There is [additional notice](https://github.com/dooboolab/dooboo-ui#notice) on why we made this decision. The main purpose to spped up the project.
+> This project ends with `dooboo-ui@0.0.80` and `dooboo-ui-legacy@1.0.0` which are the same packages. This project is continued in [dooboo-ui](https://github.com/dooboolab/dooboo-ui) from version `0.1.0`. There is [additional notice](https://github.com/dooboolab/dooboo-ui#notice) on why we made this decision. The main purpose to speed up the project.
 
 <p>
   <!-- iOS -->
@@ -13,18 +13,18 @@
   <img alt="Supports Expo Web" longdesc="Supports Expo Web" src="https://img.shields.io/badge/web-4630EB.svg?style=flat-square&logo=GOOGLE-CHROME&labelColor=4285F4&logoColor=fff" />
 </p>
 
-[![Npm Version](http://img.shields.io/npm/v/dooboo-ui.svg?style=flat-square)](https://npmjs.org/package/dooboo-ui)
-[![Downloads](http://img.shields.io/npm/dm/dooboo-ui.svg?style=flat-square)](https://npmjs.org/package/dooboo-ui)
-[![CircleCI](https://circleci.com/gh/dooboolab/dooboo-ui.svg?style=shield)](https://circleci.com/gh/dooboolab/dooboo-ui)
-[![codecov](https://codecov.io/gh/dooboolab/dooboo-ui/branch/master/graph/badge.svg)](https://codecov.io/gh/dooboolab/dooboo-ui)
-[![Sponsor](https://opencollective.com/dooboo-ui/tiers/badge.svg?style=shield)](https://opencollective.com/dooboo-ui/tiers/badge.svg)
-![License](http://img.shields.io/npm/l/dooboo-ui.svg?style=flat-square)
+[![Npm Version](http://img.shields.io/npm/v/dooboo-ui-legacy.svg?style=flat-square)](https://npmjs.org/package/dooboo-ui-legacy)
+[![Downloads](http://img.shields.io/npm/dm/dooboo-ui-legacy.svg?style=flat-square)](https://npmjs.org/package/dooboo-ui-legacy)
+[![CircleCI](https://circleci.com/gh/dooboolab/dooboo-ui-legacy.svg?style=shield)](https://circleci.com/gh/dooboolab/dooboo-ui-legacy)
+[![codecov](https://codecov.io/gh/dooboolab/dooboo-ui-legacy/branch/master/graph/badge.svg)](https://codecov.io/gh/dooboolab/dooboo-ui-legacy)
+[![Sponsor](https://opencollective.com/dooboo-ui-legacy/tiers/badge.svg?style=shield)](https://opencollective.com/dooboo-ui-legacy/tiers/badge.svg)
+![License](http://img.shields.io/npm/l/dooboo-ui-legacy.svg?style=flat-square)
 
-We love [react-hooks](https://code.fb.com/open-source/react-hooks) and willing to share our [react-native](https://facebook.github.io/react-native) ui components built in [functional components](https://logrocket.com/blog/pure-functional-components) using hooks. Also the `dooboo-ui` is built on top of our favorite stacks like [emotion](https://emotion.sh/docs/@emotion/native), [typescript](https://typescript.org), [jest](https://jestjs.io), [react-testing-library](https://testing-library.com/docs/react-testing-library/intro), [expo](https://expo.io), [storybook](https://storybook.js.org), and so on.
+We love [react-hooks](https://code.fb.com/open-source/react-hooks) and willing to share our [react-native](https://facebook.github.io/react-native) ui components built in [functional components](https://logrocket.com/blog/pure-functional-components) using hooks. Also the `dooboo-ui-legacy` is built on top of our favorite stacks like [emotion](https://emotion.sh/docs/@emotion/native), [typescript](https://typescript.org), [jest](https://jestjs.io), [react-testing-library](https://testing-library.com/docs/react-testing-library/intro), [expo](https://expo.io), [storybook](https://storybook.js.org), and so on.
 
 ## Documentation
 
-- Hosted in [github pages](https://dooboolab.github.io/dooboo-ui)
+- Hosted in [github pages](https://dooboolab.github.io/dooboo-ui-legacy)
 
 ## Contributing to `dooboo-ui`
 
